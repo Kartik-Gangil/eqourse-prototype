@@ -4,6 +4,7 @@ import {
   Database, Eraser, Tag, ShieldCheck, PackageCheck, FlaskConical,
   GraduationCap, Bot, ArrowRight
 } from "lucide-react";
+import StrategyDiagram from "./StrategyDiagram";
 
 /* ─── Step data for both workflows ─── */
 const educationSteps = [
@@ -79,7 +80,7 @@ const ProcessSection = () => {
             className={`process-section-panel ${activeTab === "education" ? "process-section-panel--active" : ""}`}
             aria-hidden={activeTab !== "education"}
           >
-            <ProcessTimeline steps={educationSteps} loopLabel="Continuous Loop: Step 7 feeds back to Step 1 for ongoing improvement" />
+            <StrategyDiagram />
           </div>
 
           {/* AI Process */}

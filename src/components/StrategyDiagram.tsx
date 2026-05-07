@@ -11,7 +11,7 @@ const steps = [
   { icon: Star, title: "Feedback", desc: "We respect your feedback", color: "from-primary to-accent" },
 ];
 
-const StrategySection = () => {
+const StrategyDiagram = () => {
   const orbitRef = useRef<number>(0);
   const [orbitAngle, setOrbitAngle] = useState(0);
   const animFrameRef = useRef<number>();
@@ -35,117 +35,116 @@ const StrategySection = () => {
   }, []);
 
   return (
-    <section className="py-24 bg-background overflow-hidden" id="strategy-section">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-20">
-          <span className="text-sm font-semibold tracking-wider uppercase text-primary">Our Approach</span>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mt-2">
-            Our <span className="text-gradient">Strategy</span>
-          </h2>
+    <div className="relative max-w-5xl mx-auto w-full">
+      {/* Desktop: circular arrangement */}
+      <div className="hidden lg:block relative" style={{ height: '660px' }}>
+        
+        {/* 3D Rotating Sphere - Center */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+          <div className="strategy-sphere-wrapper">
+            {/* Rotating 3D sphere shell */}
+            <div className="strategy-sphere">
+              <div className="sphere-ring sphere-ring-1"></div>
+              <div className="sphere-ring sphere-ring-2"></div>
+              <div className="sphere-ring sphere-ring-3"></div>
+              <div className="sphere-ring sphere-ring-4"></div>
+              <div className="sphere-highlight"></div>
+            </div>
+            {/* Stable text overlay (does NOT rotate) */}
+            <div className="strategy-sphere-text">
+              <span className="text-white font-heading font-extrabold text-lg block leading-tight">eQOURSE</span>
+              <span className="text-white/70 text-[10px] uppercase tracking-[0.2em]">Strategy</span>
+            </div>
+          </div>
         </div>
 
-        {/* Circular flow layout */}
-        <div className="relative max-w-5xl mx-auto">
-          {/* Desktop: circular arrangement */}
-          <div className="hidden lg:block relative" style={{ height: '560px' }}>
-            
-            {/* 3D Rotating Sphere - Center */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-              <div className="strategy-sphere-wrapper">
-                {/* Rotating 3D sphere shell */}
-                <div className="strategy-sphere">
-                  <div className="sphere-ring sphere-ring-1"></div>
-                  <div className="sphere-ring sphere-ring-2"></div>
-                  <div className="sphere-ring sphere-ring-3"></div>
-                  <div className="sphere-ring sphere-ring-4"></div>
-                  <div className="sphere-highlight"></div>
-                </div>
-                {/* Stable text overlay (does NOT rotate) */}
-                <div className="strategy-sphere-text">
-                  <span className="text-white font-heading font-extrabold text-lg block leading-tight">eQOURSE</span>
-                  <span className="text-white/70 text-[10px] uppercase tracking-[0.2em]">Strategy</span>
-                </div>
-              </div>
-            </div>
+        {/* Dashed orbital ring - also rotates slowly */}
+        <div
+          className="absolute top-1/2 left-1/2 w-[460px] h-[460px] rounded-full border-2 border-dashed border-primary/15"
+          style={{
+            transform: `translate(-50%, -50%) rotate(${orbitAngle}deg)`,
+          }}
+        />
 
-            {/* Dashed orbital ring - also rotates slowly */}
+        {/* Orbiting step nodes */}
+        {steps.map((step, i) => {
+          const baseAngle = (i * 360) / steps.length - 90;
+          const currentAngle = baseAngle + orbitAngle;
+          const radius = 230;
+          const rad = (currentAngle * Math.PI) / 180;
+          const x = Math.cos(rad) * radius;
+          const y = Math.sin(rad) * radius;
+
+          return (
             <div
-              className="absolute top-1/2 left-1/2 w-[460px] h-[460px] rounded-full border-2 border-dashed border-primary/15"
+              key={step.title}
+              className="absolute group"
               style={{
-                transform: `translate(-50%, -50%) rotate(${orbitAngle}deg)`,
+                top: `calc(50% + ${y}px)`,
+                left: `calc(50% + ${x}px)`,
+                transform: 'translate(-50%, -50%)',
+                willChange: 'top, left',
               }}
-            />
-
-            {/* Orbiting step nodes */}
-            {steps.map((step, i) => {
-              const baseAngle = (i * 360) / steps.length - 90;
-              const currentAngle = baseAngle + orbitAngle;
-              const radius = 230;
-              const rad = (currentAngle * Math.PI) / 180;
-              const x = Math.cos(rad) * radius;
-              const y = Math.sin(rad) * radius;
-
-              return (
-                <div
-                  key={step.title}
-                  className="absolute group"
-                  style={{
-                    top: `calc(50% + ${y}px)`,
-                    left: `calc(50% + ${x}px)`,
-                    transform: 'translate(-50%, -50%)',
-                    willChange: 'top, left',
-                  }}
-                >
-                  {/* Node */}
-                  <div className="flex flex-col items-center w-36">
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-soft group-hover:scale-110 group-hover:shadow-[0_0_25px_hsl(170_82%_32%/0.3)] transition-all duration-500 mb-3`}>
-                      <step.icon className="w-7 h-7 text-primary-foreground" />
-                    </div>
-                    <span className="text-xs font-bold text-primary/50 font-mono mb-1">0{i + 1}</span>
-                    <h4 className="font-heading font-bold text-sm text-foreground text-center">{step.title}</h4>
-                    <p className="text-[11px] text-muted-foreground text-center mt-1 leading-snug opacity-0 group-hover:opacity-100 transition-opacity duration-300">{step.desc}</p>
-                  </div>
+            >
+              {/* Node */}
+              <div className="flex flex-col items-center w-36">
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-soft group-hover:scale-110 group-hover:shadow-[0_0_25px_hsl(170_82%_32%/0.3)] transition-all duration-500 mb-3`}>
+                  <step.icon className="w-7 h-7 text-primary-foreground" />
                 </div>
-              );
-            })}
-          </div>
-
-          {/* Mobile: vertical timeline */}
-          <div className="lg:hidden space-y-0">
-            {steps.map((step, i) => (
-              <div key={step.title} className="flex gap-5 group relative">
-                {/* Vertical line */}
-                <div className="flex flex-col items-center">
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-soft flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
-                    <step.icon className="w-6 h-6 text-primary-foreground" />
-                  </div>
-                  {i < steps.length - 1 && (
-                    <div className="w-0.5 h-12 bg-gradient-to-b from-primary/30 to-primary/10 my-2" />
-                  )}
-                  {i === steps.length - 1 && (
-                    <div className="w-0.5 h-12 bg-gradient-to-b from-primary/30 to-accent/20 my-2 relative">
-                      <ArrowRight className="w-4 h-4 text-primary absolute -bottom-1 -left-1.5 rotate-[-135deg]" />
-                    </div>
-                  )}
-                </div>
-                <div className="pt-3 pb-6">
-                  <span className="text-xs font-bold text-primary/50 font-mono">Step 0{i + 1}</span>
-                  <h4 className="font-heading font-bold text-foreground mt-1">{step.title}</h4>
-                  <p className="text-sm text-muted-foreground mt-1">{step.desc}</p>
-                </div>
+                <span className="text-xs font-bold text-primary/50 font-mono mb-1">0{i + 1}</span>
+                <h4 className="font-heading font-bold text-sm text-foreground text-center">{step.title}</h4>
+                <p className="text-[11px] text-muted-foreground text-center mt-1 leading-snug opacity-0 group-hover:opacity-100 transition-opacity duration-300">{step.desc}</p>
               </div>
-            ))}
-          </div>
+            </div>
+          );
+        })}
+      </div>
 
-          {/* Continuous loop badge */}
-          <div className="mt-12 text-center">
-            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-primary/10 border border-primary/20">
-              <div className="w-5 h-5 rounded-full border-2 border-primary border-t-transparent animate-spin" />
-              <span className="text-sm font-medium text-foreground">
-                <strong className="text-primary">Continuous Loop:</strong> Step 7 feeds back to Step 1 for ongoing improvement
-              </span>
+      {/* Mobile: vertical timeline */}
+      <div className="lg:hidden space-y-0">
+        {steps.map((step, i) => (
+          <div key={step.title} className="flex gap-5 group relative">
+            {/* Vertical line */}
+            <div className="flex flex-col items-center">
+              <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-soft flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                <step.icon className="w-6 h-6 text-primary-foreground" />
+              </div>
+              {i < steps.length - 1 && (
+                <div className="w-0.5 h-12 bg-gradient-to-b from-primary/30 to-primary/10 my-2" />
+              )}
+              {i === steps.length - 1 && (
+                <div className="w-0.5 h-12 bg-gradient-to-b from-primary/30 to-accent/20 my-2 relative">
+                  <ArrowRight className="w-4 h-4 text-primary absolute -bottom-1 -left-1.5 rotate-[-135deg]" />
+                </div>
+              )}
+            </div>
+            <div className="pt-3 pb-6">
+              <span className="text-xs font-bold text-primary/50 font-mono">Step 0{i + 1}</span>
+              <h4 className="font-heading font-bold text-foreground mt-1">{step.title}</h4>
+              <p className="text-sm text-muted-foreground mt-1">{step.desc}</p>
             </div>
           </div>
+        ))}
+      </div>
+
+      {/* Continuous loop badge */}
+      <div className="mt-12 text-center hidden lg:block">
+        <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-primary/10 border border-primary/20">
+          <div className="w-5 h-5 rounded-full border-2 border-primary border-t-transparent animate-spin" />
+          <span className="text-sm font-medium text-foreground">
+            <strong className="text-primary">Continuous Loop:</strong> Step 7 feeds back to Step 1 for ongoing improvement
+          </span>
+        </div>
+      </div>
+      
+      {/* Mobile continuous loop badge */}
+      <div className="mt-6 text-center lg:hidden">
+        <div className="inline-flex flex-col items-center gap-2 px-4 py-3 rounded-xl bg-primary/10 border border-primary/20 max-w-xs mx-auto">
+          <div className="w-5 h-5 rounded-full border-2 border-primary border-t-transparent animate-spin" />
+          <span className="text-xs font-medium text-foreground">
+            <strong className="text-primary block mb-0.5">Continuous Loop:</strong> 
+            Step 7 feeds back to Step 1 for ongoing improvement
+          </span>
         </div>
       </div>
 
@@ -283,8 +282,8 @@ const StrategySection = () => {
           }
         }
       `}</style>
-    </section>
+    </div>
   );
 };
 
-export default StrategySection;
+export default StrategyDiagram;

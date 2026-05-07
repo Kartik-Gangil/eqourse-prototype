@@ -52,17 +52,20 @@ const navLinks: MainLink[] = [
 /* ─── EdTech Mega‑Menu (Desktop) ─── */
 const EdTechMegaMenu = ({ onClose }: { onClose: () => void }) => {
   const [hoveredCatIndex, setHoveredCatIndex] = useState(0);
+  const [hoveredSubIndex, setHoveredSubIndex] = useState<number | null>(null);
   const cat = edtechCategories[hoveredCatIndex];
+  const hoveredSub = hoveredSubIndex !== null ? cat.subServices[hoveredSubIndex] : null;
   const location = useLocation();
 
   return (
-    <div
+    <nav
       className="absolute top-full -left-[450px] w-[1100px] bg-card/95 rounded-3xl border border-border/50 shadow-elevated animate-slide-up z-50 overflow-hidden"
       style={{ backdropFilter: "blur(20px)" }}
+      aria-label="EdTech Solutions navigation"
     >
       <div className="flex min-h-[450px]">
         {/* Left: Categories (300px) */}
-        <div className="w-[300px] border-r border-border/40 py-6 bg-secondary/30 flex flex-col">
+        <div className="w-[300px] border-r border-border/40 py-6 bg-secondary/30 flex flex-col" role="list" aria-label="Service categories">
           <span className="px-6 py-2 text-[11px] font-bold uppercase tracking-widest text-muted-foreground/70">Our Expertise</span>
           {edtechCategories.map((c, i) => {
             const Icon = c.icon;
@@ -71,9 +74,10 @@ const EdTechMegaMenu = ({ onClose }: { onClose: () => void }) => {
               <Link
                 key={c.label}
                 to={c.href}
+                role="listitem"
                 className={`flex items-center gap-3 px-6 py-3.5 text-left text-sm transition-all w-full group
                   ${hoveredCatIndex === i ? "bg-primary/5 text-primary font-bold border-l-4 border-primary" : isActive ? "text-primary/80 border-l-4 border-transparent" : "text-foreground/80 hover:text-primary hover:bg-primary/5 border-l-4 border-transparent"}`}
-                onMouseEnter={() => setHoveredCatIndex(i)}
+                onMouseEnter={() => { setHoveredCatIndex(i); setHoveredSubIndex(null); }}
                 onClick={onClose}
               >
                 <Icon className="w-5 h-5 flex-shrink-0" />
@@ -96,58 +100,113 @@ const EdTechMegaMenu = ({ onClose }: { onClose: () => void }) => {
             <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all text-primary" />
           </Link>
 
-          <div className="grid grid-cols-2 gap-x-4 gap-y-2">
-            {cat.subServices.map((sub) => {
+          <div className="grid grid-cols-2 gap-x-4 gap-y-2" role="list" aria-label={`${cat.label} sub-services`}>
+            {cat.subServices.map((sub, subIdx) => {
               const SubIcon = sub.icon;
               const isActive = location.pathname === sub.href;
+              const isSubHovered = hoveredSubIndex === subIdx;
               return (
                 <Link
                   key={sub.href}
                   to={sub.href}
+                  role="listitem"
                   className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all group
-                    ${isActive ? "bg-primary/10 text-primary font-semibold shadow-sm" : "text-foreground/80 hover:bg-primary/10 hover:text-primary hover:shadow-sm"}`}
+                    ${isSubHovered ? "bg-primary/15 text-primary font-semibold shadow-sm ring-1 ring-primary/20" : isActive ? "bg-primary/10 text-primary font-semibold shadow-sm" : "text-foreground/80 hover:bg-primary/10 hover:text-primary hover:shadow-sm"}`}
+                  onMouseEnter={() => setHoveredSubIndex(subIdx)}
                   onClick={onClose}
                 >
-                  {SubIcon && <SubIcon className="w-4 h-4 flex-shrink-0 text-primary/60 group-hover:text-primary transition-colors" />}
+                  {SubIcon && <SubIcon className={`w-4 h-4 flex-shrink-0 transition-colors ${isSubHovered ? "text-primary" : "text-primary/60 group-hover:text-primary"}`} />}
                   <span className="truncate leading-tight">{sub.label}</span>
+                  {sub.serviceHighlights && sub.serviceHighlights.length > 0 && (
+                    <ChevronRight className={`w-3.5 h-3.5 flex-shrink-0 ml-auto transition-all ${isSubHovered ? "translate-x-0.5 text-primary opacity-100" : "opacity-0 group-hover:opacity-60"}`} />
+                  )}
                 </Link>
               );
             })}
           </div>
         </div>
 
-        {/* Right: Category Image Preview (320px) */}
+        {/* Right: Preview Panel (320px) — shows sub-service highlights OR category overview */}
         <div className="w-[320px] p-6 flex flex-col bg-card/80">
-          <div className="flex flex-col h-full animate-fade-in group" key={cat.label}>
-            <div className="relative w-full h-[220px] rounded-2xl overflow-hidden mb-5 shadow-md border border-border/30">
-              {cat.image ? (
-                <img src={cat.image} alt={cat.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              ) : (
-                <div className="w-full h-full bg-secondary/50 flex items-center justify-center text-sm font-medium text-muted-foreground">Image Pending</div>
-              )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/0 pointer-events-none" />
+          {hoveredSub && hoveredSub.serviceHighlights && hoveredSub.serviceHighlights.length > 0 ? (
+            /* ── Sub-service Highlights View ── */
+            <div className="flex flex-col h-full animate-fade-in" key={`sub-${hoveredCatIndex}-${hoveredSubIndex}`}>
+              {/* Sub-service header */}
+              <div className="flex items-center gap-3 mb-4 pb-4 border-b border-border/40">
+                {hoveredSub.icon && (() => {
+                  const SubIcon = hoveredSub.icon!;
+                  return (
+                    <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center shadow-soft flex-shrink-0">
+                      <SubIcon className="w-5 h-5 text-primary-foreground" />
+                    </div>
+                  );
+                })()}
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-base font-bold text-foreground leading-tight truncate">{hoveredSub.label}</h3>
+                  <span className="text-[11px] font-medium text-primary/70 uppercase tracking-wider">What We Deliver</span>
+                </div>
+              </div>
+
+              {/* Service bullet highlights */}
+              <ul className="flex flex-col gap-1.5 mb-auto" aria-label={`Services under ${hoveredSub.label}`}>
+                {hoveredSub.serviceHighlights.map((highlight, hIdx) => (
+                  <li key={hIdx}>
+                    <Link
+                      to={hoveredSub.href}
+                      onClick={onClose}
+                      className="flex items-start gap-2.5 px-3 py-2 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-primary/5 transition-all group/bullet cursor-pointer"
+                      aria-label={`${highlight} — part of ${hoveredSub.label}`}
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover/bullet:bg-primary mt-1.5 flex-shrink-0 transition-colors" />
+                      <span className="leading-snug">{highlight}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Explore button */}
+              <Link
+                to={hoveredSub.href}
+                onClick={onClose}
+                className="mt-4 flex items-center justify-center gap-2 text-sm font-bold text-primary-foreground bg-primary py-2.5 px-4 rounded-xl hover:bg-primary/90 transition-all w-full group/btn shadow-md hover:shadow-lg"
+              >
+                Explore {hoveredSub.label} <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+              </Link>
             </div>
+          ) : (
+            /* ── Category Overview (default) ── */
+            <div className="flex flex-col h-full animate-fade-in group" key={`cat-${cat.label}`}>
+              <div className="relative w-full h-[220px] rounded-2xl overflow-hidden mb-5 shadow-md border border-border/30">
+                {cat.image ? (
+                  <img src={cat.image} alt={cat.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                ) : (
+                  <div className="w-full h-full bg-secondary/50 flex items-center justify-center text-sm font-medium text-muted-foreground">Image Pending</div>
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/0 pointer-events-none" />
+              </div>
 
-            <h3 className="text-xl font-bold text-foreground mb-2 leading-tight">{cat.label}</h3>
-            <p className="text-sm text-muted-foreground mb-auto leading-relaxed">{cat.description}</p>
+              <h3 className="text-xl font-bold text-foreground mb-2 leading-tight">{cat.label}</h3>
+              <p className="text-sm text-muted-foreground mb-auto leading-relaxed">{cat.description}</p>
 
-            <Link
-              to={cat.href}
-              onClick={onClose}
-              className="mt-6 flex items-center justify-center gap-2 text-sm font-bold text-primary-foreground bg-primary py-2.5 px-4 rounded-xl hover:bg-primary/90 transition-all w-full group/btn shadow-md hover:shadow-lg"
-            >
-              Explore Services <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-            </Link>
-          </div>
+              <Link
+                to={cat.href}
+                onClick={onClose}
+                className="mt-6 flex items-center justify-center gap-2 text-sm font-bold text-primary-foreground bg-primary py-2.5 px-4 rounded-xl hover:bg-primary/90 transition-all w-full group/btn shadow-md hover:shadow-lg"
+              >
+                Explore Services <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          )}
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
 /* ─── Mobile Accordion ─── */
 const MobileEdTechAccordion = ({ onClose }: { onClose: () => void }) => {
   const [expandedCat, setExpandedCat] = useState<number | null>(null);
+  const [expandedSub, setExpandedSub] = useState<string | null>(null);
   const location = useLocation();
 
   return (
@@ -160,7 +219,7 @@ const MobileEdTechAccordion = ({ onClose }: { onClose: () => void }) => {
           <div key={cat.label}>
             <button
               className={`flex items-center gap-2.5 w-full px-4 py-2.5 text-sm text-left transition-colors rounded-lg ${isCatActive ? "text-primary font-medium" : "text-foreground/80 hover:text-primary"}`}
-              onClick={() => setExpandedCat(isExpanded ? null : i)}
+              onClick={() => { setExpandedCat(isExpanded ? null : i); setExpandedSub(null); }}
             >
               <Icon className="w-4 h-4 flex-shrink-0" />
               <span className="flex-1">{cat.label}</span>
@@ -178,15 +237,45 @@ const MobileEdTechAccordion = ({ onClose }: { onClose: () => void }) => {
                 </Link>
                 {cat.subServices.map((sub) => {
                   const isActive = location.pathname === sub.href;
+                  const isSubExpanded = expandedSub === sub.href;
+                  const hasHighlights = sub.serviceHighlights && sub.serviceHighlights.length > 0;
                   return (
-                    <Link
-                      key={sub.href}
-                      to={sub.href}
-                      className={`block px-3 py-1.5 text-sm rounded-md transition-colors ${isActive ? "text-primary font-medium bg-primary/5" : "text-muted-foreground hover:text-primary"}`}
-                      onClick={onClose}
-                    >
-                      {sub.label}
-                    </Link>
+                    <div key={sub.href}>
+                      <div className="flex items-center">
+                        <Link
+                          to={sub.href}
+                          className={`flex-1 block px-3 py-1.5 text-sm rounded-md transition-colors ${isActive ? "text-primary font-medium bg-primary/5" : "text-muted-foreground hover:text-primary"}`}
+                          onClick={onClose}
+                        >
+                          {sub.label}
+                        </Link>
+                        {hasHighlights && (
+                          <button
+                            className="p-1.5 rounded-md text-muted-foreground/60 hover:text-primary hover:bg-primary/5 transition-colors flex-shrink-0"
+                            onClick={() => setExpandedSub(isSubExpanded ? null : sub.href)}
+                            aria-label={`${isSubExpanded ? "Hide" : "Show"} services under ${sub.label}`}
+                          >
+                            <ChevronDown className={`w-3 h-3 transition-transform ${isSubExpanded ? "rotate-180" : ""}`} />
+                          </button>
+                        )}
+                      </div>
+                      {isSubExpanded && hasHighlights && (
+                        <ul className="pl-5 pb-1.5 pt-0.5 animate-slide-up" aria-label={`Services under ${sub.label}`}>
+                          {sub.serviceHighlights!.map((highlight, hIdx) => (
+                            <li key={hIdx}>
+                              <Link
+                                to={sub.href}
+                                className="flex items-start gap-2 px-2 py-1 text-xs text-muted-foreground/80 hover:text-primary transition-colors rounded"
+                                onClick={onClose}
+                              >
+                                <span className="w-1 h-1 rounded-full bg-primary/40 mt-1.5 flex-shrink-0" />
+                                <span className="leading-relaxed">{highlight}</span>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
                   );
                 })}
               </div>

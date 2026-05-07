@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { ArrowRight, Play, Database, Brain, Sparkles, Star, BookOpen, Bot } from "lucide-react";
+import { ArrowRight, Play, Database, Brain, Sparkles, Star, BookOpen, Bot, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-image.jpg";
 
@@ -384,6 +384,63 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+
+      {/* ── Bottom-center glowing "Content & Data Services" CTA ── */}
+      <nav
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex justify-center"
+        aria-label="Jump to services section"
+      >
+        <a
+          href="#services"
+          onClick={(e) => {
+            e.preventDefault();
+            const target = document.getElementById("services");
+            if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }}
+          className="hero-services-cta group relative flex items-center gap-2.5 px-6 py-3 md:px-8 md:py-3.5 rounded-full cursor-pointer select-none
+                     transition-all duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+          style={{
+            background: "linear-gradient(135deg, rgba(20,184,166,0.18) 0%, rgba(15,18,35,0.65) 100%)",
+            backdropFilter: "blur(18px) saturate(140%)",
+            WebkitBackdropFilter: "blur(18px) saturate(140%)",
+            border: "1px solid rgba(20,184,166,0.35)",
+            boxShadow: "0 0 20px rgba(20,184,166,0.25), 0 0 60px rgba(20,184,166,0.10), 0 8px 32px rgba(0,0,0,0.30)",
+          }}
+        >
+          {/* Animated outer glow ring */}
+          <span
+            className="absolute inset-0 rounded-full pointer-events-none"
+            style={{
+              border: "1.5px solid rgba(20,184,166,0.4)",
+              animation: "heroCTAPulse 2.4s ease-in-out infinite",
+            }}
+          />
+
+          {/* Icon */}
+          <span
+            className="flex items-center justify-center w-7 h-7 md:w-8 md:h-8 rounded-full flex-shrink-0"
+            style={{
+              background: "linear-gradient(135deg, hsl(170,82%,32%), hsl(165,75%,50%))",
+              boxShadow: "0 0 12px rgba(20,184,166,0.4)",
+            }}
+          >
+            <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4 text-white" />
+          </span>
+
+          {/* Label */}
+          <span className="text-sm md:text-base font-bold tracking-wide text-white whitespace-nowrap"
+            style={{ textShadow: "0 2px 10px rgba(0,0,0,0.4)" }}
+          >
+            Content & Data Services
+          </span>
+
+          {/* Bouncing chevron */}
+          <ChevronDown
+            className="w-4 h-4 md:w-5 md:h-5 text-primary/80 group-hover:text-primary transition-colors"
+            style={{ animation: "heroCTABounce 1.6s ease-in-out infinite" }}
+          />
+        </a>
+      </nav>
     </section>
   );
 };
