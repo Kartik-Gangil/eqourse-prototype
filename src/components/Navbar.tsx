@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Menu, X, Phone, Mail, ChevronDown, ChevronRight, ArrowRight, FileText, PlayCircle, Database, Sparkles } from "lucide-react";
+import { Menu, X, Phone, Mail, ChevronDown, ChevronRight, ArrowRight, FileText, PlayCircle, Database, Sparkles, Linkedin, Instagram, Facebook, Youtube } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { edtechCategories } from "@/components/edtech-solutions/shared/edtechNavData";
@@ -499,35 +499,40 @@ const Navbar = () => {
     <>
       {!isHome && <div aria-hidden="true" style={{ height: "100px" }} />}
       <div className="fixed top-0 left-0 right-0 z-50 w-full">
-        <div className="bg-gradient-primary py-2 px-4">
-          <div className="container mx-auto flex items-center justify-between text-primary-foreground text-sm">
-            <div className="flex items-center gap-6">
-              <a href="tel:+919214445870" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-                <Phone className="w-3.5 h-3.5" />
-                <span>+91 - 92144 - 45870</span>
+        <div className={`bg-gradient-primary py-1.5 sm:py-2 px-4 transition-all duration-300 ${scrolled ? "hidden sm:block" : ""}`}>
+          <div className="container mx-auto flex flex-wrap items-center justify-between text-primary-foreground text-xs sm:text-sm">
+            <div className="flex items-center gap-4 sm:gap-6">
+              <a href="tel:+919214445870" className="flex items-center gap-1.5 sm:gap-2 hover:opacity-80 transition-opacity">
+                <Phone className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                <span className="whitespace-nowrap tracking-wide">+91 92144 45870</span>
               </a>
               <a href="mailto:info@eqourse.com" className="hidden sm:flex items-center gap-2 hover:opacity-80 transition-opacity">
                 <Mail className="w-3.5 h-3.5" />
                 <span>info@eqourse.com</span>
               </a>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 sm:gap-4 mt-1 sm:mt-0">
               {[
-                { name: "LinkedIn", href: "https://www.linkedin.com/company/eqourse" },
-                { name: "Instagram", href: "https://www.instagram.com/eqourse/" },
-                { name: "Facebook", href: "https://www.facebook.com/eQOURSE-102057078229490" },
-                { name: "YouTube", href: "https://www.youtube.com/@eqourse" }
-              ].map((social) => (
-                <a 
-                  key={social.name} 
-                  href={social.href} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="hover:opacity-80 transition-opacity text-xs font-medium"
-                >
-                  {social.name}
-                </a>
-              ))}
+                { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/company/eqourse" },
+                { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/eqourse/" },
+                { name: "Facebook", icon: Facebook, href: "https://www.facebook.com/eQOURSE-102057078229490" },
+                { name: "YouTube", icon: Youtube, href: "https://www.youtube.com/@eqourse" }
+              ].map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a 
+                    key={social.name} 
+                    href={social.href} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="hover:opacity-80 transition-opacity flex items-center gap-1 text-[10px] sm:text-xs font-medium group"
+                    aria-label={social.name}
+                  >
+                    <Icon className="w-3.5 h-3.5 sm:w-3 sm:h-3 group-hover:scale-110 transition-transform" />
+                    <span className="hidden md:inline">{social.name}</span>
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>

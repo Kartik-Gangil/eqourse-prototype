@@ -383,38 +383,28 @@ const JourneyTimeline = () => {
         </div>
 
         {/* ── MOBILE TIMELINE (vertical) ── */}
-        <div className="md:hidden">
-          <div className="relative pl-8">
-            {/* Vertical line */}
-            <div className="absolute left-[18px] top-0 bottom-0 w-[2px]">
-              <div className="absolute inset-0 bg-primary/10 rounded-full" />
+        <div className="md:hidden flex flex-col w-full">
+          {milestones.map((milestone, index) => {
+            const nodeThreshold = (index / (milestones.length - 1)) * 100;
+            const isVisible = lineProgress >= nodeThreshold;
+            const isActive = activeIndex === index;
+
+            return (
               <div
-                className="absolute inset-x-0 top-0 rounded-full bg-gradient-to-b from-primary via-accent to-primary transition-all duration-100"
-                style={{ height: `${lineProgress}%` }}
-              />
-            </div>
-
-            {milestones.map((milestone, index) => {
-              const nodeThreshold = (index / (milestones.length - 1)) * 100;
-              const isVisible = lineProgress >= nodeThreshold;
-              const isActive = activeIndex === index;
-
-              return (
-                <div
-                  key={milestone.year}
-                  className="relative mb-12 last:mb-0"
-                  style={{
-                    opacity: isVisible ? 1 : 0,
-                    transform: isVisible ? "translateX(0)" : "translateX(-20px)",
-                    transition: `all 0.6s ease-out ${index * 0.15}s`,
-                  }}
-                >
+                key={milestone.year}
+                className="w-full mb-6 last:mb-0"
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? "none" : "translateX(-20px)",
+                  transition: `opacity 0.6s ease-out ${index * 0.15}s, transform 0.6s ease-out ${index * 0.15}s`,
+                }}
+              >
+                {/* Timeline row: dot + text */}
+                <div className="flex items-start gap-3">
                   {/* Pulse dot */}
                   <div
-                    className="absolute left-[-22px] top-2 cursor-pointer"
-                    onClick={() =>
-                      setActiveIndex(isActive ? null : index)
-                    }
+                    className="flex-shrink-0 cursor-pointer mt-1"
+                    onClick={() => setActiveIndex(isActive ? null : index)}
                   >
                     <div className="relative">
                       <PulseRing isActive={isActive} />
@@ -430,8 +420,7 @@ const JourneyTimeline = () => {
                           className="w-full h-full object-cover"
                         />
                         <div
-                          className={`absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/60 to-accent/40 transition-opacity duration-300 ${isActive ? "opacity-0" : "opacity-70"
-                            }`}
+                          className={`absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/60 to-accent/40 transition-opacity duration-300 ${isActive ? "opacity-0" : "opacity-70"}`}
                         >
                           <span className="text-sm">{milestone.icon}</span>
                         </div>
@@ -439,8 +428,8 @@ const JourneyTimeline = () => {
                     </div>
                   </div>
 
-                  {/* Card */}
-                  <div className="ml-6">
+                  {/* Text content */}
+                  <div className="flex-1 min-w-0">
                     <div className="text-xl font-heading font-bold text-foreground">
                       {milestone.year}
                     </div>
@@ -450,41 +439,41 @@ const JourneyTimeline = () => {
                     <p className="text-muted-foreground text-sm mt-1">
                       {milestone.shortDesc}
                     </p>
-
-                    {/* Expanded glass card on mobile */}
-                    {isActive && (
-                      <div
-                        className="mt-4 rounded-2xl overflow-hidden border border-white/15 animate-[popupFadeIn_0.4s_ease-out_forwards]"
-                        style={{
-                          backdropFilter: "blur(20px) saturate(1.8)",
-                          background:
-                            "linear-gradient(135deg, hsla(0,0%,100%,0.85) 0%, hsla(160,30%,98%,0.75) 100%)",
-                        }}
-                      >
-                        <div className="h-0.5 w-full bg-gradient-primary" />
-                        <img
-                          src={milestone.image}
-                          alt={milestone.title}
-                          className="w-full h-40 object-cover"
-                        />
-                        <div className="p-4">
-                          <div className="flex items-center gap-2 mb-2">
-                            <span className="text-lg">{milestone.icon}</span>
-                            <h4 className="font-heading text-base font-bold text-foreground">
-                              {milestone.title}
-                            </h4>
-                          </div>
-                          <p className="text-muted-foreground text-sm leading-relaxed">
-                            {milestone.fullDesc}
-                          </p>
-                        </div>
-                      </div>
-                    )}
                   </div>
                 </div>
-              );
-            })}
-          </div>
+
+                {/* Expanded card — takes full width of the container */}
+                {isActive && (
+                  <div
+                    className="mt-3 w-full rounded-2xl overflow-hidden border border-white/15 animate-in fade-in slide-in-from-bottom-2 duration-300 shadow-elevated"
+                    style={{
+                      backdropFilter: "blur(20px) saturate(1.8)",
+                      background:
+                        "linear-gradient(135deg, hsla(0,0%,100%,0.92) 0%, hsla(160,30%,98%,0.85) 100%)",
+                    }}
+                  >
+                    <div className="h-1 w-full bg-gradient-primary" />
+                    <img
+                      src={milestone.image}
+                      alt={milestone.title}
+                      className="w-full h-44 object-cover"
+                    />
+                    <div className="p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-lg">{milestone.icon}</span>
+                        <h4 className="font-heading text-base font-bold text-foreground">
+                          {milestone.title}
+                        </h4>
+                      </div>
+                      <p className="text-muted-foreground text-xs leading-relaxed">
+                        {milestone.fullDesc}
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         {/* Bottom hint text */}

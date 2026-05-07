@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import { Link } from "react-router-dom";
 import { BookOpen, Lightbulb, GraduationCap, Brain, ArrowRight, Database, Tag, ShieldCheck, FlaskConical } from "lucide-react";
 
@@ -299,9 +299,14 @@ const aiServices = [
   },
 ];
 
-const ServicesSection = () => {
-  const [activeTab, setActiveTab] = useState<"education" | "ai">("education");
+interface ServicesSectionProps {
+  activeTab?: "education" | "ai";
+  onTabChange?: (tab: "education" | "ai") => void;
+}
+
+const ServicesSection = ({ activeTab = "education", onTabChange }: ServicesSectionProps) => {
   const services = activeTab === "education" ? educationServices : aiServices;
+  const setActiveTab = (tab: "education" | "ai") => onTabChange?.(tab);
 
   return (
     <section id="services" className="py-24 bg-background">
@@ -341,9 +346,9 @@ const ServicesSection = () => {
         </div>
 
         {/* Bento Grid Layout */}
-        <div id={activeTab === "ai" ? "ai-services" : undefined} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-auto">
+        <div id={activeTab === "ai" ? "ai-services" : undefined} className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 auto-rows-auto">
           {/* Featured / Hero Service */}
-          <div className="md:col-span-2 lg:row-span-2 group relative rounded-3xl overflow-hidden neon-card border border-border/50">
+          <div className="col-span-2 lg:row-span-2 group relative rounded-2xl sm:rounded-3xl overflow-hidden neon-card border border-border/50">
             <div className={`absolute inset-0 bg-gradient-to-br ${services[0].accent} opacity-50`} />
             {/* Dot pattern */}
             <div className="absolute inset-0 opacity-[0.04]" style={{
@@ -364,15 +369,15 @@ const ServicesSection = () => {
             {(() => {
               const FeaturedIcon = services[0].icon;
               return (
-                <div className="relative z-10 p-10 md:p-14 flex flex-col justify-between h-full min-h-[360px]">
+                <div className="relative z-10 p-6 sm:p-10 md:p-14 flex flex-col justify-between h-full min-h-[240px] sm:min-h-[360px]">
                   <div>
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 shadow-soft">
-                      <FeaturedIcon className="w-8 h-8 text-primary-foreground" />
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 sm:mb-8 group-hover:scale-110 transition-transform duration-300 shadow-soft">
+                      <FeaturedIcon className="w-6 h-6 sm:w-8 sm:h-8 text-primary-foreground" />
                     </div>
-                    <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-4">{services[0].title}</h3>
-                    <p className="text-muted-foreground text-lg leading-relaxed max-w-lg">{services[0].description}</p>
+                    <h3 className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-2 sm:mb-4">{services[0].title}</h3>
+                    <p className="text-muted-foreground text-sm sm:text-lg leading-relaxed max-w-lg">{services[0].description}</p>
                   </div>
-                  <Link to={services[0].link} className="inline-flex items-center text-sm font-semibold text-primary hover:gap-3 gap-2 transition-all mt-8 group/link">
+                  <Link to={services[0].link} className="inline-flex items-center text-xs sm:text-sm font-semibold text-primary hover:gap-3 gap-2 transition-all mt-4 sm:mt-8 group/link">
                     Explore More <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                   </Link>
                 </div>
@@ -387,7 +392,7 @@ const ServicesSection = () => {
             return (
               <div
                 key={service.title}
-                className="group relative rounded-3xl overflow-hidden neon-card border border-border/50"
+                className="group relative rounded-2xl sm:rounded-3xl overflow-hidden neon-card border border-border/50"
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.accent} opacity-30`} />
                 {/* Wave decoration at bottom */}
@@ -396,18 +401,18 @@ const ServicesSection = () => {
                 {Illustration && (
                   <Illustration className="absolute bottom-4 right-4 w-28 h-24 text-primary opacity-[0.06] pointer-events-none group-hover:opacity-[0.1] transition-opacity duration-500" />
                 )}
-                <div className="relative z-10 p-8 flex flex-col justify-between h-full min-h-[200px]">
+                <div className="relative z-10 p-4 sm:p-8 flex flex-col justify-between h-full min-h-[160px] sm:min-h-[200px]">
                   <div>
-                    <div className="flex items-start justify-between mb-6">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <ServiceIcon className="w-6 h-6 text-primary-foreground" />
+                    <div className="flex items-start justify-between mb-3 sm:mb-6">
+                      <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <ServiceIcon className="w-4 h-4 sm:w-6 sm:h-6 text-primary-foreground" />
                       </div>
-                      <span className="text-xs font-mono text-muted-foreground/50">0{i + 2}</span>
+                      <span className="text-[10px] sm:text-xs font-mono text-muted-foreground/50">0{i + 2}</span>
                     </div>
-                    <h3 className="font-heading text-lg font-bold text-foreground mb-2">{service.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
+                    <h3 className="font-heading text-sm sm:text-lg font-bold text-foreground mb-1 sm:mb-2">{service.title}</h3>
+                    <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed line-clamp-3 sm:line-clamp-none">{service.description}</p>
                   </div>
-                  <Link to={service.link} className="inline-flex items-center text-sm font-semibold text-primary hover:gap-3 gap-2 transition-all mt-6 group/link">
+                  <Link to={service.link} className="inline-flex items-center text-xs sm:text-sm font-semibold text-primary hover:gap-3 gap-2 transition-all mt-3 sm:mt-6 group/link">
                     Know More <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                   </Link>
                 </div>

@@ -1370,3 +1370,81 @@
     page-break-inside: avoid;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   SERVICES → PROCESS / STRATEGY CROSSFADE TOGGLE
+   Both panels stay in the DOM for SEO. Only the active one is
+   visible; the inactive one collapses smoothly.
+   ═══════════════════════════════════════════════════════════════ */
+.services-process-toggle {
+  display: grid;
+  /* Stacks panels on top of each other */
+  grid-template-columns: 1fr;
+}
+
+.services-process-panel {
+  grid-row: 1;
+  grid-column: 1;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(18px);
+  transition:
+    max-height 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.45s ease,
+    visibility 0s linear 0.55s,
+    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+}
+
+.services-process-panel--active {
+  max-height: 2000px; /* generous ceiling — CSS will collapse to content */
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition:
+    max-height 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.5s ease 0.08s,
+    visibility 0s linear 0s,
+    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.08s;
+  pointer-events: auto;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   STANDALONE PROCESS SECTION CROSSFADE TOGGLE
+   Same pattern as above — both panels in DOM for SEO.
+   ═══════════════════════════════════════════════════════════════ */
+.process-section-toggle {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.process-section-panel {
+  grid-row: 1;
+  grid-column: 1;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px);
+  transition:
+    max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.4s ease,
+    visibility 0s linear 0.5s,
+    transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+}
+
+.process-section-panel--active {
+  max-height: 2000px;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition:
+    max-height 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.45s ease 0.06s,
+    visibility 0s linear 0s,
+    transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.06s;
+  pointer-events: auto;
+}
