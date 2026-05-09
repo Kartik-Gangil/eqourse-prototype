@@ -5,10 +5,10 @@ const QuizQuestionBankPage = () => (
   <SubServicePageTemplate
     seoTitle="Custom Quiz & Question Bank Development | eQOURSE"
     seoDescription="Expert quiz and question bank development for K-12 and higher education assessments. MCQs, short answer, long answer, case-based, and adaptive question banks."
-    seoCanonical="https://www.eqourse.com/edtech-solutions/custom-e-learning-content/quiz-question-bank"
+    seoCanonical="https://www.eqourse.com/content-service/custom-e-learning-content/quiz-question-bank"
     seoKeywords="quiz development, question bank, MCQ question bank, adaptive testing, exam-pattern questions"
     parentLabel="Custom E-Learning Content"
-    parentHref="/edtech-solutions/custom-e-learning-content"
+    parentHref="/content-service/custom-e-learning-content"
     currentLabel="Quiz & Question Bank"
     preHeadline="Expert Quiz and Question Bank Development for Assessments"
     headline="Quiz & Question Bank"
@@ -33,9 +33,9 @@ const QuizQuestionBankPage = () => (
     ctaSubtext="Get expertly crafted quizzes and question banks tailored to your curriculum and assessment needs."
     ctaButtonText="Get Free Consultation"
     relatedPages={[
-      { title: "Assessment Development", href: "/edtech-solutions/custom-e-learning-content/assessment-development" },
-      { title: "K12 & Higher Education", href: "/edtech-solutions/custom-e-learning-content/k12-and-higher-education" },
-      { title: "Educational Content", href: "/edtech-solutions/custom-e-learning-content/educational-content-development" },
+      { title: "Assessment Development", href: "/content-service/custom-e-learning-content/assessment-development" },
+      { title: "K12 & Higher Education", href: "/content-service/custom-e-learning-content/k12-and-higher-education" },
+      { title: "Educational Content", href: "/content-service/custom-e-learning-content/educational-content-development" },
     ]}
   />
 );

@@ -8,7 +8,7 @@ const EdTechStubPage = () => {
   const title = pathname.split("/").pop()?.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase()) || "Page Not Found";
 
   return (
-    <EdTechLayout breadcrumbs={[{ label: "EdTech Solutions", href: "/edtech-solutions" }, { label: title }]}>
+    <EdTechLayout breadcrumbs={[{ label: "EdTech Solutions", href: "/content-service" }, { label: title }]}>
       <SEOHead
         title={`${title} | eQOURSE`}
         description={`Learn more about our ${title} services.`}
@@ -24,7 +24,7 @@ const EdTechStubPage = () => {
             The <strong>{title}</strong> page is currently under development. Check back later for updates.
           </p>
           <Link
-            to="/edtech-solutions"
+            to="/content-service"
             className="inline-flex items-center text-sm font-semibold text-primary hover:gap-3 gap-2 transition-all bg-primary/5 hover:bg-primary/10 px-6 py-3 rounded-xl"
           >
             <ArrowLeft className="w-4 h-4" /> Back to EdTech Solutions

@@ -8,21 +8,21 @@ const services = [
     icon: Languages,
     title: "Content Translation",
     description: "Expert translation services ensuring supreme pedagogical accuracy and cultural relevance across India's diverse linguistic groups.",
-    link: "/edtech-solutions/localization-services/translation",
+    link: "/content-service/localization-services/translation",
     color: "hsl(170 82% 45%)"
   },
   {
     icon: Mic,
     title: "Voice Over",
     description: "Professional native voice-over services bringing e-learning modules to life with engaging, authentic narration for regional audiences.",
-    link: "/edtech-solutions/localization-services/voice-over",
+    link: "/content-service/localization-services/voice-over",
     color: "hsl(280 80% 65%)"
   },
   {
     icon: Captions,
     title: "Subtitling",
     description: "Accurate, well-timed, and localized subtitles for video content, drastically enhancing accessibility across different geographical regions.",
-    link: "/edtech-solutions/localization-services/subtitling",
+    link: "/content-service/localization-services/subtitling",
     color: "hsl(210 100% 60%)"
   }
 ];

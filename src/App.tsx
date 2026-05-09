@@ -102,14 +102,14 @@ const App = () => (
               <Route path="/ai-data-services/model-testing" element={<AIModelTesting />} />
 
               {/* EdTech Solutions — Category Pages */}
-              <Route path="/edtech-solutions" element={<EdTechOverview />} />
-              <Route path="/edtech-solutions/custom-e-learning-content" element={<CustomElearningContent />} />
-              <Route path="/edtech-solutions/exam-preparation-content" element={<ExamPreparationContent />} />
-              <Route path="/edtech-solutions/learning-solutions" element={<LearningSolutions />} />
-              <Route path="/edtech-solutions/elearning-video-solutions" element={<ElearningVideoSolutions />} />
-              <Route path="/edtech-solutions/localization-services" element={<LocalizationServices />} />
-              <Route path="/edtech-solutions/technology-solutions" element={<TechnologySolutions />} />
-              <Route path="/edtech-solutions/subject-matter-experts" element={<SubjectMatterExperts />} />
+              <Route path="/content-service" element={<EdTechOverview />} />
+              <Route path="/content-service/custom-e-learning-content" element={<CustomElearningContent />} />
+              <Route path="/content-service/exam-preparation-content" element={<ExamPreparationContent />} />
+              <Route path="/content-service/learning-solutions" element={<LearningSolutions />} />
+              <Route path="/content-service/elearning-video-solutions" element={<ElearningVideoSolutions />} />
+              <Route path="/content-service/localization-services" element={<LocalizationServices />} />
+              <Route path="/content-service/technology-solutions" element={<TechnologySolutions />} />
+              <Route path="/content-service/subject-matter-experts" element={<SubjectMatterExperts />} />
 
               {/* EdTech Solutions — 39 Sub-Service Detail Pages (lazy-loaded) */}
               {edtechSubServiceRoutes.map(({ path, Component }) => (
@@ -117,7 +117,7 @@ const App = () => (
               ))}
 
               {/* Catch-all for any remaining EdTech stub pages */}
-              <Route path="/edtech-solutions/*" element={<EdTechStubPage />} />
+              <Route path="/content-service/*" element={<EdTechStubPage />} />
 
               {/* Admin */}
               <Route path="/admin/login" element={<AdminLogin />} />

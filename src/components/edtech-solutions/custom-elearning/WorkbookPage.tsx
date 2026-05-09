@@ -5,10 +5,10 @@ const WorkbookPage = () => (
   <SubServicePageTemplate
     seoTitle="Academic Workbook Development Services for K12 | eQOURSE"
     seoDescription="Expert workbook development for K-12 and higher education. Chapter-wise, full-syllabus, topic-based, interactive, and assessment-integrated workbooks aligned with curriculum standards."
-    seoCanonical="https://www.eqourse.com/edtech-solutions/custom-e-learning-content/workbook-development"
+    seoCanonical="https://www.eqourse.com/content-service/custom-e-learning-content/workbook-development"
     seoKeywords="workbook development, academic workbooks, interactive workbooks, K12 workbooks, assessment workbooks"
     parentLabel="Custom E-Learning Content"
-    parentHref="/edtech-solutions/custom-e-learning-content"
+    parentHref="/content-service/custom-e-learning-content"
     currentLabel="Workbook Development"
     preHeadline="Custom Workbook Development for Engaging K-12 & Higher Education Learning"
     headline="Workbook Development"
@@ -33,9 +33,9 @@ const WorkbookPage = () => (
     ctaSubtext="Create engaging, curriculum-aligned workbooks that drive student participation and measurable outcomes."
     ctaButtonText="Get Free Consultation"
     relatedPages={[
-      { title: "K12 & Higher Education", href: "/edtech-solutions/custom-e-learning-content/k12-and-higher-education" },
-      { title: "Educational Content", href: "/edtech-solutions/custom-e-learning-content/educational-content-development" },
-      { title: "Assessment Development", href: "/edtech-solutions/custom-e-learning-content/assessment-development" },
+      { title: "K12 & Higher Education", href: "/content-service/custom-e-learning-content/k12-and-higher-education" },
+      { title: "Educational Content", href: "/content-service/custom-e-learning-content/educational-content-development" },
+      { title: "Assessment Development", href: "/content-service/custom-e-learning-content/assessment-development" },
     ]}
   />
 );

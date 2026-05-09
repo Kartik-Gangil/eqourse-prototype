@@ -2,21 +2,21 @@ import SubServicePageTemplate from "../shared/SubServicePageTemplate";
 import { BookOpen, ClipboardCheck, FileText, Trophy, BookMarked, GraduationCap, Video } from "lucide-react";
 
 const relatedPages = [
-  { title: "K12 Curriculum Development", href: "/edtech-solutions/custom-e-learning-content/k12-curriculum-development" },
-  { title: "Assessment Development", href: "/edtech-solutions/custom-e-learning-content/assessment-development" },
-  { title: "Educational Content", href: "/edtech-solutions/custom-e-learning-content/educational-content-development" },
-  { title: "Workbook Development", href: "/edtech-solutions/custom-e-learning-content/workbook-development" },
-  { title: "STEM Curriculum", href: "/edtech-solutions/custom-e-learning-content/stem-curriculum-services" },
+  { title: "K12 Curriculum Development", href: "/content-service/custom-e-learning-content/k12-curriculum-development" },
+  { title: "Assessment Development", href: "/content-service/custom-e-learning-content/assessment-development" },
+  { title: "Educational Content", href: "/content-service/custom-e-learning-content/educational-content-development" },
+  { title: "Workbook Development", href: "/content-service/custom-e-learning-content/workbook-development" },
+  { title: "STEM Curriculum", href: "/content-service/custom-e-learning-content/stem-curriculum-services" },
 ];
 
 const K12HigherEducationPage = () => (
   <SubServicePageTemplate
     seoTitle="K12 & Higher Education Solutions | eQOURSE"
     seoDescription="eQOURSE provides specialized K-12 Education Services and Higher Education Solutions to institutions and e-learning platforms. 100+ SMEs, curriculum development, assessment creation, e-learning content."
-    seoCanonical="https://www.eqourse.com/edtech-solutions/custom-e-learning-content/k12-and-higher-education"
+    seoCanonical="https://www.eqourse.com/content-service/custom-e-learning-content/k12-and-higher-education"
     seoKeywords="K12 education services, higher education solutions, curriculum development, e-learning content, academic content"
     parentLabel="Custom E-Learning Content"
-    parentHref="/edtech-solutions/custom-e-learning-content"
+    parentHref="/content-service/custom-e-learning-content"
     currentLabel="K12 & Higher Education"
     preHeadline="Transform Learning with Our K-12 Education Services & Higher Education Solutions"
     headline="K-12 & Higher Education"

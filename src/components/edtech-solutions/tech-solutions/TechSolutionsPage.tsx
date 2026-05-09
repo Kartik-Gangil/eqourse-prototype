@@ -18,11 +18,11 @@ const faqs = [
 ];
 
 const TechSolutionsPage = () => (
-  <EdTechLayout breadcrumbs={[{ label: "EdTech Solutions", href: "/edtech-solutions" }, { label: "Technology Solutions" }]}>
+  <EdTechLayout breadcrumbs={[{ label: "EdTech Solutions", href: "/content-service" }, { label: "Technology Solutions" }]}>
     <SEOHead
       title="EdTech Technology Solutions & LMS Platforms | eQOURSE"
       description="Scalable Technology Solutions including standard-compliant LMS course builds (SCORM, xAPI) and white-label Open edX platform deployments."
-      canonical="https://eqourse.com/edtech-solutions/technology-solutions"
+      canonical="https://eqourse.com/content-service/technology-solutions"
       keywords="lms course build, scorm compliant courses, white label lms, open edx hosting, edtech technology solutions, xapi compatible"
     />
 

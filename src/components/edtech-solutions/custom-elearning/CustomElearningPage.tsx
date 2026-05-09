@@ -22,11 +22,11 @@ const faqs = [
 ];
 
 const CustomElearningPage = () => (
-  <EdTechLayout breadcrumbs={[{ label: "EdTech Solutions", href: "/edtech-solutions" }, { label: "Custom E-Learning Content" }]}>
+  <EdTechLayout breadcrumbs={[{ label: "EdTech Solutions", href: "/content-service" }, { label: "Custom E-Learning Content" }]}>
     <SEOHead
       title="Custom E-Learning Content | eQOURSE"
       description="Custom E-learning content development solutions covering K12 academic content, assessments, workbooks, lesson plans, STEM curriculum, and interactive media."
-      canonical="https://eqourse.com/edtech-solutions/custom-e-learning-content"
+      canonical="https://eqourse.com/content-service/custom-e-learning-content"
       keywords="custom e-learning content, k12 academic content, STEM curriculum, digital learning content, e-learning platforms, instructional design"
     />
 

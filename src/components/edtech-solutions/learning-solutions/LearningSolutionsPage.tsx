@@ -18,11 +18,11 @@ const faqs = [
 ];
 
 const LearningSolutionsPage = () => (
-  <EdTechLayout breadcrumbs={[{ label: "EdTech Solutions", href: "/edtech-solutions" }, { label: "Learning Solutions" }]}>
+  <EdTechLayout breadcrumbs={[{ label: "EdTech Solutions", href: "/content-service" }, { label: "Learning Solutions" }]}>
     <SEOHead
       title="Innovative Learning Solutions & Corporate Training | eQOURSE"
       description="Custom learning solutions for educational institutions and corporate training. ILT, gamified learning, AR/VR simulations, and adaptive e-learning modules."
-      canonical="https://eqourse.com/edtech-solutions/learning-solutions"
+      canonical="https://eqourse.com/content-service/learning-solutions"
       keywords="learning solutions, corporate training, ILT content, gamified learning, adaptive e-learning, AR/VR learning, instructional design"
     />
 

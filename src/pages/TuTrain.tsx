@@ -262,7 +262,7 @@ const TuTrain = () => {
                   </div>
                   <h3 className="text-xl font-bold font-heading mb-4 text-foreground">For Our EdTech Partners</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    TUTRAIN gives us continuous, ground-level insight into how real students learn, what works in live sessions, and which content formats drive measurable outcomes. This insight feeds directly into the curriculum and content we build for global <Link to="/edtech-solutions" className="text-primary hover:underline font-medium">EdTech platforms</Link>.
+                    TUTRAIN gives us continuous, ground-level insight into how real students learn, what works in live sessions, and which content formats drive measurable outcomes. This insight feeds directly into the curriculum and content we build for global <Link to="/content-service" className="text-primary hover:underline font-medium">EdTech platforms</Link>.
                   </p>
                 </div>
               </Reveal>

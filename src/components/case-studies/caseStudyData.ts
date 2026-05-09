@@ -52,7 +52,7 @@ export const caseStudiesData: CaseStudy[] = [
     cardSummary: "High-level worksheets and PPT solutions for 2,000+ schools across multiple state boards, classes 1–10.",
     visualDirection: { theme: "teal" },
     relatedLinks: [
-      { label: "Workbook Development", href: "/edtech-solutions/custom-e-learning-content/workbook-development" }
+      { label: "Workbook Development", href: "/content-service/custom-e-learning-content/workbook-development" }
     ]
   },
   {
@@ -75,8 +75,8 @@ export const caseStudiesData: CaseStudy[] = [
     cardSummary: "Pen-tab videos and worksheets in 6 Indian languages for an NGO-backed edtech startup.",
     visualDirection: { theme: "teal" },
     relatedLinks: [
-      { label: "E-Learning Video Solutions", href: "/edtech-solutions/elearning-video-solutions" },
-      { label: "Localization Services", href: "/edtech-solutions/localization-services" }
+      { label: "E-Learning Video Solutions", href: "/content-service/elearning-video-solutions" },
+      { label: "Localization Services", href: "/content-service/localization-services" }
     ]
   },
   {
@@ -99,7 +99,7 @@ export const caseStudiesData: CaseStudy[] = [
     cardSummary: "Complete middle and high school curriculum content for an African edtech startup, delivered 2 months early.",
     visualDirection: { theme: "teal" },
     relatedLinks: [
-      { label: "K12 Content", href: "/edtech-solutions/custom-e-learning-content/k12-and-higher-education" }
+      { label: "K12 Content", href: "/content-service/custom-e-learning-content/k12-and-higher-education" }
     ]
   },
   {
@@ -122,7 +122,7 @@ export const caseStudiesData: CaseStudy[] = [
     cardSummary: "AI + human QA pipeline delivering 10,000+ fact-checked educational solutions daily for a global AI platform.",
     visualDirection: { theme: "teal" },
     relatedLinks: [
-      { label: "AI-Powered Learning", href: "/edtech-solutions/learning-solutions/ai-powered-learning" }
+      { label: "AI-Powered Learning", href: "/content-service/learning-solutions/ai-powered-learning" }
     ]
   },
   {
@@ -145,8 +145,8 @@ export const caseStudiesData: CaseStudy[] = [
     cardSummary: "On-demand video solutions across 15+ subjects with 2-hour turnaround for a leading US edtech company.",
     visualDirection: { theme: "teal" },
     relatedLinks: [
-      { label: "E-Learning Video Solutions", href: "/edtech-solutions/elearning-video-solutions" },
-      { label: "Subject Matter Experts", href: "/edtech-solutions/subject-matter-experts" }
+      { label: "E-Learning Video Solutions", href: "/content-service/elearning-video-solutions" },
+      { label: "Subject Matter Experts", href: "/content-service/subject-matter-experts" }
     ]
   },
   {
@@ -169,7 +169,7 @@ export const caseStudiesData: CaseStudy[] = [
     cardSummary: "Quality assurance of 10,000+ monthly math solutions at 90%+ accuracy for a global education platform.",
     visualDirection: { theme: "teal" },
     relatedLinks: [
-      { label: "Educational Content Development", href: "/edtech-solutions/custom-e-learning-content/educational-content-development" }
+      { label: "Educational Content Development", href: "/content-service/custom-e-learning-content/educational-content-development" }
     ]
   },
   {
@@ -192,8 +192,8 @@ export const caseStudiesData: CaseStudy[] = [
     cardSummary: "400,000+ bilingual workbooks printed and distributed across rural Chhattisgarh for grades 6–10.",
     visualDirection: { theme: "teal" },
     relatedLinks: [
-      { label: "Localization Services", href: "/edtech-solutions/localization-services" },
-      { label: "Workbook Development", href: "/edtech-solutions/custom-e-learning-content/workbook-development" }
+      { label: "Localization Services", href: "/content-service/localization-services" },
+      { label: "Workbook Development", href: "/content-service/custom-e-learning-content/workbook-development" }
     ]
   },
   {
@@ -216,7 +216,7 @@ export const caseStudiesData: CaseStudy[] = [
     cardSummary: "EmSAT and TOEIC exam preparation content for a UAE educational institution.",
     visualDirection: { theme: "teal" },
     relatedLinks: [
-      { label: "Exam Preparation Content", href: "/edtech-solutions/exam-preparation-content" }
+      { label: "Exam Preparation Content", href: "/content-service/exam-preparation-content" }
     ]
   },
   {

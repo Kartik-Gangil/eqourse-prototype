@@ -22,11 +22,11 @@ const faqs = [
 ];
 
 const SMEPage = () => (
-  <EdTechLayout breadcrumbs={[{ label: "EdTech Solutions", href: "/edtech-solutions" }, { label: "Subject Matter Experts" }]}>
+  <EdTechLayout breadcrumbs={[{ label: "EdTech Solutions", href: "/content-service" }, { label: "Subject Matter Experts" }]}>
     <SEOHead
       title="Subject Matter Experts & Live Online Tutors | eQOURSE"
       description="Access top-tier Subject Matter Experts (SMEs). We offer SME recruitment, training, certification, and live online tutors for EdTech companies."
-      canonical="https://eqourse.com/edtech-solutions/subject-matter-experts"
+      canonical="https://eqourse.com/content-service/subject-matter-experts"
       keywords="subject matter experts, SME recruitment, edtech tutors, live online tutors, SME training, academic experts"
     />
 

@@ -5,10 +5,10 @@ const EducationalContentPage = () => (
   <SubServicePageTemplate
     seoTitle="Educational Content Development for K12 | eQOURSE"
     seoDescription="Comprehensive educational content development services creating engaging instructional materials. Text, video, and interactive solutions by expert SMEs and instructional designers."
-    seoCanonical="https://www.eqourse.com/edtech-solutions/custom-e-learning-content/educational-content-development"
+    seoCanonical="https://www.eqourse.com/content-service/custom-e-learning-content/educational-content-development"
     seoKeywords="educational content development, instructional materials, textbook content, study guides, curriculum development"
     parentLabel="Custom E-Learning Content"
-    parentHref="/edtech-solutions/custom-e-learning-content"
+    parentHref="/content-service/custom-e-learning-content"
     currentLabel="Educational Content Development"
     preHeadline="Innovative Educational Content Development for K-12 & Higher Education"
     headline="Educational Content"
@@ -34,9 +34,9 @@ const EducationalContentPage = () => (
     ctaSubtext="Get high-quality, curriculum-aligned educational materials from our team of 200+ subject matter experts."
     ctaButtonText="Get Free Consultation"
     relatedPages={[
-      { title: "K12 & Higher Education", href: "/edtech-solutions/custom-e-learning-content/k12-and-higher-education" },
-      { title: "Workbook Development", href: "/edtech-solutions/custom-e-learning-content/workbook-development" },
-      { title: "Teacher Lesson Plan", href: "/edtech-solutions/custom-e-learning-content/teacher-lesson-plan" },
+      { title: "K12 & Higher Education", href: "/content-service/custom-e-learning-content/k12-and-higher-education" },
+      { title: "Workbook Development", href: "/content-service/custom-e-learning-content/workbook-development" },
+      { title: "Teacher Lesson Plan", href: "/content-service/custom-e-learning-content/teacher-lesson-plan" },
     ]}
   />
 );

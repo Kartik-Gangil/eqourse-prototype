@@ -20,7 +20,7 @@ const ServiceVerticalsCards = () => {
             Custom K-12 content, curriculum development, exam preparation, video learning, localization in 30+ languages, LMS builds, and subject matter expert services. Trusted by 200+ education companies worldwide.
           </p>
           
-          <Link to="/edtech-solutions" className="inline-flex items-center text-primary font-semibold hover:text-primary/80 transition-colors group/link">
+          <Link to="/content-service" className="inline-flex items-center text-primary font-semibold hover:text-primary/80 transition-colors group/link">
             Explore EdTech Services
             <ArrowRight className="ml-2 w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" />
           </Link>

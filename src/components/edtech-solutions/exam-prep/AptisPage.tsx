@@ -3,8 +3,8 @@ import { BookOpen, FileText, PenTool, Headphones, Mic } from "lucide-react";
 
 const AptisPage = () => (
   <SubServicePageTemplate
-    seoTitle="APTIS Exam Preparation Content | eQOURSE" seoDescription="Expert APTIS exam preparation content by eQOURSE. Study guides, practice tests, and interactive materials for British Council APTIS assessment preparation." seoCanonical="https://www.eqourse.com/edtech-solutions/exam-preparation-content/aptis" seoKeywords="APTIS exam prep, British Council APTIS, APTIS grammar, APTIS reading, APTIS speaking"
-    parentLabel="Exam Preparation Content" parentHref="/edtech-solutions/exam-preparation-content" currentLabel="APTIS Prep Content"
+    seoTitle="APTIS Exam Preparation Content | eQOURSE" seoDescription="Expert APTIS exam preparation content by eQOURSE. Study guides, practice tests, and interactive materials for British Council APTIS assessment preparation." seoCanonical="https://www.eqourse.com/content-service/exam-preparation-content/aptis" seoKeywords="APTIS exam prep, British Council APTIS, APTIS grammar, APTIS reading, APTIS speaking"
+    parentLabel="Exam Preparation Content" parentHref="/content-service/exam-preparation-content" currentLabel="APTIS Prep Content"
     preHeadline="APTIS Exam Preparation Content — British Council Assessment" headline="APTIS Exam" headlineAccent="Preparation Content"
     subtext="Comprehensive APTIS preparation content designed to help candidates demonstrate their English language proficiency. Our materials cover all APTIS components: Grammar & Vocabulary, Reading, Writing, Listening, and Speaking, with practice tests aligned to British Council standards."
     ctaText="Request Sample Content"
@@ -20,7 +20,7 @@ const AptisPage = () => (
       { icon: Mic, title: "APTIS Speaking Preparation", description: "Speaking task preparation with sample responses and scoring rubrics." },
     ]}
     ctaHeadline="Prepare for APTIS with eQOURSE" ctaSubtext="Get comprehensive, exam-aligned APTIS preparation content. Contact our test prep team." ctaButtonText="Request Sample Content"
-    relatedPages={[{ title: "TOEIC", href: "/edtech-solutions/exam-preparation-content/toeic" }, { title: "IELTS", href: "/edtech-solutions/exam-preparation-content/ielts" }, { title: "PTE", href: "/edtech-solutions/exam-preparation-content/pte" }]}
+    relatedPages={[{ title: "TOEIC", href: "/content-service/exam-preparation-content/toeic" }, { title: "IELTS", href: "/content-service/exam-preparation-content/ielts" }, { title: "PTE", href: "/content-service/exam-preparation-content/pte" }]}
   />
 );
 export default AptisPage;

@@ -24,7 +24,7 @@ export const blogsData: BlogPost[] = [
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/edtech-solutions"
+      "/content-service"
     ],
     "keywords": [
       "EdTech",
@@ -43,7 +43,7 @@ export const blogsData: BlogPost[] = [
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/edtech-solutions"
+      "/content-service"
     ],
     "keywords": [
       "EdTech",
@@ -62,7 +62,7 @@ export const blogsData: BlogPost[] = [
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/edtech-solutions"
+      "/content-service"
     ],
     "keywords": [
       "EdTech",
@@ -81,7 +81,7 @@ export const blogsData: BlogPost[] = [
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/edtech-solutions"
+      "/content-service"
     ],
     "keywords": [
       "EdTech",
@@ -100,7 +100,7 @@ export const blogsData: BlogPost[] = [
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/edtech-solutions"
+      "/content-service"
     ],
     "keywords": [
       "EdTech",
@@ -119,7 +119,7 @@ export const blogsData: BlogPost[] = [
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/edtech-solutions"
+      "/content-service"
     ],
     "keywords": [
       "EdTech",
@@ -138,7 +138,7 @@ export const blogsData: BlogPost[] = [
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/edtech-solutions"
+      "/content-service"
     ],
     "keywords": [
       "EdTech",
@@ -157,7 +157,7 @@ export const blogsData: BlogPost[] = [
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/edtech-solutions"
+      "/content-service"
     ],
     "keywords": [
       "EdTech",
@@ -176,7 +176,7 @@ export const blogsData: BlogPost[] = [
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/edtech-solutions"
+      "/content-service"
     ],
     "keywords": [
       "EdTech",
@@ -195,7 +195,7 @@ export const blogsData: BlogPost[] = [
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/edtech-solutions"
+      "/content-service"
     ],
     "keywords": [
       "EdTech",
@@ -214,7 +214,7 @@ export const blogsData: BlogPost[] = [
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/edtech-solutions"
+      "/content-service"
     ],
     "keywords": [
       "EdTech",
@@ -233,7 +233,7 @@ export const blogsData: BlogPost[] = [
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/edtech-solutions"
+      "/content-service"
     ],
     "keywords": [
       "EdTech",
@@ -252,7 +252,7 @@ export const blogsData: BlogPost[] = [
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/edtech-solutions"
+      "/content-service"
     ],
     "keywords": [
       "EdTech",
@@ -271,7 +271,7 @@ export const blogsData: BlogPost[] = [
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/edtech-solutions"
+      "/content-service"
     ],
     "keywords": [
       "EdTech",
@@ -290,7 +290,7 @@ export const blogsData: BlogPost[] = [
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/edtech-solutions"
+      "/content-service"
     ],
     "keywords": [
       "EdTech",
@@ -309,7 +309,7 @@ export const blogsData: BlogPost[] = [
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/edtech-solutions"
+      "/content-service"
     ],
     "keywords": [
       "EdTech",
@@ -328,7 +328,7 @@ export const blogsData: BlogPost[] = [
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/edtech-solutions"
+      "/content-service"
     ],
     "keywords": [
       "EdTech",

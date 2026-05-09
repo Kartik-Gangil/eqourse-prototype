@@ -36,14 +36,14 @@ const sitemapData = [
   {
     category: "EdTech Solutions",
     links: [
-      { name: "EdTech Overview", to: "/edtech-solutions" },
-      { name: "Custom E-Learning Content", to: "/edtech-solutions/custom-e-learning-content" },
-      { name: "Exam Preparation Content", to: "/edtech-solutions/exam-preparation-content" },
-      { name: "Learning Solutions", to: "/edtech-solutions/learning-solutions" },
-      { name: "E-Learning Video Solutions", to: "/edtech-solutions/elearning-video-solutions" },
-      { name: "Localization Services", to: "/edtech-solutions/localization-services" },
-      { name: "Technology Solutions", to: "/edtech-solutions/technology-solutions" },
-      { name: "Subject Matter Experts", to: "/edtech-solutions/subject-matter-experts" },
+      { name: "EdTech Overview", to: "/content-service" },
+      { name: "Custom E-Learning Content", to: "/content-service/custom-e-learning-content" },
+      { name: "Exam Preparation Content", to: "/content-service/exam-preparation-content" },
+      { name: "Learning Solutions", to: "/content-service/learning-solutions" },
+      { name: "E-Learning Video Solutions", to: "/content-service/elearning-video-solutions" },
+      { name: "Localization Services", to: "/content-service/localization-services" },
+      { name: "Technology Solutions", to: "/content-service/technology-solutions" },
+      { name: "Subject Matter Experts", to: "/content-service/subject-matter-experts" },
     ],
   },
   {

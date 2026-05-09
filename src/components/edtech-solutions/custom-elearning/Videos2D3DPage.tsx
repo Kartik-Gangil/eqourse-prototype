@@ -5,10 +5,10 @@ const Videos2D3DPage = () => (
   <SubServicePageTemplate
     seoTitle="2D & 3D Educational Video Solutions | eQOURSE"
     seoDescription="Professional 2D and 3D animated educational video production for K-12 and higher education. Complex concepts made visual and engaging through animation."
-    seoCanonical="https://www.eqourse.com/edtech-solutions/custom-e-learning-content/2d-3d-videos"
+    seoCanonical="https://www.eqourse.com/content-service/custom-e-learning-content/2d-3d-videos"
     seoKeywords="2D animation, 3D animation, educational videos, animated explainers, whiteboard animation, motion graphics"
     parentLabel="Custom E-Learning Content"
-    parentHref="/edtech-solutions/custom-e-learning-content"
+    parentHref="/content-service/custom-e-learning-content"
     currentLabel="2D & 3D Videos"
     preHeadline="Professional 2D & 3D Educational Video Production"
     headline="2D & 3D Educational"
@@ -32,9 +32,9 @@ const Videos2D3DPage = () => (
     ctaSubtext="Transform complex concepts into visually stunning animated videos. Request samples from our animation studio."
     ctaButtonText="Request Video Samples"
     relatedPages={[
-      { title: "E-Book Creation", href: "/edtech-solutions/custom-e-learning-content/ebook-creation" },
-      { title: "STEM Curriculum", href: "/edtech-solutions/custom-e-learning-content/stem-curriculum-services" },
-      { title: "E-Learning Video Solutions", href: "/edtech-solutions/elearning-video-solutions" },
+      { title: "E-Book Creation", href: "/content-service/custom-e-learning-content/ebook-creation" },
+      { title: "STEM Curriculum", href: "/content-service/custom-e-learning-content/stem-curriculum-services" },
+      { title: "E-Learning Video Solutions", href: "/content-service/elearning-video-solutions" },
     ]}
   />
 );

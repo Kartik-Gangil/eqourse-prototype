@@ -8,55 +8,55 @@ const services = [
     icon: Presentation,
     title: "ILT (Instructor-Led Training)",
     description: "Comprehensive ILT content to support live, instructor-led sessions with interactive visual materials and facilitator guides.",
-    link: "/edtech-solutions/learning-solutions/ilt"
+    link: "/content-service/learning-solutions/ilt"
   },
   {
     icon: Building2,
     title: "Corporate E-learning Solutions",
     description: "Scalable e-learning modules for businesses covering onboarding, upskilling, and crucial compliance training.",
-    link: "/edtech-solutions/learning-solutions/corporate-elearning"
+    link: "/content-service/learning-solutions/corporate-elearning"
   },
   {
     icon: Layout,
     title: "Training Modules",
     description: "Interactive and engaging training modules strictly aligned with specific, measurable learning objectives.",
-    link: "/edtech-solutions/learning-solutions/training-modules"
+    link: "/content-service/learning-solutions/training-modules"
   },
   {
     icon: Gamepad2,
     title: "Gamified Learning",
     description: "Gamification elements including rewards, points, badges, and leaderboards for fun and effective engagement.",
-    link: "/edtech-solutions/learning-solutions/gamified-learning"
+    link: "/content-service/learning-solutions/gamified-learning"
   },
   {
     icon: Brain,
     title: "Adaptive Learning",
     description: "AI-driven content paths that automatically adapt to individual learner pace, mastery, and performance.",
-    link: "/edtech-solutions/learning-solutions/adaptive-learning"
+    link: "/content-service/learning-solutions/adaptive-learning"
   },
   {
     icon: Network,
     title: "Blended Learning",
     description: "Combining online asynchronous and offline synchronous learning models for flexible, comprehensive education.",
-    link: "/edtech-solutions/learning-solutions/blended-learning"
+    link: "/content-service/learning-solutions/blended-learning"
   },
   {
     icon: Glasses,
     title: "Immersive Simulation AR/VR",
     description: "Augmented and virtual reality experiences for risk-free, hands-on immersive practical learning.",
-    link: "/edtech-solutions/learning-solutions/ar-vr"
+    link: "/content-service/learning-solutions/ar-vr"
   },
   {
     icon: CircuitBoard,
     title: "Instructional Design",
     description: "Expert instructional design services utilizing ADDIE and SAM methodologies for effective content structuring.",
-    link: "/edtech-solutions/learning-solutions/instructional-design"
+    link: "/content-service/learning-solutions/instructional-design"
   },
   {
     icon: Lightbulb,
     title: "Optimizing AI-Powered Learning",
     description: "Enhancing traditional content with AI for hyper-personalised learning paths and maximum learner impact.",
-    link: "/edtech-solutions/learning-solutions/ai-powered-learning"
+    link: "/content-service/learning-solutions/ai-powered-learning"
   }
 ];
 

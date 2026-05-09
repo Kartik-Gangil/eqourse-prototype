@@ -43,7 +43,7 @@ const edtechSubLinks: SubLink[] = edtechCategories.map(c => ({
 const navLinks: MainLink[] = [
   { label: "Home", to: "/" },
   { label: "About Us", to: "/aboutus", dropdown: aboutUsSubLinks },
-  { label: "EdTech Solutions", to: "/edtech-solutions", dropdown: edtechSubLinks, megaMenu: true },
+  { label: "Content Service", to: "/content-service", dropdown: edtechSubLinks, megaMenu: true },
   { label: "AI Data Services", to: "/ai-data-services", dropdown: aiDataSubLinks },
   { label: "Samples", to: "/samples", samplesMenu: true },
   { label: "TUTRAIN", to: "/tutrain", subtext: "Our Online Tutoring Brand" },

@@ -8,55 +8,55 @@ const services = [
     icon: Building,
     title: "APTIS Prep Content",
     description: "British Council APTIS exam preparation spanning grammar, vocabulary, reading, and speaking.",
-    link: "/edtech-solutions/exam-preparation-content/aptis"
+    link: "/content-service/exam-preparation-content/aptis"
   },
   {
     icon: Headphones,
     title: "TOEIC Prep Content",
     description: "TOEIC Listening & Reading and Speaking & Writing preparation materials designed for global professionals.",
-    link: "/edtech-solutions/exam-preparation-content/toeic"
+    link: "/content-service/exam-preparation-content/toeic"
   },
   {
     icon: FileText,
     title: "SAT Prep Content",
     description: "SAT Math and Evidence-Based Reading & Writing preparation mirroring the latest digital SAT format.",
-    link: "/edtech-solutions/exam-preparation-content/sat"
+    link: "/content-service/exam-preparation-content/sat"
   },
   {
     icon: TestTube,
     title: "ACT Prep Content",
     description: "Comprehensive ACT English, Math, Reading, and Science preparation for high school students.",
-    link: "/edtech-solutions/exam-preparation-content/act"
+    link: "/content-service/exam-preparation-content/act"
   },
   {
     icon: LayoutList,
     title: "AP Exam Prep Content",
     description: "Advanced Placement exam preparation across multiple subject domains to earn college credit.",
-    link: "/edtech-solutions/exam-preparation-content/ap-exam"
+    link: "/content-service/exam-preparation-content/ap-exam"
   },
   {
     icon: Globe,
     title: "IELTS Prep Content",
     description: "IELTS Academic and General Training preparation targeting Band 7+ outcomes globally.",
-    link: "/edtech-solutions/exam-preparation-content/ielts"
+    link: "/content-service/exam-preparation-content/ielts"
   },
   {
     icon: Target,
     title: "CEFR Placement Testing",
     description: "CEFR-aligned placement testing and assessment frameworks for structured language evaluation.",
-    link: "/edtech-solutions/exam-preparation-content/cefr"
+    link: "/content-service/exam-preparation-content/cefr"
   },
   {
     icon: PenSquare,
     title: "PTE Prep Content",
     description: "PTE Academic exam preparation materials focused on integrated speaking and writing skills.",
-    link: "/edtech-solutions/exam-preparation-content/pte"
+    link: "/content-service/exam-preparation-content/pte"
   },
   {
     icon: PenTool,
     title: "TOEFL Prep Content",
     description: "TOEFL iBT exam preparation across reading, listening, speaking, and writing sections.",
-    link: "/edtech-solutions/exam-preparation-content/toefl"
+    link: "/content-service/exam-preparation-content/toefl"
   }
 ];
 

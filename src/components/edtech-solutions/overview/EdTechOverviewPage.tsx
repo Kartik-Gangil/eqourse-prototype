@@ -38,7 +38,7 @@ const EdTechOverviewPage = () => (
     <SEOHead
       title="End-to-End EdTech Solutions | eQOURSE"
       description="From custom K-12 content development to LMS integration, eQOURSE delivers production-ready educational content and technology solutions."
-      canonical="https://eqourse.com/edtech-solutions"
+      canonical="https://eqourse.com/content-service"
       keywords="EdTech solutions, custom e-learning content, k12 content development, exam preparation content, learning solutions, educational videos, curriculum design"
     />
 

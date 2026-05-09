@@ -5,10 +5,10 @@ const STEMCurriculumPage = () => (
   <SubServicePageTemplate
     seoTitle="STEM Curriculum Development for K12 & Higher Education | eQOURSE"
     seoDescription="Customized STEM curriculum development services promoting critical thinking, innovation, and hands-on learning. Aligned with national and state standards for K-12 and higher education."
-    seoCanonical="https://www.eqourse.com/edtech-solutions/custom-e-learning-content/stem-curriculum-services"
+    seoCanonical="https://www.eqourse.com/content-service/custom-e-learning-content/stem-curriculum-services"
     seoKeywords="STEM curriculum, STEM education, science curriculum, coding curriculum, robotics, K12 STEM"
     parentLabel="Custom E-Learning Content"
-    parentHref="/edtech-solutions/custom-e-learning-content"
+    parentHref="/content-service/custom-e-learning-content"
     currentLabel="STEM Curriculum Services"
     preHeadline="Innovative STEM Curriculum Development for K-12 & Higher Education"
     headline="STEM Curriculum"
@@ -33,9 +33,9 @@ const STEMCurriculumPage = () => (
     ctaSubtext="Partner with eQOURSE to design STEM curricula that inspires innovation and prepares students for the challenges ahead."
     ctaButtonText="Get Free Consultation"
     relatedPages={[
-      { title: "K12 Curriculum", href: "/edtech-solutions/custom-e-learning-content/k12-curriculum-development" },
-      { title: "2D & 3D Videos", href: "/edtech-solutions/custom-e-learning-content/2d-3d-videos" },
-      { title: "Assessment Development", href: "/edtech-solutions/custom-e-learning-content/assessment-development" },
+      { title: "K12 Curriculum", href: "/content-service/custom-e-learning-content/k12-curriculum-development" },
+      { title: "2D & 3D Videos", href: "/content-service/custom-e-learning-content/2d-3d-videos" },
+      { title: "Assessment Development", href: "/content-service/custom-e-learning-content/assessment-development" },
     ]}
   />
 );

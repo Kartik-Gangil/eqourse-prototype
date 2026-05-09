@@ -19,14 +19,14 @@ const quickLinks = [
 
 /* ── EdTech Solutions: 7 top-level service categories for SEO ── */
 const edtechLinks = [
-  { label: "EdTech Overview", to: "/edtech-solutions" },
-  { label: "Custom E-Learning Content", to: "/edtech-solutions/custom-e-learning-content" },
-  { label: "Exam Preparation Content", to: "/edtech-solutions/exam-preparation-content" },
-  { label: "Learning Solutions", to: "/edtech-solutions/learning-solutions" },
-  { label: "E-Learning Video Solutions", to: "/edtech-solutions/elearning-video-solutions" },
-  { label: "Localization Services", to: "/edtech-solutions/localization-services" },
-  { label: "Technology Solutions", to: "/edtech-solutions/technology-solutions" },
-  { label: "Subject Matter Experts", to: "/edtech-solutions/subject-matter-experts" },
+  { label: "EdTech Overview", to: "/content-service" },
+  { label: "Custom E-Learning Content", to: "/content-service/custom-e-learning-content" },
+  { label: "Exam Preparation Content", to: "/content-service/exam-preparation-content" },
+  { label: "Learning Solutions", to: "/content-service/learning-solutions" },
+  { label: "E-Learning Video Solutions", to: "/content-service/elearning-video-solutions" },
+  { label: "Localization Services", to: "/content-service/localization-services" },
+  { label: "Technology Solutions", to: "/content-service/technology-solutions" },
+  { label: "Subject Matter Experts", to: "/content-service/subject-matter-experts" },
 ];
 
 /* ── AI Data Services ── */

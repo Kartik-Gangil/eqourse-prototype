@@ -5,10 +5,10 @@ const AssessmentDevelopmentPage = () => (
   <SubServicePageTemplate
     seoTitle="Assessment Development Services for K12 Education | eQOURSE"
     seoDescription="Customized K-12 Assessment Development Services for edtech institutions and e-learning platforms. Interactive quizzes, tests, assignments aligned with educational goals."
-    seoCanonical="https://www.eqourse.com/edtech-solutions/custom-e-learning-content/assessment-development"
+    seoCanonical="https://www.eqourse.com/content-service/custom-e-learning-content/assessment-development"
     seoKeywords="assessment development, K12 assessments, interactive quizzes, adaptive testing, game-based assessments"
     parentLabel="Custom E-Learning Content"
-    parentHref="/edtech-solutions/custom-e-learning-content"
+    parentHref="/content-service/custom-e-learning-content"
     currentLabel="Assessment Development"
     preHeadline="Accurate & Customized Assessment Development Services for K-12 & Higher Education"
     headline="Assessment Development"
@@ -37,9 +37,9 @@ const AssessmentDevelopmentPage = () => (
     ctaSubtext="Build reliable, engaging assessment tools that truly measure learner progress. Talk to our assessment experts."
     ctaButtonText="Get Free Consultation"
     relatedPages={[
-      { title: "K12 & Higher Education", href: "/edtech-solutions/custom-e-learning-content/k12-and-higher-education" },
-      { title: "Quiz & Question Bank", href: "/edtech-solutions/custom-e-learning-content/quiz-question-bank" },
-      { title: "Educational Content", href: "/edtech-solutions/custom-e-learning-content/educational-content-development" },
+      { title: "K12 & Higher Education", href: "/content-service/custom-e-learning-content/k12-and-higher-education" },
+      { title: "Quiz & Question Bank", href: "/content-service/custom-e-learning-content/quiz-question-bank" },
+      { title: "Educational Content", href: "/content-service/custom-e-learning-content/educational-content-development" },
     ]}
   />
 );
