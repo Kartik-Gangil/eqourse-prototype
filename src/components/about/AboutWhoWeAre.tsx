@@ -59,7 +59,7 @@ const AboutWhoWeAre = () => {
               <GraduationCap className="w-7 h-7" />
             </div>
             
-            <h3 className="text-2xl font-bold mb-4 text-foreground">EdTech Solutions</h3>
+            <h3 className="text-2xl font-bold mb-4 text-foreground">Content Service</h3>
             <p className="text-muted-foreground mb-6 leading-relaxed">
               Our EdTech division specialises in custom e-learning content development, exam preparation, video learning solutions, LMS integration, and subject matter expert services.
             </p>

@@ -148,11 +148,11 @@ const FAQsAccordion = () => {
 
       <div className="container mx-auto px-4 max-w-4xl">
         
-        {/* EdTech Solutions FAQs */}
+        {/* Content Service FAQs */}
         <div className="mb-16">
           <div className="flex items-center gap-4 mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-              EdTech Solutions
+              Content Service
             </h2>
             <div className="h-[1px] flex-1 bg-border/80"></div>
           </div>

@@ -123,7 +123,7 @@ const ContactForm = () => {
             className="w-full px-3 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow cursor-pointer"
           >
             <option value="" disabled>Select Service Category</option>
-            <optgroup label="--- EdTech Solutions ---">
+            <optgroup label="--- Content Service ---">
               <option value="Custom E-Learning">Custom E-Learning Content (K-12 / Higher Ed)</option>
               <option value="Curriculum">Curriculum Development & Design</option>
               <option value="Assessment">Assessment & Question Bank Development</option>

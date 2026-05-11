@@ -5,12 +5,12 @@ import heroImage from "@/assets/hero-image.jpg";
 
 const slides = [
   {
-    badge: "EdTech Solutions",
+    badge: "Content Service",
     headline: "Partnering with EdTech Leaders to",
     highlightedText: "Design and Create Top Quality E-Learning Content",
     subtext:
       "Quality and cost-effective academic services for e-learning platforms. Specializing in content development, localization, and accessibility across 30+ languages.",
-    cta: "Explore EdTech Solutions",
+    cta: "Explore Content Service",
     ctaLink: "#services",
     icon: Sparkles,
   },

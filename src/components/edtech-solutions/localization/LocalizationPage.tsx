@@ -22,7 +22,7 @@ const faqs = [
 ];
 
 const LocalizationPage = () => (
-  <EdTechLayout breadcrumbs={[{ label: "EdTech Solutions", href: "/content-service" }, { label: "Localization Services" }]}>
+  <EdTechLayout breadcrumbs={[{ label: "Content Service", href: "/content-service" }, { label: "Localization Services" }]}>
     <SEOHead
       title="EdTech Localization Services | eQOURSE"
       description="Localized learning solutions in Hindi, English & regional languages. Accurate content translation, professional voice-over, and subtitling services."

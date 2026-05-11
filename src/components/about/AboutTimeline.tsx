@@ -25,7 +25,7 @@ const timelineData = [
   {
     year: "2026",
     title: "Dual-Vertical Global Operations",
-    description: "Today, eQOURSE operates as a dual-vertical company: EdTech Solutions and AI Data Services. We serve 200+ clients across 15+ countries, with offices in India (Kota) and Singapore. Our mission is to help organisations across education and AI build systems that work in the real world — powered by high-quality human expertise.",
+    description: "Today, eQOURSE operates as a dual-vertical company: Content Service and AI Data Services. We serve 200+ clients across 15+ countries, with offices in India (Kota) and Singapore. Our mission is to help organisations across education and AI build systems that work in the real world — powered by high-quality human expertise.",
   }
 ];
 

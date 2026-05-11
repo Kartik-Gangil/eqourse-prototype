@@ -17,7 +17,7 @@ const CaseStudyPage = () => {
     ? caseStudiesData 
     : caseStudiesData.filter(cs => cs.category === activeFilter);
 
-  const filterOptions = ["All", "EdTech Solutions", "AI Data Services"] as const;
+  const filterOptions = ["All", "Content Service", "AI Data Services"] as const;
 
   const handleStudyClick = (study: CaseStudy) => {
     setSelectedStudy(study);
@@ -26,7 +26,7 @@ const CaseStudyPage = () => {
   return (
     <EdTechLayout breadcrumbs={[{ label: "Case Studies" }]}>
       <SEOHead
-        title="Case Studies & Success Stories | EdTech Solutions & AI Data Services | eQOURSE"
+        title="Case Studies & Success Stories | Content Service & AI Data Services | eQOURSE"
         description="Explore eQOURSE case studies: how we deliver custom e-learning content, curriculum development, multilingual localization, AI training data collection, annotation & labeling, data cleaning, and real-world model testing for global education and AI companies. 200+ clients. 30+ languages. ISO certified."
         canonical="https://www.eqourse.com/casestudy"
         keywords="eQOURSE case studies, EdTech case studies, AI data services case studies, e-learning success stories, data annotation case study, curriculum development case study, K12 content case study, AI training data case study, multilingual content case study, model testing case study"

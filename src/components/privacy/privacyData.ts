@@ -17,7 +17,7 @@ export const privacySections: PrivacySection[] = [
       "eQOURSE operates as two legal entities:",
       "• **eQOURSE (India)** — Registered office: C-29, Indra Vihar, Shiv Jyoti School Road, Kota, Rajasthan, India — 324005. A DPIIT-recognised startup registered under the laws of India.",
       "• **eQOURSE PTE LTD (Singapore)** — Registered office: 760 Bedok Reservoir Road, #04-13, Waterfront Waves, Singapore — 479245. Registered under the laws of Singapore.",
-      "We are certified under **ISO 9001:2015** (Quality Management) and **ISO 27001:2022** (Information Security Management). This policy applies to all personal data processed by both entities across our two service verticals: EdTech Solutions and AI Data Services.",
+      "We are certified under **ISO 9001:2015** (Quality Management) and **ISO 27001:2022** (Information Security Management). This policy applies to all personal data processed by both entities across our two service verticals: Content Service and AI Data Services.",
       "By using our website or engaging our services, you acknowledge that you have read, understood, and agree to the practices described in this Privacy Policy. If you do not agree, please do not use our website or services.",
     ],
   },

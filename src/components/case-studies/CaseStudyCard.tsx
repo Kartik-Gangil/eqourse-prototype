@@ -11,7 +11,7 @@ interface CaseStudyCardProps {
 }
 
 const getIcon = (category: string) => {
-  if (category === "EdTech Solutions") return <GraduationCap className="w-4 h-4" />;
+  if (category === "Content Service") return <GraduationCap className="w-4 h-4" />;
   return <Layers className="w-4 h-4" />;
 };
 

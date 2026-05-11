@@ -18,7 +18,7 @@ const faqs = [
 ];
 
 const TechSolutionsPage = () => (
-  <EdTechLayout breadcrumbs={[{ label: "EdTech Solutions", href: "/content-service" }, { label: "Technology Solutions" }]}>
+  <EdTechLayout breadcrumbs={[{ label: "Content Service", href: "/content-service" }, { label: "Technology Solutions" }]}>
     <SEOHead
       title="EdTech Technology Solutions & LMS Platforms | eQOURSE"
       description="Scalable Technology Solutions including standard-compliant LMS course builds (SCORM, xAPI) and white-label Open edX platform deployments."

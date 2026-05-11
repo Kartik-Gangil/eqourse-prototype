@@ -23,7 +23,7 @@ const faqs = [
 ];
 
 const ExamPrepPage = () => (
-  <EdTechLayout breadcrumbs={[{ label: "EdTech Solutions", href: "/content-service" }, { label: "Exam Preparation Content" }]}>
+  <EdTechLayout breadcrumbs={[{ label: "Content Service", href: "/content-service" }, { label: "Exam Preparation Content" }]}>
     <SEOHead
       title="Exam Preparation Content & Test Prep | eQOURSE"
       description="Expert-designed test prep content for SAT, GMAT, TOEFL, IIT-JEE, NEET, UPSC, and more. Customized study guides, video lessons, and interactive quiz materials."

@@ -1,7 +1,7 @@
 import PageLayout from "@/components/shared/PageLayout";
 import { BreadcrumbSchema } from "@/components/shared/BreadcrumbSchema";
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Map } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -34,7 +34,7 @@ const sitemapData = [
     ],
   },
   {
-    category: "EdTech Solutions",
+    category: "Content Service",
     links: [
       { name: "EdTech Overview", to: "/content-service" },
       { name: "Custom E-Learning Content", to: "/content-service/custom-e-learning-content" },
@@ -87,16 +87,16 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } },
+  show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 300, damping: 24 } },
 };
 
 const Sitemap = () => {
   return (
     <PageLayout breadcrumbs={[{ label: "Sitemap" }]}>
       <Helmet>
-        <title>Sitemap │ eQOURSE — EdTech Solutions &amp; AI Data Services</title>
+        <title>Sitemap │ eQOURSE — Content Service &amp; AI Data Services</title>
         <meta
           name="description"
           content="Navigate the eQOURSE website. Find quick links to our EdTech solutions, AI data services, company information, samples, and legal policies."
@@ -143,7 +143,7 @@ const Sitemap = () => {
               </h1>
 
               <p className="text-lg md:text-xl text-white/75 animate-slide-up-delayed-2 max-w-2xl">
-                Explore our comprehensive suite of EdTech Solutions, AI Data Services, case studies, and extensive sample catalog.
+                Explore our comprehensive suite of Content Service, AI Data Services, case studies, and extensive sample catalog.
               </p>
               
               <div className="pt-4 animate-slide-up-delayed-2">

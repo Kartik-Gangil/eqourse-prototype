@@ -8,7 +8,7 @@ const ContactUs = () => {
   return (
     <PageLayout breadcrumbs={[{ label: "Contact Us" }]}>
       <Helmet>
-        <title>Contact Us │ EdTech Solutions & AI Data Services │ eQOURSE</title>
+        <title>Contact Us │ Content Service & AI Data Services │ eQOURSE</title>
         <meta
           name="description"
           content="Get in touch with eQOURSE for EdTech solutions and AI data services. Custom e-learning content, curriculum development, data annotation, model testing. Offices in India & Singapore. Call +91-92144-45870 or email info@eqourse.com. Free consultation available."

@@ -67,7 +67,7 @@ const BlogGrid = () => {
   // Categories for filter bar
   const categories = [
     { id: "All", label: "All Topics", count: blogsData.length },
-    { id: "EdTech", label: "EdTech Solutions", count: blogsData.filter(b => b.category === "EdTech").length },
+    { id: "EdTech", label: "Content Service", count: blogsData.filter(b => b.category === "EdTech").length },
     { id: "AI Data", label: "AI Data Services", count: blogsData.filter(b => b.category === "AI Data").length }
   ];
 

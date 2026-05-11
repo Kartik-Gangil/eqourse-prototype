@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { caseStudiesData } from "@/components/case-studies/caseStudyData";
 
 /* Pick 2 EdTech + 2 AI Data Services case studies for the home page */
-const edtechStudies = caseStudiesData.filter(s => s.category === "EdTech Solutions").slice(0, 2);
+const edtechStudies = caseStudiesData.filter(s => s.category === "Content Service").slice(0, 2);
 const aiStudies = caseStudiesData.filter(s => s.category === "AI Data Services").slice(0, 2);
 const featuredStudies = [...edtechStudies, ...aiStudies];
 

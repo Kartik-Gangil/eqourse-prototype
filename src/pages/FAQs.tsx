@@ -8,7 +8,7 @@ const FAQs = () => {
   return (
     <PageLayout breadcrumbs={[{ label: "About Us", href: "/aboutus" }, { label: "FAQs" }]}>
       <Helmet>
-        <title>FAQs │ EdTech Solutions & AI Data Services │ eQOURSE</title>
+        <title>FAQs │ Content Service & AI Data Services │ eQOURSE</title>
         <meta
           name="description"
           content="Frequently asked questions about eQOURSE's EdTech solutions and AI data services. Learn about K-12 content development, data annotation, AI training data, LMS integration, multilingual localization, and more."

@@ -36,7 +36,7 @@ const EdTechSidebar = () => {
         <div className="flex items-center justify-between px-3 py-3 border-b border-border/30">
           {!collapsed && (
             <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground/70 truncate">
-              EdTech Solutions
+              Content Service
             </span>
           )}
           <button
@@ -196,7 +196,7 @@ const MobileSidebarSheet = ({ pathname }: { pathname: string }) => {
           {/* Sheet */}
           <div className="relative w-[300px] max-w-[80vw] bg-card border-r border-border/50 shadow-elevated h-full flex flex-col animate-slide-up">
             <div className="flex items-center justify-between px-4 py-3 border-b border-border/30">
-              <span className="text-sm font-bold text-foreground">EdTech Solutions</span>
+              <span className="text-sm font-bold text-foreground">Content Service</span>
               <button
                 onClick={() => setOpen(false)}
                 className="p-1.5 rounded-lg hover:bg-muted text-muted-foreground"

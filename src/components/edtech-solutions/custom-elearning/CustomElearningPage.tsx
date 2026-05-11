@@ -22,7 +22,7 @@ const faqs = [
 ];
 
 const CustomElearningPage = () => (
-  <EdTechLayout breadcrumbs={[{ label: "EdTech Solutions", href: "/content-service" }, { label: "Custom E-Learning Content" }]}>
+  <EdTechLayout breadcrumbs={[{ label: "Content Service", href: "/content-service" }, { label: "Custom E-Learning Content" }]}>
     <SEOHead
       title="Custom E-Learning Content | eQOURSE"
       description="Custom E-learning content development solutions covering K12 academic content, assessments, workbooks, lesson plans, STEM curriculum, and interactive media."

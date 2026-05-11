@@ -42,7 +42,7 @@ const BlogSidebar = ({ recentPosts }: BlogSidebarProps) => {
             <Link to="/blog?category=EdTech" className="flex items-center justify-between group p-2 hover:bg-muted rounded-lg transition-colors">
               <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-2">
                 <ChevronRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity -ml-6 group-hover:ml-0" />
-                EdTech Solutions
+                Content Service
               </span>
               <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full font-bold">17</span>
             </Link>

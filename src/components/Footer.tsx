@@ -17,7 +17,7 @@ const quickLinks = [
   { label: "FAQs", to: "/faq" },
 ];
 
-/* ── EdTech Solutions: 7 top-level service categories for SEO ── */
+/* ── Content Service: 7 top-level service categories for SEO ── */
 const edtechLinks = [
   { label: "EdTech Overview", to: "/content-service" },
   { label: "Custom E-Learning Content", to: "/content-service/custom-e-learning-content" },
@@ -103,9 +103,9 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* ── EdTech Solutions ── */}
+          {/* ── Content Service ── */}
           <div>
-            <h4 className="font-heading font-semibold mb-4" style={headingColor}>EdTech Solutions</h4>
+            <h4 className="font-heading font-semibold mb-4" style={headingColor}>Content Service</h4>
             <div className="space-y-3">
               {edtechLinks.map((link) => (
                 <Link key={link.label} to={link.to} className={linkClass} style={linkColor}>

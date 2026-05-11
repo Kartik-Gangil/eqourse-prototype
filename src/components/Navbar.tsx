@@ -61,7 +61,7 @@ const EdTechMegaMenu = ({ onClose }: { onClose: () => void }) => {
     <nav
       className="absolute top-full -left-[450px] w-[1100px] bg-card/95 rounded-3xl border border-border/50 shadow-elevated animate-slide-up z-50 overflow-hidden"
       style={{ backdropFilter: "blur(20px)" }}
-      aria-label="EdTech Solutions navigation"
+      aria-label="Content Service navigation"
     >
       <div className="flex min-h-[450px]">
         {/* Left: Categories (300px) */}

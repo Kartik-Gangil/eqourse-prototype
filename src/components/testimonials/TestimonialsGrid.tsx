@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Quote } from "lucide-react";
 
-type ServiceType = "EdTech Solutions" | "AI Data Services";
+type ServiceType = "Content Service" | "AI Data Services";
 
 interface Testimonial {
   quote: string;
@@ -21,49 +21,49 @@ const testimonials: Testimonial[] = [
     name: "Viraj Panwar",
     role: "Content Manager",
     company: "ExamFactor (ABP Learning)",
-    type: "EdTech Solutions"
+    type: "Content Service"
   },
   {
     quote: "eQOURSE has been a game-changer for our content creation needs. Their team brings creativity, precision, and deep expertise to the table, consistently delivering high-quality content.",
     name: "Mira Sood",
     role: "Managing Director",
     company: "ContentWize",
-    type: "EdTech Solutions"
+    type: "Content Service"
   },
   {
     quote: "It has always been a pleasure to collaborate with eQOURSE. The company consistently delivers services that excel in comfort, clarity, and reliability.",
     name: "Khyati Srinivas",
     role: "Head Program Designer",
     company: "eVidyaloka Trust",
-    type: "EdTech Solutions"
+    type: "Content Service"
   },
   {
     quote: "eQOURSE is a one-stop shop for all your solution needs. The breadth and variety of solutions provided are unique and extensive. The benefit is to have everything done under one roof.",
     name: "Shakti Jhala",
     role: "Curriculum Head",
     company: "SPI",
-    type: "EdTech Solutions"
+    type: "Content Service"
   },
   {
     quote: "eQOURSE offers guaranteed quality and quantity. Our content quality has improved post working with eQOURSE. Will definitely recommend it to others because the output is trustworthy.",
     name: "Kola Xu",
     role: "Product Manager",
     company: "Data-Driven Interactive Technology",
-    type: "EdTech Solutions"
+    type: "Content Service"
   },
   {
     quote: "The ability of eQOURSE to scale operations while retaining high accuracy in K-12 math solutions is unmatched. Their subject matter experts are truly top-tier.",
     name: "Product Head",
     role: "Leadership",
     company: "Online Learning Platform",
-    type: "EdTech Solutions"
+    type: "Content Service"
   },
   {
     quote: "Their localization services transformed our video content reach. Over 30 languages seamlessly translated without losing the academic rigor of the materials.",
     name: "Operations Director",
     role: "Leadership",
     company: "Global EdTech Company",
-    type: "EdTech Solutions"
+    type: "Content Service"
   },
 
   // AI Data Services Testimonials
@@ -119,7 +119,7 @@ const FilterButton = ({ active, label, onClick }: { active: boolean; label: stri
 );
 
 const TestimonialCard = ({ data, index }: { data: Testimonial; index: number }) => {
-  const isEdTech = data.type === "EdTech Solutions";
+  const isEdTech = data.type === "Content Service";
 
   return (
     <motion.div
@@ -183,7 +183,7 @@ const TestimonialsGrid = () => {
         {/* Filter System */}
         <div className="flex flex-wrap justify-center gap-3 mb-16 relative z-20">
           <FilterButton active={filter === "All"} label="All Reviews" onClick={() => setFilter("All")} />
-          <FilterButton active={filter === "EdTech Solutions"} label="EdTech Solutions" onClick={() => setFilter("EdTech Solutions")} />
+          <FilterButton active={filter === "Content Service"} label="Content Service" onClick={() => setFilter("Content Service")} />
           <FilterButton active={filter === "AI Data Services"} label="AI Data Services" onClick={() => setFilter("AI Data Services")} />
         </div>
 

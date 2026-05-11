@@ -18,7 +18,7 @@ const faqs = [
 ];
 
 const VideoSolutionsPage = () => (
-  <EdTechLayout breadcrumbs={[{ label: "EdTech Solutions", href: "/content-service" }, { label: "E-Learning Video Solutions" }]}>
+  <EdTechLayout breadcrumbs={[{ label: "Content Service", href: "/content-service" }, { label: "E-Learning Video Solutions" }]}>
     <SEOHead
       title="E-Learning Video Solutions & Interactive Animation | eQOURSE"
       description="Transform complex concepts into engaging visual learning experiences. 2D/3D animation, Articulate Storyline courses, and interactive video production."

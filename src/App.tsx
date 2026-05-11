@@ -101,7 +101,7 @@ const App = () => (
               <Route path="/ai-data-services/cleaning-validation" element={<AICleaningValidation />} />
               <Route path="/ai-data-services/model-testing" element={<AIModelTesting />} />
 
-              {/* EdTech Solutions — Category Pages */}
+              {/* Content Service — Category Pages */}
               <Route path="/content-service" element={<EdTechOverview />} />
               <Route path="/content-service/custom-e-learning-content" element={<CustomElearningContent />} />
               <Route path="/content-service/exam-preparation-content" element={<ExamPreparationContent />} />
@@ -111,7 +111,7 @@ const App = () => (
               <Route path="/content-service/technology-solutions" element={<TechnologySolutions />} />
               <Route path="/content-service/subject-matter-experts" element={<SubjectMatterExperts />} />
 
-              {/* EdTech Solutions — 39 Sub-Service Detail Pages (lazy-loaded) */}
+              {/* Content Service — 39 Sub-Service Detail Pages (lazy-loaded) */}
               {edtechSubServiceRoutes.map(({ path, Component }) => (
                 <Route key={path} path={path} element={<Component />} />
               ))}

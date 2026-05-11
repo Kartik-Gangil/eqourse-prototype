@@ -12,7 +12,7 @@ const AboutUs = () => {
   return (
     <PageLayout breadcrumbs={[{ label: "About Us" }]}>
       <Helmet>
-        <title>About eQOURSE │ EdTech Solutions & AI Data Services Company │ India & Singapore</title>
+        <title>About eQOURSE │ Content Service & AI Data Services Company │ India & Singapore</title>
         <meta
           name="description"
           content="eQOURSE is an ISO 9001 & 27001 certified company delivering EdTech solutions and AI data services. 500+ specialists, 30+ languages, offices in India & Singapore. Custom e-learning content, curriculum development, data annotation, and real-world AI model testing. Trusted by 200+ global clients."
@@ -21,7 +21,7 @@ const AboutUs = () => {
           name="keywords"
           content="about eQOURSE, EdTech company India, AI data services company, e-learning solutions provider, data annotation company, education technology Singapore, ISO certified EdTech, curriculum development company, AI training data provider"
         />
-        <meta property="og:title" content="About eQOURSE │ EdTech Solutions & AI Data Services │ India & Singapore" />
+        <meta property="og:title" content="About eQOURSE │ Content Service & AI Data Services │ India & Singapore" />
         <meta
           property="og:description"
           content="ISO 9001 & 27001 certified. 500+ specialists. EdTech content + AI training data. Offices in India & Singapore. Trusted by 200+ clients across 15+ countries."
@@ -43,7 +43,7 @@ const AboutUs = () => {
                 "https://twitter.com/EQourse"
               ],
               "knowsAbout": [
-                "EdTech Solutions",
+                "Content Service",
                 "AI Data Services",
                 "Data Annotation",
                 "E-Learning Content Development",
@@ -94,7 +94,7 @@ const AboutUs = () => {
         preHeadline="eQOURSE — Delivering Operational Excellence"
         headline="Who Are"
         headlineAccent="We?"
-        subtext="EdTech Solutions and AI Data Services."
+        subtext="Content Service and AI Data Services."
         ctaText="Explore Services"
         ctaLink="#who-we-are"
       />

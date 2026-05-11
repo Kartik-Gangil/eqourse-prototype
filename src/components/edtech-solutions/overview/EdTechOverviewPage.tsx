@@ -36,15 +36,15 @@ const faqs = [
 const EdTechOverviewPage = () => (
   <EdTechLayout breadcrumbs={[{ label: "Overview" }]}>
     <SEOHead
-      title="End-to-End EdTech Solutions | eQOURSE"
+      title="End-to-End Content Service | eQOURSE"
       description="From custom K-12 content development to LMS integration, eQOURSE delivers production-ready educational content and technology solutions."
       canonical="https://eqourse.com/content-service"
       keywords="EdTech solutions, custom e-learning content, k12 content development, exam preparation content, learning solutions, educational videos, curriculum design"
     />
 
     <ServiceHero
-      preHeadline="EdTech Solutions — Trusted by 200+ Global Platforms"
-      headline="End-to-End EdTech Solutions That"
+      preHeadline="Content Service — Trusted by 200+ Global Platforms"
+      headline="End-to-End Content Service That"
       headlineAccent="Scale Learning Outcomes"
       subtext="From custom K-12 content and curriculum design to interactive video learning, localization in 30+ languages, and LMS integration."
       ctaText="Start Your Free Pilot"
