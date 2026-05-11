@@ -13,7 +13,7 @@ const BlogPost = () => {
   const blog = blogsData.find(b => b.slug === fullSlug);
 
   if (!blog) {
-    return <Navigate to="/not-found" replace />;
+    return <Navigate to="/" replace />;
   }
 
   return (

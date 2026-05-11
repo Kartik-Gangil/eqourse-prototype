@@ -10,7 +10,7 @@ interface CardItem {
 }
 
 const textSamples: CardItem[] = [
-  { label: "K12 Grade (KG-5)", href: "/kindergarden-to-k5-samples", description: "Age-appropriate content for early learners with interactive activities." },
+  { label: "K12 Grade (KG-5)", href: "/kindergarten-to-k5-samples", description: "Age-appropriate content for early learners with interactive activities." },
   { label: "K12 Grade (6-12)", href: "/k6-to-k12-samples", description: "Rich curriculum content aligned to national standards and frameworks." },
   { label: "IIT JEE / NEET", href: "/iit-jee-neet-samples", description: "Competitive exam prep content with solved problems and conceptual depth." },
   { label: "UPSC & State PSC", href: "/upsc-state-psc-samples", description: "Civil-services exam material across polity, economy, and current affairs." },

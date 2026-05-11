@@ -289,7 +289,7 @@ const MobileEdTechAccordion = ({ onClose }: { onClose: () => void }) => {
 
 /* ─── Samples 3-Column Mega Menu (Desktop) ─── */
 const textSampleLinks = [
-  { label: "K12 Grade (KG-5)", href: "/kindergarden-to-k5-samples" },
+  { label: "K12 Grade (KG-5)", href: "/kindergarten-to-k5-samples" },
   { label: "K12 Grade (6-12)", href: "/k6-to-k12-samples" },
   { label: "IIT JEE / NEET", href: "/iit-jee-neet-samples" },
   { label: "UPSC & State PSC", href: "/upsc-state-psc-samples" },
