@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import AIDataServicesLayout from "@/components/ai-data-services/shared/AIDataServicesLayout";
 import SEOHead from "@/components/ai-data-services/shared/SEOHead";
 import ServiceCTA from "@/components/ai-data-services/shared/ServiceCTA";
-import SampleHero from "./SampleHero";
 import SampleShowcaseGrid from "./SampleShowcaseGrid";
 import QualityMetrics from "./QualityMetrics";
 import RelatedSamples from "./RelatedSamples";
@@ -30,7 +29,6 @@ const AiDataSamplePage = () => {
         keywords={sample.keywords}
       />
 
-      <SampleHero sample={sample} />
 
       <SampleShowcaseGrid showcases={sample.showcases} />
 

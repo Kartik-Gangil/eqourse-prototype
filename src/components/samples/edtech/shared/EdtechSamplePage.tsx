@@ -1,7 +1,6 @@
 import { useLocation } from "react-router-dom";
 import PageLayout from "@/components/shared/PageLayout";
 import SEOHead from "@/components/ai-data-services/shared/SEOHead";
-import EdtechSampleHero from "./EdtechSampleHero";
 import InteractiveSampleTabs from "./InteractiveSampleTabs";
 import StandardSampleElements from "./StandardSampleElements";
 import EdtechLandingBody from "./EdtechLandingBody";
@@ -39,7 +38,6 @@ const EdtechSamplePage = () => {
         keywords={sample.keywords}
       />
 
-      <EdtechSampleHero sample={sample} />
 
       {isLanding ? (
         <EdtechLandingBody sample={sample} />
