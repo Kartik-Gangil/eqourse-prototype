@@ -27,13 +27,13 @@ const AboutSection = () => {
           <div className="space-y-6">
             <span className="text-sm font-semibold tracking-wider uppercase text-primary">Who Are We?</span>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground leading-tight">
-              Powering Education & AI — <span className="text-gradient">From Quality Content to Quality Data</span>
+              Powering Global Learning Content & AI-Data Solutions — <span className="text-gradient">From Quality Content to Quality Data</span>
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              eQOURSE is a unique dual-capability company serving two of the world's fastest-growing sectors: education and artificial intelligence.
+              eQOURSE is a dual-capability solutions partner supporting learning and artificial Intelligence domains through scalable content, assessment, and data services.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              For <strong className="text-foreground">EdTech platforms, schools, and publishers</strong>, we create high-quality K-12 and higher education curriculum, test preparation materials, instructional content, and fully localised learning experiences, available across all 22 Scheduled Languages of India and many international languages.
+              We are a global learning content and AI data solutions partner supporting enterprises, governments, publishers, EdTech platforms, universities, and NGOs with scalable, high-quality solutions for education, workforce training, certification, and large-scale learning programs.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               For <strong className="text-foreground">AI and ML teams</strong>, we deliver production-grade AI training data services, including custom dataset collection, expert annotation & labeling, data cleaning & validation, and real-world model testing, supporting 30+ languages and every major data modality (text, audio, image, and video).

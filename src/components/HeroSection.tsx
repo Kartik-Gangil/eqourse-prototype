@@ -238,9 +238,8 @@ const HeroSection = () => {
                   key={i}
                   onClick={() => goTo(i)}
                   aria-label={`Go to slide ${i + 1}`}
-                  className={`h-1.5 rounded-full transition-all duration-500 ${
-                    i === current ? "w-10 bg-primary" : "w-2 bg-white/30 hover:bg-white/50"
-                  }`}
+                  className={`h-1.5 rounded-full transition-all duration-500 ${i === current ? "w-10 bg-primary" : "w-2 bg-white/30 hover:bg-white/50"
+                    }`}
                 />
               ))}
             </div>
@@ -270,7 +269,7 @@ const HeroSection = () => {
                     Trusted Globally
                   </div>
                   <div className="text-base font-bold text-white leading-tight">
-                    Built for EdTech &amp; AI teams that ship
+                    Built for EdTech, enterprises &amp; AI teams globally
                   </div>
                 </div>
               </div>
@@ -288,7 +287,7 @@ const HeroSection = () => {
                     <Bot className="w-4 h-4 text-sky-300" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="text-xs font-semibold text-sky-300 mb-0.5">AI Highlights</div>
+                    <div className="text-xs font-semibold text-sky-300 mb-0.5">AI Capabilities</div>
                     <div
                       className="text-[12px] leading-snug"
                       style={{
@@ -315,7 +314,7 @@ const HeroSection = () => {
                     <BookOpen className="w-4 h-4 text-teal-300" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="text-xs font-semibold text-teal-300 mb-0.5">EdTech Highlights</div>
+                    <div className="text-xs font-semibold text-teal-300 mb-0.5">Content Capabilities</div>
                     <div
                       className="text-[12px] leading-snug"
                       style={{
