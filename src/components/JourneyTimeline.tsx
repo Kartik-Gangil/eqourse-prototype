@@ -1,9 +1,11 @@
 import { useState, useRef, useEffect } from "react";
+import timeline2020 from "@/assets/timeline-2020.png";
 import timeline2021 from "@/assets/timeline-2021.png";
 import timeline2022 from "@/assets/timeline-2022.png";
 import timeline2023 from "@/assets/timeline-2023.png";
 import timeline2024 from "@/assets/timeline-2024.png";
 import timeline2025 from "@/assets/timeline-2025.png";
+import timeline2026 from "@/assets/timeline-2026.png";
 
 /* ── Milestone data ── */
 interface Milestone {
@@ -17,49 +19,60 @@ interface Milestone {
 
 const milestones: Milestone[] = [
   {
+    year: "2020",
+    title: "Foundation Phase",
+    shortDesc: "Built the foundation for structured learning systems.",
+    fullDesc: "eQOURSE began with a focused vision to strengthen learning and digital content ecosystems through curriculum development, assessments, and structured academic workflows. Early projects in CMS/LMS systems and international curriculum support laid the groundwork for scalable, process-driven execution across learning platforms.",
+    image: timeline2020,
+    icon: "🏗️",
+  },
+  {
     year: "2021",
     title: "The Beginning",
-    shortDesc: "Founded with a mission to transform education.",
-    fullDesc:
-      "eQOURSE was established with a clear vision: to bridge the gap between quality educational content and accessible learning. Our founding team of passionate educators and technologists set out to create K-12 learning materials that truly make a difference. We started with a small but dedicated team of 15 content specialists working across 3 languages, laying the groundwork for what would become a leading EdTech content powerhouse.",
+    shortDesc: "Expanded into multilingual and distributed learning workflows.",
+    fullDesc: "As demand grew, our capabilities expanded into multilingual content delivery, assessment frameworks, transcription workflows, and SME-driven execution systems. This phase strengthened our expertise in structured content operations and scalable learning delivery across platforms and regions.",
     image: timeline2021,
     icon: "🚀",
   },
   {
     year: "2022",
     title: "Scaling Up",
-    shortDesc: "Expanded to 10+ languages & EdTech partnerships.",
-    fullDesc:
-      "In our second year, eQOURSE achieved significant growth — expanding content delivery to over 10 Indian languages and forming strategic partnerships with major EdTech platforms. Our team grew to 100+ specialists as we introduced test-preparation content, curriculum alignment services, and instructional design capabilities. We onboarded marquee clients including eduKemy, Booxpand, and EMBIBE, establishing ourselves as a trusted content partner in the education ecosystem.",
+    shortDesc: "Evolved into large-scale learning ecosystems.",
+    fullDesc: "By 2022, our work expanded into integrated learning ecosystems combining instructional modules, multimedia learning, worksheets, multilingual adaptation, and instructor-led delivery systems. During this phase, we also executed a major international engagement delivering over 10,000 STEM video solutions across K–12 and college-level subjects spanning multiple disciplines.",
     image: timeline2022,
     icon: "📈",
   },
   {
     year: "2023",
     title: "AI Data Division",
-    shortDesc: "Launched AI training data services for ML teams.",
-    fullDesc:
-      "Recognising the exploding demand for high-quality AI training data, we launched our dedicated AI Data Services division. This marked our transformation into a dual-capability company. We began offering custom dataset collection, expert annotation & labeling, and data cleaning & validation services. Our linguists and domain experts started supporting NLP, Computer Vision, and Audio AI projects, handling text, image, video, and audio data modalities across 20+ languages with inter-annotator agreement consistently above 0.80.",
+    shortDesc: "Expanded into AI-aligned systems and future learning programs.",
+    fullDesc: "As AI adoption accelerated globally, eQOURSE expanded into AI-aligned ecosystems through multilingual datasets, validation systems, AI quality workflows, and annotation pipelines. Alongside this, we launched large-scale digital literacy, coding, and AI learning programs supported by AI-generated videos, 2D learning content, and simulation-based learning systems.",
     image: timeline2023,
     icon: "🤖",
   },
   {
     year: "2024",
     title: "Going Global",
-    shortDesc: "Singapore HQ, ISO certified, 200+ clients worldwide.",
-    fullDesc:
-      "2024 was our year of global acceleration. We established our Singapore headquarters, achieved ISO 9001 & 27001 certifications, and onboarded over 200 clients across education and AI sectors worldwide. Our RLHF (Reinforcement Learning from Human Feedback) capabilities attracted partnerships with leading AI labs. We expanded our workforce to 350+ specialists and introduced real-world model testing through our TuTrain platform, creating a closed-loop pipeline that enabled 20–40% faster model improvement for our clients.",
+    shortDesc: "Strengthened global capability and validation systems.",
+    fullDesc: "This phase marked significant global expansion through multilingual delivery systems, compliance-driven workflows, government and institutional collaborations, and real-world validation frameworks. With ISO-certified operations, RLHF workflows, and multilingual execution across large-scale programs, eQOURSE strengthened its position as a global learning and AI solutions partner.",
     image: timeline2024,
     icon: "🌏",
   },
   {
     year: "2025",
-    title: "The Future Is Now",
-    shortDesc: "500+ specialists, 30+ languages, industry leaders.",
-    fullDesc:
-      "Today, eQOURSE stands as an industry leader with 500+ specialists, supporting 30+ languages and serving clients across EdTech, AI, Healthcare, Legal, and Finance verticals. Our dual approach — combining deep educational expertise with production-grade AI data services — positions us uniquely in the market. With GDPR-ready processes, 98%+ accuracy benchmarks, and partnerships with startups and enterprises alike, we continue to push the boundaries of what's possible in education technology and artificial intelligence data quality.",
+    title: "Integration at Scale",
+    shortDesc: "Unified content, AI, localization, and validation ecosystems.",
+    fullDesc: "By 2025, our systems evolved into fully integrated pipelines connecting content creation, localization, video production, assessments, and AI-supported workflows. This phase also marked the establishment of our Singapore headquarters and the launch of TUTRAIN, enabling real learner feedback and continuous refinement across learning and AI systems.",
     image: timeline2025,
     icon: "⚡",
+  },
+  {
+    year: "2026",
+    title: "Unified Ecosystem",
+    shortDesc: "Learning and AI systems operating as one evolving ecosystem.",
+    fullDesc: "Today, eQOURSE operates as a mature dual-capability ecosystem where learning content systems, AI data pipelines, multilingual delivery frameworks, and real-world validation mechanisms function together continuously. With global delivery capabilities, scalable infrastructure, and integrated execution models, we continue building meaningful impact across learning and intelligent systems worldwide.",
+    image: timeline2026,
+    icon: "🔮",
   },
 ];
 
