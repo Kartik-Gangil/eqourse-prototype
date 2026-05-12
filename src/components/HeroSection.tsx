@@ -76,6 +76,23 @@ const LinkedInIcon = () => (
   </svg>
 );
 
+const CountUpValue = ({ end, isVisible = true }: { end: number; isVisible?: boolean }) => {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!isVisible) return;
+    let start = 0;
+    const duration = 2000;
+    const step = end / (duration / 16);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= end) { setCount(end); clearInterval(timer); }
+      else setCount(Math.floor(start));
+    }, 16);
+    return () => clearInterval(timer);
+  }, [end, isVisible]);
+  return <>{count}</>;
+};
+
 const HeroSection = () => {
   const [current, setCurrent] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -217,13 +234,19 @@ const HeroSection = () => {
 
             <div className="flex flex-wrap items-center gap-x-10 gap-y-4 pt-4 animate-slide-up-delayed-2">
               {[
-                { value: "500+", label: "Specialists" },
-                { value: "30+", label: "Languages" },
-                { value: "98%+", label: "Accuracy" },
-                { value: "200+", label: "Clients" },
+                { end: 7, suffix: "M+", label: "Students Reach" },
+                { end: 20, suffix: "K+", label: "Learning Content Outputs/Month" },
+                { end: 15, suffix: "K+", label: "Video Solutions Delivered" },
+                { textValue: "Millions", label: "Data Points Processed" },
+                { end: 30, suffix: "+", label: "Languages Covered" },
+                { end: 98, suffix: "%+", label: "Annotation Accuracy" },
+                { end: 500, suffix: "+", label: "Experts" },
               ].map((stat) => (
                 <div key={stat.label}>
-                  <div className="text-2xl font-bold text-gradient">{stat.value}</div>
+                  <div className="text-2xl font-bold text-gradient">
+                    {stat.end !== undefined ? <CountUpValue end={stat.end} /> : stat.textValue}
+                    {stat.suffix}
+                  </div>
                   <div className="text-xs uppercase tracking-wider" style={{ color: "hsl(242, 20%, 70%)" }}>
                     {stat.label}
                   </div>
