@@ -4,7 +4,7 @@ const NewsletterSection = () => {
       <div className="container mx-auto px-4 text-center">
         <h2
           id="insights-heading"
-          className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight px-2"
+          className="font-heading text-3xl md:text-4xl font-bold mb-4 leading-tight px-2"
           style={{ color: 'hsl(0, 0%, 100%)' }}
         >
           Insights Shaping the Future of Content and AI

@@ -110,7 +110,11 @@ const CTASection = () => {
       <div className="absolute inset-0 bg-foreground/15 z-[3]" />
 
       <div className="container mx-auto px-4 relative z-10 text-center">
-        <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight px-2" style={{ color: 'hsl(0, 0%, 100%)' }}>
+        <h2
+          id="cta-heading"
+          className="font-heading text-3xl md:text-4xl font-bold mb-4 leading-tight px-2"
+          style={{ color: 'hsl(0, 0%, 100%)' }}
+        >
           Ready to Power Your Learning Content and AI with Quality Data Solutions?
         </h2>
         <p className="text-base sm:text-lg mb-8 max-w-2xl mx-auto px-4" style={{ color: 'hsl(0, 0%, 85%)' }}>
