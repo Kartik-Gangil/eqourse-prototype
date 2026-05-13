@@ -1,125 +1,271 @@
 import { useRef, useEffect, useState } from "react";
-import { Handshake, Users, Globe, RefreshCw, Shield, Target, TrendingUp } from "lucide-react";
+import {
+  Handshake, Users, Globe, RefreshCw, Shield,
+  Lock, TrendingUp, Languages, ClipboardCheck,
+  Accessibility, LayoutDashboard, UserCheck,
+  BookOpen, Briefcase, BarChart3
+} from "lucide-react";
 import strategyImage from "@/assets/strategy-image.jpg";
 
 const reasons = [
-  { icon: Handshake, title: "Dual-Capability Partner", desc: "Education content + AI training data from one team." },
-  { icon: Users, title: "500+ Domain Specialists", desc: "STEM-educated across science, medicine, engineering, law." },
-  { icon: Globe, title: "30+ Languages", desc: "South Asian, Southeast Asian, European, African language families." },
-  { icon: RefreshCw, title: "Only Closed-Loop AI Pipeline", desc: "Annotate + test on real users + feedback loop. 20–40% faster." },
-  { icon: Shield, title: "ISO 9001 & 27001 Certified", desc: "GDPR-ready. Full data lineage. SOC 2 in progress." },
-  { icon: Target, title: "98%+ Accuracy Guarantee", desc: "Gold-standard honeypots, IAA ≥ 0.80, multi-tier QA." },
-  { icon: TrendingUp, title: "Scalable", desc: "Free pilot to enterprise-scale. Project or subscription pricing." },
+  {
+    icon: Handshake,
+    title: "Dual-Capability Global Partner",
+    desc: "End-to-end learning solutions across content, assessments, and AI-driven delivery built within one unified ecosystem.",
+    tags: "Integrated workflows • Accessibility-first design • Scalable delivery infrastructure",
+  },
+  {
+    icon: Users,
+    title: "500+ Domain Specialists",
+    desc: "Expert-led content across STEAM, healthcare, finance, and enterprise learning ensuring depth, accuracy, and real-world relevance.",
+    tags: "Academic expertise • Industry alignment • Workforce-ready outcomes",
+  },
+  {
+    icon: Globe,
+    title: "Global Delivery Across 30+ Languages",
+    desc: "Multilingual curriculum, assessments, and localization workflows enabling seamless global learning experiences.",
+    tags: "Localization pipelines • Cross-border delivery • Cultural adaptability",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "98%+ Quality Assurance Standards",
+    desc: "High-precision output is ensured through multi-layer QA frameworks, SME validations, and data-backed review systems.",
+    tags: "Multi-tier QA • SME review layers • Statistically validated outputs",
+  },
+  {
+    icon: Lock,
+    title: "White-Label Production Partnerships",
+    desc: "Confidential, scalable content production tailored for seamless integration with your platform and brand.",
+    tags: "Backend delivery • Platform-ready assets • Enterprise-grade confidentiality",
+  },
+  {
+    icon: RefreshCw,
+    title: "Closed-Loop AI Data Pipeline",
+    desc: "Continuously improving AI datasets through expert annotation, validation, and real-world feedback cycles.",
+    tags: "Human-in-the-loop • Iterative refinement • High-accuracy datasets",
+  },
+  {
+    icon: Shield,
+    title: "Enterprise-Grade Security & Compliance",
+    desc: "Secure, compliant operations aligned with global standards for handling sensitive and regulated data.",
+    tags: "ISO-certified workflows • GDPR readiness • Controlled data governance",
+  },
+  {
+    icon: TrendingUp,
+    title: "Scalable from Pilot to Enterprise Programs",
+    desc: "Flexible engagement models designed to grow from initial pilots to large-scale global deployments.",
+    tags: "Modular scaling • Multi-stakeholder delivery • Global execution capability",
+  },
+  {
+    icon: Languages,
+    title: "Enterprise-Scale Localization Infrastructure",
+    desc: "Robust multilingual systems ensuring consistent, culturally relevant learning across geographies.",
+    tags: "Terminology management • Linguistic QA • Cultural adaptation",
+  },
+  {
+    icon: BarChart3,
+    title: "Large-Scale Assessment & Test-Prep Expertise",
+    desc: "End-to-end assessment solutions designed for academic, competitive, and workforce readiness needs.",
+    tags: "Question banks • Psychometric validation • Standards-aligned frameworks",
+  },
+  {
+    icon: Accessibility,
+    title: "Accessibility-Compliant Content at Scale",
+    desc: "Inclusive learning solutions designed to meet global accessibility standards across all formats and platforms.",
+    tags: "WCAG compliance • Multi-format accessibility • Inclusive design systems",
+  },
+  {
+    icon: LayoutDashboard,
+    title: "LMS-Ready & Interoperable Learning Assets",
+    desc: "Seamlessly deployable content compatible across modern learning platforms and ecosystems.",
+    tags: "SCORM • xAPI • AICC • cmi5 integration",
+  },
+  {
+    icon: UserCheck,
+    title: "Structured SME Panels & Review Workflows",
+    desc: "Expert-driven validation ensures accuracy, alignment, and technical reliability across all deliverables.",
+    tags: "Domain experts • Calibration systems • Multi-level review workflows",
+  },
+  {
+    icon: BookOpen,
+    title: "End-to-End Publishing Production Support",
+    desc: "Complete publishing lifecycle support from structured content creation to final production outputs.",
+    tags: "XML-first workflows • EPUB conversion • Print-ready delivery",
+  },
+  {
+    icon: Briefcase,
+    title: "Talent & Workforce Evaluation Frameworks",
+    desc: "Data-driven evaluation systems designed to measure, map, and enhance workforce capabilities.",
+    tags: "Competency mapping • Psychometric tools • Hiring-stage assessments",
+  },
 ];
 
 const WhyChooseUs = () => {
   const imageRef = useRef<HTMLDivElement>(null);
+  const mobileScrollRef = useRef<HTMLDivElement>(null);
   const [imageHeight, setImageHeight] = useState(500);
+  const [isMobilePaused, setIsMobilePaused] = useState(false);
+  const animRef = useRef<number>(0);
 
-  // Measure image height on load/resize to sync scrollable panel
+  // Desktop: sync scrollable panel height with image
   useEffect(() => {
     const measure = () => {
-      if (imageRef.current) {
-        setImageHeight(imageRef.current.offsetHeight);
-      }
+      if (imageRef.current) setImageHeight(imageRef.current.offsetHeight);
     };
     measure();
     window.addEventListener("resize", measure);
     return () => window.removeEventListener("resize", measure);
   }, []);
 
+  // Mobile: auto-scroll horizontal cards
+  useEffect(() => {
+    const el = mobileScrollRef.current;
+    if (!el) return;
+    let running = true;
+    const step = () => {
+      if (!running) return;
+      if (!isMobilePaused && el) {
+        el.scrollLeft += 0.5;
+        const half = el.scrollWidth / 2;
+        if (el.scrollLeft >= half) el.scrollLeft -= half;
+      }
+      animRef.current = requestAnimationFrame(step);
+    };
+    animRef.current = requestAnimationFrame(step);
+    return () => {
+      running = false;
+      cancelAnimationFrame(animRef.current);
+    };
+  }, [isMobilePaused]);
+
+  const mobileItems = [...reasons, ...reasons];
+  const desktopItems = [...reasons, ...reasons];
+
   return (
-    <section className="py-16 sm:py-24 bg-muted/30">
+    <section aria-labelledby="why-eqourse-heading" className="py-16 sm:py-24 bg-muted/30">
       <div className="container mx-auto px-4">
-        {/* Section heading — shown on all screens */}
+        {/* Section heading */}
         <div className="mb-8 sm:mb-12">
           <span className="text-sm font-semibold tracking-wider uppercase text-primary">Why eQOURSE</span>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mt-1">
+          <h2 id="why-eqourse-heading" className="font-heading text-3xl md:text-4xl font-bold text-foreground mt-1">
             Why Choose <span className="text-gradient">eQOURSE?</span>
           </h2>
         </div>
 
-        {/* Desktop: side-by-side with scrollable right panel */}
+        {/* ── Desktop: sticky image + scrollable right panel ── */}
         <div className="hidden lg:grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left: fixed-height image */}
+          {/* Left: sticky image */}
           <div ref={imageRef} className="sticky top-24">
             <div className="rounded-2xl overflow-hidden shadow-elevated">
-              <img src={strategyImage} alt="Why Choose eQOURSE — our team at work" width={800} height={600} loading="lazy" className="w-full object-cover" />
+              <img
+                src={strategyImage}
+                alt="Why Choose eQOURSE — our expert team delivering learning solutions"
+                width={800}
+                height={600}
+                loading="lazy"
+                className="w-full object-cover"
+              />
             </div>
           </div>
 
-          {/* Right: scrollable reasons panel */}
+          {/* Right: CSS marquee auto-scroll panel */}
           <div
-            className="overflow-y-auto pr-2 scrollbar-thin"
-            style={{
-              maxHeight: `${imageHeight}px`,
-              scrollbarWidth: 'thin',
-              scrollbarColor: 'hsl(170 82% 40% / 0.3) transparent',
-            }}
+            className="relative overflow-hidden"
+            style={{ height: `${imageHeight}px` }}
           >
-            <div className="space-y-3">
-              {reasons.map((reason) => (
-                <div key={reason.title} className="group flex gap-4 p-4 rounded-xl hover:bg-card cursor-default neon-card transition-all duration-300">
+            {/* Fade masks top & bottom */}
+            <div className="absolute top-0 left-0 right-0 h-12 z-10 pointer-events-none bg-gradient-to-b from-muted/30 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 h-12 z-10 pointer-events-none bg-gradient-to-t from-muted/30 to-transparent" />
+
+            <div className="why-marquee-track space-y-3 pr-2">
+              {desktopItems.map((reason, i) => (
+                <article
+                  key={`${reason.title}-${i}`}
+                  className="group flex gap-4 p-4 rounded-xl hover:bg-card neon-card transition-all duration-300"
+                >
                   <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-gradient-primary transition-all duration-300">
                     <reason.icon className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors" />
                   </div>
                   <div>
-                    <h4 className="font-heading font-semibold text-foreground mb-1">{reason.title}</h4>
-                    <p className="text-sm text-muted-foreground">{reason.desc}</p>
+                    <h3 className="font-heading font-semibold text-foreground mb-1">{reason.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{reason.desc}</p>
+                    <p className="text-xs text-primary/60 mt-1.5 font-medium">{reason.tags}</p>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
-
-            {/* Scroll hint */}
-            <div className="sticky bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-muted/30 to-transparent pointer-events-none" />
           </div>
         </div>
 
-        {/* Mobile: image then horizontal scrollable cards */}
+        {/* ── Mobile: image + auto-scrolling horizontal cards ── */}
         <div className="lg:hidden">
           {/* Image */}
           <div className="rounded-2xl overflow-hidden shadow-elevated mb-8">
-            <img src={strategyImage} alt="Why Choose eQOURSE" width={800} height={600} loading="lazy" className="w-full object-cover" />
+            <img
+              src={strategyImage}
+              alt="Why Choose eQOURSE"
+              width={800}
+              height={600}
+              loading="lazy"
+              className="w-full object-cover"
+            />
           </div>
 
-          {/* Horizontal scrollable cards */}
+          {/* Auto-scrolling horizontal cards */}
           <div
-            className="flex gap-3 overflow-x-auto pb-4 snap-x snap-mandatory"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            ref={mobileScrollRef}
+            className="flex gap-3 overflow-x-auto pb-4 cursor-grab active:cursor-grabbing"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            onTouchStart={() => setIsMobilePaused(true)}
+            onTouchEnd={() => setTimeout(() => setIsMobilePaused(false), 3000)}
+            onMouseEnter={() => setIsMobilePaused(true)}
+            onMouseLeave={() => setIsMobilePaused(false)}
           >
-            {reasons.map((reason) => (
-              <div
-                key={reason.title}
-                className="flex-shrink-0 w-[calc(50%-6px)] snap-start"
+            {mobileItems.map((reason, i) => (
+              <article
+                key={`${reason.title}-${i}`}
+                className="flex-shrink-0 w-[calc(70vw-12px)] max-w-[280px]"
               >
-                <div className="group p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 neon-card h-full transition-all duration-300">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-gradient-primary transition-all duration-300">
-                    <reason.icon className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors" />
+                <div className="group p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 neon-card h-full transition-all duration-300 flex flex-col gap-2">
+                  <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-gradient-primary transition-all duration-300">
+                    <reason.icon className="w-4 h-4 text-primary group-hover:text-primary-foreground transition-colors" />
                   </div>
-                  <h4 className="font-heading font-semibold text-foreground text-sm mb-1">{reason.title}</h4>
+                  <h3 className="font-heading font-semibold text-foreground text-sm leading-snug">{reason.title}</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed">{reason.desc}</p>
+                  <p className="text-[10px] text-primary/60 font-medium leading-relaxed mt-auto">{reason.tags}</p>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
 
-          {/* Scroll hint */}
-          <div className="flex justify-center mt-2 sm:hidden">
+          {/* Swipe hint */}
+          <div className="flex justify-center mt-3">
             <div className="flex items-center gap-2 text-xs text-muted-foreground/60">
-              <svg className="w-4 h-4 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              <svg className="w-4 h-4 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
               Swipe to see more
             </div>
           </div>
         </div>
       </div>
 
-      {/* Scrollbar styling */}
       <style>{`
         .scrollbar-thin::-webkit-scrollbar { width: 4px; }
         .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
         .scrollbar-thin::-webkit-scrollbar-thumb { background: hsl(170 82% 40% / 0.3); border-radius: 4px; }
         .scrollbar-thin::-webkit-scrollbar-thumb:hover { background: hsl(170 82% 40% / 0.5); }
+
+        @keyframes why-scroll-up {
+          0%   { transform: translateY(0); }
+          100% { transform: translateY(-50%); }
+        }
+        .why-marquee-track {
+          animation: why-scroll-up 35s linear infinite;
+        }
+        .why-marquee-track:hover {
+          animation-play-state: paused;
+        }
       `}</style>
     </section>
   );

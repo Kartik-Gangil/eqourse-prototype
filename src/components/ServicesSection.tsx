@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { BookOpen, Lightbulb, GraduationCap, Brain, ArrowRight, Database, Tag, ShieldCheck, FlaskConical } from "lucide-react";
+import { BookOpen, Lightbulb, GraduationCap, Brain, ArrowRight, Database, Tag, ShieldCheck, FlaskConical, ClipboardCheck, Briefcase, Accessibility, Video, Globe, Cpu, Package, Users, FileEdit } from "lucide-react";
 
 /* ── Decorative SVG illustrations for each card ── */
 const CardIllustrations: Record<string, React.FC<{ className?: string }>> = {
@@ -240,30 +240,72 @@ const FeaturedCardDecoration = () => (
 const educationServices = [
   {
     icon: BookOpen,
-    title: "Academic Content",
-    description: "Creating K-12 learning materials, test prep content, and curriculum development.",
-    link: "/content-service/custom-e-learning-content",
+    title: "Institutional Learning Solutions",
+    description: "Standards-aligned K–12 and higher education curriculum, instructional design, lesson plans, assessments, STEAM modules, digital learning assets, multilingual content, and scalable academic program development across global curriculum frameworks and learning ecosystems.",
+    link: "#",
     accent: "from-primary/20 to-accent/10",
   },
   {
-    icon: Lightbulb,
-    title: "Instructional Design",
-    description: "Crafting effective instructional designs for better understanding and retention.",
-    link: "/content-service/learning-solutions",
+    icon: ClipboardCheck,
+    title: "Assessment, Testing & Evaluation Solutions",
+    description: "Large-scale assessment development, question banks, psychometric evaluation support, certification testing frameworks, adaptive assessments, benchmark testing, workforce readiness measurement, and global test-preparation content across academic, professional, and competitive examination programs.",
+    link: "#",
     accent: "from-accent/20 to-primary/10",
   },
   {
-    icon: GraduationCap,
-    title: "Study Support",
-    description: "Offering tutor and SME recruitment, along with content translation and localization services.",
-    link: "/content-service/subject-matter-experts",
+    icon: Briefcase,
+    title: "Corporate Learning Solutions",
+    description: "Workforce training content, compliance learning modules, role-based learning pathways, microlearning programs, simulation-based training, competency frameworks, SOP documentation, certification preparation content, and enterprise learning solutions supporting organizational capability development and performance readiness.",
+    link: "#",
     accent: "from-primary/15 to-accent/15",
   },
   {
-    icon: Brain,
-    title: "AI-Powered Learning",
-    description: "Enhancing content with AI for maximum impact and personalized learning experiences.",
-    link: "/content-service/learning-solutions/ai-powered-learning",
+    icon: Accessibility,
+    title: "Accessibility",
+    description: "WCAG, Section 508, ADA, EN 301 549 compliance support, accessible PDFs, EPUB remediation, LMS course accessibility, MathML support, captioning, audio descriptions, assistive technology compatibility, accessibility audits, VPAT documentation, and inclusive learning environments.",
+    link: "#",
+    accent: "from-accent/15 to-primary/20",
+  },
+  {
+    icon: Video,
+    title: "Learning Video Production Services",
+    description: "2D animation, 3D visualization, explainer videos, simulation-based learning videos, instructor-led training recordings, microlearning modules, technical walkthroughs, multilingual learning videos, compliance training visuals, and curriculum-aligned instructional media for digital learning environments.",
+    link: "#",
+    accent: "from-primary/20 to-accent/15",
+  },
+  {
+    icon: Globe,
+    title: "Localization Services",
+    description: "Multilingual translation services, curriculum localization, assessment localization, LMS localization, software and platform localization, subtitling, dubbing, cultural adaptation, linguistic QA testing, terminology management, and global content readiness across education and enterprise ecosystems.",
+    link: "#",
+    accent: "from-accent/10 to-primary/20",
+  },
+  {
+    icon: Cpu,
+    title: "Technology Solutions",
+    description: "SCORM, xAPI, AICC, cmi5-compliant LMS course packaging, LMS deployment support, LTI integrations, virtual classroom integrations, AR/VR simulations, adaptive learning environments, analytics dashboards, LRS infrastructure support, and enterprise learning platform compatibility.",
+    link: "#",
+    accent: "from-primary/15 to-accent/20",
+  },
+  {
+    icon: Package,
+    title: "White-Label Solutions",
+    description: "Confidential content production partnerships, scalable learning development pipelines, branded curriculum delivery frameworks, publishing support services, assessment development support, multilingual learning assets, and enterprise-grade backend production capacity for EdTech platforms and publishers.",
+    link: "#",
+    accent: "from-accent/20 to-primary/15",
+  },
+  {
+    icon: Users,
+    title: "Domain Expert Services",
+    description: "SME sourcing, curriculum alignment expertise, assessment authoring panels, psychometric validation support, research manuscript review, taxonomy development, ontology structuring, annotation validation workflows, technical verification support, and subject-matter expertise across academic and professional domains.",
+    link: "#",
+    accent: "from-primary/20 to-accent/10",
+  },
+  {
+    icon: FileEdit,
+    title: "Editorial & Publishing Services",
+    description: "Copy editing, proofreading, XML-first publishing workflows, EPUB conversion, metadata structuring, ONIX and CrossRef metadata support, typesetting, textbook layout design, accessibility layout remediation, print-ready production support, and large-scale publishing workflow optimization.",
+    link: "#",
     accent: "from-accent/15 to-primary/20",
   },
 ];
@@ -368,14 +410,20 @@ const ServicesSection = ({ activeTab = "education", onTabChange }: ServicesSecti
                       <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-soft">
                         <ServiceIcon className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
                       </div>
-                      <span className="text-xs font-mono text-muted-foreground/50">0{i + 1}</span>
+                      <span className="text-xs font-mono text-muted-foreground/50">{String(i + 1).padStart(2, '0')}</span>
                     </div>
                     <h3 className="font-heading text-lg sm:text-xl font-bold text-foreground mb-2">{service.title}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
                   </div>
-                  <Link to={service.link} className="inline-flex items-center text-sm font-semibold text-primary hover:gap-3 gap-2 transition-all mt-4 sm:mt-6 group/link">
-                    Know More <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                  </Link>
+                  {service.link === "#" ? (
+                    <span className="inline-flex items-center text-sm font-semibold text-primary gap-2 mt-4 sm:mt-6 cursor-default opacity-60 select-none">
+                      Learn More <ArrowRight className="w-4 h-4" />
+                    </span>
+                  ) : (
+                    <Link to={service.link} className="inline-flex items-center text-sm font-semibold text-primary hover:gap-3 gap-2 transition-all mt-4 sm:mt-6 group/link">
+                      Learn More <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                    </Link>
+                  )}
                 </div>
               </div>
             );
