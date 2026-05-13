@@ -234,17 +234,14 @@ const HeroSection = () => {
 
             <div className="flex flex-wrap items-center gap-x-10 gap-y-4 pt-4 animate-slide-up-delayed-2">
               {[
-                { end: 7, suffix: "M+", label: "Students Reach" },
-                { end: 20, suffix: "K+", label: "Learning Content Outputs/Month" },
-                { end: 15, suffix: "K+", label: "Video Solutions Delivered" },
-                { textValue: "Millions", label: "Data Points Processed" },
-                { end: 30, suffix: "+", label: "Languages Covered" },
-                { end: 98, suffix: "%+", label: "Annotation Accuracy" },
-                { end: 500, suffix: "+", label: "Experts" },
+                { end: 500, suffix: "+", label: "Specialists" },
+                { end: 30, suffix: "+", label: "Languages" },
+                { end: 98, suffix: "%+", label: "Accuracy" },
+                { end: 200, suffix: "+", label: "Clients" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <div className="text-2xl font-bold text-gradient">
-                    {stat.end !== undefined ? <CountUpValue end={stat.end} /> : stat.textValue}
+                    <CountUpValue end={stat.end} />
                     {stat.suffix}
                   </div>
                   <div className="text-xs uppercase tracking-wider" style={{ color: "hsl(242, 20%, 70%)" }}>

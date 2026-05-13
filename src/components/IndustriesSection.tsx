@@ -1,243 +1,226 @@
 import { useRef, useEffect, useState } from "react";
-import {
-  Mic, Eye, Landmark, HeartPulse, MessageSquare,
-  GraduationCap, Globe, Building2, Stethoscope, Scale,
-  Banknote, Cpu, Factory, Users, Briefcase,
-  LayoutDashboard, BookOpen, FlaskConical, School,
-  University, Monitor, BookMarked, ClipboardCheck,
-  ClipboardList, BookCopy, Award
-} from "lucide-react";
 
-// ── AI industries (original 5) ──────────────────────────────────────────────
-const aiIndustries = [
+// ── Industry data with images ────────────────────────────────────────────────
+const industries = [
+  // AI
   {
-    icon: Mic,
     title: "Voice & NLP AI",
     desc: "Multilingual speech datasets for ASR/TTS across 30+ languages.",
-    gradient: "from-primary to-accent",
+    img: "/assets/industries/industry_voice_nlp_ai_1778651235342.png",
+    fallback: "linear-gradient(135deg,hsl(170,82%,22%),hsl(242,33%,18%))",
     tag: "ai",
   },
+  // EdTech
   {
-    icon: Eye,
-    title: "Computer Vision",
-    desc: "Labeled images and video for retail, autonomous vehicles, and inspection.",
-    gradient: "from-accent to-primary",
-    tag: "ai",
-  },
-  {
-    icon: Landmark,
-    title: "FinTech AI",
-    desc: "Financial document OCR, transaction classification, and handwritten text.",
-    gradient: "from-primary to-accent",
-    tag: "ai",
-  },
-  {
-    icon: HeartPulse,
-    title: "Healthcare AI",
-    desc: "Medical image annotation, clinical NLP, and biomedical NER.",
-    gradient: "from-accent to-primary",
-    tag: "ai",
-  },
-  {
-    icon: MessageSquare,
-    title: "Conversational AI",
-    desc: "Intent classification, chatbot data, and RLHF for LLMs.",
-    gradient: "from-primary to-accent",
-    tag: "ai",
-  },
-];
-
-// ── EdTech / Education industries (new 22) ───────────────────────────────────
-const edtechIndustries = [
-  {
-    icon: Building2,
     title: "Government Education Programs",
     desc: "National curriculum programs and system-wide learning initiatives.",
-    gradient: "from-accent to-primary",
+    img: "/assets/industries/industry_government_education_1778651348147.png",
+    fallback: "linear-gradient(135deg,hsl(220,60%,25%),hsl(242,33%,18%))",
     tag: "edtech",
   },
+  // AI
   {
-    icon: Globe,
+    title: "Computer Vision",
+    desc: "Labeled images and video for retail, autonomous vehicles, and inspection.",
+    img: "/assets/industries/industry_computer_vision_1778651255484.png",
+    fallback: "linear-gradient(135deg,hsl(196,80%,22%),hsl(242,33%,18%))",
+    tag: "ai",
+  },
+  // EdTech
+  {
     title: "NGOs & Development Organizations",
     desc: "Multilingual education programs and community learning initiatives.",
-    gradient: "from-primary to-accent",
+    img: "/assets/industries/industry_ngo_education_1778651369723.png",
+    fallback: "linear-gradient(135deg,hsl(140,50%,22%),hsl(242,33%,18%))",
     tag: "edtech",
   },
+  // AI
   {
-    icon: GraduationCap,
+    title: "FinTech AI",
+    desc: "Financial document OCR, transaction classification, and handwritten text.",
+    img: "/assets/industries/industry_fintech_ai_1778651271949.png",
+    fallback: "linear-gradient(135deg,hsl(45,70%,22%),hsl(242,33%,18%))",
+    tag: "ai",
+  },
+  // EdTech
+  {
     title: "International Education Operators",
     desc: "Cross-border curriculum delivery and localization support frameworks.",
-    gradient: "from-accent to-primary",
+    img: "/assets/industries/industry_international_education_1778651390733.png",
+    fallback: "linear-gradient(135deg,hsl(200,60%,22%),hsl(242,33%,18%))",
     tag: "edtech",
   },
+  // AI
   {
-    icon: Stethoscope,
+    title: "Healthcare AI",
+    desc: "Medical image annotation, clinical NLP, and biomedical NER.",
+    img: "/assets/industries/industry_healthcare_ai_1778651293947.png",
+    fallback: "linear-gradient(135deg,hsl(340,60%,22%),hsl(242,33%,18%))",
+    tag: "ai",
+  },
+  // EdTech
+  {
     title: "Healthcare & Medical Education Providers",
     desc: "Clinical education content and licensing exam preparation support.",
-    gradient: "from-primary to-accent",
+    img: "/assets/industries/industry_healthcare_medical_edu_1778651420490.png",
+    fallback: "linear-gradient(135deg,hsl(340,55%,25%),hsl(242,33%,18%))",
     tag: "edtech",
   },
+  // AI
   {
-    icon: Scale,
+    title: "Conversational AI",
+    desc: "Intent classification, chatbot data, and RLHF for LLMs.",
+    img: "/assets/industries/industry_conversational_ai_1778651325965.png",
+    fallback: "linear-gradient(135deg,hsl(270,60%,22%),hsl(242,33%,18%))",
+    tag: "ai",
+  },
+  // EdTech
+  {
     title: "Legal & Regulatory Training Providers",
     desc: "Compliance training content and certification learning solutions.",
-    gradient: "from-accent to-primary",
+    img: "/assets/industries/industry_legal_regulatory_1778651442743.png",
+    fallback: "linear-gradient(135deg,hsl(240,40%,25%),hsl(242,33%,18%))",
     tag: "edtech",
   },
   {
-    icon: Banknote,
     title: "Banking, Finance & Insurance Institutions",
     desc: "Financial training content and certification readiness programs.",
-    gradient: "from-primary to-accent",
+    img: "/assets/industries/industry_banking_finance_1778651472232.png",
+    fallback: "linear-gradient(135deg,hsl(45,65%,22%),hsl(242,33%,18%))",
     tag: "edtech",
   },
   {
-    icon: Cpu,
     title: "Technology & IT Training Providers",
     desc: "Technical certification pathways and digital skills training content.",
-    gradient: "from-accent to-primary",
+    img: "/assets/industries/industry_tech_it_training_1778651489938.png",
+    fallback: "linear-gradient(135deg,hsl(210,70%,22%),hsl(242,33%,18%))",
     tag: "edtech",
   },
   {
-    icon: Factory,
     title: "Engineering & Manufacturing Organizations",
     desc: "Technical documentation and workforce readiness learning content.",
-    gradient: "from-primary to-accent",
+    img: "/assets/industries/industry_engineering_manufacturing_1778651519016.png",
+    fallback: "linear-gradient(135deg,hsl(25,60%,22%),hsl(242,33%,18%))",
     tag: "edtech",
   },
   {
-    icon: Users,
     title: "Workforce Development Agencies",
     desc: "Employment readiness programs and skills development content solutions.",
-    gradient: "from-accent to-primary",
+    img: "/assets/industries/industry_workforce_development_1778651534276.png",
+    fallback: "linear-gradient(135deg,hsl(160,50%,22%),hsl(242,33%,18%))",
     tag: "edtech",
   },
   {
-    icon: Briefcase,
     title: "Professional Training Companies",
     desc: "Certification-aligned professional learning program development.",
-    gradient: "from-primary to-accent",
+    img: "/assets/industries/industry_professional_training_1778651549954.png",
+    fallback: "linear-gradient(135deg,hsl(220,55%,22%),hsl(242,33%,18%))",
     tag: "edtech",
   },
   {
-    icon: LayoutDashboard,
     title: "Learning Platform Providers (LMS/LXP)",
     desc: "Platform-ready learning assets and interoperable content packaging.",
-    gradient: "from-accent to-primary",
+    img: "/assets/industries/industry_lms_lxp_platform_1778651565795.png",
+    fallback: "linear-gradient(135deg,hsl(190,60%,22%),hsl(242,33%,18%))",
     tag: "edtech",
   },
   {
-    icon: BookOpen,
     title: "Digital Publishing Platforms",
     desc: "XML-first publishing pipelines and scalable content structuring.",
-    gradient: "from-primary to-accent",
+    img: "/assets/industries/industry_digital_publishing_1778651600731.png",
+    fallback: "linear-gradient(135deg,hsl(260,50%,22%),hsl(242,33%,18%))",
     tag: "edtech",
   },
   {
-    icon: FlaskConical,
     title: "Research Institutions & Think Tanks",
     desc: "Research publishing workflows and technical documentation support.",
-    gradient: "from-accent to-primary",
+    img: null,
+    fallback: "linear-gradient(135deg,hsl(230,50%,28%),hsl(242,33%,18%))",
     tag: "edtech",
   },
   {
-    icon: School,
     title: "K–12 Education Providers",
     desc: "Standards-aligned curriculum, assessments, scalable classroom learning programs.",
-    gradient: "from-primary to-accent",
+    img: null,
+    fallback: "linear-gradient(135deg,hsl(150,55%,22%),hsl(242,33%,18%))",
     tag: "edtech",
   },
   {
-    icon: University,
     title: "Higher Education Institutions",
     desc: "Courseware pipelines, research support, digital program delivery.",
-    gradient: "from-accent to-primary",
+    img: null,
+    fallback: "linear-gradient(135deg,hsl(35,60%,25%),hsl(242,33%,18%))",
     tag: "edtech",
   },
   {
-    icon: Monitor,
     title: "EdTech Platforms",
     desc: "Scalable content pipelines, assessments, platform-ready learning assets.",
-    gradient: "from-primary to-accent",
+    img: null,
+    fallback: "linear-gradient(135deg,hsl(170,70%,20%),hsl(242,33%,18%))",
     tag: "edtech",
   },
   {
-    icon: BookMarked,
     title: "Publishers",
     desc: "End-to-end publishing workflows, accessibility, metadata-ready content pipelines.",
-    gradient: "from-accent to-primary",
+    img: null,
+    fallback: "linear-gradient(135deg,hsl(300,40%,22%),hsl(242,33%,18%))",
     tag: "edtech",
   },
   {
-    icon: ClipboardCheck,
     title: "Corporate Learning & L&D Teams",
     desc: "Workforce training programs and competency-aligned learning solutions.",
-    gradient: "from-primary to-accent",
+    img: null,
+    fallback: "linear-gradient(135deg,hsl(220,55%,25%),hsl(242,33%,18%))",
     tag: "edtech",
   },
   {
-    icon: ClipboardList,
     title: "Assessment Organizations",
     desc: "Large-scale testing programs and psychometric workflow support.",
-    gradient: "from-accent to-primary",
+    img: null,
+    fallback: "linear-gradient(135deg,hsl(15,60%,25%),hsl(242,33%,18%))",
     tag: "edtech",
   },
   {
-    icon: BookCopy,
     title: "Test Preparation Companies",
     desc: "Academic and competitive exam preparation content pipelines.",
-    gradient: "from-primary to-accent",
+    img: null,
+    fallback: "linear-gradient(135deg,hsl(195,65%,22%),hsl(242,33%,18%))",
     tag: "edtech",
   },
   {
-    icon: GraduationCap,
     title: "Tutoring Providers",
     desc: "Supplemental learning content and structured assessment support.",
-    gradient: "from-accent to-primary",
+    img: null,
+    fallback: "linear-gradient(135deg,hsl(160,55%,22%),hsl(242,33%,18%))",
     tag: "edtech",
   },
   {
-    icon: Award,
     title: "Certification Bodies",
     desc: "Certification frameworks, assessments, readiness and evaluation solutions.",
-    gradient: "from-primary to-accent",
+    img: null,
+    fallback: "linear-gradient(135deg,hsl(250,50%,25%),hsl(242,33%,18%))",
     tag: "edtech",
   },
 ];
-
-// ── Interleave: one AI then one EdTech, repeat until all are placed ──────────
-const interleaved: typeof aiIndustries = [];
-const maxLen = Math.max(aiIndustries.length, edtechIndustries.length);
-for (let i = 0; i < maxLen; i++) {
-  if (i < aiIndustries.length) interleaved.push(aiIndustries[i]);
-  if (i < edtechIndustries.length) interleaved.push(edtechIndustries[i]);
-}
 
 const IndustriesSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const animRef = useRef<number>(0);
-  const speedRef = useRef(0.6); // px per frame
 
-  // Auto-scroll animation
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
-
     let running = true;
-
     const step = () => {
       if (!running) return;
       if (!isPaused && el) {
-        el.scrollLeft += speedRef.current;
-        const halfScroll = el.scrollWidth / 2;
-        if (el.scrollLeft >= halfScroll) {
-          el.scrollLeft -= halfScroll;
-        }
+        el.scrollLeft += 0.6;
+        const half = el.scrollWidth / 2;
+        if (el.scrollLeft >= half) el.scrollLeft -= half;
       }
       animRef.current = requestAnimationFrame(step);
     };
-
     animRef.current = requestAnimationFrame(step);
     return () => {
       running = false;
@@ -245,14 +228,14 @@ const IndustriesSection = () => {
     };
   }, [isPaused]);
 
-  // Triple-duplicate for seamless infinite loop
-  const displayItems = [...interleaved, ...interleaved, ...interleaved];
+  const displayItems = [...industries, ...industries, ...industries];
 
   return (
     <section
       aria-label="Industries We Serve"
       className="py-16 sm:py-24 bg-gradient-hero relative overflow-hidden"
     >
+      {/* Dot grid background */}
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
@@ -260,7 +243,9 @@ const IndustriesSection = () => {
           backgroundSize: "30px 30px",
         }}
       />
+
       <div className="container mx-auto px-4 relative z-10">
+        {/* Heading */}
         <div className="text-center mb-10 sm:mb-16">
           <span
             className="text-sm font-semibold tracking-wider uppercase"
@@ -279,112 +264,105 @@ const IndustriesSection = () => {
           </p>
         </div>
 
-        {/* Auto-scrolling horizontal carousel */}
+        {/* Carousel */}
         <div
           ref={scrollRef}
           role="list"
           aria-label="Industry cards"
-          className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing"
+          className="flex gap-4 sm:gap-5 overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           onTouchStart={() => setIsPaused(true)}
-          onTouchEnd={() => {
-            setTimeout(() => setIsPaused(false), 3000);
-          }}
+          onTouchEnd={() => setTimeout(() => setIsPaused(false), 3000)}
         >
-          {displayItems.map((ind, i) => {
-            const Icon = ind.icon;
-            return (
-              <div
-                key={`${ind.title}-${i}`}
-                role="listitem"
-                className="flex-shrink-0 w-[calc(50%-8px)] sm:w-[calc(33.333%-16px)] lg:w-[calc(25%-18px)] group"
-              >
-                <div
-                  className="relative rounded-2xl border overflow-hidden h-full transition-all duration-500 hover:shadow-[0_0_30px_hsl(168_80%_36%/0.15)]"
-                  style={{
-                    background: "linear-gradient(160deg, rgba(15,40,40,0.6) 0%, rgba(15,18,35,0.8) 100%)",
-                    borderColor: ind.tag === "edtech"
-                      ? "rgba(99,102,241,0.2)"
-                      : "rgba(20,184,166,0.15)",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.borderColor =
-                      ind.tag === "edtech" ? "rgba(99,102,241,0.5)" : "rgba(20,184,166,0.45)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.borderColor =
-                      ind.tag === "edtech" ? "rgba(99,102,241,0.2)" : "rgba(20,184,166,0.15)";
-                  }}
-                >
-                  <div className="p-5 sm:p-6 flex flex-col gap-3 sm:gap-4">
-                    {/* Icon */}
-                    <div
-                      className={`w-11 h-11 sm:w-14 sm:h-14 flex-shrink-0 rounded-xl sm:rounded-2xl bg-gradient-to-br ${ind.gradient} flex items-center justify-center group-hover:scale-110 transition-all duration-500`}
-                      style={{
-                        boxShadow: ind.tag === "edtech"
-                          ? "0 0 0 0 transparent"
-                          : "none",
-                      }}
-                      onMouseEnter={(e) => {
-                        (e.currentTarget as HTMLDivElement).style.boxShadow =
-                          ind.tag === "edtech"
-                            ? "0 0 20px rgba(99,102,241,0.3)"
-                            : "0 0 25px hsl(168 80% 36% / 0.25)";
-                      }}
-                      onMouseLeave={(e) => {
-                        (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
-                      }}
-                    >
-                      <Icon className="w-5 h-5 sm:w-7 sm:h-7 text-primary-foreground" />
-                    </div>
-
-                    {/* Title */}
-                    <h3
-                      className="font-heading font-bold text-sm sm:text-base leading-tight transition-colors duration-300"
-                      style={{ color: "hsl(0, 0%, 95%)" }}
-                    >
-                      {ind.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p
-                      className="text-xs sm:text-sm leading-relaxed"
-                      style={{ color: "hsl(242, 20%, 65%)" }}
-                    >
-                      {ind.desc}
-                    </p>
-                  </div>
-
-                  {/* Bottom glow line */}
-                  <div
-                    className="absolute bottom-0 left-0 right-0 h-px transition-all duration-500"
-                    style={{
-                      background: ind.tag === "edtech"
-                        ? "linear-gradient(to right, transparent, rgba(99,102,241,0), transparent)"
-                        : "linear-gradient(to right, transparent, rgba(20,184,166,0), transparent)",
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLDivElement).style.background =
-                        ind.tag === "edtech"
-                          ? "linear-gradient(to right, transparent, rgba(99,102,241,0.45), transparent)"
-                          : "linear-gradient(to right, transparent, rgba(20,184,166,0.45), transparent)";
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLDivElement).style.background =
-                        ind.tag === "edtech"
-                          ? "linear-gradient(to right, transparent, rgba(99,102,241,0), transparent)"
-                          : "linear-gradient(to right, transparent, rgba(20,184,166,0), transparent)";
-                    }}
+          {displayItems.map((ind, i) => (
+            <article
+              key={`${ind.title}-${i}`}
+              role="listitem"
+              className="group flex-shrink-0 w-[calc(50%-8px)] sm:w-[calc(33.333%-14px)] lg:w-[calc(25%-15px)] rounded-2xl overflow-hidden transition-all duration-500"
+              style={{
+                background: "linear-gradient(160deg, rgba(15,40,40,0.6) 0%, rgba(15,18,35,0.85) 100%)",
+                border: ind.tag === "edtech"
+                  ? "1px solid rgba(99,102,241,0.2)"
+                  : "1px solid rgba(20,184,166,0.18)",
+                boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.borderColor =
+                  ind.tag === "edtech" ? "rgba(99,102,241,0.5)" : "rgba(20,184,166,0.45)";
+                (e.currentTarget as HTMLElement).style.boxShadow =
+                  ind.tag === "edtech"
+                    ? "0 0 28px rgba(99,102,241,0.18), 0 8px 24px rgba(0,0,0,0.4)"
+                    : "0 0 28px rgba(20,184,166,0.2), 0 8px 24px rgba(0,0,0,0.4)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.borderColor =
+                  ind.tag === "edtech" ? "rgba(99,102,241,0.2)" : "rgba(20,184,166,0.18)";
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 20px rgba(0,0,0,0.3)";
+              }}
+            >
+              {/* ── Image upper half ── */}
+              <div className="relative w-full overflow-hidden" style={{ height: "160px" }}>
+                {ind.img ? (
+                  <img
+                    src={ind.img}
+                    alt={`${ind.title} — eQOURSE industry solutions`}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                </div>
+                ) : (
+                  <div
+                    className="w-full h-full flex items-center justify-center transition-transform duration-700 group-hover:scale-105"
+                    style={{ background: ind.fallback }}
+                  >
+                    <span
+                      className="text-white/30 font-heading font-bold text-2xl text-center px-4 leading-tight"
+                    >
+                      {ind.title.split(" ").slice(0, 3).join(" ")}
+                    </span>
+                  </div>
+                )}
+                {/* Dark gradient overlay on image for text legibility */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: "linear-gradient(to bottom, transparent 40%, rgba(10,12,28,0.75) 100%)",
+                  }}
+                />
               </div>
-            );
-          })}
+
+              {/* ── Content lower half ── */}
+              <div className="p-4 sm:p-5">
+                <h3
+                  className="font-heading font-bold text-sm sm:text-base leading-snug mb-2 transition-colors duration-300"
+                  style={{ color: "hsl(0, 0%, 95%)" }}
+                >
+                  {ind.title}
+                </h3>
+                <p
+                  className="text-xs sm:text-sm leading-relaxed"
+                  style={{ color: "hsl(242, 20%, 65%)" }}
+                >
+                  {ind.desc}
+                </p>
+              </div>
+
+              {/* Bottom accent line */}
+              <div
+                className="h-px mx-4 mb-4 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{
+                  background: ind.tag === "edtech"
+                    ? "linear-gradient(to right, transparent, rgba(99,102,241,0.6), transparent)"
+                    : "linear-gradient(to right, transparent, rgba(20,184,166,0.6), transparent)",
+                }}
+              />
+            </article>
+          ))}
         </div>
 
-        {/* Scroll hint for mobile */}
+        {/* Mobile swipe hint */}
         <div className="flex justify-center mt-6 sm:hidden">
           <div className="flex items-center gap-2 text-xs" style={{ color: "hsl(242, 20%, 55%)" }}>
             <svg className="w-4 h-4 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -395,7 +373,6 @@ const IndustriesSection = () => {
         </div>
       </div>
 
-      {/* Hide scrollbar */}
       <style>{`.scrollbar-hide::-webkit-scrollbar { display: none; }`}</style>
     </section>
   );
