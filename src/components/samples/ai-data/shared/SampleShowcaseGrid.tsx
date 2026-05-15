@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { FileJson, Globe2, Check, Download, Eye } from "lucide-react";
+import { FileJson, Globe2, Check, Download, Eye, ChevronDown } from "lucide-react";
 import type { SampleShowcase } from "./aiDataSamplesData";
 import { PreviewFilesModal, type PreviewFile } from "../../shared/PreviewFilesModal";
+import { NlpInteractiveThumbnail } from "./NlpInteractiveThumbnails";
 
 interface Props {
   showcases: SampleShowcase[];
@@ -110,84 +111,131 @@ const SampleShowcaseGrid = ({
           {/* Right: Detail panel */}
           <div
             key={active}
-            className="relative rounded-3xl border border-border/60 bg-card p-6 md:p-8 shadow-card animate-slide-up min-h-[360px] overflow-hidden"
+            className="relative rounded-3xl border border-border/60 bg-card p-6 md:p-8 shadow-card animate-slide-up min-h-[360px] overflow-hidden flex flex-col"
           >
             <div className="absolute -top-20 -right-20 w-52 h-52 bg-primary/10 rounded-full blur-3xl" />
-            <div className="relative z-10">
-              <div className="inline-flex items-center gap-1.5 text-[10px] md:text-xs font-bold tracking-widest uppercase text-primary mb-3">
-                <span className="w-6 h-px bg-primary" /> Sample {active + 1} of {showcases.length}
-              </div>
-              <h3 className="font-heading text-2xl md:text-3xl font-extrabold text-foreground mb-3 leading-tight">
-                {current.title}
-              </h3>
-              <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-6">
-                {current.description}
-              </p>
-
-              <div className="grid sm:grid-cols-2 gap-3 mb-5">
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-primary/5 border border-primary/15">
-                  <div className="w-8 h-8 rounded-lg bg-primary/15 flex items-center justify-center flex-shrink-0">
-                    <FileJson className="w-4 h-4 text-primary" />
+            <div className="relative z-10 flex-1 flex flex-col">
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
+                <div className="flex-1 min-w-0">
+                  <div className="inline-flex items-center gap-1.5 text-[10px] md:text-xs font-bold tracking-widest uppercase text-primary mb-3">
+                    <span className="w-6 h-px bg-primary" /> Sample {active + 1} of {showcases.length}
                   </div>
-                  <div className="min-w-0">
-                    <div className="text-[10px] uppercase tracking-wider text-primary font-bold">Output</div>
-                    <div className="text-xs md:text-sm font-medium text-foreground truncate">{current.format}</div>
-                  </div>
+                  <h3 className="font-heading text-2xl md:text-3xl font-extrabold text-foreground mb-2 leading-tight">
+                    {current.title}
+                  </h3>
+                  {current.teaser && (
+                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                      {current.teaser}
+                    </p>
+                  )}
                 </div>
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-accent/10 border border-accent/25">
-                  <div className="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0">
-                    <Globe2 className="w-4 h-4 text-accent-foreground" />
+                
+                <div className="flex flex-col gap-2 flex-shrink-0 sm:items-end">
+                  <div className="inline-flex items-center gap-2 text-[11px] md:text-xs font-medium text-foreground bg-primary/5 border border-primary/15 px-3 py-1.5 rounded-full">
+                    <FileJson className="w-3.5 h-3.5 text-primary" /> {current.format}
                   </div>
-                  <div className="min-w-0">
-                    <div className="text-[10px] uppercase tracking-wider text-accent-foreground font-bold">Languages</div>
-                    <div className="text-xs md:text-sm font-medium text-foreground truncate">{current.languages}</div>
+                  <div className="inline-flex items-center gap-2 text-[11px] md:text-xs font-medium text-foreground bg-accent/5 border border-accent/15 px-3 py-1.5 rounded-full">
+                    <Globe2 className="w-3.5 h-3.5 text-accent-foreground" /> {current.languages}
                   </div>
                 </div>
               </div>
 
-              {/* Animated code-strip preview */}
-              <div className="rounded-xl border border-border/60 bg-[hsl(242_33%_14%)] p-4 font-mono text-[11px] md:text-xs text-white/80 overflow-hidden">
-                <div className="flex items-center gap-1.5 mb-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/60" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-green-400/60" />
-                  <span className="ml-2 text-[10px] text-white/40 uppercase tracking-widest">sample.json</span>
+              <div className="relative w-full h-[220px] sm:h-[260px] md:h-[300px] bg-gradient-to-b from-[#0d1325] to-[#070b18] rounded-2xl overflow-hidden shadow-[0_18px_40px_-20px_rgba(10,15,30,0.5),inset_0_0_0_1px_rgba(255,255,255,0.04)] mb-6 flex-shrink-0">
+                {/* Window chrome */}
+                <div className="flex items-center justify-between px-3.5 py-2.5 border-b border-slate-400/10 bg-gradient-to-b from-white/5 to-transparent">
+                  <div className="flex gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
+                  </div>
+                  <div className="text-[11px] text-slate-400/70 font-mono tracking-wide">
+                    {current.id ? `interactive · ${current.id}.live` : 'preview · sample.json'}
+                  </div>
+                  <div className="inline-flex items-center gap-1.5 text-[9px] font-mono tracking-widest font-bold">
+                    {current.id ? (
+                      <>
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.5)] animate-pulse" />
+                        <span className="text-emerald-400">LIVE</span>
+                      </>
+                    ) : (
+                      <>
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                        <span className="text-primary">DATA</span>
+                      </>
+                    )}
+                  </div>
                 </div>
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2">
-                    <Check className="w-3 h-3 text-primary flex-shrink-0" />
-                    <span className="text-primary">Validated</span>
-                    <span className="text-white/50">— schema compliant</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Check className="w-3 h-3 text-primary flex-shrink-0" />
-                    <span className="text-primary">Gold-standard</span>
-                    <span className="text-white/50">— IAA ≥ 0.80</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Check className="w-3 h-3 text-primary flex-shrink-0" />
-                    <span className="text-primary">Audit trail</span>
-                    <span className="text-white/50">— full provenance</span>
-                  </div>
+                
+                {/* Animated stage */}
+                <div className="relative h-[calc(100%-41px)] w-full flex items-center justify-center p-4">
+                  {current.id ? (
+                    <div className="absolute inset-0">
+                      <NlpInteractiveThumbnail sampleId={current.id} active={true} />
+                    </div>
+                  ) : (
+                    <div className="w-full max-w-lg rounded-xl border border-white/10 bg-white/5 p-5 md:p-6 font-mono text-[11px] md:text-sm text-white/80 shadow-2xl backdrop-blur-md animate-slide-up">
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-3">
+                          <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                          <span className="text-white font-medium">Format Validated</span>
+                          <span className="text-white/40 hidden sm:inline">— schema compliant</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                          <span className="text-white font-medium">Quality Checked</span>
+                          <span className="text-white/40 hidden sm:inline">— gold-standard IAA</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                          <span className="text-white font-medium">Audit Trail</span>
+                          <span className="text-white/40 hidden sm:inline">— full provenance</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
 
-              <div className="mt-6 flex flex-wrap gap-3">
+              <div className="flex flex-col sm:flex-row gap-3 mt-auto">
                 <button
                   onClick={() => setShowPreview(true)}
-                  className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold text-primary-foreground transition-all hover:scale-[1.02] bg-primary"
+                  className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold text-primary-foreground transition-all hover:scale-[1.02] bg-primary shadow-soft"
                 >
                   <Eye className="w-4 h-4" />
                   Preview Files
                 </button>
                 <a
                   href="#consultation"
-                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold border transition-all hover:bg-muted border-border text-foreground"
+                  className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold border transition-all hover:bg-muted border-border text-foreground"
                 >
                   <Download className="w-4 h-4" />
                   Request Full Set
                 </a>
               </div>
+
+              {current.qa && (
+                <div className="flex flex-wrap gap-x-4 gap-y-3 mt-5 pt-5 border-t border-dashed border-border/60">
+                  {current.qa.map((q, i) => (
+                    <span key={i} className="inline-flex items-center gap-2 text-xs text-muted-foreground">
+                      <span className="w-4 h-4 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-[9px]">
+                        ✓
+                      </span>
+                      <span className="text-foreground font-semibold">{q.label}</span>
+                      <span>— {q.detail}</span>
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              <details className="mt-5 group/details cursor-pointer">
+                <summary className="text-sm font-bold text-primary flex items-center gap-1.5 select-none list-none outline-none">
+                  More about this sample
+                  <ChevronDown className="w-4 h-4 transition-transform group-open/details:rotate-180" />
+                </summary>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  {current.description}
+                </p>
+              </details>
             </div>
           </div>
         </div>
