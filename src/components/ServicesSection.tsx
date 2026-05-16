@@ -373,7 +373,7 @@ const ServicesSection = ({ activeTab = "education", onTabChange }: ServicesSecti
                   : "text-muted-foreground hover:text-foreground"
                 }`}
             >
-              📚 Education Services
+              📚 Content Services
             </button>
             <button
               onClick={() => setActiveTab("ai")}

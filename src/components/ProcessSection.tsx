@@ -57,7 +57,7 @@ const ProcessSection = () => {
               }`}
             >
               <GraduationCap className="w-4 h-4" />
-              Education Service
+              Content Service
             </button>
             <button
               onClick={() => setActiveTab("ai")}
