@@ -1,0 +1,356 @@
+{
+  "info": {
+    "_postman_id": "eqourse-api-collection-v1",
+    "name": "eQOURSE Backend API",
+    "description": "All REST API endpoints for the eQOURSE EdTech platform backend.\n\nBase URL: {{base_url}}\n\nSet the `base_url` variable to `http://localhost:5001/api` for local development.\n\nFor admin-protected routes, first call POST /auth/login to get a token, then set the `auth_token` collection variable.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5001/api",
+      "type": "string"
+    },
+    {
+      "key": "auth_token",
+      "value": "",
+      "type": "string",
+      "description": "JWT token received after admin login"
+    }
+  ],
+  "item": [
+    {
+      "name": "🔐 Auth",
+      "item": [
+        {
+          "name": "Admin Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const res = pm.response.json();",
+                  "if (res.token) {",
+                  "  pm.collectionVariables.set('auth_token', res.token);",
+                  "  console.log('✅ Token saved to collection variable auth_token');",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@eqourse.com\",\n  \"password\": \"admin123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "login"]
+            },
+            "description": "Admin login. On success, the JWT is automatically saved to `auth_token` collection variable."
+          }
+        },
+        {
+          "name": "Get Current Admin (Me)",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/me",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "me"]
+            },
+            "description": "Returns the currently authenticated admin profile."
+          }
+        }
+      ]
+    },
+    {
+      "name": "📬 Contact Us",
+      "item": [
+        {
+          "name": "Submit Contact Query",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_name\": \"John Doe\",\n  \"email\": \"john@company.com\",\n  \"phone\": \"9876543210\",\n  \"phone_code\": \"+91\",\n  \"company\": \"ABC EdTech Pvt Ltd\",\n  \"designation\": \"Content Manager\",\n  \"interest\": \"K-12 Content Development\",\n  \"preferred_date\": \"2026-06-15\",\n  \"preferred_time\": \"10:30\",\n  \"message\": \"We are looking for CBSE-aligned content for grades 6-10.\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/contact",
+              "host": ["{{base_url}}"],
+              "path": ["contact"]
+            },
+            "description": "Public endpoint. Saves a contact inquiry to the database."
+          }
+        },
+        {
+          "name": "List All Contact Queries (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/contact?page=1&limit=20&status=new",
+              "host": ["{{base_url}}"],
+              "path": ["contact"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "20" },
+                { "key": "status", "value": "new", "description": "Filter by status: new | in_progress | contacted | closed" }
+              ]
+            },
+            "description": "Admin only. Returns paginated list of contact queries with optional status filter."
+          }
+        },
+        {
+          "name": "Update Contact Query Status (Admin)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"contacted\",\n  \"internal_notes\": \"Called on 2026-05-18. Interested in K-12 content.\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/contact/:id",
+              "host": ["{{base_url}}"],
+              "path": ["contact", ":id"],
+              "variable": [
+                { "key": "id", "value": "<contact_query_id>" }
+              ]
+            },
+            "description": "Admin only. Update status and internal notes for a contact query."
+          }
+        }
+      ]
+    },
+    {
+      "name": "🚀 Free Pilot",
+      "item": [
+        {
+          "name": "Submit Free Pilot Request",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_name\": \"Priya Sharma\",\n  \"email\": \"priya@startup.io\",\n  \"phone\": \"8765432109\",\n  \"phone_code\": \"+91\",\n  \"company\": \"LearnFast EdTech\",\n  \"designation\": \"CEO\",\n  \"interest\": \"AI Avatar Videos\",\n  \"preferred_date\": \"2026-06-20\",\n  \"preferred_time\": \"14:00\",\n  \"message\": \"We want a pilot for AI avatar video content for our app.\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pilot",
+              "host": ["{{base_url}}"],
+              "path": ["pilot"]
+            },
+            "description": "Public endpoint. Submit a Free Pilot inquiry."
+          }
+        },
+        {
+          "name": "List All Pilot Inquiries (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pilot?page=1&limit=20&status=new",
+              "host": ["{{base_url}}"],
+              "path": ["pilot"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "20" },
+                { "key": "status", "value": "new" }
+              ]
+            },
+            "description": "Admin only. Returns paginated list of pilot inquiries."
+          }
+        },
+        {
+          "name": "Update Pilot Inquiry Status (Admin)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"in_progress\",\n  \"internal_notes\": \"Pilot project kicked off on 2026-05-18.\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pilot/:id",
+              "host": ["{{base_url}}"],
+              "path": ["pilot", ":id"],
+              "variable": [
+                { "key": "id", "value": "<pilot_inquiry_id>" }
+              ]
+            },
+            "description": "Admin only. Update pilot inquiry status and notes."
+          }
+        }
+      ]
+    },
+    {
+      "name": "📚 Samples",
+      "item": [
+        {
+          "name": "List All Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/samples/categories",
+              "host": ["{{base_url}}"],
+              "path": ["samples", "categories"]
+            },
+            "description": "Public. Returns all unique category slugs that have sample documents in the database."
+          }
+        },
+        {
+          "name": "List Sample Items (All)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/samples/items",
+              "host": ["{{base_url}}"],
+              "path": ["samples", "items"]
+            },
+            "description": "Public. Returns all sample category documents."
+          }
+        },
+        {
+          "name": "List Sample Items (Filter by Category)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/samples/items?category=kindergarten-to-k5-samples",
+              "host": ["{{base_url}}"],
+              "path": ["samples", "items"],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "kindergarten-to-k5-samples",
+                  "description": "Category slug — must match a frontend page route slug"
+                }
+              ]
+            },
+            "description": "Public. Filter sample documents by category slug. Available slugs:\n\nText: kindergarten-to-k5-samples, k6-to-k12-samples, iit-jee-neet-samples, upsc-state-psc-samples, stem-content-samples, curriculum-samples, translation-and-localization-text-samples, test-prep-and-assessments\n\nVideo: articulate-storyline-video-samples, pen-tab-and-ppt-samples, ai-avatar-video-samples, flash-to-html-samples, 2d-3d-video-samples, promotional-video, immersive-simulation-ar-vr-video"
+          }
+        },
+        {
+          "name": "Get Single Sample Item by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/samples/items/:id",
+              "host": ["{{base_url}}"],
+              "path": ["samples", "items", ":id"],
+              "variable": [
+                { "key": "id", "value": "<sample_item_id>" }
+              ]
+            },
+            "description": "Public. Fetch a single category sample document by its MongoDB _id."
+          }
+        },
+        {
+          "name": "Create Sample Item (Admin)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category\": \"articulate-storyline-video-samples\",\n  \"tabs\": [\n    {\n      \"tab_name\": \"Interactive Modules\",\n      \"order\": 1,\n      \"text\": \"Explore our Articulate Storyline interactive module samples — branching scenarios, quizzes, and immersive activities.\",\n      \"boolean_points\": [\n        \"SCORM-compliant outputs\",\n        \"Works on all LMS platforms\",\n        \"Responsive for mobile & desktop\"\n      ],\n      \"samples\": [\n        {\n          \"name\": \"Safety Training Module – Manufacturing\",\n          \"url\": \"https://example.com/samples/storyline/safety-training.mp4\",\n          \"desc\": \"Interactive branching scenario for factory floor safety training.\",\n          \"format\": \"video\"\n        },\n        {\n          \"name\": \"Compliance Quiz – HR Onboarding\",\n          \"url\": \"https://example.com/samples/storyline/hr-compliance.mp4\",\n          \"desc\": \"Drag-and-drop quiz module for onboarding compliance.\",\n          \"format\": \"video\"\n        }\n      ]\n    },\n    {\n      \"tab_name\": \"Branching Scenarios\",\n      \"order\": 2,\n      \"text\": \"Multi-path decision-tree scenarios that put learners in realistic situations.\",\n      \"boolean_points\": [\n        \"Realistic decision points\",\n        \"Immediate feedback loops\",\n        \"Progress tracking\"\n      ],\n      \"samples\": [\n        {\n          \"name\": \"Customer Service Scenario\",\n          \"url\": \"https://example.com/samples/storyline/customer-service.mp4\",\n          \"desc\": \"Multi-path scenario simulating difficult customer interactions.\",\n          \"format\": \"video\"\n        }\n      ]\n    },\n    {\n      \"tab_name\": \"Quizzes & Assessments\",\n      \"order\": 3,\n      \"text\": \"Gamified assessments and knowledge checks embedded in Storyline.\",\n      \"boolean_points\": [\n        \"Multiple question types\",\n        \"Score reporting\",\n        \"Retry logic\"\n      ],\n      \"samples\": [\n        {\n          \"name\": \"Science Knowledge Check – Grade 8\",\n          \"url\": \"https://example.com/samples/storyline/science-quiz-g8.mp4\",\n          \"desc\": \"10-question MCQ with animated results screen.\",\n          \"format\": \"video\"\n        }\n      ]\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/samples/items",
+              "host": ["{{base_url}}"],
+              "path": ["samples", "items"]
+            },
+            "description": "Admin only. Creates a new sample document. One document per category. If the category already exists, use PATCH instead."
+          }
+        },
+        {
+          "name": "Update Sample Item (Admin)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tabs\": [\n    {\n      \"tab_name\": \"Interactive Modules\",\n      \"order\": 1,\n      \"text\": \"Updated description for interactive modules tab.\",\n      \"boolean_points\": [\n        \"SCORM 1.2 & 2004 compliant\",\n        \"LMS agnostic\",\n        \"Mobile-first design\"\n      ],\n      \"samples\": [\n        {\n          \"name\": \"Updated Safety Training Module\",\n          \"url\": \"https://example.com/samples/updated-safety.mp4\",\n          \"desc\": \"Updated interactive branching scenario.\",\n          \"format\": \"video\"\n        }\n      ]\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/samples/items/:id",
+              "host": ["{{base_url}}"],
+              "path": ["samples", "items", ":id"],
+              "variable": [
+                { "key": "id", "value": "<sample_item_id>" }
+              ]
+            },
+            "description": "Admin only. Update an existing sample document by ID."
+          }
+        },
+        {
+          "name": "Delete Sample Item (Admin)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/samples/items/:id",
+              "host": ["{{base_url}}"],
+              "path": ["samples", "items", ":id"],
+              "variable": [
+                { "key": "id", "value": "<sample_item_id>" }
+              ]
+            },
+            "description": "Admin only. Permanently deletes a sample document."
+          }
+        }
+      ]
+    },
+    {
+      "name": "🏥 Health Check",
+      "item": [
+        {
+          "name": "Server Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5001/",
+              "raw": "http://localhost:5001"
+            },
+            "description": "Returns a simple status message confirming the server is running."
+          }
+        }
+      ]
+    }
+  ]
+}
