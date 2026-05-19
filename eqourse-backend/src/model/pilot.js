@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const pilotQuerySchema = new mongoose.Schema(
   {
-    full_name: {
+    name: {
       type: String,
       required: true,
       trim: true,
@@ -13,23 +13,38 @@ const pilotQuerySchema = new mongoose.Schema(
       trim: true,
       lowercase: true,
     },
+    phone: {
+      type: String,
+      trim: true,
+      default: "",
+    },
     company: {
       type: String,
       required: true,
       trim: true,
     },
-    designation: {
+    role: {
+      type: String,
+      trim: true,
+      default: "",
+    },
+    // serviceInterest: what area of service they want a pilot for
+    serviceInterest: {
+      type: String,
+      enum: ["ai-data", "edtech", "localization", "other"],
+      required: true,
+    },
+    // projectScope: detailed description of the project/scope
+    projectScope: {
       type: String,
       required: true,
       trim: true,
     },
-    pilot_type: {
+    // timeline: e.g. "2 weeks", "1 month"
+    timeline: {
       type: String,
-      required: true,
-    },
-    service_detail: {
-      type: String,
-      required: true,
+      trim: true,
+      default: "",
     },
     languages: {
       type: String,
@@ -38,8 +53,12 @@ const pilotQuerySchema = new mongoose.Schema(
     },
     message: {
       type: String,
-      required: true,
       trim: true,
+      default: "",
+    },
+    source: {
+      type: String,
+      default: "",
     },
     attachment: {
       url: String,

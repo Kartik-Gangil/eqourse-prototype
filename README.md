@@ -16,6 +16,7 @@
 - [Environment Variables](#environment-variables)
 - [API Reference](#api-reference)
   - [Auth](#auth)
+  - [Blogs](#blogs)
   - [Contact & Free Pilot](#contact--free-pilot)
   - [Samples](#samples)
 - [Database Models](#database-models)
@@ -30,7 +31,7 @@ eQOURSE is an EdTech content development company. This repository is the prototy
 
 - **Marketing website** — home, about, services, sample library (text / video / AI data), blog, contact, and free pilot inquiry forms.
 - **Admin panel** — protected routes for managing blog posts and sample items in the MongoDB database.
-- **Backend API** — REST endpoints consumed by the frontend for contact forms, free-pilot leads, admin auth, and the sample content library.
+- **Backend API** — REST endpoints consumed by the frontend for contact forms, free-pilot leads, admin auth, blogs, and the sample content library.
 
 ---
 
@@ -49,6 +50,8 @@ eqourse-prototype/
 │
 ├── eqourse-backend/            # Node.js + Express REST API
 │   ├── index.js                # App entry point
+│   ├── api_integration_guide.md # Detailed integration reference
+│   ├── eQOURSE_API.postman_collection.json # API collection for testing
 │   ├── src/
 │   │   ├── controller/         # Route handlers
 │   │   ├── middleware/         # Auth middleware (JWT)
@@ -117,8 +120,7 @@ cd eqourse-backend
 npm install
 
 # Copy and configure environment variables
-cp .env.example .env   # create .env manually if .env.example doesn't exist
-
+# Create .env manually and configure MONGO_URI, JWT_SECRET, and PORT
 npm run dev
 # API runs at http://localhost:5001
 ```
@@ -162,14 +164,28 @@ Base URL: `http://localhost:5001/api`
 }
 ```
 
-**Login Response:**
-```json
-{
-  "success": true,
-  "token": "<jwt>",
-  "admin": { "_id": "...", "email": "..." }
-}
-```
+---
+
+### Blogs
+
+| Method | Endpoint | Auth | Description |
+|---|---|---|---|
+| `GET` | `/blogs` | ❌ | List published blogs with optional filters |
+| `GET` | `/blogs/:slug` | ❌ | Get a single published blog by slug |
+| `GET` | `/blogs/admin/all` | ✅ Admin | List all blogs (drafts + published) |
+| `GET` | `/blogs/admin/:id` | ✅ Admin | Get single blog by ID |
+| `POST` | `/blogs/admin` | ✅ Admin | Create a new blog post |
+| `PATCH` | `/blogs/admin/:id` | ✅ Admin | Update a blog post |
+| `PATCH` | `/blogs/admin/:id/status` | ✅ Admin | Update publishing status |
+| `DELETE` | `/blogs/admin/:id` | ✅ Admin | Delete a blog post |
+
+**Filtering Query Parameters for `GET /blogs`:**
+* `tags`: filter by tag list (comma separated, e.g., `?tags=AI,EdTech`)
+* `grade`: filter by grade (`?grade=10`)
+* `board_course`: filter by board/course (`?board_course=CBSE`)
+* `subject`: filter by subject (`?subject=Math`)
+* `is_featured`: filter by featured state (`?is_featured=true`)
+* `q`: search in title/excerpt/content (`?q=AI`)
 
 ---
 
@@ -177,24 +193,28 @@ Base URL: `http://localhost:5001/api`
 
 | Method | Endpoint | Auth | Description |
 |---|---|---|---|
-| `POST` | `/contact` | ❌ | Submit a contact us query |
-| `GET` | `/contact` | ✅ Admin | List all contact queries |
-| `PATCH` | `/contact/:id` | ✅ Admin | Update query status / notes |
+| `POST` | `/contact` | ❌ | Submit a contact us enquiry |
+| `GET` | `/contact` | ✅ Admin | List all contact inquiries |
+| `GET` | `/contact/:id` | ✅ Admin | Get contact inquiry details |
+| `PATCH` | `/contact/:id` | ✅ Admin | Update contact inquiry status / notes |
+| `DELETE` | `/contact/:id` | ✅ Admin | Delete contact inquiry |
 | `POST` | `/pilot` | ❌ | Submit a free pilot inquiry |
 | `GET` | `/pilot` | ✅ Admin | List all pilot inquiries |
-| `PATCH` | `/pilot/:id` | ✅ Admin | Update pilot inquiry status |
+| `GET` | `/pilot/:id` | ✅ Admin | Get pilot inquiry details |
+| `PATCH` | `/pilot/:id` | ✅ Admin | Update pilot inquiry status / notes |
+| `DELETE` | `/pilot/:id` | ✅ Admin | Delete pilot inquiry |
 
-**Contact Request Body:**
+**Contact Submit Request Body:**
 ```json
 {
-  "full_name": "John Doe",
+  "name": "John Doe",
   "email": "john@company.com",
   "phone": "9876543210",
   "phone_code": "+91",
   "company": "ABC Corp",
   "designation": "Manager",
-  "interest": "K-12 Content",
-  "message": "I'm interested in..."
+  "subject": "K-12 Content Creation",
+  "message": "I am interested in K-12 math solutions."
 }
 ```
 
@@ -211,60 +231,38 @@ Base URL: `http://localhost:5001/api`
 | `PATCH` | `/samples/items/:id` | ✅ Admin | Update a sample doc |
 | `DELETE` | `/samples/items/:id` | ✅ Admin | Delete a sample doc |
 
-**Query Parameters for `GET /samples/items`:**
-| Param | Example | Description |
-|---|---|---|
-| `category` | `kindergarten-to-k5-samples` | Filter by category slug |
-
-**Valid Category Slugs (must match frontend page routes):**
-
-| Type | Slug |
-|---|---|
-| Text | `kindergarten-to-k5-samples` |
-| Text | `k6-to-k12-samples` |
-| Text | `iit-jee-neet-samples` |
-| Text | `upsc-state-psc-samples` |
-| Text | `stem-content-samples` |
-| Text | `curriculum-samples` |
-| Text | `translation-and-localization-text-samples` |
-| Text | `test-prep-and-assessments` |
-| Video | `articulate-storyline-video-samples` |
-| Video | `pen-tab-and-ppt-samples` |
-| Video | `ai-avatar-video-samples` |
-| Video | `flash-to-html-samples` |
-| Video | `2d-3d-video-samples` |
-| Video | `promotional-video` |
-| Video | `immersive-simulation-ar-vr-video` |
-
-**Create Sample Item Body:**
-```json
-{
-  "category": "kindergarten-to-k5-samples",
-  "tabs": [
-    {
-      "tab_name": "Course Book",
-      "order": 1,
-      "text": "Description shown under the tab",
-      "boolean_points": ["Point 1", "Point 2"],
-      "samples": [
-        {
-          "name": "Mathematics Course Book – Grade 1",
-          "url": "https://example.com/sample.pdf",
-          "desc": "Short description",
-          "format": "PDF"
-        }
-      ]
-    }
-  ]
-}
-```
-
 ---
 
 ## Database Models
 
+### Blog
+```
+Blog
+  ├── title           String
+  ├── slug            String (unique)
+  ├── excerpt         String
+  ├── body            String
+  ├── bodyFormat      String ("html" | "markdown")
+  ├── coverImageUrl   String
+  ├── author
+  │     ├── name      String
+  │     └── avatarUrl String
+  ├── tags            [String]
+  ├── grade           String
+  ├── board_course    String
+  ├── subject         String
+  ├── seo
+  │     ├── title       String
+  │     ├── description String
+  │     └── ogImageUrl  String
+  ├── status          String ("draft" | "published")
+  ├── publishedAt     Date
+  ├── readingMinutes  Number
+  ├── view_count      Number
+  └── is_featured     Boolean
+```
+
 ### SampleItem
-One document per category, with nested tabs and samples:
 ```
 SampleItem
   ├── category      String  (e.g. "kindergarten-to-k5-samples")
@@ -280,16 +278,49 @@ SampleItem
               └── format  String
 ```
 
-### Admin
+### ContactQuery
 ```
-Admin
-  ├── email     String (unique)
-  ├── password  String (bcrypt hashed)
-  └── role      String (default: "admin")
+ContactQuery
+  ├── name            String
+  ├── email           String
+  ├── phone           String
+  ├── phone_code      String
+  ├── company         String
+  ├── designation     String
+  ├── subject         String
+  ├── message         String
+  ├── source          String
+  ├── attachment
+  │     ├── url          String
+  │     ├── originalName String
+  │     ├── size         Number
+  │     └── mimeType     String
+  ├── status          String ("new" | "in_progress" | "contacted" | "closed")
+  └── internal_notes  String
 ```
 
-### ContactQuery / Pilot
-Standard lead-capture models with `status` field (`new` → `in_progress` → `contacted` → `closed`).
+### PilotQuery
+```
+PilotQuery
+  ├── name            String
+  ├── email           String
+  ├── phone           String
+  ├── company         String
+  ├── role            String
+  ├── serviceInterest String ("ai-data" | "edtech" | "localization" | "other")
+  ├── projectScope    String
+  ├── timeline        String
+  ├── languages       String
+  ├── message         String
+  ├── source          String
+  ├── attachment
+  │     ├── url          String
+  │     ├── originalName String
+  │     ├── size         Number
+  │     └── mimeType     String
+  ├── status          String ("new" | "in_progress" | "contacted" | "closed")
+  └── internal_notes  String
+```
 
 ---
 
@@ -323,14 +354,13 @@ node src/seeds/seedK12KG5Samples.js   # Seed KG-5 sample data
 
 ---
 
-## Postman Collection
+## Postman Collection & Integration Guide
 
-A ready-to-import Postman collection is included at:
+A ready-to-import Postman collection and a detailed Integration Guide are included in the backend directory:
 ```
 eqourse-backend/eQOURSE_API.postman_collection.json
+eqourse-backend/api_integration_guide.md
 ```
-
-Import it into Postman and set the `base_url` variable to `http://localhost:5001/api`.
 
 ---
 

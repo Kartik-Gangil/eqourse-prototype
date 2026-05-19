@@ -1,6 +1,6 @@
 {
   "info": {
-    "_postman_id": "eqourse-api-collection-v1",
+    "_postman_id": "eqourse-api-collection-v2",
     "name": "eQOURSE Backend API",
     "description": "All REST API endpoints for the eQOURSE EdTech platform backend.\n\nBase URL: {{base_url}}\n\nSet the `base_url` variable to `http://localhost:5001/api` for local development.\n\nFor admin-protected routes, first call POST /auth/login to get a token, then set the `auth_token` collection variable.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -85,7 +85,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"full_name\": \"John Doe\",\n  \"email\": \"john@company.com\",\n  \"phone\": \"9876543210\",\n  \"phone_code\": \"+91\",\n  \"company\": \"ABC EdTech Pvt Ltd\",\n  \"designation\": \"Content Manager\",\n  \"interest\": \"K-12 Content Development\",\n  \"preferred_date\": \"2026-06-15\",\n  \"preferred_time\": \"10:30\",\n  \"message\": \"We are looking for CBSE-aligned content for grades 6-10.\"\n}"
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@company.com\",\n  \"phone\": \"9876543210\",\n  \"phone_code\": \"+91\",\n  \"company\": \"ABC EdTech Pvt Ltd\",\n  \"designation\": \"Content Manager\",\n  \"subject\": \"K-12 Content Development\",\n  \"message\": \"We are looking for CBSE-aligned content for grades 6-10.\",\n  \"source\": \"Google Search\"\n}"
             },
             "url": {
               "raw": "{{base_url}}/contact",
@@ -103,12 +103,12 @@
               { "key": "Authorization", "value": "Bearer {{auth_token}}" }
             ],
             "url": {
-              "raw": "{{base_url}}/contact?page=1&limit=20&status=new",
+              "raw": "{{base_url}}/contact?page=1&pageSize=20&status=new",
               "host": ["{{base_url}}"],
               "path": ["contact"],
               "query": [
                 { "key": "page", "value": "1" },
-                { "key": "limit", "value": "20" },
+                { "key": "pageSize", "value": "20" },
                 { "key": "status", "value": "new", "description": "Filter by status: new | in_progress | contacted | closed" }
               ]
             },
@@ -116,7 +116,25 @@
           }
         },
         {
-          "name": "Update Contact Query Status (Admin)",
+          "name": "Get Contact Query Details (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/contact/:id",
+              "host": ["{{base_url}}"],
+              "path": ["contact", ":id"],
+              "variable": [
+                { "key": "id", "value": "<contact_query_id>" }
+              ]
+            },
+            "description": "Admin only. Retrieve details for a single contact inquiry by MongoDB ID."
+          }
+        },
+        {
+          "name": "Update Contact Query (Admin)",
           "request": {
             "method": "PATCH",
             "header": [
@@ -125,7 +143,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"status\": \"contacted\",\n  \"internal_notes\": \"Called on 2026-05-18. Interested in K-12 content.\"\n}"
+              "raw": "{\n  \"status\": \"contacted\",\n  \"internalNotes\": \"Called on 2026-05-19. Interested in K-12 content.\"\n}"
             },
             "url": {
               "raw": "{{base_url}}/contact/:id",
@@ -136,6 +154,24 @@
               ]
             },
             "description": "Admin only. Update status and internal notes for a contact query."
+          }
+        },
+        {
+          "name": "Delete Contact Query (Admin)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/contact/:id",
+              "host": ["{{base_url}}"],
+              "path": ["contact", ":id"],
+              "variable": [
+                { "key": "id", "value": "<contact_query_id>" }
+              ]
+            },
+            "description": "Admin only. Permanently delete a contact query."
           }
         }
       ]
@@ -152,7 +188,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"full_name\": \"Priya Sharma\",\n  \"email\": \"priya@startup.io\",\n  \"phone\": \"8765432109\",\n  \"phone_code\": \"+91\",\n  \"company\": \"LearnFast EdTech\",\n  \"designation\": \"CEO\",\n  \"interest\": \"AI Avatar Videos\",\n  \"preferred_date\": \"2026-06-20\",\n  \"preferred_time\": \"14:00\",\n  \"message\": \"We want a pilot for AI avatar video content for our app.\"\n}"
+              "raw": "{\n  \"name\": \"Bruce Wayne\",\n  \"email\": \"bruce@waynecorp.com\",\n  \"phone\": \"5550199\",\n  \"company\": \"Wayne Enterprises\",\n  \"role\": \"CEO\",\n  \"serviceInterest\": \"ai-data\",\n  \"projectScope\": \"Data annotation and cleansing pilot of 50,000 images.\",\n  \"timeline\": \"3 weeks\",\n  \"languages\": \"English\",\n  \"message\": \"Let me know when we can kick off.\",\n  \"source\": \"LinkedIn ad\"\n}"
             },
             "url": {
               "raw": "{{base_url}}/pilot",
@@ -170,12 +206,12 @@
               { "key": "Authorization", "value": "Bearer {{auth_token}}" }
             ],
             "url": {
-              "raw": "{{base_url}}/pilot?page=1&limit=20&status=new",
+              "raw": "{{base_url}}/pilot?page=1&pageSize=20&status=new",
               "host": ["{{base_url}}"],
               "path": ["pilot"],
               "query": [
                 { "key": "page", "value": "1" },
-                { "key": "limit", "value": "20" },
+                { "key": "pageSize", "value": "20" },
                 { "key": "status", "value": "new" }
               ]
             },
@@ -183,7 +219,25 @@
           }
         },
         {
-          "name": "Update Pilot Inquiry Status (Admin)",
+          "name": "Get Pilot Query Details (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pilot/:id",
+              "host": ["{{base_url}}"],
+              "path": ["pilot", ":id"],
+              "variable": [
+                { "key": "id", "value": "<pilot_query_id>" }
+              ]
+            },
+            "description": "Admin only. Retrieve details for a single pilot inquiry by MongoDB ID."
+          }
+        },
+        {
+          "name": "Update Pilot Inquiry (Admin)",
           "request": {
             "method": "PATCH",
             "header": [
@@ -192,7 +246,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"status\": \"in_progress\",\n  \"internal_notes\": \"Pilot project kicked off on 2026-05-18.\"\n}"
+              "raw": "{\n  \"status\": \"in_progress\",\n  \"internalNotes\": \"Pilot project kicked off on 2026-05-19.\"\n}"
             },
             "url": {
               "raw": "{{base_url}}/pilot/:id",
@@ -203,6 +257,186 @@
               ]
             },
             "description": "Admin only. Update pilot inquiry status and notes."
+          }
+        },
+        {
+          "name": "Delete Pilot Inquiry (Admin)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pilot/:id",
+              "host": ["{{base_url}}"],
+              "path": ["pilot", ":id"],
+              "variable": [
+                { "key": "id", "value": "<pilot_query_id>" }
+              ]
+            },
+            "description": "Admin only. Permanently delete a pilot query."
+          }
+        }
+      ]
+    },
+    {
+      "name": "✍️ Blogs",
+      "item": [
+        {
+          "name": "List Published Blogs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/blogs?page=1&limit=10&tags=AI&is_featured=true",
+              "host": ["{{base_url}}"],
+              "path": ["blogs"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "10" },
+                { "key": "tags", "value": "AI" },
+                { "key": "is_featured", "value": "true" }
+              ]
+            },
+            "description": "Public. List all published blogs with optional filter queries."
+          }
+        },
+        {
+          "name": "Get Published Blog By Slug",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/blogs/:slug",
+              "host": ["{{base_url}}"],
+              "path": ["blogs", ":slug"],
+              "variable": [
+                { "key": "slug", "value": "unlocking-ai-in-edtech" }
+              ]
+            },
+            "description": "Public. Retrieve a single blog post details by slug (increments view count)."
+          }
+        },
+        {
+          "name": "Admin List All Blogs",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/blogs/admin/all?page=1&limit=50&status=draft",
+              "host": ["{{base_url}}"],
+              "path": ["blogs", "admin", "all"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "50" },
+                { "key": "status", "value": "draft" }
+              ]
+            },
+            "description": "Admin only. Returns all blog posts including drafts."
+          }
+        },
+        {
+          "name": "Admin Create Blog Post",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Unlocking AI in EdTech\",\n  \"slug\": \"unlocking-ai-in-edtech\",\n  \"excerpt\": \"How artificial intelligence is changing customized curriculum solutions.\",\n  \"body\": \"<p>Full HTML or Markdown text goes here...</p>\",\n  \"bodyFormat\": \"html\",\n  \"coverImageUrl\": \"https://images.unsplash.com/photo-1516321318423-f06f85e504b3\",\n  \"author\": {\n    \"name\": \"John Doe\",\n    \"avatarUrl\": \"\"\n  },\n  \"tags\": [\"AI\", \"EdTech\"],\n  \"grade\": \"10\",\n  \"board_course\": \"CBSE\",\n  \"subject\": \"Computer Science\",\n  \"seo\": {\n    \"title\": \"AI EdTech Solution | eQOURSE\",\n    \"description\": \"Comprehensive post about custom AI modules.\"\n  },\n  \"status\": \"draft\",\n  \"is_featured\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/blogs/admin",
+              "host": ["{{base_url}}"],
+              "path": ["blogs", "admin"]
+            },
+            "description": "Admin only. Creates a new blog post in draft or published status."
+          }
+        },
+        {
+          "name": "Admin Get Blog by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/blogs/admin/:id",
+              "host": ["{{base_url}}"],
+              "path": ["blogs", "admin", ":id"],
+              "variable": [
+                { "key": "id", "value": "<blog_post_id>" }
+              ]
+            },
+            "description": "Admin only. Retrieve a single blog post by its database ID."
+          }
+        },
+        {
+          "name": "Admin Update Blog Post",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Unlocking AI in EdTech (Updated Title)\",\n  \"is_featured\": false\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/blogs/admin/:id",
+              "host": ["{{base_url}}"],
+              "path": ["blogs", "admin", ":id"],
+              "variable": [
+                { "key": "id", "value": "<blog_post_id>" }
+              ]
+            },
+            "description": "Admin only. Performs partial updates on an existing blog post."
+          }
+        },
+        {
+          "name": "Admin Update Blog Status",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"published\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/blogs/admin/:id/status",
+              "host": ["{{base_url}}"],
+              "path": ["blogs", "admin", ":id", "status"],
+              "variable": [
+                { "key": "id", "value": "<blog_post_id>" }
+              ]
+            },
+            "description": "Admin only. Change publish status to either 'published' or 'draft'."
+          }
+        },
+        {
+          "name": "Admin Delete Blog Post",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/blogs/admin/:id",
+              "host": ["{{base_url}}"],
+              "path": ["blogs", "admin", ":id"],
+              "variable": [
+                { "key": "id", "value": "<blog_post_id>" }
+              ]
+            },
+            "description": "Admin only. Permanently delete a blog post."
           }
         }
       ]
@@ -253,7 +487,7 @@
                 }
               ]
             },
-            "description": "Public. Filter sample documents by category slug. Available slugs:\n\nText: kindergarten-to-k5-samples, k6-to-k12-samples, iit-jee-neet-samples, upsc-state-psc-samples, stem-content-samples, curriculum-samples, translation-and-localization-text-samples, test-prep-and-assessments\n\nVideo: articulate-storyline-video-samples, pen-tab-and-ppt-samples, ai-avatar-video-samples, flash-to-html-samples, 2d-3d-video-samples, promotional-video, immersive-simulation-ar-vr-video"
+            "description": "Public. Filter sample documents by category slug."
           }
         },
         {
@@ -282,7 +516,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"category\": \"articulate-storyline-video-samples\",\n  \"tabs\": [\n    {\n      \"tab_name\": \"Interactive Modules\",\n      \"order\": 1,\n      \"text\": \"Explore our Articulate Storyline interactive module samples — branching scenarios, quizzes, and immersive activities.\",\n      \"boolean_points\": [\n        \"SCORM-compliant outputs\",\n        \"Works on all LMS platforms\",\n        \"Responsive for mobile & desktop\"\n      ],\n      \"samples\": [\n        {\n          \"name\": \"Safety Training Module – Manufacturing\",\n          \"url\": \"https://example.com/samples/storyline/safety-training.mp4\",\n          \"desc\": \"Interactive branching scenario for factory floor safety training.\",\n          \"format\": \"video\"\n        },\n        {\n          \"name\": \"Compliance Quiz – HR Onboarding\",\n          \"url\": \"https://example.com/samples/storyline/hr-compliance.mp4\",\n          \"desc\": \"Drag-and-drop quiz module for onboarding compliance.\",\n          \"format\": \"video\"\n        }\n      ]\n    },\n    {\n      \"tab_name\": \"Branching Scenarios\",\n      \"order\": 2,\n      \"text\": \"Multi-path decision-tree scenarios that put learners in realistic situations.\",\n      \"boolean_points\": [\n        \"Realistic decision points\",\n        \"Immediate feedback loops\",\n        \"Progress tracking\"\n      ],\n      \"samples\": [\n        {\n          \"name\": \"Customer Service Scenario\",\n          \"url\": \"https://example.com/samples/storyline/customer-service.mp4\",\n          \"desc\": \"Multi-path scenario simulating difficult customer interactions.\",\n          \"format\": \"video\"\n        }\n      ]\n    },\n    {\n      \"tab_name\": \"Quizzes & Assessments\",\n      \"order\": 3,\n      \"text\": \"Gamified assessments and knowledge checks embedded in Storyline.\",\n      \"boolean_points\": [\n        \"Multiple question types\",\n        \"Score reporting\",\n        \"Retry logic\"\n      ],\n      \"samples\": [\n        {\n          \"name\": \"Science Knowledge Check – Grade 8\",\n          \"url\": \"https://example.com/samples/storyline/science-quiz-g8.mp4\",\n          \"desc\": \"10-question MCQ with animated results screen.\",\n          \"format\": \"video\"\n        }\n      ]\n    }\n  ]\n}"
+              "raw": "{\n  \"category\": \"articulate-storyline-video-samples\",\n  \"tabs\": [\n    {\n      \"tab_name\": \"Interactive Modules\",\n      \"order\": 1,\n      \"text\": \"Explore our Articulate Storyline interactive module samples — branching scenarios, quizzes, and immersive activities.\",\n      \"boolean_points\": [\n        \"SCORM-compliant outputs\",\n        \"Works on all LMS platforms\",\n        \"Responsive for mobile & desktop\"\n      ],\n      \"samples\": [\n        {\n          \"name\": \"Safety Training Module – Manufacturing\",\n          \"url\": \"https://example.com/samples/storyline/safety-training.mp4\",\n          \"desc\": \"Interactive branching scenario for factory floor safety training.\",\n          \"format\": \"video\"\n        },\n        {\n          \"name\": \"Compliance Quiz – HR Onboarding\",\n          \"url\": \"https://example.com/samples/storyline/hr-compliance.mp4\",\n          \"desc\": \"Drag-and-drop quiz module for onboarding compliance.\",\n          \"format\": \"video\"\n        }\n      ]\n    }\n  ]\n}"
             },
             "url": {
               "raw": "{{base_url}}/samples/items",
@@ -344,8 +578,10 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:5001/",
-              "raw": "http://localhost:5001"
+              "raw": "http://localhost:5001",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5001"
             },
             "description": "Returns a simple status message confirming the server is running."
           }

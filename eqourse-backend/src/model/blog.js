@@ -1,51 +1,114 @@
-const { number } = require("joi");
 const mongoose = require("mongoose");
 
-const blogSchema = new mongoose.Schema({
-    slug: { type: String, unique: true, required: true },
-    headline: { type: String, required: true },
+const blogSchema = new mongoose.Schema(
+  {
+    // ── Core content ────────────────────────────────────────────
+    title: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    slug: {
+      type: String,
+      unique: true,
+      required: true,
+      lowercase: true,
+      trim: true,
+    },
+    excerpt: {
+      type: String,
+      trim: true,
+      default: "",
+    },
+    body: {
+      type: String,
+      required: true,
+    },
+    bodyFormat: {
+      type: String,
+      enum: ["html", "markdown"],
+      default: "html",
+    },
+    coverImageUrl: {
+      type: String,
+      default: "",
+    },
+
+    // ── Author ────────────────────────────────────────────────
     author: {
+      name: {
         type: String,
         trim: true,
-    },
-    content: { type: String, required: true },
-    featured_image: { type: String },
-    grade: {
+        default: "eQOURSE Team",
+      },
+      avatarUrl: {
         type: String,
-        enum: ['4', '5', '6', '7', '8', '9', '10', '11', '12']
+        default: "",
+      },
+    },
+
+    // ── Taxonomy ──────────────────────────────────────────────
+    tags: {
+      type: [String],
+      default: [],
+    },
+    grade: {
+      type: String,
+      enum: ["4", "5", "6", "7", "8", "9", "10", "11", "12", ""],
+      default: "",
     },
     board_course: {
       type: String,
+      default: "",
     },
     subject: {
-        type: String,
+      type: String,
+      default: "",
     },
+
+    // ── SEO ──────────────────────────────────────────────────
+    seo: {
+      title: { type: String, default: "" },
+      description: { type: String, default: "" },
+      ogImageUrl: { type: String, default: "" },
+    },
+
+    // ── Publishing ───────────────────────────────────────────
     status: {
-        type: String,
-        enum: {
-            values: ["pending", "approved", "rejected"],
-            message: '{VALUE} is not a valid status. Use "pending", "approved", or "rejected"'
-        },
-        default: 'pending',
+      type: String,
+      enum: ["draft", "published"],
+      default: "draft",
     },
-    reject_reason: {
-        type: String,
-        trim: true,
+    publishedAt: {
+      type: Date,
+      default: null,
     },
-    meta: {
-        description: String,
-        keywords: [String],
-        title: String,
+    readingMinutes: {
+      type: Number,
+      default: 0,
     },
     view_count: {
-        type: Number,
-        default: 0,
+      type: Number,
+      default: 0,
     },
     is_featured: {
-        type: Boolean,
-        default: false
-    }
+      type: Boolean,
+      default: false,
+    },
+  },
+  { timestamps: true }
+);
 
-}, { timestamps: true });
+// Auto-generate slug from title if not provided
+blogSchema.pre("validate", function (next) {
+  if (!this.slug && this.title) {
+    this.slug = this.title
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "");
+  }
+  next();
+});
 
-module.exports = mongoose.model("blog", blogSchema);
+module.exports = mongoose.model("Blog", blogSchema);

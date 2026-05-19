@@ -7,6 +7,7 @@ const contactRouter = require("./src/router/contactRouter");
 const authRouter = require("./src/router/authRouter");
 const pilotRouter = require("./src/router/pilotRouter");
 const sampleRouter = require("./src/router/sampleRouter");
+const blogRouter = require("./src/router/blogRouter");
 
 const app = express()
 
@@ -24,6 +25,7 @@ app.use("/api/contact", contactRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/pilot", pilotRouter);
 app.use("/api/samples", sampleRouter);
+app.use("/api/blogs", blogRouter);
 
 app.get("/", (req, res) => res.json({ status: "eQOURSE backend is running" }));
 
