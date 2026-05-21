@@ -146,7 +146,7 @@ const TuTrain = () => {
                     TUTRAIN is eQOURSE's flagship consumer online tutoring brand — a global platform connecting students in Grades 4 to 12 with verified expert tutors for live, personalized 1-on-1 and small-batch classes.
                   </p>
                   <p>
-                    While eQOURSE delivers EdTech content and AI training data to companies and institutions, TUTRAIN takes that same depth of expertise directly to families. Every TUTRAIN tutor is curriculum-trained, background-verified, and supported by eQOURSE's instructional design team.
+                    While eQOURSE delivers Content Services and AI training data to companies and institutions, TUTRAIN takes that same depth of expertise directly to families. Every TUTRAIN tutor is curriculum-trained, background-verified, and supported by eQOURSE's instructional design team.
                   </p>
                 </div>
               </Reveal>
@@ -260,9 +260,9 @@ const TuTrain = () => {
                   <div className="w-16 h-16 rounded-full bg-secondary text-primary flex items-center justify-center mb-6">
                     <FileText className="w-8 h-8" />
                   </div>
-                  <h3 className="text-xl font-bold font-heading mb-4 text-foreground">For Our EdTech Partners</h3>
+                  <h3 className="text-xl font-bold font-heading mb-4 text-foreground">For Our Content Services partners</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    TUTRAIN gives us continuous, ground-level insight into how real students learn, what works in live sessions, and which content formats drive measurable outcomes. This insight feeds directly into the curriculum and content we build for global <Link to="/content-service" className="text-primary hover:underline font-medium">EdTech platforms</Link>.
+                    TUTRAIN gives us continuous, ground-level insight into how real students learn, what works in live sessions, and which content formats drive measurable outcomes. This insight feeds directly into the curriculum and content we build for global <Link to="/content-services" className="text-primary hover:underline font-medium">Content Services platforms</Link>.
                   </p>
                 </div>
               </Reveal>

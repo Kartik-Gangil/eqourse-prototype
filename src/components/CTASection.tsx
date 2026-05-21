@@ -110,16 +110,20 @@ const CTASection = () => {
       <div className="absolute inset-0 bg-foreground/15 z-[3]" />
 
       <div className="container mx-auto px-4 relative z-10 text-center">
-        <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4" style={{ color: 'hsl(0, 0%, 100%)' }}>
-          Ready to Power Your AI with Better Data?
+        <h2
+          id="cta-heading"
+          className="font-heading text-3xl md:text-4xl font-bold mb-4 leading-tight px-2"
+          style={{ color: 'hsl(0, 0%, 100%)' }}
+        >
+          Ready to Power Your Learning Content and AI with Quality Data Solutions?
         </h2>
-        <p className="text-lg mb-8 max-w-xl mx-auto" style={{ color: 'hsl(0, 0%, 85%)' }}>
-          Start with a free pilot dataset, or explore our education solutions.
+        <p className="text-base sm:text-lg mb-8 max-w-2xl mx-auto px-4" style={{ color: 'hsl(0, 0%, 85%)' }}>
+          A trusted partner supporting organizations worldwide with scalable learning content and AI data solutions across enterprise and global ecosystems.
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
           <Link to="/free-pilot">
-            <Button size="lg" className="bg-gradient-primary border-0 text-primary-foreground shadow-soft hover:opacity-90 transition-all hover:scale-105 px-10">
-              Start Free Pilot Dataset <ArrowRight className="ml-2 w-5 h-5" />
+            <Button size="lg" className="bg-gradient-primary border-0 text-primary-foreground shadow-soft hover:opacity-90 transition-all hover:scale-105 px-8 sm:px-10 text-sm sm:text-base">
+              Start Free Pilot <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </Link>
           <Link to="/contact">

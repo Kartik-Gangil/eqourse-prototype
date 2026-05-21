@@ -6,10 +6,8 @@ import heroImage from "@/assets/hero-image.jpg";
 const slides = [
   {
     badge: "Content Service",
-    headline: "Partnering with EdTech Leaders to",
+    headline: "Partnering with Content Services Leaders to",
     highlightedText: "Design and Create Top Quality E-Learning Content",
-    subtext:
-      "Quality and cost-effective academic services for e-learning platforms. Specializing in content development, localization, and accessibility across 30+ languages.",
     cta: "Explore Content Service",
     ctaLink: "#services",
     icon: Sparkles,
@@ -18,8 +16,6 @@ const slides = [
     badge: "AI Data Services",
     headline: "High-Quality Training Data for",
     highlightedText: "AI That Works in Production",
-    subtext:
-      "Custom dataset collection, expert annotation, and real-world model testing across 30+ languages. Backed by 500+ specialists and a 98%+ accuracy guarantee.",
     cta: "Explore AI Data Services",
     ctaLink: "#ai-services",
     icon: Database,
@@ -28,8 +24,6 @@ const slides = [
     badge: "Model Testing",
     headline: "Don't Just Train Your AI.",
     highlightedText: "Test It on Reality.",
-    subtext:
-      "The only data partner that tests your model with real users before you deploy. Dialect audits, A/B testing, active learning loops.",
     cta: "Learn About Model Testing",
     ctaLink: "#pipeline",
     icon: Brain,
@@ -38,12 +32,18 @@ const slides = [
     badge: "Dual Capability",
     headline: "From Education Content to AI Training Data,",
     highlightedText: "One Partner",
-    subtext:
-      "Expert EdTech content development for learning platforms and high-quality AI training data services for ML teams. Custom datasets in 30+ languages, 500+ domain specialists, and ISO 9001 and ISO 27001 certified.",
     cta: "See All Services",
     ctaLink: "#services",
     icon: Sparkles,
   },
+];
+
+// Static hero stats (no count-up animation)
+const heroStats = [
+  { value: "500+", label: "Specialists" },
+  { value: "30+", label: "Languages" },
+  { value: "98%+", label: "Accuracy" },
+  { value: "200+", label: "Clients" },
 ];
 
 const aiHighlightLines = [
@@ -53,11 +53,11 @@ const aiHighlightLines = [
   "Faster iteration through real-user feedback",
 ];
 
-const edtechHighlightLines = [
+const contentServicesHighlightLines = [
   "Content, localization and accessibility in 30+ languages",
   "Curriculum-aligned digital learning content at scale",
   "Instructional design with pedagogy-first workflows",
-  "Faster content turnaround for EdTech platforms",
+  "Faster content turnaround for Content Services platforms",
 ];
 
 const GoogleIcon = () => (
@@ -81,8 +81,8 @@ const HeroSection = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [aiHighlightIndex, setAiHighlightIndex] = useState(0);
   const [aiHighlightVisible, setAiHighlightVisible] = useState(true);
-  const [edtechHighlightIndex, setEdtechHighlightIndex] = useState(0);
-  const [edtechHighlightVisible, setEdtechHighlightVisible] = useState(true);
+  const [contentServicesHighlightIndex, setContentServicesHighlightIndex] = useState(0);
+  const [contentServicesHighlightVisible, setContentServicesHighlightVisible] = useState(true);
 
   const goTo = useCallback(
     (idx: number) => {
@@ -111,29 +111,29 @@ const HeroSection = () => {
   }, []);
 
   useEffect(() => {
-    const edtechTimer = setInterval(() => {
-      setEdtechHighlightVisible(false);
+    const contentServicesTimer = setInterval(() => {
+      setContentServicesHighlightVisible(false);
       setTimeout(() => {
-        setEdtechHighlightIndex((prev) => (prev + 1) % edtechHighlightLines.length);
-        setEdtechHighlightVisible(true);
+        setContentServicesHighlightIndex((prev) => (prev + 1) % contentServicesHighlightLines.length);
+        setContentServicesHighlightVisible(true);
       }, 350);
     }, 2700);
-    return () => clearInterval(edtechTimer);
+    return () => clearInterval(contentServicesTimer);
   }, []);
 
   const slide = slides[current];
   const Icon = slide.icon;
   const currentAiLine = aiHighlightLines[aiHighlightIndex];
-  const currentEdtechLine = edtechHighlightLines[edtechHighlightIndex];
+  const currentContentServicesLine = contentServicesHighlightLines[contentServicesHighlightIndex];
 
   return (
     <section
       className="relative overflow-hidden min-h-screen flex items-center"
-      aria-label="eQOURSE — EdTech content and AI training data services"
+      aria-label="eQOURSE — Content Services and AI training data services"
     >
       {/* SEO: static, crawlable headline that does not rotate */}
       <h1 className="sr-only">
-        eQOURSE — From Education Content to AI Training Data, One Partner. EdTech content development and AI training
+        eQOURSE — From Education Content to AI Training Data, One Partner. Content Services development and AI training
         data services across 30+ languages, with 500+ domain specialists, ISO 9001 and ISO 27001 certified.
       </h1>
 
@@ -170,10 +170,10 @@ const HeroSection = () => {
         <div className="absolute bottom-10 -right-10 w-[28rem] h-[28rem] bg-accent/10 rounded-full blur-3xl animate-float-delayed" />
       </div>
 
-      <div className="container mx-auto px-4 pt-32 pb-20 relative z-10">
+      <div className="container mx-auto px-4 pt-28 pb-44 lg:pb-48 relative z-10">
         <div className="grid lg:grid-cols-12 gap-10 items-center">
           {/* LEFT: rotating content */}
-          <div className="lg:col-span-7 space-y-7" key={current}>
+          <div className="lg:col-span-7 space-y-6" key={current}>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/15 border border-primary/30 backdrop-blur-md animate-slide-up">
               <Icon className="w-4 h-4 text-primary" />
               <span className="text-sm font-semibold" style={{ color: "hsl(170, 82%, 65%)" }}>
@@ -188,14 +188,7 @@ const HeroSection = () => {
               {slide.headline} <span className="text-gradient">{slide.highlightedText}</span>
             </h2>
 
-            <p
-              className="text-base md:text-lg max-w-2xl animate-slide-up-delayed"
-              style={{ color: "hsl(242, 20%, 85%)", textShadow: "0 2px 12px rgba(0,0,0,0.3)" }}
-            >
-              {slide.subtext}
-            </p>
-
-            <div className="flex flex-wrap gap-4 animate-slide-up-delayed-2">
+            <div className="flex flex-wrap items-center gap-4 pt-2 animate-slide-up-delayed-2">
               <Button
                 size="lg"
                 className="bg-gradient-primary border-0 text-primary-foreground shadow-soft hover:opacity-90 transition-all hover:scale-105 px-8"
@@ -205,43 +198,19 @@ const HeroSection = () => {
                   {slide.cta} <ArrowRight className="ml-2 w-5 h-5" />
                 </a>
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/30 bg-white/5 backdrop-blur-md hover:bg-white/15 group text-white"
-              >
-                <Play className="mr-2 w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
-                Watch Video
-              </Button>
-            </div>
 
-            <div className="flex flex-wrap items-center gap-x-10 gap-y-4 pt-4 animate-slide-up-delayed-2">
-              {[
-                { value: "500+", label: "Specialists" },
-                { value: "30+", label: "Languages" },
-                { value: "98%+", label: "Accuracy" },
-                { value: "200+", label: "Clients" },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <div className="text-2xl font-bold text-gradient">{stat.value}</div>
-                  <div className="text-xs uppercase tracking-wider" style={{ color: "hsl(242, 20%, 70%)" }}>
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Slide indicators */}
-            <div className="flex items-center gap-3 pt-2">
-              {slides.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => goTo(i)}
-                  aria-label={`Go to slide ${i + 1}`}
-                  className={`h-1.5 rounded-full transition-all duration-500 ${i === current ? "w-10 bg-primary" : "w-2 bg-white/30 hover:bg-white/50"
-                    }`}
-                />
-              ))}
+              {/* Slide indicators inline next to CTA for better balance */}
+              <div className="flex items-center gap-2 pl-2">
+                {slides.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => goTo(i)}
+                    aria-label={`Go to slide ${i + 1}`}
+                    className={`h-1.5 rounded-full transition-all duration-500 ${i === current ? "w-8 bg-primary" : "w-1.5 bg-white/30 hover:bg-white/50"
+                      }`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
 
@@ -269,7 +238,7 @@ const HeroSection = () => {
                     Trusted Globally
                   </div>
                   <div className="text-base font-bold text-white leading-tight">
-                    Built for EdTech, enterprises &amp; AI teams globally
+                    Built for Content Services, enterprises &amp; AI teams globally
                   </div>
                 </div>
               </div>
@@ -320,15 +289,15 @@ const HeroSection = () => {
                       style={{
                         color: "hsl(242,20%,85%)",
                         transition: "opacity 0.35s ease, transform 0.35s ease",
-                        opacity: edtechHighlightVisible ? 1 : 0,
-                        transform: edtechHighlightVisible ? "translateY(0)" : "translateY(-4px)",
+                        opacity: contentServicesHighlightVisible ? 1 : 0,
+                        transform: contentServicesHighlightVisible ? "translateY(0)" : "translateY(-4px)",
                       }}
                     >
-                      {currentEdtechLine}
+                      {currentContentServicesLine}
                     </div>
                     <div
                       className="hero-chip-bar"
-                      key={`edtech-${edtechHighlightIndex}`}
+                      key={`contentServices-${contentServicesHighlightIndex}`}
                       style={{ background: "#2dd4bf" }}
                     />
                   </div>
@@ -384,62 +353,234 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* ── Bottom-center glowing "Content & Data Services" CTA ── */}
-      <nav
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex justify-center"
-        aria-label="Jump to services section"
-      >
-        <a
-          href="#services"
-          onClick={(e) => {
-            e.preventDefault();
-            const target = document.getElementById("services");
-            if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
-          }}
-          className="hero-services-cta group relative flex items-center gap-2.5 px-6 py-3 md:px-8 md:py-3.5 rounded-full cursor-pointer select-none
-                     transition-all duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+      {/* ── Bottom proof bar: stats (left) + Watch Video & primary CTA (centered) ── */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 pb-6 lg:pb-8 pointer-events-none">
+        {/* Soft gradient fade behind the bar for separation from hero content */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 h-48 pointer-events-none"
           style={{
-            background: "linear-gradient(135deg, rgba(20,184,166,0.18) 0%, rgba(15,18,35,0.65) 100%)",
-            backdropFilter: "blur(18px) saturate(140%)",
-            WebkitBackdropFilter: "blur(18px) saturate(140%)",
-            border: "1px solid rgba(20,184,166,0.35)",
-            boxShadow: "0 0 20px rgba(20,184,166,0.25), 0 0 60px rgba(20,184,166,0.10), 0 8px 32px rgba(0,0,0,0.30)",
+            background:
+              "linear-gradient(to top, rgba(10,12,28,0.55) 0%, rgba(10,12,28,0.25) 55%, transparent 100%)",
           }}
-        >
-          {/* Animated outer glow ring */}
-          <span
-            className="absolute inset-0 rounded-full pointer-events-none"
-            style={{
-              border: "1.5px solid rgba(20,184,166,0.4)",
-              animation: "heroCTAPulse 2.4s ease-in-out infinite",
-            }}
-          />
+        />
 
-          {/* Icon */}
-          <span
-            className="flex items-center justify-center w-7 h-7 md:w-8 md:h-8 rounded-full flex-shrink-0"
-            style={{
-              background: "linear-gradient(135deg, hsl(170,82%,32%), hsl(165,75%,50%))",
-              boxShadow: "0 0 12px rgba(20,184,166,0.4)",
-            }}
-          >
-            <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4 text-white" />
-          </span>
+        <div className="container mx-auto px-4 relative">
+          {/* Desktop layout (xl+): stats absolute-left, CTA absolute-center, never overlap */}
+          <div className="hidden xl:block relative h-[120px]">
+            {/* LEFT: compact stats card */}
+            <div
+              className="absolute left-0 bottom-0 pointer-events-auto flex items-center gap-5 px-5 py-3 rounded-2xl border border-white/10"
+              style={{
+                background: "linear-gradient(135deg, rgba(15,18,35,0.6) 0%, rgba(15,40,40,0.4) 100%)",
+                backdropFilter: "blur(16px) saturate(140%)",
+                WebkitBackdropFilter: "blur(16px) saturate(140%)",
+                boxShadow: "0 12px 40px -12px rgba(0,0,0,0.45)",
+                maxWidth: "calc(50% - 180px)",
+              }}
+              aria-label="Key metrics"
+            >
+              {heroStats.map((stat, idx) => (
+                <div key={stat.label} className="flex items-center gap-5">
+                  <div>
+                    <div className="text-xl font-extrabold text-gradient leading-none whitespace-nowrap">
+                      {stat.value}
+                    </div>
+                    <div
+                      className="text-[10px] uppercase tracking-[0.14em] mt-1.5 font-semibold whitespace-nowrap"
+                      style={{ color: "hsl(242, 20%, 78%)" }}
+                    >
+                      {stat.label}
+                    </div>
+                  </div>
+                  {idx < heroStats.length - 1 && (
+                    <div
+                      aria-hidden="true"
+                      className="h-7 w-px"
+                      style={{
+                        background:
+                          "linear-gradient(to bottom, transparent, rgba(255,255,255,0.18), transparent)",
+                      }}
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
 
-          {/* Label */}
-          <span className="text-sm md:text-base font-bold tracking-wide text-white whitespace-nowrap"
-            style={{ textShadow: "0 2px 10px rgba(0,0,0,0.4)" }}
-          >
-            Content & Data Services
-          </span>
+            {/* CENTER: CTA stack, absolute centered */}
+            <nav
+              className="absolute left-1/2 -translate-x-1/2 bottom-0 flex flex-col items-center gap-3 pointer-events-auto"
+              aria-label="Jump to services section"
+            >
+              <button
+                type="button"
+                className="group flex items-center gap-2.5 px-5 py-2 rounded-full text-white text-sm font-semibold
+                           border border-white/20 hover:border-white/40 transition-all hover:scale-[1.03]
+                           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
+                style={{
+                  background: "rgba(15,18,35,0.55)",
+                  backdropFilter: "blur(14px) saturate(140%)",
+                  WebkitBackdropFilter: "blur(14px) saturate(140%)",
+                  boxShadow: "0 6px 24px rgba(0,0,0,0.30)",
+                }}
+              >
+                <span
+                  className="flex items-center justify-center w-6 h-6 rounded-full bg-gradient-primary"
+                  style={{ boxShadow: "0 0 10px rgba(20,184,166,0.45)" }}
+                >
+                  <Play className="w-3 h-3 text-white fill-white" />
+                </span>
+                <span className="tracking-wide">Watch Video</span>
+              </button>
 
-          {/* Bouncing chevron */}
-          <ChevronDown
-            className="w-4 h-4 md:w-5 md:h-5 text-primary/80 group-hover:text-primary transition-colors"
-            style={{ animation: "heroCTABounce 1.6s ease-in-out infinite" }}
-          />
-        </a>
-      </nav>
+              <a
+                href="#services"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const target = document.getElementById("services");
+                  if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
+                className="hero-services-cta group relative flex items-center gap-2.5 px-7 py-3.5 md:px-9 md:py-4 rounded-full cursor-pointer select-none
+                         transition-all duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                style={{
+                  background: "linear-gradient(135deg, rgba(20,184,166,0.22) 0%, rgba(15,18,35,0.7) 100%)",
+                  backdropFilter: "blur(18px) saturate(140%)",
+                  WebkitBackdropFilter: "blur(18px) saturate(140%)",
+                  border: "1px solid rgba(20,184,166,0.4)",
+                  boxShadow:
+                    "0 0 24px rgba(20,184,166,0.28), 0 0 60px rgba(20,184,166,0.12), 0 10px 32px rgba(0,0,0,0.32)",
+                }}
+              >
+                <span
+                  className="absolute inset-0 rounded-full pointer-events-none"
+                  style={{
+                    border: "1.5px solid rgba(20,184,166,0.4)",
+                    animation: "heroCTAPulse 2.4s ease-in-out infinite",
+                  }}
+                />
+                <span
+                  className="flex items-center justify-center w-7 h-7 md:w-8 md:h-8 rounded-full flex-shrink-0"
+                  style={{
+                    background: "linear-gradient(135deg, hsl(170,82%,32%), hsl(165,75%,50%))",
+                    boxShadow: "0 0 12px rgba(20,184,166,0.4)",
+                  }}
+                >
+                  <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4 text-white" />
+                </span>
+                <span
+                  className="text-sm md:text-base font-bold tracking-wide text-white whitespace-nowrap"
+                  style={{ textShadow: "0 2px 10px rgba(0,0,0,0.4)" }}
+                >
+                  Content & Data Services
+                </span>
+                <ChevronDown
+                  className="w-4 h-4 md:w-5 md:h-5 text-primary/80 group-hover:text-primary transition-colors"
+                  style={{ animation: "heroCTABounce 1.6s ease-in-out infinite" }}
+                />
+              </a>
+            </nav>
+          </div>
+
+          {/* Tablet & smaller-desktop layout (lg only): CTA centered, stats stack BELOW so no overlap */}
+          <div className="hidden lg:flex xl:hidden flex-col items-center gap-5 pointer-events-auto">
+            <nav
+              className="flex flex-col items-center gap-3"
+              aria-label="Jump to services section"
+            >
+              <button
+                type="button"
+                className="group flex items-center gap-2.5 px-5 py-2 rounded-full text-white text-sm font-semibold
+                           border border-white/20 hover:border-white/40 transition-all hover:scale-[1.03]
+                           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
+                style={{
+                  background: "rgba(15,18,35,0.55)",
+                  backdropFilter: "blur(14px) saturate(140%)",
+                  WebkitBackdropFilter: "blur(14px) saturate(140%)",
+                  boxShadow: "0 6px 24px rgba(0,0,0,0.30)",
+                }}
+              >
+                <span
+                  className="flex items-center justify-center w-6 h-6 rounded-full bg-gradient-primary"
+                  style={{ boxShadow: "0 0 10px rgba(20,184,166,0.45)" }}
+                >
+                  <Play className="w-3 h-3 text-white fill-white" />
+                </span>
+                <span className="tracking-wide">Watch Video</span>
+              </button>
+
+              <a
+                href="#services"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const target = document.getElementById("services");
+                  if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
+                className="hero-services-cta group relative flex items-center gap-2.5 px-7 py-3.5 rounded-full cursor-pointer select-none
+                         transition-all duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                style={{
+                  background: "linear-gradient(135deg, rgba(20,184,166,0.22) 0%, rgba(15,18,35,0.7) 100%)",
+                  backdropFilter: "blur(18px) saturate(140%)",
+                  WebkitBackdropFilter: "blur(18px) saturate(140%)",
+                  border: "1px solid rgba(20,184,166,0.4)",
+                  boxShadow:
+                    "0 0 24px rgba(20,184,166,0.28), 0 0 60px rgba(20,184,166,0.12), 0 10px 32px rgba(0,0,0,0.32)",
+                }}
+              >
+                <span
+                  className="absolute inset-0 rounded-full pointer-events-none"
+                  style={{
+                    border: "1.5px solid rgba(20,184,166,0.4)",
+                    animation: "heroCTAPulse 2.4s ease-in-out infinite",
+                  }}
+                />
+                <span
+                  className="flex items-center justify-center w-7 h-7 rounded-full flex-shrink-0"
+                  style={{
+                    background: "linear-gradient(135deg, hsl(170,82%,32%), hsl(165,75%,50%))",
+                    boxShadow: "0 0 12px rgba(20,184,166,0.4)",
+                  }}
+                >
+                  <Sparkles className="w-3.5 h-3.5 text-white" />
+                </span>
+                <span
+                  className="text-sm font-bold tracking-wide text-white whitespace-nowrap"
+                  style={{ textShadow: "0 2px 10px rgba(0,0,0,0.4)" }}
+                >
+                  Content & Data Services
+                </span>
+                <ChevronDown
+                  className="w-4 h-4 text-primary/80 group-hover:text-primary transition-colors"
+                  style={{ animation: "heroCTABounce 1.6s ease-in-out infinite" }}
+                />
+              </a>
+            </nav>
+          </div>
+
+          {/* MOBILE & TABLET stats strip (below CTA on lg, stacked on mobile) */}
+          <div className="lg:absolute lg:left-0 lg:bottom-0 lg:max-w-[260px] xl:hidden mt-6 lg:mt-0 pointer-events-auto">
+            <div
+              className="grid grid-cols-4 gap-2 px-4 py-3 rounded-2xl border border-white/10"
+              style={{
+                background: "linear-gradient(135deg, rgba(15,18,35,0.55) 0%, rgba(15,40,40,0.35) 100%)",
+                backdropFilter: "blur(14px) saturate(140%)",
+                WebkitBackdropFilter: "blur(14px) saturate(140%)",
+              }}
+            >
+              {heroStats.map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <div className="text-base font-extrabold text-gradient leading-none">{stat.value}</div>
+                  <div
+                    className="text-[9px] uppercase tracking-wider mt-1 font-semibold"
+                    style={{ color: "hsl(242, 20%, 78%)" }}
+                  >
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

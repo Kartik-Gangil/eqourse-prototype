@@ -1,4 +1,4 @@
-import VideoSolutionsPage from "@/components/edtech-solutions/video-solutions/VideoSolutionsPage";
+import VideoSolutionsPage from "@/components/content-services/video-solutions/VideoSolutionsPage";
 
 const ElearningVideoSolutions = () => <VideoSolutionsPage />;
 

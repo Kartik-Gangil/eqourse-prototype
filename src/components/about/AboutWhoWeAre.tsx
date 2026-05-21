@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { BookOpen, Brain, GraduationCap, Network, Users, Award } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const edtechFeatures = [
+const contentServicesFeatures = [
   { text: "Custom E-Learning Content", icon: BookOpen },
   { text: "K-12 Curriculum Design", icon: GraduationCap },
   { text: "Localization in 30+ Languages", icon: Users },
@@ -45,7 +45,7 @@ const AboutWhoWeAre = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {/* EdTech Side */}
+          {/* Content Services Side */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -61,11 +61,11 @@ const AboutWhoWeAre = () => {
             
             <h3 className="text-2xl font-bold mb-4 text-foreground">Content Service</h3>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              Our EdTech division specialises in custom e-learning content development, exam preparation, video learning solutions, LMS integration, and subject matter expert services.
+              Our Content Services division specialises in custom e-learning content development, exam preparation, video learning solutions, LMS integration, and subject matter expert services.
             </p>
 
             <ul className="space-y-3">
-              {edtechFeatures.map((feat, i) => (
+              {contentServicesFeatures.map((feat, i) => (
                 <li key={i} className="flex items-center gap-3 text-sm font-medium text-foreground/80">
                   <div className="w-6 h-6 rounded-full bg-teal-500/10 flex items-center justify-center text-teal-600">
                     <feat.icon className="w-3.5 h-3.5" />

@@ -11,14 +11,14 @@ const ContactUs = () => {
         <title>Contact Us │ Content Service & AI Data Services │ eQOURSE</title>
         <meta
           name="description"
-          content="Get in touch with eQOURSE for EdTech solutions and AI data services. Custom e-learning content, curriculum development, data annotation, model testing. Offices in India & Singapore. Call +91-92144-45870 or email info@eqourse.com. Free consultation available."
+          content="Get in touch with eQOURSE for Content Services and AI data services. Custom e-learning content, curriculum development, data annotation, model testing. Offices in India & Singapore. Call +91-92144-45870 or email info@eqourse.com. Free consultation available."
         />
         <meta
           name="keywords"
-          content="contact eQOURSE, EdTech contact, AI data services inquiry, e-learning consultation, data annotation quote, curriculum development contact, eQOURSE India office, eQOURSE Singapore office, free consultation"
+          content="contact eQOURSE, Content Services contact, AI data services inquiry, e-learning consultation, data annotation quote, curriculum development contact, eQOURSE India office, eQOURSE Singapore office, free consultation"
         />
-        <meta property="og:title" content="Contact Us │ EdTech & AI Data Services │ eQOURSE" />
-        <meta property="og:description" content="Ready to start? Contact eQOURSE for EdTech solutions or AI data services. Offices in Kota (India) and Singapore. Free consultation. 200+ clients worldwide." />
+        <meta property="og:title" content="Contact Us │ Content Services & AI Data Services │ eQOURSE" />
+        <meta property="og:description" content="Ready to start? Contact eQOURSE for Content Services or AI data services. Offices in Kota (India) and Singapore. Free consultation. 200+ clients worldwide." />
         <link rel="canonical" href="https://www.eqourse.com/contact-us" />
         <script type="application/ld+json">
           {`

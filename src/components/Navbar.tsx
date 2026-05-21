@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Menu, X, Phone, Mail, ChevronDown, ChevronRight, ArrowRight, FileText, PlayCircle, Database, Sparkles, Linkedin, Instagram, Facebook, Youtube } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { edtechCategories } from "@/components/edtech-solutions/shared/edtechNavData";
+import { contentServicesCategories } from "@/components/content-services/shared/contentServicesNavData";
 import { aiDataSamples } from "@/components/samples/ai-data/shared/aiDataSamplesData";
 
 interface SubLink {
@@ -29,13 +29,13 @@ const aiDataSubLinks: SubLink[] = [
 ];
 
 const aboutUsSubLinks: SubLink[] = [
-  { label: "Who We Are", to: "/aboutus", image: "/assets/dropdown/who_we_are.png", description: "Learn about our mission, vision and dynamic edtech team." },
+  { label: "Who We Are", to: "/aboutus", image: "/assets/dropdown/who_we_are.png", description: "Learn about our mission, vision and dynamic content services team." },
   { label: "Testimonials", to: "/clients-testimonials", image: "/assets/dropdown/testimonials.png", description: "Hear what our global clients say about our services." },
-  { label: "Careers", to: "/career", image: "/assets/dropdown/careers.png", description: "Join our growing team and shape the future of AI & EdTech." },
+  { label: "Careers", to: "/career", image: "/assets/dropdown/careers.png", description: "Join our growing team and shape the future of AI & Content Services." },
   { label: "FAQs", to: "/faq", image: "/assets/dropdown/faqs.png", description: "Got questions? We've got answers for all your queries." },
 ];
 
-const edtechSubLinks: SubLink[] = edtechCategories.map(c => ({
+const contentServicesSubLinks: SubLink[] = contentServicesCategories.map(c => ({
   label: c.label,
   to: c.href,
 }));
@@ -43,17 +43,17 @@ const edtechSubLinks: SubLink[] = edtechCategories.map(c => ({
 const navLinks: MainLink[] = [
   { label: "Home", to: "/" },
   { label: "About Us", to: "/aboutus", dropdown: aboutUsSubLinks },
-  { label: "Content Service", to: "/content-service", dropdown: edtechSubLinks, megaMenu: true },
+  { label: "Content Services", to: "/content-services", dropdown: contentServicesSubLinks, megaMenu: true },
   { label: "AI Data Services", to: "/ai-data-services", dropdown: aiDataSubLinks },
   { label: "Samples", to: "/samples", samplesMenu: true },
   { label: "TUTRAIN", to: "/tutrain", subtext: "Our Online Tutoring Brand" },
 ];
 
-/* ─── EdTech Mega‑Menu (Desktop) ─── */
-const EdTechMegaMenu = ({ onClose }: { onClose: () => void }) => {
+/* ─── Content Services Mega‑Menu (Desktop) ─── */
+const ContentServicesMegaMenu = ({ onClose }: { onClose: () => void }) => {
   const [hoveredCatIndex, setHoveredCatIndex] = useState(0);
   const [hoveredSubIndex, setHoveredSubIndex] = useState<number | null>(null);
-  const cat = edtechCategories[hoveredCatIndex];
+  const cat = contentServicesCategories[hoveredCatIndex];
   const hoveredSub = hoveredSubIndex !== null ? cat.subServices[hoveredSubIndex] : null;
   const location = useLocation();
 
@@ -61,13 +61,13 @@ const EdTechMegaMenu = ({ onClose }: { onClose: () => void }) => {
     <nav
       className="absolute top-full -left-[450px] w-[1100px] bg-card/95 rounded-3xl border border-border/50 shadow-elevated animate-slide-up z-50 overflow-hidden"
       style={{ backdropFilter: "blur(20px)" }}
-      aria-label="Content Service navigation"
+      aria-label="Content Services navigation"
     >
       <div className="flex min-h-[450px]">
         {/* Left: Categories (300px) */}
         <div className="w-[300px] border-r border-border/40 py-6 bg-secondary/30 flex flex-col" role="list" aria-label="Service categories">
           <span className="px-6 py-2 text-[11px] font-bold uppercase tracking-widest text-muted-foreground/70">Our Expertise</span>
-          {edtechCategories.map((c, i) => {
+          {contentServicesCategories.map((c, i) => {
             const Icon = c.icon;
             const isActive = location.pathname.startsWith(c.href);
             return (
@@ -204,14 +204,14 @@ const EdTechMegaMenu = ({ onClose }: { onClose: () => void }) => {
 };
 
 /* ─── Mobile Accordion ─── */
-const MobileEdTechAccordion = ({ onClose }: { onClose: () => void }) => {
+const MobileContentServicesAccordion = ({ onClose }: { onClose: () => void }) => {
   const [expandedCat, setExpandedCat] = useState<number | null>(null);
   const [expandedSub, setExpandedSub] = useState<string | null>(null);
   const location = useLocation();
 
   return (
     <div className="pl-2 pb-2">
-      {edtechCategories.map((cat, i) => {
+      {contentServicesCategories.map((cat, i) => {
         const Icon = cat.icon;
         const isExpanded = expandedCat === i;
         const isCatActive = location.pathname.startsWith(cat.href);
@@ -326,7 +326,7 @@ const SamplesMegaMenu = ({ onClose }: { onClose: () => void }) => (
             <FileText className="w-4 h-4 text-primary-foreground" />
           </div>
           <div className="flex-1">
-            <div className="text-[10px] font-bold tracking-widest uppercase text-primary/70">EdTech</div>
+            <div className="text-[10px] font-bold tracking-widest uppercase text-primary/70">Content Services</div>
             <div className="text-sm font-extrabold text-primary leading-tight">Text Content Samples</div>
           </div>
           <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
@@ -357,7 +357,7 @@ const SamplesMegaMenu = ({ onClose }: { onClose: () => void }) => (
             <PlayCircle className="w-4 h-4 text-primary-foreground" />
           </div>
           <div className="flex-1">
-            <div className="text-[10px] font-bold tracking-widest uppercase text-primary/70">EdTech</div>
+            <div className="text-[10px] font-bold tracking-widest uppercase text-primary/70">Content Services</div>
             <div className="text-sm font-extrabold text-primary leading-tight">Video Content Samples</div>
           </div>
           <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
@@ -544,7 +544,7 @@ const ImageHoverMegaMenu = ({ link, onClose }: { link: MainLink; onClose: () => 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [mobileEdTechOpen, setMobileEdTechOpen] = useState(false);
+  const [mobileContentServicesOpen, setMobileContentServicesOpen] = useState(false);
   const [mobileSamplesOpen, setMobileSamplesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -676,9 +676,9 @@ const Navbar = () => {
                     </div>
                   )}
 
-                  {/* Mega‑menu for EdTech */}
+                  {/* Mega‑menu for Content Services */}
                   {link.megaMenu && activeDropdown === link.label && (
-                    <EdTechMegaMenu onClose={() => setActiveDropdown(null)} />
+                    <ContentServicesMegaMenu onClose={() => setActiveDropdown(null)} />
                   )}
 
                   {/* 3-column Samples Mega Menu */}
@@ -728,16 +728,16 @@ const Navbar = () => {
                 {navLinks.map((link) => (
                   <div key={link.label}>
                     {link.megaMenu ? (
-                      /* EdTech accordion for mobile */
+                      /* Content Services accordion for mobile */
                       <>
                         <button
                           className="w-full px-4 py-3 text-sm font-medium text-foreground/80 hover:text-primary rounded-lg hover:bg-primary/5 flex items-center justify-between"
-                          onClick={() => setMobileEdTechOpen(!mobileEdTechOpen)}
+                          onClick={() => setMobileContentServicesOpen(!mobileContentServicesOpen)}
                         >
                           {link.label}
-                          <ChevronDown className={`w-4 h-4 transition-transform ${mobileEdTechOpen ? "rotate-180" : ""}`} />
+                          <ChevronDown className={`w-4 h-4 transition-transform ${mobileContentServicesOpen ? "rotate-180" : ""}`} />
                         </button>
-                        {mobileEdTechOpen && <MobileEdTechAccordion onClose={() => setIsOpen(false)} />}
+                        {mobileContentServicesOpen && <MobileContentServicesAccordion onClose={() => setIsOpen(false)} />}
                       </>
                     ) : link.samplesMenu ? (
                       <>

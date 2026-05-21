@@ -1,4 +1,4 @@
-import TechSolutionsPage from "@/components/edtech-solutions/tech-solutions/TechSolutionsPage";
+import TechSolutionsPage from "@/components/content-services/tech-solutions/TechSolutionsPage";
 
 const TechnologySolutions = () => <TechSolutionsPage />;
 

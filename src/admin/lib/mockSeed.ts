@@ -58,7 +58,7 @@ export const seedContactQueries = (): ContactQuery[] => {
 };
 
 export const seedPilotQueries = (): PilotQuery[] => {
-  const interests = ["ai-data", "edtech", "localization", "other"] as const;
+  const interests = ["ai-data", "content-services", "localization", "other"] as const;
   const names = [
     "Sarah Williams", "Raj Mehta", "Olivia Park", "Kenji Mori", "Diego Hernandez",
     "Emma Thompson", "Hassan Ali", "Lin Zhang", "Nora Schmidt",
@@ -107,7 +107,7 @@ export const seedBlogs = (): BlogPost[] => {
     coverImageUrl: "/placeholder.svg",
     body: `# ${t}\n\nWrite your content here. This is a sample blog body in markdown.\n\n## Section\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit.`,
     bodyFormat: "markdown" as const,
-    tags: ["edtech", "ai", "content"].slice(0, (i % 3) + 1),
+    tags: ["content-services", "ai", "content"].slice(0, (i % 3) + 1),
     author: { name: "eQourse Editorial" },
     seo: { title: t, description: "Insights from the eQourse team." },
     status: i === 0 ? "draft" : "published",
@@ -120,7 +120,7 @@ export const seedBlogs = (): BlogPost[] => {
 
 export const seedCaseStudies = (): CaseStudy[] => {
   const items = [
-    { title: "Global EdTech Platform: 30% faster content production", client: "Confidential EdTech", industry: "EdTech" },
+    { title: "Global Content Services platform: 30% faster content production", client: "Confidential Content Services", industry: "Content Services" },
     { title: "Annotating 2M images for an autonomous-vehicle startup", client: "Confidential AV", industry: "AI / Autonomous" },
     { title: "Localizing test prep into 8 languages in 90 days", client: "Major Test Prep Co.", industry: "Test Prep" },
   ];
@@ -140,7 +140,7 @@ export const seedCaseStudies = (): CaseStudy[] => {
       { label: "Quality score", value: "98.7%" },
       { label: "Languages", value: "8" },
     ],
-    tags: ["edtech", "case-study"],
+    tags: ["content-services", "case-study"],
     bodyFormat: "markdown" as const,
     seo: { title: c.title },
     status: "published",

@@ -4,7 +4,7 @@ import { Compass, Globe2, ShieldCheck, MapPin } from "lucide-react";
 const reasons = [
   {
     title: "Two Verticals, Infinite Opportunities",
-    description: "Whether you’re passionate about education or fascinated by AI, eQOURSE offers career paths across both domains. Our EdTech team creates learning content that reaches 10M+ students. Our AI Data team trains models that serve millions of users. You can grow within either vertical or across both.",
+    description: "Whether you’re passionate about education or fascinated by AI, eQOURSE offers career paths across both domains. Our Content Services team creates learning content that reaches 10M+ students. Our AI Data team trains models that serve millions of users. You can grow within either vertical or across both.",
     icon: Compass,
     color: "from-blue-500 to-indigo-600",
     bgLight: "bg-blue-500/10"

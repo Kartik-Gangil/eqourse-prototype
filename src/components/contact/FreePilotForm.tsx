@@ -109,7 +109,7 @@ const FreePilotForm = () => {
         <div className="space-y-3 pt-4">
           <label className="text-sm font-medium text-foreground block">Pilot Type <span className="text-destructive">*</span></label>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {['EdTech Content Pilot', 'AI Data Services Pilot', 'Both (Content + Data)'].map((type) => (
+            {['Content Services Pilot', 'AI Data Services Pilot', 'Both (Content + Data)'].map((type) => (
               <label 
                 key={type} 
                 className={`flex items-center p-4 border rounded-xl cursor-pointer transition-all ${pilotType === type ? 'border-primary bg-primary/5 shadow-soft ring-1 ring-primary' : 'border-border hover:border-primary/50 bg-background'}`}
@@ -134,15 +134,17 @@ const FreePilotForm = () => {
             <label htmlFor="serviceDetail" className="text-sm font-medium text-foreground">Service Detail <span className="text-destructive">*</span></label>
             <select id="serviceDetail" defaultValue="" className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow cursor-pointer" required>
               <option value="" disabled>Select specific service...</option>
-              {pilotType.includes('EdTech') || pilotType === 'Both (Content + Data)' ? (
-                <optgroup label="EdTech Focus">
-                  <option value="K-12">K-12 Content (specify grade & subject below)</option>
-                  <option value="Curriculum">Curriculum Design</option>
-                  <option value="Assessment">Assessment / Question Bank</option>
-                  <option value="Exam Prep">Exam Prep (specify exam below)</option>
-                  <option value="Video">Video Script / Storyboard</option>
-                  <option value="Localization">Localization / Translation</option>
-                  <option value="Other EdTech">Other EdTech</option>
+              {pilotType.includes('Content Services') || pilotType === 'Both (Content + Data)' ? (
+                <optgroup label="Content Services Focus">
+                  <option value="K-12">Custom E-Learning Content (K-12 / Higher Ed)</option>
+                  <option value="Curriculum">Curriculum Design & Lesson Planning</option>
+                  <option value="Assessment">Assessment & Question Bank Development</option>
+                  <option value="Exam Prep">Exam Prep (SAT, IELTS, TOEFL, etc.)</option>
+                  <option value="Video">E-Learning Video Solutions</option>
+                  <option value="Localization">Localization & Translation Services</option>
+                  <option value="Accessibility">Accessibility Services (Remediation & Compliance)</option>
+                  <option value="Talent Assessment">Talent Assessment & Workforce Evaluation</option>
+                  <option value="Other Content Services">Other Content Services</option>
                 </optgroup>
               ) : null}
               {pilotType.includes('AI') || pilotType === 'Both (Content + Data)' ? (

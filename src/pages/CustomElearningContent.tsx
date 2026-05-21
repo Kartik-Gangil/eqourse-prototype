@@ -1,4 +1,4 @@
-import CustomElearningPage from "@/components/edtech-solutions/custom-elearning/CustomElearningPage";
+import CustomElearningPage from "@/components/content-services/custom-elearning/CustomElearningPage";
 
 const CustomElearningContent = () => <CustomElearningPage />;
 

@@ -10,6 +10,9 @@ export interface SampleShowcase {
   format: string;
   languages: string;
   previewFiles?: PreviewFile[];
+  teaser?: string;
+  qa?: { label: string; detail: string }[];
+  id?: string;
 }
 
 export interface AiDataSample {
@@ -56,39 +59,74 @@ export const aiDataSamples: AiDataSample[] = [
       "NER, sentiment, intent, relation extraction and coreference resolution across English and Indic languages.",
     showcases: [
       {
+        id: "ner",
         title: "Named Entity Recognition (NER)",
+        teaser: "Highlight people, brands, places, dates & money in any sentence.",
         description:
           "English and Hindi sentences with tagged entities (PERSON, ORG, LOC, DATE, AMOUNT, PRODUCT). Multi-annotator consensus, CoNLL output with confidence scores and code-mixed Hindi-English handling across script changes.",
         format: "CoNLL / JSONL",
         languages: "English, Hindi, Bengali, Tamil, Telugu",
+        qa: [
+          { label: "Validated", detail: "schema compliant" },
+          { label: "Gold-standard", detail: "IAA ≥ 0.80" },
+          { label: "Audit trail", detail: "full provenance" },
+        ],
       },
       {
+        id: "sentiment",
         title: "Sentiment Analysis",
+        teaser: "Detect mood at sentence & aspect level — even sarcasm and Hinglish.",
         description:
           "Product reviews and social-media posts annotated with fine-grained sentiment (positive, negative, neutral, mixed) at sentence and aspect level. Sarcasm and negation handled for Hindi and Hinglish.",
         format: "JSONL / CSV",
         languages: "English, Hindi, Hinglish",
+        qa: [
+          { label: "Aspect-level", detail: "per-entity polarity" },
+          { label: "Sarcasm-aware", detail: "flagged & scored" },
+          { label: "Mixed-script", detail: "Hinglish handled" },
+        ],
       },
       {
+        id: "intent",
         title: "Intent Classification",
+        teaser: "Route any message to the right intent across 50+ categories.",
         description:
           "Banking and e-commerce customer queries classified across 50+ intent categories. Primary intent, secondary intent, and confidence tags. Code-mixed and dialectal queries included.",
         format: "JSONL",
         languages: "English, Hindi, Tamil, Telugu",
+        qa: [
+          { label: "50+ classes", detail: "domain-specific" },
+          { label: "Confidence scored", detail: "calibrated" },
+          { label: "Secondary intent", detail: "where applicable" },
+        ],
       },
       {
+        id: "relation",
         title: "Relation Extraction",
+        teaser: "Map who-does-what between entities as a knowledge graph.",
         description:
           "Biomedical text with annotated entity-entity relationships (drug-disease, gene-protein, symptom-condition). Relationship type, directionality, and evidence span per relation.",
         format: "JSONL / Custom JSON",
         languages: "English",
+        qa: [
+          { label: "Typed edges", detail: "CEO-of, owns, treats…" },
+          { label: "Directional", detail: "subj → obj asserted" },
+          { label: "Evidence spans", detail: "token-aligned" },
+        ],
       },
       {
+        id: "coreference",
         title: "Coreference Resolution",
+        teaser: 'Link every "he", "she", "them" back to who they\'re really about.',
         description:
           "News articles and conversational text with coreference chains linking pronouns, noun phrases and named entities to their referent mentions.",
         format: "CoNLL / JSONL",
         languages: "English, Hindi",
+        qa: [
+          { label: "Chained mentions", detail: "pronoun ↔ entity" },
+          { label: "Cross-sentence", detail: "doc-level scope" },
+          { label: "Disambiguated", detail: "singleton-aware" },
+        ],
       },
     ],
     metrics: [
@@ -123,38 +161,68 @@ export const aiDataSamples: AiDataSample[] = [
     showcases: [
       {
         title: "Bounding Box Annotation",
+        teaser: "Identify and locate objects with precise rectangular boxes.",
         description:
-          "Urban driving scenes with rectangular bounding boxes across 25+ object classes (cars, trucks, auto-rickshaws, pedestrians, cyclists, traffic signs). Occlusion and truncation flags included. India-specific vehicle classes.",
+          "Urban driving scenes with rectangular bounding boxes across 25+ object classes (cars, trucks, auto-rickshaws, pedestrians, cyclists). Occlusion and truncation flags included. India-specific vehicle classes.",
         format: "COCO JSON",
         languages: "N/A (visual)",
+        qa: [
+          { label: "Validated", detail: "schema compliant" },
+          { label: "Gold-standard", detail: "98%+ accuracy" },
+          { label: "Audit trail", detail: "full provenance" },
+        ],
       },
       {
         title: "Semantic Segmentation",
+        teaser: "Classify every pixel in an image into predefined categories.",
         description:
           "Street scenes with pixel-level classification into 15+ categories (road, sidewalk, building, sky, vegetation, vehicle, person, pole). Colour-coded masks with class distribution stats.",
         format: "PNG masks + COCO JSON",
         languages: "N/A (visual)",
+        qa: [
+          { label: "Pixel-perfect", detail: "tight boundaries" },
+          { label: "Class-balanced", detail: "distribution checked" },
+          { label: "Edge cases", detail: "handled explicitly" },
+        ],
       },
       {
         title: "Instance Segmentation",
+        teaser: "Isolate and identify individual objects with polygon masks.",
         description:
           "Retail shelf images with individual product instances segmented as polygon masks. Each instance has a unique ID, class label, and shelf-position metadata.",
         format: "COCO JSON",
         languages: "N/A (visual)",
+        qa: [
+          { label: "Unique IDs", detail: "per instance" },
+          { label: "Overlap-aware", detail: "occlusion handled" },
+          { label: "Complex shapes", detail: "precise tracing" },
+        ],
       },
       {
         title: "Keypoint Detection",
+        teaser: "Map skeletal structures and facial landmarks with pinpoint accuracy.",
         description:
           "Pedestrian images with 17-point body-pose estimation (COCO keypoint format). Visibility flags and bounding boxes included.",
         format: "COCO JSON",
         languages: "N/A (visual)",
+        qa: [
+          { label: "Visibility flags", detail: "annotated per point" },
+          { label: "Occlusion handled", detail: "inferred joints marked" },
+          { label: "COCO-compliant", detail: "standard schema" },
+        ],
       },
       {
         title: "3D Cuboid Annotation",
+        teaser: "Estimate depth, rotation, and dimensions in 3D space.",
         description:
           "Driving data with depth-aware 3D bounding cuboids for vehicles and obstacles. Yaw, pitch, roll rotation and distance estimation per object.",
         format: "Custom JSON / KITTI",
         languages: "N/A (visual)",
+        qa: [
+          { label: "Depth-aware", detail: "z-axis estimated" },
+          { label: "Rotation tracking", detail: "yaw/pitch/roll" },
+          { label: "Sensor-fusion", detail: "LiDAR/Camera ready" },
+        ],
       },
     ],
     metrics: [
@@ -188,32 +256,60 @@ export const aiDataSamples: AiDataSample[] = [
       "Transcription, diarisation, phoneme labeling and emotion detection across 12+ Indian and international languages.",
     showcases: [
       {
+        id: "verbatim",
         title: "Verbatim Transcription",
+        teaser: "Capture every word, pause, and filler exactly as spoken.",
         description:
           "30-second audio clips in Hindi, Tamil, and English with verbatim transcripts including filler words, false starts, and code-switching. Speaker metadata attached (age, gender, region, noise condition).",
         format: "WAV + JSON (transcript + metadata)",
         languages: "Hindi, Tamil, Telugu, Bengali, English",
+        qa: [
+          { label: "Speaker tagged", detail: "per utterance" },
+          { label: "Noise flagged", detail: "environmental context" },
+          { label: "High fidelity", detail: "verbatim capture" },
+        ],
       },
       {
+        id: "diarisation",
         title: "Speaker Diarisation",
+        teaser: "Identify who spoke when in multi-speaker conversations.",
         description:
           "Multi-speaker conversation recordings with identified speaker segments, timestamps, and overlap detection. 3-speaker meeting recordings in Hindi-English.",
         format: "RTTM / JSON",
         languages: "Hindi, English, Hinglish",
+        qa: [
+          { label: "Overlap detection", detail: "cross-talk handled" },
+          { label: "Timestamped", detail: "millisecond precision" },
+          { label: "Speaker mapping", detail: "consistent IDs" },
+        ],
       },
       {
+        id: "phoneme",
         title: "Phoneme & Prosody Labeling",
+        teaser: "Map speech sounds and intonation for advanced TTS training.",
         description:
           "Clean speech recordings with phoneme-level annotation for TTS model training. Stress markers, intonation contours, and pause boundaries.",
         format: "TextGrid / JSON",
         languages: "Hindi, English",
+        qa: [
+          { label: "Stress markers", detail: "pitch/accent noted" },
+          { label: "Intonation", detail: "contours mapped" },
+          { label: "Sub-word aligned", detail: "precise boundaries" },
+        ],
       },
       {
+        id: "emotion",
         title: "Emotion & Tone Detection",
+        teaser: "Classify the sentiment and emotional state of the speaker.",
         description:
           "Customer service call recordings with emotion labels (neutral, frustrated, happy, angry, confused) at segment level. Arousal-valence scores included.",
         format: "JSON / CSV",
         languages: "Hindi, English, Tamil",
+        qa: [
+          { label: "Arousal-valence", detail: "scored out of 10" },
+          { label: "Context-aware", detail: "semantic grounding" },
+          { label: "Consensus", detail: "multi-annotator agreed" },
+        ],
       },
     ],
     metrics: [
@@ -247,32 +343,60 @@ export const aiDataSamples: AiDataSample[] = [
       "Preference ranking, quality scoring, instruction-following and safety labeling for LLM alignment.",
     showcases: [
       {
+        id: "preference",
         title: "Preference Ranking",
+        teaser: "Rank model outputs to align with human preferences and values.",
         description:
           "Prompt-response pairs where 3 model outputs are ranked best-to-worst by expert annotators. Includes ranking rationale, helpfulness score (1–5), and factual-accuracy assessment. Hindi and English prompts.",
         format: "JSONL",
         languages: "English, Hindi, Bengali, Tamil, Telugu, Marathi",
+        qa: [
+          { label: "Expert consensus", detail: "multi-reviewer IAA" },
+          { label: "Rationale provided", detail: "detailed justification" },
+          { label: "Fact-checked", detail: "accuracy verified" },
+        ],
       },
       {
+        id: "quality",
         title: "Response Quality Scoring",
+        teaser: "Evaluate outputs across helpfulness, accuracy, and safety.",
         description:
           "Model responses scored on 4 dimensions: helpfulness, accuracy, harmlessness, and coherence (1–5 each). Multi-annotator consensus with Krippendorff's Alpha reported.",
         format: "JSONL",
         languages: "English, Hindi",
+        qa: [
+          { label: "Multi-dimensional", detail: "4x criteria scored" },
+          { label: "Calibrated", detail: "anchored grading" },
+          { label: "Reliable", detail: "IAA ≥ 0.83" },
+        ],
       },
       {
+        id: "instruction",
         title: "Instruction-Following Evaluation",
+        teaser: "Measure how well models adhere to complex, multi-step prompts.",
         description:
           "Complex multi-step instructions with binary assessment (followed / not followed) plus partial credit scoring. Error categorisation: format error, content error, omission, hallucination.",
         format: "JSONL",
         languages: "English, Hindi",
+        qa: [
+          { label: "Partial credit", detail: "nuanced scoring" },
+          { label: "Error categorized", detail: "specific failure modes" },
+          { label: "Edge-case tested", detail: "adversarial prompts" },
+        ],
       },
       {
+        id: "safety",
         title: "Safety & Red-Teaming Labels",
+        teaser: "Identify and classify harmful, biased, or unsafe model behaviors.",
         description:
           "Model outputs labeled for safety violations: harmful content, bias/discrimination, PII leakage, misinformation, and policy violation. Severity rating (low / medium / high / critical).",
         format: "JSONL",
         languages: "English, Hindi, Tamil, Telugu",
+        qa: [
+          { label: "Severity rated", detail: "low to critical" },
+          { label: "Policy aligned", detail: "custom guidelines" },
+          { label: "Adversarial", detail: "stress-tested outputs" },
+        ],
       },
     ],
     metrics: [
@@ -307,31 +431,55 @@ export const aiDataSamples: AiDataSample[] = [
     showcases: [
       {
         title: "Text Collection Samples",
+        teaser: "Sourced conversational text with rich demographic metadata.",
         description:
           "Conversational text corpus in Hindi-English code-mixed format. Crowdsourced from university students. Metadata: contributor age, education, region, and topic domain. 5,000-record sample in JSONL.",
         format: "JSONL / CSV",
         languages: "Hindi, Hinglish, English, Tamil, Telugu, Bengali",
+        qa: [
+          { label: "Consent logged", detail: "full documentation" },
+          { label: "Domain-specific", detail: "targeted sourcing" },
+          { label: "Demographics", detail: "age/region tracked" },
+        ],
       },
       {
         title: "Audio Collection Samples",
+        teaser: "Field-recorded speech across diverse demographics and environments.",
         description:
           "100 field-recorded speech clips (30–60 seconds each) in 4 Indian languages. Diverse speakers: urban / rural, male / female, 18–65 age range. SNR-scored, dialect-classified.",
         format: "WAV + JSON metadata",
         languages: "Hindi, Tamil, Telugu, Bengali",
+        qa: [
+          { label: "SNR-scored", detail: "quality thresholded" },
+          { label: "Dialect mapped", detail: "regional variations" },
+          { label: "Environment", detail: "field/studio labeled" },
+        ],
       },
       {
         title: "Image Collection Samples",
+        teaser: "Diverse visual data sourced globally with full legal compliance.",
         description:
           "500 handwritten document images (government forms, bank slips) in Devanagari, Tamil, and Telugu scripts. Diverse handwriting styles. EXIF stripped, consent logged.",
         format: "JPEG/PNG + JSON metadata",
         languages: "Devanagari, Tamil, Telugu scripts",
+        qa: [
+          { label: "EXIF stripped", detail: "privacy protected" },
+          { label: "Consent logged", detail: "model releases" },
+          { label: "High resolution", detail: "artifact free" },
+        ],
       },
       {
         title: "Video Collection Samples",
+        teaser: "Real-world video scenarios captured with calibrated sensors.",
         description:
           "50 dashcam video clips (10–30 seconds each) from Indian urban and highway roads. Calibrated camera parameters. Scene metadata: weather, time of day, traffic density.",
         format: "MP4 + JSON metadata",
         languages: "N/A (visual)",
+        qa: [
+          { label: "Scene metadata", detail: "weather/time/lighting" },
+          { label: "Camera params", detail: "calibration data" },
+          { label: "Action tagged", detail: "events marked" },
+        ],
       },
     ],
     metrics: [
@@ -366,31 +514,55 @@ export const aiDataSamples: AiDataSample[] = [
     showcases: [
       {
         title: "Text Deduplication: Before / After",
+        teaser: "Remove redundant data to improve model training efficiency.",
         description:
           "A 10,000-row text corpus with 18% duplicate and near-duplicate entries. Deduplicated corpus with log showing exact-match and fuzzy-match removals. Size reduces from 10,000 to 8,200 rows.",
         format: "CSV (before) + CSV (after) + JSON (dedup log)",
         languages: "English, Hindi",
+        qa: [
+          { label: "Exact & fuzzy", detail: "similarity matched" },
+          { label: "Log provided", detail: "removal audit" },
+          { label: "Corpus compressed", detail: "efficiency gained" },
+        ],
       },
       {
         title: "PII Redaction: Before / After",
+        teaser: "Safeguard privacy by anonymizing sensitive personal information.",
         description:
           "Customer feedback dataset with PII (names, phone numbers, emails, Aadhaar). Raw vs redacted data using standardised placeholders ([NAME], [PHONE], [EMAIL], [ID]). Redaction audit report included.",
         format: "JSONL (before/after) + PDF (audit report)",
         languages: "English, Hindi",
+        qa: [
+          { label: "GDPR-ready", detail: "compliant masking" },
+          { label: "Placeholders", detail: "standardized tags" },
+          { label: "Audit reported", detail: "confidence scores" },
+        ],
       },
       {
         title: "Audio Quality Filtering: Before / After",
+        teaser: "Ensure only the highest fidelity audio reaches your models.",
         description:
           "100 audio recordings with SNR scores. Before: full set including 23 sub-threshold recordings. After: 77 passing recordings. Quarantine log shows why each rejection was made.",
         format: "WAV files + JSON (quality log)",
         languages: "Hindi, Tamil",
+        qa: [
+          { label: "SNR thresholded", detail: "noise filtered" },
+          { label: "Quarantine logged", detail: "rejection reasons" },
+          { label: "Cleaned output", detail: "training ready" },
+        ],
       },
       {
         title: "Gold-Standard Validation Report",
+        teaser: "Benchmark your datasets against rigorously verified ground truth.",
         description:
           "A validated annotation batch with precision / recall / F1 scores benchmarked against gold references. Annotator-level quality scores and honeypot breakdown included.",
         format: "PDF report + JSON (scores)",
         languages: "English",
+        qa: [
+          { label: "P/R/F1 scored", detail: "standard metrics" },
+          { label: "Honeypot tracked", detail: "quality assurance" },
+          { label: "Annotator graded", detail: "individual metrics" },
+        ],
       },
     ],
     metrics: [

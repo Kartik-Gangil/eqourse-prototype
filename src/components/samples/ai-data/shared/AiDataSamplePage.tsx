@@ -30,7 +30,7 @@ const AiDataSamplePage = () => {
       />
 
 
-      <SampleShowcaseGrid showcases={sample.showcases} />
+      <SampleShowcaseGrid showcases={sample.showcases} categorySlug={sample.slug} />
 
       <QualityMetrics metrics={sample.metrics} />
 

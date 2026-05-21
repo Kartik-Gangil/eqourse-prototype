@@ -17,16 +17,16 @@ const quickLinks = [
   { label: "FAQs", to: "/faq" },
 ];
 
-/* ── Content Service: 7 top-level service categories for SEO ── */
-const edtechLinks = [
-  { label: "EdTech Overview", to: "/content-service" },
-  { label: "Custom E-Learning Content", to: "/content-service/custom-e-learning-content" },
-  { label: "Exam Preparation Content", to: "/content-service/exam-preparation-content" },
-  { label: "Learning Solutions", to: "/content-service/learning-solutions" },
-  { label: "E-Learning Video Solutions", to: "/content-service/elearning-video-solutions" },
-  { label: "Localization Services", to: "/content-service/localization-services" },
-  { label: "Technology Solutions", to: "/content-service/technology-solutions" },
-  { label: "Subject Matter Experts", to: "/content-service/subject-matter-experts" },
+/* ── Content Services: 7 top-level service categories for SEO ── */
+const contentServicesLinks = [
+  { label: "Content Services Overview", to: "/content-services" },
+  { label: "Custom E-Learning Content", to: "/content-services/custom-e-learning-content" },
+  { label: "Exam Preparation Content", to: "/content-services/exam-preparation-content" },
+  { label: "Learning Solutions", to: "/content-services/learning-solutions" },
+  { label: "E-Learning Video Solutions", to: "/content-services/elearning-video-solutions" },
+  { label: "Localization Services", to: "/content-services/localization-services" },
+  { label: "Technology Solutions", to: "/content-services/technology-solutions" },
+  { label: "Subject Matter Experts", to: "/content-services/subject-matter-experts" },
 ];
 
 /* ── AI Data Services ── */
@@ -103,11 +103,11 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* ── Content Service ── */}
+          {/* ── Content Services ── */}
           <div>
-            <h4 className="font-heading font-semibold mb-4" style={headingColor}>Content Service</h4>
+            <h4 className="font-heading font-semibold mb-4" style={headingColor}>Content Services</h4>
             <div className="space-y-3">
-              {edtechLinks.map((link) => (
+              {contentServicesLinks.map((link) => (
                 <Link key={link.label} to={link.to} className={linkClass} style={linkColor}>
                   {link.label}
                 </Link>

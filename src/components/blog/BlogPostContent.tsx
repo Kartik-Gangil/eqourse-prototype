@@ -162,7 +162,7 @@ const BlogPostContent = ({ blog }: BlogPostContentProps) => {
                       This is a simulated paragraph for the section "{section.title}". In a real CMS integration, this would be populated with rich HTML content. The eQOURSE team covers comprehensive insights on this topic, exploring best practices, challenges, and scalable solutions for modern requirements.
                     </p>
                     <p className="text-muted-foreground leading-relaxed">
-                      Leveraging industry expertise, this section highlights the critical strategies necessary for success. Whether deploying advanced EdTech platforms or robust AI data pipelines, understanding these foundational elements ensures reliable and impactful outcomes.
+                      Leveraging industry expertise, this section highlights the critical strategies necessary for success. Whether deploying advanced Content Services platforms or robust AI data pipelines, understanding these foundational elements ensures reliable and impactful outcomes.
                     </p>
                   </div>
                 );
@@ -194,7 +194,7 @@ const BlogPostContent = ({ blog }: BlogPostContentProps) => {
               <div className="relative z-10">
                 <h3 className="font-heading text-2xl md:text-4xl font-bold text-white mb-4">Ready to get started?</h3>
                 <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
-                  Transform your operations with our premium {isTeal ? 'EdTech' : 'AI Data'} solutions. Partner with eQOURSE today.
+                  Transform your operations with our premium {isTeal ? 'Content Services' : 'AI Data'} solutions. Partner with eQOURSE today.
                 </p>
                 <Link to="/free-pilot" className="inline-flex items-center gap-2 bg-white text-foreground px-8 py-3.5 rounded-full font-bold shadow-xl hover:scale-105 transition-transform duration-300">
                   Request a Free Pilot <ArrowRight className="w-5 h-5" />

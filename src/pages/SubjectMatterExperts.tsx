@@ -1,4 +1,4 @@
-import SMEPage from "@/components/edtech-solutions/sme/SMEPage";
+import SMEPage from "@/components/content-services/sme/SMEPage";
 
 const SubjectMatterExperts = () => <SMEPage />;
 

@@ -8,7 +8,7 @@ const testimonials = [
     title: "Content Manager",
     company: "ExamFactor (ABP Learning)",
     image: "/assets/dropdown/who_we_are.png", // Using existing asset as fallback
-    tag: "EdTech"
+    tag: "Content Services"
   },
   {
     quote: "eQOURSE has been a game-changer for our content creation needs. Their team brings creativity, precision, and deep expertise to the table, consistently delivering high-quality content that aligns perfectly with our educational goals.",
@@ -16,7 +16,7 @@ const testimonials = [
     title: "Managing Director",
     company: "ContentWize",
     image: "/assets/dropdown/who_we_are.png",
-    tag: "EdTech"
+    tag: "Content Services"
   },
   {
     quote: "It has always been a pleasure to collaborate with eQOURSE. The company consistently delivers services that excel in comfort, clarity, and reliability, meeting the highest possible standards of client requirements.",
@@ -24,7 +24,7 @@ const testimonials = [
     title: "Head Program Designer",
     company: "eVidyaloka Trust",
     image: "/assets/dropdown/who_we_are.png",
-    tag: "EdTech"
+    tag: "Content Services"
   },
   {
     quote: "eQOURSE is a one stop shop for all your solution needs. The breadth and variety of solutions provided are unique and extensive. Benefit is to have everything done under one roof.",
@@ -32,7 +32,7 @@ const testimonials = [
     title: "Curriculum Head",
     company: "SPI",
     image: "/assets/dropdown/who_we_are.png",
-    tag: "EdTech"
+    tag: "Content Services"
   },
   {
     quote: "eQOURSE offers guaranteed quality and quantity. Our Content quality has improved post working with eQOURSE. Will definitely recommend to others because the output of eQOURSE is trustworthy.",
@@ -40,7 +40,7 @@ const testimonials = [
     title: "Product Manager",
     company: "Data Driven Interactive Technology",
     image: "/assets/dropdown/who_we_are.png",
-    tag: "EdTech"
+    tag: "Content Services"
   }
 ];
 
@@ -89,7 +89,7 @@ const ContactTestimonials = () => {
             Hear From Our Clients
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            See what industry leaders are saying about our EdTech and AI Data solutions.
+            See what industry leaders are saying about our Content Services and AI Data solutions.
           </p>
         </div>
 

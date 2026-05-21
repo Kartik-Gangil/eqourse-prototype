@@ -27,7 +27,7 @@ export const privacySections: PrivacySection[] = [
     title: "Definitions",
     content: [
       '**"Personal Data"** means any information that identifies or can be used to identify an individual, including but not limited to name, email address, phone number, IP address, device identifiers, and any other information defined as personal data under applicable data protection laws.',
-      '**"Client Data"** means any data, content, files, datasets, or materials provided by our clients for the purpose of receiving EdTech content or AI Data services. Client data is owned by the client and processed by eQOURSE solely under the client\'s instructions.',
+      '**"Client Data"** means any data, content, files, datasets, or materials provided by our clients for the purpose of receiving Content Services or AI Data services. Client data is owned by the client and processed by eQOURSE solely under the client\'s instructions.',
       '**"Contributor Data"** means data provided by individuals who participate in our data collection activities (e.g., providing speech recordings, handwriting samples, or text contributions for AI training datasets). Contributors provide explicit consent before participation.',
       '**"Annotation Data"** means labeling, tagging, or classification metadata added to client datasets by our annotation team as part of AI Data Services.',
       '**"TuTrain Data"** means interaction data generated when users test AI models through our TuTrain real-world model testing platform.',
@@ -51,8 +51,8 @@ export const privacySections: PrivacySection[] = [
       "• **Log Data:** IP address, browser type and version, operating system, referring URL, pages visited, time spent on pages, date and time of visit.",
       "• **Device Information:** device type (desktop, mobile, tablet), screen resolution, language settings.",
       "• **Cookies and Tracking Technologies:** session cookies (for website functionality), persistent cookies (for analytics and preferences), and third-party cookies (Google Analytics). See Section 8 for full cookie details.",
-      "### 3.3 Client Data (EdTech Services)",
-      "When clients engage our EdTech services, they may provide us with educational content, curriculum materials, assessment data, student performance data, or other educational materials for the purpose of content development, localisation, or LMS integration. This data is processed solely on the client's behalf and under the client's instructions.",
+      "### 3.3 Client Data (Content Services Services)",
+      "When clients engage our Content Services services, they may provide us with educational content, curriculum materials, assessment data, student performance data, or other educational materials for the purpose of content development, localisation, or LMS integration. This data is processed solely on the client's behalf and under the client's instructions.",
       "### 3.4 Client Data (AI Data Services)",
       "When clients engage our AI Data Services, they may provide us with datasets (text, images, audio, video) for annotation, labeling, cleaning, or validation. This data may contain personal information. We process this data solely on the client's behalf, under the client's instructions, and in accordance with data processing agreements (DPAs) signed with each client.",
       "### 3.5 Contributor Data (Data Collection Services)",
@@ -72,7 +72,7 @@ export const privacySections: PrivacySection[] = [
     content: [
       "We use the information we collect for the following purposes:",
       "• To respond to your inquiries and provide customer support (contact form and pilot request submissions).",
-      "• To deliver contracted EdTech content services (curriculum development, content creation, localisation, video production, assessment development, LMS integration, and SME services).",
+      "• To deliver contracted Content Services services (curriculum development, content creation, localisation, video production, assessment development, LMS integration, and SME services).",
       "• To deliver contracted AI Data services (data collection, annotation, labeling, cleaning, validation, and real-world model testing).",
       "• To process career applications and recruitment.",
       "• To send newsletters and marketing communications (only with your explicit opt-in consent; you can unsubscribe at any time).",
@@ -155,7 +155,7 @@ export const privacySections: PrivacySection[] = [
       "• **Contact form and pilot request data:** retained for 24 months after the last interaction, then deleted.",
       "• **Newsletter subscriber data:** retained until you unsubscribe, then deleted within 30 days.",
       "• **Career application data:** retained for 12 months after the application date, then deleted unless you request earlier deletion.",
-      "• **Client project data (EdTech):** retained for the duration of the client engagement plus 12 months, then securely deleted unless the client requests extended retention.",
+      "• **Client project data (Content Services):** retained for the duration of the client engagement plus 12 months, then securely deleted unless the client requests extended retention.",
       "• **Client project data (AI Data):** retained for the duration of the client engagement. Upon project completion, all client data is securely deleted within 30 days unless the client requests extended retention or earlier deletion.",
       "• **Contributor data:** retained for the duration specified in the contributor's consent agreement. Contributors may request deletion at any time.",
       "• **TuTrain interaction data:** de-identified interaction logs may be retained for service improvement. Personal identifiers are deleted within 90 days of project completion.",
@@ -196,7 +196,7 @@ export const privacySections: PrivacySection[] = [
     title: "Children's Privacy",
     content: [
       "Our website and services are not directed to children under the age of 16. We do not knowingly collect personal information from children under 16. If we become aware that we have collected personal data from a child under 16 without parental consent, we will delete that information promptly. If you believe we have inadvertently collected information from a child, please contact us at **info@eqourse.com**.",
-      "**Note:** While our EdTech services create educational content for K-12 students, the content is created for and delivered to our institutional clients (schools, platforms, publishers) — not directly to students. We do not interact with or collect data from students directly.",
+      "**Note:** While our Content Services services create educational content for K-12 students, the content is created for and delivered to our institutional clients (schools, platforms, publishers) — not directly to students. We do not interact with or collect data from students directly.",
     ],
   },
   {

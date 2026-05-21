@@ -13,7 +13,7 @@ const faqs: FAQItem[] = [
       "Yes, 100% free. No payment, no credit card, no hidden charges. We produce a complimentary sample tailored to your specifications so you can evaluate our quality before making any commitment.",
   },
   {
-    question: "What do I receive in the EdTech content pilot?",
+    question: "What do I receive in the Content Services pilot?",
     answer:
       "You receive a sample content piece tailored to your curriculum, subject, and grade level. This can be a lesson plan, workbook section, assessment paper, video script, curriculum outline, or exam prep module. It is produced by qualified SMEs, reviewed by our editorial QA team, and aligned to your board standards (CBSE, ICSE, IB, etc.).",
   },
@@ -25,7 +25,7 @@ const faqs: FAQItem[] = [
   {
     question: "How long does it take to receive my pilot?",
     answer:
-      "EdTech content pilots are delivered within 5–7 business days. AI Data pilots are delivered within 5–10 business days, depending on modality and complexity. If you have urgent requirements, let us know and we can discuss expedited timelines.",
+      "Content Services pilots are delivered within 5–7 business days. AI Data pilots are delivered within 5–10 business days, depending on modality and complexity. If you have urgent requirements, let us know and we can discuss expedited timelines.",
   },
   {
     question: "What happens after I receive the pilot?",
@@ -33,7 +33,7 @@ const faqs: FAQItem[] = [
       "You review the pilot output and provide feedback. If you're happy with the quality, our team will scope your full project with a detailed proposal, timeline, and pricing. If you're not satisfied, there is no obligation to proceed. We welcome constructive feedback either way.",
   },
   {
-    question: "Can I request a pilot for both EdTech and AI Data?",
+    question: "Can I request a pilot for both Content Services and AI Data?",
     answer:
       'Yes. Select "Both" in the pilot request form and describe your requirements for each vertical in the project description field. We\'ll produce samples for both.',
   },

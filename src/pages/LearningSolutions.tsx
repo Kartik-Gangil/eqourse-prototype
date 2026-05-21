@@ -1,4 +1,4 @@
-import LearningSolutionsPage from "@/components/edtech-solutions/learning-solutions/LearningSolutionsPage";
+import LearningSolutionsPage from "@/components/content-services/learning-solutions/LearningSolutionsPage";
 
 const LearningSolutions = () => <LearningSolutionsPage />;
 

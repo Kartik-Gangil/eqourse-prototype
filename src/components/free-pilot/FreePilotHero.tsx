@@ -19,7 +19,7 @@ const FreePilotHero = () => {
     >
       {/* Background with Split-tone gradient — identical layout to ContactHero */}
       <div className="absolute inset-0 flex">
-        {/* Left Half (EdTech - Teal) */}
+        {/* Left Half (Content Services - Teal) */}
         <div className="w-1/2 h-full bg-gradient-to-br from-[#00B4A6]/80 to-[#004D47]/90 relative overflow-hidden">
           <BookOpen className="absolute top-[20%] left-[15%] w-24 h-24 text-white/[0.03] -rotate-12 animate-float" />
           <MonitorPlay className="absolute bottom-[25%] left-[35%] w-32 h-32 text-white/[0.04] rotate-6 animate-float-delayed" />
@@ -39,7 +39,7 @@ const FreePilotHero = () => {
 
       {/* Floating Preview Cards — give 3D depth feel */}
       <div className="absolute inset-0 pointer-events-none hidden lg:block">
-        {/* EdTech Sample Card (left) */}
+        {/* Content Services Sample Card (left) */}
         <div
           className={`absolute left-[6%] top-1/2 -translate-y-1/2 w-52 transition-all duration-[1.4s] ease-out ${
             mounted ? "opacity-100 translate-x-0 rotate-[-6deg]" : "opacity-0 -translate-x-16 rotate-[-20deg]"
@@ -57,7 +57,7 @@ const FreePilotHero = () => {
               <div className="h-2 w-16 bg-white/20 rounded" />
             </div>
             <div className="mt-3 text-[10px] font-semibold text-white/60 tracking-wider uppercase">
-              EdTech Sample
+              Content Services Sample
             </div>
           </div>
         </div>
@@ -104,7 +104,7 @@ const FreePilotHero = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto drop-shadow-sm font-medium mb-10">
-            See our work before you commit. Whether you need EdTech content or AI training data, we offer a complimentary pilot tailored to your exact requirements. No obligation, no payment, no risk.
+            See our work before you commit. Whether you need Content Services or AI training data, we offer a complimentary pilot tailored to your exact requirements. No obligation, no payment, no risk.
           </p>
 
           <button
