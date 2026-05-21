@@ -36,7 +36,7 @@ const FreePilotChooseTracks = () => {
     }
   };
 
-  const edtechFeatures = [
+  const contentServicesFeatures = [
     "A sample lesson plan, workbook section, assessment paper, video script, curriculum outline, or exam prep module",
     "Aligned to your board: CBSE, ICSE, IB, State Board, Common Core, Cambridge, or custom",
     "Available in any of 30+ supported languages",
@@ -76,12 +76,12 @@ const FreePilotChooseTracks = () => {
 
         {/* Track Cards */}
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
-          {/* Track A: EdTech */}
+          {/* Track A: Content Services */}
           <div
             className={`group relative bg-white rounded-3xl overflow-hidden border-l-[5px] border-l-primary shadow-lg transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
             } hover:shadow-[0_20px_60px_-15px_rgba(0,180,166,0.25)] hover:-translate-y-2`}
-            onMouseEnter={() => setHoveredTrack("edtech")}
+            onMouseEnter={() => setHoveredTrack("content services")}
             onMouseLeave={() => setHoveredTrack(null)}
           >
             {/* Card Top Accent */}
@@ -97,17 +97,17 @@ const FreePilotChooseTracks = () => {
               <div className="flex items-center gap-4 mb-6">
                 <div
                   className={`w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center transition-all duration-500 ${
-                    hoveredTrack === "edtech" ? "bg-primary shadow-[0_0_20px_rgba(0,180,166,0.3)] scale-110" : ""
+                    hoveredTrack === "content services" ? "bg-primary shadow-[0_0_20px_rgba(0,180,166,0.3)] scale-110" : ""
                   }`}
                 >
                   <BookOpen
                     className={`w-7 h-7 transition-colors duration-300 ${
-                      hoveredTrack === "edtech" ? "text-white" : "text-primary"
+                      hoveredTrack === "content services" ? "text-white" : "text-primary"
                     }`}
                   />
                 </div>
                 <div>
-                  <h3 className="font-heading text-2xl font-bold text-foreground">EdTech Content Pilot</h3>
+                  <h3 className="font-heading text-2xl font-bold text-foreground">Content Services Pilot</h3>
                   <p className="text-muted-foreground text-sm mt-0.5">Custom educational content sample</p>
                 </div>
               </div>
@@ -120,7 +120,7 @@ const FreePilotChooseTracks = () => {
               <div className="mb-8">
                 <p className="font-semibold text-xs uppercase tracking-wider text-primary mb-4">What You Get:</p>
                 <ul className="space-y-3">
-                  {edtechFeatures.map((item, i) => (
+                  {contentServicesFeatures.map((item, i) => (
                     <li
                       key={i}
                       className={`flex items-start gap-3 transition-all duration-500 ${
@@ -150,10 +150,10 @@ const FreePilotChooseTracks = () => {
 
               {/* CTA */}
               <button
-                onClick={() => scrollToFormWithSelection("EdTech Content Pilot")}
+                onClick={() => scrollToFormWithSelection("Content Services Pilot")}
                 className="w-full py-4 bg-primary hover:bg-primary/90 text-white font-bold text-base rounded-xl shadow-soft hover:shadow-card transition-all duration-300 group/btn flex items-center justify-center gap-2"
               >
-                Request EdTech Pilot
+                Request Content Services Pilot
                 <ArrowRight className="w-5 h-5 transform group-hover/btn:translate-x-1 transition-transform" />
               </button>
             </div>

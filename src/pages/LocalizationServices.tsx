@@ -1,4 +1,4 @@
-import LocalizationPage from "@/components/edtech-solutions/localization/LocalizationPage";
+import LocalizationPage from "@/components/content-services/localization/LocalizationPage";
 
 const LocalizationServices = () => <LocalizationPage />;
 

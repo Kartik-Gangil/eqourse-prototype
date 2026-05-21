@@ -74,16 +74,19 @@ const FreePilotFormSection = () => {
     }, 1800);
   };
 
-  const edtechServices = [
-    "K-12 Content (specify grade & subject in message)",
-    "Curriculum Design / Outline",
-    "Assessment / Question Bank / Mock Test",
-    "Exam Prep Content (specify exam in message)",
-    "Video Script / Storyboard",
-    "Workbook / Worksheet Section",
-    "Teacher Lesson Plan",
-    "Localization / Translation Sample",
-    "Other EdTech Content",
+  const contentServicesServices = [
+    "Custom E-Learning Content",
+    "Curriculum Design & Lesson Planning",
+    "Assessment & Question Bank Development",
+    "Exam Preparation Content",
+    "Learning Solutions & Instructional Design",
+    "E-Learning Video Solutions",
+    "Localization & Translation Services",
+    "Technology Solutions & LMS Builds",
+    "Subject Matter Expert (SME) Support",
+    "Accessibility Services (Remediation & Compliance)",
+    "Talent Assessment & Workforce Evaluation",
+    "Other Content Services",
   ];
 
   const aiDataServices = [
@@ -231,7 +234,7 @@ const FreePilotFormSection = () => {
               </label>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {[
-                  { value: "EdTech Content Pilot", label: "EdTech Content Pilot", color: "primary" },
+                  { value: "Content Services Pilot", label: "Content Services Pilot", color: "primary" },
                   { value: "AI Data Services Pilot", label: "AI Data Services Pilot", color: "[#1B9AAA]" },
                   { value: "Both (Content + Data)", label: "Both (Content + Data)", color: "primary" },
                 ].map((option) => (
@@ -277,9 +280,9 @@ const FreePilotFormSection = () => {
                   <option value="" disabled>
                     Select specific service...
                   </option>
-                  {(pilotType.includes("EdTech") || pilotType.includes("Both")) && (
-                    <optgroup label="— EdTech Content Services —">
-                      {edtechServices.map((s) => (
+                  {(pilotType.includes("Content Services") || pilotType.includes("Both")) && (
+                    <optgroup label="— Content Services Services —">
+                      {contentServicesServices.map((s) => (
                         <option key={s} value={s}>
                           {s}
                         </option>

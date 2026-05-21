@@ -2,10 +2,10 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { caseStudiesData } from "@/components/case-studies/caseStudyData";
 
-/* Pick 2 EdTech + 2 AI Data Services case studies for the home page */
-const edtechStudies = caseStudiesData.filter(s => s.category === "Content Service").slice(0, 2);
+/* Pick 2 Content Services + 2 AI Data Services case studies for the home page */
+const contentServicesStudies = caseStudiesData.filter(s => s.category === "Content Service").slice(0, 2);
 const aiStudies = caseStudiesData.filter(s => s.category === "AI Data Services").slice(0, 2);
-const featuredStudies = [...edtechStudies, ...aiStudies];
+const featuredStudies = [...contentServicesStudies, ...aiStudies];
 
 const CaseStudiesSection = () => {
   return (
@@ -17,7 +17,7 @@ const CaseStudiesSection = () => {
             Case <span className="text-gradient">Studies</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Explore how we've helped leading EdTech platforms and AI teams overcome challenges and achieve their goals.
+            Explore how we've helped leading Content Services platforms and AI teams overcome challenges and achieve their goals.
           </p>
         </div>
 

@@ -23,7 +23,7 @@ import { toast } from "sonner";
 
 const interestLabel: Record<ServiceInterest, string> = {
   "ai-data": "AI / Data",
-  edtech: "EdTech",
+  "content-services": "Content Services",
   localization: "Localization",
   other: "Other",
 };
@@ -140,7 +140,7 @@ export default function PilotQueries() {
           <SelectContent>
             <SelectItem value="all">All services</SelectItem>
             <SelectItem value="ai-data">AI / Data</SelectItem>
-            <SelectItem value="edtech">EdTech</SelectItem>
+            <SelectItem value="content-services">Content Services</SelectItem>
             <SelectItem value="localization">Localization</SelectItem>
             <SelectItem value="other">Other</SelectItem>
           </SelectContent>

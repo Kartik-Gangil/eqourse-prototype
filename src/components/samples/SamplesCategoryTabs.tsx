@@ -26,7 +26,7 @@ const videoSamples: CardItem[] = [
   { label: "AI Videos", href: "/ai-avatar-video-samples", description: "AI-presenter videos with realistic avatars and localized voices." },
   { label: "Flash to HTML", href: "/flash-to-html-samples", description: "Legacy Flash modules reborn as responsive HTML5 courses." },
   { label: "2D 3D Animation", href: "/2d-3d-video-samples", description: "Animated explainers across science, math, and skills." },
-  { label: "Promotional Video", href: "/promotional-video", description: "Brand and product promo videos for EdTech and enterprise." },
+  { label: "Promotional Video", href: "/promotional-video", description: "Brand and product promo videos for Content Services and enterprise." },
   { label: "Immersive Simulation AR/VR", href: "/immersive-simulation-ar-vr-video", description: "AR/VR simulations for immersive learning and training." },
 ];
 

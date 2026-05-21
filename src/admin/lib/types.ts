@@ -23,7 +23,7 @@ export interface ContactQuery {
   updatedAt: string;
 }
 
-export type ServiceInterest = "ai-data" | "edtech" | "localization" | "other";
+export type ServiceInterest = "ai-data" | "content-services" | "localization" | "other";
 
 export interface PilotQuery {
   id: string;

@@ -8,7 +8,7 @@ const FreePilotTracks = () => {
 
   return (
     <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
-      {/* EdTech Track Card */}
+      {/* Content Services Track Card */}
       <div className="bg-card rounded-2xl p-8 border border-border border-l-4 border-l-primary shadow-card relative overflow-hidden reveal-up">
         <div className="absolute top-0 right-0 p-8 opacity-5">
           <BookOpen className="w-48 h-48" />
@@ -19,7 +19,7 @@ const FreePilotTracks = () => {
             <BookOpen className="w-6 h-6 text-primary" />
           </div>
           
-          <h3 className="font-heading text-2xl font-bold text-foreground mb-6">EdTech Content Pilot</h3>
+          <h3 className="font-heading text-2xl font-bold text-foreground mb-6">Content Services Pilot</h3>
           
           <div className="space-y-4 mb-8">
             <p className="font-semibold text-sm uppercase tracking-wider text-muted-foreground">What You Get:</p>
@@ -40,7 +40,7 @@ const FreePilotTracks = () => {
           </div>
           
           <Button onClick={scrollToForm} className="w-full bg-primary hover:bg-primary/90 group transition-all">
-            Request EdTech Pilot
+            Request Content Services Pilot
             <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>

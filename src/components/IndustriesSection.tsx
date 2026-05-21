@@ -10,13 +10,13 @@ const industries = [
     fallback: "linear-gradient(135deg,hsl(170,82%,22%),hsl(242,33%,18%))",
     tag: "ai",
   },
-  // EdTech
+  // Content Services
   {
     title: "Government Education Programs",
     desc: "National curriculum programs and system-wide learning initiatives.",
     img: "/assets/industries/industry_government_education_1778651348147.png",
     fallback: "linear-gradient(135deg,hsl(220,60%,25%),hsl(242,33%,18%))",
-    tag: "edtech",
+    tag: "content services",
   },
   // AI
   {
@@ -26,13 +26,13 @@ const industries = [
     fallback: "linear-gradient(135deg,hsl(196,80%,22%),hsl(242,33%,18%))",
     tag: "ai",
   },
-  // EdTech
+  // Content Services
   {
     title: "NGOs & Development Organizations",
     desc: "Multilingual education programs and community learning initiatives.",
     img: "/assets/industries/industry_ngo_education_1778651369723.png",
     fallback: "linear-gradient(135deg,hsl(140,50%,22%),hsl(242,33%,18%))",
-    tag: "edtech",
+    tag: "content services",
   },
   // AI
   {
@@ -42,13 +42,13 @@ const industries = [
     fallback: "linear-gradient(135deg,hsl(45,70%,22%),hsl(242,33%,18%))",
     tag: "ai",
   },
-  // EdTech
+  // Content Services
   {
     title: "International Education Operators",
     desc: "Cross-border curriculum delivery and localization support frameworks.",
     img: "/assets/industries/industry_international_education_1778651390733.png",
     fallback: "linear-gradient(135deg,hsl(200,60%,22%),hsl(242,33%,18%))",
-    tag: "edtech",
+    tag: "content services",
   },
   // AI
   {
@@ -58,13 +58,13 @@ const industries = [
     fallback: "linear-gradient(135deg,hsl(340,60%,22%),hsl(242,33%,18%))",
     tag: "ai",
   },
-  // EdTech
+  // Content Services
   {
     title: "Healthcare & Medical Education Providers",
     desc: "Clinical education content and licensing exam preparation support.",
     img: "/assets/industries/industry_healthcare_medical_edu_1778651420490.png",
     fallback: "linear-gradient(135deg,hsl(340,55%,25%),hsl(242,33%,18%))",
-    tag: "edtech",
+    tag: "content services",
   },
   // AI
   {
@@ -74,132 +74,132 @@ const industries = [
     fallback: "linear-gradient(135deg,hsl(270,60%,22%),hsl(242,33%,18%))",
     tag: "ai",
   },
-  // EdTech
+  // Content Services
   {
     title: "Legal & Regulatory Training Providers",
     desc: "Compliance training content and certification learning solutions.",
     img: "/assets/industries/industry_legal_regulatory_1778651442743.png",
     fallback: "linear-gradient(135deg,hsl(240,40%,25%),hsl(242,33%,18%))",
-    tag: "edtech",
+    tag: "content services",
   },
   {
     title: "Banking, Finance & Insurance Institutions",
     desc: "Financial training content and certification readiness programs.",
     img: "/assets/industries/industry_banking_finance_1778651472232.png",
     fallback: "linear-gradient(135deg,hsl(45,65%,22%),hsl(242,33%,18%))",
-    tag: "edtech",
+    tag: "content services",
   },
   {
     title: "Technology & IT Training Providers",
     desc: "Technical certification pathways and digital skills training content.",
     img: "/assets/industries/industry_tech_it_training_1778651489938.png",
     fallback: "linear-gradient(135deg,hsl(210,70%,22%),hsl(242,33%,18%))",
-    tag: "edtech",
+    tag: "content services",
   },
   {
     title: "Engineering & Manufacturing Organizations",
     desc: "Technical documentation and workforce readiness learning content.",
     img: "/assets/industries/industry_engineering_manufacturing_1778651519016.png",
     fallback: "linear-gradient(135deg,hsl(25,60%,22%),hsl(242,33%,18%))",
-    tag: "edtech",
+    tag: "content services",
   },
   {
     title: "Workforce Development Agencies",
     desc: "Employment readiness programs and skills development content solutions.",
     img: "/assets/industries/industry_workforce_development_1778651534276.png",
     fallback: "linear-gradient(135deg,hsl(160,50%,22%),hsl(242,33%,18%))",
-    tag: "edtech",
+    tag: "content services",
   },
   {
     title: "Professional Training Companies",
     desc: "Certification-aligned professional learning program development.",
     img: "/assets/industries/industry_professional_training_1778651549954.png",
     fallback: "linear-gradient(135deg,hsl(220,55%,22%),hsl(242,33%,18%))",
-    tag: "edtech",
+    tag: "content services",
   },
   {
     title: "Learning Platform Providers (LMS/LXP)",
     desc: "Platform-ready learning assets and interoperable content packaging.",
     img: "/assets/industries/industry_lms_lxp_platform_1778651565795.png",
     fallback: "linear-gradient(135deg,hsl(190,60%,22%),hsl(242,33%,18%))",
-    tag: "edtech",
+    tag: "content services",
   },
   {
     title: "Digital Publishing Platforms",
     desc: "XML-first publishing pipelines and scalable content structuring.",
     img: "/assets/industries/industry_digital_publishing_1778651600731.png",
     fallback: "linear-gradient(135deg,hsl(260,50%,22%),hsl(242,33%,18%))",
-    tag: "edtech",
+    tag: "content services",
   },
   {
     title: "Research Institutions & Think Tanks",
     desc: "Research publishing workflows and technical documentation support.",
     img: null,
     fallback: "linear-gradient(135deg,hsl(230,50%,28%),hsl(242,33%,18%))",
-    tag: "edtech",
+    tag: "content services",
   },
   {
     title: "K–12 Education Providers",
     desc: "Standards-aligned curriculum, assessments, scalable classroom learning programs.",
     img: null,
     fallback: "linear-gradient(135deg,hsl(150,55%,22%),hsl(242,33%,18%))",
-    tag: "edtech",
+    tag: "content services",
   },
   {
     title: "Higher Education Institutions",
     desc: "Courseware pipelines, research support, digital program delivery.",
     img: null,
     fallback: "linear-gradient(135deg,hsl(35,60%,25%),hsl(242,33%,18%))",
-    tag: "edtech",
+    tag: "content services",
   },
   {
-    title: "EdTech Platforms",
+    title: "Content Services platforms",
     desc: "Scalable content pipelines, assessments, platform-ready learning assets.",
     img: null,
     fallback: "linear-gradient(135deg,hsl(170,70%,20%),hsl(242,33%,18%))",
-    tag: "edtech",
+    tag: "content services",
   },
   {
     title: "Publishers",
     desc: "End-to-end publishing workflows, accessibility, metadata-ready content pipelines.",
     img: null,
     fallback: "linear-gradient(135deg,hsl(300,40%,22%),hsl(242,33%,18%))",
-    tag: "edtech",
+    tag: "content services",
   },
   {
     title: "Corporate Learning & L&D Teams",
     desc: "Workforce training programs and competency-aligned learning solutions.",
     img: null,
     fallback: "linear-gradient(135deg,hsl(220,55%,25%),hsl(242,33%,18%))",
-    tag: "edtech",
+    tag: "content services",
   },
   {
     title: "Assessment Organizations",
     desc: "Large-scale testing programs and psychometric workflow support.",
     img: null,
     fallback: "linear-gradient(135deg,hsl(15,60%,25%),hsl(242,33%,18%))",
-    tag: "edtech",
+    tag: "content services",
   },
   {
     title: "Test Preparation Companies",
     desc: "Academic and competitive exam preparation content pipelines.",
     img: null,
     fallback: "linear-gradient(135deg,hsl(195,65%,22%),hsl(242,33%,18%))",
-    tag: "edtech",
+    tag: "content services",
   },
   {
     title: "Tutoring Providers",
     desc: "Supplemental learning content and structured assessment support.",
     img: null,
     fallback: "linear-gradient(135deg,hsl(160,55%,22%),hsl(242,33%,18%))",
-    tag: "edtech",
+    tag: "content services",
   },
   {
     title: "Certification Bodies",
     desc: "Certification frameworks, assessments, readiness and evaluation solutions.",
     img: null,
     fallback: "linear-gradient(135deg,hsl(250,50%,25%),hsl(242,33%,18%))",
-    tag: "edtech",
+    tag: "content services",
   },
 ];
 
@@ -283,22 +283,22 @@ const IndustriesSection = () => {
               className="group flex-shrink-0 w-[calc(50%-8px)] sm:w-[calc(33.333%-14px)] lg:w-[calc(25%-15px)] rounded-2xl overflow-hidden transition-all duration-500"
               style={{
                 background: "linear-gradient(160deg, rgba(15,40,40,0.6) 0%, rgba(15,18,35,0.85) 100%)",
-                border: ind.tag === "edtech"
+                border: ind.tag === "content services"
                   ? "1px solid rgba(99,102,241,0.2)"
                   : "1px solid rgba(20,184,166,0.18)",
                 boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.borderColor =
-                  ind.tag === "edtech" ? "rgba(99,102,241,0.5)" : "rgba(20,184,166,0.45)";
+                  ind.tag === "content services" ? "rgba(99,102,241,0.5)" : "rgba(20,184,166,0.45)";
                 (e.currentTarget as HTMLElement).style.boxShadow =
-                  ind.tag === "edtech"
+                  ind.tag === "content services"
                     ? "0 0 28px rgba(99,102,241,0.18), 0 8px 24px rgba(0,0,0,0.4)"
                     : "0 0 28px rgba(20,184,166,0.2), 0 8px 24px rgba(0,0,0,0.4)";
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLElement).style.borderColor =
-                  ind.tag === "edtech" ? "rgba(99,102,241,0.2)" : "rgba(20,184,166,0.18)";
+                  ind.tag === "content services" ? "rgba(99,102,241,0.2)" : "rgba(20,184,166,0.18)";
                 (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 20px rgba(0,0,0,0.3)";
               }}
             >
@@ -353,7 +353,7 @@ const IndustriesSection = () => {
               <div
                 className="h-px mx-4 mb-4 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 style={{
-                  background: ind.tag === "edtech"
+                  background: ind.tag === "content services"
                     ? "linear-gradient(to right, transparent, rgba(99,102,241,0.6), transparent)"
                     : "linear-gradient(to right, transparent, rgba(20,184,166,0.6), transparent)",
                 }}

@@ -3,15 +3,19 @@ import { FileJson, Globe2, Check, Download, Eye, ChevronDown } from "lucide-reac
 import type { SampleShowcase } from "./aiDataSamplesData";
 import { PreviewFilesModal, type PreviewFile } from "../../shared/PreviewFilesModal";
 import { NlpInteractiveThumbnail } from "./NlpInteractiveThumbnails";
+import { AudioInteractiveThumbnail } from "./AudioInteractiveThumbnails";
+import { RlhfInteractiveThumbnail } from "./RlhfInteractiveThumbnails";
 
 interface Props {
   showcases: SampleShowcase[];
+  categorySlug?: string;
   heading?: string;
   subtext?: string;
 }
 
 const SampleShowcaseGrid = ({
   showcases,
+  categorySlug = "nlp-annotation",
   heading = "Sample Showcase",
   subtext = "Representative outputs across every task we support — each delivered with full metadata, QA logs, and the output format your pipeline needs.",
 }: Props) => {
@@ -170,7 +174,9 @@ const SampleShowcaseGrid = ({
                 <div className="relative h-[calc(100%-41px)] w-full flex items-center justify-center p-4">
                   {current.id ? (
                     <div className="absolute inset-0">
-                      <NlpInteractiveThumbnail sampleId={current.id} active={true} />
+                      {categorySlug === "nlp-annotation" && <NlpInteractiveThumbnail sampleId={current.id} active={true} />}
+                      {categorySlug === "audio-speech" && <AudioInteractiveThumbnail sampleId={current.id} active={true} />}
+                      {categorySlug === "rlhf" && <RlhfInteractiveThumbnail sampleId={current.id} active={true} />}
                     </div>
                   ) : (
                     <div className="w-full max-w-lg rounded-xl border border-white/10 bg-white/5 p-5 md:p-6 font-mono text-[11px] md:text-sm text-white/80 shadow-2xl backdrop-blur-md animate-slide-up">

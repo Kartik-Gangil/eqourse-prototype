@@ -1,5 +1,5 @@
 import { useState } from "react";
-import EdTechLayout from "@/components/edtech-solutions/shared/EdTechLayout";
+import ContentServicesLayout from "@/components/content-services/shared/ContentServicesLayout";
 import SEOHead from "@/components/ai-data-services/shared/SEOHead";
 import ServiceHero from "@/components/ai-data-services/shared/ServiceHero";
 import ServiceCTA from "@/components/ai-data-services/shared/ServiceCTA";
@@ -24,19 +24,19 @@ const CaseStudyPage = () => {
   };
 
   return (
-    <EdTechLayout breadcrumbs={[{ label: "Case Studies" }]}>
+    <ContentServicesLayout breadcrumbs={[{ label: "Case Studies" }]}>
       <SEOHead
         title="Case Studies & Success Stories | Content Service & AI Data Services | eQOURSE"
         description="Explore eQOURSE case studies: how we deliver custom e-learning content, curriculum development, multilingual localization, AI training data collection, annotation & labeling, data cleaning, and real-world model testing for global education and AI companies. 200+ clients. 30+ languages. ISO certified."
         canonical="https://www.eqourse.com/casestudy"
-        keywords="eQOURSE case studies, EdTech case studies, AI data services case studies, e-learning success stories, data annotation case study, curriculum development case study, K12 content case study, AI training data case study, multilingual content case study, model testing case study"
+        keywords="eQOURSE case studies, Content Services case studies, AI data services case studies, e-learning success stories, data annotation case study, curriculum development case study, K12 content case study, AI training data case study, multilingual content case study, model testing case study"
       />
 
       <ServiceHero
         preHeadline="Real Results. Real Clients. Real Impact."
         headline="Case Studies &"
         headlineAccent="Success Stories"
-        subtext="See how eQOURSE partners with global education companies, EdTech platforms, publishers, and AI teams to deliver production-ready content, high-quality training data, and measurable learning outcomes. From K-12 curriculum development across 6 languages to AI model testing across 30+ dialects — explore the results that set us apart."
+        subtext="See how eQOURSE partners with global education companies, Content Services platforms, publishers, and AI teams to deliver production-ready content, high-quality training data, and measurable learning outcomes. From K-12 curriculum development across 6 languages to AI model testing across 30+ dialects — explore the results that set us apart."
         ctaText="Start Your Free Pilot"
         ctaLink="/#contact"
       />
@@ -113,7 +113,7 @@ const CaseStudyPage = () => {
 
       <ServiceCTA 
         headline="Ready to Become Our Next Success Story?"
-        subtext="Join global education and AI leaders who trust eQOURSE for premium data services and EdTech solutions. Start with a free pilot — no commitment required."
+        subtext="Join global education and AI leaders who trust eQOURSE for premium data services and Content Services. Start with a free pilot — no commitment required."
         ctaText="Talk to Our Team"
       />
 
@@ -123,7 +123,7 @@ const CaseStudyPage = () => {
         onClose={() => setSelectedStudy(null)} 
       />
 
-    </EdTechLayout>
+    </ContentServicesLayout>
   );
 };
 

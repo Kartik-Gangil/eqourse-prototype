@@ -6,7 +6,7 @@ import heroImage from "@/assets/hero-image.jpg";
 const slides = [
   {
     badge: "Content Service",
-    headline: "Partnering with EdTech Leaders to",
+    headline: "Partnering with Content Services Leaders to",
     highlightedText: "Design and Create Top Quality E-Learning Content",
     cta: "Explore Content Service",
     ctaLink: "#services",
@@ -53,11 +53,11 @@ const aiHighlightLines = [
   "Faster iteration through real-user feedback",
 ];
 
-const edtechHighlightLines = [
+const contentServicesHighlightLines = [
   "Content, localization and accessibility in 30+ languages",
   "Curriculum-aligned digital learning content at scale",
   "Instructional design with pedagogy-first workflows",
-  "Faster content turnaround for EdTech platforms",
+  "Faster content turnaround for Content Services platforms",
 ];
 
 const GoogleIcon = () => (
@@ -81,8 +81,8 @@ const HeroSection = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [aiHighlightIndex, setAiHighlightIndex] = useState(0);
   const [aiHighlightVisible, setAiHighlightVisible] = useState(true);
-  const [edtechHighlightIndex, setEdtechHighlightIndex] = useState(0);
-  const [edtechHighlightVisible, setEdtechHighlightVisible] = useState(true);
+  const [contentServicesHighlightIndex, setContentServicesHighlightIndex] = useState(0);
+  const [contentServicesHighlightVisible, setContentServicesHighlightVisible] = useState(true);
 
   const goTo = useCallback(
     (idx: number) => {
@@ -111,29 +111,29 @@ const HeroSection = () => {
   }, []);
 
   useEffect(() => {
-    const edtechTimer = setInterval(() => {
-      setEdtechHighlightVisible(false);
+    const contentServicesTimer = setInterval(() => {
+      setContentServicesHighlightVisible(false);
       setTimeout(() => {
-        setEdtechHighlightIndex((prev) => (prev + 1) % edtechHighlightLines.length);
-        setEdtechHighlightVisible(true);
+        setContentServicesHighlightIndex((prev) => (prev + 1) % contentServicesHighlightLines.length);
+        setContentServicesHighlightVisible(true);
       }, 350);
     }, 2700);
-    return () => clearInterval(edtechTimer);
+    return () => clearInterval(contentServicesTimer);
   }, []);
 
   const slide = slides[current];
   const Icon = slide.icon;
   const currentAiLine = aiHighlightLines[aiHighlightIndex];
-  const currentEdtechLine = edtechHighlightLines[edtechHighlightIndex];
+  const currentContentServicesLine = contentServicesHighlightLines[contentServicesHighlightIndex];
 
   return (
     <section
       className="relative overflow-hidden min-h-screen flex items-center"
-      aria-label="eQOURSE — EdTech content and AI training data services"
+      aria-label="eQOURSE — Content Services and AI training data services"
     >
       {/* SEO: static, crawlable headline that does not rotate */}
       <h1 className="sr-only">
-        eQOURSE — From Education Content to AI Training Data, One Partner. EdTech content development and AI training
+        eQOURSE — From Education Content to AI Training Data, One Partner. Content Services development and AI training
         data services across 30+ languages, with 500+ domain specialists, ISO 9001 and ISO 27001 certified.
       </h1>
 
@@ -238,7 +238,7 @@ const HeroSection = () => {
                     Trusted Globally
                   </div>
                   <div className="text-base font-bold text-white leading-tight">
-                    Built for EdTech, enterprises &amp; AI teams globally
+                    Built for Content Services, enterprises &amp; AI teams globally
                   </div>
                 </div>
               </div>
@@ -289,15 +289,15 @@ const HeroSection = () => {
                       style={{
                         color: "hsl(242,20%,85%)",
                         transition: "opacity 0.35s ease, transform 0.35s ease",
-                        opacity: edtechHighlightVisible ? 1 : 0,
-                        transform: edtechHighlightVisible ? "translateY(0)" : "translateY(-4px)",
+                        opacity: contentServicesHighlightVisible ? 1 : 0,
+                        transform: contentServicesHighlightVisible ? "translateY(0)" : "translateY(-4px)",
                       }}
                     >
-                      {currentEdtechLine}
+                      {currentContentServicesLine}
                     </div>
                     <div
                       className="hero-chip-bar"
-                      key={`edtech-${edtechHighlightIndex}`}
+                      key={`contentServices-${contentServicesHighlightIndex}`}
                       style={{ background: "#2dd4bf" }}
                     />
                   </div>

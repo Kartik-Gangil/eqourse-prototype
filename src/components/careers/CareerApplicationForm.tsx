@@ -4,10 +4,10 @@ import { UploadCloud, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
 
 const departments = [
-  "EdTech — Subject Matter Expert / Faculty",
-  "EdTech — Content Writer / Developer",
-  "EdTech — Instructional Designer",
-  "EdTech — Video / Animation Producer",
+  "Content Services — Subject Matter Expert / Faculty",
+  "Content Services — Content Writer / Developer",
+  "Content Services — Instructional Designer",
+  "Content Services — Video / Animation Producer",
   "AI Data — Data Annotator / Labeler",
   "AI Data — NLP / Linguistics Specialist",
   "AI Data — Computer Vision Annotator",

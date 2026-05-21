@@ -2,7 +2,7 @@ export interface BlogPost {
   id: number;
   title: string;
   slug: string;
-  category: 'EdTech' | 'AI Data';
+  category: 'Content Services' | 'AI Data';
   date: string;
   author: string;
   excerpt: string;
@@ -15,19 +15,19 @@ export interface BlogPost {
 export const blogsData: BlogPost[] = [
   {
     "id": 1,
-    "title": "EmSAT Content Solutions: Scalable Test Prep for UAE EdTech",
-    "slug": "/blog/emsat-content-solutions-scalable-test-prep-for-uae-edtech",
-    "category": "EdTech",
+    "title": "EmSAT Content Solutions: Scalable Test Prep for UAE Content Services",
+    "slug": "/blog/emsat-content-solutions-scalable-test-prep-for-uae-content services",
+    "category": "Content Services",
     "date": "April 2026",
     "author": "eQOURSE",
-    "excerpt": "Explore insights on EmSAT Content Solutions: Scalable Test Prep for UAE EdTech and how it impacts the future of education and learning technology.",
+    "excerpt": "Explore insights on EmSAT Content Solutions: Scalable Test Prep for UAE Content Services and how it impacts the future of education and learning technology.",
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/content-service"
+      "/content-services"
     ],
     "keywords": [
-      "EdTech",
+      "Content Services",
       "Education",
       "eQOURSE"
     ]
@@ -36,17 +36,17 @@ export const blogsData: BlogPost[] = [
     "id": 2,
     "title": "Innovative Education Tools for K12 & Higher Ed Success",
     "slug": "/blog/innovative-education-tools-for-k12-higher-ed-success",
-    "category": "EdTech",
+    "category": "Content Services",
     "date": "April 2026",
     "author": "eQOURSE",
     "excerpt": "Explore insights on Innovative Education Tools for K12 & Higher Ed Success and how it impacts the future of education and learning technology.",
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/content-service"
+      "/content-services"
     ],
     "keywords": [
-      "EdTech",
+      "Content Services",
       "Education",
       "eQOURSE"
     ]
@@ -55,36 +55,36 @@ export const blogsData: BlogPost[] = [
     "id": 3,
     "title": "6 Signs Your Learning Solutions Need a Gamified Upgrade",
     "slug": "/blog/6-signs-your-learning-solutions-need-a-gamified-upgrade",
-    "category": "EdTech",
+    "category": "Content Services",
     "date": "April 2026",
     "author": "eQOURSE",
     "excerpt": "Explore insights on 6 Signs Your Learning Solutions Need a Gamified Upgrade and how it impacts the future of education and learning technology.",
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/content-service"
+      "/content-services"
     ],
     "keywords": [
-      "EdTech",
+      "Content Services",
       "Education",
       "eQOURSE"
     ]
   },
   {
     "id": 4,
-    "title": "eQOURSE Launches in Singapore | Scaling EdTech Across Asia",
-    "slug": "/blog/eqourse-launches-in-singapore-scaling-edtech-across-asia",
-    "category": "EdTech",
+    "title": "eQOURSE Launches in Singapore | Scaling Content Services Across Asia",
+    "slug": "/blog/eqourse-launches-in-singapore-scaling-content services-across-asia",
+    "category": "Content Services",
     "date": "April 2026",
     "author": "eQOURSE",
-    "excerpt": "Explore insights on eQOURSE Launches in Singapore | Scaling EdTech Across Asia and how it impacts the future of education and learning technology.",
+    "excerpt": "Explore insights on eQOURSE Launches in Singapore | Scaling Content Services Across Asia and how it impacts the future of education and learning technology.",
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/content-service"
+      "/content-services"
     ],
     "keywords": [
-      "EdTech",
+      "Content Services",
       "Education",
       "eQOURSE"
     ]
@@ -93,36 +93,36 @@ export const blogsData: BlogPost[] = [
     "id": 5,
     "title": "Top 6 Features in an Online Assessment System",
     "slug": "/blog/top-6-features-in-an-online-assessment-system",
-    "category": "EdTech",
+    "category": "Content Services",
     "date": "April 2026",
     "author": "eQOURSE",
     "excerpt": "Explore insights on Top 6 Features in an Online Assessment System and how it impacts the future of education and learning technology.",
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/content-service"
+      "/content-services"
     ],
     "keywords": [
-      "EdTech",
+      "Content Services",
       "Education",
       "eQOURSE"
     ]
   },
   {
     "id": 6,
-    "title": "How Subtitling Is Transforming EdTech Learning",
-    "slug": "/blog/how-subtitling-is-transforming-edtech-learning",
-    "category": "EdTech",
+    "title": "How Subtitling Is Transforming Content Services Learning",
+    "slug": "/blog/how-subtitling-is-transforming-content services-learning",
+    "category": "Content Services",
     "date": "April 2026",
     "author": "eQOURSE",
-    "excerpt": "Explore insights on How Subtitling Is Transforming EdTech Learning and how it impacts the future of education and learning technology.",
+    "excerpt": "Explore insights on How Subtitling Is Transforming Content Services Learning and how it impacts the future of education and learning technology.",
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/content-service"
+      "/content-services"
     ],
     "keywords": [
-      "EdTech",
+      "Content Services",
       "Education",
       "eQOURSE"
     ]
@@ -131,17 +131,17 @@ export const blogsData: BlogPost[] = [
     "id": 7,
     "title": "SCORM and LMS Integration Made Simple",
     "slug": "/blog/scorm-and-lms-integration-made-simple",
-    "category": "EdTech",
+    "category": "Content Services",
     "date": "April 2026",
     "author": "eQOURSE",
     "excerpt": "Explore insights on SCORM and LMS Integration Made Simple and how it impacts the future of education and learning technology.",
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/content-service"
+      "/content-services"
     ],
     "keywords": [
-      "EdTech",
+      "Content Services",
       "Education",
       "eQOURSE"
     ]
@@ -150,17 +150,17 @@ export const blogsData: BlogPost[] = [
     "id": 8,
     "title": "Role of Curriculum Specialists in Modern Education",
     "slug": "/blog/role-of-curriculum-specialists-in-modern-education",
-    "category": "EdTech",
+    "category": "Content Services",
     "date": "April 2026",
     "author": "eQOURSE",
     "excerpt": "Explore insights on Role of Curriculum Specialists in Modern Education and how it impacts the future of education and learning technology.",
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/content-service"
+      "/content-services"
     ],
     "keywords": [
-      "EdTech",
+      "Content Services",
       "Education",
       "eQOURSE"
     ]
@@ -169,93 +169,93 @@ export const blogsData: BlogPost[] = [
     "id": 9,
     "title": "How Large Language Models Transform Education",
     "slug": "/blog/how-large-language-models-transform-education",
-    "category": "EdTech",
+    "category": "Content Services",
     "date": "April 2026",
     "author": "eQOURSE",
     "excerpt": "Explore insights on How Large Language Models Transform Education and how it impacts the future of education and learning technology.",
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/content-service"
+      "/content-services"
     ],
     "keywords": [
-      "EdTech",
+      "Content Services",
       "Education",
       "eQOURSE"
     ]
   },
   {
     "id": 10,
-    "title": "Is Your EdTech Platform Ready for AI Integration?",
-    "slug": "/blog/is-your-edtech-platform-ready-for-ai-integration",
-    "category": "EdTech",
+    "title": "Is Your Content Services platform Ready for AI Integration?",
+    "slug": "/blog/is-your-content services-platform-ready-for-ai-integration",
+    "category": "Content Services",
     "date": "April 2026",
     "author": "eQOURSE",
-    "excerpt": "Explore insights on Is Your EdTech Platform Ready for AI Integration? and how it impacts the future of education and learning technology.",
+    "excerpt": "Explore insights on Is Your Content Services platform Ready for AI Integration? and how it impacts the future of education and learning technology.",
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/content-service"
+      "/content-services"
     ],
     "keywords": [
-      "EdTech",
+      "Content Services",
       "Education",
       "eQOURSE"
     ]
   },
   {
     "id": 11,
-    "title": "7 Strategies to Boost Engagement and Retention in EdTech",
-    "slug": "/blog/7-strategies-to-boost-engagement-and-retention-in-edtech",
-    "category": "EdTech",
+    "title": "7 Strategies to Boost Engagement and Retention in Content Services",
+    "slug": "/blog/7-strategies-to-boost-engagement-and-retention-in-content services",
+    "category": "Content Services",
     "date": "April 2026",
     "author": "eQOURSE",
-    "excerpt": "Explore insights on 7 Strategies to Boost Engagement and Retention in EdTech and how it impacts the future of education and learning technology.",
+    "excerpt": "Explore insights on 7 Strategies to Boost Engagement and Retention in Content Services and how it impacts the future of education and learning technology.",
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/content-service"
+      "/content-services"
     ],
     "keywords": [
-      "EdTech",
+      "Content Services",
       "Education",
       "eQOURSE"
     ]
   },
   {
     "id": 12,
-    "title": "6 Steps to Expand Your EdTech Platform Globally",
-    "slug": "/blog/6-steps-to-expand-your-edtech-platform-globally",
-    "category": "EdTech",
+    "title": "6 Steps to Expand Your Content Services platform Globally",
+    "slug": "/blog/6-steps-to-expand-your-content services-platform-globally",
+    "category": "Content Services",
     "date": "April 2026",
     "author": "eQOURSE",
-    "excerpt": "Explore insights on 6 Steps to Expand Your EdTech Platform Globally and how it impacts the future of education and learning technology.",
+    "excerpt": "Explore insights on 6 Steps to Expand Your Content Services platform Globally and how it impacts the future of education and learning technology.",
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/content-service"
+      "/content-services"
     ],
     "keywords": [
-      "EdTech",
+      "Content Services",
       "Education",
       "eQOURSE"
     ]
   },
   {
     "id": 13,
-    "title": "5 Signs Your EdTech Platform Needs Adaptive Learning",
-    "slug": "/blog/5-signs-your-edtech-platform-needs-adaptive-learning",
-    "category": "EdTech",
+    "title": "5 Signs Your Content Services platform Needs Adaptive Learning",
+    "slug": "/blog/5-signs-your-content services-platform-needs-adaptive-learning",
+    "category": "Content Services",
     "date": "April 2026",
     "author": "eQOURSE",
-    "excerpt": "Explore insights on 5 Signs Your EdTech Platform Needs Adaptive Learning and how it impacts the future of education and learning technology.",
+    "excerpt": "Explore insights on 5 Signs Your Content Services platform Needs Adaptive Learning and how it impacts the future of education and learning technology.",
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/content-service"
+      "/content-services"
     ],
     "keywords": [
-      "EdTech",
+      "Content Services",
       "Education",
       "eQOURSE"
     ]
@@ -264,17 +264,17 @@ export const blogsData: BlogPost[] = [
     "id": 14,
     "title": "Online Learning DOs and DONOTs for Institutions",
     "slug": "/blog/online-learning-dos-and-donots-for-institutions",
-    "category": "EdTech",
+    "category": "Content Services",
     "date": "April 2026",
     "author": "eQOURSE",
     "excerpt": "Explore insights on Online Learning DOs and DONOTs for Institutions and how it impacts the future of education and learning technology.",
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/content-service"
+      "/content-services"
     ],
     "keywords": [
-      "EdTech",
+      "Content Services",
       "Education",
       "eQOURSE"
     ]
@@ -283,36 +283,36 @@ export const blogsData: BlogPost[] = [
     "id": 15,
     "title": "Key Roles Teachers Play in the Classroom",
     "slug": "/blog/key-roles-teachers-play-in-the-classroom",
-    "category": "EdTech",
+    "category": "Content Services",
     "date": "April 2026",
     "author": "eQOURSE",
     "excerpt": "Explore insights on Key Roles Teachers Play in the Classroom and how it impacts the future of education and learning technology.",
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/content-service"
+      "/content-services"
     ],
     "keywords": [
-      "EdTech",
+      "Content Services",
       "Education",
       "eQOURSE"
     ]
   },
   {
     "id": 16,
-    "title": "Understanding the Role of EdTech in Higher Education",
-    "slug": "/blog/understanding-the-role-of-edtech-in-higher-education",
-    "category": "EdTech",
+    "title": "Understanding the Role of Content Services in Higher Education",
+    "slug": "/blog/understanding-the-role-of-content services-in-higher-education",
+    "category": "Content Services",
     "date": "April 2026",
     "author": "eQOURSE",
-    "excerpt": "Explore insights on Understanding the Role of EdTech in Higher Education and how it impacts the future of education and learning technology.",
+    "excerpt": "Explore insights on Understanding the Role of Content Services in Higher Education and how it impacts the future of education and learning technology.",
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/content-service"
+      "/content-services"
     ],
     "keywords": [
-      "EdTech",
+      "Content Services",
       "Education",
       "eQOURSE"
     ]
@@ -321,17 +321,17 @@ export const blogsData: BlogPost[] = [
     "id": 17,
     "title": "Bridge Course Success: Reviving Education Across 14 Districts",
     "slug": "/blog/bridge-course-success-reviving-education-across-14-districts",
-    "category": "EdTech",
+    "category": "Content Services",
     "date": "April 2026",
     "author": "eQOURSE",
     "excerpt": "Explore insights on Bridge Course Success: Reviving Education Across 14 Districts and how it impacts the future of education and learning technology.",
     "thumbnailColor": "teal",
     "sections": [],
     "internalLinks": [
-      "/content-service"
+      "/content-services"
     ],
     "keywords": [
-      "EdTech",
+      "Content Services",
       "Education",
       "eQOURSE"
     ]

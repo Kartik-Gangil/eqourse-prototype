@@ -38,14 +38,14 @@ const FreePilotHowItWorks = () => {
       number: 1,
       title: "Tell Us What You Need",
       description:
-        "Fill out the pilot request form below with your project type (EdTech or AI Data), subject area, language requirements, and a brief description of your use case. Upload a reference file if you have one.",
+        "Fill out the pilot request form below with your project type (Content Services or AI Data), subject area, language requirements, and a brief description of your use case. Upload a reference file if you have one.",
     },
     {
       icon: Package,
       number: 2,
       title: "We Deliver a Sample",
       description:
-        "Our team produces a complimentary sample tailored to your exact specifications. For EdTech: a sample content piece (lesson, assessment, video script, etc.). For AI Data: a sample annotated dataset (50–500 data units depending on modality). Delivered within 5–10 business days.",
+        "Our team produces a complimentary sample tailored to your exact specifications. For Content Services: a sample content piece (lesson, assessment, video script, etc.). For AI Data: a sample annotated dataset (50–500 data units depending on modality). Delivered within 5–10 business days.",
     },
     {
       icon: ThumbsUp,

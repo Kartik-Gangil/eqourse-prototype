@@ -36,18 +36,25 @@ const sitemapData = [
   {
     category: "Content Service",
     links: [
-      { name: "EdTech Overview", to: "/content-service" },
-      { name: "Custom E-Learning Content", to: "/content-service/custom-e-learning-content" },
-      { name: "Exam Preparation Content", to: "/content-service/exam-preparation-content" },
-      { name: "Learning Solutions", to: "/content-service/learning-solutions" },
-      { name: "E-Learning Video Solutions", to: "/content-service/elearning-video-solutions" },
-      { name: "Localization Services", to: "/content-service/localization-services" },
-      { name: "Technology Solutions", to: "/content-service/technology-solutions" },
-      { name: "Subject Matter Experts", to: "/content-service/subject-matter-experts" },
+      { name: "Content Services overview", to: "/content-services" },
+      { name: "Custom E-Learning Content", to: "/content-services/custom-e-learning-content" },
+      { name: "Exam Preparation Content", to: "/content-services/exam-preparation-content" },
+      { name: "Learning Solutions", to: "/content-services/learning-solutions" },
+      { name: "E-Learning Video Solutions", to: "/content-services/elearning-video-solutions" },
+      { name: "Localization Services", to: "/content-services/localization-services" },
+      { name: "Technology Solutions", to: "/content-services/technology-solutions" },
+      { name: "Subject Matter Experts", to: "/content-services/subject-matter-experts" },
+      { name: "Accessibility Services", to: "/content-services/accessibility" },
+      { name: "— Standards Compliance", to: "/content-services/accessibility/standards-compliance" },
+      { name: "— Document Remediation", to: "/content-services/accessibility/document-content-remediation" },
+      { name: "— Accessible Media", to: "/content-services/accessibility/accessible-media-enhancements" },
+      { name: "— Assessment Accessibility", to: "/content-services/accessibility/assessment-accessibility" },
+      { name: "— Assistive Tech Compatibility", to: "/content-services/accessibility/assistive-technology-compatibility" },
+      { name: "— Audit & Compliance Support", to: "/content-services/accessibility/audit-compliance-support" },
     ],
   },
   {
-    category: "EdTech Samples",
+    category: "Content Services Samples",
     links: [
       { name: "Text Content Samples", to: "/text-samples" },
       { name: "Video Content Samples", to: "/video-samples" },
@@ -99,11 +106,11 @@ const Sitemap = () => {
         <title>Sitemap │ eQOURSE — Content Service &amp; AI Data Services</title>
         <meta
           name="description"
-          content="Navigate the eQOURSE website. Find quick links to our EdTech solutions, AI data services, company information, samples, and legal policies."
+          content="Navigate the eQOURSE website. Find quick links to our Content Services, AI data services, company information, samples, and legal policies."
         />
         <meta
           name="keywords"
-          content="eQOURSE sitemap, website navigation, EdTech solutions directory, AI data services directory, eQOURSE links"
+          content="eQOURSE sitemap, website navigation, Content Services directory, AI data services directory, eQOURSE links"
         />
         <link rel="canonical" href="https://www.eqourse.com/sitemap" />
         <meta name="robots" content="index, follow" />

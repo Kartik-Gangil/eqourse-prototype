@@ -6,7 +6,7 @@ import FreePilotHowItWorks from "@/components/free-pilot/FreePilotHowItWorks";
 import FreePilotChooseTracks from "@/components/free-pilot/FreePilotChooseTracks";
 import FreePilotFormSection from "@/components/free-pilot/FreePilotFormSection";
 import FreePilotWhySection from "@/components/free-pilot/FreePilotWhySection";
-import FreePilotClientsStrip from "@/components/free-pilot/FreePilotClientsStrip";
+import ClientsSection from "@/components/ClientsSection";
 import FreePilotFAQs from "@/components/free-pilot/FreePilotFAQs";
 import ContactStatsBar from "@/components/contact/ContactStatsBar";
 
@@ -26,7 +26,7 @@ const FreePilot = () => {
       },
       {
         "@type": "Question",
-        name: "What do I receive in the EdTech content pilot?",
+        name: "What do I receive in the Content Services pilot?",
         acceptedAnswer: {
           "@type": "Answer",
           text: "You receive a sample content piece tailored to your curriculum, subject, and grade level. This can be a lesson plan, workbook section, assessment paper, video script, curriculum outline, or exam prep module. It is produced by qualified SMEs, reviewed by our editorial QA team, and aligned to your board standards (CBSE, ICSE, IB, etc.).",
@@ -45,7 +45,7 @@ const FreePilot = () => {
         name: "How long does it take to receive my pilot?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "EdTech content pilots are delivered within 5–7 business days. AI Data pilots are delivered within 5–10 business days, depending on modality and complexity. If you have urgent requirements, let us know and we can discuss expedited timelines.",
+          text: "Content Services pilots are delivered within 5–7 business days. AI Data pilots are delivered within 5–10 business days, depending on modality and complexity. If you have urgent requirements, let us know and we can discuss expedited timelines.",
         },
       },
       {
@@ -58,7 +58,7 @@ const FreePilot = () => {
       },
       {
         "@type": "Question",
-        name: "Can I request a pilot for both EdTech and AI Data?",
+        name: "Can I request a pilot for both Content Services and AI Data?",
         acceptedAnswer: {
           "@type": "Answer",
           text: 'Yes. Select "Both" in the pilot request form and describe your requirements for each vertical in the project description field. We\'ll produce samples for both.',
@@ -86,19 +86,19 @@ const FreePilot = () => {
   return (
     <PageLayout breadcrumbs={[{ label: "Free Pilot" }]}>
       <Helmet>
-        <title>Free Pilot Program │ Try EdTech Content & AI Data Services Free │ eQOURSE</title>
+        <title>Free Pilot Program │ Try Content Services & AI Data Services Free │ eQOURSE</title>
         <meta
           name="description"
-          content="Start your free pilot with eQOURSE. Get a complimentary sample of custom e-learning content or AI training data — tailored to your specifications. No payment, no obligation. EdTech content pilots delivered in 5–7 days, AI data pilots in 5–10 days. ISO 9001 & 27001 certified."
+          content="Start your free pilot with eQOURSE. Get a complimentary sample of custom e-learning content or AI training data — tailored to your specifications. No payment, no obligation. Content Services pilots delivered in 5–7 days, AI data pilots in 5–10 days. ISO 9001 & 27001 certified."
         />
         <meta
           name="keywords"
-          content="free pilot program, free e-learning sample, free AI data annotation sample, EdTech content pilot, AI training data pilot, eQOURSE free trial, curriculum development sample, data annotation sample, NLP annotation, computer vision annotation, RLHF annotation, free content sample"
+          content="free pilot program, free e-learning sample, free AI data annotation sample, Content Services pilot, AI training data pilot, eQOURSE free trial, curriculum development sample, data annotation sample, NLP annotation, computer vision annotation, RLHF annotation, free content sample"
         />
-        <meta property="og:title" content="Free Pilot Program │ Try EdTech & AI Data Services │ eQOURSE" />
+        <meta property="og:title" content="Free Pilot Program │ Try Content Services & AI Data Services │ eQOURSE" />
         <meta
           property="og:description"
-          content="Experience eQOURSE quality risk-free. Request a complimentary pilot for EdTech content or AI data services. No payment, no obligation. 200+ clients worldwide."
+          content="Experience eQOURSE quality risk-free. Request a complimentary pilot for Content Services or AI data services. No payment, no obligation. 200+ clients worldwide."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.eqourse.com/free-pilot" />
@@ -147,7 +147,7 @@ const FreePilot = () => {
       <FreePilotWhySection />
 
       {/* Section 6: Trusted Clients Logo Strip */}
-      <FreePilotClientsStrip />
+      <ClientsSection />
 
       {/* Section 7: Stats Counter Bar */}
       <ContactStatsBar />

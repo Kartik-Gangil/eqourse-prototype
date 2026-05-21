@@ -24,13 +24,13 @@ const FreePilotProcess = () => {
     {
       icon: FileText,
       title: "Tell Us What You Need",
-      description: "Fill out the pilot request form with your project type (EdTech or AI Data), subject area, language requirements, and a brief description. Upload a reference file if you have one.",
+      description: "Fill out the pilot request form with your project type (Content Services or AI Data), subject area, language requirements, and a brief description. Upload a reference file if you have one.",
       delay: "0s"
     },
     {
       icon: Package,
       title: "We Deliver a Sample",
-      description: "Our team produces a complimentary sample tailored to your specifications. For EdTech: a sample lesson or script. For AI Data: an annotated dataset of 50-500 units.",
+      description: "Our team produces a complimentary sample tailored to your specifications. For Content Services: a sample lesson or script. For AI Data: an annotated dataset of 50-500 units.",
       delay: "0.2s"
     },
     {

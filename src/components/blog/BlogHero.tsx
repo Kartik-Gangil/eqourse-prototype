@@ -12,7 +12,7 @@ const BlogHero = () => {
     <section className="relative overflow-hidden min-h-[70vh] flex items-center justify-center py-20 lg:py-32">
       {/* Background with Split-tone gradient */}
       <div className="absolute inset-0 flex">
-        {/* Left Half (EdTech - Teal) */}
+        {/* Left Half (Content Services - Teal) */}
         <div className="w-1/2 h-full bg-gradient-to-br from-[#00B4A6]/80 to-[#004D47]/90 relative overflow-hidden">
           {/* Subtle Education Icons */}
           <BookOpen className="absolute top-[20%] left-[15%] w-24 h-24 text-white/[0.03] -rotate-12 animate-float" />
@@ -39,7 +39,7 @@ const BlogHero = () => {
           </div>
 
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white mb-6 drop-shadow-md">
-            Insights & Trends in EdTech and AI Data Services
+            Insights & Trends in Content Services and AI Data Services
           </h1>
 
           <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto drop-shadow-sm font-medium">

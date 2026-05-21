@@ -123,16 +123,17 @@ const ContactForm = () => {
             className="w-full px-3 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow cursor-pointer"
           >
             <option value="" disabled>Select Service Category</option>
-            <optgroup label="--- Content Service ---">
+            <optgroup label="--- Content Services ---">
               <option value="Custom E-Learning">Custom E-Learning Content (K-12 / Higher Ed)</option>
-              <option value="Curriculum">Curriculum Development & Design</option>
+              <option value="Curriculum">Curriculum Development & Lesson Planning</option>
               <option value="Assessment">Assessment & Question Bank Development</option>
-              <option value="Exam Prep">Exam Preparation Content (SAT, IELTS, TOEFL, JEE, NEET)</option>
+              <option value="Exam Prep">Exam Preparation Content (SAT, IELTS, TOEFL, CEFR, etc.)</option>
               <option value="Video Solutions">E-Learning Video Solutions (2D/3D, Storyline, PPT)</option>
-              <option value="Localization">Localization (Translation, Voice Over, Subtitling)</option>
-              <option value="LMS">LMS Course Builds / White Label LMS</option>
-              <option value="SME">Subject Matter Expert Services</option>
-              <option value="Corporate Training">Corporate Training / Learning Solutions</option>
+              <option value="Localization">Localization & Translation Services</option>
+              <option value="LMS">LMS Course Builds & Technology Solutions</option>
+              <option value="SME">Subject Matter Expert (SME) Services</option>
+              <option value="Accessibility">Accessibility Services (Remediation & Compliance)</option>
+              <option value="Talent Assessment">Talent Assessment & Workforce Evaluation</option>
             </optgroup>
             <optgroup label="--- AI Data Services ---">
               <option value="Data Collection">AI Training Data Collection</option>

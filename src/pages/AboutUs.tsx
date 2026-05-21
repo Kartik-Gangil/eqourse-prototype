@@ -15,16 +15,16 @@ const AboutUs = () => {
         <title>About eQOURSE │ Content Service & AI Data Services Company │ India & Singapore</title>
         <meta
           name="description"
-          content="eQOURSE is an ISO 9001 & 27001 certified company delivering EdTech solutions and AI data services. 500+ specialists, 30+ languages, offices in India & Singapore. Custom e-learning content, curriculum development, data annotation, and real-world AI model testing. Trusted by 200+ global clients."
+          content="eQOURSE is an ISO 9001 & 27001 certified company delivering Content Services and AI data services. 500+ specialists, 30+ languages, offices in India & Singapore. Custom e-learning content, curriculum development, data annotation, and real-world AI model testing. Trusted by 200+ global clients."
         />
         <meta
           name="keywords"
-          content="about eQOURSE, EdTech company India, AI data services company, e-learning solutions provider, data annotation company, education technology Singapore, ISO certified EdTech, curriculum development company, AI training data provider"
+          content="about eQOURSE, Content Services company India, AI data services company, e-learning solutions provider, data annotation company, education technology Singapore, ISO certified Content Services, curriculum development company, AI training data provider"
         />
         <meta property="og:title" content="About eQOURSE │ Content Service & AI Data Services │ India & Singapore" />
         <meta
           property="og:description"
-          content="ISO 9001 & 27001 certified. 500+ specialists. EdTech content + AI training data. Offices in India & Singapore. Trusted by 200+ clients across 15+ countries."
+          content="ISO 9001 & 27001 certified. 500+ specialists. Content Services + AI training data. Offices in India & Singapore. Trusted by 200+ clients across 15+ countries."
         />
         <link rel="canonical" href="https://www.eqourse.com/aboutus" />
         <script type="application/ld+json">

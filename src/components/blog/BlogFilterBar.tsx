@@ -12,7 +12,7 @@ const BlogFilterBar = ({ categories, activeCategory, onSelect }: BlogFilterBarPr
         
         let activeClasses = "bg-foreground text-background"; // Default active
         if (isActive) {
-          if (cat.id === "EdTech") activeClasses = "bg-primary text-primary-foreground shadow-lg shadow-primary/25 border-primary";
+          if (cat.id === "Content Services") activeClasses = "bg-primary text-primary-foreground shadow-lg shadow-primary/25 border-primary";
           else if (cat.id === "AI Data") activeClasses = "bg-[#0D1B2A] text-white shadow-lg shadow-[#0D1B2A]/25 border-[#0D1B2A]";
         }
 

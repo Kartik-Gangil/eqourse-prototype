@@ -11,11 +11,11 @@ const PrivacyPolicy = () => {
         <title>Privacy Policy │ eQOURSE — Content Service &amp; AI Data Services</title>
         <meta
           name="description"
-          content="Read eQOURSE's privacy policy. Learn how we collect, use, store, and protect your personal data across our EdTech solutions and AI data services. ISO 27001 certified. GDPR-ready. Offices in India & Singapore."
+          content="Read eQOURSE's privacy policy. Learn how we collect, use, store, and protect your personal data across our Content Services and AI data services. ISO 27001 certified. GDPR-ready. Offices in India & Singapore."
         />
         <meta
           name="keywords"
-          content="eQOURSE privacy policy, data protection, GDPR, ISO 27001, EdTech privacy, AI data privacy, personal data, data security, cookie policy, data retention"
+          content="eQOURSE privacy policy, data protection, GDPR, ISO 27001, Content Services privacy, AI data privacy, personal data, data security, cookie policy, data retention"
         />
         <meta property="og:title" content="Privacy Policy │ eQOURSE — Content Service & AI Data Services" />
         <meta
@@ -31,7 +31,7 @@ const PrivacyPolicy = () => {
               "@type": "WebPage",
               "name": "Privacy Policy",
               "url": "https://www.eqourse.com/privacy-policy",
-              "description": "eQOURSE Privacy Policy — how we handle your data across EdTech solutions and AI data services.",
+              "description": "eQOURSE Privacy Policy — how we handle your data across Content Services and AI data services.",
               "publisher": {
                 "@type": "Organization",
                 "name": "eQOURSE",

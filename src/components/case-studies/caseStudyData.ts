@@ -52,7 +52,7 @@ export const caseStudiesData: CaseStudy[] = [
     cardSummary: "High-level worksheets and PPT solutions for 2,000+ schools across multiple state boards, classes 1–10.",
     visualDirection: { theme: "teal" },
     relatedLinks: [
-      { label: "Workbook Development", href: "/content-service/custom-e-learning-content/workbook-development" }
+      { label: "Workbook Development", href: "/content-services/custom-e-learning-content/workbook-development" }
     ]
   },
   {
@@ -60,10 +60,10 @@ export const caseStudiesData: CaseStudy[] = [
     image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=800",
     title: "Multilingual Pen-Tab Videos & Worksheets in 6 Languages",
     category: "Content Service",
-    industry: "NGO / EdTech",
+    industry: "NGO / Content Services",
     region: "India (Multi-State, 6 Languages)",
     serviceTags: ["E-Learning Video Solutions", "Localization Services", "Workbook Development"],
-    problem: "An NGO based edtech startup wanted engaging “Pen-Tab Videos” and Worksheets for classes 5th to 9th in 6 different languages (Kannada, Telugu, Tamil, Marathi, Hindi and English).",
+    problem: "An NGO based content services startup wanted engaging “Pen-Tab Videos” and Worksheets for classes 5th to 9th in 6 different languages (Kannada, Telugu, Tamil, Marathi, Hindi and English).",
     solution: "We created engaging videos in all 6 languages by gathering 30+ subject matter experts from all over the country. The SMEs brainstormed on the content together to create content that is simple to understand, engaging and helps students retain what they have learnt.",
     impact: "We delivered the content before deadline to empower our client to execute their dissemination strategy without any hindrances at very low cost.",
     metrics: [
@@ -72,22 +72,22 @@ export const caseStudiesData: CaseStudy[] = [
       { label: "Classes Covered", value: "5–9" },
       { label: "Delivery", value: "Early" }
     ],
-    cardSummary: "Pen-tab videos and worksheets in 6 Indian languages for an NGO-backed edtech startup.",
+    cardSummary: "Pen-tab videos and worksheets in 6 Indian languages for an NGO-backed content services startup.",
     visualDirection: { theme: "teal" },
     relatedLinks: [
-      { label: "E-Learning Video Solutions", href: "/content-service/elearning-video-solutions" },
-      { label: "Localization Services", href: "/content-service/localization-services" }
+      { label: "E-Learning Video Solutions", href: "/content-services/elearning-video-solutions" },
+      { label: "Localization Services", href: "/content-services/localization-services" }
     ]
   },
   {
     id: "cs-3",
     image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800",
-    title: "Full Curriculum Content for African EdTech Startup",
+    title: "Full Curriculum Content for African Content Services Startup",
     category: "Content Service",
-    industry: "EdTech",
+    industry: "Content Services",
     region: "Africa",
     serviceTags: ["Custom E-Learning Content", "K12 Content", "Curriculum Development"],
-    problem: "In 2020, an African EdTech Startup approached us to create content for Middle School (JSS1, JSS2, JSS3) and High School (SSS1, SSS2, SSS3). They wanted content for a given curriculum uploaded using their CMS with a deadline of 8 months.",
+    problem: "In 2020, an African Content Services Startup approached us to create content for Middle School (JSS1, JSS2, JSS3) and High School (SSS1, SSS2, SSS3). They wanted content for a given curriculum uploaded using their CMS with a deadline of 8 months.",
     solution: "We created the theory of every chapter for each standard. We used a team of 40+ subject matter experts and academic content creators to brainstorm and finalise drafts. We created highly challenging practice questions, delivering a complete solution for the client’s content needs.",
     impact: "The simple-to-understand theory and challenging practice questions were well received and helped the startup grow its customer base. We delivered the promised content within 6 months, giving the client enough time to prepare their dissemination strategy.",
     metrics: [
@@ -96,10 +96,10 @@ export const caseStudiesData: CaseStudy[] = [
       { label: "Early Delivery", value: "2 months" },
       { label: "Curriculum", value: "Full Suite" }
     ],
-    cardSummary: "Complete middle and high school curriculum content for an African edtech startup, delivered 2 months early.",
+    cardSummary: "Complete middle and high school curriculum content for an African content services startup, delivered 2 months early.",
     visualDirection: { theme: "teal" },
     relatedLinks: [
-      { label: "K12 Content", href: "/content-service/custom-e-learning-content/k12-and-higher-education" }
+      { label: "K12 Content", href: "/content-services/custom-e-learning-content/k12-and-higher-education" }
     ]
   },
   {
@@ -107,7 +107,7 @@ export const caseStudiesData: CaseStudy[] = [
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800",
     title: "AI + Human QA: 10,000+ Fact-Checked Solutions Daily",
     category: "Content Service",
-    industry: "EdTech / AI",
+    industry: "Content Services / AI",
     region: "Global",
     serviceTags: ["Educational Content Development", "Subject Matter Experts", "AI-Powered Learning"],
     problem: "The widespread adoption of AI for generating educational responses raised concerns about authenticity and credibility. While AI can swiftly generate answers, there was a growing need to incorporate human expertise to ensure accuracy and mitigate plagiarism risks.",
@@ -122,15 +122,15 @@ export const caseStudiesData: CaseStudy[] = [
     cardSummary: "AI + human QA pipeline delivering 10,000+ fact-checked educational solutions daily for a global AI platform.",
     visualDirection: { theme: "teal" },
     relatedLinks: [
-      { label: "AI-Powered Learning", href: "/content-service/learning-solutions/ai-powered-learning" }
+      { label: "AI-Powered Learning", href: "/content-services/learning-solutions/ai-powered-learning" }
     ]
   },
   {
     id: "cs-5",
     image: "https://images.unsplash.com/photo-1555448248-2571daf6344b?auto=format&fit=crop&q=80&w=800",
-    title: "On-Demand Video Solutions for US EdTech Company",
+    title: "On-Demand Video Solutions for US Content Services Company",
     category: "Content Service",
-    industry: "Higher Education / EdTech",
+    industry: "Higher Education / Content Services",
     region: "USA",
     serviceTags: ["E-Learning Video Solutions", "Subject Matter Experts"],
     problem: "Undergraduate and postgraduate students struggled to grasp complex topics due to limitations in traditional teaching and challenges in accessing timely assistance outside classroom hours.",
@@ -142,11 +142,11 @@ export const caseStudiesData: CaseStudy[] = [
       { label: "Turnaround Time", value: "2 Hrs" },
       { label: "Education Level", value: "UG/PG" }
     ],
-    cardSummary: "On-demand video solutions across 15+ subjects with 2-hour turnaround for a leading US edtech company.",
+    cardSummary: "On-demand video solutions across 15+ subjects with 2-hour turnaround for a leading US content services company.",
     visualDirection: { theme: "teal" },
     relatedLinks: [
-      { label: "E-Learning Video Solutions", href: "/content-service/elearning-video-solutions" },
-      { label: "Subject Matter Experts", href: "/content-service/subject-matter-experts" }
+      { label: "E-Learning Video Solutions", href: "/content-services/elearning-video-solutions" },
+      { label: "Subject Matter Experts", href: "/content-services/subject-matter-experts" }
     ]
   },
   {
@@ -154,7 +154,7 @@ export const caseStudiesData: CaseStudy[] = [
     image: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80&w=800",
     title: "Math Solutions QA: 10,000+ Monthly Reviews at 90%+ Accuracy",
     category: "Content Service",
-    industry: "EdTech",
+    industry: "Content Services",
     region: "Global",
     serviceTags: ["Educational Content Development", "Assessment Development", "Quality Assurance"],
     problem: "A leading educational platform for mathematics (primary to graduation level) faced challenges maintaining accuracy and quality across 10,000+ monthly solutions contributed by worldwide contributors.",
@@ -169,7 +169,7 @@ export const caseStudiesData: CaseStudy[] = [
     cardSummary: "Quality assurance of 10,000+ monthly math solutions at 90%+ accuracy for a global education platform.",
     visualDirection: { theme: "teal" },
     relatedLinks: [
-      { label: "Educational Content Development", href: "/content-service/custom-e-learning-content/educational-content-development" }
+      { label: "Educational Content Development", href: "/content-services/custom-e-learning-content/educational-content-development" }
     ]
   },
   {
@@ -192,8 +192,8 @@ export const caseStudiesData: CaseStudy[] = [
     cardSummary: "400,000+ bilingual workbooks printed and distributed across rural Chhattisgarh for grades 6–10.",
     visualDirection: { theme: "teal" },
     relatedLinks: [
-      { label: "Localization Services", href: "/content-service/localization-services" },
-      { label: "Workbook Development", href: "/content-service/custom-e-learning-content/workbook-development" }
+      { label: "Localization Services", href: "/content-services/localization-services" },
+      { label: "Workbook Development", href: "/content-services/custom-e-learning-content/workbook-development" }
     ]
   },
   {
@@ -216,7 +216,7 @@ export const caseStudiesData: CaseStudy[] = [
     cardSummary: "EmSAT and TOEIC exam preparation content for a UAE educational institution.",
     visualDirection: { theme: "teal" },
     relatedLinks: [
-      { label: "Exam Preparation Content", href: "/content-service/exam-preparation-content" }
+      { label: "Exam Preparation Content", href: "/content-services/exam-preparation-content" }
     ]
   },
   {

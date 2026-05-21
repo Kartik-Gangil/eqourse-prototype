@@ -15,7 +15,7 @@ interface Testimonial {
 }
 
 const testimonials: Testimonial[] = [
-  // EdTech Testimonials (From previous state)
+  // Content Services Testimonials (From previous state)
   {
     quote: "I worked with the eQOURSE team for a content project related to the CUET exam. They delivered very high-quality content with a great focus on students learning.",
     name: "Viraj Panwar",
@@ -62,7 +62,7 @@ const testimonials: Testimonial[] = [
     quote: "Their localization services transformed our video content reach. Over 30 languages seamlessly translated without losing the academic rigor of the materials.",
     name: "Operations Director",
     role: "Leadership",
-    company: "Global EdTech Company",
+    company: "Global Content Services Company",
     type: "Content Service"
   },
 
@@ -119,7 +119,7 @@ const FilterButton = ({ active, label, onClick }: { active: boolean; label: stri
 );
 
 const TestimonialCard = ({ data, index }: { data: Testimonial; index: number }) => {
-  const isEdTech = data.type === "Content Service";
+  const isContentServices = data.type === "Content Service";
 
   return (
     <motion.div
@@ -130,12 +130,12 @@ const TestimonialCard = ({ data, index }: { data: Testimonial; index: number }) 
       transition={{ duration: 0.3, delay: index * 0.05 }}
       whileHover={{ y: -8, transition: { duration: 0.2 } }}
       className={`glass rounded-2xl p-8 border-l-[6px] shadow-sm hover:shadow-xl transition-shadow relative overflow-hidden group ${
-        isEdTech ? "border-l-teal-500 border-border/50" : "border-l-indigo-600 border-border/50"
+        isContentServices ? "border-l-teal-500 border-border/50" : "border-l-indigo-600 border-border/50"
       }`}
     >
       {/* Decorative quotes */}
       <Quote className={`absolute top-6 right-6 w-16 h-16 opacity-10 transition-transform duration-500 group-hover:scale-110 ${
-        isEdTech ? "text-teal-500" : "text-indigo-600"
+        isContentServices ? "text-teal-500" : "text-indigo-600"
       }`} />
 
       <div className="mb-6 relative z-10">
@@ -153,7 +153,7 @@ const TestimonialCard = ({ data, index }: { data: Testimonial; index: number }) 
 
       <div className="flex items-center gap-4 mt-auto border-t border-border/50 pt-4 relative z-10">
         <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg
-          ${isEdTech ? "bg-gradient-to-br from-teal-400 to-teal-600" : "bg-gradient-to-br from-indigo-500 to-purple-600"}
+          ${isContentServices ? "bg-gradient-to-br from-teal-400 to-teal-600" : "bg-gradient-to-br from-indigo-500 to-purple-600"}
         `}>
           {data.name[0]}
         </div>

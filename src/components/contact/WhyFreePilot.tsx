@@ -23,7 +23,7 @@ const WhyFreePilot = () => {
     {
       icon: Clock,
       title: "Fast Turnaround",
-      description: "EdTech pilots delivered in 5-7 business days. AI Data pilots delivered in 5-10 business days. Faster timelines available for urgent requests.",
+      description: "Content Services pilots delivered in 5-7 business days. AI Data pilots delivered in 5-10 business days. Faster timelines available for urgent requests.",
       delay: "450ms"
     }
   ];

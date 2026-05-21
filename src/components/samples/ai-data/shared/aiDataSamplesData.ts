@@ -256,6 +256,7 @@ export const aiDataSamples: AiDataSample[] = [
       "Transcription, diarisation, phoneme labeling and emotion detection across 12+ Indian and international languages.",
     showcases: [
       {
+        id: "verbatim",
         title: "Verbatim Transcription",
         teaser: "Capture every word, pause, and filler exactly as spoken.",
         description:
@@ -269,6 +270,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "diarisation",
         title: "Speaker Diarisation",
         teaser: "Identify who spoke when in multi-speaker conversations.",
         description:
@@ -282,6 +284,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "phoneme",
         title: "Phoneme & Prosody Labeling",
         teaser: "Map speech sounds and intonation for advanced TTS training.",
         description:
@@ -295,6 +298,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "emotion",
         title: "Emotion & Tone Detection",
         teaser: "Classify the sentiment and emotional state of the speaker.",
         description:
@@ -339,6 +343,7 @@ export const aiDataSamples: AiDataSample[] = [
       "Preference ranking, quality scoring, instruction-following and safety labeling for LLM alignment.",
     showcases: [
       {
+        id: "preference",
         title: "Preference Ranking",
         teaser: "Rank model outputs to align with human preferences and values.",
         description:
@@ -352,6 +357,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "quality",
         title: "Response Quality Scoring",
         teaser: "Evaluate outputs across helpfulness, accuracy, and safety.",
         description:
@@ -365,6 +371,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "instruction",
         title: "Instruction-Following Evaluation",
         teaser: "Measure how well models adhere to complex, multi-step prompts.",
         description:
@@ -378,6 +385,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "safety",
         title: "Safety & Red-Teaming Labels",
         teaser: "Identify and classify harmful, biased, or unsafe model behaviors.",
         description:

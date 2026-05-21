@@ -25,7 +25,7 @@ const PIE_COLORS = ["#0ea5a4", "#6366f1", "#f59e0b", "#ec4899", "#14b8a6"];
 
 const interestLabel: Record<string, string> = {
   "ai-data": "AI / Data Services",
-  edtech: "EdTech",
+  "content-services": "Content Services",
   localization: "Localization",
   other: "Other",
 };

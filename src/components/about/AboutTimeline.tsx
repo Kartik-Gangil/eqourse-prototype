@@ -5,11 +5,11 @@ const timelineData = [
   {
     year: "2020",
     title: "Founded",
-    description: "eQOURSE was founded by Somveer Tayal, bringing over 20 years of experience in transforming education. We began as an EdTech content services company, partnering with e-learning platforms to design and develop digital content, assessments, and tutoring support.",
+    description: "eQOURSE was founded by Somveer Tayal, bringing over 20 years of experience in transforming education. We began as an Content Services services company, partnering with e-learning platforms to design and develop digital content, assessments, and tutoring support.",
   },
   {
     year: "2021–2023",
-    title: "Scaled EdTech Operations",
+    title: "Scaled Content Services Operations",
     description: "We scaled to 200+ subject matter experts and served 150+ clients across India, the USA, the UK, the UAE, and Africa. We achieved ISO 9001:2015 certification for quality management and established ourselves as a trusted partner for K-12 content, exam preparation, localization, and video solutions.",
   },
   {
@@ -20,7 +20,7 @@ const timelineData = [
   {
     year: "2025",
     title: "Singapore Office & TuTrain Launch",
-    description: "eQOURSE was officially registered as eQOURSE PTE LTD in Singapore to strengthen global operations across the Asia-Pacific region. We launched our proprietary TuTrain platform for real-world AI model testing, connecting AI models to demographically diverse test users across 30+ languages. Our team grew to 500+ specialists spanning EdTech content and AI data operations.",
+    description: "eQOURSE was officially registered as eQOURSE PTE LTD in Singapore to strengthen global operations across the Asia-Pacific region. We launched our proprietary TuTrain platform for real-world AI model testing, connecting AI models to demographically diverse test users across 30+ languages. Our team grew to 500+ specialists spanning Content Services and AI data operations.",
   },
   {
     year: "2026",
@@ -57,7 +57,7 @@ const AboutTimeline = () => {
             transition={{ delay: 0.1 }}
             className="text-muted-foreground text-lg max-w-2xl mx-auto"
           >
-            From an EdTech startup to a dual-vertical global leader in Education and AI Data Services.
+            From an Content Services startup to a dual-vertical global leader in Education and AI Data Services.
           </motion.p>
         </div>
 

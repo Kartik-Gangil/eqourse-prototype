@@ -168,7 +168,7 @@ export default function BlogEditor() {
             <div>
               <Label>Tags</Label>
               <Input value={tagsText} onChange={(e) => setTagsText(e.target.value)}
-                placeholder="edtech, ai, content (comma-separated)" />
+                placeholder="content services, ai, content (comma-separated)" />
             </div>
             <div>
               <Label>Author name</Label>

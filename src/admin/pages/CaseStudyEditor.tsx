@@ -138,11 +138,11 @@ export default function CaseStudyEditor() {
           <div className="grid grid-cols-2 gap-3">
             <div>
               <Label>Client *</Label>
-              <Input value={form.client} onChange={(e) => setField("client", e.target.value)} placeholder="Confidential EdTech" />
+              <Input value={form.client} onChange={(e) => setField("client", e.target.value)} placeholder="Confidential Content Services" />
             </div>
             <div>
               <Label>Industry</Label>
-              <Input value={form.industry} onChange={(e) => setField("industry", e.target.value)} placeholder="EdTech, AI, Healthcare…" />
+              <Input value={form.industry} onChange={(e) => setField("industry", e.target.value)} placeholder="Content Services, AI, Healthcare…" />
             </div>
           </div>
           <div>
@@ -200,7 +200,7 @@ export default function CaseStudyEditor() {
             <div>
               <Label>Tags</Label>
               <Input value={tagsText} onChange={(e) => setTagsText(e.target.value)}
-                placeholder="ai, edtech (comma-separated)" />
+                placeholder="ai, content services (comma-separated)" />
             </div>
           </Card>
 

@@ -8,17 +8,17 @@ const Blog = () => {
   return (
     <PageLayout breadcrumbs={[{ label: "Blog", href: "/blog" }]}>
       <Helmet>
-        <title>Insights & Trends in EdTech and AI Data Services │ eQOURSE</title>
+        <title>Insights & Trends in Content Services and AI Data Services │ eQOURSE</title>
         <meta
           name="description"
           content="Expert articles, guides, and industry perspectives from the eQOURSE team. Covering K-12 education, curriculum design, exam preparation, AI training data, annotation best practices, and real-world model testing."
         />
         <meta
           name="keywords"
-          content="EdTech blog, AI data services blog, e-learning insights, machine learning training data, annotation best practices, eQOURSE blog"
+          content="Content Services blog, AI data services blog, e-learning insights, machine learning training data, annotation best practices, eQOURSE blog"
         />
-        <meta property="og:title" content="Insights & Trends in EdTech and AI Data Services │ eQOURSE" />
-        <meta property="og:description" content="Expert articles and industry perspectives covering EdTech solutions and AI Data Services." />
+        <meta property="og:title" content="Insights & Trends in Content Services and AI Data Services │ eQOURSE" />
+        <meta property="og:description" content="Expert articles and industry perspectives covering Content Services and AI Data Services." />
         <link rel="canonical" href="https://www.eqourse.com/blog" />
         
         {/* CollectionPage Schema */}
@@ -28,7 +28,7 @@ const Blog = () => {
               "@context": "https://schema.org",
               "@type": "CollectionPage",
               "name": "eQOURSE Blog",
-              "description": "Insights & Trends in EdTech and AI Data Services",
+              "description": "Insights & Trends in Content Services and AI Data Services",
               "url": "https://www.eqourse.com/blog",
               "publisher": {
                 "@type": "Organization",

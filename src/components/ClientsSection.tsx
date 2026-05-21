@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // ── Clients with brand colors + Google favicon icons ──────────────────────────
 const clients = [
@@ -26,8 +26,10 @@ const row1 = [...clients.slice(0, 6)];
 const row2 = [...clients.slice(6, 12)];
 const row3 = [...clients.slice(12, 18)];
 
+type Client = (typeof clients)[number];
+
 // Logo card component
-const LogoCard = ({ client }: { client: typeof clients[0] }) => (
+const LogoCard = ({ client }: { client: Client }) => (
   <div
     className="flex-shrink-0 flex items-center gap-2.5 px-5 py-3 rounded-xl border border-border/40 bg-card shadow-sm hover:shadow-md transition-all duration-300 hover:border-primary/30 group"
     style={{ minWidth: "160px" }}
@@ -53,56 +55,125 @@ const LogoCard = ({ client }: { client: typeof clients[0] }) => (
   </div>
 );
 
-// Marquee row
+/**
+ * Seamless infinite marquee row.
+ *
+ * The track renders the items as **two identical tiles back-to-back**. The animation
+ * translates the track from `0` to `-tileWidth` and then snaps to `0`, which is
+ * imperceptible because the second tile is pixel-identical to the first.
+ *
+ * The catch: the seam is only invisible while the visible viewport is *narrower*
+ * than a single tile. On wide screens, six logos (~1020px) are narrower than the
+ * viewport, so a gap appears between the two tiles. We fix that by dynamically
+ * repeating the items inside one tile until the tile is at least as wide as the
+ * container plus a buffer.
+ */
 const MarqueeRow = ({
   items,
   reverse = false,
+  speed = 40, // pixels per second
 }: {
-  items: typeof clients;
+  items: Client[];
   reverse?: boolean;
+  speed?: number;
 }) => {
+  const wrapRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const pausedRef = useRef(false);
+  const [tileMultiplier, setTileMultiplier] = useState(1);
 
+  // Step 1: ensure the tile is wider than the visible area on every resize.
   useEffect(() => {
-    const el = trackRef.current;
-    if (!el) return;
-    let pos = 0;
-    let raf: number;
+    const wrap = wrapRef.current;
+    const track = trackRef.current;
+    if (!wrap || !track) return;
 
-    const step = () => {
+    const measure = () => {
+      const containerWidth = wrap.clientWidth;
+      // Track holds two tiles, so one tile is half the scroll width.
+      const tileWidth = track.scrollWidth / 2;
+      if (tileWidth === 0 || containerWidth === 0) return;
+
+      // Buffer of 100px so tiny resize jitters don't expose a seam.
+      const target = containerWidth + 100;
+      if (tileWidth < target) {
+        const factor = Math.ceil(target / tileWidth);
+        setTileMultiplier((current) => current * factor);
+      }
+    };
+
+    measure();
+
+    const ro = new ResizeObserver(measure);
+    ro.observe(wrap);
+    return () => ro.disconnect();
+  }, [tileMultiplier]);
+
+  // Step 2: animate. Time-based so speed is consistent across devices, and
+  // respects the user's reduced-motion preference.
+  useEffect(() => {
+    const wrap = wrapRef.current;
+    const track = trackRef.current;
+    if (!wrap || !track) return;
+
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) {
+      track.style.transform = "translate3d(0, 0, 0)";
+      return;
+    }
+
+    let pos = 0;
+    let last = performance.now();
+    let raf = 0;
+
+    const step = (now: number) => {
+      const dt = (now - last) / 1000; // seconds
+      last = now;
+
       if (!pausedRef.current) {
-        pos += reverse ? -0.5 : 0.5;
-        const half = el.scrollWidth / 2;
-        if (!reverse && pos >= half) pos -= half;
-        if (reverse && pos <= -half) pos += half;
-        el.style.transform = `translateX(${-pos}px)`;
+        const tileWidth = track.scrollWidth / 2;
+        if (tileWidth > 0) {
+          pos += (reverse ? -1 : 1) * speed * dt;
+          // Wrap pos into [0, tileWidth) using positive modulo so the seam is
+          // invisible in *both* directions. Without this, the reverse track
+          // would drift into positive translateX and leave the left side empty.
+          pos = ((pos % tileWidth) + tileWidth) % tileWidth;
+          track.style.transform = `translate3d(${-pos}px, 0, 0)`;
+        }
       }
       raf = requestAnimationFrame(step);
     };
     raf = requestAnimationFrame(step);
 
-    const wrap = el.parentElement;
     const pause = () => { pausedRef.current = true; };
-    const resume = () => { pausedRef.current = false; };
-    wrap?.addEventListener("mouseenter", pause);
-    wrap?.addEventListener("mouseleave", resume);
-    wrap?.addEventListener("touchstart", pause, { passive: true });
-    wrap?.addEventListener("touchend", resume, { passive: true });
+    const resume = () => { pausedRef.current = false; last = performance.now(); };
+
+    wrap.addEventListener("mouseenter", pause);
+    wrap.addEventListener("mouseleave", resume);
+    wrap.addEventListener("touchstart", pause, { passive: true });
+    wrap.addEventListener("touchend", resume, { passive: true });
+    wrap.addEventListener("focusin", pause);
+    wrap.addEventListener("focusout", resume);
 
     return () => {
       cancelAnimationFrame(raf);
-      wrap?.removeEventListener("mouseenter", pause);
-      wrap?.removeEventListener("mouseleave", resume);
-      wrap?.removeEventListener("touchstart", pause);
-      wrap?.removeEventListener("touchend", resume);
+      wrap.removeEventListener("mouseenter", pause);
+      wrap.removeEventListener("mouseleave", resume);
+      wrap.removeEventListener("touchstart", pause);
+      wrap.removeEventListener("touchend", resume);
+      wrap.removeEventListener("focusin", pause);
+      wrap.removeEventListener("focusout", resume);
     };
-  }, [reverse]);
+  }, [reverse, speed, tileMultiplier]);
 
-  const doubled = [...items, ...items];
+  // Build one tile = items × multiplier, then render two tiles back-to-back.
+  const tile: Client[] = [];
+  for (let i = 0; i < tileMultiplier; i += 1) tile.push(...items);
+  const rendered = [...tile, ...tile];
 
   return (
     <div
+      ref={wrapRef}
       className="overflow-hidden"
       style={{
         maskImage: "linear-gradient(to right, transparent, black 6%, black 94%, transparent)",
@@ -113,8 +184,9 @@ const MarqueeRow = ({
         ref={trackRef}
         className="flex gap-3 will-change-transform py-1"
         style={{ width: "max-content" }}
+        aria-hidden="true"
       >
-        {doubled.map((client, i) => (
+        {rendered.map((client, i) => (
           <LogoCard key={`${client.name}-${i}`} client={client} />
         ))}
       </div>
@@ -138,14 +210,21 @@ const ClientsSection = () => (
         Trusted by <span className="text-gradient">200+ Clients</span>
       </h2>
       <p className="text-sm text-muted-foreground mt-2 max-w-xl mx-auto">
-        Powering EdTech platforms, publishers, enterprises, and AI teams worldwide.
+        Powering Content Services platforms, publishers, enterprises, and AI teams worldwide.
       </p>
     </div>
 
+    {/* Screen reader fallback so the partner list is still discoverable */}
+    <ul className="sr-only">
+      {clients.map((c) => (
+        <li key={c.name}>{c.name}</li>
+      ))}
+    </ul>
+
     <div className="space-y-3">
-      <MarqueeRow items={row1} reverse={false} />
-      <MarqueeRow items={row2} reverse={true} />
-      <MarqueeRow items={row3} reverse={false} />
+      <MarqueeRow items={row1} reverse={false} speed={40} />
+      <MarqueeRow items={row2} reverse={true} speed={45} />
+      <MarqueeRow items={row3} reverse={false} speed={38} />
     </div>
   </section>
 );

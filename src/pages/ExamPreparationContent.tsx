@@ -1,4 +1,4 @@
-import ExamPrepPage from "@/components/edtech-solutions/exam-prep/ExamPrepPage";
+import ExamPrepPage from "@/components/content-services/exam-prep/ExamPrepPage";
 
 const ExamPreparationContent = () => <ExamPrepPage />;
 

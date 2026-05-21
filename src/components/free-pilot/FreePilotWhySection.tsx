@@ -51,7 +51,7 @@ const FreePilotWhySection = () => {
       icon: Zap,
       title: "Fast Turnaround",
       description:
-        "EdTech content pilots delivered in 5–7 business days. AI Data pilots delivered in 5–10 business days. Faster timelines available for urgent requests.",
+        "Content Services pilots delivered in 5–7 business days. AI Data pilots delivered in 5–10 business days. Faster timelines available for urgent requests.",
       gradient: "from-[#1B9AAA]/10 to-[#1B9AAA]/5",
       iconBg: "bg-[#1B9AAA]",
       delay: 450,

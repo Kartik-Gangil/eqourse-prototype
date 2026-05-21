@@ -1,0 +1,99 @@
+﻿
+========== Sub 0 ==========
+Standards Compliance
+Parent service page: Accessibility
+SECTION 1 ΓÇö PAGE METADATA
+SECTION 2 ΓÇö HERO
+--- First Table ---
+URL Slug | /accessibility/standards-compliance/
+SEO Title Tag | Accessibility Standards Compliance | eQOURSE
+Meta Description | Accessibility standards compliance services for publishers, EdTech platforms and institutions across
+Canonical URL | https://www.eqourse.com/accessibility/standards-compliance/
+Robots Meta Tag | index, follow
+Open Graph Title | Accessibility Standards Compliance | eQOURSE
+Open Graph Description | Standards-mapped accessibility services for digital learning content, documents, media, assessments 
+H1 | Accessibility Standards Compliance for Digital Learning Content
+Primary CTA Label | Discuss Compliance Requirements
+Secondary Microcopy | Share standards, jurisdictions, content formats and review scope.
+No-affiliation disclaimer | eQOURSE references public accessibility standards and legal frameworks for scope definition only. eQ
+
+========== Sub 1 ==========
+Document & eContent Remediation
+SEO Content Framework | eQOURSE
+SECTION 1 ΓÇö PAGE METADATA
+SECTION 2 ΓÇö HERO
+--- First Table ---
+URL Slug | /accessibility/document-content-remediation/
+SEO Title Tag | Document & eContent Accessibility RemediationΓöé eQOURSE
+Meta Description | eQOURSE remediates PDFs, eBooks, LMS courses, websites, HTML, Word files, and PowerPoint decks for a
+Canonical URL | https://www.eqourse.com/accessibility/document-econtent-remediation/
+Robots Meta Tag | index, follow
+Open Graph Title | Document & eContent Accessibility Remediation
+Open Graph Description | Accessibility remediation for PDFs, eBooks, LMS courses, websites, HTML, Word files, and PowerPoint 
+H1 | Document & eContent Accessibility Remediation
+Primary CTA Label | Discuss Remediation Requirements
+Secondary Microcopy | Share source files, formats, accessibility targets, and delivery scope.
+No-affiliation disclaimer | References to WCAG, PDF/UA, EPUB Accessibility, WAI-ARIA, and Microsoft Office formats identify appl
+
+========== Sub 2 ==========
+Accessible Media & Enhancements
+SECTION 1 ΓÇö PAGE METADATA
+SECTION 2 ΓÇö HERO
+Top Eyebrow Tag: ACCESSIBLE MEDIA & ENHANCEMENTS
+--- First Table ---
+Field | Recommended Content
+URL Slug | /accessibility/accessible-media-enhancements
+SEO Title Tag | Accessible Media & Enhancements Services | eQOURSE
+Meta Description | Accessible media services for alt text, captions, transcripts, audio description, MathML, charts, ta
+Canonical URL | https://www.eqourse.com/accessibility/accessible-media-enhancements
+Robots Meta Tag | index, follow
+Open Graph Title | Accessible Media & Enhancements Services | eQOURSE
+Open Graph Description | eQOURSE develops accessible media enhancements for educational content, including alt text, captions
+H1 | Accessible Media & Enhancements Services
+Primary CTA Label | Discuss Accessible Media Requirements
+Secondary Microcopy | Share source formats, media types, and accessibility scope for a structured review.
+No-affiliation disclaimer | References to W3C/WAI, WCAG, and MathML describe standards and technologies only. eQOURSE does not c
+
+========== Sub 3 ==========
+Assessment Accessibility
+SEO Content Specification | eQOURSE
+SECTION 1 ΓÇö PAGE METADATA
+SECTION 2 ΓÇö HERO
+--- First Table ---
+Field | Recommended content
+URL Slug | /accessibility/assessment-accessibility/
+SEO Title Tag | Assessment Accessibility Services | eQOURSE
+Meta Description | Accessible assessment content for publishers, EdTech platforms and institutions, covering item desig
+Canonical URL | https://www.eqourse.com/accessibility/assessment-accessibility/
+Robots Meta Tag | index, follow
+Open Graph Title | Assessment Accessibility Services | eQOURSE
+Open Graph Description | Accessible assessment content for digital assessments, item banks and assessment workflows across pu
+H1 | Assessment Accessibility Services
+Primary CTA Label | Discuss Assessment Accessibility Requirements
+Secondary Microcopy | For publishers, EdTech platforms, institutions and assessment teams.
+No-affiliation disclaimer | Standards and specifications are referenced for alignment only. eQOURSE does not claim endorsement b
+
+========== Sub 4 ==========
+Assistive Technology Compatibility
+Parent service page: Accessibility
+SECTION 1 ΓÇö PAGE METADATA
+URL Slug: /accessibility/assistive-technology-compatibility/
+--- First Table ---
+≡ƒƒó Content ΓÇö USE THIS: Accessibility QA
+≡ƒö╡ Keywords targeted: assistive technology compatibility, accessibility QA
+ΓÜÖ∩╕Å Vendor implementation note: Render as a left-aligned pill badge above the H1. Use eQOURSE accent 
+
+========== Sub 5 ==========
+Audit & Compliance Support
+SEO content draft for eQOURSE | Parent service page: Accessibility
+SECTION 1 ΓÇö PAGE METADATA
+URL Slug: /accessibility/audit-compliance-support/
+--- First Table ---
+Element | ≡ƒƒó Content ΓÇö USE THIS | ≡ƒö╡ Keywords targeted | ΓÜÖ∩╕Å Vendor implementation note
+Top Eyebrow Tag | Accessibility Compliance | accessibility compliance support; digital accessibility audit | Render as a small left-aligned pill badge above the H1. Keep icon minimal and avoid decorative clutt
+H1 Main Heading | Audit & Compliance Support for Digital Accessibility | accessibility audit support; accessibility compliance reporting | Must match the H1 in Section 1 exactly. Split over two lines on desktop if required.
+Hero Description | eQOURSE delivers accessibility audit and compliance documentation support for EdTech platforms, publ | accessibility compliance support; ACR support; VPAT documentation support; digital content accessibi | Use as one short paragraph below the H1. Do not add guarantee language such as fully compliant, lega
+Primary CTA Button | Request Audit Support | accessibility audit support | Single primary CTA button only. Track as audit_compliance_cta_click.
+Three Trust Metrics | Standards-mapped review | Evidence-led reporting | Procurement-ready documentation | WCAG audit; accessibility conformance reporting; procurement accessibility support | Use three compact badges. These are non-numeric and do not require internal metric verification.
+Image Overlay Badge 1 | ACR Ready ΓÇö Structured conformance inputs for procurement review. | Accessibility Conformance Report support; ACR documentation | Place near the top of the hero image as a dark pill/card overlay.
+Image Overlay Badge 2 | Report Pack ΓÇö Findings, evidence, next actions. | accessibility audit report; gap analysis report | Place near the lower part of the hero image as a light card with an accessibility icon.

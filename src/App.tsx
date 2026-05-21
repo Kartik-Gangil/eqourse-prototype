@@ -14,7 +14,7 @@ import AIDataCollection from "./pages/AIDataCollection.tsx";
 import AIAnnotationLabeling from "./pages/AIAnnotationLabeling.tsx";
 import AICleaningValidation from "./pages/AICleaningValidation.tsx";
 import AIModelTesting from "./pages/AIModelTesting.tsx";
-import EdTechOverview from "./pages/EdTechOverview.tsx";
+import ContentServicesOverview from "./pages/ContentServicesOverview.tsx";
 import CustomElearningContent from "./pages/CustomElearningContent.tsx";
 import ExamPreparationContent from "./pages/ExamPreparationContent.tsx";
 import LearningSolutions from "./pages/LearningSolutions.tsx";
@@ -22,7 +22,9 @@ import ElearningVideoSolutions from "./pages/ElearningVideoSolutions.tsx";
 import LocalizationServices from "./pages/LocalizationServices.tsx";
 import TechnologySolutions from "./pages/TechnologySolutions.tsx";
 import SubjectMatterExperts from "./pages/SubjectMatterExperts.tsx";
-import EdTechStubPage from "./pages/EdTechStubPage.tsx";
+import ContentServicesStubPage from "./pages/ContentServicesStubPage.tsx";
+import AccessibilityServices from "./pages/AccessibilityServices.tsx";
+import TalentAssessmentWorkforceEvaluation from "./pages/TalentAssessmentWorkforceEvaluation.tsx";
 import CaseStudy from "./pages/CaseStudy.tsx";
 import ContactUs from "./pages/ContactUs.tsx";
 import AboutUs from "./pages/AboutUs.tsx";
@@ -32,12 +34,12 @@ import FAQs from "./pages/FAQs.tsx";
 import FreePilot from "./pages/FreePilot.tsx";
 import Samples from "./pages/Samples.tsx";
 import AIDataSample from "./pages/AIDataSample.tsx";
-import EdtechSample from "./pages/EdtechSample.tsx";
+import ContentServicesSample from "./pages/ContentServicesSample.tsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 import TuTrain from "./pages/TuTrain.tsx";
 import Sitemap from "./pages/Sitemap.tsx";
-import { edtechSamples } from "./components/samples/edtech/edtechSamplesData";
-import { edtechSubServiceRoutes } from "./components/edtech-solutions/edtechSubServiceRoutes";
+import { contentServicesSamples } from "./components/samples/content-services/contentServicesSamplesData";
+import { contentServicesSubServiceRoutes } from "./components/content-services/contentServicesSubServiceRoutes";
 
 // Admin
 import AdminLayout from "./admin/components/AdminLayout";
@@ -91,9 +93,9 @@ const App = () => (
               <Route path="/ai-data-samples" element={<Samples />} />
               <Route path="/ai-data-samples/:slug" element={<AIDataSample />} />
 
-              {/* EdTech Sample Pages (17 routes — dynamic template by pathname) */}
-              {edtechSamples.map((s) => (
-                <Route key={s.path} path={s.path} element={<EdtechSample />} />
+              {/* Content Services Sample Pages (17 routes — dynamic template by pathname) */}
+              {contentServicesSamples.map((s) => (
+                <Route key={s.path} path={s.path} element={<ContentServicesSample />} />
               ))}
               <Route path="/ai-data-services" element={<AIDataServicesOverview />} />
               <Route path="/ai-data-services/data-collection" element={<AIDataCollection />} />
@@ -102,22 +104,24 @@ const App = () => (
               <Route path="/ai-data-services/model-testing" element={<AIModelTesting />} />
 
               {/* Content Service — Category Pages */}
-              <Route path="/content-service" element={<EdTechOverview />} />
-              <Route path="/content-service/custom-e-learning-content" element={<CustomElearningContent />} />
-              <Route path="/content-service/exam-preparation-content" element={<ExamPreparationContent />} />
-              <Route path="/content-service/learning-solutions" element={<LearningSolutions />} />
-              <Route path="/content-service/elearning-video-solutions" element={<ElearningVideoSolutions />} />
-              <Route path="/content-service/localization-services" element={<LocalizationServices />} />
-              <Route path="/content-service/technology-solutions" element={<TechnologySolutions />} />
-              <Route path="/content-service/subject-matter-experts" element={<SubjectMatterExperts />} />
+              <Route path="/content-services" element={<ContentServicesOverview />} />
+              <Route path="/content-services/custom-e-learning-content" element={<CustomElearningContent />} />
+              <Route path="/content-services/exam-preparation-content" element={<ExamPreparationContent />} />
+              <Route path="/content-services/learning-solutions" element={<LearningSolutions />} />
+              <Route path="/content-services/elearning-video-solutions" element={<ElearningVideoSolutions />} />
+              <Route path="/content-services/localization-services" element={<LocalizationServices />} />
+              <Route path="/content-services/technology-solutions" element={<TechnologySolutions />} />
+               <Route path="/content-services/subject-matter-experts" element={<SubjectMatterExperts />} />
+              <Route path="/content-services/accessibility" element={<AccessibilityServices />} />
+              <Route path="/content-services/talent-assessment-workforce-evaluation" element={<TalentAssessmentWorkforceEvaluation />} />
 
               {/* Content Service — 39 Sub-Service Detail Pages (lazy-loaded) */}
-              {edtechSubServiceRoutes.map(({ path, Component }) => (
+              {contentServicesSubServiceRoutes.map(({ path, Component }) => (
                 <Route key={path} path={path} element={<Component />} />
               ))}
 
-              {/* Catch-all for any remaining EdTech stub pages */}
-              <Route path="/content-service/*" element={<EdTechStubPage />} />
+              {/* Catch-all for any remaining Content Services stub pages */}
+              <Route path="/content-services/*" element={<ContentServicesStubPage />} />
 
               {/* Admin */}
               <Route path="/admin/login" element={<AdminLogin />} />

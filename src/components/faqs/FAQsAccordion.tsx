@@ -9,14 +9,14 @@ interface FAQ {
   answer: string;
 }
 
-const edtechFaqs: FAQ[] = [
+const contentServicesFaqs: FAQ[] = [
   {
     question: "What types of educational content does eQOURSE create?",
     answer: "eQOURSE creates K-12 study materials, curriculum-aligned lessons, assessments, workbooks, teacher lesson plans, STEM content, e-books, quiz and question banks, exam preparation content (SAT, IELTS, TOEFL, IIT-JEE, NEET, and more), corporate training modules, and interactive video lessons across 30+ languages."
   },
   {
-    question: "How is eQOURSE different from other EdTech content providers?",
-    answer: "eQOURSE is a full-stack EdTech solutions partner. We don't just create content — we handle curriculum design, assessment development, video production, localization, LMS integration, and SME recruitment under one roof. This integrated approach eliminates vendor fragmentation, reduces turnaround time, and ensures consistent quality across your entire content library."
+    question: "How is eQOURSE different from other Content Services providers?",
+    answer: "eQOURSE is a full-stack Content Services partner. We don't just create content — we handle curriculum design, assessment development, video production, localization, LMS integration, and SME recruitment under one roof. This integrated approach eliminates vendor fragmentation, reduces turnaround time, and ensures consistent quality across your entire content library."
   },
   {
     question: "What curriculum standards do you support?",
@@ -36,7 +36,7 @@ const edtechFaqs: FAQ[] = [
   },
   {
     question: "How do I get started?",
-    answer: "We offer a free pilot for qualifying education and EdTech clients. Fill out the pilot form with your content requirements, target audience, and curriculum framework, and our team will deliver a sample content package within the agreed timeframe — no commitment required."
+    answer: "We offer a free pilot for qualifying education and Content Services clients. Fill out the pilot form with your content requirements, target audience, and curriculum framework, and our team will deliver a sample content package within the agreed timeframe — no commitment required."
   }
 ];
 
@@ -79,20 +79,20 @@ const aiDataFaqs: FAQ[] = [
   }
 ];
 
-const allFaqs = [...edtechFaqs, ...aiDataFaqs];
+const allFaqs = [...contentServicesFaqs, ...aiDataFaqs];
 
-const FAQItem = ({ faq, isOpen, toggle, type }: { faq: FAQ, isOpen: boolean, toggle: () => void, type: 'edtech' | 'ai' }) => {
-  const isEdTech = type === 'edtech';
+const FAQItem = ({ faq, isOpen, toggle, type }: { faq: FAQ, isOpen: boolean, toggle: () => void, type: 'content-services' | 'ai' }) => {
+  const isContentServices = type === 'content-services';
   
   return (
-    <div className={`mb-4 border border-border/50 rounded-2xl overflow-hidden transition-all duration-300 ${isOpen ? (isEdTech ? 'border-teal-500/50 shadow-md bg-secondary/30' : 'border-indigo-500/50 shadow-md bg-secondary/30') : 'hover:border-primary/30 glass'}`}>
+    <div className={`mb-4 border border-border/50 rounded-2xl overflow-hidden transition-all duration-300 ${isOpen ? (isContentServices ? 'border-teal-500/50 shadow-md bg-secondary/30' : 'border-indigo-500/50 shadow-md bg-secondary/30') : 'hover:border-primary/30 glass'}`}>
       <button 
         onClick={toggle} 
         className="w-full px-6 py-5 flex items-center justify-between gap-4 text-left focus:outline-none"
       >
         <div className="flex items-center gap-4">
-          <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${isOpen ? (isEdTech ? 'bg-teal-500 text-white' : 'bg-indigo-600 text-white') : 'bg-primary/10 text-primary'}`}>
-            {isEdTech ? <GraduationCap className="w-4 h-4" /> : <Brain className="w-4 h-4" />}
+          <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${isOpen ? (isContentServices ? 'bg-teal-500 text-white' : 'bg-indigo-600 text-white') : 'bg-primary/10 text-primary'}`}>
+            {isContentServices ? <GraduationCap className="w-4 h-4" /> : <Brain className="w-4 h-4" />}
           </div>
           <span className="font-semibold text-foreground md:text-lg">{faq.question}</span>
         </div>
@@ -158,15 +158,15 @@ const FAQsAccordion = () => {
           </div>
           
           <div className="space-y-4">
-            {edtechFaqs.map((faq, index) => {
-              const id = `edtech-${index}`;
+            {contentServicesFaqs.map((faq, index) => {
+              const id = `content-services-${index}`;
               return (
                 <FAQItem 
                   key={id}
                   faq={faq}
                   isOpen={openId === id}
                   toggle={() => toggleFAQ(id)}
-                  type="edtech"
+                  type="content-services"
                 />
               );
             })}
