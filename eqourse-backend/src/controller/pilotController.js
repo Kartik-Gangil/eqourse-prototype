@@ -29,6 +29,18 @@ const submitPilotQuery = async (req, res) => {
       });
     }
 
+    let attachment = null;
+    if (req.file) {
+      const path = require("path");
+      const actualKind = path.basename(req.file.destination);
+      attachment = {
+        url: `/uploads/${actualKind}/${req.file.filename}`,
+        originalName: req.file.originalname,
+        size: req.file.size,
+        mimeType: req.file.mimetype,
+      };
+    }
+
     const query = new PilotQuery({
       name,
       email,
@@ -41,6 +53,7 @@ const submitPilotQuery = async (req, res) => {
       languages: languages || "",
       message: message || "",
       source: source || "",
+      attachment: attachment || undefined,
     });
 
     await query.save();

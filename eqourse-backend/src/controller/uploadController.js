@@ -1,0 +1,92 @@
+const multer = require("multer");
+const path = require("path");
+const fs = require("fs");
+
+// ─── Storage config ─────────────────────────────────────────
+const UPLOAD_DIR = path.join(__dirname, "../../uploads");
+
+// Ensure uploads directory exists
+if (!fs.existsSync(UPLOAD_DIR)) {
+  fs.mkdirSync(UPLOAD_DIR, { recursive: true });
+}
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const kind = req.body.kind || "general";
+    const kindDir = path.join(UPLOAD_DIR, kind);
+    if (!fs.existsSync(kindDir)) {
+      fs.mkdirSync(kindDir, { recursive: true });
+    }
+    cb(null, kindDir);
+  },
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    const ext = path.extname(file.originalname);
+    cb(null, uniqueSuffix + ext);
+  },
+});
+
+const fileFilter = (req, file, cb) => {
+  const allowedMimes = [
+    // Images
+    "image/jpeg", "image/png", "image/gif", "image/webp", "image/svg+xml",
+    // Documents
+    "application/pdf",
+    "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "text/csv", "text/plain", "application/json",
+    // Archives
+    "application/zip",
+  ];
+  if (allowedMimes.includes(file.mimetype)) {
+    cb(null, true);
+  } else {
+    cb(new Error(`File type ${file.mimetype} is not allowed`), false);
+  }
+};
+
+const upload = multer({
+  storage,
+  fileFilter,
+  limits: { fileSize: 10 * 1024 * 1024 }, // 10MB
+});
+
+// ─── Upload middleware ──────────────────────────────────────
+const uploadMiddleware = upload.single("file");
+
+/**
+ * POST /api/admin/uploads
+ * Admin — upload a single file
+ */
+const uploadFile = (req, res) => {
+  uploadMiddleware(req, res, (err) => {
+    if (err instanceof multer.MulterError) {
+      if (err.code === "LIMIT_FILE_SIZE") {
+        return res.status(400).json({ success: false, message: "File too large. Maximum size is 10MB." });
+      }
+      return res.status(400).json({ success: false, message: err.message });
+    }
+    if (err) {
+      return res.status(400).json({ success: false, message: err.message });
+    }
+    if (!req.file) {
+      return res.status(400).json({ success: false, message: "No file uploaded" });
+    }
+
+    // Build the public URL — the frontend will use this to display the file
+    const actualKind = path.basename(req.file.destination);
+    const fileUrl = `/uploads/${actualKind}/${req.file.filename}`;
+
+    return res.json({
+      success: true,
+      data: {
+        url: fileUrl,
+        originalName: req.file.originalname,
+        size: req.file.size,
+        mimeType: req.file.mimetype,
+      },
+    });
+  });
+};
+
+module.exports = { uploadFile, uploadMiddleware, UPLOAD_DIR };
