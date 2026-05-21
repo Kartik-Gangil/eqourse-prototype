@@ -56,7 +56,11 @@ export default function ImageUpload({
       />
       {value ? (
         <div className="relative w-full h-44 rounded-md overflow-hidden border border-border bg-muted">
-          <img src={value} alt={label} className="w-full h-full object-cover" />
+          <img 
+            src={value.startsWith("/") ? `${import.meta.env.VITE_API_BASE_URL || ""}${value}` : value} 
+            alt={label} 
+            className="w-full h-full object-cover" 
+          />
           <Button
             type="button"
             size="sm"

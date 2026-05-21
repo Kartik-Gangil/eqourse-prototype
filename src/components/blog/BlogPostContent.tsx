@@ -1,8 +1,163 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Calendar, User, ArrowRight, Share2, Linkedin, Twitter, Mail, CheckCircle2 } from "lucide-react";
 import { BlogPost, blogsData } from "./blogData";
 import BlogCard from "./BlogCard";
+
+// ─── Helpers ────────────────────────────────────────────────
+
+function getSectionsFromMarkdown(body: string) {
+  const headings: { title: string; level: 'h2' | 'h3' }[] = [];
+  const lines = body.split('\n');
+  for (let line of lines) {
+    line = line.trim();
+    if (line.startsWith('## ')) {
+      headings.push({ title: line.replace(/^##\s+/, '').trim(), level: 'h2' });
+    } else if (line.startsWith('### ')) {
+      headings.push({ title: line.replace(/^###\s+/, '').trim(), level: 'h3' });
+    }
+  }
+  return headings;
+}
+
+function getSectionsFromHtml(body: string) {
+  const headings: { title: string; level: 'h2' | 'h3' }[] = [];
+  const regex = /<(h[23])\b[^>]*>(.*?)<\/h[23]>/gi;
+  let match;
+  while ((match = regex.exec(body)) !== null) {
+    const level = match[1].toLowerCase() as 'h2' | 'h3';
+    const title = match[2].replace(/<[^>]*>/g, '').trim();
+    headings.push({ title, level });
+  }
+  return headings;
+}
+
+function getBlogSections(blog: BlogPost) {
+  if (blog.sections && blog.sections.length > 0) {
+    return blog.sections;
+  }
+  if (!blog.body) {
+    return [];
+  }
+  if (blog.bodyFormat === 'html') {
+    return getSectionsFromHtml(blog.body);
+  }
+  return getSectionsFromMarkdown(blog.body);
+}
+
+function parseMarkdown(md: string): string {
+  if (!md) return "";
+
+  // 1. Escape HTML entities to prevent XSS (allowing only safe block markdown transforms)
+  let html = md
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+
+  // 2. Handle headers (h1 to h3) with generated IDs for Table of Contents anchors
+  html = html.replace(/^# (.*?)$/gm, (match, title) => {
+    const cleanTitle = title.replace(/\*\*/g, '').replace(/\*/g, '');
+    const id = cleanTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    return `<h1 id="${id}" class="scroll-mt-32 font-heading font-extrabold text-3xl md:text-5xl mt-12 mb-6">${title}</h1>`;
+  });
+  
+  html = html.replace(/^## (.*?)$/gm, (match, title) => {
+    const cleanTitle = title.replace(/\*\*/g, '').replace(/\*/g, '');
+    const id = cleanTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    return `<h2 id="${id}" class="scroll-mt-32 font-heading font-bold text-2xl md:text-3xl mt-12 mb-6">${title}</h2>`;
+  });
+  
+  html = html.replace(/^### (.*?)$/gm, (match, title) => {
+    const cleanTitle = title.replace(/\*\*/g, '').replace(/\*/g, '');
+    const id = cleanTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    return `<h3 id="${id}" class="scroll-mt-32 font-heading font-bold text-xl md:text-2xl mt-8 mb-4">${title}</h3>`;
+  });
+
+  // 3. Handle bold (**text**) and italics (*text*)
+  html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+  // 4. Handle blockquotes
+  html = html.replace(/^> (.*?)$/gm, '<blockquote class="border-l-4 border-primary pl-4 my-4 italic text-muted-foreground">$1</blockquote>');
+
+  // 5. Handle lists (unordered and ordered) line by line
+  const lines = html.split('\n');
+  let inUl = false;
+  let inOl = false;
+  let inParagraph = false;
+  const processedLines: string[] = [];
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+
+    if (!line) {
+      if (inUl) {
+        processedLines.push('</ul>');
+        inUl = false;
+      }
+      if (inOl) {
+        processedLines.push('</ol>');
+        inOl = false;
+      }
+      if (inParagraph) {
+        processedLines.push('</p>');
+        inParagraph = false;
+      }
+      continue;
+    }
+
+    // If it's already a heading or blockquote, close active lists/paragraphs
+    if (line.startsWith('<h1') || line.startsWith('<h2') || line.startsWith('<h3') || line.startsWith('<h4') || line.startsWith('<blockquote')) {
+      if (inUl) { processedLines.push('</ul>'); inUl = false; }
+      if (inOl) { processedLines.push('</ol>'); inOl = false; }
+      if (inParagraph) { processedLines.push('</p>'); inParagraph = false; }
+      processedLines.push(lines[i]);
+      continue;
+    }
+
+    // Bullet points: - or *
+    const ulMatch = line.match(/^[\*\-]\s+(.*)$/);
+    if (ulMatch) {
+      if (inOl) { processedLines.push('</ol>'); inOl = false; }
+      if (inParagraph) { processedLines.push('</p>'); inParagraph = false; }
+      if (!inUl) {
+        processedLines.push('<ul class="list-disc pl-6 my-4 space-y-2">');
+        inUl = true;
+      }
+      processedLines.push(`<li class="text-muted-foreground leading-relaxed">${ulMatch[1]}</li>`);
+      continue;
+    }
+
+    // Numbered list items: 1. or 2.
+    const olMatch = line.match(/^\d+\.\s+(.*)$/);
+    if (olMatch) {
+      if (inUl) { processedLines.push('</ul>'); inUl = false; }
+      if (inParagraph) { processedLines.push('</p>'); inParagraph = false; }
+      if (!inOl) {
+        processedLines.push('<ol class="list-decimal pl-6 my-4 space-y-2">');
+        inOl = true;
+      }
+      processedLines.push(`<li class="text-muted-foreground leading-relaxed">${olMatch[1]}</li>`);
+      continue;
+    }
+
+    // Regular text line
+    if (inUl) { processedLines.push('</ul>'); inUl = false; }
+    if (inOl) { processedLines.push('</ol>'); inOl = false; }
+
+    if (!inParagraph) {
+      processedLines.push('<p class="text-muted-foreground leading-relaxed mb-6">');
+      inParagraph = true;
+    }
+    processedLines.push(lines[i]);
+  }
+
+  if (inUl) processedLines.push('</ul>');
+  if (inOl) processedLines.push('</ol>');
+  if (inParagraph) processedLines.push('</p>');
+
+  return processedLines.join('\n');
+}
 
 interface BlogPostContentProps {
   blog: BlogPost;
@@ -12,6 +167,8 @@ const BlogPostContent = ({ blog }: BlogPostContentProps) => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeSection, setActiveSection] = useState("");
   const [copied, setCopied] = useState(false);
+
+  const activeSections = useMemo(() => getBlogSections(blog), [blog]);
 
   // Scroll Progress and Scroll Spy
   useEffect(() => {
@@ -23,14 +180,14 @@ const BlogPostContent = ({ blog }: BlogPostContentProps) => {
       setScrollProgress(Number(scroll) * 100);
 
       // Scroll Spy
-      if (blog.sections) {
-        const sections = blog.sections.map(s => document.getElementById(s.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')));
+      if (activeSections && activeSections.length > 0) {
+        const sections = activeSections.map(s => document.getElementById(s.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')));
         const scrollPosition = window.scrollY + 100;
 
         for (let i = sections.length - 1; i >= 0; i--) {
           const section = sections[i];
           if (section && section.offsetTop <= scrollPosition) {
-            setActiveSection(blog.sections[i].title);
+            setActiveSection(activeSections[i].title);
             break;
           }
         }
@@ -118,11 +275,11 @@ const BlogPostContent = ({ blog }: BlogPostContentProps) => {
               </div>
 
               {/* Table of Contents */}
-              {blog.sections && blog.sections.length > 0 && (
+              {activeSections && activeSections.length > 0 && (
                 <div className="bg-card border border-border/50 rounded-2xl p-6 shadow-sm">
                   <h4 className="font-heading font-bold mb-4">Table of Contents</h4>
                   <ul className="space-y-3 text-sm">
-                    {blog.sections.map((section, idx) => {
+                    {activeSections.map((section, idx) => {
                       const id = section.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
                       const isActive = activeSection === section.title;
                       return (
@@ -144,29 +301,43 @@ const BlogPostContent = ({ blog }: BlogPostContentProps) => {
 
           {/* Main Content Body */}
           <div className="lg:w-3/4 max-w-3xl">
+            {blog.coverImageUrl && (
+              <div className="mb-8 rounded-2xl overflow-hidden aspect-[16/9] w-full border border-border/50">
+                <img src={blog.coverImageUrl} alt={blog.title} className="w-full h-full object-cover" />
+              </div>
+            )}
             <div className="prose prose-lg dark:prose-invert max-w-none">
               <p className="lead text-xl text-muted-foreground font-medium mb-10 border-l-4 border-primary pl-6 py-2 bg-muted/30 rounded-r-lg">
                 {blog.excerpt}
               </p>
 
-              {/* Procedurally rendered body based on outline */}
-              {blog.sections?.map((section, idx) => {
-                const id = section.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-                const Heading = section.level as keyof JSX.IntrinsicElements;
-                return (
-                  <div key={idx} id={id} className="scroll-mt-32 mb-10">
-                    <Heading className="font-heading font-bold text-2xl md:text-3xl mt-12 mb-6">
-                      {section.title}
-                    </Heading>
-                    <p className="text-muted-foreground leading-relaxed mb-4">
-                      This is a simulated paragraph for the section "{section.title}". In a real CMS integration, this would be populated with rich HTML content. The eQOURSE team covers comprehensive insights on this topic, exploring best practices, challenges, and scalable solutions for modern requirements.
-                    </p>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Leveraging industry expertise, this section highlights the critical strategies necessary for success. Whether deploying advanced Content Services platforms or robust AI data pipelines, understanding these foundational elements ensures reliable and impactful outcomes.
-                    </p>
-                  </div>
-                );
-              })}
+              {blog.body ? (
+                <div 
+                  className="prose-content"
+                  dangerouslySetInnerHTML={{ 
+                    __html: blog.bodyFormat === 'html' ? blog.body : parseMarkdown(blog.body) 
+                  }} 
+                />
+              ) : (
+                /* Procedurally rendered body based on outline */
+                blog.sections?.map((section, idx) => {
+                  const id = section.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                  const Heading = section.level as keyof JSX.IntrinsicElements;
+                  return (
+                    <div key={idx} id={id} className="scroll-mt-32 mb-10">
+                      <Heading className="font-heading font-bold text-2xl md:text-3xl mt-12 mb-6">
+                        {section.title}
+                      </Heading>
+                      <p className="text-muted-foreground leading-relaxed mb-4">
+                        This is a simulated paragraph for the section "{section.title}". In a real CMS integration, this would be populated with rich HTML content. The eQOURSE team covers comprehensive insights on this topic, exploring best practices, challenges, and scalable solutions for modern requirements.
+                      </p>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Leveraging industry expertise, this section highlights the critical strategies necessary for success. Whether deploying advanced Content Services platforms or robust AI data pipelines, understanding these foundational elements ensures reliable and impactful outcomes.
+                      </p>
+                    </div>
+                  );
+                })
+              )}
 
               {/* Internal Links Block */}
               {blog.internalLinks && blog.internalLinks.length > 0 && (

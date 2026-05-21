@@ -5,6 +5,8 @@ import { PreviewFilesModal, type PreviewFile } from "../../shared/PreviewFilesMo
 import { NlpInteractiveThumbnail } from "./NlpInteractiveThumbnails";
 import { AudioInteractiveThumbnail } from "./AudioInteractiveThumbnails";
 import { RlhfInteractiveThumbnail } from "./RlhfInteractiveThumbnails";
+import { DataCollectionInteractiveThumbnail } from "./DataCollectionInteractiveThumbnails";
+import { fetchSampleFiles } from "@/lib/publicApi";
 
 interface Props {
   showcases: SampleShowcase[];
@@ -21,6 +23,8 @@ const SampleShowcaseGrid = ({
 }: Props) => {
   const [active, setActive] = useState(0);
   const [showPreview, setShowPreview] = useState(false);
+  const [apiFiles, setApiFiles] = useState<PreviewFile[] | null>(null);
+  const [loading, setLoading] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -33,8 +37,21 @@ const SampleShowcaseGrid = ({
 
   const current = showcases[active];
 
-  // Default preview files for AI data
-  let currentPreviewFiles = current.previewFiles || [];
+  useEffect(() => {
+    let activeRequest = true;
+    setLoading(true);
+    fetchSampleFiles(categorySlug, current.title).then((res) => {
+      if (!activeRequest) return;
+      setApiFiles(res);
+      setLoading(false);
+    });
+    return () => {
+      activeRequest = false;
+    };
+  }, [categorySlug, current.title]);
+
+  // Determine files list: API-first, fallback to static defined list, fallback to dummy
+  let currentPreviewFiles = apiFiles && apiFiles.length > 0 ? apiFiles : (current.previewFiles || []);
   if (currentPreviewFiles.length === 0) {
     currentPreviewFiles = Array.from({ length: 25 }).map((_, i) => ({
       title: `${current.title} - File ${i + 1}`,
@@ -177,6 +194,7 @@ const SampleShowcaseGrid = ({
                       {categorySlug === "nlp-annotation" && <NlpInteractiveThumbnail sampleId={current.id} active={true} />}
                       {categorySlug === "audio-speech" && <AudioInteractiveThumbnail sampleId={current.id} active={true} />}
                       {categorySlug === "rlhf" && <RlhfInteractiveThumbnail sampleId={current.id} active={true} />}
+                      {categorySlug === "data-collection" && <DataCollectionInteractiveThumbnail sampleId={current.id} active={true} />}
                     </div>
                   ) : (
                     <div className="w-full max-w-lg rounded-xl border border-white/10 bg-white/5 p-5 md:p-6 font-mono text-[11px] md:text-sm text-white/80 shadow-2xl backdrop-blur-md animate-slide-up">

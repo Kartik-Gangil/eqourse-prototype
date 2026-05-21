@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ContentServicesLayout from "@/components/content-services/shared/ContentServicesLayout";
 import SEOHead from "@/components/ai-data-services/shared/SEOHead";
 import ServiceHero from "@/components/ai-data-services/shared/ServiceHero";
@@ -6,16 +6,87 @@ import ServiceCTA from "@/components/ai-data-services/shared/ServiceCTA";
 import StatsRibbon from "./StatsRibbon";
 import CaseStudyCard from "./CaseStudyCard";
 import CaseStudyModal from "./CaseStudyModal";
-import { caseStudiesData, CaseStudyCategory, CaseStudy } from "./caseStudyData";
+import { caseStudiesData as staticCaseStudies, CaseStudyCategory, CaseStudy } from "./caseStudyData";
+import { fetchPublishedCaseStudies } from "@/lib/publicApi";
 import { Filter } from "lucide-react";
 
 const CaseStudyPage = () => {
   const [activeFilter, setActiveFilter] = useState<CaseStudyCategory | "All">("All");
   const [selectedStudy, setSelectedStudy] = useState<CaseStudy | null>(null);
+  const [allStudies, setAllStudies] = useState<CaseStudy[]>(staticCaseStudies);
+
+  // Try to fetch from API, fall back to static data
+  useEffect(() => {
+    let cancelled = false;
+    fetchPublishedCaseStudies().then((apiStudies) => {
+      if (cancelled || !apiStudies || apiStudies.length === 0) return;
+      // Helper to map tags to service page links for internal SEO
+      const mapTagsToRelatedLinks = (tags: string[]) => {
+        const links: { label: string; href: string }[] = [];
+        const lowercaseTags = tags.map(t => t.toLowerCase());
+
+        if (lowercaseTags.some(t => t.includes("worksheets") || t.includes("workbook") || t.includes("k12") || t.includes("content service"))) {
+          links.push({ label: "Workbook Development", href: "/content-services/custom-e-learning-content" });
+        }
+        if (lowercaseTags.some(t => t.includes("video") || t.includes("pen-tab"))) {
+          links.push({ label: "E-Learning Video Solutions", href: "/content-services/elearning-video-solutions" });
+        }
+        if (lowercaseTags.some(t => t.includes("localization") || t.includes("language") || t.includes("multilingual"))) {
+          links.push({ label: "Localization Services", href: "/content-services/localization-services" });
+        }
+        if (lowercaseTags.some(t => t.includes("sme") || t.includes("expert") || t.includes("smes"))) {
+          links.push({ label: "Subject Matter Experts", href: "/content-services/subject-matter-experts" });
+        }
+        if (lowercaseTags.some(t => t.includes("data collection") || t.includes("speech data"))) {
+          links.push({ label: "AI Data Collection", href: "/ai-data-services/data-collection" });
+        }
+        if (lowercaseTags.some(t => t.includes("annotation") || t.includes("labeling") || t.includes("bounding box"))) {
+          links.push({ label: "Data Annotation & Labeling", href: "/ai-data-services/annotation-labeling" });
+        }
+        if (lowercaseTags.some(t => t.includes("cleaning") || t.includes("validation"))) {
+          links.push({ label: "Data Cleaning & Validation", href: "/ai-data-services/cleaning-validation" });
+        }
+        if (lowercaseTags.some(t => t.includes("testing") || t.includes("model testing") || t.includes("asr testing"))) {
+          links.push({ label: "AI Model Testing", href: "/ai-data-services/model-testing" });
+        }
+
+        if (links.length === 0 && tags.length > 0) {
+          if (lowercaseTags.some(t => t.includes("ai") || t.includes("data"))) {
+            links.push({ label: "AI Data Services", href: "/ai-data-services" });
+          } else {
+            links.push({ label: "Content Services Overview", href: "/content-services" });
+          }
+        }
+        return links;
+      };
+
+      // Map API case studies to the static CaseStudy shape
+      const mapped: CaseStudy[] = apiStudies.map((cs) => ({
+        id: cs.id,
+        title: cs.title,
+        category: (cs.industry?.toLowerCase().includes("ai") || cs.tags?.includes("AI Data Services") ? "AI Data Services" : "Content Service") as CaseStudyCategory,
+        industry: cs.industry,
+        region: "",
+        serviceTags: cs.tags || [],
+        problem: cs.challenge || "",
+        solution: cs.solution || "",
+        impact: cs.results || "",
+        metrics: cs.metrics || [],
+        cardSummary: cs.summary || "",
+        visualDirection: { theme: cs.tags?.includes("AI Data Services") ? "navy-cyan" as const : "teal" as const },
+        relatedLinks: cs.relatedLinks && cs.relatedLinks.length > 0
+          ? cs.relatedLinks
+          : mapTagsToRelatedLinks(cs.tags || []),
+        image: cs.heroImageUrl ? (cs.heroImageUrl.startsWith("/") ? `${import.meta.env.VITE_API_BASE_URL || ""}${cs.heroImageUrl}` : cs.heroImageUrl) : undefined,
+      }));
+      setAllStudies(mapped);
+    });
+    return () => { cancelled = true; };
+  }, []);
 
   const filteredStudies = activeFilter === "All" 
-    ? caseStudiesData 
-    : caseStudiesData.filter(cs => cs.category === activeFilter);
+    ? allStudies 
+    : allStudies.filter(cs => cs.category === activeFilter);
 
   const filterOptions = ["All", "Content Service", "AI Data Services"] as const;
 
@@ -80,8 +151,8 @@ const CaseStudyPage = () => {
                           : "bg-muted text-muted-foreground"
                       }`}>
                         {option === "All" 
-                          ? caseStudiesData.length 
-                          : caseStudiesData.filter(cs => cs.category === option).length}
+                          ? allStudies.length 
+                          : allStudies.filter(cs => cs.category === option).length}
                       </span>
                     </span>
                   </button>

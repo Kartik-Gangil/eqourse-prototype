@@ -1,6 +1,8 @@
+import { useState, useEffect } from "react";
 import { ArrowRight, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
-import { blogsData } from "./blog/blogData";
+import { blogsData as staticBlogs, BlogPost } from "./blog/blogData";
+import { fetchPublishedBlogs } from "@/lib/publicApi";
 
 const generateAbstractPattern = (id: number, colorTheme: 'teal' | 'navy') => {
   const isTeal = colorTheme === 'teal';
@@ -24,9 +26,29 @@ const generateAbstractPattern = (id: number, colorTheme: 'teal' | 'navy') => {
   );
 };
 
-const recentBlogs = blogsData.slice(0, 4);
-
 const BlogSection = () => {
+  const [recentBlogs, setRecentBlogs] = useState<BlogPost[]>(staticBlogs.slice(0, 4));
+
+  useEffect(() => {
+    let cancelled = false;
+    fetchPublishedBlogs().then((apiBlogs) => {
+      if (cancelled || !apiBlogs || apiBlogs.length === 0) return;
+      const mapped: BlogPost[] = apiBlogs.slice(0, 4).map((b, i) => ({
+        id: i + 1,
+        title: b.title,
+        slug: `/blog/${b.slug}`,
+        category: (b.tags?.includes("AI Data") ? "AI Data" : "Content Services") as BlogPost["category"],
+        date: b.publishedAt ? new Date(b.publishedAt).toLocaleDateString("en-US", { month: "long", year: "numeric" }) : "2026",
+        author: b.author?.name || "eQOURSE",
+        excerpt: b.excerpt,
+        thumbnailColor: (b.tags?.includes("AI Data") ? "navy" : "teal") as BlogPost["thumbnailColor"],
+        keywords: b.tags,
+        coverImageUrl: b.coverImageUrl ? (b.coverImageUrl.startsWith("/") ? `${import.meta.env.VITE_API_BASE_URL || ""}${b.coverImageUrl}` : b.coverImageUrl) : undefined,
+      }));
+      setRecentBlogs(mapped);
+    });
+    return () => { cancelled = true; };
+  }, []);
   return (
     <section id="blogs" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
@@ -46,7 +68,11 @@ const BlogSection = () => {
           {recentBlogs.length > 0 && (
             <Link to={recentBlogs[0].slug} className="group relative rounded-3xl overflow-hidden min-h-[420px] flex items-end neon-card">
               <div className="absolute inset-0 z-0 group-hover:scale-105 transition-transform duration-700">
-                {generateAbstractPattern(recentBlogs[0].id, recentBlogs[0].thumbnailColor)}
+                {recentBlogs[0].coverImageUrl ? (
+                  <img src={recentBlogs[0].coverImageUrl} alt={recentBlogs[0].title} className="w-full h-full object-cover" />
+                ) : (
+                  generateAbstractPattern(recentBlogs[0].id, recentBlogs[0].thumbnailColor)
+                )}
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/40 to-transparent z-10" />
               <div className="relative z-20 p-8 md:p-10 w-full">
@@ -73,7 +99,11 @@ const BlogSection = () => {
               <Link key={blog.id} to={blog.slug} className="group flex gap-5 items-center rounded-2xl bg-card border border-border/50 p-4 hover:bg-card/80 neon-card overflow-hidden">
                 <div className="w-28 h-28 md:w-32 md:h-32 flex-shrink-0 rounded-xl overflow-hidden relative">
                   <div className="absolute inset-0 z-0 group-hover:scale-110 transition-transform duration-500">
-                    {generateAbstractPattern(blog.id, blog.thumbnailColor)}
+                    {blog.coverImageUrl ? (
+                      <img src={blog.coverImageUrl} alt={blog.title} className="w-full h-full object-cover" />
+                    ) : (
+                      generateAbstractPattern(blog.id, blog.thumbnailColor)
+                    )}
                   </div>
                 </div>
                 <div className="flex-1 min-w-0">

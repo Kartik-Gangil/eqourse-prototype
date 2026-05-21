@@ -75,7 +75,13 @@ export default function CaseStudies() {
                 <TableRow key={c.id} className="hover:bg-muted/40">
                   <TableCell>
                     <div className="w-14 h-10 rounded-md bg-muted overflow-hidden">
-                      {c.heroImageUrl && <img src={c.heroImageUrl} alt="" className="w-full h-full object-cover" />}
+                      {c.heroImageUrl && (
+                        <img 
+                          src={c.heroImageUrl.startsWith("/") ? `${import.meta.env.VITE_API_BASE_URL || ""}${c.heroImageUrl}` : c.heroImageUrl} 
+                          alt="" 
+                          className="w-full h-full object-cover" 
+                        />
+                      )}
                     </div>
                   </TableCell>
                   <TableCell>

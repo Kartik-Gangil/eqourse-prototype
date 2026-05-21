@@ -430,6 +430,7 @@ export const aiDataSamples: AiDataSample[] = [
       "Text, audio, image and video collection samples across 30+ languages with documented consent and metadata.",
     showcases: [
       {
+        id: "text-collection",
         title: "Text Collection Samples",
         teaser: "Sourced conversational text with rich demographic metadata.",
         description:
@@ -443,6 +444,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "audio-collection",
         title: "Audio Collection Samples",
         teaser: "Field-recorded speech across diverse demographics and environments.",
         description:
@@ -456,6 +458,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "image-collection",
         title: "Image Collection Samples",
         teaser: "Diverse visual data sourced globally with full legal compliance.",
         description:
@@ -469,6 +472,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "video-collection",
         title: "Video Collection Samples",
         teaser: "Real-world video scenarios captured with calibrated sensors.",
         description:

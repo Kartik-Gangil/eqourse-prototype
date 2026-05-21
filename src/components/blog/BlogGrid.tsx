@@ -4,7 +4,8 @@ import BlogCard from "./BlogCard";
 import BlogFilterBar from "./BlogFilterBar";
 import BlogPagination from "./BlogPagination";
 import BlogSidebar from "./BlogSidebar";
-import { blogsData } from "./blogData";
+import { blogsData as staticBlogs, BlogPost } from "./blogData";
+import { fetchPublishedBlogs } from "@/lib/publicApi";
 
 const POSTS_PER_PAGE = 12;
 
@@ -15,6 +16,30 @@ const BlogGrid = () => {
   const [activeCategory, setActiveCategory] = useState(initialCategory);
   const [currentPage, setCurrentPage] = useState(1);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [allBlogs, setAllBlogs] = useState<BlogPost[]>(staticBlogs);
+
+  // Try to fetch blogs from API, fall back to static data
+  useEffect(() => {
+    let cancelled = false;
+    fetchPublishedBlogs().then((apiBlogs) => {
+      if (cancelled || !apiBlogs || apiBlogs.length === 0) return;
+      // Map API blogs to the static BlogPost shape for compatibility
+      const mapped: BlogPost[] = apiBlogs.map((b, i) => ({
+        id: i + 1,
+        title: b.title,
+        slug: `/blog/${b.slug}`,
+        category: (b.tags?.includes("AI Data") ? "AI Data" : "Content Services") as BlogPost["category"],
+        date: b.publishedAt ? new Date(b.publishedAt).toLocaleDateString("en-US", { month: "long", year: "numeric" }) : "2026",
+        author: b.author?.name || "eQOURSE",
+        excerpt: b.excerpt,
+        thumbnailColor: (b.tags?.includes("AI Data") ? "navy" : "teal") as BlogPost["thumbnailColor"],
+        keywords: b.tags,
+        coverImageUrl: b.coverImageUrl ? (b.coverImageUrl.startsWith("/") ? `${import.meta.env.VITE_API_BASE_URL || ""}${b.coverImageUrl}` : b.coverImageUrl) : undefined,
+      }));
+      setAllBlogs(mapped);
+    });
+    return () => { cancelled = true; };
+  }, []);
 
   // Sync state with URL params
   useEffect(() => {
@@ -51,8 +76,8 @@ const BlogGrid = () => {
 
   // Filter blogs
   const filteredBlogs = activeCategory === "All" 
-    ? blogsData 
-    : blogsData.filter(b => b.category === activeCategory);
+    ? allBlogs 
+    : allBlogs.filter(b => b.category === activeCategory);
 
   // Pagination logic
   const totalPages = Math.ceil(filteredBlogs.length / POSTS_PER_PAGE);
@@ -66,13 +91,13 @@ const BlogGrid = () => {
 
   // Categories for filter bar
   const categories = [
-    { id: "All", label: "All Topics", count: blogsData.length },
-    { id: "Content Services", label: "Content Services", count: blogsData.filter(b => b.category === "Content Services").length },
-    { id: "AI Data", label: "AI Data Services", count: blogsData.filter(b => b.category === "AI Data").length }
+    { id: "All", label: "All Topics", count: allBlogs.length },
+    { id: "Content Services", label: "Content Services", count: allBlogs.filter(b => b.category === "Content Services").length },
+    { id: "AI Data", label: "AI Data Services", count: allBlogs.filter(b => b.category === "AI Data").length }
   ];
 
   // Recent posts for sidebar (top 5 overall)
-  const recentPosts = blogsData.slice(0, 5);
+  const recentPosts = allBlogs.slice(0, 5);
 
   return (
     <section id="blog-grid" className="py-20 bg-muted/20 relative min-h-screen">

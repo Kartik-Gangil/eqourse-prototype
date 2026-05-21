@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Download, Eye, FileText, Play, Sparkles, ChevronRight } from "lucide-react";
 import type { ContentServicesSample } from "../content servicesSamplesData";
 import { PreviewFilesModal, type PreviewFile } from "../../shared/PreviewFilesModal";
+import { fetchSampleFiles } from "@/lib/publicApi";
 import {
   CharacterAnimationThumb,
   ThreeDConceptThumb,
@@ -24,13 +25,31 @@ const isVideoKind = (k: ContentServicesSample["kind"]) =>
 const InteractiveSampleTabs = ({ sample }: Props) => {
   const [active, setActive] = useState(0);
   const [showPreview, setShowPreview] = useState(false);
+  const [apiFiles, setApiFiles] = useState<PreviewFile[] | null>(null);
+  const [loading, setLoading] = useState(false);
+  
   const accent = `hsl(${sample.accentHsl})`;
   const accentSoft = `hsl(${sample.accentHsl} / 0.12)`;
   const accentBorder = `hsl(${sample.accentHsl} / 0.35)`;
   const isVideo = isVideoKind(sample.kind);
 
   const activeTabName = sample.tabs[active];
-  let currentPreviewFiles = sample.previewFiles?.[activeTabName] || [];
+
+  useEffect(() => {
+    let activeRequest = true;
+    setLoading(true);
+    fetchSampleFiles(sample.slug, activeTabName).then((res) => {
+      if (!activeRequest) return;
+      setApiFiles(res);
+      setLoading(false);
+    });
+    return () => {
+      activeRequest = false;
+    };
+  }, [sample.slug, activeTabName]);
+
+  // Determine files list: API-first, fallback to static defined list, fallback to dummy
+  let currentPreviewFiles = apiFiles && apiFiles.length > 0 ? apiFiles : (sample.previewFiles?.[activeTabName] || []);
 
   if (currentPreviewFiles.length === 0) {
     if (isVideo) {

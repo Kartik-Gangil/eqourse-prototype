@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, Save, Eye, EyeOff, Plus, X } from "lucide-react";
+import { ArrowLeft, Save, Eye, EyeOff, Plus, X, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import PageHeader from "../components/PageHeader";
 import ImageUpload from "../components/ImageUpload";
 import { PublishBadge } from "../components/StatusBadge";
@@ -25,10 +26,39 @@ const empty: Omit<CaseStudy, "id" | "createdAt" | "updatedAt"> = {
   results: "",
   metrics: [],
   tags: [],
+  relatedLinks: [],
   bodyFormat: "markdown",
   seo: {},
   status: "draft",
 };
+
+const PREDEFINED_SERVICES = [
+  {
+    group: "AI Data Services",
+    items: [
+      { label: "AI Data Services Overview", href: "/ai-data-services" },
+      { label: "AI Data Collection", href: "/ai-data-services/data-collection" },
+      { label: "Data Annotation & Labeling", href: "/ai-data-services/annotation-labeling" },
+      { label: "Data Cleaning & Validation", href: "/ai-data-services/cleaning-validation" },
+      { label: "AI Model Testing", href: "/ai-data-services/model-testing" },
+    ],
+  },
+  {
+    group: "Content Services",
+    items: [
+      { label: "Content Services Overview", href: "/content-services" },
+      { label: "Custom E-Learning Content", href: "/content-services/custom-e-learning-content" },
+      { label: "Exam Preparation Content", href: "/content-services/exam-preparation-content" },
+      { label: "Learning Solutions", href: "/content-services/learning-solutions" },
+      { label: "E-Learning Video Solutions", href: "/content-services/elearning-video-solutions" },
+      { label: "Localization Services", href: "/content-services/localization-services" },
+      { label: "Technology Solutions", href: "/content-services/technology-solutions" },
+      { label: "Subject Matter Experts", href: "/content-services/subject-matter-experts" },
+      { label: "Accessibility Services", href: "/content-services/accessibility" },
+      { label: "Talent Assessment & Workforce Evaluation", href: "/content-services/talent-assessment-workforce-evaluation" },
+    ],
+  },
+];
 
 export default function CaseStudyEditor() {
   const { id } = useParams();
@@ -44,7 +74,10 @@ export default function CaseStudyEditor() {
     if (isNew) return;
     adminApi.getCaseStudy(id!).then((c) => {
       if (!c) { toast.error("Not found"); navigate("/admin/case-studies"); return; }
-      setForm(c);
+      setForm({
+        ...c,
+        relatedLinks: c.relatedLinks || [],
+      });
       setTagsText(c.tags.join(", "));
       setSlugTouched(true);
       setLoaded(true);
@@ -65,6 +98,57 @@ export default function CaseStudyEditor() {
     setField("metrics", next);
   };
   const removeMetric = (i: number) => setField("metrics", form.metrics.filter((_, idx) => idx !== i));
+
+  const togglePredefinedService = (label: string, href: string) => {
+    const links = form.relatedLinks || [];
+    const exists = links.some((l) => l.href === href);
+    if (exists) {
+      setField("relatedLinks", links.filter((l) => l.href !== href));
+    } else {
+      setField("relatedLinks", [...links, { label, href }]);
+    }
+  };
+
+  const isPredefined = (href: string) =>
+    PREDEFINED_SERVICES.some((group) => group.items.some((item) => item.href === href));
+
+  const addCustomLink = () => {
+    const links = form.relatedLinks || [];
+    setField("relatedLinks", [...links, { label: "", href: "" }]);
+  };
+
+  const updateCustomLink = (indexInCustoms: number, patch: Partial<{ label: string; href: string }>) => {
+    const links = form.relatedLinks || [];
+    let customCount = 0;
+    const nextLinks = links.map((link) => {
+      if (!isPredefined(link.href)) {
+        if (customCount === indexInCustoms) {
+          const updated = { ...link, ...patch };
+          customCount++;
+          return updated;
+        }
+        customCount++;
+      }
+      return link;
+    });
+    setField("relatedLinks", nextLinks);
+  };
+
+  const removeCustomLink = (indexInCustoms: number) => {
+    const links = form.relatedLinks || [];
+    let customCount = 0;
+    const nextLinks = links.filter((link) => {
+      if (!isPredefined(link.href)) {
+        if (customCount === indexInCustoms) {
+          customCount++;
+          return false;
+        }
+        customCount++;
+      }
+      return true;
+    });
+    setField("relatedLinks", nextLinks);
+  };
 
   const save = async (publishOverride?: PublishStatus) => {
     setSaving(true);
@@ -201,6 +285,92 @@ export default function CaseStudyEditor() {
               <Label>Tags</Label>
               <Input value={tagsText} onChange={(e) => setTagsText(e.target.value)}
                 placeholder="ai, content services (comma-separated)" />
+            </div>
+          </Card>
+
+          <Card className="p-6 space-y-4">
+            <h4 className="font-medium text-sm">Services Used (Internal SEO Links)</h4>
+            
+            {PREDEFINED_SERVICES.map((group) => (
+              <div key={group.group} className="space-y-2">
+                <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mt-2">
+                  {group.group}
+                </div>
+                <div className="space-y-2">
+                  {group.items.map((item) => {
+                    const checked = (form.relatedLinks || []).some((l) => l.href === item.href);
+                    return (
+                      <div key={item.href} className="flex items-center space-x-2">
+                        <Checkbox
+                          id={`service-${item.href}`}
+                          checked={checked}
+                          onCheckedChange={() => togglePredefinedService(item.label, item.href)}
+                        />
+                        <label
+                          htmlFor={`service-${item.href}`}
+                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                        >
+                          {item.label}
+                        </label>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+
+            <div className="border-t pt-4 space-y-3">
+              <div className="flex items-center justify-between">
+                <Label className="font-medium text-xs text-muted-foreground">Custom Related Links</Label>
+                <Button type="button" size="sm" variant="ghost" onClick={addCustomLink}>
+                  <Plus className="w-3.5 h-3.5 mr-1" /> Add
+                </Button>
+              </div>
+
+              <div className="space-y-2">
+                {(() => {
+                  const customs = (form.relatedLinks || []).filter((l) => !isPredefined(l.href));
+                  if (customs.length === 0) {
+                    return (
+                      <p className="text-xs text-muted-foreground">
+                        No custom links yet.
+                      </p>
+                    );
+                  }
+                  return customs.map((link, idx) => (
+                    <div key={idx} className="space-y-1 p-2 border rounded-md relative bg-secondary/20">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] font-semibold text-muted-foreground uppercase">
+                          Custom Link #{idx + 1}
+                        </span>
+                        <Button
+                          type="button"
+                          size="sm"
+                          variant="ghost"
+                          onClick={() => removeCustomLink(idx)}
+                          className="h-6 w-6 p-0 text-destructive hover:text-destructive/80 hover:bg-destructive/10"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </Button>
+                      </div>
+                      <div className="space-y-1">
+                        <Input
+                          placeholder="Label (e.g., About Us)"
+                          value={link.label}
+                          onChange={(e) => updateCustomLink(idx, { label: e.target.value })}
+                          className="h-8 text-xs"
+                        />
+                        <Input
+                          placeholder="URL / Path (e.g., /aboutus)"
+                          value={link.href}
+                          onChange={(e) => updateCustomLink(idx, { href: e.target.value })}
+                          className="h-8 text-xs font-mono"
+                        />
+                      </div>
+                    </div>
+                  ));
+                })()}
+              </div>
             </div>
           </Card>
 

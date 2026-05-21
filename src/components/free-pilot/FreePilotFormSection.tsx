@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Loader2, CheckCircle, UploadCloud, X, FileText, Sparkles } from "lucide-react";
+import { Loader2, CheckCircle, UploadCloud, X, FileText, Sparkles, AlertCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import { submitFreePilotForm } from "@/lib/publicApi";
 
 const FreePilotFormSection = () => {
   const [pilotType, setPilotType] = useState<string>("");
@@ -10,6 +11,7 @@ const FreePilotFormSection = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [charCount, setCharCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -65,13 +67,32 @@ const FreePilotFormSection = () => {
     if (fileInputRef.current) fileInputRef.current.value = "";
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setSubmitError(null);
+
+    const form = e.currentTarget;
+    const get = (id: string) => (form.querySelector(`#${id}`) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement)?.value ?? "";
+
+    const result = await submitFreePilotForm({
+      name: get("fpName"),
+      email: get("fpEmail"),
+      company: get("fpCompany"),
+      role: get("fpDesignation"),
+      serviceInterest: pilotType.includes("AI") ? "ai-data" : pilotType.includes("Content") ? "content-services" : "other",
+      projectScope: serviceDetail || pilotType,
+      languages: get("fpLanguages") || undefined,
+      message: get("fpDescription") || undefined,
+      file: file || undefined,
+    });
+
+    setIsSubmitting(false);
+    if (result.ok) {
       setIsSuccess(true);
-    }, 1800);
+    } else {
+      setSubmitError(result.error);
+    }
   };
 
   const contentServicesServices = [
@@ -384,6 +405,14 @@ const FreePilotFormSection = () => {
                 )}
               </div>
             </div>
+
+            {/* Error display */}
+            {submitError && (
+              <div className="flex items-center gap-2 p-3 rounded-lg bg-destructive/10 text-destructive text-sm animate-fade-in-up">
+                <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                <span>{submitError}</span>
+              </div>
+            )}
 
             {/* Submit */}
             <div className="pt-6 border-t border-border/40 text-center">
