@@ -48,28 +48,9 @@ const InteractiveSampleTabs = ({ sample }: Props) => {
     };
   }, [sample.slug, activeTabName]);
 
-  // Determine files list: API-first, fallback to static defined list, fallback to dummy
-  let currentPreviewFiles = apiFiles && apiFiles.length > 0 ? apiFiles : (sample.previewFiles?.[activeTabName] || []);
+  // Determine files list: API-first, then static. No fake fallback.
+  const currentPreviewFiles = apiFiles && apiFiles.length > 0 ? apiFiles : (sample.previewFiles?.[activeTabName] || []);
 
-  if (currentPreviewFiles.length === 0) {
-    if (isVideo) {
-      currentPreviewFiles = Array.from({ length: 25 }).map((_, i) => ({
-        title: `${activeTabName} Demo Video ${i + 1}`,
-        description: `A sample 1080p export demonstrating ${activeTabName.toLowerCase()} capabilities with full annotations.`,
-        fileType: i % 3 === 0 ? "ZIP" : "MP4",
-        fileUrl: "#",
-        isExternal: false
-      }));
-    } else {
-      currentPreviewFiles = Array.from({ length: 25 }).map((_, i) => ({
-        title: `${activeTabName} - Sample Document ${i + 1}`,
-        description: `Comprehensive sample for ${activeTabName.toLowerCase()} showcasing formatting and editorial standards.`,
-        fileType: i % 2 === 0 ? "PDF" : "DOCX",
-        fileUrl: "#",
-        isExternal: i % 2 === 0
-      }));
-    }
-  }
 
   return (
     <section id="samples" className="relative py-20 bg-background overflow-hidden">
