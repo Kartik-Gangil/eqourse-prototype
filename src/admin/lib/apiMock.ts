@@ -343,6 +343,14 @@ export const mockApi = {
         .sort((a, b) => a.order - b.order)
     );
   },
+  /** List samples by public page slug and optionally tab name */
+  async listSamplesByPage(pageSlug: string, tabName?: string): Promise<Sample[]> {
+    return delay(
+      load(KEYS.samples, seedSamples)
+        .filter((s) => s.pageSlug === pageSlug && (!tabName || s.tabName === tabName))
+        .sort((a, b) => a.order - b.order)
+    );
+  },
   async getSample(id: string): Promise<Sample | null> {
     return delay(load(KEYS.samples, seedSamples).find((s) => s.id === id) ?? null);
   },
@@ -352,6 +360,22 @@ export const mockApi = {
     const order = input.order ?? inCat.length + 1;
     const sample: Sample = {
       ...input,
+      id: newId(),
+      order,
+      createdAt: nowISO(),
+      updatedAt: nowISO(),
+    };
+    save(KEYS.samples, [...all, sample]);
+    return delay(sample);
+  },
+  /** Create a sample keyed by pageSlug + tabName (admin hierarchy flow) */
+  async createSampleForPage(input: Omit<Sample, "id" | "createdAt" | "updatedAt" | "order" | "categoryId"> & { order?: number }): Promise<Sample> {
+    const all = load(KEYS.samples, seedSamples);
+    const inPage = all.filter((s) => s.pageSlug === input.pageSlug && s.tabName === input.tabName);
+    const order = input.order ?? inPage.length + 1;
+    const sample: Sample = {
+      ...input,
+      categoryId: `auto-${input.pageSlug}`,
       id: newId(),
       order,
       createdAt: nowISO(),

@@ -251,6 +251,14 @@ export const liveApi = {
     return res.items;
   },
 
+  /** List samples by public page slug and optionally tab name */
+  async listSamplesByPage(pageSlug: string, tabName?: string): Promise<Sample[]> {
+    const params: Record<string, string> = { pageSlug };
+    if (tabName) params.tab = tabName;
+    const res = await client.get<{ items: Sample[] }>("/api/admin/samples/by-page", params);
+    return res.items;
+  },
+
   async getSample(id: string): Promise<Sample | null> {
     try {
       return await client.get<Sample>(`/api/admin/samples/${id}`);
@@ -262,6 +270,11 @@ export const liveApi = {
 
   async createSample(input: Omit<Sample, "id" | "createdAt" | "updatedAt" | "order"> & { order?: number }): Promise<Sample> {
     return client.post<Sample>(`/api/admin/sample-categories/${input.categoryId}/samples`, input);
+  },
+
+  /** Create a sample keyed by pageSlug + tabName (admin hierarchy flow) */
+  async createSampleForPage(input: Omit<Sample, "id" | "createdAt" | "updatedAt" | "order" | "categoryId"> & { order?: number }): Promise<Sample> {
+    return client.post<Sample>("/api/admin/samples", input);
   },
 
   async updateSample(id: string, patch: Partial<Sample>): Promise<Sample> {
