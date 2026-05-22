@@ -6,6 +6,7 @@ import { NlpInteractiveThumbnail } from "./NlpInteractiveThumbnails";
 import { AudioInteractiveThumbnail } from "./AudioInteractiveThumbnails";
 import { RlhfInteractiveThumbnail } from "./RlhfInteractiveThumbnails";
 import { DataCollectionInteractiveThumbnail } from "./DataCollectionInteractiveThumbnails";
+import { CleanedDatasetsInteractiveThumbnail } from "./CleanedDatasetsInteractiveThumbnails";
 import { fetchSampleFiles } from "@/lib/publicApi";
 
 interface Props {
@@ -195,6 +196,7 @@ const SampleShowcaseGrid = ({
                       {categorySlug === "audio-speech" && <AudioInteractiveThumbnail sampleId={current.id} active={true} />}
                       {categorySlug === "rlhf" && <RlhfInteractiveThumbnail sampleId={current.id} active={true} />}
                       {categorySlug === "data-collection" && <DataCollectionInteractiveThumbnail sampleId={current.id} active={true} />}
+                      {categorySlug === "cleaned-datasets" && <CleanedDatasetsInteractiveThumbnail sampleId={current.id} active={true} />}
                     </div>
                   ) : (
                     <div className="w-full max-w-lg rounded-xl border border-white/10 bg-white/5 p-5 md:p-6 font-mono text-[11px] md:text-sm text-white/80 shadow-2xl backdrop-blur-md animate-slide-up">

@@ -517,6 +517,7 @@ export const aiDataSamples: AiDataSample[] = [
       "Before / after samples for deduplication, noise removal, PII redaction, and gold-standard validation with full audit trails.",
     showcases: [
       {
+        id: "dedup",
         title: "Text Deduplication: Before / After",
         teaser: "Remove redundant data to improve model training efficiency.",
         description:
@@ -530,6 +531,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "pii",
         title: "PII Redaction: Before / After",
         teaser: "Safeguard privacy by anonymizing sensitive personal information.",
         description:
@@ -543,6 +545,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "audio-filter",
         title: "Audio Quality Filtering: Before / After",
         teaser: "Ensure only the highest fidelity audio reaches your models.",
         description:
@@ -556,6 +559,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "validation",
         title: "Gold-Standard Validation Report",
         teaser: "Benchmark your datasets against rigorously verified ground truth.",
         description:
