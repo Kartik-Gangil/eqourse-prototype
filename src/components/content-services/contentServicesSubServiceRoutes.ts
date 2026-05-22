@@ -1,5 +1,16 @@
 import { lazy } from "react";
 
+/* ─── Category 10: Editorial, Publishing & Designing Services ─── */
+export const EditorialPublishingPageLazy = lazy(() => import("@/components/content-services/editorial-publishing/EditorialPublishingPage"));
+export const EditorialServicesPage = lazy(() => import("@/components/content-services/editorial-publishing/EditorialServicesPage"));
+export const PublishingProductionPage = lazy(() => import("@/components/content-services/editorial-publishing/PublishingProductionPage"));
+export const DigitalConversionPageEP = lazy(() => import("@/components/content-services/editorial-publishing/DigitalConversionPage"));
+export const ImageProcessingPage = lazy(() => import("@/components/content-services/editorial-publishing/ImageProcessingPage"));
+export const MetadataServicesPage = lazy(() => import("@/components/content-services/editorial-publishing/MetadataServicesPage"));
+export const DesignServicesPage = lazy(() => import("@/components/content-services/editorial-publishing/DesignServicesPage"));
+export const PrepressServicesPage = lazy(() => import("@/components/content-services/editorial-publishing/PrepressServicesPage"));
+export const ProductionSupportPage = lazy(() => import("@/components/content-services/editorial-publishing/ProductionSupportPage"));
+
 /* ─── Category 1: Custom E-Learning Content ─── */
 export const K12HigherEducationPage = lazy(() => import("@/components/content-services/custom-elearning/K12HigherEducationPage"));
 export const K12CurriculumPage = lazy(() => import("@/components/content-services/custom-elearning/K12CurriculumPage"));
@@ -133,5 +144,14 @@ export const contentServicesSubServiceRoutes = [
   { path: "/content-services/talent-assessment-workforce-evaluation/learning-readiness", Component: LearningReadinessPage },
   { path: "/content-services/talent-assessment-workforce-evaluation/organizational-diagnostics", Component: OrganizationalDiagnosticsPage },
   { path: "/content-services/talent-assessment-workforce-evaluation/digital-assessment-infrastructure", Component: DigitalAssessmentPage },
+  // Category 10 — Editorial, Publishing & Designing Services (sub-service pages only; overview is in App.tsx)
+  { path: "/content-services/editorial-publishing-designing-services/editorial-services", Component: EditorialServicesPage },
+  { path: "/content-services/editorial-publishing-designing-services/publishing-production", Component: PublishingProductionPage },
+  { path: "/content-services/editorial-publishing-designing-services/digital-conversion", Component: DigitalConversionPageEP },
+  { path: "/content-services/editorial-publishing-designing-services/image-processing", Component: ImageProcessingPage },
+  { path: "/content-services/editorial-publishing-designing-services/metadata-services", Component: MetadataServicesPage },
+  { path: "/content-services/editorial-publishing-designing-services/design-services", Component: DesignServicesPage },
+  { path: "/content-services/editorial-publishing-designing-services/prepress-services", Component: PrepressServicesPage },
+  { path: "/content-services/editorial-publishing-designing-services/production-support", Component: ProductionSupportPage },
 ];
 

@@ -6,7 +6,8 @@ import {
   Clapperboard, Video, MousePointerClick,
   Languages, Mic, Captions,
   HardDrive, Server,
-  UserCheck, ShieldCheck, type LucideIcon
+  UserCheck, ShieldCheck,
+  Edit, RefreshCw, Image, Tag, Palette, Printer, Settings, type LucideIcon
 } from "lucide-react";
 
 export interface SubServiceLink {
@@ -312,5 +313,64 @@ export const contentServicesCategories: ContentServicesCategory[] = [
       },
     ],
   },
+  {
+    label: "Editorial, Publishing & Designing Services",
+    href: "/content-services/editorial-publishing-designing-services",
+    icon: Edit,
+    image: "/assets/dropdown/custom_e_learning.png",
+    description: "Editorial, publishing production, digital conversion, metadata, design, prepress and production support for global learning content.",
+    subServices: [
+      {
+        label: "Editorial Services",
+        href: "/content-services/editorial-publishing-designing-services/editorial-services",
+        icon: FileText,
+        serviceHighlights: ["Copy Editing", "Proofreading", "Substantive Editing", "Developmental Editing", "Technical Editing", "Style Guide Application"],
+      },
+      {
+        label: "Publishing Production",
+        href: "/content-services/editorial-publishing-designing-services/publishing-production",
+        icon: BookOpen,
+        serviceHighlights: ["Typesetting & Page Composition", "Template Design", "Indexing Services", "Proof Review Support", "Version Control", "Production Handover"],
+      },
+      {
+        label: "Digital Conversion",
+        href: "/content-services/editorial-publishing-designing-services/digital-conversion",
+        icon: RefreshCw,
+        serviceHighlights: ["Digitisation & OCR", "XML Conversion", "HTML Conversion", "EPUB Conversion", "PDF to EPUB", "LaTeX Conversion", "MathML Conversion"],
+      },
+      {
+        label: "Image Processing",
+        href: "/content-services/editorial-publishing-designing-services/image-processing",
+        icon: Image,
+        serviceHighlights: ["Image Restoration & Enhancement", "Image Cleanup & Optimisation", "Cropping & Resizing", "Alt Text Coordination", "Asset Folder Organisation"],
+      },
+      {
+        label: "Metadata Services",
+        href: "/content-services/editorial-publishing-designing-services/metadata-services",
+        icon: Tag,
+        serviceHighlights: ["Metadata Tagging", "Content Structuring", "DOI Metadata Preparation", "ONIX Metadata Support", "MARC Records", "Crossref Metadata", "Accessibility Metadata"],
+      },
+      {
+        label: "Design Services",
+        href: "/content-services/editorial-publishing-designing-services/design-services",
+        icon: Palette,
+        serviceHighlights: ["Cover Design", "Page Layout Design", "Workbook & Worksheet Design", "Journal Layout", "Infographic Design", "Brand-Aligned Layouts"],
+      },
+      {
+        label: "Prepress Services",
+        href: "/content-services/editorial-publishing-designing-services/prepress-services",
+        icon: Printer,
+        serviceHighlights: ["Preflight Checks", "Colour Correction", "Bleed & Margin Review", "Print-Ready File Preparation", "Pagination Checks", "Font Consistency"],
+      },
+      {
+        label: "Production Support",
+        href: "/content-services/editorial-publishing-designing-services/production-support",
+        icon: Settings,
+        serviceHighlights: ["Print Vendor Coordination", "Large-Volume Workflow Support", "Print Specification Sheets", "Change Management", "Asset Packaging", "Cross-Team Coordination"],
+      },
+    ],
+  },
 ];
+
+
 
