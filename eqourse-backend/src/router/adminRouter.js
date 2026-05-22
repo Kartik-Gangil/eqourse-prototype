@@ -69,6 +69,8 @@ router.delete("/sample-categories/:id", sampleCtrl.deleteCategory);
 
 // ── Samples (within categories) ──────────────────────────────
 router.get("/sample-categories/:categoryId/samples", sampleCtrl.adminListItemsByCategory);
+router.get("/samples/by-page", sampleCtrl.adminListItemsByPage);
+router.post("/samples", sampleCtrl.createItemForPage);
 router.get("/samples/:id", sampleCtrl.adminGetItem);
 router.post("/sample-categories/:categoryId/samples", sampleCtrl.createItem);
 router.patch("/samples/:id", sampleCtrl.updateItem);

@@ -36,9 +36,13 @@ const fileFilter = (req, file, cb) => {
     "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
     "text/csv", "text/plain", "application/json",
     // Archives
-    "application/zip",
+    "application/zip", "application/x-zip-compressed", "multipart/x-zip",
+    // Video
+    "video/mp4", "video/webm", "video/ogg", "video/quicktime", "video/x-msvideo",
+    // Audio
+    "audio/mpeg", "audio/wav", "audio/ogg", "audio/mp3",
   ];
-  if (allowedMimes.includes(file.mimetype)) {
+  if (allowedMimes.includes(file.mimetype) || file.mimetype.startsWith("video/") || file.mimetype.startsWith("audio/")) {
     cb(null, true);
   } else {
     cb(new Error(`File type ${file.mimetype} is not allowed`), false);
@@ -48,7 +52,7 @@ const fileFilter = (req, file, cb) => {
 const upload = multer({
   storage,
   fileFilter,
-  limits: { fileSize: 10 * 1024 * 1024 }, // 10MB
+  limits: { fileSize: 100 * 1024 * 1024 }, // 100MB
 });
 
 // ─── Upload middleware ──────────────────────────────────────

@@ -259,8 +259,64 @@ const deleteItem = async (req, res) => {
   }
 };
 
+const adminListItemsByPage = async (req, res) => {
+  try {
+    const { pageSlug, tab } = req.query;
+    if (!pageSlug) {
+      return res.status(400).json({ success: false, message: "pageSlug query param is required" });
+    }
+    const filter = { pageSlug };
+    if (tab) filter.tabName = tab;
+    const items = await SampleItem.find(filter).sort({ order: 1 });
+    return res.json({ success: true, data: { items: items.map(formatItem) } });
+  } catch (err) {
+    return res.status(500).json({ success: false, message: err.message });
+  }
+};
+
+const createItemForPage = async (req, res) => {
+  try {
+    const { title, type, description, thumbnailUrl, fileUrl, fileSize, order,
+            pageSlug, tabName, fileType, isExternal } = req.body;
+    if (!title) return res.status(400).json({ success: false, message: "Title is required" });
+    if (!pageSlug) return res.status(400).json({ success: false, message: "pageSlug is required" });
+    
+    // Auto-generate a dummy categoryId since we are flat (required by model)
+    // We'll create or find a dummy category for this pageSlug
+    let category = await SampleCategory.findOne({ slug: pageSlug });
+    if (!category) {
+      category = await SampleCategory.create({
+        name: pageSlug,
+        slug: pageSlug,
+        description: "Auto-generated category",
+        order: 999
+      });
+    }
+
+    const existing = await SampleItem.find({ pageSlug, tabName });
+    const item = await SampleItem.create({
+      categoryId: category._id,
+      title,
+      type: type || tabName || "", 
+      description: description || "",
+      thumbnailUrl: thumbnailUrl || "", 
+      fileUrl: fileUrl || "",
+      fileSize: fileSize || undefined, 
+      order: order ?? existing.length + 1,
+      pageSlug: pageSlug || "", 
+      tabName: tabName || "",
+      fileType: fileType || "", 
+      isExternal: isExternal || false,
+    });
+    return res.status(201).json({ success: true, data: formatItem(item) });
+  } catch (err) {
+    return res.status(500).json({ success: false, message: err.message });
+  }
+};
+
 module.exports = {
   listCategories, listItemsByCategory, listFilesByPage,
   adminListCategories, adminGetCategory, createCategory, updateCategory, deleteCategory,
   adminListItemsByCategory, adminGetItem, createItem, updateItem, deleteItem,
+  adminListItemsByPage, createItemForPage
 };
