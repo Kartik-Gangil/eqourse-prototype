@@ -160,6 +160,7 @@ export const aiDataSamples: AiDataSample[] = [
       "Bounding box, segmentation, polygon, keypoint and 3D cuboid annotation delivered in COCO JSON.",
     showcases: [
       {
+        id: "bbox",
         title: "Bounding Box Annotation",
         teaser: "Identify and locate objects with precise rectangular boxes.",
         description:
@@ -173,6 +174,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "semantic",
         title: "Semantic Segmentation",
         teaser: "Classify every pixel in an image into predefined categories.",
         description:
@@ -186,6 +188,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "instance",
         title: "Instance Segmentation",
         teaser: "Isolate and identify individual objects with polygon masks.",
         description:
@@ -199,6 +202,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "keypoint",
         title: "Keypoint Detection",
         teaser: "Map skeletal structures and facial landmarks with pinpoint accuracy.",
         description:
@@ -212,6 +216,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "cuboid",
         title: "3D Cuboid Annotation",
         teaser: "Estimate depth, rotation, and dimensions in 3D space.",
         description:
