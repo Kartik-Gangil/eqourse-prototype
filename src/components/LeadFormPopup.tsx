@@ -18,6 +18,7 @@ const roles = [
   "CXO / Co-founder",
   "School / Institution",
   "AI Data Client",
+  "Other",
 ];
 
 const LeadFormPopup = () => {
@@ -28,8 +29,15 @@ const LeadFormPopup = () => {
     email: "",
     phone: "",
     role: "",
+    otherRole: "",
     message: "",
   });
+
+  const isOtherRole = formData.role === "Other";
+  // The value sent to the backend: if "Other" is selected, use the typed text
+  const effectiveSubject = isOtherRole
+    ? formData.otherRole.trim()
+    : formData.role;
 
   useEffect(() => {
     // Show popup after 15 seconds, once per session
@@ -48,6 +56,7 @@ const LeadFormPopup = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.email.trim() || !formData.role) return;
+    if (isOtherRole && !formData.otherRole.trim()) return; // must fill in custom role
 
     setStatus("loading");
 
@@ -55,7 +64,7 @@ const LeadFormPopup = () => {
       name: formData.name.trim(),
       email: formData.email.trim(),
       phone: formData.phone.trim() || undefined,
-      subject: formData.role,       // "role" maps to required "subject" in DB schema
+      subject: effectiveSubject,    // resolved role (or custom text if "Other")
       message: formData.message.trim() || undefined,
       source: "popup",              // tag so admin can filter popup leads
     });
@@ -139,7 +148,9 @@ const LeadFormPopup = () => {
             <Select
               required
               value={formData.role}
-              onValueChange={(val) => setFormData({ ...formData, role: val })}
+              onValueChange={(val) =>
+                setFormData({ ...formData, role: val, otherRole: "" })
+              }
             >
               <SelectTrigger id="popup-role" className="bg-background border-border">
                 <SelectValue placeholder="Select your role *" />
@@ -152,6 +163,22 @@ const LeadFormPopup = () => {
                 ))}
               </SelectContent>
             </Select>
+
+            {/* Custom role text field — shown only when "Other" is selected */}
+            {isOtherRole && (
+              <div className="animate-in fade-in slide-in-from-top-1 duration-200">
+                <Input
+                  id="popup-other-role"
+                  required
+                  placeholder="Please describe your role *"
+                  className="bg-background border-border"
+                  value={formData.otherRole}
+                  onChange={(e) =>
+                    setFormData({ ...formData, otherRole: e.target.value })
+                  }
+                />
+              </div>
+            )}
 
             <Textarea
               id="popup-message"
