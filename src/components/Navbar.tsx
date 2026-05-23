@@ -4,6 +4,8 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { contentServicesCategories } from "@/components/content-services/shared/contentServicesNavData";
 import { aiDataSamples } from "@/components/samples/ai-data/shared/aiDataSamplesData";
+import eqourseLogoDark from "@/assets/eqourse-logo.png";
+import eqourseLogoLight from "@/assets/eqourse-logo-light.png";
 
 interface SubLink {
   label: string;
@@ -644,9 +646,20 @@ const Navbar = () => {
           <div className="container mx-auto flex items-center justify-between h-16 px-4">
             <Link
               to="/"
-              className={`font-heading text-2xl font-extrabold ${transparent ? "text-white" : "text-gradient"}`}
+              className="flex items-center flex-shrink-0 relative h-8 sm:h-10"
             >
-              eQOURSE
+              {/* Dark logo — visible on light/scrolled backgrounds */}
+              <img 
+                src={eqourseLogoDark} 
+                alt="eQOURSE Logo - Professional AI Data and Content Services" 
+                className={`h-8 sm:h-10 w-auto object-contain absolute left-0 top-0 transition-opacity duration-300 ${transparent ? 'opacity-0' : 'opacity-100'}`}
+              />
+              {/* Light logo — visible on transparent/dark hero background */}
+              <img 
+                src={eqourseLogoLight} 
+                alt="eQOURSE Logo - Professional AI Data and Content Services" 
+                className={`h-8 sm:h-10 w-auto object-contain transition-opacity duration-300 ${transparent ? 'opacity-100' : 'opacity-0'}`}
+              />
             </Link>
 
             {/* Desktop nav */}
