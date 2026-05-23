@@ -3,8 +3,9 @@ import {
   Handshake, Users, Globe, RefreshCw, Shield,
   Lock, TrendingUp, Languages, ClipboardCheck,
   Accessibility, LayoutDashboard, UserCheck,
-  BookOpen, Briefcase, BarChart3
+  BookOpen, Briefcase, BarChart3, ArrowRight
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import strategyImage from "@/assets/strategy-image.jpg";
 
 const reasons = [
@@ -247,6 +248,16 @@ const WhyChooseUs = () => {
               Swipe to see more
             </div>
           </div>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-12 sm:mt-16 text-center">
+          <Link
+            to="/free-pilot"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-primary text-primary-foreground font-semibold text-sm shadow-soft hover:opacity-90 hover:scale-105 transition-all"
+          >
+            Get Started with a Free Pilot <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
 
