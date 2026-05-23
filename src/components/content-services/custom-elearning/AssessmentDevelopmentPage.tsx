@@ -10,6 +10,8 @@ const AssessmentDevelopmentPage = () => (
     parentLabel="Custom E-Learning Content"
     parentHref="/content-services/custom-e-learning-content"
     currentLabel="Assessment Development"
+    bannerImage="/assets/banners/content-services/custom-elearning/assessment-development.png"
+    bannerImageAlt="K-12 assessment development services illustration showing interactive quizzes, adaptive testing and game-based assessments built by eQOURSE for e-learning platforms"
     preHeadline="Accurate & Customized Assessment Development Services for K-12 & Higher Education"
     headline="Assessment Development"
     headlineAccent="Services"

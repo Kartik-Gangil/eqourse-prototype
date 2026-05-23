@@ -38,6 +38,8 @@ const ExamPrepPage = () => (
       subtext="Expert-designed exam preparation materials tailored to global standards like TOEIC, APTIS, IELTS, TOEFL, GRE, and major competitive exams. Diverse levels, subjects, and study guides."
       ctaText="Request Free Pilot Content"
       ctaLink="/free-pilot"
+      imageSrc="/assets/banners/content-services/main/exam-preparation-content.png"
+      imageAlt="Exam preparation content services by eQOURSE — SAT, TOEFL, IELTS, ACT, AP, PTE, TOEIC and CEFR test prep with practice tests, study guides and interactive quizzes"
     />
 
     <ExamServicesGrid />

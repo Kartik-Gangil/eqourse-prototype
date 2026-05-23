@@ -12,6 +12,17 @@ interface ServiceHeroProps {
   ctaText: string;
   ctaLink?: string;
   illustration?: React.ReactNode;
+  /**
+   * Optional custom hero/banner image. When provided, replaces the default
+   * hero illustration. The image is rendered inside a 3:2 aspect-ratio
+   * container so it fits without being cropped (source banners are 1536×1024).
+   */
+  imageSrc?: string;
+  /**
+   * Required when imageSrc is provided. SEO-optimized alt text describing
+   * the banner subject.
+   */
+  imageAlt?: string;
 }
 
 const chips = [
@@ -43,6 +54,8 @@ const ServiceHero = ({
   ctaText,
   ctaLink = "#contact",
   illustration,
+  imageSrc,
+  imageAlt,
 }: ServiceHeroProps) => {
   const [chipIndex, setChipIndex] = useState(0);
 
@@ -121,15 +134,31 @@ const ServiceHero = ({
           </div>
 
           <div className="relative animate-slide-up-delayed">
-            <div className="relative rounded-3xl overflow-hidden shadow-elevated border border-white/10">
-              <img
-                src={heroImage}
-                alt="eQOURSE AI data services"
-                width={1280}
-                height={720}
-                className="w-full h-[360px] md:h-[430px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/45 via-foreground/10 to-transparent" />
+            <div className="relative rounded-3xl overflow-hidden shadow-elevated border border-white/10 bg-gradient-to-br from-primary/20 via-foreground/30 to-accent/20">
+              {imageSrc ? (
+                <div className="aspect-[3/2] w-full">
+                  <img
+                    src={imageSrc}
+                    alt={imageAlt || "eQOURSE service banner"}
+                    width={1536}
+                    height={1024}
+                    loading="eager"
+                    decoding="async"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              ) : (
+                <>
+                  <img
+                    src={heroImage}
+                    alt="eQOURSE AI data services"
+                    width={1280}
+                    height={720}
+                    className="w-full h-[360px] md:h-[430px] object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/45 via-foreground/10 to-transparent" />
+                </>
+              )}
             </div>
 
             <div className="absolute -top-4 -right-3 sm:-right-4 rounded-xl p-3 shadow-elevated hidden md:block bg-black/45 border border-white/20 backdrop-blur-xl">

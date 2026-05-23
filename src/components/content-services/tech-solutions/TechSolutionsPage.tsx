@@ -33,6 +33,8 @@ const TechSolutionsPage = () => (
       subtext="Comprehensive technological integrations linking robust pedagogical content flawlessly with modern, reliable Learning Management Systems."
       ctaText="Discuss Your LMS Project"
       ctaLink="#contact"
+      imageSrc="/assets/banners/content-services/main/technology-solutions.png"
+      imageAlt="Educational technology solutions by eQOURSE — LMS course builds with SCORM and xAPI packaging, white-label LMS setup on Open edX and AWS cloud infrastructure"
     />
 
     <ServiceNarrativeSection

@@ -10,6 +10,8 @@ const QuizQuestionBankPage = () => (
     parentLabel="Custom E-Learning Content"
     parentHref="/content-services/custom-e-learning-content"
     currentLabel="Quiz & Question Bank"
+    bannerImage="/assets/banners/content-services/custom-elearning/quiz-question-bank.png"
+    bannerImageAlt="Quiz and question bank development services banner showing MCQ pools, case-based questions and adaptive question banks crafted by eQOURSE subject matter experts"
     preHeadline="Expert Quiz and Question Bank Development for Assessments"
     headline="Quiz & Question Bank"
     headlineAccent="Development"

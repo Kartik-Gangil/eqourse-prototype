@@ -10,6 +10,8 @@ const EducationalContentPage = () => (
     parentLabel="Custom E-Learning Content"
     parentHref="/content-services/custom-e-learning-content"
     currentLabel="Educational Content Development"
+    bannerImage="/assets/banners/content-services/custom-elearning/educational-content-development.png"
+    bannerImageAlt="Educational content development services banner illustrating textbook content, solution manuals, study guides and curriculum design for K-12 and higher education by eQOURSE"
     preHeadline="Innovative Educational Content Development for K-12 & Higher Education"
     headline="Educational Content"
     headlineAccent="Development"

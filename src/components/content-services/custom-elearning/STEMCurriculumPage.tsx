@@ -10,6 +10,8 @@ const STEMCurriculumPage = () => (
     parentLabel="Custom E-Learning Content"
     parentHref="/content-services/custom-e-learning-content"
     currentLabel="STEM Curriculum Services"
+    bannerImage="/assets/banners/content-services/custom-elearning/stem-curriculum-services.png"
+    bannerImageAlt="STEM curriculum development services banner showing science, technology, engineering and mathematics integrated learning, coding and robotics programs by eQOURSE"
     preHeadline="Innovative STEM Curriculum Development for K-12 & Higher Education"
     headline="STEM Curriculum"
     headlineAccent="Development Services"
