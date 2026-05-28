@@ -91,6 +91,22 @@ const ProcessSection = () => {
             <ProcessTimeline steps={aiSteps} loopLabel="Closed-Loop: Active learning delivers 20–40% faster model improvement" />
           </div>
         </div>
+
+        {/* CTA Row */}
+        <div className="mt-12 sm:mt-16 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="/free-pilot"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-primary text-primary-foreground font-semibold text-sm shadow-soft hover:opacity-90 hover:scale-105 transition-all"
+          >
+            Start Free Pilot <ArrowRight className="w-4 h-4" />
+          </a>
+          <a
+            href={activeTab === "ai" ? "/ai-data-services" : "/content-services"}
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border border-primary/30 text-primary font-semibold text-sm hover:bg-primary/5 transition-all"
+          >
+            {activeTab === "ai" ? "View AI Data Services" : "View Content Services"} <ArrowRight className="w-4 h-4" />
+          </a>
+        </div>
       </div>
     </section>
   );

@@ -18,6 +18,8 @@ const K12HigherEducationPage = () => (
     parentLabel="Custom E-Learning Content"
     parentHref="/content-services/custom-e-learning-content"
     currentLabel="K12 & Higher Education"
+    bannerImage="/assets/banners/content-services/custom-elearning/k12-and-higher-education.png"
+    bannerImageAlt="K-12 and higher education content development illustration showing students learning with curriculum-aligned digital materials and SME-led instructional design at eQOURSE"
     preHeadline="Transform Learning with Our K-12 Content Services & Higher Education Solutions"
     headline="K-12 & Higher Education"
     headlineAccent="Content Development"

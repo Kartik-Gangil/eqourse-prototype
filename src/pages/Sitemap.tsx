@@ -54,6 +54,20 @@ const sitemapData = [
     ],
   },
   {
+    category: "Editorial, Publishing & Designing",
+    links: [
+      { name: "Editorial, Publishing & Designing Services", to: "/content-services/editorial-publishing-designing-services" },
+      { name: "— Editorial Services", to: "/content-services/editorial-publishing-designing-services/editorial-services" },
+      { name: "— Publishing Production", to: "/content-services/editorial-publishing-designing-services/publishing-production" },
+      { name: "— Digital Conversion", to: "/content-services/editorial-publishing-designing-services/digital-conversion" },
+      { name: "— Image Processing", to: "/content-services/editorial-publishing-designing-services/image-processing" },
+      { name: "— Metadata Services", to: "/content-services/editorial-publishing-designing-services/metadata-services" },
+      { name: "— Design Services", to: "/content-services/editorial-publishing-designing-services/design-services" },
+      { name: "— Prepress Services", to: "/content-services/editorial-publishing-designing-services/prepress-services" },
+      { name: "— Production Support", to: "/content-services/editorial-publishing-designing-services/production-support" },
+    ],
+  },
+  {
     category: "Content Services Samples",
     links: [
       { name: "Text Content Samples", to: "/text-samples" },

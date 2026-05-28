@@ -37,6 +37,8 @@ const SMEPage = () => (
       subtext="Elevate your curriculum and live classroom deployments by leveraging our strictly vetted pool of 200+ trained academic professionals."
       ctaText="Request SME Profiles"
       ctaLink="#contact"
+      imageSrc="/assets/banners/content-services/main/subject-matter-experts.png"
+      imageAlt="Subject matter expert services by eQOURSE — SME recruitment, tutor training and certification, and live online tutoring with 200+ vetted academic professionals"
     />
 
     <ServiceNarrativeSection

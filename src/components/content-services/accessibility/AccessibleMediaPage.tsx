@@ -18,6 +18,8 @@ const AccessibleMediaPage = () => (
     parentLabel="Accessibility"
     parentHref="/content-services/accessibility"
     currentLabel="Accessible Media & Enhancements"
+    bannerImage="/assets/banners/content-services/accessibility/accessible-media-enhancements.png"
+    bannerImageAlt="Accessible media and enhancements services banner showing alt text authoring, closed captioning, transcripts, audio description and MathML accessible STEM notation by eQOURSE"
     preHeadline="Accessible Media & Enhancements Services"
     headline="Accessible Media &"
     headlineAccent="Enhancements Services"

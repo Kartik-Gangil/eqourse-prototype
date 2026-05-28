@@ -10,6 +10,8 @@ const K12CurriculumPage = () => (
     parentLabel="Custom E-Learning Content"
     parentHref="/content-services/custom-e-learning-content"
     currentLabel="K12 Curriculum Development"
+    bannerImage="/assets/banners/content-services/custom-elearning/k12-curriculum-development.png"
+    bannerImageAlt="K-12 curriculum development services banner depicting subject-centered, learner-centered and problem-oriented design for CBSE, ICSE, IB and State Board education by eQOURSE"
     preHeadline="K-12 Curriculum Development & Design Services — Designing High-Quality Curriculums"
     headline="K-12 Curriculum"
     headlineAccent="Development"

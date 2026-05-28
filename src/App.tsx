@@ -25,6 +25,7 @@ import SubjectMatterExperts from "./pages/SubjectMatterExperts.tsx";
 import ContentServicesStubPage from "./pages/ContentServicesStubPage.tsx";
 import AccessibilityServices from "./pages/AccessibilityServices.tsx";
 import TalentAssessmentWorkforceEvaluation from "./pages/TalentAssessmentWorkforceEvaluation.tsx";
+import EditorialPublishingDesigningServices from "./pages/EditorialPublishingDesigningServices.tsx";
 import CaseStudy from "./pages/CaseStudy.tsx";
 import ContactUs from "./pages/ContactUs.tsx";
 import AboutUs from "./pages/AboutUs.tsx";
@@ -53,9 +54,9 @@ import AdminBlogEditor from "./admin/pages/BlogEditor";
 import AdminCaseStudies from "./admin/pages/CaseStudies";
 import AdminCaseStudyEditor from "./admin/pages/CaseStudyEditor";
 import AdminSampleCategories from "./admin/pages/SampleCategories";
-import AdminSampleCategoryEditor from "./admin/pages/SampleCategoryEditor";
-import AdminCategorySamples from "./admin/pages/CategorySamples";
-import AdminSampleEditor from "./admin/pages/SampleEditor";
+import AdminSampleSubCategories from "./admin/pages/SampleSubCategories";
+import AdminSampleTabFiles from "./admin/pages/SampleTabFiles";
+import AdminSampleFileEditor from "./admin/pages/SampleFileEditor";
 
 const queryClient = new QueryClient();
 
@@ -114,6 +115,7 @@ const App = () => (
                <Route path="/content-services/subject-matter-experts" element={<SubjectMatterExperts />} />
               <Route path="/content-services/accessibility" element={<AccessibilityServices />} />
               <Route path="/content-services/talent-assessment-workforce-evaluation" element={<TalentAssessmentWorkforceEvaluation />} />
+              <Route path="/content-services/editorial-publishing-designing-services" element={<EditorialPublishingDesigningServices />} />
 
               {/* Content Service — 39 Sub-Service Detail Pages (lazy-loaded) */}
               {contentServicesSubServiceRoutes.map(({ path, Component }) => (
@@ -143,11 +145,10 @@ const App = () => (
                 <Route path="case-studies/new" element={<AdminCaseStudyEditor />} />
                 <Route path="case-studies/:id" element={<AdminCaseStudyEditor />} />
                 <Route path="sample-categories" element={<AdminSampleCategories />} />
-                <Route path="sample-categories/new" element={<AdminSampleCategoryEditor />} />
-                <Route path="sample-categories/:id" element={<AdminSampleCategoryEditor />} />
-                <Route path="sample-categories/:categoryId/samples" element={<AdminCategorySamples />} />
-                <Route path="sample-categories/:categoryId/samples/new" element={<AdminSampleEditor />} />
-                <Route path="sample-categories/:categoryId/samples/:sampleId" element={<AdminSampleEditor />} />
+                <Route path="samples/:mainCategoryId" element={<AdminSampleSubCategories />} />
+                <Route path="samples/:mainCategoryId/:pageSlug" element={<AdminSampleTabFiles />} />
+                <Route path="samples/:mainCategoryId/:pageSlug/upload" element={<AdminSampleFileEditor />} />
+                <Route path="samples/:mainCategoryId/:pageSlug/:sampleId" element={<AdminSampleFileEditor />} />
               </Route>
 
               <Route path="*" element={<NotFound />} />

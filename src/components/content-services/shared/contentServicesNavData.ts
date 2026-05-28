@@ -6,7 +6,8 @@ import {
   Clapperboard, Video, MousePointerClick,
   Languages, Mic, Captions,
   HardDrive, Server,
-  UserCheck, ShieldCheck, type LucideIcon
+  UserCheck, ShieldCheck,
+  Edit, RefreshCw, Image, Tag, Palette, Printer, Settings, type LucideIcon
 } from "lucide-react";
 
 export interface SubServiceLink {
@@ -22,6 +23,7 @@ export interface ContentServicesCategory {
   href: string;
   icon: LucideIcon;
   image?: string;
+  imageAlt?: string;
   description?: string;
   subServices: SubServiceLink[];
 }
@@ -31,7 +33,8 @@ export const contentServicesCategories: ContentServicesCategory[] = [
     label: "Custom E-Learning Content",
     href: "/content-services/custom-e-learning-content",
     icon: BookOpen,
-    image: "/assets/dropdown/custom_e_learning.png",
+    image: "/assets/banners/content-services/main/custom-e-learning-content.png",
+    imageAlt: "Custom e-learning content development services by eQOURSE — K-12 curriculum, assessments, workbooks, STEM content and interactive digital learning modules",
     description: "Tailor-made e-learning modules, K12 curriculum, and engaging digital workbooks.",
     subServices: [
       {
@@ -80,7 +83,8 @@ export const contentServicesCategories: ContentServicesCategory[] = [
     label: "Exam Preparation Content",
     href: "/content-services/exam-preparation-content",
     icon: Pencil,
-    image: "/assets/dropdown/exam_prep.png",
+    image: "/assets/banners/content-services/main/exam-preparation-content.png",
+    imageAlt: "Exam preparation content services by eQOURSE — SAT, TOEFL, IELTS, ACT, AP, PTE, TOEIC and CEFR test prep materials with practice tests and study guides",
     description: "Comprehensive adaptive test prep materials for global standardized tests.",
     subServices: [
       {
@@ -125,7 +129,8 @@ export const contentServicesCategories: ContentServicesCategory[] = [
     label: "Learning Solutions",
     href: "/content-services/learning-solutions",
     icon: MonitorPlay,
-    image: "/assets/dropdown/learning_solutions.png",
+    image: "/assets/banners/content-services/main/learning-solutions.jpeg",
+    imageAlt: "Learning solutions by eQOURSE — instructor-led training, corporate e-learning, gamified learning, adaptive AI-powered modules and immersive AR/VR simulations",
     description: "Immersive AR/VR and AI-powered gamified learning environments.",
     subServices: [
       {
@@ -170,7 +175,8 @@ export const contentServicesCategories: ContentServicesCategory[] = [
     label: "E-Learning Video Solutions",
     href: "/content-services/elearning-video-solutions",
     icon: Clapperboard,
-    image: "/assets/dropdown/elearning_video.png",
+    image: "/assets/banners/content-services/main/elearning-video-solutions.jpeg",
+    imageAlt: "E-learning video solutions by eQOURSE — animated explainer videos, PPT-to-video conversion, Articulate Storyline interactive courses and motion graphics",
     description: "High-quality animated videos, kinetic typography, and PPT-to-video services.",
     subServices: [
       {
@@ -191,7 +197,8 @@ export const contentServicesCategories: ContentServicesCategory[] = [
     label: "Localization Services",
     href: "/content-services/localization-services",
     icon: Globe,
-    image: "/assets/dropdown/localization.png",
+    image: "/assets/banners/content-services/main/localization-services.png",
+    imageAlt: "Localization services by eQOURSE — professional translation, voice-over and subtitling in Hindi, English and 30+ languages for educational content",
     description: "Accurate translation, professional voiceovers, and subtitling for global reach.",
     subServices: [
       {
@@ -212,7 +219,8 @@ export const contentServicesCategories: ContentServicesCategory[] = [
     label: "Technology Solutions",
     href: "/content-services/technology-solutions",
     icon: Laptop,
-    image: "/assets/dropdown/technology_solutions.png",
+    image: "/assets/banners/content-services/main/technology-solutions.png",
+    imageAlt: "Educational technology solutions by eQOURSE — LMS course builds, SCORM and xAPI packaging, white-label LMS setup on Open edX and AWS",
     description: "Robust Learning Management Systems (LMS) and cloud-based architecture.",
     subServices: [
       {
@@ -229,7 +237,8 @@ export const contentServicesCategories: ContentServicesCategory[] = [
     label: "Subject Matter Experts",
     href: "/content-services/subject-matter-experts",
     icon: Users,
-    image: "/assets/dropdown/sme_recruitment.png",
+    image: "/assets/banners/content-services/main/subject-matter-experts.png",
+    imageAlt: "Subject matter expert services by eQOURSE — SME recruitment, tutor training and certification, and live online tutoring across 200+ specialists",
     description: "Top-tier global subject matter experts for tutoring, recruiting, and mentoring.",
     subServices: [
       {
@@ -250,7 +259,8 @@ export const contentServicesCategories: ContentServicesCategory[] = [
     label: "Accessibility",
     href: "/content-services/accessibility",
     icon: ShieldCheck,
-    image: "/assets/dropdown/custom_e_learning.png",
+    image: "/assets/banners/content-services/main/accessibility.png",
+    imageAlt: "Digital accessibility services by eQOURSE — WCAG compliance, document remediation, accessible media, assessment accessibility and assistive technology testing",
     description: "Digital accessibility services including standards compliance, remediation, and audit support.",
     subServices: [
       { label: "Standards Compliance", href: "/content-services/accessibility/standards-compliance", icon: ShieldCheck, serviceHighlights: ["WCAG Compliance", "Section 508", "EN 301 549", "EPUB 3 Accessibility"] },
@@ -265,7 +275,8 @@ export const contentServicesCategories: ContentServicesCategory[] = [
     label: "Talent Assessment & Workforce Evaluation",
     href: "/content-services/talent-assessment-workforce-evaluation",
     icon: Users,
-    image: "/assets/dropdown/talent_assessment.png",
+    image: "/assets/banners/content-services/main/talent-assessment-workforce-evaluation.png",
+    imageAlt: "Talent assessment and workforce evaluation services by eQOURSE — psychometric assessments, skill testing, competency frameworks and organizational diagnostics",
     description: "Build validated, structured and professionally developed assessment solutions across workforce, education and certification contexts.",
     subServices: [
       {
@@ -312,5 +323,63 @@ export const contentServicesCategories: ContentServicesCategory[] = [
       },
     ],
   },
+  {
+    label: "Editorial, Publishing & Designing Services",
+    href: "/content-services/editorial-publishing-designing-services",
+    icon: Edit,
+    description: "Editorial, publishing production, digital conversion, metadata, design, prepress and production support for global learning content.",
+    subServices: [
+      {
+        label: "Editorial Services",
+        href: "/content-services/editorial-publishing-designing-services/editorial-services",
+        icon: FileText,
+        serviceHighlights: ["Copy Editing", "Proofreading", "Substantive Editing", "Developmental Editing", "Technical Editing", "Style Guide Application"],
+      },
+      {
+        label: "Publishing Production",
+        href: "/content-services/editorial-publishing-designing-services/publishing-production",
+        icon: BookOpen,
+        serviceHighlights: ["Typesetting & Page Composition", "Template Design", "Indexing Services", "Proof Review Support", "Version Control", "Production Handover"],
+      },
+      {
+        label: "Digital Conversion",
+        href: "/content-services/editorial-publishing-designing-services/digital-conversion",
+        icon: RefreshCw,
+        serviceHighlights: ["Digitisation & OCR", "XML Conversion", "HTML Conversion", "EPUB Conversion", "PDF to EPUB", "LaTeX Conversion", "MathML Conversion"],
+      },
+      {
+        label: "Image Processing",
+        href: "/content-services/editorial-publishing-designing-services/image-processing",
+        icon: Image,
+        serviceHighlights: ["Image Restoration & Enhancement", "Image Cleanup & Optimisation", "Cropping & Resizing", "Alt Text Coordination", "Asset Folder Organisation"],
+      },
+      {
+        label: "Metadata Services",
+        href: "/content-services/editorial-publishing-designing-services/metadata-services",
+        icon: Tag,
+        serviceHighlights: ["Metadata Tagging", "Content Structuring", "DOI Metadata Preparation", "ONIX Metadata Support", "MARC Records", "Crossref Metadata", "Accessibility Metadata"],
+      },
+      {
+        label: "Design Services",
+        href: "/content-services/editorial-publishing-designing-services/design-services",
+        icon: Palette,
+        serviceHighlights: ["Cover Design", "Page Layout Design", "Workbook & Worksheet Design", "Journal Layout", "Infographic Design", "Brand-Aligned Layouts"],
+      },
+      {
+        label: "Prepress Services",
+        href: "/content-services/editorial-publishing-designing-services/prepress-services",
+        icon: Printer,
+        serviceHighlights: ["Preflight Checks", "Colour Correction", "Bleed & Margin Review", "Print-Ready File Preparation", "Pagination Checks", "Font Consistency"],
+      },
+      {
+        label: "Production Support",
+        href: "/content-services/editorial-publishing-designing-services/production-support",
+        icon: Settings,
+        serviceHighlights: ["Print Vendor Coordination", "Large-Volume Workflow Support", "Print Specification Sheets", "Change Management", "Asset Packaging", "Cross-Team Coordination"],
+      },
+    ],
+  },
 ];
+
+
 

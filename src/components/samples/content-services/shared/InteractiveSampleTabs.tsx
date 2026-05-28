@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Download, Eye, FileText, Play, Sparkles, ChevronRight } from "lucide-react";
 import type { ContentServicesSample } from "../content servicesSamplesData";
 import { PreviewFilesModal, type PreviewFile } from "../../shared/PreviewFilesModal";
+import { fetchSampleFiles } from "@/lib/publicApi";
 import {
   CharacterAnimationThumb,
   ThreeDConceptThumb,
@@ -24,33 +25,32 @@ const isVideoKind = (k: ContentServicesSample["kind"]) =>
 const InteractiveSampleTabs = ({ sample }: Props) => {
   const [active, setActive] = useState(0);
   const [showPreview, setShowPreview] = useState(false);
+  const [apiFiles, setApiFiles] = useState<PreviewFile[] | null>(null);
+  const [loading, setLoading] = useState(false);
+  
   const accent = `hsl(${sample.accentHsl})`;
   const accentSoft = `hsl(${sample.accentHsl} / 0.12)`;
   const accentBorder = `hsl(${sample.accentHsl} / 0.35)`;
   const isVideo = isVideoKind(sample.kind);
 
   const activeTabName = sample.tabs[active];
-  let currentPreviewFiles = sample.previewFiles?.[activeTabName] || [];
 
-  if (currentPreviewFiles.length === 0) {
-    if (isVideo) {
-      currentPreviewFiles = Array.from({ length: 25 }).map((_, i) => ({
-        title: `${activeTabName} Demo Video ${i + 1}`,
-        description: `A sample 1080p export demonstrating ${activeTabName.toLowerCase()} capabilities with full annotations.`,
-        fileType: i % 3 === 0 ? "ZIP" : "MP4",
-        fileUrl: "#",
-        isExternal: false
-      }));
-    } else {
-      currentPreviewFiles = Array.from({ length: 25 }).map((_, i) => ({
-        title: `${activeTabName} - Sample Document ${i + 1}`,
-        description: `Comprehensive sample for ${activeTabName.toLowerCase()} showcasing formatting and editorial standards.`,
-        fileType: i % 2 === 0 ? "PDF" : "DOCX",
-        fileUrl: "#",
-        isExternal: i % 2 === 0
-      }));
-    }
-  }
+  useEffect(() => {
+    let activeRequest = true;
+    setLoading(true);
+    fetchSampleFiles(sample.slug, activeTabName).then((res) => {
+      if (!activeRequest) return;
+      setApiFiles(res);
+      setLoading(false);
+    });
+    return () => {
+      activeRequest = false;
+    };
+  }, [sample.slug, activeTabName]);
+
+  // Determine files list: API-first, then static. No fake fallback.
+  const currentPreviewFiles = apiFiles && apiFiles.length > 0 ? apiFiles : (sample.previewFiles?.[activeTabName] || []);
+
 
   return (
     <section id="samples" className="relative py-20 bg-background overflow-hidden">

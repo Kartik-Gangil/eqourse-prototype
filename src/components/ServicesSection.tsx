@@ -291,21 +291,21 @@ const educationServices = [
     icon: Package,
     title: "White-Label Solutions",
     description: "Confidential content production partnerships, scalable learning development pipelines, branded curriculum delivery frameworks, publishing support services, assessment development support, multilingual learning assets, and enterprise-grade backend production capacity for Content Services platforms and publishers.",
-    link: "#",
+    link: "/contact",
     accent: "from-accent/20 to-primary/15",
   },
   {
     icon: Users,
     title: "Domain Expert Services",
     description: "SME sourcing, curriculum alignment expertise, assessment authoring panels, psychometric validation support, research manuscript review, taxonomy development, ontology structuring, annotation validation workflows, technical verification support, and subject-matter expertise across academic and professional domains.",
-    link: "#",
+    link: "/content-services/subject-matter-experts",
     accent: "from-primary/20 to-accent/10",
   },
   {
     icon: FileEdit,
     title: "Editorial & Publishing Services",
     description: "Copy editing, proofreading, XML-first publishing workflows, EPUB conversion, metadata structuring, ONIX and CrossRef metadata support, typesetting, textbook layout design, accessibility layout remediation, print-ready production support, and large-scale publishing workflow optimization.",
-    link: "#",
+    link: "/content-services/editorial-publishing-designing-services",
     accent: "from-accent/15 to-primary/20",
   },
 ];
@@ -415,15 +415,9 @@ const ServicesSection = ({ activeTab = "education", onTabChange }: ServicesSecti
                     <h3 className="font-heading text-lg sm:text-xl font-bold text-foreground mb-2">{service.title}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
                   </div>
-                  {service.link === "#" ? (
-                    <span className="inline-flex items-center text-sm font-semibold text-primary gap-2 mt-4 sm:mt-6 cursor-default opacity-60 select-none">
-                      Learn More <ArrowRight className="w-4 h-4" />
-                    </span>
-                  ) : (
-                    <Link to={service.link} className="inline-flex items-center text-sm font-semibold text-primary hover:gap-3 gap-2 transition-all mt-4 sm:mt-6 group/link">
-                      Learn More <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                    </Link>
-                  )}
+                  <Link to={service.link} className="inline-flex items-center text-sm font-semibold text-primary hover:gap-3 gap-2 transition-all mt-4 sm:mt-6 group/link">
+                    Learn More <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                  </Link>
                 </div>
               </div>
             );

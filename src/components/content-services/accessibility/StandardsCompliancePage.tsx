@@ -18,6 +18,8 @@ const StandardsCompliancePage = () => (
     parentLabel="Accessibility"
     parentHref="/content-services/accessibility"
     currentLabel="Standards Compliance"
+    bannerImage="/assets/banners/content-services/accessibility/standards-compliance.png"
+    bannerImageAlt="Accessibility standards compliance services banner illustrating WCAG 2.1 and 2.2, Section 508, EN 301 549 and EPUB 3 alignment for digital learning content by eQOURSE"
     preHeadline="Accessibility Standards Compliance"
     headline="Standards Compliance for"
     headlineAccent="Digital Learning Content"

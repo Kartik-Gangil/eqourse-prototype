@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, Shield } from "lucide-react";
+import eqourseLogoLight from "@/assets/eqourse-logo-light.png";
 import linkedIn3D from "@/assets/3d_linkedin_logo.png";
 import facebook3D from "@/assets/3d_facebook_logo.png";
 import instagram3D from "@/assets/3d_instagram_logo.png";
@@ -57,8 +58,13 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-8">
           {/* ── Brand Column ── */}
           <div className="lg:col-span-2 space-y-4">
-            <Link to="/" className="font-heading text-2xl font-extrabold text-gradient">eQOURSE</Link>
-            <p className="text-xs italic mb-1" style={{ color: "hsl(242, 20%, 55%)" }}>Delivering Operational Excellence</p>
+            <Link to="/" className="inline-block">
+              <img 
+                src={eqourseLogoLight} 
+                alt="eQOURSE Logo - Professional AI Data and Content Services" 
+                className="h-10 sm:h-12 w-auto object-contain" 
+              />
+            </Link>
             <p className="text-sm leading-relaxed" style={linkColor}>
               eQOURSE partners with education companies and AI builders worldwide. We design digital learning content, create production-grade AI training datasets, and test AI models in real-world environments — all powered by 500+ domain experts.
             </p>

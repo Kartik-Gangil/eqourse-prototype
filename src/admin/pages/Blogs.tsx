@@ -78,7 +78,13 @@ export default function Blogs() {
                 <TableRow key={b.id} className="hover:bg-muted/40">
                   <TableCell>
                     <div className="w-14 h-10 rounded-md bg-muted overflow-hidden">
-                      {b.coverImageUrl && <img src={b.coverImageUrl} alt="" className="w-full h-full object-cover" />}
+                      {b.coverImageUrl && (
+                        <img 
+                          src={b.coverImageUrl.startsWith("/") ? `${import.meta.env.VITE_API_BASE_URL || ""}${b.coverImageUrl}` : b.coverImageUrl} 
+                          alt="" 
+                          className="w-full h-full object-cover" 
+                        />
+                      )}
                     </div>
                   </TableCell>
                   <TableCell>

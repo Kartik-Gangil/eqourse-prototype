@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 // ── Industry data with images ────────────────────────────────────────────────
 const industries = [
@@ -369,6 +370,28 @@ const IndustriesSection = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
             Swipe to explore
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-10 sm:mt-14 text-center">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              to="/content-services"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm transition-all hover:scale-105"
+              style={{ background: "rgba(99,102,241,0.15)", color: "#818cf8", border: "1px solid rgba(99,102,241,0.3)" }}
+            >
+              Explore Content Services
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </Link>
+            <Link
+              to="/ai-data-services"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm transition-all hover:scale-105"
+              style={{ background: "rgba(20,184,166,0.15)", color: "hsl(170,82%,55%)", border: "1px solid rgba(20,184,166,0.3)" }}
+            >
+              Explore AI Data Services
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </Link>
           </div>
         </div>
       </div>

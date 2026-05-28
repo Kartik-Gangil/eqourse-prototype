@@ -10,6 +10,9 @@ export interface BlogPost {
   sections?: { title: string; level: 'h2' | 'h3' }[];
   internalLinks?: string[];
   keywords?: string[];
+  coverImageUrl?: string;
+  body?: string;
+  bodyFormat?: 'html' | 'markdown';
 }
 
 export const blogsData: BlogPost[] = [

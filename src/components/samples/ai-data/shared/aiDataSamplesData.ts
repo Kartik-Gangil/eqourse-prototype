@@ -160,6 +160,7 @@ export const aiDataSamples: AiDataSample[] = [
       "Bounding box, segmentation, polygon, keypoint and 3D cuboid annotation delivered in COCO JSON.",
     showcases: [
       {
+        id: "bbox",
         title: "Bounding Box Annotation",
         teaser: "Identify and locate objects with precise rectangular boxes.",
         description:
@@ -173,6 +174,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "semantic",
         title: "Semantic Segmentation",
         teaser: "Classify every pixel in an image into predefined categories.",
         description:
@@ -186,6 +188,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "instance",
         title: "Instance Segmentation",
         teaser: "Isolate and identify individual objects with polygon masks.",
         description:
@@ -199,6 +202,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "keypoint",
         title: "Keypoint Detection",
         teaser: "Map skeletal structures and facial landmarks with pinpoint accuracy.",
         description:
@@ -212,6 +216,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "cuboid",
         title: "3D Cuboid Annotation",
         teaser: "Estimate depth, rotation, and dimensions in 3D space.",
         description:
@@ -430,6 +435,7 @@ export const aiDataSamples: AiDataSample[] = [
       "Text, audio, image and video collection samples across 30+ languages with documented consent and metadata.",
     showcases: [
       {
+        id: "text-collection",
         title: "Text Collection Samples",
         teaser: "Sourced conversational text with rich demographic metadata.",
         description:
@@ -443,6 +449,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "audio-collection",
         title: "Audio Collection Samples",
         teaser: "Field-recorded speech across diverse demographics and environments.",
         description:
@@ -456,6 +463,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "image-collection",
         title: "Image Collection Samples",
         teaser: "Diverse visual data sourced globally with full legal compliance.",
         description:
@@ -469,6 +477,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "video-collection",
         title: "Video Collection Samples",
         teaser: "Real-world video scenarios captured with calibrated sensors.",
         description:
@@ -513,6 +522,7 @@ export const aiDataSamples: AiDataSample[] = [
       "Before / after samples for deduplication, noise removal, PII redaction, and gold-standard validation with full audit trails.",
     showcases: [
       {
+        id: "dedup",
         title: "Text Deduplication: Before / After",
         teaser: "Remove redundant data to improve model training efficiency.",
         description:
@@ -526,6 +536,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "pii",
         title: "PII Redaction: Before / After",
         teaser: "Safeguard privacy by anonymizing sensitive personal information.",
         description:
@@ -539,6 +550,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "audio-filter",
         title: "Audio Quality Filtering: Before / After",
         teaser: "Ensure only the highest fidelity audio reaches your models.",
         description:
@@ -552,6 +564,7 @@ export const aiDataSamples: AiDataSample[] = [
         ],
       },
       {
+        id: "validation",
         title: "Gold-Standard Validation Report",
         teaser: "Benchmark your datasets against rigorously verified ground truth.",
         description:

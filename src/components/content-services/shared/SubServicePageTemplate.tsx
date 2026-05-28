@@ -38,6 +38,10 @@ export interface SubServicePageProps {
   subtext: string;
   ctaText?: string;
   ctaLink?: string;
+  /** Optional banner image (fills the hero box — no side gaps). */
+  bannerImage?: string;
+  /** SEO-optimized alt text for the banner. Strongly recommended when bannerImage is set. */
+  bannerImageAlt?: string;
 
   /* Intro narrative */
   introLabel: string;
@@ -193,6 +197,8 @@ const SubServicePageTemplate = (props: SubServicePageProps) => {
         subtext={props.subtext}
         ctaText={props.ctaText || "Get Free Consultation"}
         ctaLink={props.ctaLink || "#contact"}
+        imageSrc={props.bannerImage}
+        imageAlt={props.bannerImageAlt}
       />
 
       <IntroNarrative

@@ -1,20 +1,43 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Loader2, CheckCircle } from "lucide-react";
+import { Loader2, CheckCircle, AlertCircle } from "lucide-react";
+import { submitContactForm } from "@/lib/publicApi";
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setError(null);
+
+    const form = e.currentTarget;
+    const get = (id: string) => (form.querySelector(`#${id}`) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement)?.value ?? "";
+
+    const result = await submitContactForm({
+      name: get("fullName"),
+      email: get("email"),
+      phone: get("phone"),
+      phone_code: (form.querySelector("select:first-of-type") as HTMLSelectElement)?.value ?? "+91",
+      company: get("company"),
+      designation: get("designation"),
+      subject: get("interest"),
+      message: get("message"),
+      source: get("source"),
+      preferredDate: get("date"),
+      preferredTime: get("time"),
+    });
+
+    setIsSubmitting(false);
+    if (result.ok) {
       setIsSuccess(true);
-    }, 1500);
+    } else {
+      setError(result.error);
+    }
   };
+
 
   if (isSuccess) {
     return (
@@ -212,6 +235,13 @@ const ContactForm = () => {
           <option value="Other">Other</option>
         </select>
       </div>
+
+      {error && (
+        <div className="flex items-center gap-2 p-3 rounded-lg bg-destructive/10 text-destructive text-sm animate-fade-in-up">
+          <AlertCircle className="w-4 h-4 flex-shrink-0" />
+          <span>{error}</span>
+        </div>
+      )}
 
       <Button 
         type="submit" 

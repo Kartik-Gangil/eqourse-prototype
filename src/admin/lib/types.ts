@@ -76,6 +76,7 @@ export interface CaseStudy {
   results: string;
   metrics: { label: string; value: string }[];
   tags: string[];
+  relatedLinks?: { label: string; href: string }[];
   bodyFormat: "html" | "markdown";
   seo: { title?: string; description?: string; ogImageUrl?: string };
   status: PublishStatus;
@@ -106,6 +107,10 @@ export interface Sample {
   fileUrl: string;
   fileSize?: number;
   order: number;
+  pageSlug?: string;
+  tabName?: string;
+  fileType?: string;
+  isExternal?: boolean;
   createdAt: string;
   updatedAt: string;
 }

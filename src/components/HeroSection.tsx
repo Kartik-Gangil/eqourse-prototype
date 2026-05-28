@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { ArrowRight, Play, Database, Brain, Sparkles, Star, BookOpen, Bot, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-image.jpg";
 
 const slides = [
@@ -9,7 +10,7 @@ const slides = [
     headline: "Partnering with Content Services Leaders to",
     highlightedText: "Design and Create Top Quality E-Learning Content",
     cta: "Explore Content Service",
-    ctaLink: "#services",
+    ctaLink: "/content-services",
     icon: Sparkles,
   },
   {
@@ -17,7 +18,7 @@ const slides = [
     headline: "High-Quality Training Data for",
     highlightedText: "AI That Works in Production",
     cta: "Explore AI Data Services",
-    ctaLink: "#ai-services",
+    ctaLink: "/ai-data-services",
     icon: Database,
   },
   {
@@ -25,7 +26,7 @@ const slides = [
     headline: "Don't Just Train Your AI.",
     highlightedText: "Test It on Reality.",
     cta: "Learn About Model Testing",
-    ctaLink: "#pipeline",
+    ctaLink: "/ai-data-services/model-testing",
     icon: Brain,
   },
   {
@@ -33,7 +34,7 @@ const slides = [
     headline: "From Education Content to AI Training Data,",
     highlightedText: "One Partner",
     cta: "See All Services",
-    ctaLink: "#services",
+    ctaLink: "/content-services",
     icon: Sparkles,
   },
 ];
@@ -194,9 +195,9 @@ const HeroSection = () => {
                 className="bg-gradient-primary border-0 text-primary-foreground shadow-soft hover:opacity-90 transition-all hover:scale-105 px-8"
                 asChild
               >
-                <a href={slide.ctaLink}>
+                <Link to={slide.ctaLink}>
                   {slide.cta} <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
+                </Link>
               </Button>
 
               {/* Slide indicators inline next to CTA for better balance */}
@@ -412,8 +413,11 @@ const HeroSection = () => {
               className="absolute left-1/2 -translate-x-1/2 bottom-0 flex flex-col items-center gap-3 pointer-events-auto"
               aria-label="Jump to services section"
             >
-              <button
-                type="button"
+              <a
+                href="https://www.youtube.com/@eqourse"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Watch eQOURSE on YouTube"
                 className="group flex items-center gap-2.5 px-5 py-2 rounded-full text-white text-sm font-semibold
                            border border-white/20 hover:border-white/40 transition-all hover:scale-[1.03]
                            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
@@ -431,7 +435,7 @@ const HeroSection = () => {
                   <Play className="w-3 h-3 text-white fill-white" />
                 </span>
                 <span className="tracking-wide">Watch Video</span>
-              </button>
+              </a>
 
               <a
                 href="#services"
@@ -487,8 +491,11 @@ const HeroSection = () => {
               className="flex flex-col items-center gap-3"
               aria-label="Jump to services section"
             >
-              <button
-                type="button"
+              <a
+                href="https://www.youtube.com/@eqourse"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Watch eQOURSE on YouTube"
                 className="group flex items-center gap-2.5 px-5 py-2 rounded-full text-white text-sm font-semibold
                            border border-white/20 hover:border-white/40 transition-all hover:scale-[1.03]
                            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
@@ -506,7 +513,7 @@ const HeroSection = () => {
                   <Play className="w-3 h-3 text-white fill-white" />
                 </span>
                 <span className="tracking-wide">Watch Video</span>
-              </button>
+              </a>
 
               <a
                 href="#services"

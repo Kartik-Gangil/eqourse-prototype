@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const testimonials = [
   {
@@ -95,6 +96,14 @@ const TestimonialsSection = () => {
             <button onClick={next} className="w-10 h-10 rounded-full bg-card border border-border shadow-card flex items-center justify-center hover:bg-primary/5 transition-colors">
               <ChevronRight className="w-5 h-5 text-foreground" />
             </button>
+          </div>
+          <div className="mt-6 text-center">
+            <Link
+              to="/clients-testimonials"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+            >
+              View All Testimonials <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </div>

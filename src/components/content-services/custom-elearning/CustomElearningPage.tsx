@@ -37,6 +37,8 @@ const CustomElearningPage = () => (
       subtext="Expertly crafted educational materials aligned with curriculum standards, integrating multimedia and interactive tools to build robust learner engagement."
       ctaText="Start Your Free Pilot"
       ctaLink="/free-pilot"
+      imageSrc="/assets/banners/content-services/main/custom-e-learning-content.png"
+      imageAlt="Custom e-learning content development services by eQOURSE — K-12 curriculum, assessments, workbooks, STEM content, interactive eBooks and 2D/3D educational videos"
     />
 
     <ServiceNarrativeSection

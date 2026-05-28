@@ -33,6 +33,8 @@ const VideoSolutionsPage = () => (
       subtext="Transform complex concepts into engaging visual learning experiences with our professional video production services. Scale visual knowledge transfer effectively."
       ctaText="Request Video Samples"
       ctaLink="#contact"
+      imageSrc="/assets/banners/content-services/main/elearning-video-solutions.jpeg"
+      imageAlt="E-learning video solutions by eQOURSE — animated explainer videos, PPT-to-video conversion, Articulate Storyline interactive courses and whiteboard animations"
     />
 
     <ServiceNarrativeSection

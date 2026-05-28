@@ -58,7 +58,11 @@ const BlogCard = ({ blog, featured = false }: BlogCardProps) => {
     return (
       <Link to={blog.slug} className="group relative rounded-3xl overflow-hidden min-h-[420px] md:min-h-[500px] flex items-end neon-card block">
         <div className="absolute inset-0 z-0">
-          {generateAbstractPattern(blog.id, blog.thumbnailColor)}
+          {blog.coverImageUrl ? (
+            <img src={blog.coverImageUrl} alt={blog.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          ) : (
+            generateAbstractPattern(blog.id, blog.thumbnailColor)
+          )}
           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/40 to-transparent z-10" />
@@ -101,7 +105,11 @@ const BlogCard = ({ blog, featured = false }: BlogCardProps) => {
       {/* Thumbnail Container */}
       <div className="relative h-48 md:h-56 w-full overflow-hidden flex-shrink-0">
         <div className="absolute inset-0 z-0 group-hover:scale-110 transition-transform duration-700">
-          {generateAbstractPattern(blog.id, blog.thumbnailColor)}
+          {blog.coverImageUrl ? (
+            <img src={blog.coverImageUrl} alt={blog.title} className="w-full h-full object-cover" />
+          ) : (
+            generateAbstractPattern(blog.id, blog.thumbnailColor)
+          )}
         </div>
         
         {/* Category Badge */}
