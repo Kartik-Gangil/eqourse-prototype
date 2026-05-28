@@ -59,6 +59,8 @@ const ModelTestingPage = () => (
       subtext="Closed-loop testing pipeline with real users via TuTrain. A/B testing, dialect audits, and edge case discovery for 20-40% faster model improvement."
       ctaText="Start Testing"
       ctaLink="/free-pilot"
+      imageSrc="/assets/ai-data/model testing.png"
+      imageAlt="Rigorous diagnostic testing and validation for AI neural networks"
     />
 
     <ServiceNarrativeSection

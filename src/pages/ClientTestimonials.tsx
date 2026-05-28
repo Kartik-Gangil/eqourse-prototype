@@ -34,6 +34,8 @@ const ClientTestimonials = () => {
         subtext="At eQOURSE, we are proud to have worked with 200+ clients across Content Services and AI sectors, delivering scalable e-learning solutions and production-grade AI training data. From K-12 content and SAT preparation to multilingual data annotation and real-world model testing — our clients consistently share positive feedback about their experience with us."
         ctaText="View Reviews"
         ctaLink="#reviews"
+        imageSrc="/assets/about/Testiominal.png"
+        imageAlt="Satisfied eQOURSE global clients and partners"
       />
       
       <TestimonialsGrid />

@@ -57,6 +57,8 @@ const CleaningPage = () => (
       subtext="Deduplication, PII redaction, noise removal, and multi-tier validation pipelines. 98%+ accuracy guaranteed with full GDPR compliance."
       ctaText="Get Cleaning Quote"
       ctaLink="/free-pilot"
+      imageSrc="/assets/ai-data/Cleaning and validation.png"
+      imageAlt="Data cleaning, validation, and impurity cleansing services"
     />
 
     <ServiceNarrativeSection

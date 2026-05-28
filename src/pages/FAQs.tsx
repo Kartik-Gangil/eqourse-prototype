@@ -34,6 +34,8 @@ const FAQs = () => {
         subtext="Find answers to common questions about our Content Services, AI data services, content development process, data annotation quality, scaling options, and more. Whether you're an education company, Content Services platform, or AI team, we aim to provide comprehensive support tailored to your needs."
         ctaText="View FAQs"
         ctaLink="#faq-accordion"
+        imageSrc="/assets/about/FAQ.png"
+        imageAlt="eQOURSE customer support and frequently asked questions"
       />
       
       <div id="faq-accordion">

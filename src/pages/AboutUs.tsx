@@ -97,6 +97,8 @@ const AboutUs = () => {
         subtext="Content Service and AI Data Services."
         ctaText="Explore Services"
         ctaLink="#who-we-are"
+        imageSrc="/assets/about/Who we are (A).png"
+        imageAlt="eQOURSE team working collaboratively on AI data and content services"
       />
       
       <div id="who-we-are">

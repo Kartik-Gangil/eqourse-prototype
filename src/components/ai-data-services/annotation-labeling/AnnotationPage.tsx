@@ -57,6 +57,8 @@ const AnnotationPage = () => (
       subtext="NLP, Computer Vision, Audio, and RLHF labeling with inter-annotator agreement >= 0.80. Multi-tier QA ensures 98%+ accuracy on every project."
       ctaText="Get Annotation Quote"
       ctaLink="/free-pilot"
+      imageSrc="/assets/ai-data/Annotation and Labeling.png"
+      imageAlt="Expert data annotation and labeling for machine learning models"
     />
 
     <ServiceNarrativeSection

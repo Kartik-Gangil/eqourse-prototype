@@ -59,6 +59,8 @@ const DataCollectionPage = () => (
       subtext="Multi-modal data collection across text, audio, image, and video. 30+ languages, domain-specific sourcing, and rigorous quality controls from day one."
       ctaText="Start Free Pilot"
       ctaLink="/free-pilot"
+      imageSrc="/assets/ai-data/Data Collection V2.png"
+      imageAlt="Global scale AI data collection and aggregation services"
     />
 
     <ServiceNarrativeSection

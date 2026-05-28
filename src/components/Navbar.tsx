@@ -11,6 +11,7 @@ interface SubLink {
   label: string;
   to: string;
   image?: string;
+  imageAlt?: string;
   description?: string;
 }
 
@@ -24,17 +25,17 @@ interface MainLink {
 }
 
 const aiDataSubLinks: SubLink[] = [
-  { label: "Data Collection", to: "/ai-data-services/data-collection", image: "/assets/dropdown/data_collection.png", description: "Global scale secure data collection for accurate models." },
-  { label: "Annotation & Labeling", to: "/ai-data-services/annotation-labeling", image: "/assets/dropdown/annotation.png", description: "Expert labeling with bounding boxes and polygons." },
-  { label: "Cleaning & Validation", to: "/ai-data-services/cleaning-validation", image: "/assets/dropdown/cleaning.png", description: "Data stream validation & impurity cleansing." },
-  { label: "Model Testing", to: "/ai-data-services/model-testing", image: "/assets/dropdown/model_testing.png", description: "Rigorous diagnostic testing for AI neural networks." },
+  { label: "Data Collection", to: "/ai-data-services/data-collection", image: "/assets/ai-data/Data Collection V2.png", imageAlt: "Global scale AI data collection and aggregation services", description: "Global scale secure data collection for accurate models." },
+  { label: "Annotation & Labeling", to: "/ai-data-services/annotation-labeling", image: "/assets/ai-data/Annotation and Labeling.png", imageAlt: "Expert data annotation and labeling for machine learning models", description: "Expert labeling with bounding boxes and polygons." },
+  { label: "Cleaning & Validation", to: "/ai-data-services/cleaning-validation", image: "/assets/ai-data/Cleaning and validation.png", imageAlt: "Data cleaning, validation, and impurity cleansing services", description: "Data stream validation & impurity cleansing." },
+  { label: "Model Testing", to: "/ai-data-services/model-testing", image: "/assets/ai-data/model testing.png", imageAlt: "Rigorous diagnostic testing and validation for AI neural networks", description: "Rigorous diagnostic testing for AI neural networks." },
 ];
 
 const aboutUsSubLinks: SubLink[] = [
-  { label: "Who We Are", to: "/aboutus", image: "/assets/dropdown/who_we_are.png", description: "Learn about our mission, vision and dynamic content services team." },
-  { label: "Testimonials", to: "/clients-testimonials", image: "/assets/dropdown/testimonials.png", description: "Hear what our global clients say about our services." },
-  { label: "Careers", to: "/career", image: "/assets/dropdown/careers.png", description: "Join our growing team and shape the future of AI & Content Services." },
-  { label: "FAQs", to: "/faq", image: "/assets/dropdown/faqs.png", description: "Got questions? We've got answers for all your queries." },
+  { label: "Who We Are", to: "/aboutus", image: "/assets/about/Who we are (A).png", imageAlt: "eQOURSE team working collaboratively on AI data and content services", description: "Learn about our mission, vision and dynamic content services team." },
+  { label: "Testimonials", to: "/clients-testimonials", image: "/assets/about/Testiominal.png", imageAlt: "Satisfied eQOURSE global clients and partners", description: "Hear what our global clients say about our services." },
+  { label: "Careers", to: "/career", image: "/assets/about/Carrer.png", imageAlt: "Careers at eQOURSE - Professionals collaborating on education and AI solutions", description: "Join our growing team and shape the future of AI & Content Services." },
+  { label: "FAQs", to: "/faq", image: "/assets/about/FAQ.png", imageAlt: "eQOURSE customer support and frequently asked questions", description: "Got questions? We've got answers for all your queries." },
 ];
 
 const contentServicesSubLinks: SubLink[] = contentServicesCategories.map(c => ({
@@ -519,7 +520,7 @@ const ImageHoverMegaMenu = ({ link, onClose }: { link: MainLink; onClose: () => 
             <div className="flex flex-col h-full animate-fade-in group" key={currentSub.label}>
               <div className="relative w-full h-[200px] rounded-2xl overflow-hidden mb-6 shadow-md border border-border/30">
                 {currentSub.image ? (
-                  <img src={currentSub.image} alt={currentSub.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img src={currentSub.image} alt={currentSub.imageAlt || currentSub.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 ) : (
                   <div className="w-full h-full bg-secondary/50 flex items-center justify-center text-sm">No Image</div>
                 )}
