@@ -196,7 +196,7 @@ export default function ContactQueries() {
                   <TableCell className="font-medium">{q.name}</TableCell>
                   <TableCell className="text-sm">{q.email}</TableCell>
                   <TableCell className="text-sm max-w-[260px] truncate">{q.subject}</TableCell>
-                  <TableCell className="text-sm">{q.company ?? "—"}</TableCell>
+                  <TableCell className="text-sm">{q.company ?? "-"}</TableCell>
                   <TableCell>
                     {q.attachment ? (
                       <Button
@@ -211,7 +211,7 @@ export default function ContactQueries() {
                         {q.attachment.originalName.slice(0, 18)}
                       </Button>
                     ) : (
-                      <span className="text-muted-foreground text-sm">—</span>
+                      <span className="text-muted-foreground text-sm">-</span>
                     )}
                   </TableCell>
                   <TableCell>
@@ -249,9 +249,9 @@ export default function ContactQueries() {
                 <div className="grid grid-cols-2 gap-4">
                   <Field label="Name" value={selected.name} />
                   <Field label="Email" value={selected.email} />
-                  <Field label="Phone" value={selected.phone ?? "—"} />
-                  <Field label="Company" value={selected.company ?? "—"} />
-                  <Field label="Source" value={selected.source ?? "—"} />
+                  <Field label="Phone" value={selected.phone ?? "-"} />
+                  <Field label="Company" value={selected.company ?? "-"} />
+                  <Field label="Source" value={selected.source ?? "-"} />
                 </div>
 
                 <div>

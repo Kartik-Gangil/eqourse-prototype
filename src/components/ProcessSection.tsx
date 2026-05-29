@@ -41,7 +41,7 @@ const ProcessSection = () => {
             How We <span className="text-gradient">Work</span>
           </h2>
           <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
-            A structured, transparent workflow that ensures quality at every step — from initial requirement to final delivery.
+            A structured, transparent workflow that ensures quality at every step - from initial requirement to final delivery.
           </p>
         </div>
 
@@ -73,7 +73,7 @@ const ProcessSection = () => {
           </div>
         </div>
 
-        {/* Process content — both rendered for SEO, visibility toggled */}
+        {/* Process content - both rendered for SEO, visibility toggled */}
         <div className="process-section-toggle">
           {/* Education Process */}
           <div
@@ -157,7 +157,7 @@ const ProcessTimeline = ({ steps, loopLabel }: { steps: Step[]; loopLabel: strin
       {/* Mobile: Vertical timeline */}
       <div className="lg:hidden">
         <div className="relative pl-[72px]">
-          {/* Vertical line — centered under the icons */}
+          {/* Vertical line - centered under the icons */}
           <div className="absolute left-[28px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/40 via-primary/20 to-primary/40" />
 
           {steps.map((step, i) => {

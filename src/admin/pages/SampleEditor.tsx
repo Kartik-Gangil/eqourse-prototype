@@ -171,7 +171,7 @@ export default function SampleEditor() {
         <div>
           <Label>Title *</Label>
           <Input value={form.title} onChange={(e) => setField("title", e.target.value)}
-            placeholder="Math Course Book — Grade 2" />
+            placeholder="Math Course Book - Grade 2" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

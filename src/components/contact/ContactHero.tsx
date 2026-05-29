@@ -28,7 +28,7 @@ const ContactHero = () => {
           </div>
 
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white mb-6 drop-shadow-md">
-            Get in Touch — Let's Build Something Great Together
+            Get in Touch - Let's Build Something Great Together
           </h1>
 
           <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto drop-shadow-sm font-medium mb-10">

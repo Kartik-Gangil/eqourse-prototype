@@ -11,7 +11,7 @@ const faqs = [
   {
     question: "What types of clients can use eQOURSE editorial and publishing services?",
     answer:
-      "eQOURSE supports education publishers, EdTech companies, schools, universities, training providers, corporate learning teams and organisations managing large learning-content portfolios — for curriculum content, assessments, instructor resources, digital assets, training material and publication workflows.",
+      "eQOURSE supports education publishers, EdTech companies, schools, universities, training providers, corporate learning teams and organisations managing large learning-content portfolios - for curriculum content, assessments, instructor resources, digital assets, training material and publication workflows.",
   },
   {
     question: "Does eQOURSE provide both editorial and production support?",
@@ -53,7 +53,7 @@ const EditorialPublishingPage = () => (
       preHeadline="✦ Editorial, Publishing & Designing Services"
       headline="Editorial Services for"
       headlineAccent="Global Learning Content"
-      subtext="eQOURSE delivers editorial services for education publishers, EdTech companies, institutions and learning-content teams — covering content refinement, publishing production, digital conversion, metadata preparation, design coordination, prepress checks and production support for print and digital learning materials."
+      subtext="eQOURSE delivers editorial services for education publishers, EdTech companies, institutions and learning-content teams - covering content refinement, publishing production, digital conversion, metadata preparation, design coordination, prepress checks and production support for print and digital learning materials."
       ctaText="Request Editorial Support"
       ctaLink="/contact"
       imageSrc="/assets/content-services/Editorial, Publishing & Designing Services.png"

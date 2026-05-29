@@ -68,7 +68,7 @@ const testimonials: Testimonial[] = [
 
   // AI Data Services Testimonials
   {
-    quote: "eQOURSE delivered 50,000+ hours of multilingual speech data across 12 Indian languages for our ASR engine. The annotation quality was exceptional — their inter-annotator agreement consistently exceeded 0.82. What really set them apart was the TuTrain platform: they tested our retrained model on real users across 8 dialect groups and identified failure modes our internal QA had completely missed. We achieved a 34% WER reduction in two cycles. No other data vendor offers this kind of closed-loop pipeline.",
+    quote: "eQOURSE delivered 50,000+ hours of multilingual speech data across 12 Indian languages for our ASR engine. The annotation quality was exceptional - their inter-annotator agreement consistently exceeded 0.82. What really set them apart was the TuTrain platform: they tested our retrained model on real users across 8 dialect groups and identified failure modes our internal QA had completely missed. We achieved a 34% WER reduction in two cycles. No other data vendor offers this kind of closed-loop pipeline.",
     name: "VP of Data",
     role: "Leadership",
     company: "Series B Voice AI Startup",
@@ -77,7 +77,7 @@ const testimonials: Testimonial[] = [
     type: "AI Data Services"
   },
   {
-    quote: "We needed pixel-level annotation on 25,000 chest X-rays with radiology-trained annotators. eQOURSE assembled a team of 15 medical annotators supervised by 3 consulting radiologists. The annotation accuracy exceeded our FDA submission thresholds — 94.7% sensitivity and 96.1% specificity. Their HIPAA-aware PII redaction and audit trails gave us the compliance documentation we needed. The South Asian pathology variants in their dataset were a critical competitive advantage for our India market expansion.",
+    quote: "We needed pixel-level annotation on 25,000 chest X-rays with radiology-trained annotators. eQOURSE assembled a team of 15 medical annotators supervised by 3 consulting radiologists. The annotation accuracy exceeded our FDA submission thresholds - 94.7% sensitivity and 96.1% specificity. Their HIPAA-aware PII redaction and audit trails gave us the compliance documentation we needed. The South Asian pathology variants in their dataset were a critical competitive advantage for our India market expansion.",
     name: "CTO",
     role: "Leadership",
     company: "Healthcare AI Startup",

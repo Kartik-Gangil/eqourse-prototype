@@ -172,7 +172,7 @@ const InteractiveSampleTabs = ({ sample }: Props) => {
 
               <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                 {sample.tabContent?.[sample.tabs[active]] ??
-                  `Curated ${sample.tabs[active]} sample from our ${sample.navLabel.toLowerCase()} library — production-ready, curriculum-aligned, and ready to customize for your platform.`}
+                  `Curated ${sample.tabs[active]} sample from our ${sample.navLabel.toLowerCase()} library - production-ready, curriculum-aligned, and ready to customize for your platform.`}
               </p>
 
               <ul className="space-y-2 mb-6">

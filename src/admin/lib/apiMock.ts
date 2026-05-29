@@ -5,7 +5,7 @@
  * can be demoed end-to-end without a backend. To go live, swap each
  * function body for a fetch() call against the real API per
  * docs/BACKEND_INTEGRATION_GUIDE.md. Function signatures and return
- * types should NOT change — they are the source of truth the vendor
+ * types should NOT change - they are the source of truth the vendor
  * implements against.
  */
 import type {

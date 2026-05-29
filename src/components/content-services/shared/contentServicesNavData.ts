@@ -34,7 +34,7 @@ export const contentServicesCategories: ContentServicesCategory[] = [
     href: "/content-services/custom-e-learning-content",
     icon: BookOpen,
     image: "/assets/banners/content-services/main/custom-e-learning-content.png",
-    imageAlt: "Custom e-learning content development services by eQOURSE — K-12 curriculum, assessments, workbooks, STEM content and interactive digital learning modules",
+    imageAlt: "Custom e-learning content development services by eQOURSE - K-12 curriculum, assessments, workbooks, STEM content and interactive digital learning modules",
     description: "Tailor-made e-learning modules, K12 curriculum, and engaging digital workbooks.",
     subServices: [
       {
@@ -84,7 +84,7 @@ export const contentServicesCategories: ContentServicesCategory[] = [
     href: "/content-services/exam-preparation-content",
     icon: Pencil,
     image: "/assets/banners/content-services/main/exam-preparation-content.png",
-    imageAlt: "Exam preparation content services by eQOURSE — SAT, TOEFL, IELTS, ACT, AP, PTE, TOEIC and CEFR test prep materials with practice tests and study guides",
+    imageAlt: "Exam preparation content services by eQOURSE - SAT, TOEFL, IELTS, ACT, AP, PTE, TOEIC and CEFR test prep materials with practice tests and study guides",
     description: "Comprehensive adaptive test prep materials for global standardized tests.",
     subServices: [
       {
@@ -130,7 +130,7 @@ export const contentServicesCategories: ContentServicesCategory[] = [
     href: "/content-services/learning-solutions",
     icon: MonitorPlay,
     image: "/assets/banners/content-services/main/learning-solutions.jpeg",
-    imageAlt: "Learning solutions by eQOURSE — instructor-led training, corporate e-learning, gamified learning, adaptive AI-powered modules and immersive AR/VR simulations",
+    imageAlt: "Learning solutions by eQOURSE - instructor-led training, corporate e-learning, gamified learning, adaptive AI-powered modules and immersive AR/VR simulations",
     description: "Immersive AR/VR and AI-powered gamified learning environments.",
     subServices: [
       {
@@ -176,7 +176,7 @@ export const contentServicesCategories: ContentServicesCategory[] = [
     href: "/content-services/elearning-video-solutions",
     icon: Clapperboard,
     image: "/assets/banners/content-services/main/elearning-video-solutions.jpeg",
-    imageAlt: "E-learning video solutions by eQOURSE — animated explainer videos, PPT-to-video conversion, Articulate Storyline interactive courses and motion graphics",
+    imageAlt: "E-learning video solutions by eQOURSE - animated explainer videos, PPT-to-video conversion, Articulate Storyline interactive courses and motion graphics",
     description: "High-quality animated videos, kinetic typography, and PPT-to-video services.",
     subServices: [
       {
@@ -198,7 +198,7 @@ export const contentServicesCategories: ContentServicesCategory[] = [
     href: "/content-services/localization-services",
     icon: Globe,
     image: "/assets/banners/content-services/main/localization-services.png",
-    imageAlt: "Localization services by eQOURSE — professional translation, voice-over and subtitling in Hindi, English and 30+ languages for educational content",
+    imageAlt: "Localization services by eQOURSE - professional translation, voice-over and subtitling in Hindi, English and 30+ languages for educational content",
     description: "Accurate translation, professional voiceovers, and subtitling for global reach.",
     subServices: [
       {
@@ -220,7 +220,7 @@ export const contentServicesCategories: ContentServicesCategory[] = [
     href: "/content-services/technology-solutions",
     icon: Laptop,
     image: "/assets/banners/content-services/main/technology-solutions.png",
-    imageAlt: "Educational technology solutions by eQOURSE — LMS course builds, SCORM and xAPI packaging, white-label LMS setup on Open edX and AWS",
+    imageAlt: "Educational technology solutions by eQOURSE - LMS course builds, SCORM and xAPI packaging, white-label LMS setup on Open edX and AWS",
     description: "Robust Learning Management Systems (LMS) and cloud-based architecture.",
     subServices: [
       {
@@ -238,7 +238,7 @@ export const contentServicesCategories: ContentServicesCategory[] = [
     href: "/content-services/subject-matter-experts",
     icon: Users,
     image: "/assets/banners/content-services/main/subject-matter-experts.png",
-    imageAlt: "Subject matter expert services by eQOURSE — SME recruitment, tutor training and certification, and live online tutoring across 200+ specialists",
+    imageAlt: "Subject matter expert services by eQOURSE - SME recruitment, tutor training and certification, and live online tutoring across 200+ specialists",
     description: "Top-tier global subject matter experts for tutoring, recruiting, and mentoring.",
     subServices: [
       {
@@ -260,7 +260,7 @@ export const contentServicesCategories: ContentServicesCategory[] = [
     href: "/content-services/accessibility",
     icon: ShieldCheck,
     image: "/assets/banners/content-services/main/accessibility.png",
-    imageAlt: "Digital accessibility services by eQOURSE — WCAG compliance, document remediation, accessible media, assessment accessibility and assistive technology testing",
+    imageAlt: "Digital accessibility services by eQOURSE - WCAG compliance, document remediation, accessible media, assessment accessibility and assistive technology testing",
     description: "Digital accessibility services including standards compliance, remediation, and audit support.",
     subServices: [
       { label: "Standards Compliance", href: "/content-services/accessibility/standards-compliance", icon: ShieldCheck, serviceHighlights: ["WCAG Compliance", "Section 508", "EN 301 549", "EPUB 3 Accessibility"] },
@@ -276,7 +276,7 @@ export const contentServicesCategories: ContentServicesCategory[] = [
     href: "/content-services/talent-assessment-workforce-evaluation",
     icon: Users,
     image: "/assets/banners/content-services/main/talent-assessment-workforce-evaluation.png",
-    imageAlt: "Talent assessment and workforce evaluation services by eQOURSE — psychometric assessments, skill testing, competency frameworks and organizational diagnostics",
+    imageAlt: "Talent assessment and workforce evaluation services by eQOURSE - psychometric assessments, skill testing, competency frameworks and organizational diagnostics",
     description: "Build validated, structured and professionally developed assessment solutions across workforce, education and certification contexts.",
     subServices: [
       {

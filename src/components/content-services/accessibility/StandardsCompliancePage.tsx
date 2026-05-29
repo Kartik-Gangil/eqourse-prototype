@@ -50,7 +50,7 @@ const StandardsCompliancePage = () => (
     ]}
     faqs={[
       { question: "Which version of WCAG should we aim for?", answer: "We generally recommend aligning with WCAG 2.2 Level AA, as it is the most current and comprehensive standard. However, if your specific contracts or internal policies require WCAG 2.1, we can tailor our evaluation and remediation to that specific version." },
-      { question: "Does achieving WCAG compliance mean we are Section 508 compliant?", answer: "While there is significant overlap—as Section 508 largely incorporates WCAG 2.0 Level AA by reference—Section 508 also includes additional criteria specific to software, hardware, and support documentation. Our services address both the overlapping WCAG criteria and the specific additional requirements of Section 508." },
+      { question: "Does achieving WCAG compliance mean we are Section 508 compliant?", answer: "While there is significant overlap-as Section 508 largely incorporates WCAG 2.0 Level AA by reference-Section 508 also includes additional criteria specific to software, hardware, and support documentation. Our services address both the overlapping WCAG criteria and the specific additional requirements of Section 508." },
       { question: "Are your standards compliance services a guarantee against legal action?", answer: "No. eQOURSE provides technical consulting, auditing, and remediation services designed to improve the technical accessibility of your content based on recognized standards. We do not provide legal counsel, and our services cannot guarantee immunity from accessibility-related lawsuits or formal complaints." },
     ]}
     ctaHeadline="Ready to Align Your Content with Accessibility Standards?"

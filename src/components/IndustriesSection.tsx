@@ -261,7 +261,7 @@ const IndustriesSection = () => {
             Industries We <span className="text-gradient">Serve</span>
           </h2>
           <p className="mt-3 text-sm sm:text-base max-w-2xl mx-auto" style={{ color: "hsl(242, 20%, 65%)" }}>
-            From AI data solutions to end-to-end education content services — powering learning and intelligence across every sector.
+            From AI data solutions to end-to-end education content services - powering learning and intelligence across every sector.
           </p>
         </div>
 

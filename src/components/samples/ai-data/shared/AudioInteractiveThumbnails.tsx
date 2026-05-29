@@ -35,7 +35,7 @@ function formatTime(s: number) {
 const TRANSCRIPT = [
   { t: 0.0, w: "So" }, { t: 0.30, w: "I" }, { t: 0.45, w: "was" }, { t: 0.75, w: "telling" },
   { t: 1.10, w: "her" }, { t: 1.35, w: "[uh]", filler: true }, { t: 1.70, w: "about" },
-  { t: 2.05, w: "the" }, { t: 2.25, w: "new" }, { t: 2.55, w: "model" }, { t: 3.00, w: "—" },
+  { t: 2.05, w: "the" }, { t: 2.25, w: "new" }, { t: 2.55, w: "model" }, { t: 3.00, w: "-" },
   { t: 3.15, w: "yeah" }, { t: 3.55, w: "the" }, { t: 3.75, w: "one" }, { t: 4.05, w: "with" },
   { t: 4.40, w: "[laughter]", filler: true }, { t: 5.00, w: "better" }, { t: 5.40, w: "latency." },
 ];
@@ -140,11 +140,11 @@ function TranscriptionPreview({ active }: { active: boolean }) {
 // ============================================================
 const DIAR_DUR = 8;
 const DIAR_SEGMENTS = [
-  { s: 0, t0: 0.0, t1: 1.6, label: "Hello — quick question?" },
+  { s: 0, t0: 0.0, t1: 1.6, label: "Hello - quick question?" },
   { s: 1, t0: 1.4, t1: 3.4, label: "Yeah, go ahead.", overlap: true },
   { s: 2, t0: 3.2, t1: 4.0, label: "[laughter]", overlap: true },
   { s: 0, t0: 4.0, t1: 5.4, label: "When does the build ship?" },
-  { s: 1, t0: 5.3, t1: 7.2, label: "Friday — if QA signs off.", overlap: true },
+  { s: 1, t0: 5.3, t1: 7.2, label: "Friday - if QA signs off.", overlap: true },
   { s: 2, t0: 7.0, t1: 8.0, label: "Mm-hm.", overlap: true },
 ];
 const SPEAKERS = [
@@ -382,7 +382,7 @@ function PhonemePreview({ active }: { active: boolean }) {
         <g transform="translate(420 296)">
           <rect x="0" y="0" width="348" height="34" rx="6" fill="#0b1628" stroke="#1a2c47" />
           <text x="14" y="22" fontFamily="JetBrains Mono, ui-monospace, monospace" fontSize="12" fill="#7e94b3">
-            word: <tspan fill="#14d4a0" fontWeight="600">"{activeWord?.w ?? "—"}"</tspan>
+            word: <tspan fill="#14d4a0" fontWeight="600">"{activeWord?.w ?? "-"}"</tspan>
             <tspan dx="14">tier: <tspan fill="#cdd9ea">word + phoneme + F0</tspan></tspan>
           </text>
         </g>

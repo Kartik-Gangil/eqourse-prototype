@@ -129,7 +129,7 @@ const ContentServicesMegaMenu = ({ onClose }: { onClose: () => void }) => {
           </div>
         </div>
 
-        {/* Right: Preview Panel (320px) — shows sub-service highlights OR category overview */}
+        {/* Right: Preview Panel (320px) - shows sub-service highlights OR category overview */}
         <div className="w-[320px] p-6 flex flex-col bg-card/80">
           {hoveredSub && hoveredSub.serviceHighlights && hoveredSub.serviceHighlights.length > 0 ? (
             /* ── Sub-service Highlights View ── */
@@ -158,7 +158,7 @@ const ContentServicesMegaMenu = ({ onClose }: { onClose: () => void }) => {
                       to={hoveredSub.href}
                       onClick={onClose}
                       className="flex items-start gap-2.5 px-3 py-2 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-primary/5 transition-all group/bullet cursor-pointer"
-                      aria-label={`${highlight} — part of ${hoveredSub.label}`}
+                      aria-label={`${highlight} - part of ${hoveredSub.label}`}
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover/bullet:bg-primary mt-1.5 flex-shrink-0 transition-colors" />
                       <span className="leading-snug">{highlight}</span>
@@ -649,13 +649,13 @@ const Navbar = () => {
               to="/"
               className="flex items-center flex-shrink-0 relative h-8 sm:h-10"
             >
-              {/* Dark logo — visible on light/scrolled backgrounds */}
+              {/* Dark logo - visible on light/scrolled backgrounds */}
               <img 
                 src={eqourseLogoDark} 
                 alt="eQOURSE Logo - Professional AI Data and Content Services" 
                 className={`h-8 sm:h-10 w-auto object-contain absolute left-0 top-0 transition-opacity duration-300 ${transparent ? 'opacity-0' : 'opacity-100'}`}
               />
-              {/* Light logo — visible on transparent/dark hero background */}
+              {/* Light logo - visible on transparent/dark hero background */}
               <img 
                 src={eqourseLogoLight} 
                 alt="eQOURSE Logo - Professional AI Data and Content Services" 

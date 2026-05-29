@@ -94,7 +94,7 @@ const App = () => (
               <Route path="/ai-data-samples" element={<Samples />} />
               <Route path="/ai-data-samples/:slug" element={<AIDataSample />} />
 
-              {/* Content Services Sample Pages (17 routes — dynamic template by pathname) */}
+              {/* Content Services Sample Pages (17 routes - dynamic template by pathname) */}
               {contentServicesSamples.map((s) => (
                 <Route key={s.path} path={s.path} element={<ContentServicesSample />} />
               ))}
@@ -104,7 +104,7 @@ const App = () => (
               <Route path="/ai-data-services/cleaning-validation" element={<AICleaningValidation />} />
               <Route path="/ai-data-services/model-testing" element={<AIModelTesting />} />
 
-              {/* Content Service — Category Pages */}
+              {/* Content Service - Category Pages */}
               <Route path="/content-services" element={<ContentServicesOverview />} />
               <Route path="/content-services/custom-e-learning-content" element={<CustomElearningContent />} />
               <Route path="/content-services/exam-preparation-content" element={<ExamPreparationContent />} />
@@ -117,7 +117,7 @@ const App = () => (
               <Route path="/content-services/talent-assessment-workforce-evaluation" element={<TalentAssessmentWorkforceEvaluation />} />
               <Route path="/content-services/editorial-publishing-designing-services" element={<EditorialPublishingDesigningServices />} />
 
-              {/* Content Service — 39 Sub-Service Detail Pages (lazy-loaded) */}
+              {/* Content Service - 39 Sub-Service Detail Pages (lazy-loaded) */}
               {contentServicesSubServiceRoutes.map(({ path, Component }) => (
                 <Route key={path} path={path} element={<Component />} />
               ))}

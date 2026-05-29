@@ -86,7 +86,7 @@ const AboutFounder = () => {
               >
                 <Quote className="absolute top-6 left-6 w-10 h-10 text-primary/20 transform -rotate-12" />
                 <p className="relative z-10 text-foreground/90 font-medium italic leading-relaxed text-lg mt-4 pl-4 border-l-4 border-primary">
-                  "I believe that the same human expertise that makes great education possible — deep subject knowledge, cultural understanding, and rigorous quality standards — is exactly what AI needs to work in the real world. At eQOURSE, we bring both together: Content Services that scale learning outcomes, and AI data services that help machines learn from the best of human intelligence. Our mission is to be the trusted partner where education meets AI."
+                  "I believe that the same human expertise that makes great education possible - deep subject knowledge, cultural understanding, and rigorous quality standards - is exactly what AI needs to work in the real world. At eQOURSE, we bring both together: Content Services that scale learning outcomes, and AI data services that help machines learn from the best of human intelligence. Our mission is to be the trusted partner where education meets AI."
                 </p>
               </motion.div>
 

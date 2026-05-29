@@ -6,7 +6,7 @@ import {
   BookOpen, Briefcase, BarChart3, ArrowRight
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import strategyImage from "@/assets/strategy-image.jpg";
+import strategyImage from "@/assets/why-choose-eqourse.png";
 
 const reasons = [
   {
@@ -160,7 +160,7 @@ const WhyChooseUs = () => {
             <div className="rounded-2xl overflow-hidden shadow-elevated">
               <img
                 src={strategyImage}
-                alt="Why Choose eQOURSE — our expert team delivering learning solutions"
+                alt="Why Choose eQOURSE - Global Learning Content and AI Data Solutions Partner with 500+ Specialists"
                 width={800}
                 height={600}
                 loading="lazy"
@@ -204,7 +204,7 @@ const WhyChooseUs = () => {
           <div className="rounded-2xl overflow-hidden shadow-elevated mb-8">
             <img
               src={strategyImage}
-              alt="Why Choose eQOURSE"
+              alt="Why Choose eQOURSE - Global Learning Content and AI Data Solutions Partner with 500+ Specialists"
               width={800}
               height={600}
               loading="lazy"

@@ -12,7 +12,7 @@ const PEN_AMBER_LIGHT = "#fbbf24";
 const PEN_INK = "#0f172a";
 
 /* ══════════════════════════════════════════════════════════════
-   Shared chrome wrapper — warm amber variant
+   Shared chrome wrapper - warm amber variant
    ══════════════════════════════════════════════════════════════ */
 interface PTChromeProps {
   title: string;
@@ -65,7 +65,7 @@ const PTChrome = ({
 );
 
 /* ══════════════════════════════════════════════════════════════
-   1. MATHEMATICS — Step-by-step equation, stroke-by-stroke
+   1. MATHEMATICS - Step-by-step equation, stroke-by-stroke
    ══════════════════════════════════════════════════════════════ */
 export const MathThumb = () => {
   const T = 7;
@@ -295,7 +295,7 @@ export const MathThumb = () => {
 };
 
 /* ══════════════════════════════════════════════════════════════
-   2. SCIENCE — Water cycle diagram with animated arrows
+   2. SCIENCE - Water cycle diagram with animated arrows
    ══════════════════════════════════════════════════════════════ */
 export const ScienceThumb = () => {
   const T = 7;
@@ -531,7 +531,7 @@ export const ScienceThumb = () => {
 };
 
 /* ══════════════════════════════════════════════════════════════
-   3. LANGUAGE — Sentence breakdown with underlines & labels
+   3. LANGUAGE - Sentence breakdown with underlines & labels
    ══════════════════════════════════════════════════════════════ */
 export const LanguageThumb = () => {
   const T = 7;
@@ -745,7 +745,7 @@ export const LanguageThumb = () => {
 };
 
 /* ══════════════════════════════════════════════════════════════
-   Tab selector — maps tab index to the correct scene
+   Tab selector - maps tab index to the correct scene
    ══════════════════════════════════════════════════════════════ */
 export const PenTabPPTThumbForTab = ({
   tabIndex,

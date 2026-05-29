@@ -59,9 +59,9 @@ const TuTrain = () => {
     <div className="min-h-screen bg-background font-sans">
       <Helmet>
         <title>TUTRAIN by eQOURSE │ Online 1-on-1 Tutoring for Grades 4–12 Worldwide</title>
-        <meta name="description" content="TUTRAIN is eQOURSE's consumer online tutoring brand — personalized 1-on-1 and small-batch live classes for Grades 4–12 across CBSE, IB, IGCSE, A-Levels & US Common Core. Book a free demo." />
+        <meta name="description" content="TUTRAIN is eQOURSE's consumer online tutoring brand - personalized 1-on-1 and small-batch live classes for Grades 4–12 across CBSE, IB, IGCSE, A-Levels & US Common Core. Book a free demo." />
         <meta name="keywords" content="tutrain, online tutoring, 1-on-1 tutoring, personalized tutoring, eqourse tutoring brand, online tuition, live tutoring platform, tutrain by eqourse" />
-        <meta property="og:title" content="TUTRAIN by eQOURSE — Personalized Online Tutoring Worldwide" />
+        <meta property="og:title" content="TUTRAIN by eQOURSE - Personalized Online Tutoring Worldwide" />
         <meta property="og:description" content="The consumer online tutoring brand from eQOURSE. Live 1-on-1 and small-batch classes for students in Grades 4–12, across all major curricula." />
         <meta property="og:image" content="https://www.eqourse.com/images/tutrain-eqourse-og.jpg" />
         <link rel="canonical" href="https://www.eqourse.com/tutrain" />
@@ -80,7 +80,7 @@ const TuTrain = () => {
                 PART OF THE eQOURSE FAMILY
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-6 font-heading">
-                TUTRAIN — Personalized Online Tutoring, <span className="text-gradient">Powered by eQOURSE</span>
+                TUTRAIN - Personalized Online Tutoring, <span className="text-gradient">Powered by eQOURSE</span>
               </h1>
               <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
                 TUTRAIN is our direct-to-learner online tutoring brand, delivering live 1-on-1 and small-batch classes for students in Grades 4–12 across CBSE, IB, IGCSE, A-Levels, and US Common Core. Backed by eQOURSE's two decades of education expertise, TUTRAIN is where world-class teaching meets every individual learner.
@@ -126,7 +126,7 @@ const TuTrain = () => {
                 </h2>
                 <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                   <p>
-                    TUTRAIN is eQOURSE's flagship consumer online tutoring brand — a global platform connecting students in Grades 4 to 12 with verified expert tutors for live, personalized 1-on-1 and small-batch classes.
+                    TUTRAIN is eQOURSE's flagship consumer online tutoring brand - a global platform connecting students in Grades 4 to 12 with verified expert tutors for live, personalized 1-on-1 and small-batch classes.
                   </p>
                   <p>
                     While eQOURSE delivers Content Services and AI training data to companies and institutions, TUTRAIN takes that same depth of expertise directly to families. Every TUTRAIN tutor is curriculum-trained, background-verified, and supported by eQOURSE's instructional design team.
@@ -165,7 +165,7 @@ const TuTrain = () => {
                   <GraduationCap className="w-7 h-7" />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-foreground font-heading">Students, Grades 4–12</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">Personalized live tutoring across Maths, Science, English, and skill subjects — paced to each learner.</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">Personalized live tutoring across Maths, Science, English, and skill subjects - paced to each learner.</p>
               </div>
             </Reveal>
 
@@ -175,7 +175,7 @@ const TuTrain = () => {
                   <BookOpen className="w-7 h-7" />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-foreground font-heading">All Major Curricula</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">CBSE, ICSE, IB, IGCSE, Cambridge A-Levels, US Common Core, and State Boards — fully covered.</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">CBSE, ICSE, IB, IGCSE, Cambridge A-Levels, US Common Core, and State Boards - fully covered.</p>
               </div>
             </Reveal>
 
@@ -270,7 +270,7 @@ const TuTrain = () => {
                   </div>
                   <h3 className="text-xl font-bold font-heading mb-4 text-foreground">For Our AI Clients</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    TUTRAIN is the proprietary platform that powers our <Link to="/ai-data-services/model-testing" className="text-primary hover:underline font-medium">real-world AI model testing</Link>. Through a network of demographically diverse learners across 30+ languages, we test AI models with genuine users before deployment — the closed-loop advantage.
+                    TUTRAIN is the proprietary platform that powers our <Link to="/ai-data-services/model-testing" className="text-primary hover:underline font-medium">real-world AI model testing</Link>. Through a network of demographically diverse learners across 30+ languages, we test AI models with genuine users before deployment - the closed-loop advantage.
                   </p>
                 </div>
               </Reveal>
@@ -305,7 +305,7 @@ const TuTrain = () => {
               Looking for a Tutor for Your Child?
             </h2>
             <p className="text-white/80 text-lg mb-10 max-w-2xl mx-auto">
-              TUTRAIN's live online tutors are ready. Book a free demo class — no commitment required.
+              TUTRAIN's live online tutors are ready. Book a free demo class - no commitment required.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold rounded-xl h-14 px-8 shadow-[0_0_20px_rgba(0,180,166,0.3)] hover:shadow-[0_0_30px_rgba(0,180,166,0.5)] transition-all">

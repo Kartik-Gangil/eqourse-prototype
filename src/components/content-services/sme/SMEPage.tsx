@@ -39,7 +39,7 @@ const SMEPage = () => (
       ctaText="Request SME Profiles"
       ctaLink="#contact"
       imageSrc="/assets/banners/content-services/main/subject-matter-experts.png"
-      imageAlt="Subject matter expert services by eQOURSE — SME recruitment, tutor training and certification, and live online tutoring with 200+ vetted academic professionals"
+      imageAlt="Subject matter expert services by eQOURSE - SME recruitment, tutor training and certification, and live online tutoring with 200+ vetted academic professionals"
       rotatingBadges={[
         { icon: Users, title: "SME Network", subtitle: "200+ experts", color: "hsl(170 82% 55%)" },
         { icon: GraduationCap, title: "Academic", subtitle: "Vetted professionals", color: "hsl(190 85% 68%)" },

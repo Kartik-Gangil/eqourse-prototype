@@ -117,7 +117,7 @@ export default function Dashboard() {
       {/* Charts row 1: queries over time */}
       <Card className="p-6">
         <div className="mb-4">
-          <h3 className="font-semibold">Queries received — last 30 days</h3>
+          <h3 className="font-semibold">Queries received - last 30 days</h3>
           <p className="text-sm text-muted-foreground">Daily volume of contact and free-pilot submissions.</p>
         </div>
         <div className="h-72">

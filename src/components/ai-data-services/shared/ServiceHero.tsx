@@ -162,7 +162,7 @@ const ServiceHero = ({
           <div className="relative animate-slide-up-delayed">
             <div className="relative rounded-3xl overflow-hidden shadow-elevated border border-white/10 bg-gradient-to-br from-primary/20 via-foreground/30 to-accent/20">
               {imageSrc ? (
-                /* Fill the hero box completely — no side gaps regardless of source ratio */
+                /* Fill the hero box completely - no side gaps regardless of source ratio */
                 <img
                   src={imageSrc}
                   alt={imageAlt || "eQOURSE service banner"}

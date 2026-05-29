@@ -229,14 +229,14 @@ const PII_RECORDS = [
       { key: "email", value: '"rahul.sharma@gmail.com"', kind: "EMAIL" },
       { key: "phone", value: '"+91 98765 43210"', kind: "PHONE" },
       { key: "aadhaar", value: '"4521 8842 9971"', kind: "AADHAAR" },
-      { key: "feedback", value: '"App keeps crashing — please call me at 98765 43210"', kind: "PHONE_INLINE" },
+      { key: "feedback", value: '"App keeps crashing - please call me at 98765 43210"', kind: "PHONE_INLINE" },
     ],
     after: [
       { key: "name", value: "[NAME]" },
       { key: "email", value: "[EMAIL]" },
       { key: "phone", value: "[PHONE]" },
       { key: "aadhaar", value: "[AADHAAR]" },
-      { key: "feedback", value: '"App keeps crashing — please call me at [PHONE]"' },
+      { key: "feedback", value: '"App keeps crashing - please call me at [PHONE]"' },
     ],
   },
   {
@@ -245,14 +245,14 @@ const PII_RECORDS = [
       { key: "email", value: '"priya@payapp.in"', kind: "EMAIL" },
       { key: "phone", value: '"+91 90021 11234"', kind: "PHONE" },
       { key: "aadhaar", value: '"8810 4421 0099"', kind: "AADHAAR" },
-      { key: "feedback", value: '"Refund delayed — email priya@payapp.in"', kind: "EMAIL_INLINE" },
+      { key: "feedback", value: '"Refund delayed - email priya@payapp.in"', kind: "EMAIL_INLINE" },
     ],
     after: [
       { key: "name", value: "[NAME]" },
       { key: "email", value: "[EMAIL]" },
       { key: "phone", value: "[PHONE]" },
       { key: "aadhaar", value: "[AADHAAR]" },
-      { key: "feedback", value: '"Refund delayed — email [EMAIL]"' },
+      { key: "feedback", value: '"Refund delayed - email [EMAIL]"' },
     ],
   },
 ];

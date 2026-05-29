@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { SCENES, init3DEngine } from "./ar_vr_engine";
 
 /* ══════════════════════════════════════════════════════════════
-   1. AR OVERLAY DEMOS — Canvas 2D
+   1. AR OVERLAY DEMOS - Canvas 2D
    ══════════════════════════════════════════════════════════════ */
 export const AROverlayThumb = ({ accent }: { accent: string }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -73,7 +73,7 @@ export const AROverlayThumb = ({ accent }: { accent: string }) => {
 };
 
 /* ══════════════════════════════════════════════════════════════
-   2. VR ENVIRONMENT TOURS — Canvas 2D
+   2. VR ENVIRONMENT TOURS - Canvas 2D
    ══════════════════════════════════════════════════════════════ */
 export const VREnvironmentThumb = ({ accent }: { accent: string }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -144,7 +144,7 @@ export const VREnvironmentThumb = ({ accent }: { accent: string }) => {
 };
 
 /* ══════════════════════════════════════════════════════════════
-   3. 360° EXPERIENCES — ThreeJS
+   3. 360° EXPERIENCES - ThreeJS
    ══════════════════════════════════════════════════════════════ */
 export const PanoramaThumb = ({ accent }: { accent: string }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -167,7 +167,7 @@ export const PanoramaThumb = ({ accent }: { accent: string }) => {
 };
 
 /* ══════════════════════════════════════════════════════════════
-   4. INTERACTIVE 3D MODELS — ThreeJS
+   4. INTERACTIVE 3D MODELS - ThreeJS
    ══════════════════════════════════════════════════════════════ */
 export const Interactive3DModelThumb = ({ accent }: { accent: string }) => {
   const containerRef = useRef<HTMLDivElement>(null);

@@ -39,7 +39,7 @@ const LocalizationPage = () => (
       ctaText="Get Free Consultation"
       ctaLink="#contact"
       imageSrc="/assets/banners/content-services/main/localization-services.png"
-      imageAlt="Localization services by eQOURSE — professional translation, voice-over recording and subtitling for educational content in Hindi, English, Tamil, Bengali and 30+ languages"
+      imageAlt="Localization services by eQOURSE - professional translation, voice-over recording and subtitling for educational content in Hindi, English, Tamil, Bengali and 30+ languages"
       rotatingBadges={[
         { icon: Languages, title: "Translation", subtitle: "Culturally adapted", color: "hsl(170 82% 55%)" },
         { icon: Mic, title: "Voice-Over", subtitle: "Native talent", color: "hsl(190 85% 68%)" },

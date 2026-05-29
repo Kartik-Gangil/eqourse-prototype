@@ -37,7 +37,7 @@ const categories = [
     title: "Audio Annotation",
     items: [
       { name: "Speech Transcription", desc: "Verbatim and normalized transcription across dialects" },
-      { name: "Speaker Diarization", desc: "Who spoke when — multi-speaker segmentation" },
+      { name: "Speaker Diarization", desc: "Who spoke when - multi-speaker segmentation" },
       { name: "Emotion & Tone Detection", desc: "Sentiment, stress, and emotional state labeling" },
       { name: "Audio Event Classification", desc: "Environmental sounds, music, speech vs. non-speech" },
       { name: "Phonetic Transcription", desc: "IPA-level annotation for pronunciation modeling" },
@@ -68,7 +68,7 @@ const AnnotationTypes = () => {
           label="Annotation Types"
           title="Comprehensive"
           gradientText="Labeling Services"
-          subtitle="Expert annotation across NLP, Computer Vision, Audio, and RLHF — covering every AI modality."
+          subtitle="Expert annotation across NLP, Computer Vision, Audio, and RLHF - covering every AI modality."
         />
 
         {/* Tabs */}

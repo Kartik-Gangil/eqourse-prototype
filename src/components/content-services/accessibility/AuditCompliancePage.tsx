@@ -30,7 +30,7 @@ const AuditCompliancePage = () => (
     introGradient="Clear Documentation"
     introDescription="Our audits combine automated scanning for breadth with rigorous manual testing by accessibility experts to uncover complex functional barriers."
     introParagraphs={[
-      "We translate audit findings into prioritized, actionable remediation roadmaps—identifying critical barriers, outlining specific technical fixes, and helping you allocate resources efficiently.",
+      "We translate audit findings into prioritized, actionable remediation roadmaps-identifying critical barriers, outlining specific technical fixes, and helping you allocate resources efficiently.",
       "For organizations requiring formal documentation, we provide VPAT/ACR support services, conducting evaluations and authoring detailed technical reports in standard formats."
     ]}
     stats={[
@@ -44,7 +44,7 @@ const AuditCompliancePage = () => (
     servicesGradient="Services"
     services={[
       { icon: FileSearch, title: "Comprehensive Accessibility Audits", description: "In-depth, multi-layered audits combining automated scanning with rigorous manual testing by accessibility experts to uncover complex functional barriers in your platforms and content." },
-      { icon: ShieldCheck, title: "Gap Analysis & Roadmapping", description: "We translate audit findings into prioritized, actionable remediation roadmaps—identifying critical barriers and helping you allocate resources efficiently to achieve compliance." },
+      { icon: ShieldCheck, title: "Gap Analysis & Roadmapping", description: "We translate audit findings into prioritized, actionable remediation roadmaps-identifying critical barriers and helping you allocate resources efficiently to achieve compliance." },
       { icon: FileCheck, title: "VPAT & ACR Documentation", description: "We evaluate your product against WCAG, Section 508, and EN 301 549, then author accurate Voluntary Product Accessibility Templates (VPATs) for your Accessibility Conformance Report." },
       { icon: ClipboardCheck, title: "Trusted Tester Methodology", description: "For organizations adhering to DHS standards, our processes incorporate the Trusted Tester methodology, ensuring robust and repeatable accessibility testing protocols." },
       { icon: Eye, title: "Ongoing Accessibility Monitoring", description: "We provide ongoing monitoring services and periodic re-audits to ensure that as your content and platforms evolve, your accessibility compliance remains intact." },

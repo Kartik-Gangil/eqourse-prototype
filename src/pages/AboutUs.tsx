@@ -92,7 +92,7 @@ const AboutUs = () => {
       />
 
       <ServiceHero
-        preHeadline="eQOURSE — Delivering Operational Excellence"
+        preHeadline="eQOURSE - Delivering Operational Excellence"
         headline="Who Are"
         headlineAccent="We?"
         subtext="Content Service and AI Data Services."

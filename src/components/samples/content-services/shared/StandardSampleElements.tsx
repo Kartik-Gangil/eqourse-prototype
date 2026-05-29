@@ -6,7 +6,7 @@ import {
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-/* LinkedIn glyph — matches the canonical CTA used across the site */
+/* LinkedIn glyph - matches the canonical CTA used across the site */
 const LinkedInGlyph = ({ className = "w-5 h-5" }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +93,7 @@ const StandardSampleElements = () => {
               We Believe in Counting Numbers
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Years of delivery, thousands of samples, and a network of subject-matter experts —
+              Years of delivery, thousands of samples, and a network of subject-matter experts -
               numbers that back every promise we make.
             </p>
           </div>
@@ -221,7 +221,7 @@ const StandardSampleElements = () => {
               </h2>
               <p className="text-white/80 text-base md:text-lg mb-7 max-w-2xl mx-auto">
                 Share your goals with us. Our content strategists will walk you through samples,
-                timelines, and a custom plan — completely free.
+                timelines, and a custom plan - completely free.
               </p>
               <div className="flex flex-wrap gap-3 justify-center">
                 <Link to="/contactus">

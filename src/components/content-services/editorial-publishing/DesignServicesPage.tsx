@@ -13,18 +13,18 @@ const DesignServicesPage = () => (
     parentLabel={PARENT_LABEL}
     parentHref={PARENT_HREF}
     currentLabel="Design Services"
-    preHeadline="✦ Design Services — Visual Precision for Learning Publications"
+    preHeadline="✦ Design Services - Visual Precision for Learning Publications"
     headline="Design Services for"
     headlineAccent="Educational Publishing"
-    subtext="Design services support the visual presentation of learning content across worksheets, workbooks, instructor resources, digital learning assets, decks, infographics and publication layouts — aligned with brand guidelines, readability requirements and output format."
+    subtext="Design services support the visual presentation of learning content across worksheets, workbooks, instructor resources, digital learning assets, decks, infographics and publication layouts - aligned with brand guidelines, readability requirements and output format."
     ctaText="Request Design Support"
     ctaLink="/contact"
     introLabel="Visual Presentation"
     introTitle="Design That Supports"
     introGradient="Learning Outcomes"
-    introDescription="Publication design for educational content must balance visual clarity, brand consistency and pedagogical readability — ensuring learners engage with materials effectively."
+    introDescription="Publication design for educational content must balance visual clarity, brand consistency and pedagogical readability - ensuring learners engage with materials effectively."
     introParagraphs={[
-      "eQOURSE aligns design execution with brand guidelines, readability requirements, learner age group, content hierarchy and output format — keeping editorial intent intact throughout the design process.",
+      "eQOURSE aligns design execution with brand guidelines, readability requirements, learner age group, content hierarchy and output format - keeping editorial intent intact throughout the design process.",
       "From cover artwork and page layout to infographics and instructional decks, design services are scoped to the publication type, audience and delivery channel specified in the project brief.",
     ]}
     stats={[
@@ -41,44 +41,44 @@ const DesignServicesPage = () => (
         icon: BookOpen,
         title: "Cover Design",
         description:
-          "Front and back cover design for textbooks, workbooks, assessment packs and course materials — aligned to client brand guidelines, series identity and genre conventions.",
+          "Front and back cover design for textbooks, workbooks, assessment packs and course materials - aligned to client brand guidelines, series identity and genre conventions.",
       },
       {
         icon: Layout,
         title: "Page Layout Design",
         description:
-          "Interior page layout design for print and digital publications — including grid systems, heading styles, callout boxes, margin notes and visual content placement.",
+          "Interior page layout design for print and digital publications - including grid systems, heading styles, callout boxes, margin notes and visual content placement.",
       },
       {
         icon: PenTool,
         title: "Workbook & Worksheet Design",
         description:
-          "Functional, learner-friendly workbook and worksheet design for schools, training providers and EdTech platforms — with activity zones, answer spaces and visual hierarchy.",
+          "Functional, learner-friendly workbook and worksheet design for schools, training providers and EdTech platforms - with activity zones, answer spaces and visual hierarchy.",
       },
       {
         icon: Layers,
         title: "Journal & Report Layout",
         description:
-          "Academic journal layout, research report design and institutional publication formatting — compliant with author submission guidelines and typesetting conventions.",
+          "Academic journal layout, research report design and institutional publication formatting - compliant with author submission guidelines and typesetting conventions.",
       },
       {
         icon: FileImage,
         title: "Brochure & Marketing Collateral",
         description:
-          "Design of course brochures, programme guides, institutional prospectuses and learning product marketing materials — for print and digital distribution.",
+          "Design of course brochures, programme guides, institutional prospectuses and learning product marketing materials - for print and digital distribution.",
       },
       {
         icon: BarChart3,
         title: "Infographic & Illustration Design",
         description:
-          "Custom infographics, process diagrams, instructional illustrations and data visualisations for learning content — simplifying complex information for diverse learner audiences.",
+          "Custom infographics, process diagrams, instructional illustrations and data visualisations for learning content - simplifying complex information for diverse learner audiences.",
       },
     ]}
     faqs={[
       {
         question: "Can eQOURSE design content for specific age groups?",
         answer:
-          "Yes. eQOURSE tailors design choices — typography, colour, visual density, illustration style and layout complexity — to the intended learner age group and educational level specified in the project brief.",
+          "Yes. eQOURSE tailors design choices - typography, colour, visual density, illustration style and layout complexity - to the intended learner age group and educational level specified in the project brief.",
       },
       {
         question: "Do you work with existing brand guidelines?",

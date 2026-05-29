@@ -26,12 +26,12 @@ const AssistiveTechPage = () => (
     subtext="Rigorous manual functional testing with industry-standard screen readers and input devices, ensuring genuine usability."
     ctaText="Request AT Testing"
     introLabel="Our Testing Process"
-    introTitle="Beyond Automated Scans —"
+    introTitle="Beyond Automated Scans -"
     introGradient="Functional Verification"
     introDescription="We go beyond automated scanning to manually test your content with the assistive technologies your learners actually use."
     introParagraphs={[
       "Automated tools catch only a fraction of accessibility issues. Our experts test with JAWS, NVDA, VoiceOver, and alternative input devices to verify the actual user experience.",
-      "We evaluate reading order, keyboard focus management, screen magnification, and cognitive flow—ensuring content works in real-world scenarios."
+      "We evaluate reading order, keyboard focus management, screen magnification, and cognitive flow-ensuring content works in real-world scenarios."
     ]}
     stats={[
       { value: "JAWS", label: "Screen Reader" },
@@ -45,9 +45,9 @@ const AssistiveTechPage = () => (
     services={[
       { icon: MonitorPlay, title: "JAWS & NVDA Testing", description: "Manual testing using JAWS and NVDA screen readers on Windows, verifying content is read accurately and interactive elements are announced correctly." },
       { icon: Search, title: "VoiceOver Testing", description: "Comprehensive testing using Apple's VoiceOver on macOS and iOS, ensuring seamless experience across desktop, tablet, and mobile platforms." },
-      { icon: Keyboard, title: "Keyboard Operability & Focus", description: "Verifying every aspect of the learning experience can be navigated without a mouse—visible focus indicators, logical tab order, and no keyboard traps." },
+      { icon: Keyboard, title: "Keyboard Operability & Focus", description: "Verifying every aspect of the learning experience can be navigated without a mouse-visible focus indicators, logical tab order, and no keyboard traps." },
       { icon: Maximize, title: "Screen Magnification Compatibility", description: "Testing with magnification tools to ensure magnifying the interface doesn't cause loss of content or functionality, supporting up to 400% browser zoom." },
-      { icon: Brain, title: "Cognitive & Usability Evaluation", description: "Evaluating logical flow, consistency of navigation, and clarity of instructions—factors critical for learners with cognitive or learning disabilities." },
+      { icon: Brain, title: "Cognitive & Usability Evaluation", description: "Evaluating logical flow, consistency of navigation, and clarity of instructions-factors critical for learners with cognitive or learning disabilities." },
     ]}
     faqs={[
       { question: "Why is manual screen reader testing necessary?", answer: "Automated scanners can't determine if alt text makes sense in context. Only manual testing verifies the actual user experience, logical reading order, and whether dynamic content is properly announced." },

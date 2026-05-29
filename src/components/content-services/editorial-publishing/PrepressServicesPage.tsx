@@ -13,19 +13,19 @@ const PrepressServicesPage = () => (
     parentLabel={PARENT_LABEL}
     parentHref={PARENT_HREF}
     currentLabel="Prepress Services"
-    preHeadline="✦ Prepress Services — Print-Ready File Preparation"
+    preHeadline="✦ Prepress Services - Print-Ready File Preparation"
     headline="Prepress Services for"
     headlineAccent="Publication Production"
-    subtext="Prepress services prepare publication files for print and production review — through layout checks, pagination validation, image readiness, font consistency, bleed and margin review, proofing support and final file preparation for printer or production handover."
+    subtext="Prepress services prepare publication files for print and production review - through layout checks, pagination validation, image readiness, font consistency, bleed and margin review, proofing support and final file preparation for printer or production handover."
     ctaText="Request Prepress Support"
     ctaLink="/contact"
     introLabel="Print Readiness"
     introTitle="Files Prepared for"
     introGradient="Production Sign-Off"
-    introDescription="Prepress errors discovered after print production begins are costly and time-consuming — structured prepress checks prevent problems before files reach the printer."
+    introDescription="Prepress errors discovered after print production begins are costly and time-consuming - structured prepress checks prevent problems before files reach the printer."
     introParagraphs={[
       "eQOURSE supports print-focused delivery workflows while coordinating corrections with editorial and design teams before production handover. Prepress support is structured around client specifications, printer requirements and format standards.",
-      "Each prepress project is scoped to the publication type, print specification sheet and handover checklist — ensuring files are production-ready before final sign-off.",
+      "Each prepress project is scoped to the publication type, print specification sheet and handover checklist - ensuring files are production-ready before final sign-off.",
     ]}
     stats={[
       { value: "Preflight", label: "Validated Files" },
@@ -41,7 +41,7 @@ const PrepressServicesPage = () => (
         icon: CheckSquare,
         title: "Preflight Checks",
         description:
-          "Automated and manual preflight validation of print-ready PDFs — checking resolution, fonts, colour profiles, bleed, trim marks, overprints and transparency flattening.",
+          "Automated and manual preflight validation of print-ready PDFs - checking resolution, fonts, colour profiles, bleed, trim marks, overprints and transparency flattening.",
       },
       {
         icon: Palette,
@@ -53,7 +53,7 @@ const PrepressServicesPage = () => (
         icon: AlignLeft,
         title: "Bleed & Margin Review",
         description:
-          "Verification of bleed extension, safe zone placement, trim alignment and margin consistency — preventing content loss at the bindery and trim stage.",
+          "Verification of bleed extension, safe zone placement, trim alignment and margin consistency - preventing content loss at the bindery and trim stage.",
       },
       {
         icon: FileCheck,
@@ -71,14 +71,14 @@ const PrepressServicesPage = () => (
         icon: Printer,
         title: "Proofing Support",
         description:
-          "Coordination of soft proofs, contract colour proofs and physical blueline proofs — with annotated correction lists and sign-off tracking before final production.",
+          "Coordination of soft proofs, contract colour proofs and physical blueline proofs - with annotated correction lists and sign-off tracking before final production.",
       },
     ]}
     faqs={[
       {
         question: "What is a preflight check?",
         answer:
-          "A preflight check validates a print-ready PDF or design file against printer specifications — checking resolution, colour profiles, fonts, bleed, overprints and transparency before the file is sent to press. It prevents costly print errors.",
+          "A preflight check validates a print-ready PDF or design file against printer specifications - checking resolution, colour profiles, fonts, bleed, overprints and transparency before the file is sent to press. It prevents costly print errors.",
       },
       {
         question: "What colour format is used for print?",
@@ -88,7 +88,7 @@ const PrepressServicesPage = () => (
       {
         question: "Does eQOURSE provide printer-specific prepress support?",
         answer:
-          "Yes. eQOURSE prepares files to meet individual printer specifications — including bleed requirements, PDF/X standards, resolution settings and binding requirements — based on the print specification sheet provided by the client or printer.",
+          "Yes. eQOURSE prepares files to meet individual printer specifications - including bleed requirements, PDF/X standards, resolution settings and binding requirements - based on the print specification sheet provided by the client or printer.",
       },
     ]}
     ctaHeadline="Ensure Your Publication Files Are Print-Ready"

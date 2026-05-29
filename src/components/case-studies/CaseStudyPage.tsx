@@ -107,7 +107,7 @@ const CaseStudyPage = () => {
         preHeadline="Real Results. Real Clients. Real Impact."
         headline="Case Studies &"
         headlineAccent="Success Stories"
-        subtext="See how eQOURSE partners with global education companies, Content Services platforms, publishers, and AI teams to deliver production-ready content, high-quality training data, and measurable learning outcomes. From K-12 curriculum development across 6 languages to AI model testing across 30+ dialects — explore the results that set us apart."
+        subtext="See how eQOURSE partners with global education companies, Content Services platforms, publishers, and AI teams to deliver production-ready content, high-quality training data, and measurable learning outcomes. From K-12 curriculum development across 6 languages to AI model testing across 30+ dialects - explore the results that set us apart."
         ctaText="Start Your Free Pilot"
         ctaLink="/#contact"
         rotatingBadges={[
@@ -190,7 +190,7 @@ const CaseStudyPage = () => {
 
       <ServiceCTA 
         headline="Ready to Become Our Next Success Story?"
-        subtext="Join global education and AI leaders who trust eQOURSE for premium data services and Content Services. Start with a free pilot — no commitment required."
+        subtext="Join global education and AI leaders who trust eQOURSE for premium data services and Content Services. Start with a free pilot - no commitment required."
         ctaText="Talk to Our Team"
       />
 

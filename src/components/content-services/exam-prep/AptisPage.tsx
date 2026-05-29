@@ -7,12 +7,12 @@ const AptisPage = () => (
     parentLabel="Exam Preparation Content" parentHref="/content-services/exam-preparation-content" currentLabel="APTIS Prep Content"
     bannerImage="/assets/banners/content-services/exam-prep/aptis.png"
     bannerImageAlt="APTIS exam preparation content banner showing British Council English language assessment practice for grammar, reading, writing, listening and speaking by eQOURSE"
-    preHeadline="APTIS Exam Preparation Content — British Council Assessment" headline="APTIS Exam" headlineAccent="Preparation Content"
+    preHeadline="APTIS Exam Preparation Content - British Council Assessment" headline="APTIS Exam" headlineAccent="Preparation Content"
     subtext="Comprehensive APTIS preparation content designed to help candidates demonstrate their English language proficiency. Our materials cover all APTIS components: Grammar & Vocabulary, Reading, Writing, Listening, and Speaking, with practice tests aligned to British Council standards."
     ctaText="Request Sample Content"
     introLabel="British Council Standard" introTitle="APTIS Content That" introGradient="Delivers Results"
     introDescription="Our APTIS materials are meticulously designed to align with British Council's assessment framework."
-    introParagraphs={["Each component—Grammar & Vocabulary, Reading, Writing, Listening, and Speaking—is covered with targeted practice materials, model answers, and scoring rubrics."]}
+    introParagraphs={["Each component-Grammar & Vocabulary, Reading, Writing, Listening, and Speaking-is covered with targeted practice materials, model answers, and scoring rubrics."]}
     servicesLabel="APTIS Components" servicesTitle="APTIS Preparation" servicesGradient="Modules"
     services={[
       { icon: BookOpen, title: "APTIS Grammar & Vocabulary", description: "Targeted practice materials for APTIS grammar and vocabulary components." },

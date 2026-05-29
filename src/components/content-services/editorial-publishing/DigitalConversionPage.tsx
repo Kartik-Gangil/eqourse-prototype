@@ -13,16 +13,16 @@ const DigitalConversionPage = () => (
     parentLabel={PARENT_LABEL}
     parentHref={PARENT_HREF}
     currentLabel="Digital Conversion"
-    preHeadline="✦ Digital Conversion — From Source to Platform-Ready Format"
+    preHeadline="✦ Digital Conversion - From Source to Platform-Ready Format"
     headline="Digital Conversion"
     headlineAccent="for Modern Publishing"
-    subtext="eQOURSE prepares learning content for web, LMS, eBook and platform-based delivery through structured conversion from source files into clean digital formats — including HTML-ready content, EPUB 3-aligned eBook preparation, accessible-friendly structure and asset organisation."
+    subtext="eQOURSE prepares learning content for web, LMS, eBook and platform-based delivery through structured conversion from source files into clean digital formats - including HTML-ready content, EPUB 3-aligned eBook preparation, accessible-friendly structure and asset organisation."
     ctaText="Request Conversion Support"
     ctaLink="/contact"
     introLabel="Format Transformation"
     introTitle="Convert Content for"
     introGradient="Every Platform"
-    introDescription="Education content must reach learners across LMS platforms, eBooks, web browsers and mobile apps — digital conversion makes that possible without losing structure or accessibility."
+    introDescription="Education content must reach learners across LMS platforms, eBooks, web browsers and mobile apps - digital conversion makes that possible without losing structure or accessibility."
     introParagraphs={[
       "Digital conversion services prepare learning content for web, LMS, eBook and platform-based delivery. eQOURSE supports structured conversion from source files into clean digital formats, including HTML-ready content, EPUB 3-aligned eBook preparation when specified, accessible-friendly structure and asset organisation.",
       "Each conversion project is scoped to the target platform's specifications, accessibility requirements and downstream technical handover process.",
@@ -41,19 +41,19 @@ const DigitalConversionPage = () => (
         icon: ScanLine,
         title: "Digitisation & OCR",
         description:
-          "High-accuracy digitisation of print materials and scanned documents using OCR processing — preparing clean, editable text files for downstream editorial and conversion workflows.",
+          "High-accuracy digitisation of print materials and scanned documents using OCR processing - preparing clean, editable text files for downstream editorial and conversion workflows.",
       },
       {
         icon: Code2,
         title: "XML Conversion",
         description:
-          "Structured XML conversion from Word, PDF and InDesign source files — using client-specific DTDs or schemas to create reusable, platform-independent content structures.",
+          "Structured XML conversion from Word, PDF and InDesign source files - using client-specific DTDs or schemas to create reusable, platform-independent content structures.",
       },
       {
         icon: Globe,
         title: "HTML Conversion",
         description:
-          "Clean, semantic HTML conversion for web, LMS and platform delivery — including heading hierarchy, accessible tables, figure markup, MathML and metadata integration.",
+          "Clean, semantic HTML conversion for web, LMS and platform delivery - including heading hierarchy, accessible tables, figure markup, MathML and metadata integration.",
       },
       {
         icon: BookOpen,
@@ -65,13 +65,13 @@ const DigitalConversionPage = () => (
         icon: RefreshCw,
         title: "PDF to EPUB",
         description:
-          "Accurate conversion of print-optimised PDFs into EPUB format — with text re-flow, image handling, heading extraction and structural cleanup for digital reading environments.",
+          "Accurate conversion of print-optimised PDFs into EPUB format - with text re-flow, image handling, heading extraction and structural cleanup for digital reading environments.",
       },
       {
         icon: FileCode,
         title: "LaTeX Conversion",
         description:
-          "Conversion of LaTeX source files to XML, HTML or EPUB — preserving mathematical notation, formula rendering, table structures and scientific content integrity.",
+          "Conversion of LaTeX source files to XML, HTML or EPUB - preserving mathematical notation, formula rendering, table structures and scientific content integrity.",
       },
       {
         icon: Layers,
@@ -83,7 +83,7 @@ const DigitalConversionPage = () => (
         icon: Sigma,
         title: "MathML Conversion",
         description:
-          "Conversion of mathematical equations and scientific notation into MathML for accessible web and EPUB delivery — ensuring compatibility with screen readers and assistive technology.",
+          "Conversion of mathematical equations and scientific notation into MathML for accessible web and EPUB delivery - ensuring compatibility with screen readers and assistive technology.",
       },
     ]}
     faqs={[
@@ -95,7 +95,7 @@ const DigitalConversionPage = () => (
       {
         question: "What is XML-first publishing?",
         answer:
-          "XML-first publishing uses a single structured XML source to produce multiple output formats — print PDF, EPUB, HTML and LMS — simultaneously, reducing rework and maintaining content consistency across all channels.",
+          "XML-first publishing uses a single structured XML source to produce multiple output formats - print PDF, EPUB, HTML and LMS - simultaneously, reducing rework and maintaining content consistency across all channels.",
       },
       {
         question: "Is MathML conversion accessible?",

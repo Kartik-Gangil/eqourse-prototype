@@ -13,10 +13,10 @@ const MetadataServicesPage = () => (
     parentLabel={PARENT_LABEL}
     parentHref={PARENT_HREF}
     currentLabel="Metadata Services"
-    preHeadline="✦ Metadata Services — Structure, Discoverability & Compliance"
+    preHeadline="✦ Metadata Services - Structure, Discoverability & Compliance"
     headline="Metadata Services for"
     headlineAccent="Education Publishing"
-    subtext="Metadata services improve the structure, discoverability and management of learning-content assets across catalogues, publishing systems and digital platforms — preparing descriptive metadata, file naming conventions, asset tags, taxonomy inputs and structured records."
+    subtext="Metadata services improve the structure, discoverability and management of learning-content assets across catalogues, publishing systems and digital platforms - preparing descriptive metadata, file naming conventions, asset tags, taxonomy inputs and structured records."
     ctaText="Request Metadata Support"
     ctaLink="/contact"
     introLabel="Content Discovery"
@@ -25,7 +25,7 @@ const MetadataServicesPage = () => (
     introDescription="Well-structured metadata helps publishers, platforms and institutions catalogue, search and manage learning content assets efficiently at scale."
     introParagraphs={[
       "eQOURSE prepares descriptive metadata, file naming conventions, asset tags, content taxonomy inputs, keyword fields and structured records based on client templates, platform rules and distribution needs.",
-      "Metadata services are scoped to the client's cataloguing system, platform requirements and distribution channels — from academic library systems to commercial eBook stores and LMS platforms.",
+      "Metadata services are scoped to the client's cataloguing system, platform requirements and distribution channels - from academic library systems to commercial eBook stores and LMS platforms.",
     ]}
     stats={[
       { value: "7+", label: "Metadata Standards" },
@@ -41,43 +41,43 @@ const MetadataServicesPage = () => (
         icon: Tag,
         title: "Metadata Tagging",
         description:
-          "Descriptive tagging of content assets with subject, level, format, audience, keyword and classification fields — aligned to client cataloguing templates and platform schemas.",
+          "Descriptive tagging of content assets with subject, level, format, audience, keyword and classification fields - aligned to client cataloguing templates and platform schemas.",
       },
       {
         icon: Layers,
         title: "Content Structuring",
         description:
-          "Hierarchical content structure organisation for chapters, topics, modules and assets — supporting efficient retrieval, sequencing and LMS course assembly.",
+          "Hierarchical content structure organisation for chapters, topics, modules and assets - supporting efficient retrieval, sequencing and LMS course assembly.",
       },
       {
         icon: Hash,
         title: "DOI Metadata Preparation",
         description:
-          "Preparation of Digital Object Identifier metadata for academic and publishing content — including title, contributor, publisher, date and rights information in required formats.",
+          "Preparation of Digital Object Identifier metadata for academic and publishing content - including title, contributor, publisher, date and rights information in required formats.",
       },
       {
         icon: BookOpen,
         title: "ONIX Metadata Support",
         description:
-          "ONIX for Books metadata preparation for trade and educational publishers — supporting book supply chain data requirements for distributors and retail platforms.",
+          "ONIX for Books metadata preparation for trade and educational publishers - supporting book supply chain data requirements for distributors and retail platforms.",
       },
       {
         icon: Library,
         title: "MARC Records Preparation",
         description:
-          "Machine-Readable Cataloguing (MARC 21) record preparation for academic and public library systems — enabling proper cataloguing of educational publications and digital resources.",
+          "Machine-Readable Cataloguing (MARC 21) record preparation for academic and public library systems - enabling proper cataloguing of educational publications and digital resources.",
       },
       {
         icon: Link2,
         title: "Crossref Metadata Support",
         description:
-          "Preparation of Crossref-compatible metadata for journal articles, book chapters and conference papers — supporting DOI registration and citation linking.",
+          "Preparation of Crossref-compatible metadata for journal articles, book chapters and conference papers - supporting DOI registration and citation linking.",
       },
       {
         icon: ShieldCheck,
         title: "Accessibility Metadata",
         description:
-          "Schema.org accessibility metadata preparation for EPUB and digital publications — including access modes, accessibility features, hazards and accessibility summaries.",
+          "Schema.org accessibility metadata preparation for EPUB and digital publications - including access modes, accessibility features, hazards and accessibility summaries.",
       },
     ]}
     faqs={[
@@ -94,7 +94,7 @@ const MetadataServicesPage = () => (
       {
         question: "Does accessibility metadata improve discoverability?",
         answer:
-          "Yes. Schema.org accessibility metadata helps readers, assistive technology users and platform providers identify which content is accessible and how — improving discoverability for users with disabilities and supporting compliance with accessibility distribution requirements.",
+          "Yes. Schema.org accessibility metadata helps readers, assistive technology users and platform providers identify which content is accessible and how - improving discoverability for users with disabilities and supporting compliance with accessibility distribution requirements.",
       },
     ]}
     ctaHeadline="Make Your Content Structured and Discoverable"

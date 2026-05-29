@@ -280,7 +280,7 @@ export const ResponsiveHtmlThumb = () => (
 );
 
 /* ══════════════════════════════════════════════════════════════
-   Tab selector — maps tab index to the correct scene
+   Tab selector - maps tab index to the correct scene
    ══════════════════════════════════════════════════════════════ */
 export const FlashToHTMLThumbForTab = ({
   tabIndex,

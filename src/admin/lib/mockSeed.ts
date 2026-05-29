@@ -366,6 +366,6 @@ export const seedSampleCategories = (): SampleCategory[] => [
   },
 ];
 
-/** Start with zero samples — admin uploads real files via the editor. */
+/** Start with zero samples - admin uploads real files via the editor. */
 export const seedSamples = (): Sample[] => [];
 

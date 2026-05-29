@@ -1,10 +1,10 @@
 /**
- * Sample Hierarchy — Single source of truth for the 3-level sample structure.
+ * Sample Hierarchy - Single source of truth for the 3-level sample structure.
  *
  * Main Category  →  Sub-Category (page)  →  Tabs (sub-sub-categories)
  *
  * Used by the admin panel for navigation AND by the frontend for data mapping.
- * No CRUD — these are hardcoded to match the public website structure.
+ * No CRUD - these are hardcoded to match the public website structure.
  */
 
 import {
@@ -75,7 +75,7 @@ export const SAMPLE_HIERARCHY: MainCategory[] = [
   {
     id: "video",
     label: "Video Content Samples",
-    description: "From Articulate Storyline to AI avatar videos and AR/VR simulations — browse video production pipeline samples.",
+    description: "From Articulate Storyline to AI avatar videos and AR/VR simulations - browse video production pipeline samples.",
     icon: PlayCircle,
     accent: "blue",
     accentColor: "hsl(217 91% 60%)",

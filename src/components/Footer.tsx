@@ -62,7 +62,7 @@ const Footer = () => {
               />
             </Link>
             <p className="text-sm leading-relaxed text-white/80" style={linkColor}>
-              eQOURSE partners with education companies and AI builders worldwide. We design digital learning content, create production-grade AI training datasets, and test AI models in real-world environments — all powered by 500+ domain experts.
+              eQOURSE partners with education companies and AI builders worldwide. We design digital learning content, create production-grade AI training datasets, and test AI models in real-world environments - all powered by 500+ domain experts.
             </p>
             <div className="flex items-center gap-3 pt-1">
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20">

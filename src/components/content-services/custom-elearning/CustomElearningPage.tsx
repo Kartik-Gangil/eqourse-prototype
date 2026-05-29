@@ -39,7 +39,7 @@ const CustomElearningPage = () => (
       ctaText="Start Your Free Pilot"
       ctaLink="/free-pilot"
       imageSrc="/assets/banners/content-services/main/custom-e-learning-content.png"
-      imageAlt="Custom e-learning content development services by eQOURSE — K-12 curriculum, assessments, workbooks, STEM content, interactive eBooks and 2D/3D educational videos"
+      imageAlt="Custom e-learning content development services by eQOURSE - K-12 curriculum, assessments, workbooks, STEM content, interactive eBooks and 2D/3D educational videos"
       rotatingBadges={[
         { icon: GraduationCap, title: "K-12 Ready", subtitle: "Curriculum aligned", color: "hsl(170 82% 55%)" },
         { icon: PenTool, title: "Design", subtitle: "Instructional focus", color: "hsl(190 85% 68%)" },

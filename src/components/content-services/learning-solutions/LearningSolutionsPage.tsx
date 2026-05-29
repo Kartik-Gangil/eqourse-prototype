@@ -35,7 +35,7 @@ const LearningSolutionsPage = () => (
       ctaText="Start Your Free Pilot"
       ctaLink="/free-pilot"
       imageSrc="/assets/banners/content-services/main/learning-solutions.jpeg"
-      imageAlt="Learning solutions by eQOURSE — instructor-led training, corporate e-learning, gamified learning, adaptive AI-powered modules, blended learning and immersive AR/VR simulations"
+      imageAlt="Learning solutions by eQOURSE - instructor-led training, corporate e-learning, gamified learning, adaptive AI-powered modules, blended learning and immersive AR/VR simulations"
       rotatingBadges={[
         { icon: BrainCircuit, title: "Adaptive", subtitle: "Personalized learning", color: "hsl(190 85% 68%)" },
         { icon: TabletSmartphone, title: "Gamified", subtitle: "High engagement", color: "hsl(165 75% 71%)" },

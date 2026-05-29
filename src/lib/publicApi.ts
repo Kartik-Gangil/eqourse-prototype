@@ -1,5 +1,5 @@
 /**
- * Public API client — used by public-facing pages (not admin).
+ * Public API client - used by public-facing pages (not admin).
  *
  * Provides functions for:
  * - Fetching published blogs and case studies

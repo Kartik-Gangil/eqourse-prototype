@@ -130,11 +130,11 @@ const HeroSection = () => {
   return (
     <section
       className="relative overflow-hidden min-h-screen flex items-center"
-      aria-label="eQOURSE — Content Services and AI training data services"
+      aria-label="eQOURSE - Content Services and AI training data services"
     >
       {/* SEO: static, crawlable headline that does not rotate */}
       <h1 className="sr-only">
-        eQOURSE — From Education Content to AI Training Data, One Partner. Content Services development and AI training
+        eQOURSE - From Education Content to AI Training Data, One Partner. Content Services development and AI training
         data services across 30+ languages, with 500+ domain specialists, ISO 9001 and ISO 27001 certified.
       </h1>
 

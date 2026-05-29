@@ -1,5 +1,5 @@
 /**
- * Live API implementation — real HTTP calls to the backend.
+ * Live API implementation - real HTTP calls to the backend.
  *
  * Same function signatures as `apiMock.ts` so the rest of the admin
  * panel doesn't know or care which implementation it's using.

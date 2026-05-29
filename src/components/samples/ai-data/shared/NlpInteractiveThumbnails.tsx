@@ -48,7 +48,7 @@ function pillBtn(active: boolean) {
 }
 
 // ============================================================
-// 1. NER — interactive scanner
+// 1. NER - interactive scanner
 // ============================================================
 
 const NER_EXAMPLES = [
@@ -211,7 +211,7 @@ function NerThumb({ active }: { active: boolean }) {
                 transition: "all 240ms ease",
                 height: 11,
               }}>
-                {tok.tag || "—"}
+                {tok.tag || "-"}
               </span>
             </span>
           );
@@ -239,7 +239,7 @@ function NerThumb({ active }: { active: boolean }) {
 }
 
 // ============================================================
-// 2. Sentiment — emoji morphs, polarity dial, click reviews
+// 2. Sentiment - emoji morphs, polarity dial, click reviews
 // ============================================================
 
 const REVIEWS = [
@@ -376,7 +376,7 @@ function SentimentThumb({ active }: { active: boolean }) {
 }
 
 // ============================================================
-// 3. Intent — paper plane routes to bucket
+// 3. Intent - paper plane routes to bucket
 // ============================================================
 
 const INTENT_MESSAGES = [
@@ -433,7 +433,7 @@ function IntentThumb({ active }: { active: boolean }) {
   return (
     <div onMouseMove={touch} style={{ width: "100%", height: "100%", padding: "12px 18px", display: "flex", flexDirection: "column", gap: 8 }}>
       <div style={{ fontSize: 10, letterSpacing: 1.4, color: "rgba(148,163,184,0.7)", fontFamily: "ui-monospace, monospace" }}>
-        TAP A MESSAGE — WATCH IT ROUTE
+        TAP A MESSAGE - WATCH IT ROUTE
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6 }}>
@@ -517,7 +517,7 @@ function IntentThumb({ active }: { active: boolean }) {
 }
 
 // ============================================================
-// 4. Relation — interactive knowledge graph
+// 4. Relation - interactive knowledge graph
 // ============================================================
 
 const RELATION_DATA = {
@@ -557,7 +557,7 @@ function RelationThumb({ active }: { active: boolean }) {
     <div onMouseMove={touch} style={{ width: "100%", height: "100%", padding: "12px 18px", display: "flex", flexDirection: "column", gap: 6 }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <div style={{ fontSize: 10, letterSpacing: 1.4, color: "rgba(148,163,184,0.7)", fontFamily: "ui-monospace, monospace" }}>
-          TAP AN ENTITY — SEE ITS CONNECTIONS
+          TAP AN ENTITY - SEE ITS CONNECTIONS
         </div>
         {hovered && (
           <button onClick={() => { touch(); setHovered(null); }} style={{
@@ -628,7 +628,7 @@ function RelationThumb({ active }: { active: boolean }) {
 }
 
 // ============================================================
-// 5. Coreference — click a pronoun, see who it refers to
+// 5. Coreference - click a pronoun, see who it refers to
 // ============================================================
 
 const COREF_TOKENS = [
@@ -687,7 +687,7 @@ function CoreferenceThumb({ active }: { active: boolean }) {
     <div onMouseMove={touch} style={{ width: "100%", height: "100%", padding: "12px 18px", display: "flex", flexDirection: "column", gap: 6 }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <div style={{ fontSize: 10, letterSpacing: 1.4, color: "rgba(148,163,184,0.7)", fontFamily: "ui-monospace, monospace" }}>
-          TAP A PRONOUN — SEE WHO IT'S ABOUT
+          TAP A PRONOUN - SEE WHO IT'S ABOUT
         </div>
         <div style={{ display: "flex", gap: 6 }}>
           <button onClick={() => { touch(); revealAll(); }} style={{ ...pillBtn(false), fontSize: 10, padding: "3px 9px" }}>Reveal all</button>

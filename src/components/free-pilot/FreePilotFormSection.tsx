@@ -302,7 +302,7 @@ const FreePilotFormSection = () => {
                     Select specific service...
                   </option>
                   {(pilotType.includes("Content Services") || pilotType.includes("Both")) && (
-                    <optgroup label="— Content Services Services —">
+                    <optgroup label="- Content Services Services -">
                       {contentServicesServices.map((s) => (
                         <option key={s} value={s}>
                           {s}
@@ -311,7 +311,7 @@ const FreePilotFormSection = () => {
                     </optgroup>
                   )}
                   {(pilotType.includes("AI") || pilotType.includes("Both")) && (
-                    <optgroup label="— AI Data Services —">
+                    <optgroup label="- AI Data Services -">
                       {aiDataServices.map((s) => (
                         <option key={s} value={s}>
                           {s}

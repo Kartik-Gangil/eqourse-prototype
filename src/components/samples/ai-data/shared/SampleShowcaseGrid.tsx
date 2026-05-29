@@ -21,7 +21,7 @@ const SampleShowcaseGrid = ({
   showcases,
   categorySlug = "nlp-annotation",
   heading = "Sample Showcase",
-  subtext = "Representative outputs across every task we support — each delivered with full metadata, QA logs, and the output format your pipeline needs.",
+  subtext = "Representative outputs across every task we support - each delivered with full metadata, QA logs, and the output format your pipeline needs.",
 }: Props) => {
   const [active, setActive] = useState(0);
   const [showPreview, setShowPreview] = useState(false);
@@ -206,17 +206,17 @@ const SampleShowcaseGrid = ({
                         <div className="flex items-center gap-3">
                           <Check className="w-4 h-4 text-primary flex-shrink-0" />
                           <span className="text-white font-medium">Format Validated</span>
-                          <span className="text-white/40 hidden sm:inline">— schema compliant</span>
+                          <span className="text-white/40 hidden sm:inline">- schema compliant</span>
                         </div>
                         <div className="flex items-center gap-3">
                           <Check className="w-4 h-4 text-primary flex-shrink-0" />
                           <span className="text-white font-medium">Quality Checked</span>
-                          <span className="text-white/40 hidden sm:inline">— gold-standard IAA</span>
+                          <span className="text-white/40 hidden sm:inline">- gold-standard IAA</span>
                         </div>
                         <div className="flex items-center gap-3">
                           <Check className="w-4 h-4 text-primary flex-shrink-0" />
                           <span className="text-white font-medium">Audit Trail</span>
-                          <span className="text-white/40 hidden sm:inline">— full provenance</span>
+                          <span className="text-white/40 hidden sm:inline">- full provenance</span>
                         </div>
                       </div>
                     </div>
@@ -249,7 +249,7 @@ const SampleShowcaseGrid = ({
                         ✓
                       </span>
                       <span className="text-foreground font-semibold">{q.label}</span>
-                      <span>— {q.detail}</span>
+                      <span>- {q.detail}</span>
                     </span>
                   ))}
                 </div>

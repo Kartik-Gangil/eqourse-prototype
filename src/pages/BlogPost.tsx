@@ -26,7 +26,7 @@ const BlogPost = () => {
     // Then try API (will override static if successful)
     fetchBlogBySlug(slug).then((apiBlog) => {
       if (!apiBlog) {
-        // API unavailable — keep static result (or null if not found statically)
+        // API unavailable - keep static result (or null if not found statically)
         if (!staticBlog) setBlog(null);
         return;
       }

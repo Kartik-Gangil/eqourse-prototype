@@ -16,7 +16,7 @@ const contentServicesFaqs: FAQ[] = [
   },
   {
     question: "How is eQOURSE different from other Content Services providers?",
-    answer: "eQOURSE is a full-stack Content Services partner. We don't just create content — we handle curriculum design, assessment development, video production, localization, LMS integration, and SME recruitment under one roof. This integrated approach eliminates vendor fragmentation, reduces turnaround time, and ensures consistent quality across your entire content library."
+    answer: "eQOURSE is a full-stack Content Services partner. We don't just create content - we handle curriculum design, assessment development, video production, localization, LMS integration, and SME recruitment under one roof. This integrated approach eliminates vendor fragmentation, reduces turnaround time, and ensures consistent quality across your entire content library."
   },
   {
     question: "What curriculum standards do you support?",
@@ -36,7 +36,7 @@ const contentServicesFaqs: FAQ[] = [
   },
   {
     question: "How do I get started?",
-    answer: "We offer a free pilot for qualifying education and Content Services clients. Fill out the pilot form with your content requirements, target audience, and curriculum framework, and our team will deliver a sample content package within the agreed timeframe — no commitment required."
+    answer: "We offer a free pilot for qualifying education and Content Services clients. Fill out the pilot form with your content requirements, target audience, and curriculum framework, and our team will deliver a sample content package within the agreed timeframe - no commitment required."
   }
 ];
 
@@ -59,7 +59,7 @@ const aiDataFaqs: FAQ[] = [
   },
   {
     question: "What is real-world model testing and how does TuTrain work?",
-    answer: "Real-world model testing is eQOURSE’s unique service where we test your trained AI model on actual users through our TuTrain platform. TuTrain connects your model to a demographically diverse, geographically distributed user base across 30+ languages. We measure WER, intent accuracy, task completion, and other performance metrics in genuine usage conditions — revealing failure modes that benchmark tests never catch. Results feed back into targeted data collection for 20–40% faster model improvement."
+    answer: "Real-world model testing is eQOURSE’s unique service where we test your trained AI model on actual users through our TuTrain platform. TuTrain connects your model to a demographically diverse, geographically distributed user base across 30+ languages. We measure WER, intent accuracy, task completion, and other performance metrics in genuine usage conditions - revealing failure modes that benchmark tests never catch. Results feed back into targeted data collection for 20–40% faster model improvement."
   },
   {
     question: "How is my data kept secure?",
@@ -71,11 +71,11 @@ const aiDataFaqs: FAQ[] = [
   },
   {
     question: "How do I get started with AI data services?",
-    answer: "We offer a free pilot dataset to qualifying AI and ML teams. Simply fill out the pilot form with your use case, data modality, language requirements, and annotation type. Our team will deliver a sample dataset within the agreed timeframe — no commitment required. Contact us at info@eqourse.com or call +91-92144-45870."
+    answer: "We offer a free pilot dataset to qualifying AI and ML teams. Simply fill out the pilot form with your use case, data modality, language requirements, and annotation type. Our team will deliver a sample dataset within the agreed timeframe - no commitment required. Contact us at info@eqourse.com or call +91-92144-45870."
   },
   {
     question: "How is eQOURSE different from other data annotation companies?",
-    answer: "eQOURSE is the only provider offering a closed-loop pipeline from data collection to real-world model testing. We don’t just annotate your data — we test your trained model on real users via TuTrain and feed results back into targeted data collection (active learning loop). This delivers 20–40% faster model improvement compared to static annotation cycles. Additionally, our deep education-sector expertise means our annotators understand context, cultural nuance, and domain-specific content at a level that generic crowdsourcing platforms cannot match."
+    answer: "eQOURSE is the only provider offering a closed-loop pipeline from data collection to real-world model testing. We don’t just annotate your data - we test your trained model on real users via TuTrain and feed results back into targeted data collection (active learning loop). This delivers 20–40% faster model improvement compared to static annotation cycles. Additionally, our deep education-sector expertise means our annotators understand context, cultural nuance, and domain-specific content at a level that generic crowdsourcing platforms cannot match."
   }
 ];
 

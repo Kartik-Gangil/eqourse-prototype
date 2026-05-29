@@ -13,7 +13,7 @@ const INK = "#0f172a";
 const INK_2 = "#1e293b";
 
 /* ══════════════════════════════════════════════════════════════
-   Shared chrome wrapper — browser-style frame with dots + progress
+   Shared chrome wrapper - browser-style frame with dots + progress
    ══════════════════════════════════════════════════════════════ */
 interface ModuleChromeProps {
   title: string;
@@ -66,7 +66,7 @@ const ModuleChrome = ({
 );
 
 /* ══════════════════════════════════════════════════════════════
-   1. Interactive Modules — Drag & Drop cell biology
+   1. Interactive Modules - Drag & Drop cell biology
    ══════════════════════════════════════════════════════════════ */
 export const InteractiveModulesThumb = () => (
   <ModuleChrome
@@ -262,7 +262,7 @@ export const InteractiveModulesThumb = () => (
 );
 
 /* ══════════════════════════════════════════════════════════════
-   2. Branching Scenarios — Decision tree
+   2. Branching Scenarios - Decision tree
    ══════════════════════════════════════════════════════════════ */
 export const BranchingScenariosThumb = () => (
   <ModuleChrome
@@ -405,7 +405,7 @@ export const BranchingScenariosThumb = () => (
 );
 
 /* ══════════════════════════════════════════════════════════════
-   3. Quizzes & Assessments — Live MCQ
+   3. Quizzes & Assessments - Live MCQ
    ══════════════════════════════════════════════════════════════ */
 export const QuizzesAssessmentsThumb = () => (
   <ModuleChrome
@@ -618,7 +618,7 @@ export const QuizzesAssessmentsThumb = () => (
 );
 
 /* ══════════════════════════════════════════════════════════════
-   Tab selector — maps tab index to the correct scene
+   Tab selector - maps tab index to the correct scene
    ══════════════════════════════════════════════════════════════ */
 export const ArticulateStorylineThumbForTab = ({
   tabIndex,

@@ -89,7 +89,7 @@ const FreePilot = () => {
         <title>Free Pilot Program │ Try Content Services & AI Data Services Free │ eQOURSE</title>
         <meta
           name="description"
-          content="Start your free pilot with eQOURSE. Get a complimentary sample of custom e-learning content or AI training data — tailored to your specifications. No payment, no obligation. Content Services pilots delivered in 5–7 days, AI data pilots in 5–10 days. ISO 9001 & 27001 certified."
+          content="Start your free pilot with eQOURSE. Get a complimentary sample of custom e-learning content or AI training data - tailored to your specifications. No payment, no obligation. Content Services pilots delivered in 5–7 days, AI data pilots in 5–10 days. ISO 9001 & 27001 certified."
         />
         <meta
           name="keywords"

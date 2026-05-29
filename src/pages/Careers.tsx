@@ -13,7 +13,7 @@ const Careers = () => {
         <title>Careers at eQOURSE │ Content Services & AI Data Services Jobs │ India & Singapore</title>
         <meta
           name="description"
-          content="Join eQOURSE — careers in Content Services development, instructional design, AI data annotation, NLP, computer vision, and more. Work with 500+ specialists across India and Singapore. Apply now."
+          content="Join eQOURSE - careers in Content Services development, instructional design, AI data annotation, NLP, computer vision, and more. Work with 500+ specialists across India and Singapore. Apply now."
         />
         <meta
           name="keywords"

@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     question: "How is eQOURSE different from other Content Services providers?",
-    answer: "eQOURSE is a full-stack Content Services partner. We don't just create content — we handle curriculum design, assessment development, video production, localization, LMS integration, and SME recruitment under one roof. This integrated approach eliminates vendor fragmentation, reduces turnaround time, and ensures consistent quality across your entire content library."
+    answer: "eQOURSE is a full-stack Content Services partner. We don't just create content - we handle curriculum design, assessment development, video production, localization, LMS integration, and SME recruitment under one roof. This integrated approach eliminates vendor fragmentation, reduces turnaround time, and ensures consistent quality across your entire content library."
   },
   {
     question: "What curriculum standards do you support?",
@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     question: "How do I get started?",
-    answer: "We offer a free pilot for qualifying education and Content Services clients. Fill out the pilot form with your content requirements, target audience, and curriculum framework, and our team will deliver a sample content package within the agreed timeframe — no commitment required."
+    answer: "We offer a free pilot for qualifying education and Content Services clients. Fill out the pilot form with your content requirements, target audience, and curriculum framework, and our team will deliver a sample content package within the agreed timeframe - no commitment required."
   }
 ];
 
@@ -44,7 +44,7 @@ const ContentServicesOverviewPage = () => (
     />
 
     <ServiceHero
-      preHeadline="Content Service — Trusted by 200+ Global Platforms"
+      preHeadline="Content Service - Trusted by 200+ Global Platforms"
       headline="End-to-End Content Service That"
       headlineAccent="Scale Learning Outcomes"
       subtext="From custom K-12 content and curriculum design to interactive video learning, localization in 30+ languages, and LMS integration."

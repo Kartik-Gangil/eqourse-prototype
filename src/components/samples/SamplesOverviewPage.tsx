@@ -19,7 +19,7 @@ const SamplesOverviewPage = () => (
       preHeadline="See Our Work Before You Commit"
       headline="Explore Our Content Services, Video &"
       headlineAccent="AI Data Samples"
-      subtext="We partner with educational institutions, Content Services platforms, and AI teams to deliver expertly crafted content and production-grade training data. Browse samples across three categories — Text Content, Video Content, and AI Data — each demonstrating the quality and scale that 200+ clients trust."
+      subtext="We partner with educational institutions, Content Services platforms, and AI teams to deliver expertly crafted content and production-grade training data. Browse samples across three categories - Text Content, Video Content, and AI Data - each demonstrating the quality and scale that 200+ clients trust."
       ctaText="Request Custom Samples"
       ctaLink="#contact"
       imageSrc="/assets/features/Sample.png"
@@ -37,7 +37,7 @@ const SamplesOverviewPage = () => (
 
     <ServiceCTA
       headline="Didn't Find the Right Sample?"
-      subtext="Tell us your use case, format, and language. We'll build a custom sample or free pilot dataset for you — no commitment required."
+      subtext="Tell us your use case, format, and language. We'll build a custom sample or free pilot dataset for you - no commitment required."
       ctaText="Request Custom Samples"
     />
   </AIDataServicesLayout>

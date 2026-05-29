@@ -13,16 +13,16 @@ const ProductionSupportPage = () => (
     parentLabel={PARENT_LABEL}
     parentHref={PARENT_HREF}
     currentLabel="Production Support"
-    preHeadline="✦ Production Support — Dependable Operational Follow-Through"
+    preHeadline="✦ Production Support - Dependable Operational Follow-Through"
     headline="Production Support"
     headlineAccent="for Learning Programmes"
-    subtext="Production support helps clients manage ongoing content updates, corrections, file tracking, release preparation and cross-team coordination — with structured communication, documented change management, version control assistance and final asset packaging."
+    subtext="Production support helps clients manage ongoing content updates, corrections, file tracking, release preparation and cross-team coordination - with structured communication, documented change management, version control assistance and final asset packaging."
     ctaText="Request Production Support"
     ctaLink="/contact"
     introLabel="Operational Support"
     introTitle="Production Support That"
     introGradient="Keeps Programmes Moving"
-    introDescription="Learning content programmes require dependable operational follow-through — structured support that coordinates teams, tracks changes and delivers assets on schedule."
+    introDescription="Learning content programmes require dependable operational follow-through - structured support that coordinates teams, tracks changes and delivers assets on schedule."
     introParagraphs={[
       "eQOURSE supports structured communication, documented change management, version control assistance and final asset packaging for learning-content programmes that require dependable operational follow-through.",
       "Production support is presented as operational coordination, not a replacement for the client's final approval process. All sign-offs, authorisations and release decisions remain with the client.",
@@ -41,13 +41,13 @@ const ProductionSupportPage = () => (
         icon: Truck,
         title: "Print Vendor Coordination",
         description:
-          "Liaison between editorial, design and print vendor teams — managing file transfers, specification queries, proofing rounds and delivery logistics for print publication projects.",
+          "Liaison between editorial, design and print vendor teams - managing file transfers, specification queries, proofing rounds and delivery logistics for print publication projects.",
       },
       {
         icon: Layers,
         title: "Large-Volume Print Workflow Support",
         description:
-          "Structured support for large-volume print programmes — including batch processing, quality sampling coordination, schedule tracking and multi-title production management.",
+          "Structured support for large-volume print programmes - including batch processing, quality sampling coordination, schedule tracking and multi-title production management.",
       },
       {
         icon: FileText,
@@ -59,19 +59,19 @@ const ProductionSupportPage = () => (
         icon: GitBranch,
         title: "Change Management & Version Control",
         description:
-          "Documented change management for content corrections, design revisions and production updates — with version tracking, audit trails and consolidated correction logs.",
+          "Documented change management for content corrections, design revisions and production updates - with version tracking, audit trails and consolidated correction logs.",
       },
       {
         icon: PackageCheck,
         title: "Final Asset Packaging",
         description:
-          "Structured packaging of final content deliverables — including print PDFs, digital assets, metadata files, rights documentation and delivery checklists — for handover to client or printer.",
+          "Structured packaging of final content deliverables - including print PDFs, digital assets, metadata files, rights documentation and delivery checklists - for handover to client or printer.",
       },
       {
         icon: MessageSquare,
         title: "Cross-Team Communication Coordination",
         description:
-          "Structured communication coordination between editorial, design, prepress, vendor and client teams — using documented workflows, status trackers and escalation protocols.",
+          "Structured communication coordination between editorial, design, prepress, vendor and client teams - using documented workflows, status trackers and escalation protocols.",
       },
     ]}
     faqs={[
@@ -88,7 +88,7 @@ const ProductionSupportPage = () => (
       {
         question: "Does production support include content sign-off?",
         answer:
-          "No. Production support is operational coordination — all content sign-offs, authorisations and release decisions remain with the client. eQOURSE coordinates the workflow and tracks progress but does not act as the authorising party.",
+          "No. Production support is operational coordination - all content sign-offs, authorisations and release decisions remain with the client. eQOURSE coordinates the workflow and tracks progress but does not act as the authorising party.",
       },
     ]}
     ctaHeadline="Keep Your Production Programme on Track"

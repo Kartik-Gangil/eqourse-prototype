@@ -179,14 +179,14 @@ export default function PilotQueries() {
                   </TableCell>
                   <TableCell className="text-sm">{q.company}</TableCell>
                   <TableCell className="text-sm">{interestLabel[q.serviceInterest]}</TableCell>
-                  <TableCell className="text-sm">{q.timeline ?? "—"}</TableCell>
+                  <TableCell className="text-sm">{q.timeline ?? "-"}</TableCell>
                   <TableCell>
                     {q.attachment ? (
                       <Button variant="ghost" size="sm" onClick={() => downloadAttachment(q.attachment!.url, q.attachment!.originalName)}>
                         <FileDown className="w-3.5 h-3.5 mr-1" />
                         {q.attachment.originalName.slice(0, 16)}
                       </Button>
-                    ) : <span className="text-muted-foreground text-sm">—</span>}
+                    ) : <span className="text-muted-foreground text-sm">-</span>}
                   </TableCell>
                   <TableCell><QueryStatusBadge status={q.status} /></TableCell>
                   <TableCell>
@@ -207,17 +207,17 @@ export default function PilotQueries() {
           {selected && (
             <>
               <SheetHeader>
-                <SheetTitle>Pilot request — {selected.company}</SheetTitle>
+                <SheetTitle>Pilot request - {selected.company}</SheetTitle>
                 <SheetDescription>Submitted {new Date(selected.createdAt).toLocaleString()}</SheetDescription>
               </SheetHeader>
               <div className="space-y-5 mt-6">
                 <div className="grid grid-cols-2 gap-4">
                   <Field label="Name" value={selected.name} />
                   <Field label="Email" value={selected.email} />
-                  <Field label="Phone" value={selected.phone ?? "—"} />
-                  <Field label="Role" value={selected.role ?? "—"} />
+                  <Field label="Phone" value={selected.phone ?? "-"} />
+                  <Field label="Role" value={selected.role ?? "-"} />
                   <Field label="Service Interest" value={interestLabel[selected.serviceInterest]} />
-                  <Field label="Timeline" value={selected.timeline ?? "—"} />
+                  <Field label="Timeline" value={selected.timeline ?? "-"} />
                 </div>
                 <div>
                   <Label>Project scope</Label>

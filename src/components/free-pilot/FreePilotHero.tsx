@@ -42,7 +42,7 @@ const FreePilotHero = () => {
           </div>
 
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white mb-6 drop-shadow-md">
-            Experience the Quality of eQOURSE — Start Your Free Pilot
+            Experience the Quality of eQOURSE - Start Your Free Pilot
           </h1>
 
           <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto drop-shadow-sm font-medium mb-10">

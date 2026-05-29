@@ -96,7 +96,7 @@ const SamplesCategoryTabs = () => {
 
   const headings = {
     text: { h: "Text Content Samples", sub: "K-12, competitive exams, STEM, and localization samples showcasing our writing, editorial and pedagogical craft." },
-    video: { h: "Video Content Samples", sub: "From Articulate Storyline to AI avatar videos and AR/VR simulations — browse what our video production pipeline can deliver." },
+    video: { h: "Video Content Samples", sub: "From Articulate Storyline to AI avatar videos and AR/VR simulations - browse what our video production pipeline can deliver." },
     "ai-data": { h: "AI Data Annotation & Collection Samples", sub: "Browse sample outputs from our AI data services pipeline across NLP, Computer Vision, Audio, and RLHF. Request a free pilot to evaluate on your data." },
   };
 

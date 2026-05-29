@@ -15,7 +15,7 @@ const timelineData = [
   {
     year: "2024",
     title: "ISO 27001 Certification & AI Expansion",
-    description: "We obtained ISO 27001:2022 certification for information security management. Recognising that our deep education expertise and large STEM-trained workforce were uniquely suited to AI data services, we began building our AI Data Services division — offering data collection, annotation, cleaning, and the concept of real-world model testing.",
+    description: "We obtained ISO 27001:2022 certification for information security management. Recognising that our deep education expertise and large STEM-trained workforce were uniquely suited to AI data services, we began building our AI Data Services division - offering data collection, annotation, cleaning, and the concept of real-world model testing.",
   },
   {
     year: "2025",
@@ -25,7 +25,7 @@ const timelineData = [
   {
     year: "2026",
     title: "Dual-Vertical Global Operations",
-    description: "Today, eQOURSE operates as a dual-vertical company: Content Service and AI Data Services. We serve 200+ clients across 15+ countries, with offices in India (Kota) and Singapore. Our mission is to help organisations across education and AI build systems that work in the real world — powered by high-quality human expertise.",
+    description: "Today, eQOURSE operates as a dual-vertical company: Content Service and AI Data Services. We serve 200+ clients across 15+ countries, with offices in India (Kota) and Singapore. Our mission is to help organisations across education and AI build systems that work in the real world - powered by high-quality human expertise.",
   }
 ];
 

@@ -45,26 +45,26 @@ const sitemapData = [
       { name: "Technology Solutions", to: "/content-services/technology-solutions" },
       { name: "Subject Matter Experts", to: "/content-services/subject-matter-experts" },
       { name: "Accessibility Services", to: "/content-services/accessibility" },
-      { name: "— Standards Compliance", to: "/content-services/accessibility/standards-compliance" },
-      { name: "— Document Remediation", to: "/content-services/accessibility/document-content-remediation" },
-      { name: "— Accessible Media", to: "/content-services/accessibility/accessible-media-enhancements" },
-      { name: "— Assessment Accessibility", to: "/content-services/accessibility/assessment-accessibility" },
-      { name: "— Assistive Tech Compatibility", to: "/content-services/accessibility/assistive-technology-compatibility" },
-      { name: "— Audit & Compliance Support", to: "/content-services/accessibility/audit-compliance-support" },
+      { name: "- Standards Compliance", to: "/content-services/accessibility/standards-compliance" },
+      { name: "- Document Remediation", to: "/content-services/accessibility/document-content-remediation" },
+      { name: "- Accessible Media", to: "/content-services/accessibility/accessible-media-enhancements" },
+      { name: "- Assessment Accessibility", to: "/content-services/accessibility/assessment-accessibility" },
+      { name: "- Assistive Tech Compatibility", to: "/content-services/accessibility/assistive-technology-compatibility" },
+      { name: "- Audit & Compliance Support", to: "/content-services/accessibility/audit-compliance-support" },
     ],
   },
   {
     category: "Editorial, Publishing & Designing",
     links: [
       { name: "Editorial, Publishing & Designing Services", to: "/content-services/editorial-publishing-designing-services" },
-      { name: "— Editorial Services", to: "/content-services/editorial-publishing-designing-services/editorial-services" },
-      { name: "— Publishing Production", to: "/content-services/editorial-publishing-designing-services/publishing-production" },
-      { name: "— Digital Conversion", to: "/content-services/editorial-publishing-designing-services/digital-conversion" },
-      { name: "— Image Processing", to: "/content-services/editorial-publishing-designing-services/image-processing" },
-      { name: "— Metadata Services", to: "/content-services/editorial-publishing-designing-services/metadata-services" },
-      { name: "— Design Services", to: "/content-services/editorial-publishing-designing-services/design-services" },
-      { name: "— Prepress Services", to: "/content-services/editorial-publishing-designing-services/prepress-services" },
-      { name: "— Production Support", to: "/content-services/editorial-publishing-designing-services/production-support" },
+      { name: "- Editorial Services", to: "/content-services/editorial-publishing-designing-services/editorial-services" },
+      { name: "- Publishing Production", to: "/content-services/editorial-publishing-designing-services/publishing-production" },
+      { name: "- Digital Conversion", to: "/content-services/editorial-publishing-designing-services/digital-conversion" },
+      { name: "- Image Processing", to: "/content-services/editorial-publishing-designing-services/image-processing" },
+      { name: "- Metadata Services", to: "/content-services/editorial-publishing-designing-services/metadata-services" },
+      { name: "- Design Services", to: "/content-services/editorial-publishing-designing-services/design-services" },
+      { name: "- Prepress Services", to: "/content-services/editorial-publishing-designing-services/prepress-services" },
+      { name: "- Production Support", to: "/content-services/editorial-publishing-designing-services/production-support" },
     ],
   },
   {
@@ -117,7 +117,7 @@ const Sitemap = () => {
   return (
     <PageLayout breadcrumbs={[{ label: "Sitemap" }]}>
       <Helmet>
-        <title>Sitemap │ eQOURSE — Content Service &amp; AI Data Services</title>
+        <title>Sitemap │ eQOURSE - Content Service &amp; AI Data Services</title>
         <meta
           name="description"
           content="Navigate the eQOURSE website. Find quick links to our Content Services, AI data services, company information, samples, and legal policies."
