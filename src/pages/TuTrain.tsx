@@ -280,8 +280,8 @@ const TuTrain = () => {
       </section>
 
       {/* CTA Bar */}
-      <section className="bg-[#1B3D36] py-20 relative overflow-hidden text-center">
-        {/* Floating particles */}
+      <section className="bg-[#232145] py-24 relative overflow-hidden text-center pt-32">
+        {/* Floating particles for the background */}
         {Array.from({ length: 15 }).map((_, i) => (
           <div 
             key={i}
@@ -291,36 +291,49 @@ const TuTrain = () => {
               height: Math.random() * 8 + 4 + 'px',
               left: Math.random() * 100 + '%',
               top: Math.random() * 100 + '%',
-              animationDelay: Math.random() * 4 + 's'
+              animationDelay: Math.random() * 4 + 's',
+              background: 'rgba(255,255,255,0.1)'
             }}
           />
         ))}
 
         <div className="container mx-auto px-4 relative z-10">
           <Reveal>
-            <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-2xl">
-              <GraduationCap className="w-10 h-10 text-primary" />
-            </div>
-            <h2 className="text-3xl md:text-5xl font-bold font-heading text-white mb-6">
-              Looking for a Tutor for Your Child?
-            </h2>
-            <p className="text-white/80 text-lg mb-10 max-w-2xl mx-auto">
-              TUTRAIN's live online tutors are ready. Book a free demo class - no commitment required.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold rounded-xl h-14 px-8 shadow-[0_0_20px_rgba(0,180,166,0.3)] hover:shadow-[0_0_30px_rgba(0,180,166,0.5)] transition-all">
-                <a href="https://tutrain.com" target="_blank" rel="noopener noreferrer">
-                  Visit TUTRAIN.com <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10 hover:text-white font-bold rounded-xl h-14 px-8 bg-transparent">
-                <a href="https://tutrain.com" target="_blank" rel="noopener noreferrer">
-                  Book a Free Demo <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
-              </Button>
+            <div className="relative max-w-5xl mx-auto rounded-3xl p-10 md:p-16 border border-white/20 shadow-2xl overflow-hidden bg-white/5 backdrop-blur-xl">
+              
+              {/* Glassmorphic glow effects */}
+              <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/30 blur-[100px] rounded-full pointer-events-none" />
+              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-primary/30 blur-[100px] rounded-full pointer-events-none" />
+
+              <div className="relative z-10">
+                <div className="w-20 h-20 bg-white/10 border border-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-xl">
+                  <GraduationCap className="w-10 h-10 text-primary drop-shadow-[0_0_10px_rgba(0,180,166,0.5)]" />
+                </div>
+                <h2 className="text-3xl md:text-5xl font-bold font-heading text-white mb-6 drop-shadow-sm">
+                  Looking for a Tutor for Your Child?
+                </h2>
+                <p className="text-white/80 text-lg mb-10 max-w-2xl mx-auto">
+                  TUTRAIN's live online tutors are ready. Book a free demo class - no commitment required.
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center gap-4">
+                  <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold rounded-xl h-14 px-8 shadow-[0_0_20px_rgba(0,180,166,0.3)] hover:shadow-[0_0_30px_rgba(0,180,166,0.5)] transition-all">
+                    <a href="https://tutrain.com" target="_blank" rel="noopener noreferrer">
+                      Visit TUTRAIN.com <ArrowRight className="ml-2 w-5 h-5" />
+                    </a>
+                  </Button>
+                  <Button asChild size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:text-white hover:border-white font-bold rounded-xl h-14 px-8 bg-white/5 backdrop-blur-sm transition-all">
+                    <a href="https://tutrain.com" target="_blank" rel="noopener noreferrer">
+                      Book a Free Demo <ArrowRight className="ml-2 w-5 h-5" />
+                    </a>
+                  </Button>
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>
+        
+        {/* Blending transition element to the footer */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#232145] to-transparent z-20 pointer-events-none" />
       </section>
 
       <Footer />
