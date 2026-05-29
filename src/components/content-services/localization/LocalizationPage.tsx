@@ -5,6 +5,7 @@ import ServiceNarrativeSection from "@/components/ai-data-services/shared/Servic
 import FAQSection from "@/components/ai-data-services/shared/FAQSection";
 import ServiceCTA from "@/components/ai-data-services/shared/ServiceCTA";
 import LocalizationServicesGrid from "./LocalizationServicesGrid";
+import { Languages, Mic, Subtitles } from "lucide-react";
 
 const faqs = [
   {
@@ -39,6 +40,12 @@ const LocalizationPage = () => (
       ctaLink="#contact"
       imageSrc="/assets/banners/content-services/main/localization-services.png"
       imageAlt="Localization services by eQOURSE — professional translation, voice-over recording and subtitling for educational content in Hindi, English, Tamil, Bengali and 30+ languages"
+      rotatingBadges={[
+        { icon: Languages, title: "Translation", subtitle: "Culturally adapted", color: "hsl(170 82% 55%)" },
+        { icon: Mic, title: "Voice-Over", subtitle: "Native talent", color: "hsl(190 85% 68%)" },
+        { icon: Subtitles, title: "Subtitling", subtitle: "Precise timing", color: "hsl(165 75% 71%)" }
+      ]}
+      bottomBadge={{ iconText: "LOC", title: "Localization", subtitle: "30+ regional languages" }}
     />
 
     <ServiceNarrativeSection

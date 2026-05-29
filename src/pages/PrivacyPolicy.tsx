@@ -3,6 +3,7 @@ import { BreadcrumbSchema } from "@/components/shared/BreadcrumbSchema";
 import { Helmet } from "react-helmet-async";
 import ServiceHero from "@/components/ai-data-services/shared/ServiceHero";
 import PrivacyPolicyContent from "@/components/privacy/PrivacyPolicyContent";
+import { Shield, Lock, FileText } from "lucide-react";
 
 const PrivacyPolicy = () => {
   return (
@@ -56,6 +57,12 @@ const PrivacyPolicy = () => {
         subtext="Learn how eQOURSE collects, uses, stores, and protects your personal data across our Content Service and AI Data Services. ISO 27001:2022 certified. GDPR-ready."
         ctaText="Read Policy"
         ctaLink="#introduction"
+        rotatingBadges={[
+          { icon: Shield, title: "Data Protection", subtitle: "GDPR ready", color: "hsl(165 75% 71%)" },
+          { icon: Lock, title: "Security", subtitle: "ISO 27001 certified", color: "hsl(170 82% 55%)" },
+          { icon: FileText, title: "Transparency", subtitle: "Clear policies", color: "hsl(190 85% 68%)" }
+        ]}
+        bottomBadge={{ iconText: "SEC", title: "Compliance", subtitle: "Your data is safe" }}
       />
 
       <PrivacyPolicyContent />

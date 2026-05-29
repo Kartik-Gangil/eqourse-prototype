@@ -5,6 +5,7 @@ import ServiceNarrativeSection from "@/components/ai-data-services/shared/Servic
 import FAQSection from "@/components/ai-data-services/shared/FAQSection";
 import ServiceCTA from "@/components/ai-data-services/shared/ServiceCTA";
 import TalentAssessmentServicesGrid from "./TalentAssessmentServicesGrid";
+import { ClipboardCheck, LineChart, BrainCircuit } from "lucide-react";
 
 const faqs = [
   {
@@ -55,6 +56,12 @@ const TalentAssessmentPage = () => (
       ctaLink="#contact"
       imageSrc="/assets/banners/content-services/main/talent-assessment-workforce-evaluation.png"
       imageAlt="Talent assessment and workforce evaluation services by eQOURSE — psychometric assessments, skill testing, candidate evaluation, competency frameworks and organizational diagnostics"
+      rotatingBadges={[
+        { icon: ClipboardCheck, title: "Assessment", subtitle: "Skill testing", color: "hsl(170 82% 55%)" },
+        { icon: BrainCircuit, title: "Psychometric", subtitle: "Behavioral analysis", color: "hsl(190 85% 68%)" },
+        { icon: LineChart, title: "Workforce", subtitle: "Diagnostics", color: "hsl(165 75% 71%)" }
+      ]}
+      bottomBadge={{ iconText: "HR", title: "Evaluation", subtitle: "Data-driven decisions" }}
     />
 
     <ServiceNarrativeSection

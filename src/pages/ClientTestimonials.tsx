@@ -3,6 +3,7 @@ import { BreadcrumbSchema } from "@/components/shared/BreadcrumbSchema";
 import { Helmet } from "react-helmet-async";
 import ServiceHero from "@/components/ai-data-services/shared/ServiceHero";
 import TestimonialsGrid from "@/components/testimonials/TestimonialsGrid";
+import { Star, ThumbsUp, Heart } from "lucide-react";
 
 const ClientTestimonials = () => {
   return (
@@ -36,6 +37,12 @@ const ClientTestimonials = () => {
         ctaLink="#reviews"
         imageSrc="/assets/about/Testiominal.png"
         imageAlt="Satisfied eQOURSE global clients and partners"
+        rotatingBadges={[
+          { icon: Star, title: "Top Rated", subtitle: "4.9/5 satisfaction", color: "hsl(43 96% 58%)" },
+          { icon: ThumbsUp, title: "Reliability", subtitle: "Trusted partner", color: "hsl(170 82% 55%)" },
+          { icon: Heart, title: "Success", subtitle: "Happy clients", color: "hsl(340 82% 52%)" }
+        ]}
+        bottomBadge={{ iconText: "5★", title: "Proven Track Record", subtitle: "Consistently delivering quality" }}
       />
       
       <TestimonialsGrid />

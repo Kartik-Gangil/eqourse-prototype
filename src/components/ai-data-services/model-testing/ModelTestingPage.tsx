@@ -9,6 +9,7 @@ import WhoThisIsFor from "./WhoThisIsFor";
 import FAQSection from "../shared/FAQSection";
 import ServiceCTA from "../shared/ServiceCTA";
 import ServiceNarrativeSection from "../shared/ServiceNarrativeSection";
+import { Gauge, Microscope, CheckCircle } from "lucide-react";
 
 const faqs = [
   {
@@ -61,6 +62,12 @@ const ModelTestingPage = () => (
       ctaLink="/free-pilot"
       imageSrc="/assets/ai-data/model testing.png"
       imageAlt="Rigorous diagnostic testing and validation for AI neural networks"
+      rotatingBadges={[
+        { icon: Gauge, title: "Performance", subtitle: "A/B testing", color: "hsl(170 82% 55%)" },
+        { icon: Microscope, title: "Edge Cases", subtitle: "Deep analysis", color: "hsl(190 85% 68%)" },
+        { icon: CheckCircle, title: "Validation", subtitle: "Real-world tests", color: "hsl(165 75% 71%)" }
+      ]}
+      bottomBadge={{ iconText: "Tst", title: "Model Testing", subtitle: "Go beyond benchmarks" }}
     />
 
     <ServiceNarrativeSection

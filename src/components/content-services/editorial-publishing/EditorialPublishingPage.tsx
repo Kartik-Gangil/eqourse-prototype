@@ -5,6 +5,7 @@ import ServiceNarrativeSection from "@/components/ai-data-services/shared/Servic
 import FAQSection from "@/components/ai-data-services/shared/FAQSection";
 import ServiceCTA from "@/components/ai-data-services/shared/ServiceCTA";
 import EditorialPublishingServicesGrid from "./EditorialPublishingServicesGrid";
+import { PenTool, LayoutTemplate, Settings } from "lucide-react";
 
 const faqs = [
   {
@@ -57,6 +58,12 @@ const EditorialPublishingPage = () => (
       ctaLink="/contact"
       imageSrc="/assets/content-services/Editorial, Publishing & Designing Services.png"
       imageAlt="Editorial, Publishing and Designing Services by eQOURSE"
+      rotatingBadges={[
+        { icon: PenTool, title: "Editorial", subtitle: "Content refinement", color: "hsl(170 82% 55%)" },
+        { icon: LayoutTemplate, title: "Design", subtitle: "Digital & print", color: "hsl(190 85% 68%)" },
+        { icon: Settings, title: "Production", subtitle: "End-to-end support", color: "hsl(165 75% 71%)" }
+      ]}
+      bottomBadge={{ iconText: "PUB", title: "Publishing", subtitle: "Production workflows" }}
     />
 
     <ServiceNarrativeSection

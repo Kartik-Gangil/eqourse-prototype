@@ -5,6 +5,7 @@ import ServiceNarrativeSection from "@/components/ai-data-services/shared/Servic
 import FAQSection from "@/components/ai-data-services/shared/FAQSection";
 import ServiceCTA from "@/components/ai-data-services/shared/ServiceCTA";
 import VideoServicesGrid from "./VideoServicesGrid";
+import { PlayCircle, Cuboid, Presentation } from "lucide-react";
 
 const faqs = [
   {
@@ -35,6 +36,12 @@ const VideoSolutionsPage = () => (
       ctaLink="#contact"
       imageSrc="/assets/banners/content-services/main/elearning-video-solutions.jpeg"
       imageAlt="E-learning video solutions by eQOURSE — animated explainer videos, PPT-to-video conversion, Articulate Storyline interactive courses and whiteboard animations"
+      rotatingBadges={[
+        { icon: PlayCircle, title: "2D Animation", subtitle: "Engaging visuals", color: "hsl(170 82% 55%)" },
+        { icon: Cuboid, title: "3D Animation", subtitle: "Immersive learning", color: "hsl(190 85% 68%)" },
+        { icon: Presentation, title: "Interactive", subtitle: "Articulate courses", color: "hsl(165 75% 71%)" }
+      ]}
+      bottomBadge={{ iconText: "VID", title: "Video", subtitle: "Visual learning" }}
     />
 
     <ServiceNarrativeSection

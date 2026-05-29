@@ -4,6 +4,7 @@ import ServiceHero from "@/components/ai-data-services/shared/ServiceHero";
 import ServiceCTA from "@/components/ai-data-services/shared/ServiceCTA";
 import SamplesCategoryTabs from "./SamplesCategoryTabs";
 import SamplesStatsStrip from "./SamplesStatsStrip";
+import { Layers, FileText, LayoutTemplate } from "lucide-react";
 
 const SamplesOverviewPage = () => (
   <AIDataServicesLayout breadcrumbs={[{ label: "Samples" }]}>
@@ -23,6 +24,12 @@ const SamplesOverviewPage = () => (
       ctaLink="#contact"
       imageSrc="/assets/features/Sample.png"
       imageAlt="Examples and Samples of eQOURSE Content Services and AI Data Services"
+      rotatingBadges={[
+        { icon: Layers, title: "Portfolio", subtitle: "Work samples", color: "hsl(170 82% 55%)" },
+        { icon: FileText, title: "Content", subtitle: "Curriculum & text", color: "hsl(190 85% 68%)" },
+        { icon: LayoutTemplate, title: "Media", subtitle: "Video & data", color: "hsl(165 75% 71%)" }
+      ]}
+      bottomBadge={{ iconText: "SMP", title: "Samples", subtitle: "Explore our work" }}
     />
 
     <SamplesStatsStrip />

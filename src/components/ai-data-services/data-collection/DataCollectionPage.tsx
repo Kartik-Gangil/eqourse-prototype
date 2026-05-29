@@ -9,6 +9,7 @@ import TalentAdvantage from "./TalentAdvantage";
 import FAQSection from "../shared/FAQSection";
 import ServiceCTA from "../shared/ServiceCTA";
 import ServiceNarrativeSection from "../shared/ServiceNarrativeSection";
+import { FolderKanban, Users, Languages } from "lucide-react";
 
 const faqs = [
   {
@@ -61,6 +62,12 @@ const DataCollectionPage = () => (
       ctaLink="/free-pilot"
       imageSrc="/assets/ai-data/Data Collection V2.png"
       imageAlt="Global scale AI data collection and aggregation services"
+      rotatingBadges={[
+        { icon: FolderKanban, title: "Multi-modal", subtitle: "Text, Audio, Image", color: "hsl(170 82% 55%)" },
+        { icon: Languages, title: "Languages", subtitle: "30+ supported", color: "hsl(190 85% 68%)" },
+        { icon: Users, title: "Crowd", subtitle: "Global contributors", color: "hsl(165 75% 71%)" }
+      ]}
+      bottomBadge={{ iconText: "Data", title: "Collection", subtitle: "High-quality raw data" }}
     />
 
     <ServiceNarrativeSection

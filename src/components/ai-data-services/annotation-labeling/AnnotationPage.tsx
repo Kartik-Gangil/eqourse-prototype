@@ -7,6 +7,7 @@ import OutputFormats from "./OutputFormats";
 import FAQSection from "../shared/FAQSection";
 import ServiceCTA from "../shared/ServiceCTA";
 import ServiceNarrativeSection from "../shared/ServiceNarrativeSection";
+import { Tag, Edit3, ClipboardCheck } from "lucide-react";
 
 const faqs = [
   {
@@ -59,6 +60,12 @@ const AnnotationPage = () => (
       ctaLink="/free-pilot"
       imageSrc="/assets/ai-data/Annotation and Labeling.png"
       imageAlt="Expert data annotation and labeling for machine learning models"
+      rotatingBadges={[
+        { icon: Tag, title: "Labeling", subtitle: "Expert annotations", color: "hsl(190 85% 68%)" },
+        { icon: Edit3, title: "RLHF", subtitle: "Human feedback", color: "hsl(170 82% 55%)" },
+        { icon: ClipboardCheck, title: "Quality QA", subtitle: "IAA >= 0.80", color: "hsl(165 75% 71%)" }
+      ]}
+      bottomBadge={{ iconText: "TAG", title: "Annotation", subtitle: "NLP, CV & Audio" }}
     />
 
     <ServiceNarrativeSection

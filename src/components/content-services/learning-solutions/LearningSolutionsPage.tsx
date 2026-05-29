@@ -5,6 +5,7 @@ import ServiceNarrativeSection from "@/components/ai-data-services/shared/Servic
 import FAQSection from "@/components/ai-data-services/shared/FAQSection";
 import ServiceCTA from "@/components/ai-data-services/shared/ServiceCTA";
 import LearningServicesGrid from "./LearningServicesGrid";
+import { Network, BrainCircuit, TabletSmartphone } from "lucide-react";
 
 const faqs = [
   {
@@ -35,6 +36,12 @@ const LearningSolutionsPage = () => (
       ctaLink="/free-pilot"
       imageSrc="/assets/banners/content-services/main/learning-solutions.jpeg"
       imageAlt="Learning solutions by eQOURSE — instructor-led training, corporate e-learning, gamified learning, adaptive AI-powered modules, blended learning and immersive AR/VR simulations"
+      rotatingBadges={[
+        { icon: BrainCircuit, title: "Adaptive", subtitle: "Personalized learning", color: "hsl(190 85% 68%)" },
+        { icon: TabletSmartphone, title: "Gamified", subtitle: "High engagement", color: "hsl(165 75% 71%)" },
+        { icon: Network, title: "Corporate", subtitle: "Enterprise training", color: "hsl(170 82% 55%)" }
+      ]}
+      bottomBadge={{ iconText: "LMS", title: "Integration", subtitle: "SCORM & xAPI ready" }}
     />
 
     <ServiceNarrativeSection

@@ -22,6 +22,24 @@ interface ServiceHeroProps {
    * SEO-optimized alt text for the banner. Strongly recommended when imageSrc is set.
    */
   imageAlt?: string;
+  /**
+   * Optional custom badges to rotate in the top right. 
+   * Array must contain exactly 3 items for best effect, but will rotate any number.
+   */
+  rotatingBadges?: {
+    icon: React.ElementType;
+    title: string;
+    subtitle: string;
+    color: string;
+  }[];
+  /**
+   * Optional custom static badge to display in the bottom left.
+   */
+  bottomBadge?: {
+    iconText: string;
+    title: string;
+    subtitle: string;
+  };
 }
 
 const chips = [
@@ -55,20 +73,29 @@ const ServiceHero = ({
   illustration,
   imageSrc,
   imageAlt,
+  rotatingBadges,
+  bottomBadge,
 }: ServiceHeroProps) => {
+  const activeChips = rotatingBadges && rotatingBadges.length > 0 ? rotatingBadges : chips;
   const [chipIndex, setChipIndex] = useState(0);
-
+  
   useEffect(() => {
     const timer = setInterval(() => {
-      setChipIndex((prev) => (prev + 1) % chips.length);
+      setChipIndex((prev) => (prev + 1) % activeChips.length);
     }, 2800);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [activeChips.length]);
 
-  const chip = chips[chipIndex];
+  const chip = activeChips[chipIndex];
   const ChipIcon = chip.icon;
   const ctaIsRoute = ctaLink.startsWith("/");
+  
+  const bottomBadgeData = bottomBadge || {
+    iconText: "AI",
+    title: "Production Ready",
+    subtitle: "End-to-end data services"
+  };
 
   return (
     <section className="relative overflow-hidden bg-gradient-hero min-h-[90vh] flex items-center">
@@ -173,11 +200,11 @@ const ServiceHero = ({
             <div className="absolute -bottom-6 -left-4 md:-left-6 glass rounded-xl p-4 shadow-elevated hidden md:block">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gradient-primary flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-sm">AI</span>
+                  <span className="text-primary-foreground font-bold text-sm">{bottomBadgeData.iconText}</span>
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-foreground">Production Ready</div>
-                  <div className="text-xs text-muted-foreground">End-to-end data services</div>
+                  <div className="text-sm font-semibold text-foreground">{bottomBadgeData.title}</div>
+                  <div className="text-xs text-muted-foreground">{bottomBadgeData.subtitle}</div>
                 </div>
               </div>
             </div>

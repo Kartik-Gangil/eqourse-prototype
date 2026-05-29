@@ -5,6 +5,7 @@ import ServiceNarrativeSection from "@/components/ai-data-services/shared/Servic
 import FAQSection from "@/components/ai-data-services/shared/FAQSection";
 import ServiceCTA from "@/components/ai-data-services/shared/ServiceCTA";
 import AccessibilitySubServicesGrid from "./AccessibilitySubServicesGrid";
+import { Eye, ShieldCheck, UniversalAccess } from "lucide-react";
 
 const faqs = [
   {
@@ -55,6 +56,12 @@ const AccessibilityPage = () => (
       ctaLink="/contact"
       imageSrc="/assets/banners/content-services/main/accessibility.png"
       imageAlt="Digital accessibility services by eQOURSE — WCAG compliance, Section 508 alignment, document remediation, accessible media, assessment accessibility and assistive technology testing"
+      rotatingBadges={[
+        { icon: UniversalAccess, title: "Inclusive", subtitle: "Accessibility for all", color: "hsl(170 82% 55%)" },
+        { icon: ShieldCheck, title: "Compliance", subtitle: "WCAG & PDF/UA", color: "hsl(190 85% 68%)" },
+        { icon: Eye, title: "Remediation", subtitle: "Document & Media", color: "hsl(165 75% 71%)" }
+      ]}
+      bottomBadge={{ iconText: "ACC", title: "Accessibility", subtitle: "Global standards" }}
     />
 
     <ServiceNarrativeSection

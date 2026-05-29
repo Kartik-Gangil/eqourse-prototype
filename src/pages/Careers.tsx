@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import ServiceHero from "@/components/ai-data-services/shared/ServiceHero";
 import CareersWhyWork from "@/components/careers/CareersWhyWork";
 import CareerApplicationForm from "@/components/careers/CareerApplicationForm";
+import { Laptop, GraduationCap, TrendingUp } from "lucide-react";
 
 const Careers = () => {
   return (
@@ -37,6 +38,12 @@ const Careers = () => {
         ctaLink="#apply"
         imageSrc="/assets/about/Carrer.png"
         imageAlt="Careers at eQOURSE - Professionals collaborating on education and AI solutions"
+        rotatingBadges={[
+          { icon: Laptop, title: "Remote Options", subtitle: "Flexible working", color: "hsl(190 85% 68%)" },
+          { icon: GraduationCap, title: "Learning", subtitle: "Continuous growth", color: "hsl(165 75% 71%)" },
+          { icon: TrendingUp, title: "Growth", subtitle: "Career progression", color: "hsl(170 82% 55%)" }
+        ]}
+        bottomBadge={{ iconText: "HR", title: "Join Us", subtitle: "Global team, local impact" }}
       />
       
       <CareersWhyWork />

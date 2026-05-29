@@ -9,6 +9,7 @@ import DeliveryProcess from "./DeliveryProcess";
 import ContentServicesIndustries from "./ContentServicesIndustries";
 import WhyChooseEqourse from "./WhyChooseEqourse";
 import QualityCredentials from "./QualityCredentials";
+import { BookOpen, Video, Globe2 } from "lucide-react";
 
 const faqs = [
   {
@@ -51,6 +52,12 @@ const ContentServicesOverviewPage = () => (
       ctaLink="/free-pilot"
       imageSrc="/assets/features/Content service.png"
       imageAlt="End-to-End Content Services for Education, including K-12, Curriculum Design, and Video Learning"
+      rotatingBadges={[
+        { icon: BookOpen, title: "Curriculum", subtitle: "K-12 & Higher Ed", color: "hsl(170 82% 55%)" },
+        { icon: Video, title: "Interactive", subtitle: "Video & modules", color: "hsl(190 85% 68%)" },
+        { icon: Globe2, title: "Localization", subtitle: "30+ languages", color: "hsl(165 75% 71%)" }
+      ]}
+      bottomBadge={{ iconText: "EDU", title: "Content Solutions", subtitle: "End-to-end learning" }}
     />
 
     <ServiceNarrativeSection

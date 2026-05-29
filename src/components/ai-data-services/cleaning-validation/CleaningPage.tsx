@@ -7,6 +7,7 @@ import ComplianceSecurity from "./ComplianceSecurity";
 import FAQSection from "../shared/FAQSection";
 import ServiceCTA from "../shared/ServiceCTA";
 import ServiceNarrativeSection from "../shared/ServiceNarrativeSection";
+import { Sparkles, ShieldAlert, CheckCircle2 } from "lucide-react";
 
 const faqs = [
   {
@@ -59,6 +60,12 @@ const CleaningPage = () => (
       ctaLink="/free-pilot"
       imageSrc="/assets/ai-data/Cleaning and validation.png"
       imageAlt="Data cleaning, validation, and impurity cleansing services"
+      rotatingBadges={[
+        { icon: Sparkles, title: "Clean Data", subtitle: "Noise removal", color: "hsl(170 82% 55%)" },
+        { icon: ShieldAlert, title: "Privacy", subtitle: "PII redaction", color: "hsl(165 75% 71%)" },
+        { icon: CheckCircle2, title: "Validation", subtitle: "98%+ accuracy", color: "hsl(190 85% 68%)" }
+      ]}
+      bottomBadge={{ iconText: "CLN", title: "Data Quality", subtitle: "ISO & GDPR compliant" }}
     />
 
     <ServiceNarrativeSection

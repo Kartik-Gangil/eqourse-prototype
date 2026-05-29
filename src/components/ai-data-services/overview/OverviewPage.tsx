@@ -9,6 +9,7 @@ import TrustSignals from "./TrustSignals";
 import FAQSection from "../shared/FAQSection";
 import ServiceCTA from "../shared/ServiceCTA";
 import ServiceNarrativeSection from "../shared/ServiceNarrativeSection";
+import { Database, Activity, Target } from "lucide-react";
 
 const faqs = [
   {
@@ -56,6 +57,12 @@ const OverviewPage = () => (
       ctaLink="/free-pilot"
       imageSrc="/assets/features/AI data service.png"
       imageAlt="End-to-End AI Data Services including Data Collection, Annotation, Cleaning, and Model Testing"
+      rotatingBadges={[
+        { icon: Database, title: "Data Collection", subtitle: "Raw data sourcing", color: "hsl(170 82% 55%)" },
+        { icon: Target, title: "Annotation", subtitle: "High precision", color: "hsl(190 85% 68%)" },
+        { icon: Activity, title: "Model Testing", subtitle: "Real-world evaluation", color: "hsl(165 75% 71%)" }
+      ]}
+      bottomBadge={{ iconText: "AI", title: "Full Pipeline", subtitle: "End-to-end data services" }}
     />
 
     <ServiceNarrativeSection
