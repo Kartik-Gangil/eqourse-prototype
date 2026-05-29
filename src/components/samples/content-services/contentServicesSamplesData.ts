@@ -77,7 +77,7 @@ export const contentServicesSamples: ContentServicesSample[] = [
       "IIT JEE / NEET",
       "UPSC & State PSC",
       "STEM Content",
-      "CBSE Content",
+      "Curriculum Content",
       "Localization",
       "Test Prep & Assessments",
     ],
@@ -314,7 +314,7 @@ export const contentServicesSamples: ContentServicesSample[] = [
     kind: "text",
     icon: FileStack,
     accentHsl: "170 82% 45%",
-    navLabel: "CBSE Content",
+    navLabel: "Curriculum Content",
     title: "Curriculum Content Samples (CBSE, ICSE, IB, State Boards)",
     seoTitle: "CBSE Curriculum Content Samples - eQOURSE",
     seoDescription:

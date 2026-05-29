@@ -60,9 +60,9 @@ const Footer = () => {
       <div className="absolute inset-0 z-0 bg-foreground/40" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-x-8 gap-y-12 lg:gap-8">
           {/* ── Brand Column ── */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="sm:col-span-2 lg:col-span-2 space-y-5">
             <Link to="/" className="inline-block">
               <img 
                 src={eqourseLogoLight} 
@@ -86,7 +86,7 @@ const Footer = () => {
                 <span className="text-[10px] font-bold" style={{ color: "hsl(165, 75%, 65%)" }}>#startupindia</span>
               </div>
             </div>
-            <div className="flex gap-4 pt-2">
+            <div className="flex flex-wrap gap-4 pt-3">
               {[
                 { icon: Linkedin, name: "LinkedIn", href: "https://www.linkedin.com/company/eqourse" },
                 { icon: Facebook, name: "Facebook", href: "https://www.facebook.com/eQOURSE-102057078229490" },
@@ -158,7 +158,7 @@ const Footer = () => {
           </div>
 
           {/* ── Contact ── */}
-          <div>
+          <div className="sm:col-span-2 lg:col-span-1">
             <h4 className={headingClass} style={headingColor}>Contact</h4>
             <div className="space-y-4">
               <a href="tel:+919214445870" className="flex items-center gap-2 text-sm hover:text-primary transition-colors" style={linkColor}>

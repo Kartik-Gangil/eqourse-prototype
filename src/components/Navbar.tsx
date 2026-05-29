@@ -297,7 +297,7 @@ const textSampleLinks = [
   { label: "IIT JEE / NEET", href: "/iit-jee-neet-samples" },
   { label: "UPSC & State PSC", href: "/upsc-state-psc-samples" },
   { label: "STEM Content", href: "/stem-content-samples" },
-  { label: "CBSE Content", href: "/curriculum-samples" },
+  { label: "Curriculum Content", href: "/curriculum-samples" },
   { label: "Localization", href: "/translation-and-localization-text-samples" },
   { label: "Test Prep & Assessments", href: "/test-prep-and-assessments" },
 ];

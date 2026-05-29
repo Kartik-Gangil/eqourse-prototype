@@ -15,7 +15,7 @@ const textSamples: CardItem[] = [
   { label: "IIT JEE / NEET", href: "/iit-jee-neet-samples", description: "Competitive exam prep content with solved problems and conceptual depth." },
   { label: "UPSC & State PSC", href: "/upsc-state-psc-samples", description: "Civil-services exam material across polity, economy, and current affairs." },
   { label: "STEM Content", href: "/stem-content-samples", description: "Concept-first STEM modules with simulations and worked examples." },
-  { label: "CBSE Content", href: "/curriculum-samples", description: "NCERT-aligned CBSE curriculum samples with assessments." },
+  { label: "Curriculum Content", href: "/curriculum-samples", description: "NCERT-aligned CBSE curriculum samples with assessments." },
   { label: "Localization", href: "/translation-and-localization-text-samples", description: "Text translated and culturally adapted across 30+ languages." },
   { label: "Test Prep & Assessments", href: "/test-prep-and-assessments", description: "Item-banked assessments and diagnostic test samples." },
 ];

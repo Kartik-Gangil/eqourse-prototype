@@ -77,7 +77,7 @@ const sitemapData = [
       { name: "IIT JEE / NEET", to: "/iit-jee-neet-samples" },
       { name: "UPSC & State PSC", to: "/upsc-state-psc-samples" },
       { name: "STEM Content", to: "/stem-content-samples" },
-      { name: "CBSE Content", to: "/curriculum-samples" },
+      { name: "Curriculum Content", to: "/curriculum-samples" },
       { name: "Localization", to: "/translation-and-localization-text-samples" },
       { name: "Test Prep & Assessments", to: "/test-prep-and-assessments" },
       { name: "Articulate Storyline", to: "/articulate-storyline-video-samples" },
