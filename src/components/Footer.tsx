@@ -43,22 +43,13 @@ const legalLinks = [
 ];
 
 const Footer = () => {
-  const linkClass = "block text-sm hover:text-primary transition-colors font-medium";
-  const linkColor = { color: "hsl(0, 0%, 95%)", textShadow: "0 1px 4px rgba(0,0,0,0.9)" };
-  const headingColor = { color: "hsl(0, 0%, 100%)", textShadow: "0 2px 6px rgba(0,0,0,0.9)" };
-  const headingClass = "font-heading font-bold text-lg tracking-wider uppercase pb-2 border-b-2 border-primary/80 inline-block mb-5";
+  const linkClass = "block text-sm hover:text-primary transition-colors font-medium text-white/80";
+  const linkColor = {};
+  const headingColor = {};
+  const headingClass = "font-heading font-bold text-lg tracking-wider uppercase pb-2 border-b-2 border-primary/80 inline-block mb-5 text-white";
 
   return (
-    <footer className="relative py-16 lg:py-24 bg-foreground overflow-hidden">
-      {/* Aesthetic Background Image Overlay */}
-      <div 
-        className="absolute inset-0 z-0 bg-cover bg-[center_top] opacity-100 blur-[2px]"
-        style={{ backgroundImage: "url('/assets/footer-bg.jpg')" }}
-      />
-      {/* Balanced purple overlay to tint image but maintain readability */}
-      <div className="absolute inset-0 z-0 bg-foreground/60 mix-blend-multiply" />
-      <div className="absolute inset-0 z-0 bg-foreground/40" />
-
+    <footer className="relative py-16 lg:py-24 bg-[#232145] overflow-hidden border-t border-border/10">
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-x-8 gap-y-12 lg:gap-8">
           {/* ── Brand Column ── */}
@@ -187,7 +178,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-12 pt-8 text-center text-sm font-medium" style={{ color: "hsl(0, 0%, 90%)", textShadow: "0 1px 3px rgba(0,0,0,0.9)" }}>
+        <div className="border-t border-white/10 mt-12 pt-8 text-center text-sm font-medium text-white/60">
           &copy; {new Date().getFullYear()} eQOURSE. All rights reserved.
         </div>
       </div>

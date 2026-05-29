@@ -1,7 +1,7 @@
 import PageLayout from "@/components/shared/PageLayout";
 import { BreadcrumbSchema } from "@/components/shared/BreadcrumbSchema";
 import { Helmet } from "react-helmet-async";
-import ServiceHero from "@/components/ai-data-services/shared/ServiceHero";
+import ContactHero from "@/components/contact/ContactHero";
 import ContactPage from "@/components/contact/ContactPage";
 
 const ContactUs = () => {
@@ -80,16 +80,7 @@ const ContactUs = () => {
         ]}
       />
 
-      <ServiceHero
-        preHeadline="CONTACT US"
-        headline="Get in Touch — Let's Build"
-        headlineAccent="Something Great"
-        subtext="Whether you need custom e-learning content for your Content Services platform or production-grade AI training data for your ML models, our team is ready to help. Tell us about your project and we'll respond within 24 hours."
-        ctaText="Send Message"
-        ctaLink="#contact-form"
-        imageSrc="/assets/contact/contact us.png"
-        imageAlt="Contact eQOURSE for expert Content Services and AI Data Solutions"
-      />
+      <ContactHero />
 
       <div id="contact-form">
         <ContactPage />
