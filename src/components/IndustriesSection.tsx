@@ -156,7 +156,7 @@ const industries = [
   {
     title: "Content Services platforms",
     desc: "Scalable content pipelines, assessments, platform-ready learning assets.",
-    img: null,
+    img: "/assets/industries/content_services_platforms.png",
     fallback: "linear-gradient(135deg,hsl(170,70%,20%),hsl(242,33%,18%))",
     tag: "content services",
   },
