@@ -11,30 +11,52 @@ const slides = [
     highlightedText: "Design and Create Top Quality E-Learning Content",
     cta: "Explore Content Service",
     ctaLink: "/content-services",
+    ctaIsHash: false,
     icon: Sparkles,
+  },
+  {
+    badge: "Content Service",
+    headline: "Curriculum-Aligned Digital Learning Content,",
+    highlightedText: "Built at Scale Across 30+ Languages",
+    cta: "Explore Content Service",
+    ctaLink: "/content-services",
+    ctaIsHash: false,
+    icon: BookOpen,
   },
   {
     badge: "AI Data Services",
     headline: "High-Quality Training Data for",
     highlightedText: "AI That Works in Production",
-    cta: "Explore AI Data Services",
+    cta: "Explore AI Data Service",
     ctaLink: "/ai-data-services",
+    ctaIsHash: false,
     icon: Database,
   },
   {
-    badge: "Model Testing",
-    headline: "Don't Just Train Your AI.",
-    highlightedText: "Test It on Reality.",
-    cta: "Learn About Model Testing",
-    ctaLink: "/ai-data-services/model-testing",
+    badge: "AI Data Services",
+    headline: "Closed-Loop Model Testing with",
+    highlightedText: "Real-User Feedback & 98%+ Data Accuracy",
+    cta: "Explore AI Data Service",
+    ctaLink: "/ai-data-services",
+    ctaIsHash: false,
     icon: Brain,
   },
   {
-    badge: "Dual Capability",
+    badge: "Content & AI Solutions",
     headline: "From Education Content to AI Training Data,",
-    highlightedText: "One Partner",
+    highlightedText: "One Trusted Global Partner",
     cta: "See All Services",
-    ctaLink: "/content-services",
+    ctaLink: "#services",
+    ctaIsHash: true,
+    icon: Sparkles,
+  },
+  {
+    badge: "End-to-End Services",
+    headline: "500+ Specialists Delivering",
+    highlightedText: "Content & AI Data Services Worldwide",
+    cta: "See All Services",
+    ctaLink: "#services",
+    ctaIsHash: true,
     icon: Sparkles,
   },
 ];
@@ -190,15 +212,34 @@ const HeroSection = () => {
             </h2>
 
             <div className="flex flex-wrap items-center gap-4 pt-2 animate-slide-up-delayed-2">
-              <Button
-                size="lg"
-                className="bg-gradient-primary border-0 text-primary-foreground shadow-soft hover:opacity-90 transition-all hover:scale-105 px-8"
-                asChild
-              >
-                <Link to={slide.ctaLink}>
-                  {slide.cta} <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </Button>
+              {slide.ctaIsHash ? (
+                <Button
+                  size="lg"
+                  className="bg-gradient-primary border-0 text-primary-foreground shadow-soft hover:opacity-90 transition-all hover:scale-105 px-8"
+                  asChild
+                >
+                  <a
+                    href={slide.ctaLink}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const target = document.getElementById("services");
+                      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }}
+                  >
+                    {slide.cta} <ArrowRight className="ml-2 w-5 h-5" />
+                  </a>
+                </Button>
+              ) : (
+                <Button
+                  size="lg"
+                  className="bg-gradient-primary border-0 text-primary-foreground shadow-soft hover:opacity-90 transition-all hover:scale-105 px-8"
+                  asChild
+                >
+                  <Link to={slide.ctaLink}>
+                    {slide.cta} <ArrowRight className="ml-2 w-5 h-5" />
+                  </Link>
+                </Button>
+              )}
 
               {/* Slide indicators inline next to CTA for better balance */}
               <div className="flex items-center gap-2 pl-2">

@@ -19,6 +19,10 @@ const Careers = () => {
           name="keywords"
           content="eQOURSE careers, Content Services jobs, AI data annotation jobs, content development careers, instructional design jobs, data labeling jobs India, NLP annotator jobs, education technology careers"
         />
+        <link rel="canonical" href="https://www.eqourse.com/career" />
+        <meta property="og:title" content="Careers at eQOURSE │ Content Services & AI Data Services Jobs" />
+        <meta property="og:description" content="Join eQOURSE - careers in Content Services, instructional design, AI data annotation, NLP, and more. 500+ specialists across India & Singapore." />
+        <meta property="og:url" content="https://www.eqourse.com/career" />
       </Helmet>
       
       <BreadcrumbSchema 

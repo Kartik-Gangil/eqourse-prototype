@@ -21,6 +21,11 @@ const Gallery = () => {
           name="description" 
           content="Explore the eQOURSE gallery featuring our office tours, CEO business meetings, and event highlights. See the people behind our AI data and content services." 
         />
+        <meta name="keywords" content="eQOURSE gallery, office tour, business meetings, eQOURSE team, company culture, AI data services team, content services office" />
+        <link rel="canonical" href="https://www.eqourse.com/gallery" />
+        <meta property="og:title" content="eQOURSE Gallery | Office Tours & Business Highlights" />
+        <meta property="og:description" content="Take a visual journey through eQOURSE's global office tours, key business meetings, and industry events." />
+        <meta property="og:url" content="https://www.eqourse.com/gallery" />
       </Helmet>
 
       {/* Hero Section */}

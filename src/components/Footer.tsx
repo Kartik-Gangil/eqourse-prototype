@@ -23,6 +23,9 @@ const contentServicesLinks = [
   { label: "Localization Services", to: "/content-services/localization-services" },
   { label: "Technology Solutions", to: "/content-services/technology-solutions" },
   { label: "Subject Matter Experts", to: "/content-services/subject-matter-experts" },
+  { label: "Accessibility Services", to: "/content-services/accessibility" },
+  { label: "Talent Assessment", to: "/content-services/talent-assessment-workforce-evaluation" },
+  { label: "Editorial & Publishing", to: "/content-services/editorial-publishing-designing-services" },
 ];
 
 /* ── AI Data Services ── */
@@ -51,7 +54,7 @@ const Footer = () => {
   return (
     <footer className="relative py-16 lg:py-24 bg-[#232145] overflow-hidden border-t border-border/10">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-x-8 gap-y-12 lg:gap-8">
+        <nav aria-label="Footer navigation" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-x-8 gap-y-12 lg:gap-8">
           {/* ── Brand Column ── */}
           <div className="sm:col-span-2 lg:col-span-2 space-y-5">
             <Link to="/" className="inline-block">
@@ -176,7 +179,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </div>
+        </nav>
 
         <div className="border-t border-white/10 mt-12 pt-8 text-center text-sm font-medium text-white/60">
           &copy; {new Date().getFullYear()} eQOURSE. All rights reserved.

@@ -18,6 +18,10 @@ const FAQs = () => {
           name="keywords"
           content="eQOURSE FAQ, Content Services FAQ, AI data services FAQ, e-learning questions, data annotation questions, K12 content FAQ, LMS integration FAQ, AI training data FAQ"
         />
+        <link rel="canonical" href="https://www.eqourse.com/faq" />
+        <meta property="og:title" content="FAQs │ Content Services & AI Data Services │ eQOURSE" />
+        <meta property="og:description" content="Frequently asked questions about eQOURSE's Content Services and AI data services. K-12 content, data annotation, model testing, LMS integration, and more." />
+        <meta property="og:url" content="https://www.eqourse.com/faq" />
       </Helmet>
       
       <BreadcrumbSchema 

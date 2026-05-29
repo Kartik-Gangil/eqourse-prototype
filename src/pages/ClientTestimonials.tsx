@@ -18,6 +18,10 @@ const ClientTestimonials = () => {
           name="keywords"
           content="eQOURSE testimonials, client reviews, Content Services testimonials, AI data services reviews, e-learning client feedback, data annotation reviews, education content testimonials"
         />
+        <link rel="canonical" href="https://www.eqourse.com/clients-testimonials" />
+        <meta property="og:title" content="Client Testimonials │ Content Services & AI Data Services │ eQOURSE" />
+        <meta property="og:description" content="Read what 200+ clients say about eQOURSE. Testimonials on e-learning content, data annotation, and model testing services." />
+        <meta property="og:url" content="https://www.eqourse.com/clients-testimonials" />
       </Helmet>
       
       <BreadcrumbSchema 

@@ -1,8 +1,13 @@
+# eQOURSE robots.txt — Production
+# https://www.eqourse.com
+
 User-agent: Googlebot
 Allow: /
+Disallow: /admin/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /admin/
 
 User-agent: Twitterbot
 Allow: /
@@ -10,5 +15,15 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+User-agent: LinkedInBot
+Allow: /
+
 User-agent: *
 Allow: /
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://www.eqourse.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1

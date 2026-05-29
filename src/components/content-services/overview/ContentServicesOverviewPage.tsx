@@ -39,7 +39,7 @@ const ContentServicesOverviewPage = () => (
     <SEOHead
       title="End-to-End Content Service | eQOURSE"
       description="From custom K-12 content development to LMS integration, eQOURSE delivers production-ready educational content and technology solutions."
-      canonical="https://eqourse.com/content-service"
+      canonical="https://www.eqourse.com/content-services"
       keywords="Content Services, custom e-learning content, k12 content development, exam preparation content, learning solutions, educational videos, curriculum design"
     />
 
