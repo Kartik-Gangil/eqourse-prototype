@@ -33,6 +33,7 @@ const aiDataSubLinks: SubLink[] = [
 
 const aboutUsSubLinks: SubLink[] = [
   { label: "Who We Are", to: "/aboutus", image: "/assets/about/Who we are (A).png", imageAlt: "eQOURSE team working collaboratively on AI data and content services", description: "Learn about our mission, vision and dynamic content services team." },
+  { label: "Gallery", to: "/gallery", image: "/assets/about/gallery/10.png", imageAlt: "eQOURSE Office Tours & Events Gallery", description: "Explore our office tours, business meetings, and industry events." },
   { label: "Testimonials", to: "/clients-testimonials", image: "/assets/about/Testiominal.png", imageAlt: "Satisfied eQOURSE global clients and partners", description: "Hear what our global clients say about our services." },
   { label: "Careers", to: "/career", image: "/assets/about/Carrer.png", imageAlt: "Careers at eQOURSE - Professionals collaborating on education and AI solutions", description: "Join our growing team and shape the future of AI & Content Services." },
   { label: "FAQs", to: "/faq", image: "/assets/about/FAQ.png", imageAlt: "eQOURSE customer support and frequently asked questions", description: "Got questions? We've got answers for all your queries." },

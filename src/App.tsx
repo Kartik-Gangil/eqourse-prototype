@@ -39,6 +39,7 @@ import ContentServicesSample from "./pages/ContentServicesSample.tsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 import TuTrain from "./pages/TuTrain.tsx";
 import Sitemap from "./pages/Sitemap.tsx";
+import Gallery from "./pages/Gallery.tsx";
 import { contentServicesSamples } from "./components/samples/content-services/contentServicesSamplesData";
 import { contentServicesSubServiceRoutes } from "./components/content-services/contentServicesSubServiceRoutes";
 
@@ -78,6 +79,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/aboutus" element={<AboutUs />} />
+              <Route path="/gallery" element={<Gallery />} />
               <Route path="/clients-testimonials" element={<ClientTestimonials />} />
               <Route path="/career" element={<Careers />} />
               <Route path="/faq" element={<FAQs />} />
