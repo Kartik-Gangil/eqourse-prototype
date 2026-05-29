@@ -106,29 +106,12 @@ const TuTrain = () => {
           eQOURSE → TUTRAIN
         </div>
 
-        <div className="md:w-1/2 split-right flex items-center justify-center p-8 relative overflow-hidden">
-          {/* Abstract Teal Nodes */}
-          <div className="absolute inset-0">
-            <div className="hero-node"></div>
-            <div className="hero-node"></div>
-            <div className="hero-node"></div>
-            <div className="hero-node"></div>
-          </div>
-          <div className="relative z-10 w-full max-w-md backdrop-blur-sm bg-white/5 p-8 rounded-3xl border border-white/10 shadow-2xl">
-             <div className="aspect-video rounded-2xl bg-gradient-to-br from-primary/20 to-transparent flex items-center justify-center border border-primary/20 mb-6 relative overflow-hidden">
-                <div className="absolute inset-0 bg-white/5 animate-pulse rounded-2xl"></div>
-                <div className="flex items-center gap-4 relative z-10">
-                   <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform">
-                      <GraduationCap className="w-8 h-8 text-primary" />
-                   </div>
-                   <div className="w-12 h-1 bg-gradient-primary rounded-full"></div>
-                   <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform">
-                      <Users className="w-8 h-8 text-primary" />
-                   </div>
-                </div>
-             </div>
-             <p className="text-center text-white/80 font-medium">Live 1-on-1 tutoring sessions powered by enterprise-grade curriculum design.</p>
-          </div>
+        <div className="md:w-1/2 split-right relative overflow-hidden flex items-center justify-center min-h-[300px] md:min-h-0">
+          <img 
+            src="/assets/features/TUTRAIN graphic.png" 
+            alt="TUTRAIN - Online 1-on-1 Tutoring for Grades 4-12 Worldwide by eQOURSE" 
+            className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-700" 
+          />
         </div>
       </section>
 
@@ -155,8 +138,8 @@ const TuTrain = () => {
               <Reveal delay="0.2s">
                 <div className="bg-white rounded-3xl shadow-card border border-border/50 p-4 max-w-sm w-full transition-transform hover:-translate-y-2 duration-500">
                   <img 
-                    src={brandHierarchyImg} 
-                    alt="Brand hierarchy graphic showing eQOURSE as parent company and TUTRAIN as its consumer online tutoring brand." 
+                    src="/assets/features/logo digram.png" 
+                    alt="eQOURSE to TUTRAIN Brand Hierarchy Diagram" 
                     className="w-full h-auto rounded-2xl"
                   />
                 </div>

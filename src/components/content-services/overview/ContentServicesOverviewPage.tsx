@@ -49,6 +49,8 @@ const ContentServicesOverviewPage = () => (
       subtext="From custom K-12 content and curriculum design to interactive video learning, localization in 30+ languages, and LMS integration."
       ctaText="Start Your Free Pilot"
       ctaLink="/free-pilot"
+      imageSrc="/assets/features/Content service.png"
+      imageAlt="End-to-End Content Services for Education, including K-12, Curriculum Design, and Video Learning"
     />
 
     <ServiceNarrativeSection

@@ -54,6 +54,8 @@ const OverviewPage = () => (
       subtext="Custom AI training data across 30+ languages - from raw collection to real-world model testing on actual users. The only closed-loop pipeline in the industry."
       ctaText="Start Free Pilot"
       ctaLink="/free-pilot"
+      imageSrc="/assets/features/AI data service.png"
+      imageAlt="End-to-End AI Data Services including Data Collection, Annotation, Cleaning, and Model Testing"
     />
 
     <ServiceNarrativeSection

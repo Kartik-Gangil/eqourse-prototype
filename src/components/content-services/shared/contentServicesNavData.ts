@@ -327,6 +327,8 @@ export const contentServicesCategories: ContentServicesCategory[] = [
     label: "Editorial, Publishing & Designing Services",
     href: "/content-services/editorial-publishing-designing-services",
     icon: Edit,
+    image: "/assets/content-services/Editorial, Publishing & Designing Services.png",
+    imageAlt: "Editorial, Publishing and Designing Services by eQOURSE",
     description: "Editorial, publishing production, digital conversion, metadata, design, prepress and production support for global learning content.",
     subServices: [
       {

@@ -55,6 +55,8 @@ const EditorialPublishingPage = () => (
       subtext="eQOURSE delivers editorial services for education publishers, EdTech companies, institutions and learning-content teams — covering content refinement, publishing production, digital conversion, metadata preparation, design coordination, prepress checks and production support for print and digital learning materials."
       ctaText="Request Editorial Support"
       ctaLink="/contact"
+      imageSrc="/assets/content-services/Editorial, Publishing & Designing Services.png"
+      imageAlt="Editorial, Publishing and Designing Services by eQOURSE"
     />
 
     <ServiceNarrativeSection
