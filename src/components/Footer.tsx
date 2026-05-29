@@ -61,7 +61,7 @@ const Footer = () => {
                 className="h-10 sm:h-12 w-auto object-contain" 
               />
             </Link>
-            <p className="text-sm leading-relaxed" style={linkColor}>
+            <p className="text-sm leading-relaxed text-white/80" style={linkColor}>
               eQOURSE partners with education companies and AI builders worldwide. We design digital learning content, create production-grade AI training datasets, and test AI models in real-world environments — all powered by 500+ domain experts.
             </p>
             <div className="flex items-center gap-3 pt-1">
@@ -152,13 +152,13 @@ const Footer = () => {
           <div className="sm:col-span-2 lg:col-span-1">
             <h4 className={headingClass} style={headingColor}>Contact</h4>
             <div className="space-y-4">
-              <a href="tel:+919214445870" className="flex items-center gap-2 text-sm hover:text-primary transition-colors" style={linkColor}>
+              <a href="tel:+919214445870" className="flex items-center gap-2 text-sm hover:text-primary transition-colors text-white/80" style={linkColor}>
                 <Phone className="w-4 h-4 text-primary flex-shrink-0" /> +91 - 92144 - 45870
               </a>
-              <a href="mailto:info@eqourse.com" className="flex items-center gap-2 text-sm hover:text-primary transition-colors" style={linkColor}>
+              <a href="mailto:info@eqourse.com" className="flex items-center gap-2 text-sm hover:text-primary transition-colors text-white/80" style={linkColor}>
                 <Mail className="w-4 h-4 text-primary flex-shrink-0" /> info@eqourse.com
               </a>
-              <div className="space-y-3 pt-2">
+              <div className="space-y-3 pt-2 text-white/80">
                 <div className="flex items-start gap-2 text-sm" style={linkColor}>
                   <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                   <div>
