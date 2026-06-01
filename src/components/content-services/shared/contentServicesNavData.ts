@@ -31,226 +31,226 @@ export interface ContentServicesCategory {
 export const contentServicesCategories: ContentServicesCategory[] = [
   {
     label: "Custom E-Learning Content",
-    href: "/content-services/custom-e-learning-content",
+    href: "/custom-e-learning-content",
     icon: BookOpen,
     image: "/assets/banners/content-services/main/custom-e-learning-content.png",
     imageAlt: "Custom e-learning content development services by eQOURSE - K-12 curriculum, assessments, workbooks, STEM content and interactive digital learning modules",
     description: "Tailor-made e-learning modules, K12 curriculum, and engaging digital workbooks.",
     subServices: [
       {
-        label: "K12 & Higher Education", href: "/content-services/custom-e-learning-content/k12-and-higher-education", icon: GraduationCap,
+        label: "K12 & Higher Education", href: "/k12-and-higher-education", icon: GraduationCap,
         serviceHighlights: ["Curriculum Development", "Assessment Development", "Study Material Development", "Competitive Exam Preparation", "Interactive Workbooks", "Teacher Lesson Plans", "2D & 3D Educational Videos"],
       },
       {
-        label: "K12 Curriculum Development", href: "/content-services/custom-e-learning-content/k12-curriculum-development", icon: Layout,
+        label: "K12 Curriculum Development", href: "/k12-curriculum-development-and-design-services", icon: Layout,
         serviceHighlights: ["Subject-Centered Curriculum Design", "Learner-Centered Curriculum Design", "Problem-Oriented Curriculum Design"],
       },
       {
-        label: "Assessment Development", href: "/content-services/custom-e-learning-content/assessment-development", icon: ClipboardCheck,
+        label: "Assessment Development", href: "/assessment-development-services", icon: ClipboardCheck,
         serviceHighlights: ["Formative Assessments", "Game-Based Assessments", "Adaptive Testing", "Quiz & Question Bank Development", "Assessment for Competitive Exams", "Subject-Integrated Assessments"],
       },
       {
-        label: "Educational Content Development", href: "/content-services/custom-e-learning-content/educational-content-development", icon: FileText,
+        label: "Educational Content Development", href: "/educational-content-development", icon: FileText,
         serviceHighlights: ["Textbook Content Development", "Solution Manuals", "Question Banks", "Curriculum Development", "Lesson Plan Creation", "Study Guides & Notes"],
       },
       {
-        label: "Workbook Development", href: "/content-services/custom-e-learning-content/workbook-development", icon: BookMarked,
+        label: "Workbook Development", href: "/workbook-development", icon: BookMarked,
         serviceHighlights: ["Chapter-Wise Workbooks", "Full-Syllabus Workbooks", "Topic-Based Workbooks", "Interactive Workbooks", "Assessment-Integrated Workbooks"],
       },
       {
-        label: "Teacher Lesson Plan", href: "/content-services/custom-e-learning-content/teacher-lesson-plan", icon: CalendarDays,
+        label: "Teacher Lesson Plan", href: "/teacher-lesson-plan", icon: CalendarDays,
         serviceHighlights: ["Daily Lesson Plans", "Weekly/Monthly Lesson Plans", "Subject-Specific Lesson Plans", "Differentiated Lesson Plans", "Technology-Enhanced Lesson Plans"],
       },
       {
-        label: "STEM Curriculum Services", href: "/content-services/custom-e-learning-content/stem-curriculum-services", icon: FlaskConical,
+        label: "STEM Curriculum Services", href: "/stem-curriculum-services", icon: FlaskConical,
         serviceHighlights: ["Integrated STEM Programs", "Project-Based STEM Learning", "STEM Lab Activities", "Coding & Robotics Curriculum", "STEM Assessment Tools"],
       },
       {
-        label: "E-Book Creation", href: "/content-services/custom-e-learning-content/ebook-creation", icon: TabletSmartphone,
+        label: "E-Book Creation", href: "/interactive-ebook-creation", icon: TabletSmartphone,
         serviceHighlights: ["Interactive Digital Textbooks", "EPUB & PDF E-Books", "Multimedia-Rich E-Books", "Curriculum-Aligned E-Books", "Accessible E-Books"],
       },
       {
-        label: "2D & 3D Videos", href: "/content-services/custom-e-learning-content/2d-3d-videos", icon: Film,
+        label: "2D & 3D Videos", href: "/2d-3d-videos", icon: Film,
         serviceHighlights: ["2D Animated Explainer Videos", "3D Animated Educational Videos", "Whiteboard Animation Videos", "Motion Graphics"],
       },
       {
-        label: "Quiz & Question Bank", href: "/content-services/custom-e-learning-content/quiz-question-bank", icon: HelpCircle,
+        label: "Quiz & Question Bank", href: "/quiz-question-bank-development", icon: HelpCircle,
         serviceHighlights: ["MCQ Question Banks", "Short & Long Answer Questions", "Case-Based Questions", "Adaptive Question Pools", "Exam-Pattern Question Banks"],
       },
     ],
   },
   {
     label: "Exam Preparation Content",
-    href: "/content-services/exam-preparation-content",
+    href: "/test-prep-content",
     icon: Pencil,
     image: "/assets/banners/content-services/main/exam-preparation-content.png",
     imageAlt: "Exam preparation content services by eQOURSE - SAT, TOEFL, IELTS, ACT, AP, PTE, TOEIC and CEFR test prep materials with practice tests and study guides",
     description: "Comprehensive adaptive test prep materials for global standardized tests.",
     subServices: [
       {
-        label: "APTIS Prep", href: "/content-services/exam-preparation-content/aptis", icon: Target,
+        label: "APTIS Prep", href: "/test-prep-content/aptis", icon: Target,
         serviceHighlights: ["Listening Practice", "Reading Practice", "Speaking Tasks", "Writing Tasks", "Grammar & Vocabulary"],
       },
       {
-        label: "TOEIC Prep", href: "/content-services/exam-preparation-content/toeic", icon: Headphones,
+        label: "TOEIC Prep", href: "/test-prep-content/toeic", icon: Headphones,
         serviceHighlights: ["TOEIC Listening Practice", "TOEIC Reading Practice", "TOEIC Speaking Tasks", "TOEIC Writing Tasks"],
       },
       {
-        label: "SAT Prep", href: "/content-services/exam-preparation-content/sat", icon: Calculator,
+        label: "SAT Prep", href: "/test-prep-content/sat", icon: Calculator,
         serviceHighlights: ["SAT Math Practice", "SAT Reading Practice", "SAT Writing & Language", "Full-Length SAT Practice Tests"],
       },
       {
-        label: "ACT Prep", href: "/content-services/exam-preparation-content/act", icon: PenTool,
+        label: "ACT Prep", href: "/test-prep-content/act", icon: PenTool,
         serviceHighlights: ["ACT English", "ACT Mathematics", "ACT Reading", "ACT Science"],
       },
       {
-        label: "AP Exam Prep", href: "/content-services/exam-preparation-content/ap-exam", icon: BookOpenCheck,
+        label: "AP Exam Prep", href: "/test-prep-content/ap-exam", icon: BookOpenCheck,
         serviceHighlights: ["AP STEM Subjects", "AP Humanities", "AP Social Sciences", "AP FRQ Practice"],
       },
       {
-        label: "IELTS Prep", href: "/content-services/exam-preparation-content/ielts", icon: Globe,
+        label: "IELTS Prep", href: "/test-prep-content/ielts", icon: Globe,
         serviceHighlights: ["IELTS Listening", "IELTS Reading", "IELTS Writing (Task 1 & 2)", "IELTS Speaking (Parts 1–3)"],
       },
       {
-        label: "CEFR Placement", href: "/content-services/exam-preparation-content/cefr", icon: Target,
+        label: "CEFR Placement", href: "/test-prep-content/cefr-placement-solutions", icon: Target,
         serviceHighlights: ["CEFR Placement Tests (A1–C2)", "Level-Specific Content", "Adaptive CEFR Testing"],
       },
       {
-        label: "PTE Prep", href: "/content-services/exam-preparation-content/pte", icon: Mic,
+        label: "PTE Prep", href: "/test-prep-content/pte", icon: Mic,
         serviceHighlights: ["PTE Speaking & Writing", "PTE Reading", "PTE Listening"],
       },
       {
-        label: "TOEFL Prep", href: "/content-services/exam-preparation-content/toefl", icon: FileText,
+        label: "TOEFL Prep", href: "/test-prep-content/toefl", icon: FileText,
         serviceHighlights: ["TOEFL Reading", "TOEFL Listening", "TOEFL Speaking", "TOEFL Writing"],
       },
     ],
   },
   {
     label: "Learning Solutions",
-    href: "/content-services/learning-solutions",
+    href: "/learning-solutions",
     icon: MonitorPlay,
     image: "/assets/banners/content-services/main/learning-solutions.jpeg",
     imageAlt: "Learning solutions by eQOURSE - instructor-led training, corporate e-learning, gamified learning, adaptive AI-powered modules and immersive AR/VR simulations",
     description: "Immersive AR/VR and AI-powered gamified learning environments.",
     subServices: [
       {
-        label: "Instructor Led Training", href: "/content-services/learning-solutions/ilt", icon: Presentation,
+        label: "Instructor Led Training", href: "/ilt-solutions", icon: Presentation,
         serviceHighlights: ["Facilitator Guides", "Participant Workbooks", "Presentation Decks", "Activity & Exercise Sheets"],
       },
       {
-        label: "Corporate E-learning", href: "/content-services/learning-solutions/corporate-elearning", icon: Building2,
+        label: "Corporate E-learning", href: "/corporate-e-learning-solutions", icon: Building2,
         serviceHighlights: ["Onboarding Modules", "Compliance Training", "Skills Development", "Product Training"],
       },
       {
-        label: "Training Modules", href: "/content-services/learning-solutions/training-modules", icon: Layout,
+        label: "Training Modules", href: "/training-modules", icon: Layout,
         serviceHighlights: ["Microlearning Modules", "Scenario-Based Modules", "Assessment-Driven Modules"],
       },
       {
-        label: "Gamified Learning", href: "/content-services/learning-solutions/gamified-learning", icon: Gamepad2,
+        label: "Gamified Learning", href: "/gamified-learning", icon: Gamepad2,
         serviceHighlights: ["Points & Rewards Systems", "Leaderboards & Badges", "Interactive Challenges", "Story-Based Gamification"],
       },
       {
-        label: "Adaptive Learning", href: "/content-services/learning-solutions/adaptive-learning", icon: Brain,
+        label: "Adaptive Learning", href: "/adaptive-learning", icon: Brain,
         serviceHighlights: ["Personalized Learning Paths", "Diagnostic Assessments", "Adaptive Content Delivery"],
       },
       {
-        label: "Blended Learning", href: "/content-services/learning-solutions/blended-learning", icon: Network,
+        label: "Blended Learning", href: "/blended-learning", icon: Network,
         serviceHighlights: ["Flipped Classroom Content", "Hybrid Course Design", "Collaborative Digital Tools"],
       },
       {
-        label: "AR/VR Simulations", href: "/content-services/learning-solutions/ar-vr", icon: Glasses,
+        label: "AR/VR Simulations", href: "/immersive-simulation-ar-vr", icon: Glasses,
         serviceHighlights: ["Virtual Lab Simulations", "AR Overlay Learning", "360° Immersive Environments", "Interactive 3D Models"],
       },
       {
-        label: "Instructional Design", href: "/content-services/learning-solutions/instructional-design", icon: CircuitBoard,
+        label: "Instructional Design", href: "/instructional-design-services", icon: CircuitBoard,
         serviceHighlights: ["ADDIE Model Implementation", "Learning Needs Analysis", "Storyboarding & Scripting", "Learning Outcome Mapping"],
       },
       {
-        label: "AI-Powered Learning", href: "/content-services/learning-solutions/ai-powered-learning", icon: Lightbulb,
+        label: "AI-Powered Learning", href: "/optimizing-aI-powered-learning", icon: Lightbulb,
         serviceHighlights: ["AI-Powered Personalization", "Intelligent Tutoring Systems", "Automated Content Generation", "Learning Analytics"],
       },
     ],
   },
   {
     label: "E-Learning Video Solutions",
-    href: "/content-services/elearning-video-solutions",
+    href: "/elearning-video-solutions",
     icon: Clapperboard,
     image: "/assets/banners/content-services/main/elearning-video-solutions.jpeg",
     imageAlt: "E-learning video solutions by eQOURSE - animated explainer videos, PPT-to-video conversion, Articulate Storyline interactive courses and motion graphics",
     description: "High-quality animated videos, kinetic typography, and PPT-to-video services.",
     subServices: [
       {
-        label: "PPT Video Services", href: "/content-services/elearning-video-solutions/ppt-videos", icon: MonitorPlay,
+        label: "PPT Video Services", href: "/ppt-videos-services", icon: MonitorPlay,
         serviceHighlights: ["PPT to Video Conversion", "Voice-Over Integration", "Animation & Transitions", "Pen-Tab Video Lessons"],
       },
       {
-        label: "Articulate Storyline", href: "/content-services/elearning-video-solutions/articulate-storyline", icon: MousePointerClick,
+        label: "Articulate Storyline", href: "/articulate-storyline-services", icon: MousePointerClick,
         serviceHighlights: ["Branching Scenarios", "Interactive Simulations", "Drag & Drop Activities", "SCORM/xAPI Packaging"],
       },
       {
-        label: "Animated Video Services", href: "/content-services/elearning-video-solutions/animated-videos", icon: Video,
+        label: "Animated Video Services", href: "/animated-videos-services", icon: Video,
         serviceHighlights: ["Character Animation", "Explainer Videos", "Whiteboard Animations", "Motion Graphics"],
       },
     ],
   },
   {
     label: "Localization Services",
-    href: "/content-services/localization-services",
+    href: "/localization-services",
     icon: Globe,
     image: "/assets/banners/content-services/main/localization-services.png",
     imageAlt: "Localization services by eQOURSE - professional translation, voice-over and subtitling in Hindi, English and 30+ languages for educational content",
     description: "Accurate translation, professional voiceovers, and subtitling for global reach.",
     subServices: [
       {
-        label: "Translation Services", href: "/content-services/localization-services/translation", icon: Languages,
+        label: "Translation Services", href: "/translation-services", icon: Languages,
         serviceHighlights: ["Curriculum Translation", "Assessment Translation", "E-Learning Module Translation", "Document Translation"],
       },
       {
-        label: "Voice Over Services", href: "/content-services/localization-services/voice-over", icon: Mic,
+        label: "Voice Over Services", href: "/voice-over-services", icon: Mic,
         serviceHighlights: ["Male & Female Voice Artists", "Studio-Quality Recording", "Script Timing & Sync", "Multiple Accent Options"],
       },
       {
-        label: "Subtitling Services", href: "/content-services/localization-services/subtitling", icon: Captions,
+        label: "Subtitling Services", href: "/subtitling-services", icon: Captions,
         serviceHighlights: ["SRT & VTT Subtitle Files", "Burned-In Subtitles", "Multilingual Subtitles", "Closed Captioning"],
       },
     ],
   },
   {
     label: "Technology Solutions",
-    href: "/content-services/technology-solutions",
+    href: "/technology-solutions",
     icon: Laptop,
     image: "/assets/banners/content-services/main/technology-solutions.png",
     imageAlt: "Educational technology solutions by eQOURSE - LMS course builds, SCORM and xAPI packaging, white-label LMS setup on Open edX and AWS",
     description: "Robust Learning Management Systems (LMS) and cloud-based architecture.",
     subServices: [
       {
-        label: "LMS Course Builds", href: "/content-services/technology-solutions/lms-course-builds", icon: HardDrive,
+        label: "LMS Course Builds", href: "/lms-course-builds", icon: HardDrive,
         serviceHighlights: ["SCORM Course Packaging", "xAPI/Tin Can Integration", "Multi-LMS Testing", "Course Structure Design"],
       },
       {
-        label: "White Label LMS", href: "/content-services/technology-solutions/white-label-lms", icon: Server,
+        label: "White Label LMS", href: "/white-label-lms", icon: Server,
         serviceHighlights: ["Custom Branding", "User Management", "Content Integration", "Analytics & Reporting"],
       },
     ],
   },
   {
     label: "Subject Matter Experts",
-    href: "/content-services/subject-matter-experts",
+    href: "/smes",
     icon: Users,
     image: "/assets/banners/content-services/main/subject-matter-experts.png",
     imageAlt: "Subject matter expert services by eQOURSE - SME recruitment, tutor training and certification, and live online tutoring across 200+ specialists",
     description: "Top-tier global subject matter experts for tutoring, recruiting, and mentoring.",
     subServices: [
       {
-        label: "SME Recruitment", href: "/content-services/subject-matter-experts/recruitment", icon: UserCheck,
+        label: "SME Recruitment", href: "/tutors-and-sme-recruitment", icon: UserCheck,
         serviceHighlights: ["Subject-Specific Recruitment", "Screening & Vetting", "Bulk Recruitment", "Freelancer & Full-Time Options"],
       },
       {
-        label: "SME Training & Certification", href: "/content-services/subject-matter-experts/training", icon: BookOpenCheck,
+        label: "SME Training & Certification", href: "/tutors-and-sme-training", icon: BookOpenCheck,
         serviceHighlights: ["Content Standards Training", "Pedagogy Workshops", "Platform Tool Training", "Certification Programs"],
       },
       {
-        label: "Live Online Tutors", href: "/content-services/subject-matter-experts/live-online-tutors", icon: MonitorPlay,
+        label: "Live Online Tutors", href: "/live-online-tutor", icon: MonitorPlay,
         serviceHighlights: ["One-on-One Tutoring", "Group Tutoring Sessions", "Doubt Resolution", "Multi-Subject Support"],
       },
     ],

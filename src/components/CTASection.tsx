@@ -14,7 +14,7 @@ const CTASection = () => {
     if (!vA || !vB) return;
 
     // Start video A
-    vA.play().catch(() => {});
+    vA.play().catch(() => { });
 
     const startCrossfade = (from: HTMLVideoElement, to: HTMLVideoElement) => {
       if (isSwapping.current) return;
@@ -22,7 +22,7 @@ const CTASection = () => {
 
       // Prepare the next video at beginning
       to.currentTime = 0;
-      to.play().catch(() => {});
+      to.play().catch(() => { });
 
       // Bring the next video on top and fade it in
       // Keep the old video fully visible underneath - no white flash
@@ -126,7 +126,7 @@ const CTASection = () => {
               Start Free Pilot <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </Link>
-          <Link to="/contact">
+          <Link to="/contact-us">
             <Button size="lg" className="bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 hover:animate-pulse transition-all duration-300 px-8">
               <Phone className="mr-2 w-5 h-5" /> Schedule a Call
             </Button>
