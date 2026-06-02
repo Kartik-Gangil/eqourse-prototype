@@ -8,7 +8,7 @@ const MetadataServicesPage = () => (
   <SubServicePageTemplate
     seoTitle="Metadata Services for Publishers | eQOURSE"
     seoDescription="eQOURSE delivers metadata tagging, content structuring, DOI preparation, ONIX, MARC records, Crossref and accessibility metadata for education publishing."
-    seoCanonical="https://www.eqourse.com/content-services/editorial-publishing-designing-services/metadata-services"
+    seoCanonical="https://www.eqourse.com/metadata-services"
     seoKeywords="metadata services, publishing metadata, content taxonomy services, DOI metadata, ONIX metadata, MARC records, Crossref metadata, accessibility metadata"
     parentLabel={PARENT_LABEL}
     parentHref={PARENT_HREF}

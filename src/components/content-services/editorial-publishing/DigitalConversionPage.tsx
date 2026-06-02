@@ -8,7 +8,7 @@ const DigitalConversionPage = () => (
   <SubServicePageTemplate
     seoTitle="Digital Conversion Services for EdTech & Publishing | eQOURSE"
     seoDescription="Digital conversion services for publishers and EdTech platforms: Digitisation, OCR, XML, HTML, EPUB, PDF to EPUB, LaTeX, MathML and XML-first workflows."
-    seoCanonical="https://www.eqourse.com/content-services/editorial-publishing-designing-services/digital-conversion"
+    seoCanonical="https://www.eqourse.com/digital-conversion"
     seoKeywords="digital conversion services, eBook conversion, LMS content conversion, XML conversion, EPUB conversion, PDF to EPUB, OCR services, LaTeX conversion"
     parentLabel={PARENT_LABEL}
     parentHref={PARENT_HREF}

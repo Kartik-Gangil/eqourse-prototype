@@ -8,7 +8,7 @@ const PublishingProductionPage = () => (
   <SubServicePageTemplate
     seoTitle="Publishing Production Services | eQOURSE"
     seoDescription="Publishing production services for educational content, including typesetting, page composition, templates, indexing and accessibility layout support."
-    seoCanonical="https://www.eqourse.com/content-services/editorial-publishing-designing-services/publishing-production"
+    seoCanonical="https://www.eqourse.com/publishing-production"
     seoKeywords="publishing production, education publishing production, typesetting, page composition, indexing services, proof review, production handover"
     parentLabel={PARENT_LABEL}
     parentHref={PARENT_HREF}

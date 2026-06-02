@@ -2,18 +2,18 @@ import SubServicePageTemplate from "../shared/SubServicePageTemplate";
 import { Image, Captions, AudioLines, Sigma, Table } from "lucide-react";
 
 const relatedPages = [
-  { title: "Document Remediation", href: "/content-services/accessibility/document-content-remediation" },
-  { title: "Assessment Accessibility", href: "/content-services/accessibility/assessment-accessibility" },
-  { title: "Assistive Tech Compatibility", href: "/content-services/accessibility/assistive-technology-compatibility" },
-  { title: "Standards Compliance", href: "/content-services/accessibility/standards-compliance" },
-  { title: "Audit & Compliance Support", href: "/content-services/accessibility/audit-compliance-support" },
+  { title: "Document Remediation", href: "/document-content-remediation" },
+  { title: "Assessment Accessibility", href: "/assessment-accessibility" },
+  { title: "Assistive Tech Compatibility", href: "/assistive-technology-compatibility" },
+  { title: "Standards Compliance", href: "/standards-compliance" },
+  { title: "Audit & Compliance Support", href: "/audit-compliance-support" },
 ];
 
 const AccessibleMediaPage = () => (
   <SubServicePageTemplate
     seoTitle="Accessible Media & Enhancements Services | eQOURSE"
     seoDescription="Inclusive multimedia services including alternative text authoring, closed captioning, transcripts, audio description, and accessible STEM notation (MathML)."
-    seoCanonical="https://www.eqourse.com/content-services/accessibility/accessible-media-enhancements"
+    seoCanonical="https://www.eqourse.com/accessible-media-enhancements"
     seoKeywords="accessible media services, alt text authoring, closed captioning for education, audio description services, MathML accessibility, accessible STEM content, multimedia accessibility"
     parentLabel="Accessibility"
     parentHref="/accessibility"

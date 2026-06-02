@@ -8,7 +8,7 @@ const EditorialServicesPage = () => (
   <SubServicePageTemplate
     seoTitle="Editorial Services for Learning and Publishing Content | eQOURSE"
     seoDescription="eQOURSE delivers copy editing, proofreading, substantive, developmental and technical editing for education, publishing and digital learning content."
-    seoCanonical="https://www.eqourse.com/content-services/editorial-publishing-designing-services/editorial-services"
+    seoCanonical="https://www.eqourse.com/editorial-services"
     seoKeywords="editorial services, copyediting services, proofreading services, educational content editing, substantive editing, developmental editing, technical editing"
     parentLabel={PARENT_LABEL}
     parentHref={PARENT_HREF}

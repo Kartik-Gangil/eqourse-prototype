@@ -8,7 +8,7 @@ const DesignServicesPage = () => (
   <SubServicePageTemplate
     seoTitle="Design Services for Educational Publishing | eQOURSE"
     seoDescription="Design services for publishers, EdTech platforms and institutions, including covers, layouts, workbooks, journals, brochures and learning illustrations."
-    seoCanonical="https://www.eqourse.com/content-services/editorial-publishing-designing-services/design-services"
+    seoCanonical="https://www.eqourse.com/design-services"
     seoKeywords="educational design services, learning content design, publication design, cover design, page layout design, workbook design, journal design, infographic design"
     parentLabel={PARENT_LABEL}
     parentHref={PARENT_HREF}

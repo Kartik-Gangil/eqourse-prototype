@@ -8,7 +8,7 @@ const PrepressServicesPage = () => (
   <SubServicePageTemplate
     seoTitle="Prepress Services for Publishing Production | eQOURSE"
     seoDescription="Prepress services for publishers and education teams: print-ready files, preflight checks, colour correction, bleed setup and proof preparation."
-    seoCanonical="https://www.eqourse.com/content-services/editorial-publishing-designing-services/prepress-services"
+    seoCanonical="https://www.eqourse.com/prepress-services"
     seoKeywords="prepress services, print production support, publication prepress checks, preflight checks, colour correction, bleed margin, print-ready files"
     parentLabel={PARENT_LABEL}
     parentHref={PARENT_HREF}

@@ -8,7 +8,7 @@ const ImageProcessingPage = () => (
   <SubServicePageTemplate
     seoTitle="Image Processing Services for Publishing | eQOURSE"
     seoDescription="Image processing support for publishers and education teams, covering restoration, cleanup, enhancement and web-ready visual optimisation."
-    seoCanonical="https://www.eqourse.com/content-services/editorial-publishing-designing-services/image-processing"
+    seoCanonical="https://www.eqourse.com/image-processing"
     seoKeywords="image processing services, educational image editing, digital asset preparation, image restoration, image cleanup, image optimisation, alt text services"
     parentLabel={PARENT_LABEL}
     parentHref={PARENT_HREF}
