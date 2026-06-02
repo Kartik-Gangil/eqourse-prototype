@@ -63,7 +63,7 @@ const ContentServicesMegaMenu = ({ onClose }: { onClose: () => void }) => {
 
   return (
     <nav
-      className="absolute top-full -left-[35vw] w-[1300px] bg-card/95 rounded-3xl border border-border/50 shadow-elevated animate-slide-up z-50  max-h-[80vh]"
+      className="absolute top-full -left-[33vw]  w-[97vw] max-w-[1350px] bg-card/95 rounded-3xl border border-border/50 shadow-elevated animate-slide-up z-50  max-h-[80vh]"
       style={{ backdropFilter: "blur(20px)" }}
       aria-label="Content Services navigation"
     >
