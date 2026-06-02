@@ -19,6 +19,8 @@ const DigitalConversionPage = () => (
     subtext="eQOURSE prepares learning content for web, LMS, eBook and platform-based delivery through structured conversion from source files into clean digital formats - including HTML-ready content, EPUB 3-aligned eBook preparation, accessible-friendly structure and asset organisation."
     ctaText="Request Conversion Support"
     ctaLink="/contact"
+    bannerImage="/assets/banners/editorial-publishing/Digital Conversion for Modern Publishing.png"
+    bannerImageAlt="Digital conversion services for modern publishing including XML, EPUB3, and HTML5 formats by eQOURSE."
     introLabel="Format Transformation"
     introTitle="Convert Content for"
     introGradient="Every Platform"

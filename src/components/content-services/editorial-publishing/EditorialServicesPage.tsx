@@ -19,6 +19,8 @@ const EditorialServicesPage = () => (
     subtext="eQOURSE delivers editorial services for education publishers, EdTech teams and institutions working with curriculum content, assessments, learning resources and digital products - including copyediting, language refinement, consistency checks and style-guide application."
     ctaText="Request Editorial Support"
     ctaLink="/contact"
+    bannerImage="/assets/banners/editorial-publishing/Editorial Services for Global Learning Content.png"
+    bannerImageAlt="Editorial services for global learning content including copy editing, proofreading, and developmental editing by eQOURSE."
     introLabel="Content Quality"
     introTitle="Editorial Support That"
     introGradient="Preserves Intent"

@@ -19,6 +19,8 @@ const DesignServicesPage = () => (
     subtext="Design services support the visual presentation of learning content across worksheets, workbooks, instructor resources, digital learning assets, decks, infographics and publication layouts - aligned with brand guidelines, readability requirements and output format."
     ctaText="Request Design Support"
     ctaLink="/contact"
+    bannerImage="/assets/banners/editorial-publishing/Design Services for Educational Publishing.png"
+    bannerImageAlt="Design services for educational publishing including layout design, graphics, and visual structuring by eQOURSE."
     introLabel="Visual Presentation"
     introTitle="Design That Supports"
     introGradient="Learning Outcomes"
