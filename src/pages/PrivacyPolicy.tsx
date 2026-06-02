@@ -57,6 +57,8 @@ const PrivacyPolicy = () => {
         subtext="Learn how eQOURSE collects, uses, stores, and protects your personal data across our Content Service and AI Data Services. ISO 27001:2022 certified. GDPR-ready."
         ctaText="Read Policy"
         ctaLink="#introduction"
+        imageSrc="/assets/legal/Privacy policy.png"
+        imageAlt="Privacy Policy and data protection guidelines for eQOURSE content and AI services"
         rotatingBadges={[
           { icon: Shield, title: "Data Protection", subtitle: "GDPR ready", color: "hsl(165 75% 71%)" },
           { icon: Lock, title: "Security", subtitle: "ISO 27001 certified", color: "hsl(170 82% 55%)" },
