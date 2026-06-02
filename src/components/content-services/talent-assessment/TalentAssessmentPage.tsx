@@ -5,6 +5,7 @@ import ServiceNarrativeSection from "@/components/ai-data-services/shared/Servic
 import FAQSection from "@/components/ai-data-services/shared/FAQSection";
 import ServiceCTA from "@/components/ai-data-services/shared/ServiceCTA";
 import TalentAssessmentServicesGrid from "./TalentAssessmentServicesGrid";
+import { ClipboardCheck, LineChart, BrainCircuit } from "lucide-react";
 
 const faqs = [
   {
@@ -54,7 +55,13 @@ const TalentAssessmentPage = () => (
       ctaText="Discuss Assessment Needs"
       ctaLink="#contact"
       imageSrc="/assets/banners/content-services/main/talent-assessment-workforce-evaluation.png"
-      imageAlt="Talent assessment and workforce evaluation services by eQOURSE — psychometric assessments, skill testing, candidate evaluation, competency frameworks and organizational diagnostics"
+      imageAlt="Talent assessment and workforce evaluation services by eQOURSE - psychometric assessments, skill testing, candidate evaluation, competency frameworks and organizational diagnostics"
+      rotatingBadges={[
+        { icon: ClipboardCheck, title: "Assessment", subtitle: "Skill testing", color: "hsl(170 82% 55%)" },
+        { icon: BrainCircuit, title: "Psychometric", subtitle: "Behavioral analysis", color: "hsl(190 85% 68%)" },
+        { icon: LineChart, title: "Workforce", subtitle: "Diagnostics", color: "hsl(165 75% 71%)" }
+      ]}
+      bottomBadge={{ iconText: "HR", title: "Evaluation", subtitle: "Data-driven decisions" }}
     />
 
     <ServiceNarrativeSection
@@ -63,7 +70,7 @@ const TalentAssessmentPage = () => (
       gradientText="Structured Evidence"
       description="Designed around current assessment practice, including validity, reliability, fairness, documentation and role relevance principles used in professional testing and personnel selection contexts."
       paragraphs={[
-        "Organisations typically gather workforce evidence across interviews, tests, training records and manager feedback — but this data is rarely structured for consistent comparison across roles or business units. eQOURSE helps convert these signals into structured assessment assets that support hiring, development, mobility and learning decisions.",
+        "Organisations typically gather workforce evidence across interviews, tests, training records and manager feedback - but this data is rarely structured for consistent comparison across roles or business units. eQOURSE helps convert these signals into structured assessment assets that support hiring, development, mobility and learning decisions.",
         "Our delivery process defines the assessment purpose, maps competencies, builds item specifications, develops content, creates scoring rubrics, prepares reporting logic and supports digital implementation. Each asset is documented so internal teams and assessment vendors can review intent, scoring and use conditions."
       ]}
       bullets={[
@@ -95,7 +102,7 @@ const TalentAssessmentPage = () => (
       headline="Build a Workforce Assessment System Decision-Makers Rely On"
       subtext="Partner with eQOURSE to develop structured assessment content, competency frameworks, scoring rubrics and digital-ready workforce evaluation assets for your organisation."
       ctaText="Discuss Assessment Needs"
-      secondaryMicrocopy="Share your roles, assessment goals and delivery requirements — we will help structure the right assessment plan."
+      secondaryMicrocopy="Share your roles, assessment goals and delivery requirements - we will help structure the right assessment plan."
     />
   </ContentServicesLayout>
 );

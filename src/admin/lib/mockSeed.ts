@@ -204,7 +204,7 @@ export const seedSampleCategories = (): SampleCategory[] => [
   },
   {
     id: "cat-cbse",
-    name: "CBSE Content",
+    name: "Curriculum Content",
     slug: "curriculum-samples",
     description: "NCERT-aligned CBSE curriculum samples with assessments.",
     thumbnailUrl: "",
@@ -366,6 +366,6 @@ export const seedSampleCategories = (): SampleCategory[] => [
   },
 ];
 
-/** Start with zero samples — admin uploads real files via the editor. */
+/** Start with zero samples - admin uploads real files via the editor. */
 export const seedSamples = (): Sample[] => [];
 

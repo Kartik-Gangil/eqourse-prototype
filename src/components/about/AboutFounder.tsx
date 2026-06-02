@@ -22,8 +22,8 @@ const AboutFounder = () => {
               {/* Note: Wait, since no specific image path was provided, use a placeholder or check asset folder, but we know there's about-image.jpg or founder picture in existing site. Using a generic solid placeholder or standard path for now */}
               <div className="absolute inset-0 bg-secondary/80 flex items-center justify-center">
                  <img 
-                   src="/founder.jpg" 
-                   alt="Somveer Tayal - Founder and CEO" 
+                   src="/assets/about/Som sir Img.png" 
+                   alt="Somveer Tayal - Founder and CEO of eQOURSE, bringing 20+ years of Education and AI Data expertise" 
                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                    onError={(e) => {
                      // Fallback image if founder.jpg doesn't exist
@@ -86,7 +86,7 @@ const AboutFounder = () => {
               >
                 <Quote className="absolute top-6 left-6 w-10 h-10 text-primary/20 transform -rotate-12" />
                 <p className="relative z-10 text-foreground/90 font-medium italic leading-relaxed text-lg mt-4 pl-4 border-l-4 border-primary">
-                  "I believe that the same human expertise that makes great education possible — deep subject knowledge, cultural understanding, and rigorous quality standards — is exactly what AI needs to work in the real world. At eQOURSE, we bring both together: Content Services that scale learning outcomes, and AI data services that help machines learn from the best of human intelligence. Our mission is to be the trusted partner where education meets AI."
+                  "I believe that the same human expertise that makes great education possible - deep subject knowledge, cultural understanding, and rigorous quality standards - is exactly what AI needs to work in the real world. At eQOURSE, we bring both together: Content Services that scale learning outcomes, and AI data services that help machines learn from the best of human intelligence. Our mission is to be the trusted partner where education meets AI."
                 </p>
               </motion.div>
 

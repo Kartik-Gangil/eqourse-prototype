@@ -20,7 +20,7 @@ const services = [
   {
     icon: ShieldAlert,
     title: "PII Redaction",
-    description: "Detect and redact personally identifiable information — names, emails, phone numbers, SSNs, addresses — with configurable replacement strategies.",
+    description: "Detect and redact personally identifiable information - names, emails, phone numbers, SSNs, addresses - with configurable replacement strategies.",
     before: "Text containing real names & emails",
     after: "PII replaced with [PERSON], [EMAIL] tokens",
   },
@@ -34,7 +34,7 @@ const services = [
   {
     icon: FileSpreadsheet,
     title: "Metadata Enrichment",
-    description: "Add structured metadata — language codes, domain tags, confidence scores, source provenance, and data lineage tracking.",
+    description: "Add structured metadata - language codes, domain tags, confidence scores, source provenance, and data lineage tracking.",
     before: "Raw data without context or provenance",
     after: "Enriched with lang, domain, source, quality tags",
   },

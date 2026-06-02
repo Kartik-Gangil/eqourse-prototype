@@ -55,7 +55,7 @@ const WhyBenchmarksFail = () => {
           {/* Bottom callout */}
           <div className={`mt-8 text-center reveal-up ${isVisible ? "visible" : ""}`} style={{ transitionDelay: "0.5s" }}>
             <p className="text-muted-foreground text-sm">
-              Your model needs testing against <span className="text-primary font-semibold">real users, real accents, real edge cases</span> — not just sanitized benchmarks.
+              Your model needs testing against <span className="text-primary font-semibold">real users, real accents, real edge cases</span> - not just sanitized benchmarks.
             </p>
           </div>
         </div>

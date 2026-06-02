@@ -76,7 +76,7 @@ export default function SampleCategoryEditor() {
       </Button>
       <PageHeader
         title={isNew ? "New sample category" : "Edit category"}
-        description="A category groups related samples — e.g. all K-5 content."
+        description="A category groups related samples - e.g. all K-5 content."
         actions={
           <Button onClick={save} disabled={saving}>
             <Save className="w-4 h-4 mr-2" /> Save

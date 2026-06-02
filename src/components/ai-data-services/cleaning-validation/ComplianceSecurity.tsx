@@ -21,7 +21,7 @@ const compliance = [
   {
     icon: GitBranch,
     title: "Data Lineage",
-    description: "Full traceability from source to delivery — know exactly where every data point came from.",
+    description: "Full traceability from source to delivery - know exactly where every data point came from.",
   },
   {
     icon: ClipboardCheck,

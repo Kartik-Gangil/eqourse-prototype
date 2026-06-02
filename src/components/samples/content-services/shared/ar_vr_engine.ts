@@ -32,7 +32,7 @@ function roundRect(ctx,x,y,w,h,r){
    SCENE 1: AR OVERLAY DEMOS  (REDESIGNED)
    A real-feeling AR classroom moment: a desk surface (warm
    wood), an open chemistry textbook with the H₂O page visible.
-   Above the page, an AR water molecule "lifts off" the page —
+   Above the page, an AR water molecule "lifts off" the page -
    3D ball-and-stick H₂O model, electron orbits, bond-angle arc,
    info cards anchored to atoms. Phone-style AR UI: focus square,
    "TRACKING" badge, "TAP TO PLACE" cursor that follows pointer.
@@ -156,7 +156,7 @@ SCENES.ar = (() => {
   let TARGET = null;   // {cx,cy,r}  on-page printed butterfly center
 
   function drawTextbookPage(ctx, t, lift, scanT, phase){
-    // page geometry — slight perspective tilt
+    // page geometry - slight perspective tilt
     const bw = W*0.86, bh = H*0.62;
     const bx = W*0.5, by = H*0.62;
     PAGE = { bx, by, bw, bh };
@@ -238,7 +238,7 @@ SCENES.ar = (() => {
     ctx.fillText('FIG. 7.1  ·  PARTS OF A BUTTERFLY', figCx, figCy + figR*0.92);
     ctx.textAlign='left';
 
-    // PRINTED butterfly diagram — INK on page (fades as it lifts off)
+    // PRINTED butterfly diagram - INK on page (fades as it lifts off)
     const inkAlpha = clamp(1 - lift*1.6, 0, 1);
     if(inkAlpha > 0.02){
       drawPrintedButterfly(ctx, figCx, figCy, figR, inkAlpha);
@@ -594,7 +594,7 @@ SCENES.ar = (() => {
   // ---------------- AR labels (only when airborne) ----------------
   function drawArLabels(ctx, t, lift, phase){
     if(!TARGET) return;
-    // anchor labels relative to flying position — but use the same geometry
+    // anchor labels relative to flying position - but use the same geometry
     // we used in drawButterfly, recomputed here for label endpoints.
     const e = smooth(lift);
     const cursorX = fx*W;
@@ -676,7 +676,7 @@ SCENES.ar = (() => {
   }
 
   function drawArTopBar(ctx, t, phase){
-    // status pill — changes by phase
+    // status pill - changes by phase
     const x=20, y=20;
     let label = 'AR · SCANNING';
     let dotColor = '#ffb347';
@@ -730,7 +730,7 @@ SCENES.ar = (() => {
 
     // hint chip bottom-right
     const hint = phase < 0.32 ? 'Scanning page…'
-               : phase < 0.85 ? 'Move cursor — butterfly follows'
+               : phase < 0.85 ? 'Move cursor - butterfly follows'
                : 'Returning to page…';
     const hw = ctx.measureText(hint).width + 24;
     ctx.fillStyle='rgba(10,18,28,0.75)';
@@ -877,7 +877,7 @@ SCENES.vr = (() => {
   }
 
   function drawPlatform(ctx, nx, ny, size, color, t, idx){
-    // (deprecated — replaced by realistic landscape elements)
+    // (deprecated - replaced by realistic landscape elements)
   }
 
   function drawShootingStar(ctx, t){
@@ -983,7 +983,7 @@ SCENES.vr = (() => {
 
 
   function drawGrid(ctx, t){
-    // very subtle ground grid (was bright teal — toned down)
+    // very subtle ground grid (was bright teal - toned down)
     const horizon = H*0.66;
     ctx.strokeStyle='rgba(120,180,220,0.06)';
     ctx.lineWidth=1;
@@ -1086,7 +1086,7 @@ SCENES.pano = (() => {
     // cloud layer (parallax slow)
     drawClouds(ctx, heading, t);
 
-    // skyline buildings — many of them, looped by heading
+    // skyline buildings - many of them, looped by heading
     drawSkyline(ctx, heading, 0.75, '#1a2748', 0.55, 1.0);
     drawSkyline(ctx, heading*1.4, 0.78, '#0e1a32', 0.85, 1.4);
 
@@ -1270,7 +1270,7 @@ SCENES.model = (() => {
     yaw = lerp(yaw, tgtYaw, 0.1);
     pitch = lerp(pitch, tgtPit, 0.1);
 
-    // background — studio
+    // background - studio
     const g = ctx.createRadialGradient(W*0.5, H*0.4, 0, W*0.5, H*0.5, Math.max(W,H)*0.7);
     g.addColorStop(0,'#243152');
     g.addColorStop(.6,'#0e1730');

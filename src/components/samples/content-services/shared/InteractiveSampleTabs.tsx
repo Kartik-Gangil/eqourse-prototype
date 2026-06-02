@@ -144,7 +144,7 @@ const InteractiveSampleTabs = ({ sample }: Props) => {
             ) : isVideo ? (
               <VideoPreview accent={accent} tab={sample.tabs[active]} />
             ) : (
-              <PageFlipPreview accent={accent} tab={sample.tabs[active]} />
+              <TextSampleThumbForTab sample={sample} tab={sample.tabs[active]} accent={accent} />
             )}
           </div>
 
@@ -172,7 +172,7 @@ const InteractiveSampleTabs = ({ sample }: Props) => {
 
               <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                 {sample.tabContent?.[sample.tabs[active]] ??
-                  `Curated ${sample.tabs[active]} sample from our ${sample.navLabel.toLowerCase()} library — production-ready, curriculum-aligned, and ready to customize for your platform.`}
+                  `Curated ${sample.tabs[active]} sample from our ${sample.navLabel.toLowerCase()} library - production-ready, curriculum-aligned, and ready to customize for your platform.`}
               </p>
 
               <ul className="space-y-2 mb-6">
@@ -384,6 +384,80 @@ const AIAvatarVideoThumbForTab = ({ tabIndex, accent }: { tabIndex: number; acce
       </div>
     </div>
   );
+};
+
+const TEXT_THUMBNAILS: Record<string, Record<string, string>> = {
+  "curriculum-samples": {
+    "CBSE": "/assets/samples/text-content/Carriuclam/CBSE.png",
+    "ICSE": "/assets/samples/text-content/Carriuclam/ICSE.png",
+    "IB": "/assets/samples/text-content/Carriuclam/IB.png",
+    "State Board": "/assets/samples/text-content/Carriuclam/State Board.png",
+  },
+  "iit-jee-neet-samples": {
+    "Theory Content": "/assets/samples/text-content/JEE_NEET/Theory Content.png",
+    "Question Banks": "/assets/samples/text-content/JEE_NEET/Question Bank.png",
+    "Mock Test": "/assets/samples/text-content/JEE_NEET/Mock Test.png",
+  },
+  "kindergarten-to-k5-samples": {
+    "Course Book": "/assets/samples/text-content/KG-5/Course book.png",
+    "Lesson Plan": "/assets/samples/text-content/KG-5/Lesson plan.png",
+    "Work Book": "/assets/samples/text-content/KG-5/Workbook.png",
+  },
+  "k6-to-k12-samples": {
+    "Course Book": "/assets/samples/text-content/KG-5/Course book.png",
+    "Lesson Plan": "/assets/samples/text-content/KG-5/Lesson plan.png",
+    "Work Book": "/assets/samples/text-content/KG-5/Workbook.png",
+  },
+  "translation-and-localization-text-samples": {
+    "Hindi": "/assets/samples/text-content/Localization/Hindi.png",
+    "Tamil": "/assets/samples/text-content/Localization/Tamil.png",
+    "Telugu": "/assets/samples/text-content/Localization/Telgu.png",
+    "Bengali": "/assets/samples/text-content/Localization/Bengali.png",
+    "Kannada": "/assets/samples/text-content/Localization/Kannada.png",
+    "Malayalam": "/assets/samples/text-content/Localization/Malyalam.png",
+    "Other Languages": "/assets/samples/text-content/Localization/Other Languages.png",
+  },
+  "stem-content-samples": {
+    "Science": "/assets/samples/text-content/STEM/Science.png",
+    "Technology": "/assets/samples/text-content/STEM/Technology.png",
+    "Engineering": "/assets/samples/text-content/STEM/Engennering.png",
+    "Mathematics": "/assets/samples/text-content/STEM/Mathmatics.png",
+  },
+  "test-prep-and-assessments": {
+    "TOEIC": "/assets/samples/text-content/Test Prep/TOEIC.png",
+    "APTIS": "/assets/samples/text-content/Test Prep/APTIS.png",
+    "SAT": "/assets/samples/text-content/Test Prep/SAT.png",
+    "IELTS": "/assets/samples/text-content/Test Prep/IELTS.png",
+    "ACT": "/assets/samples/text-content/Test Prep/ACT.png",
+    "AP": "/assets/samples/text-content/Test Prep/AP.png",
+    "TOEFL": "/assets/samples/text-content/Test Prep/TOEFL.png",
+    "PTE": "/assets/samples/text-content/Test Prep/PTE.png",
+    "CEFR": "/assets/samples/text-content/Test Prep/CEFR.png",
+  },
+  "upsc-state-psc-samples": {
+    "General Studies": "/assets/samples/text-content/UPSC_State Board/Genral Studies.png",
+    "Current Affairs": "/assets/samples/text-content/UPSC_State Board/Current Affairs.png",
+    "Previous Year Papers": "/assets/samples/text-content/UPSC_State Board/PYQ.png",
+  },
+};
+
+const TextSampleThumbForTab = ({ sample, tab, accent }: { sample: ContentServicesSample; tab: string; accent: string }) => {
+  const thumbUrl = TEXT_THUMBNAILS[sample.slug]?.[tab];
+  
+  if (thumbUrl) {
+    return (
+      <div className="relative w-full max-w-[85%] aspect-[16/10] md:aspect-video rounded-xl overflow-hidden shadow-2xl animate-slide-up border border-white/20 bg-white">
+        <img 
+          src={thumbUrl} 
+          alt={`${tab} text sample document for ${sample.navLabel} - eQOURSE`}
+          title={`${tab} Sample - ${sample.navLabel}`}
+          className="w-full h-full object-cover transition-transform hover:scale-105 duration-700"
+        />
+      </div>
+    );
+  }
+  
+  return <PageFlipPreview accent={accent} tab={tab} />;
 };
 
 export default InteractiveSampleTabs;

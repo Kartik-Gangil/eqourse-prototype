@@ -455,7 +455,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   ANIMATED THUMBNAIL — Player chrome
+   ANIMATED THUMBNAIL - Player chrome
    ═══════════════════════════════════════════════════════════════ */
 .anim-player-frame {
   background: linear-gradient(180deg, #1a2332, #0d1421);
@@ -636,7 +636,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   ANIMATED THUMBNAIL — Keyframes
+   ANIMATED THUMBNAIL - Keyframes
    ═══════════════════════════════════════════════════════════════ */
 
 /* 2D character walk */
@@ -1059,7 +1059,7 @@
 /* ─── Responsive: no special overrides needed, fills parent at all sizes ─── */
 
 /* ═══════════════════════════════════════════════════════════════
-   ARTICULATE STORYLINE — Browser-chrome thumbnail
+   ARTICULATE STORYLINE - Browser-chrome thumbnail
    ═══════════════════════════════════════════════════════════════ */
 .as-frame {
   position: absolute;
@@ -1189,7 +1189,7 @@
 /* ─── Responsive: no special overrides needed, fills parent at all sizes ─── */
 
 /* ═══════════════════════════════════════════════════════════════
-   PEN TAB & PPT — Warm amber browser-chrome thumbnail
+   PEN TAB & PPT - Warm amber browser-chrome thumbnail
    ═══════════════════════════════════════════════════════════════ */
 .pt-frame {
   position: absolute;
@@ -1402,7 +1402,7 @@
 
 /* ═══════════════════════════════════════════════════════════════
    STANDALONE PROCESS SECTION CROSSFADE TOGGLE
-   Same pattern as above — both panels in DOM for SEO.
+   Same pattern as above - both panels in DOM for SEO.
    ═══════════════════════════════════════════════════════════════ */
 .process-section-toggle {
   display: grid;

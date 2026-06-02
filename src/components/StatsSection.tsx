@@ -110,7 +110,7 @@ const StatsSection = () => {
         <source src="/assets/stats-bg-video.mp4" type="video/mp4" />
       </video>
 
-      {/* Background Video B — crossfade partner */}
+      {/* Background Video B - crossfade partner */}
       <video
         ref={videoBRef}
         muted

@@ -9,6 +9,7 @@ import DeliveryProcess from "./DeliveryProcess";
 import ContentServicesIndustries from "./ContentServicesIndustries";
 import WhyChooseEqourse from "./WhyChooseEqourse";
 import QualityCredentials from "./QualityCredentials";
+import { BookOpen, Video, Globe2 } from "lucide-react";
 
 const faqs = [
   {
@@ -17,7 +18,7 @@ const faqs = [
   },
   {
     question: "How is eQOURSE different from other Content Services providers?",
-    answer: "eQOURSE is a full-stack Content Services partner. We don't just create content — we handle curriculum design, assessment development, video production, localization, LMS integration, and SME recruitment under one roof. This integrated approach eliminates vendor fragmentation, reduces turnaround time, and ensures consistent quality across your entire content library."
+    answer: "eQOURSE is a full-stack Content Services partner. We don't just create content - we handle curriculum design, assessment development, video production, localization, LMS integration, and SME recruitment under one roof. This integrated approach eliminates vendor fragmentation, reduces turnaround time, and ensures consistent quality across your entire content library."
   },
   {
     question: "What curriculum standards do you support?",
@@ -29,7 +30,7 @@ const faqs = [
   },
   {
     question: "How do I get started?",
-    answer: "We offer a free pilot for qualifying education and Content Services clients. Fill out the pilot form with your content requirements, target audience, and curriculum framework, and our team will deliver a sample content package within the agreed timeframe — no commitment required."
+    answer: "We offer a free pilot for qualifying education and Content Services clients. Fill out the pilot form with your content requirements, target audience, and curriculum framework, and our team will deliver a sample content package within the agreed timeframe - no commitment required."
   }
 ];
 
@@ -38,17 +39,25 @@ const ContentServicesOverviewPage = () => (
     <SEOHead
       title="End-to-End Content Service | eQOURSE"
       description="From custom K-12 content development to LMS integration, eQOURSE delivers production-ready educational content and technology solutions."
-      canonical="https://eqourse.com/content-service"
+      canonical="https://www.eqourse.com/content-services"
       keywords="Content Services, custom e-learning content, k12 content development, exam preparation content, learning solutions, educational videos, curriculum design"
     />
 
     <ServiceHero
-      preHeadline="Content Service — Trusted by 200+ Global Platforms"
+      preHeadline="Content Service - Trusted by 200+ Global Platforms"
       headline="End-to-End Content Service That"
       headlineAccent="Scale Learning Outcomes"
       subtext="From custom K-12 content and curriculum design to interactive video learning, localization in 30+ languages, and LMS integration."
       ctaText="Start Your Free Pilot"
       ctaLink="/free-pilot"
+      imageSrc="/assets/features/Content service.png"
+      imageAlt="End-to-End Content Services for Education, including K-12, Curriculum Design, and Video Learning"
+      rotatingBadges={[
+        { icon: BookOpen, title: "Curriculum", subtitle: "K-12 & Higher Ed", color: "hsl(170 82% 55%)" },
+        { icon: Video, title: "Interactive", subtitle: "Video & modules", color: "hsl(190 85% 68%)" },
+        { icon: Globe2, title: "Localization", subtitle: "30+ languages", color: "hsl(165 75% 71%)" }
+      ]}
+      bottomBadge={{ iconText: "EDU", title: "Content Solutions", subtitle: "End-to-end learning" }}
     />
 
     <ServiceNarrativeSection

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- ════════════════ HOME ════════════════ -->
+  <url><loc>https://www.eqourse.com/</loc><lastmod>2026-05-29</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+
+  <!-- ════════════════ COMPANY & RESOURCES ════════════════ -->
+  <url><loc>https://www.eqourse.com/aboutus</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.eqourse.com/gallery</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.eqourse.com/clients-testimonials</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/career</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/faq</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.eqourse.com/contact</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.eqourse.com/free-pilot</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.eqourse.com/casestudy</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/blog</loc><lastmod>2026-05-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.eqourse.com/privacy-policy</loc><lastmod>2026-05-29</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.eqourse.com/sitemap</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://www.eqourse.com/tutrain</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- ════════════════ AI DATA SERVICES ════════════════ -->
+  <url><loc>https://www.eqourse.com/ai-data-services</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.eqourse.com/ai-data-services/data-collection</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.eqourse.com/ai-data-services/annotation-labeling</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.eqourse.com/ai-data-services/cleaning-validation</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.eqourse.com/ai-data-services/model-testing</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- ════════════════ CONTENT SERVICES — OVERVIEW ════════════════ -->
+  <url><loc>https://www.eqourse.com/content-services</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+
+  <!-- Content Services — Category Pages -->
+  <url><loc>https://www.eqourse.com/content-services/custom-e-learning-content</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/exam-preparation-content</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/learning-solutions</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/elearning-video-solutions</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/localization-services</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/technology-solutions</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/subject-matter-experts</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/accessibility</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/talent-assessment-workforce-evaluation</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/editorial-publishing-designing-services</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Content Services — Custom E-Learning Sub-Services -->
+  <url><loc>https://www.eqourse.com/content-services/custom-e-learning-content/k12-and-higher-education</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/custom-e-learning-content/k12-curriculum-development</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/custom-e-learning-content/assessment-development</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/custom-e-learning-content/educational-content-development</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/custom-e-learning-content/workbook-development</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/custom-e-learning-content/teacher-lesson-plan</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/custom-e-learning-content/stem-curriculum-services</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/custom-e-learning-content/ebook-creation</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/custom-e-learning-content/2d-3d-videos</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/custom-e-learning-content/quiz-question-bank</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Content Services — Exam Prep Sub-Services -->
+  <url><loc>https://www.eqourse.com/content-services/exam-preparation-content/aptis</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/exam-preparation-content/toeic</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/exam-preparation-content/sat</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/exam-preparation-content/act</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/exam-preparation-content/ap-exam</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/exam-preparation-content/ielts</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/exam-preparation-content/cefr</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/exam-preparation-content/pte</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/exam-preparation-content/toefl</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Content Services — Learning Solutions Sub-Services -->
+  <url><loc>https://www.eqourse.com/content-services/learning-solutions/ilt</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/learning-solutions/corporate-elearning</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/learning-solutions/training-modules</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/learning-solutions/gamified-learning</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/learning-solutions/adaptive-learning</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/learning-solutions/blended-learning</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/learning-solutions/ar-vr</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/learning-solutions/instructional-design</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/learning-solutions/ai-powered-learning</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Content Services — Video Solutions Sub-Services -->
+  <url><loc>https://www.eqourse.com/content-services/elearning-video-solutions/ppt-videos</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/elearning-video-solutions/articulate-storyline</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/elearning-video-solutions/animated-videos</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Content Services — Localization Sub-Services -->
+  <url><loc>https://www.eqourse.com/content-services/localization-services/translation</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/localization-services/voice-over</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/localization-services/subtitling</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Content Services — Technology Solutions Sub-Services -->
+  <url><loc>https://www.eqourse.com/content-services/technology-solutions/lms-course-builds</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/technology-solutions/white-label-lms</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Content Services — SME Sub-Services -->
+  <url><loc>https://www.eqourse.com/content-services/subject-matter-experts/recruitment</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/subject-matter-experts/training</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/subject-matter-experts/live-online-tutors</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Content Services — Accessibility Sub-Services -->
+  <url><loc>https://www.eqourse.com/content-services/accessibility/standards-compliance</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/accessibility/document-content-remediation</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/accessibility/accessible-media-enhancements</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/accessibility/assessment-accessibility</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/accessibility/assistive-technology-compatibility</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/accessibility/audit-compliance-support</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Content Services — Talent Assessment Sub-Services -->
+  <url><loc>https://www.eqourse.com/content-services/talent-assessment-workforce-evaluation/psychometric-assessments</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/talent-assessment-workforce-evaluation/skill-assessments</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/talent-assessment-workforce-evaluation/candidate-evaluation</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/talent-assessment-workforce-evaluation/competency-frameworks</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/talent-assessment-workforce-evaluation/learning-readiness</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/talent-assessment-workforce-evaluation/organizational-diagnostics</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/talent-assessment-workforce-evaluation/digital-assessment-infrastructure</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Content Services — Editorial Publishing Sub-Services -->
+  <url><loc>https://www.eqourse.com/content-services/editorial-publishing-designing-services/editorial-services</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/editorial-publishing-designing-services/publishing-production</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/editorial-publishing-designing-services/digital-conversion</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/editorial-publishing-designing-services/image-processing</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/editorial-publishing-designing-services/metadata-services</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/editorial-publishing-designing-services/design-services</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/editorial-publishing-designing-services/prepress-services</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/content-services/editorial-publishing-designing-services/production-support</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- ════════════════ SAMPLES ════════════════ -->
+  <url><loc>https://www.eqourse.com/samples</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.eqourse.com/ai-data-samples</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- AI Data Samples — Detail Pages -->
+  <url><loc>https://www.eqourse.com/ai-data-samples/nlp-annotation</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.eqourse.com/ai-data-samples/computer-vision</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.eqourse.com/ai-data-samples/audio-speech</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.eqourse.com/ai-data-samples/rlhf</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.eqourse.com/ai-data-samples/data-collection</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.eqourse.com/ai-data-samples/cleaned-datasets</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Content Services Samples — Text -->
+  <url><loc>https://www.eqourse.com/text-samples</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.eqourse.com/kindergarten-to-k5-samples</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.eqourse.com/k6-to-k12-samples</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.eqourse.com/iit-jee-neet-samples</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.eqourse.com/upsc-state-psc-samples</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.eqourse.com/stem-content-samples</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.eqourse.com/curriculum-samples</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.eqourse.com/translation-and-localization-text-samples</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.eqourse.com/test-prep-and-assessments</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Content Services Samples — Video -->
+  <url><loc>https://www.eqourse.com/video-samples</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.eqourse.com/articulate-storyline-video-samples</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.eqourse.com/pen-tab-and-ppt-samples</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.eqourse.com/ai-avatar-video-samples</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.eqourse.com/flash-to-html-samples</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.eqourse.com/2d-3d-video-samples</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.eqourse.com/promotional-video</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.eqourse.com/immersive-simulation-ar-vr-video</loc><lastmod>2026-05-29</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+</urlset>

@@ -28,9 +28,9 @@ const DocumentRemediationPage = () => (
     introLabel="Our Process"
     introTitle="Transforming Documents for"
     introGradient="Universal Access"
-    introDescription="We structurally tag, reformat, and optimize your existing digital learning materials—from PDFs and EPUBs to full LMS courses—so they meet accessibility standards and work seamlessly with assistive technologies."
+    introDescription="We structurally tag, reformat, and optimize your existing digital learning materials-from PDFs and EPUBs to full LMS courses-so they meet accessibility standards and work seamlessly with assistive technologies."
     introParagraphs={[
-      "Many educational documents are visually formatted but structurally flat—missing tagged headings, alt text, and reading order metadata that assistive technology users depend on. Our remediation process adds these critical layers of accessibility.",
+      "Many educational documents are visually formatted but structurally flat-missing tagged headings, alt text, and reading order metadata that assistive technology users depend on. Our remediation process adds these critical layers of accessibility.",
       "Whether it's a legacy PDF textbook, an EPUB eBook, or an entire course hosted in your LMS, our team ensures every element is perceivable, operable, and understandable by all learners, including those using screen readers, keyboard navigation, and magnification tools."
     ]}
     stats={[
@@ -52,7 +52,7 @@ const DocumentRemediationPage = () => (
     faqs={[
       { question: "What is PDF tagging and why is it necessary?", answer: "PDF tagging adds an invisible layer of structural information to a document. Tags define what an element is (e.g., a heading, a paragraph, a table header) and establish the logical reading order. Without correct tags, assistive technologies cannot interpret the document logically." },
       { question: "Can you remediate legacy scanned documents?", answer: "Yes. However, documents that are simply scanned images of text must first undergo Optical Character Recognition (OCR) to convert the images into machine-readable text. Once OCR is complete and verified for accuracy, we proceed with structural tagging and full remediation." },
-      { question: "Do you remediate content inside authoring tools like Articulate Storyline?", answer: "Yes, our team can work within common eLearning authoring tools. We utilize the accessibility features specific to those platforms—such as managing focus order, adding alt text to objects, and ensuring keyboard accessibility—before publishing the final SCORM or xAPI package." },
+      { question: "Do you remediate content inside authoring tools like Articulate Storyline?", answer: "Yes, our team can work within common eLearning authoring tools. We utilize the accessibility features specific to those platforms-such as managing focus order, adding alt text to objects, and ensuring keyboard accessibility-before publishing the final SCORM or xAPI package." },
     ]}
     ctaHeadline="Ready to Make Your Documents Accessible?"
     ctaSubtext="Contact our remediation specialists to get a scoping estimate for your document and eContent accessibility needs."

@@ -15,7 +15,7 @@ const textSamples: CardItem[] = [
   { label: "IIT JEE / NEET", href: "/iit-jee-neet-samples", description: "Competitive exam prep content with solved problems and conceptual depth." },
   { label: "UPSC & State PSC", href: "/upsc-state-psc-samples", description: "Civil-services exam material across polity, economy, and current affairs." },
   { label: "STEM Content", href: "/stem-content-samples", description: "Concept-first STEM modules with simulations and worked examples." },
-  { label: "CBSE Content", href: "/curriculum-samples", description: "NCERT-aligned CBSE curriculum samples with assessments." },
+  { label: "Curriculum Content", href: "/curriculum-samples", description: "NCERT-aligned CBSE curriculum samples with assessments." },
   { label: "Localization", href: "/translation-and-localization-text-samples", description: "Text translated and culturally adapted across 30+ languages." },
   { label: "Test Prep & Assessments", href: "/test-prep-and-assessments", description: "Item-banked assessments and diagnostic test samples." },
 ];
@@ -96,7 +96,7 @@ const SamplesCategoryTabs = () => {
 
   const headings = {
     text: { h: "Text Content Samples", sub: "K-12, competitive exams, STEM, and localization samples showcasing our writing, editorial and pedagogical craft." },
-    video: { h: "Video Content Samples", sub: "From Articulate Storyline to AI avatar videos and AR/VR simulations — browse what our video production pipeline can deliver." },
+    video: { h: "Video Content Samples", sub: "From Articulate Storyline to AI avatar videos and AR/VR simulations - browse what our video production pipeline can deliver." },
     "ai-data": { h: "AI Data Annotation & Collection Samples", sub: "Browse sample outputs from our AI data services pipeline across NLP, Computer Vision, Audio, and RLHF. Request a free pilot to evaluate on your data." },
   };
 

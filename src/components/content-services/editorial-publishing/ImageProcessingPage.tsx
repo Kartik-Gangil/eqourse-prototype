@@ -13,16 +13,16 @@ const ImageProcessingPage = () => (
     parentLabel={PARENT_LABEL}
     parentHref={PARENT_HREF}
     currentLabel="Image Processing"
-    preHeadline="✦ Image Processing — Visual Assets Ready for Production"
+    preHeadline="✦ Image Processing - Visual Assets Ready for Production"
     headline="Image Processing"
     headlineAccent="for Learning Content"
-    subtext="Image processing support prepares educational visuals, diagrams, screenshots, scanned pages and production assets for consistent use across print and digital formats — covering cleanup, cropping, resizing, naming, format preparation, resolution checks and asset organisation."
+    subtext="Image processing support prepares educational visuals, diagrams, screenshots, scanned pages and production assets for consistent use across print and digital formats - covering cleanup, cropping, resizing, naming, format preparation, resolution checks and asset organisation."
     ctaText="Request Image Processing Support"
     ctaLink="/contact"
     introLabel="Visual Quality"
     introTitle="Production-Ready Images for"
     introGradient="Every Format"
-    introDescription="Educational visuals must meet different technical requirements for print, digital, LMS and web delivery — image processing ensures every asset is ready for its intended output."
+    introDescription="Educational visuals must meet different technical requirements for print, digital, LMS and web delivery - image processing ensures every asset is ready for its intended output."
     introParagraphs={[
       "eQOURSE supports image clean-up, cropping, resizing, naming, format preparation, resolution checks, alt-text coordination and asset-folder organisation within publishing workflows.",
       "Client-owned or licensed materials should be supplied with the required usage permissions before production begins. eQOURSE does not use, reproduce or distribute third-party copyrighted images without client authorisation.",
@@ -41,13 +41,13 @@ const ImageProcessingPage = () => (
         icon: Sparkles,
         title: "Image Restoration & Enhancement",
         description:
-          "Restoration of degraded, scanned or low-resolution images for print and digital publishing — including dust removal, contrast correction, tone balancing and resolution upscaling.",
+          "Restoration of degraded, scanned or low-resolution images for print and digital publishing - including dust removal, contrast correction, tone balancing and resolution upscaling.",
       },
       {
         icon: Scissors,
         title: "Image Cleanup & Optimisation",
         description:
-          "Removal of artefacts, background noise, watermarks and production marks — combined with file compression and format conversion for web-ready delivery.",
+          "Removal of artefacts, background noise, watermarks and production marks - combined with file compression and format conversion for web-ready delivery.",
       },
       {
         icon: ZoomIn,
@@ -59,19 +59,19 @@ const ImageProcessingPage = () => (
         icon: FileImage,
         title: "Format Preparation & Conversion",
         description:
-          "Conversion of images to TIFF, EPS, PNG, JPEG, WebP and SVG as required for print, digital and platform-specific delivery — with colour profile and DPI management.",
+          "Conversion of images to TIFF, EPS, PNG, JPEG, WebP and SVG as required for print, digital and platform-specific delivery - with colour profile and DPI management.",
       },
       {
         icon: Tag,
         title: "Alt Text Coordination",
         description:
-          "Coordination of descriptive alt text for educational images, diagrams, charts and illustrations — ensuring accessibility compliance for digital and EPUB learning content.",
+          "Coordination of descriptive alt text for educational images, diagrams, charts and illustrations - ensuring accessibility compliance for digital and EPUB learning content.",
       },
       {
         icon: FolderOpen,
         title: "Asset Folder Organisation",
         description:
-          "Structured naming conventions, folder hierarchy and metadata tagging for image libraries — enabling efficient retrieval, version tracking and cross-team asset management.",
+          "Structured naming conventions, folder hierarchy and metadata tagging for image libraries - enabling efficient retrieval, version tracking and cross-team asset management.",
       },
     ]}
     faqs={[
@@ -83,7 +83,7 @@ const ImageProcessingPage = () => (
       {
         question: "Can eQOURSE handle high-resolution print images?",
         answer:
-          "Yes. eQOURSE supports high-resolution TIFF and EPS files for print production — including colour profile management, DPI validation and bleed-ready formatting.",
+          "Yes. eQOURSE supports high-resolution TIFF and EPS files for print production - including colour profile management, DPI validation and bleed-ready formatting.",
       },
       {
         question: "Does alt text coordination improve accessibility?",

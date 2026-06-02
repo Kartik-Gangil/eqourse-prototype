@@ -5,12 +5,13 @@ import ServiceNarrativeSection from "@/components/ai-data-services/shared/Servic
 import FAQSection from "@/components/ai-data-services/shared/FAQSection";
 import ServiceCTA from "@/components/ai-data-services/shared/ServiceCTA";
 import EditorialPublishingServicesGrid from "./EditorialPublishingServicesGrid";
+import { PenTool, LayoutTemplate, Settings } from "lucide-react";
 
 const faqs = [
   {
     question: "What types of clients can use eQOURSE editorial and publishing services?",
     answer:
-      "eQOURSE supports education publishers, EdTech companies, schools, universities, training providers, corporate learning teams and organisations managing large learning-content portfolios — for curriculum content, assessments, instructor resources, digital assets, training material and publication workflows.",
+      "eQOURSE supports education publishers, EdTech companies, schools, universities, training providers, corporate learning teams and organisations managing large learning-content portfolios - for curriculum content, assessments, instructor resources, digital assets, training material and publication workflows.",
   },
   {
     question: "Does eQOURSE provide both editorial and production support?",
@@ -52,9 +53,17 @@ const EditorialPublishingPage = () => (
       preHeadline="✦ Editorial, Publishing & Designing Services"
       headline="Editorial Services for"
       headlineAccent="Global Learning Content"
-      subtext="eQOURSE delivers editorial services for education publishers, EdTech companies, institutions and learning-content teams — covering content refinement, publishing production, digital conversion, metadata preparation, design coordination, prepress checks and production support for print and digital learning materials."
+      subtext="eQOURSE delivers editorial services for education publishers, EdTech companies, institutions and learning-content teams - covering content refinement, publishing production, digital conversion, metadata preparation, design coordination, prepress checks and production support for print and digital learning materials."
       ctaText="Request Editorial Support"
       ctaLink="/contact"
+      imageSrc="/assets/content-services/Editorial, Publishing & Designing Services.png"
+      imageAlt="Editorial, Publishing and Designing Services by eQOURSE"
+      rotatingBadges={[
+        { icon: PenTool, title: "Editorial", subtitle: "Content refinement", color: "hsl(170 82% 55%)" },
+        { icon: LayoutTemplate, title: "Design", subtitle: "Digital & print", color: "hsl(190 85% 68%)" },
+        { icon: Settings, title: "Production", subtitle: "End-to-end support", color: "hsl(165 75% 71%)" }
+      ]}
+      bottomBadge={{ iconText: "PUB", title: "Publishing", subtitle: "Production workflows" }}
     />
 
     <ServiceNarrativeSection

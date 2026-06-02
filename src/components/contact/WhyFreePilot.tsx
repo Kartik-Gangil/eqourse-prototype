@@ -11,7 +11,7 @@ const WhyFreePilot = () => {
     {
       icon: Target,
       title: "Tailored to Your Use Case",
-      description: "We don't send generic samples. Your pilot is produced to your exact specifications — your curriculum, your annotation guidelines.",
+      description: "We don't send generic samples. Your pilot is produced to your exact specifications - your curriculum, your annotation guidelines.",
       delay: "150ms"
     },
     {

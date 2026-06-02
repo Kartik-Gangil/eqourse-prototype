@@ -1,4 +1,4 @@
-/* LinkedIn glyph — matches the canonical CTA used across the site */
+/* LinkedIn glyph - matches the canonical CTA used across the site */
 const LinkedInGlyph = ({ className = "w-5 h-5" }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"

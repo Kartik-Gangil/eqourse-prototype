@@ -1,10 +1,10 @@
 /**
- * Sample Hierarchy — Single source of truth for the 3-level sample structure.
+ * Sample Hierarchy - Single source of truth for the 3-level sample structure.
  *
  * Main Category  →  Sub-Category (page)  →  Tabs (sub-sub-categories)
  *
  * Used by the admin panel for navigation AND by the frontend for data mapping.
- * No CRUD — these are hardcoded to match the public website structure.
+ * No CRUD - these are hardcoded to match the public website structure.
  */
 
 import {
@@ -67,7 +67,7 @@ export const SAMPLE_HIERARCHY: MainCategory[] = [
       { slug: "iit-jee-neet-samples", label: "IIT JEE / NEET", description: "Competitive exam prep content with solved problems and conceptual depth.", icon: FlaskConical, tabs: ["Theory Content", "Question Banks", "Mock Test"] },
       { slug: "upsc-state-psc-samples", label: "UPSC & State PSC", description: "Civil-services exam material across polity, economy, and current affairs.", icon: Landmark, tabs: ["General Studies", "Current Affairs", "Previous Year Papers"] },
       { slug: "stem-content-samples", label: "STEM Content", description: "Concept-first STEM modules with simulations and worked examples.", icon: Atom, tabs: ["Science", "Technology", "Engineering", "Mathematics"] },
-      { slug: "curriculum-samples", label: "CBSE Content", description: "NCERT-aligned CBSE curriculum samples with assessments.", icon: BookOpenCheck, tabs: ["CBSE", "ICSE", "IB", "State Board"] },
+      { slug: "curriculum-samples", label: "Curriculum Content", description: "NCERT-aligned CBSE curriculum samples with assessments.", icon: BookOpenCheck, tabs: ["CBSE", "ICSE", "IB", "State Board"] },
       { slug: "translation-and-localization-text-samples", label: "Localization", description: "Text translated and culturally adapted across 30+ languages.", icon: Languages, tabs: ["Hindi", "Tamil", "Telugu", "Bengali", "Kannada", "Malayalam", "Other Languages"] },
       { slug: "test-prep-and-assessments", label: "Test Prep & Assessments", description: "Item-banked assessments and diagnostic test samples.", icon: ClipboardList, tabs: ["TOEIC", "APTIS", "SAT", "IELTS", "ACT", "AP", "TOEFL", "PTE", "CEFR"] },
     ],
@@ -75,7 +75,7 @@ export const SAMPLE_HIERARCHY: MainCategory[] = [
   {
     id: "video",
     label: "Video Content Samples",
-    description: "From Articulate Storyline to AI avatar videos and AR/VR simulations — browse video production pipeline samples.",
+    description: "From Articulate Storyline to AI avatar videos and AR/VR simulations - browse video production pipeline samples.",
     icon: PlayCircle,
     accent: "blue",
     accentColor: "hsl(217 91% 60%)",

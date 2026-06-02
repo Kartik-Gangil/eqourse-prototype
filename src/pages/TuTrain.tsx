@@ -59,9 +59,9 @@ const TuTrain = () => {
     <div className="min-h-screen bg-background font-sans">
       <Helmet>
         <title>TUTRAIN by eQOURSE │ Online 1-on-1 Tutoring for Grades 4–12 Worldwide</title>
-        <meta name="description" content="TUTRAIN is eQOURSE's consumer online tutoring brand — personalized 1-on-1 and small-batch live classes for Grades 4–12 across CBSE, IB, IGCSE, A-Levels & US Common Core. Book a free demo." />
+        <meta name="description" content="TUTRAIN is eQOURSE's consumer online tutoring brand - personalized 1-on-1 and small-batch live classes for Grades 4–12 across CBSE, IB, IGCSE, A-Levels & US Common Core. Book a free demo." />
         <meta name="keywords" content="tutrain, online tutoring, 1-on-1 tutoring, personalized tutoring, eqourse tutoring brand, online tuition, live tutoring platform, tutrain by eqourse" />
-        <meta property="og:title" content="TUTRAIN by eQOURSE — Personalized Online Tutoring Worldwide" />
+        <meta property="og:title" content="TUTRAIN by eQOURSE - Personalized Online Tutoring Worldwide" />
         <meta property="og:description" content="The consumer online tutoring brand from eQOURSE. Live 1-on-1 and small-batch classes for students in Grades 4–12, across all major curricula." />
         <meta property="og:image" content="https://www.eqourse.com/images/tutrain-eqourse-og.jpg" />
         <link rel="canonical" href="https://www.eqourse.com/tutrain" />
@@ -80,7 +80,7 @@ const TuTrain = () => {
                 PART OF THE eQOURSE FAMILY
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-6 font-heading">
-                TUTRAIN — Personalized Online Tutoring, <span className="text-gradient">Powered by eQOURSE</span>
+                TUTRAIN - Personalized Online Tutoring, <span className="text-gradient">Powered by eQOURSE</span>
               </h1>
               <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
                 TUTRAIN is our direct-to-learner online tutoring brand, delivering live 1-on-1 and small-batch classes for students in Grades 4–12 across CBSE, IB, IGCSE, A-Levels, and US Common Core. Backed by eQOURSE's two decades of education expertise, TUTRAIN is where world-class teaching meets every individual learner.
@@ -106,29 +106,12 @@ const TuTrain = () => {
           eQOURSE → TUTRAIN
         </div>
 
-        <div className="md:w-1/2 split-right flex items-center justify-center p-8 relative overflow-hidden">
-          {/* Abstract Teal Nodes */}
-          <div className="absolute inset-0">
-            <div className="hero-node"></div>
-            <div className="hero-node"></div>
-            <div className="hero-node"></div>
-            <div className="hero-node"></div>
-          </div>
-          <div className="relative z-10 w-full max-w-md backdrop-blur-sm bg-white/5 p-8 rounded-3xl border border-white/10 shadow-2xl">
-             <div className="aspect-video rounded-2xl bg-gradient-to-br from-primary/20 to-transparent flex items-center justify-center border border-primary/20 mb-6 relative overflow-hidden">
-                <div className="absolute inset-0 bg-white/5 animate-pulse rounded-2xl"></div>
-                <div className="flex items-center gap-4 relative z-10">
-                   <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform">
-                      <GraduationCap className="w-8 h-8 text-primary" />
-                   </div>
-                   <div className="w-12 h-1 bg-gradient-primary rounded-full"></div>
-                   <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform">
-                      <Users className="w-8 h-8 text-primary" />
-                   </div>
-                </div>
-             </div>
-             <p className="text-center text-white/80 font-medium">Live 1-on-1 tutoring sessions powered by enterprise-grade curriculum design.</p>
-          </div>
+        <div className="md:w-1/2 split-right relative overflow-hidden flex items-center justify-center min-h-[300px] md:min-h-0">
+          <img 
+            src="/assets/features/TUTRAIN graphic.png" 
+            alt="TUTRAIN - Online 1-on-1 Tutoring for Grades 4-12 Worldwide by eQOURSE" 
+            className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-700" 
+          />
         </div>
       </section>
 
@@ -143,7 +126,7 @@ const TuTrain = () => {
                 </h2>
                 <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                   <p>
-                    TUTRAIN is eQOURSE's flagship consumer online tutoring brand — a global platform connecting students in Grades 4 to 12 with verified expert tutors for live, personalized 1-on-1 and small-batch classes.
+                    TUTRAIN is eQOURSE's flagship consumer online tutoring brand - a global platform connecting students in Grades 4 to 12 with verified expert tutors for live, personalized 1-on-1 and small-batch classes.
                   </p>
                   <p>
                     While eQOURSE delivers Content Services and AI training data to companies and institutions, TUTRAIN takes that same depth of expertise directly to families. Every TUTRAIN tutor is curriculum-trained, background-verified, and supported by eQOURSE's instructional design team.
@@ -155,8 +138,8 @@ const TuTrain = () => {
               <Reveal delay="0.2s">
                 <div className="bg-white rounded-3xl shadow-card border border-border/50 p-4 max-w-sm w-full transition-transform hover:-translate-y-2 duration-500">
                   <img 
-                    src={brandHierarchyImg} 
-                    alt="Brand hierarchy graphic showing eQOURSE as parent company and TUTRAIN as its consumer online tutoring brand." 
+                    src="/assets/features/logo digram.png" 
+                    alt="eQOURSE to TUTRAIN Brand Hierarchy Diagram" 
                     className="w-full h-auto rounded-2xl"
                   />
                 </div>
@@ -182,7 +165,7 @@ const TuTrain = () => {
                   <GraduationCap className="w-7 h-7" />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-foreground font-heading">Students, Grades 4–12</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">Personalized live tutoring across Maths, Science, English, and skill subjects — paced to each learner.</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">Personalized live tutoring across Maths, Science, English, and skill subjects - paced to each learner.</p>
               </div>
             </Reveal>
 
@@ -192,7 +175,7 @@ const TuTrain = () => {
                   <BookOpen className="w-7 h-7" />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-foreground font-heading">All Major Curricula</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">CBSE, ICSE, IB, IGCSE, Cambridge A-Levels, US Common Core, and State Boards — fully covered.</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">CBSE, ICSE, IB, IGCSE, Cambridge A-Levels, US Common Core, and State Boards - fully covered.</p>
               </div>
             </Reveal>
 
@@ -287,7 +270,7 @@ const TuTrain = () => {
                   </div>
                   <h3 className="text-xl font-bold font-heading mb-4 text-foreground">For Our AI Clients</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    TUTRAIN is the proprietary platform that powers our <Link to="/ai-data-services/model-testing" className="text-primary hover:underline font-medium">real-world AI model testing</Link>. Through a network of demographically diverse learners across 30+ languages, we test AI models with genuine users before deployment — the closed-loop advantage.
+                    TUTRAIN is the proprietary platform that powers our <Link to="/ai-data-services/model-testing" className="text-primary hover:underline font-medium">real-world AI model testing</Link>. Through a network of demographically diverse learners across 30+ languages, we test AI models with genuine users before deployment - the closed-loop advantage.
                   </p>
                 </div>
               </Reveal>
@@ -297,8 +280,8 @@ const TuTrain = () => {
       </section>
 
       {/* CTA Bar */}
-      <section className="bg-[#1B3D36] py-20 relative overflow-hidden text-center">
-        {/* Floating particles */}
+      <section className="bg-[#232145] py-24 relative overflow-hidden text-center pt-32">
+        {/* Floating particles for the background */}
         {Array.from({ length: 15 }).map((_, i) => (
           <div 
             key={i}
@@ -308,36 +291,49 @@ const TuTrain = () => {
               height: Math.random() * 8 + 4 + 'px',
               left: Math.random() * 100 + '%',
               top: Math.random() * 100 + '%',
-              animationDelay: Math.random() * 4 + 's'
+              animationDelay: Math.random() * 4 + 's',
+              background: 'rgba(255,255,255,0.1)'
             }}
           />
         ))}
 
         <div className="container mx-auto px-4 relative z-10">
           <Reveal>
-            <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-2xl">
-              <GraduationCap className="w-10 h-10 text-primary" />
-            </div>
-            <h2 className="text-3xl md:text-5xl font-bold font-heading text-white mb-6">
-              Looking for a Tutor for Your Child?
-            </h2>
-            <p className="text-white/80 text-lg mb-10 max-w-2xl mx-auto">
-              TUTRAIN's live online tutors are ready. Book a free demo class — no commitment required.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold rounded-xl h-14 px-8 shadow-[0_0_20px_rgba(0,180,166,0.3)] hover:shadow-[0_0_30px_rgba(0,180,166,0.5)] transition-all">
-                <a href="https://tutrain.com" target="_blank" rel="noopener noreferrer">
-                  Visit TUTRAIN.com <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10 hover:text-white font-bold rounded-xl h-14 px-8 bg-transparent">
-                <a href="https://tutrain.com" target="_blank" rel="noopener noreferrer">
-                  Book a Free Demo <ArrowRight className="ml-2 w-5 h-5" />
-                </a>
-              </Button>
+            <div className="relative max-w-5xl mx-auto rounded-3xl p-10 md:p-16 border border-white/20 shadow-2xl overflow-hidden bg-white/5 backdrop-blur-xl">
+              
+              {/* Glassmorphic glow effects */}
+              <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/30 blur-[100px] rounded-full pointer-events-none" />
+              <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-primary/30 blur-[100px] rounded-full pointer-events-none" />
+
+              <div className="relative z-10">
+                <div className="w-20 h-20 bg-white/10 border border-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-xl">
+                  <GraduationCap className="w-10 h-10 text-primary drop-shadow-[0_0_10px_rgba(0,180,166,0.5)]" />
+                </div>
+                <h2 className="text-3xl md:text-5xl font-bold font-heading text-white mb-6 drop-shadow-sm">
+                  Looking for a Tutor for Your Child?
+                </h2>
+                <p className="text-white/80 text-lg mb-10 max-w-2xl mx-auto">
+                  TUTRAIN's live online tutors are ready. Book a free demo class - no commitment required.
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center gap-4">
+                  <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold rounded-xl h-14 px-8 shadow-[0_0_20px_rgba(0,180,166,0.3)] hover:shadow-[0_0_30px_rgba(0,180,166,0.5)] transition-all">
+                    <a href="https://tutrain.com" target="_blank" rel="noopener noreferrer">
+                      Visit TUTRAIN.com <ArrowRight className="ml-2 w-5 h-5" />
+                    </a>
+                  </Button>
+                  <Button asChild size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:text-white hover:border-white font-bold rounded-xl h-14 px-8 bg-white/5 backdrop-blur-sm transition-all">
+                    <a href="https://tutrain.com" target="_blank" rel="noopener noreferrer">
+                      Book a Free Demo <ArrowRight className="ml-2 w-5 h-5" />
+                    </a>
+                  </Button>
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>
+        
+        {/* Blending transition element to the footer */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#232145] to-transparent z-20 pointer-events-none" />
       </section>
 
       <Footer />

@@ -144,7 +144,7 @@ export const contentServicesSubServiceRoutes = [
   { path: "/content-services/talent-assessment-workforce-evaluation/learning-readiness", Component: LearningReadinessPage },
   { path: "/content-services/talent-assessment-workforce-evaluation/organizational-diagnostics", Component: OrganizationalDiagnosticsPage },
   { path: "/content-services/talent-assessment-workforce-evaluation/digital-assessment-infrastructure", Component: DigitalAssessmentPage },
-  // Category 10 — Editorial, Publishing & Designing Services (sub-service pages only; overview is in App.tsx)
+  // Category 10 - Editorial, Publishing & Designing Services (sub-service pages only; overview is in App.tsx)
   { path: "/content-services/editorial-publishing-designing-services/editorial-services", Component: EditorialServicesPage },
   { path: "/content-services/editorial-publishing-designing-services/publishing-production", Component: PublishingProductionPage },
   { path: "/content-services/editorial-publishing-designing-services/digital-conversion", Component: DigitalConversionPageEP },

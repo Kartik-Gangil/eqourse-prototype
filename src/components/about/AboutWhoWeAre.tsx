@@ -102,7 +102,7 @@ const AboutWhoWeAre = () => {
             
             <h3 className="text-2xl font-bold mb-4 text-foreground">AI Data Services</h3>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              Our AI Data Services division delivers end-to-end AI training data pipelines — custom dataset collection, expert annotation, data cleaning, and real-world model testing.
+              Our AI Data Services division delivers end-to-end AI training data pipelines - custom dataset collection, expert annotation, data cleaning, and real-world model testing.
             </p>
 
             <ul className="space-y-3">

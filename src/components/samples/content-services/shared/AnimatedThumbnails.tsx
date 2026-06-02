@@ -9,7 +9,7 @@ const hexAlpha = (hex: string, a: number) => {
 };
 
 /* ══════════════════════════════════════════════════════════════
-   1. 2D CHARACTER ANIMATION — Lottie animation
+   1. 2D CHARACTER ANIMATION - Lottie animation
    ══════════════════════════════════════════════════════════════ */
 export const CharacterAnimationThumb = ({ accent }: { accent: string }) => (
   <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #0d1421, #1a2332)" }}>
@@ -20,7 +20,7 @@ export const CharacterAnimationThumb = ({ accent }: { accent: string }) => (
         background: `radial-gradient(ellipse at center 60%, ${hexAlpha(accent, 0.15)}, transparent 70%)`,
       }}
     />
-    {/* Lottie animation — fills container */}
+    {/* Lottie animation - fills container */}
     <div className="absolute inset-0 flex items-center justify-center p-6">
       <DotLottieReact
         src="/assets/lottie/2d-character.lottie"
@@ -45,7 +45,7 @@ export const CharacterAnimationThumb = ({ accent }: { accent: string }) => (
 );
 
 /* ══════════════════════════════════════════════════════════════
-   2. 3D CONCEPT VIDEOS — rotating wireframe cube + orbiting nodes
+   2. 3D CONCEPT VIDEOS - rotating wireframe cube + orbiting nodes
    ══════════════════════════════════════════════════════════════ */
 export const ThreeDConceptThumb = ({ accent }: { accent: string }) => (
   <div className="absolute inset-0">
@@ -86,7 +86,7 @@ export const ThreeDConceptThumb = ({ accent }: { accent: string }) => (
 );
 
 /* ══════════════════════════════════════════════════════════════
-   3. MOTION GRAPHICS — Interactive Three.js cube grid
+   3. MOTION GRAPHICS - Interactive Three.js cube grid
    ══════════════════════════════════════════════════════════════ */
 export const MotionGraphicsThumb = ({ accent }: { accent: string }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -227,7 +227,7 @@ export const MotionGraphicsThumb = ({ accent }: { accent: string }) => {
 };
 
 /* ══════════════════════════════════════════════════════════════
-   4. WHITEBOARD ANIMATION — hand drawing a lightbulb
+   4. WHITEBOARD ANIMATION - hand drawing a lightbulb
    ══════════════════════════════════════════════════════════════ */
 export const WhiteboardAnimationThumb = ({ accent }: { accent: string }) => (
   <div className="absolute inset-0">

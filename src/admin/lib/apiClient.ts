@@ -118,7 +118,7 @@ async function parseResponse<T>(res: Response): Promise<T> {
     return body as T;
   }
 
-  // No envelope — return raw body
+  // No envelope - return raw body
   return body as T;
 }
 
@@ -194,7 +194,7 @@ export async function uploadFile<T>(path: string, file: File, fieldName = "file"
   if (token) {
     headers["Authorization"] = `Bearer ${token}`;
   }
-  // Do NOT set Content-Type — let the browser add multipart/form-data with boundary
+  // Do NOT set Content-Type - let the browser add multipart/form-data with boundary
 
   const res = await fetch(`${getBaseUrl()}${path}`, {
     method: "POST",

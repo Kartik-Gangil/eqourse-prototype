@@ -21,7 +21,7 @@ const differentiators = [
   {
     icon: Zap,
     title: "Scalable Operations",
-    description: "From pilot batches to millions of data points — elastic workforce that scales with your needs.",
+    description: "From pilot batches to millions of data points - elastic workforce that scales with your needs.",
   },
   {
     icon: Lock,

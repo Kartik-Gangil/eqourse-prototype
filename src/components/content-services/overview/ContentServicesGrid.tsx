@@ -1,4 +1,4 @@
-import { BookOpen, MonitorPlay, Pencil, Globe, Laptop, Users, ArrowRight } from "lucide-react";
+import { BookOpen, MonitorPlay, Pencil, Globe, Laptop, Users, ArrowRight, Video, Accessibility, ClipboardCheck, FileEdit } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import SectionHeader from "@/components/ai-data-services/shared/SectionHeader";
@@ -46,6 +46,34 @@ const services = [
     link: "/content-services/subject-matter-experts",
     gradient: "from-orange-500/20 to-amber-500/10",
   },
+  {
+    icon: Video,
+    title: "E-Learning Video Solutions",
+    description: "2D/3D animation, explainer videos, simulation-based learning, and interactive instructional media.",
+    link: "/content-services/elearning-video-solutions",
+    gradient: "from-indigo-500/20 to-blue-500/10",
+  },
+  {
+    icon: Accessibility,
+    title: "Accessibility Services",
+    description: "WCAG, Section 508, ADA compliance, accessible media, and inclusive learning environments.",
+    link: "/content-services/accessibility",
+    gradient: "from-yellow-500/20 to-orange-500/10",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Talent Assessment",
+    description: "Psychometric evaluations, skill assessments, candidate evaluation, and organizational diagnostics.",
+    link: "/content-services/talent-assessment-workforce-evaluation",
+    gradient: "from-sky-500/20 to-cyan-500/10",
+  },
+  {
+    icon: FileEdit,
+    title: "Editorial & Publishing",
+    description: "Copy editing, proofreading, XML publishing, digital conversion, and metadata structuring.",
+    link: "/content-services/editorial-publishing-designing-services",
+    gradient: "from-violet-500/20 to-purple-500/10",
+  },
 ];
 
 const ContentServicesServicesGrid = () => {
@@ -58,7 +86,7 @@ const ContentServicesServicesGrid = () => {
           label="Our Services"
           title="End-to-End Content Services"
           gradientText="Solutions"
-          subtitle="Seven integrated capabilities. One trusted partner for your entire Content Services journey."
+          subtitle="Ten integrated capabilities. One trusted partner for your entire Content Services journey."
         />
 
         <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">

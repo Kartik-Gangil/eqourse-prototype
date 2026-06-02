@@ -6,6 +6,7 @@ import ServiceCTA from "@/components/ai-data-services/shared/ServiceCTA";
 import ExamServicesGrid from "./ExamServicesGrid";
 import EmSATSection from "./EmSATSection";
 import ComprehensiveSolutions from "./ComprehensiveSolutions";
+import { BookMarked, Target, FileText } from "lucide-react";
 
 const faqs = [
   {
@@ -39,7 +40,13 @@ const ExamPrepPage = () => (
       ctaText="Request Free Pilot Content"
       ctaLink="/free-pilot"
       imageSrc="/assets/banners/content-services/main/exam-preparation-content.png"
-      imageAlt="Exam preparation content services by eQOURSE — SAT, TOEFL, IELTS, ACT, AP, PTE, TOEIC and CEFR test prep with practice tests, study guides and interactive quizzes"
+      imageAlt="Exam preparation content services by eQOURSE - SAT, TOEFL, IELTS, ACT, AP, PTE, TOEIC and CEFR test prep with practice tests, study guides and interactive quizzes"
+      rotatingBadges={[
+        { icon: BookMarked, title: "Curriculum", subtitle: "Exam aligned", color: "hsl(170 82% 55%)" },
+        { icon: Target, title: "Preparation", subtitle: "SAT, NEET, GMAT", color: "hsl(190 85% 68%)" },
+        { icon: FileText, title: "Materials", subtitle: "Quizzes & guides", color: "hsl(165 75% 71%)" }
+      ]}
+      bottomBadge={{ iconText: "EXM", title: "Test Prep", subtitle: "Competitive advantage" }}
     />
 
     <ExamServicesGrid />

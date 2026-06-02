@@ -164,7 +164,7 @@ const LeadFormPopup = () => {
               </SelectContent>
             </Select>
 
-            {/* Custom role text field — shown only when "Other" is selected */}
+            {/* Custom role text field - shown only when "Other" is selected */}
             {isOtherRole && (
               <div className="animate-in fade-in slide-in-from-top-1 duration-200">
                 <Input

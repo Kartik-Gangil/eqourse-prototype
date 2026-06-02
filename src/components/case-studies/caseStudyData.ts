@@ -228,7 +228,7 @@ export const caseStudiesData: CaseStudy[] = [
     region: "Global (South Asian focus)",
     serviceTags: ["Data Collection", "Data Annotation & Labeling", "Real-World Model Testing", "Audio Annotation"],
     problem: "A Series B voice AI startup building an Automatic Speech Recognition (ASR) engine for South Asian markets was struggling with high Word Error Rates (WER) across regional dialects. Their existing training data was primarily sourced from studio-recorded standard Hindi and English, which performed poorly on real-world field audio containing regional accents, ambient noise, and code-switching between languages.",
-    solution: "eQOURSE deployed a 4-phase pipeline: (1) Data Collection — Field-recorded and crowdsourced 50,000+ hours of speech data across 12 Indian languages from our contributor network. Each recording was metadata-tagged. (2) Annotation — Verbatim transcription, Speaker diarisation for multi-speaker recordings. Phoneme labeling. IAA maintained at ≥ 0.82. (3) Cleaning & Validation — SNR-based filtering, deduplication, PII redaction. Gold-standard validation. (4) Real-World Testing — The client’s retrained ASR model was deployed via TuTrain. We tested across 8 dialect groups.",
+    solution: "eQOURSE deployed a 4-phase pipeline: (1) Data Collection - Field-recorded and crowdsourced 50,000+ hours of speech data across 12 Indian languages from our contributor network. Each recording was metadata-tagged. (2) Annotation - Verbatim transcription, Speaker diarisation for multi-speaker recordings. Phoneme labeling. IAA maintained at ≥ 0.82. (3) Cleaning & Validation - SNR-based filtering, deduplication, PII redaction. Gold-standard validation. (4) Real-World Testing - The client’s retrained ASR model was deployed via TuTrain. We tested across 8 dialect groups.",
     impact: "The client achieved a 34% reduction in WER across regional dialects after two active learning cycles. The model’s accuracy on Tamil and Telugu dialects improved from 62% to 89%. The TuTrain-powered testing identified 3 critical failure modes that benchmark tests had never revealed. The client secured Series C funding.",
     metrics: [
       { label: "Speech Collected", value: "50K+ Hours" },
@@ -255,7 +255,7 @@ export const caseStudiesData: CaseStudy[] = [
     region: "Global (APAC focus)",
     serviceTags: ["Data Collection", "Data Annotation & Labeling", "Data Cleaning & Validation"],
     problem: "An autonomous vehicle technology company needed high-precision annotated driving datasets from South Asian road environments, which differ significantly from Western datasets (Waymo, nuScenes) in terms of road markings, vehicle types (auto-rickshaws, two-wheelers, carts), pedestrian behaviour, and signage. Their existing models trained on US/EU data failed catastrophically on Indian road scenarios.",
-    solution: "eQOURSE executed: (1) Data Collection — Dashcam and LiDAR-synced video collection across 15 Indian cities. 200,000+ frames collected. (2) Annotation — Bounding box annotation for 45 vehicle classes (including India-specific). Semantic segmentation and 3D cuboid annotation. Keypoint annotation for pedestrian pose estimation. (3) Cleaning & Validation — Removal of blurred frames. Label consistency checks. Gold-standard validation with 20% honeypot images.",
+    solution: "eQOURSE executed: (1) Data Collection - Dashcam and LiDAR-synced video collection across 15 Indian cities. 200,000+ frames collected. (2) Annotation - Bounding box annotation for 45 vehicle classes (including India-specific). Semantic segmentation and 3D cuboid annotation. Keypoint annotation for pedestrian pose estimation. (3) Cleaning & Validation - Removal of blurred frames. Label consistency checks. Gold-standard validation with 20% honeypot images.",
     impact: "The client’s perception model accuracy on Indian road scenarios improved from 54% to 91% mAP. The annotated dataset became the client’s primary training asset for their APAC market expansion. The India-specific vehicle class annotations filled a critical gap that no public dataset addressed.",
     metrics: [
       { label: "Frames Annotated", value: "200K+" },
@@ -275,13 +275,13 @@ export const caseStudiesData: CaseStudy[] = [
   {
     id: "cs-11",
     image: "https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&q=80&w=800",
-    title: "RLHF Annotation for LLM Fine-Tuning — Global AI Lab",
+    title: "RLHF Annotation for LLM Fine-Tuning - Global AI Lab",
     category: "AI Data Services",
     industry: "Large Language Models / Generative AI",
     region: "Global",
     serviceTags: ["Data Annotation & Labeling", "Data Cleaning & Validation", "RLHF Annotation"],
     problem: "A well-funded AI research lab building a multilingual large language model (LLM) needed high-quality RLHF (Reinforcement Learning from Human Feedback) annotation across English and 5 Indic languages (Hindi, Bengali, Tamil, Telugu, Marathi). Their existing RLHF data was English-only and US-centric, causing the model to produce culturally inappropriate or factually incorrect responses when queried in Indic languages.",
-    solution: "eQOURSE provided: (1) RLHF Preference Ranking — 200+ trained annotators ranked model outputs. (2) Safety Labeling — Red-teaming and safety annotation identifying harmful, biased, or policy-violating outputs. (3) Instruction-Following Evaluation. (4) Data Cleaning — Deduplication of prompt-response pairs, PII redaction, format standardisation to JSONL. All delivered with Krippendorff’s Alpha ≥ 0.83.",
+    solution: "eQOURSE provided: (1) RLHF Preference Ranking - 200+ trained annotators ranked model outputs. (2) Safety Labeling - Red-teaming and safety annotation identifying harmful, biased, or policy-violating outputs. (3) Instruction-Following Evaluation. (4) Data Cleaning - Deduplication of prompt-response pairs, PII redaction, format standardisation to JSONL. All delivered with Krippendorff’s Alpha ≥ 0.83.",
     impact: "The client’s LLM showed a 28% improvement in human preference scores on Indic language responses after RLHF fine-tuning with our data. Safety violation rates dropped from 4.2% to 0.6% across all languages. The model’s cultural appropriateness ratings improved significantly, enabling a successful product launch in India.",
     metrics: [
       { label: "RLHF Annotators", value: "200+" },
@@ -308,7 +308,7 @@ export const caseStudiesData: CaseStudy[] = [
     serviceTags: ["Data Annotation & Labeling", "Data Cleaning & Validation", "PII Redaction"],
     problem: "A healthcare AI startup developing a diagnostic support tool for chest X-ray analysis needed pixel-level annotated datasets of pulmonary conditions (pneumonia, tuberculosis, pleural effusion, cardiomegaly). Public datasets lacked region-specific pathology variants common in South Asian populations and had inconsistent annotation quality.",
     solution: "eQOURSE assembled a team of 15 medical annotators with radiology backgrounds, supervised by 3 consulting radiologists. We performed: (1) Semantic segmentation of lung fields, cardiac silhouette, and pathological regions on 25,000 chest X-rays. (2) Instance segmentation for multi-lesion cases. (3) HIPAA-aware PII redaction. (4) Gold-standard validation where every 5th image was double-annotated.",
-    impact: "The client’s diagnostic model achieved 94.7% sensitivity and 96.1% specificity on their internal test set after training on our annotated data — exceeding FDA submission thresholds. The South Asian pathology variants in our dataset improved the model’s generalisation to Indian hospital deployments.",
+    impact: "The client’s diagnostic model achieved 94.7% sensitivity and 96.1% specificity on their internal test set after training on our annotated data - exceeding FDA submission thresholds. The South Asian pathology variants in our dataset improved the model’s generalisation to Indian hospital deployments.",
     metrics: [
       { label: "X-Rays Annotated", value: "25K" },
       { label: "Medical Annotators", value: "15" },
@@ -333,7 +333,7 @@ export const caseStudiesData: CaseStudy[] = [
     region: "India / Southeast Asia",
     serviceTags: ["Data Collection", "Data Annotation & Labeling", "Real-World Model Testing"],
     problem: "A FinTech company building a multilingual customer service chatbot for banking and insurance queries found that their NLU (Natural Language Understanding) model had high intent misclassification rates (22% error) on Hindi, Hinglish (Hindi-English code-mixed), and regional language queries. Benchmark test sets showed 91% accuracy, but real user interactions told a different story.",
-    solution: "eQOURSE executed: (1) Data Collection — Crowdsourced 150,000 realistic banking query utterances in Hindi, Hinglish, English, Tamil, and Telugu from our contributor network. (2) Annotation — Intent classification across 85 intent categories. Named Entity Recognition (NER) for financial entities. Sentiment labeling. (3) Model Testing — After the client retrained their NLU, we deployed the chatbot to real users via TuTrain. We measured accuracy and user satisfaction.",
+    solution: "eQOURSE executed: (1) Data Collection - Crowdsourced 150,000 realistic banking query utterances in Hindi, Hinglish, English, Tamil, and Telugu from our contributor network. (2) Annotation - Intent classification across 85 intent categories. Named Entity Recognition (NER) for financial entities. Sentiment labeling. (3) Model Testing - After the client retrained their NLU, we deployed the chatbot to real users via TuTrain. We measured accuracy and user satisfaction.",
     impact: "Intent misclassification dropped from 22% to 4.8% after two active learning cycles. Hindi and Hinglish entity extraction F1 improved from 0.71 to 0.93. The client reported a 40% reduction in chatbot-to-human-agent escalation rate, saving significant operational costs.",
     metrics: [
       { label: "Utterances Collected", value: "150K" },
@@ -354,13 +354,13 @@ export const caseStudiesData: CaseStudy[] = [
   {
     id: "cs-14",
     image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800",
-    title: "OCR Training Data for Document AI — Handwritten Indic Scripts",
+    title: "OCR Training Data for Document AI - Handwritten Indic Scripts",
     category: "AI Data Services",
     industry: "Document AI / OCR",
     region: "India / Global",
     serviceTags: ["Data Collection", "Data Annotation & Labeling", "Data Cleaning & Validation"],
     problem: "A Document AI company building an OCR engine for Indian government forms, bank cheques, and handwritten applications found that their model performed well on printed English/Hindi text (97% character accuracy) but failed on handwritten Devanagari, Tamil, and Telugu scripts (below 70% accuracy). No large-scale labelled dataset existed for handwritten Indic scripts in real-world document contexts.",
-    solution: "eQOURSE executed: (1) Data Collection — Collected 100,000+ images of handwritten documents from our contributor network across India. Contributors represented diverse handwriting styles. (2) Annotation — Character-level bounding box annotation with UTF-8 text labels. Word-level and line-level segmentation. Document layout annotation. (3) Cleaning — Removal of illegible samples. Format standardisation to COCO JSON with custom schema.",
+    solution: "eQOURSE executed: (1) Data Collection - Collected 100,000+ images of handwritten documents from our contributor network across India. Contributors represented diverse handwriting styles. (2) Annotation - Character-level bounding box annotation with UTF-8 text labels. Word-level and line-level segmentation. Document layout annotation. (3) Cleaning - Removal of illegible samples. Format standardisation to COCO JSON with custom schema.",
     impact: "The client’s OCR accuracy on handwritten Devanagari improved from 68% to 94% character accuracy. Tamil and Telugu handwritten accuracy reached 91% and 89% respectively. The dataset became the largest proprietary handwritten Indic script OCR training corpus, giving the client a defensible competitive advantage.",
     metrics: [
       { label: "Document Images", value: "100K+" },

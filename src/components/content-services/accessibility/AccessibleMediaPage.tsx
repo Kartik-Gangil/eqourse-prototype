@@ -28,7 +28,7 @@ const AccessibleMediaPage = () => (
     introLabel="Our Expertise"
     introTitle="Making Multimedia Content"
     introGradient="Truly Inclusive"
-    introDescription="We ensure every image, video, equation, and data table in your educational content is accessible—through expertly authored alt text, accurate captions, audio descriptions, and semantic STEM markup."
+    introDescription="We ensure every image, video, equation, and data table in your educational content is accessible-through expertly authored alt text, accurate captions, audio descriptions, and semantic STEM markup."
     introParagraphs={[
       "Visual and auditory media are central to modern education, but without proper alternatives and enhancements, they create significant barriers for learners with disabilities. Our team of accessibility specialists bridges this gap with context-aware, curriculum-aligned solutions.",
       "From concise alt text that captures the pedagogical intent of an image, to precisely synchronized closed captions and narrated audio descriptions, we ensure your multimedia assets deliver an equitable learning experience for every student."

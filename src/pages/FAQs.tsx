@@ -3,6 +3,7 @@ import { BreadcrumbSchema } from "@/components/shared/BreadcrumbSchema";
 import { Helmet } from "react-helmet-async";
 import ServiceHero from "@/components/ai-data-services/shared/ServiceHero";
 import FAQsAccordion from "@/components/faqs/FAQsAccordion";
+import { HelpCircle, MessageCircle, Info } from "lucide-react";
 
 const FAQs = () => {
   return (
@@ -17,6 +18,10 @@ const FAQs = () => {
           name="keywords"
           content="eQOURSE FAQ, Content Services FAQ, AI data services FAQ, e-learning questions, data annotation questions, K12 content FAQ, LMS integration FAQ, AI training data FAQ"
         />
+        <link rel="canonical" href="https://www.eqourse.com/faq" />
+        <meta property="og:title" content="FAQs │ Content Services & AI Data Services │ eQOURSE" />
+        <meta property="og:description" content="Frequently asked questions about eQOURSE's Content Services and AI data services. K-12 content, data annotation, model testing, LMS integration, and more." />
+        <meta property="og:url" content="https://www.eqourse.com/faq" />
       </Helmet>
       
       <BreadcrumbSchema 
@@ -34,6 +39,14 @@ const FAQs = () => {
         subtext="Find answers to common questions about our Content Services, AI data services, content development process, data annotation quality, scaling options, and more. Whether you're an education company, Content Services platform, or AI team, we aim to provide comprehensive support tailored to your needs."
         ctaText="View FAQs"
         ctaLink="#faq-accordion"
+        imageSrc="/assets/about/FAQ.png"
+        imageAlt="eQOURSE customer support and frequently asked questions"
+        rotatingBadges={[
+          { icon: HelpCircle, title: "Support", subtitle: "24/7 assistance", color: "hsl(190 85% 68%)" },
+          { icon: MessageCircle, title: "Answers", subtitle: "Comprehensive guides", color: "hsl(170 82% 55%)" },
+          { icon: Info, title: "Knowledge", subtitle: "Clear information", color: "hsl(165 75% 71%)" }
+        ]}
+        bottomBadge={{ iconText: "FAQ", title: "Help Center", subtitle: "We are here for you" }}
       />
       
       <div id="faq-accordion">

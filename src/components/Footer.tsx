@@ -1,10 +1,5 @@
-import { Phone, Mail, MapPin, Shield } from "lucide-react";
+import { Phone, Mail, MapPin, Shield, Linkedin, Facebook, Instagram, Youtube, Twitter } from "lucide-react";
 import eqourseLogoLight from "@/assets/eqourse-logo-light.png";
-import linkedIn3D from "@/assets/3d_linkedin_logo.png";
-import facebook3D from "@/assets/3d_facebook_logo.png";
-import instagram3D from "@/assets/3d_instagram_logo.png";
-import youtube3D from "@/assets/3d_youtube_logo.png";
-import xTwitter3D from "@/assets/3d_x_twitter_logo.png";
 import { Link } from "react-router-dom";
 
 /* ── Quick Links: key top-level pages for crawlability ── */
@@ -28,6 +23,9 @@ const contentServicesLinks = [
   { label: "Localization Services", to: "/content-services/localization-services" },
   { label: "Technology Solutions", to: "/content-services/technology-solutions" },
   { label: "Subject Matter Experts", to: "/content-services/subject-matter-experts" },
+  { label: "Accessibility Services", to: "/content-services/accessibility" },
+  { label: "Talent Assessment", to: "/content-services/talent-assessment-workforce-evaluation" },
+  { label: "Editorial & Publishing", to: "/content-services/editorial-publishing-designing-services" },
 ];
 
 /* ── AI Data Services ── */
@@ -48,16 +46,17 @@ const legalLinks = [
 ];
 
 const Footer = () => {
-  const linkClass = "block text-sm hover:text-primary transition-colors";
-  const linkColor = { color: "hsl(242, 20%, 65%)" };
-  const headingColor = { color: "hsl(0, 0%, 95%)" };
+  const linkClass = "block text-sm hover:text-primary transition-colors font-medium text-white/80";
+  const linkColor = {};
+  const headingColor = {};
+  const headingClass = "font-heading font-bold text-lg tracking-wider uppercase pb-2 border-b-2 border-primary/80 inline-block mb-5 text-white";
 
   return (
-    <footer className="bg-foreground py-16">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-8">
+    <footer className="relative py-16 lg:py-24 bg-[#232145] overflow-hidden border-t border-border/10">
+      <div className="container mx-auto px-4 relative z-10">
+        <nav aria-label="Footer navigation" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-x-8 gap-y-12 lg:gap-8">
           {/* ── Brand Column ── */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="sm:col-span-2 lg:col-span-2 space-y-5">
             <Link to="/" className="inline-block">
               <img 
                 src={eqourseLogoLight} 
@@ -65,8 +64,8 @@ const Footer = () => {
                 className="h-10 sm:h-12 w-auto object-contain" 
               />
             </Link>
-            <p className="text-sm leading-relaxed" style={linkColor}>
-              eQOURSE partners with education companies and AI builders worldwide. We design digital learning content, create production-grade AI training datasets, and test AI models in real-world environments — all powered by 500+ domain experts.
+            <p className="text-sm leading-relaxed text-white/80" style={linkColor}>
+              eQOURSE partners with education companies and AI builders worldwide. We design digital learning content, create production-grade AI training datasets, and test AI models in real-world environments - all powered by 500+ domain experts.
             </p>
             <div className="flex items-center gap-3 pt-1">
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20">
@@ -81,25 +80,27 @@ const Footer = () => {
                 <span className="text-[10px] font-bold" style={{ color: "hsl(165, 75%, 65%)" }}>#startupindia</span>
               </div>
             </div>
-            <div className="flex gap-3 pt-2">
+            <div className="flex flex-wrap gap-4 pt-3">
               {[
-                { icon: linkedIn3D, name: "LinkedIn", href: "https://www.linkedin.com/company/eqourse" },
-                { icon: facebook3D, name: "Facebook", href: "https://www.facebook.com/eQOURSE-102057078229490" },
-                { icon: instagram3D, name: "Instagram", href: "https://www.instagram.com/eqourse/" },
-                { icon: youtube3D, name: "YouTube", href: "https://www.youtube.com/@eqourse" },
-                { icon: xTwitter3D, name: "X", href: "https://twitter.com/EQourse" },
-              ].map((social) => (
-                <a key={social.name} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.name} className="w-10 h-10 rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(20,184,166,0.3)] transition-all duration-300 border border-white/10 bg-white flex items-center justify-center group relative">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent to-black/5 mix-blend-overlay group-hover:opacity-0 transition-opacity" />
-                  <img src={social.icon} alt={social.name} className="w-[120%] h-[120%] object-cover scale-110 group-hover:scale-125 transition-transform duration-500" style={{ filter: "drop-shadow(0 4px 6px rgba(0,0,0,0.1))" }} />
-                </a>
-              ))}
+                { icon: Linkedin, name: "LinkedIn", href: "https://www.linkedin.com/company/eqourse" },
+                { icon: Facebook, name: "Facebook", href: "https://www.facebook.com/eQOURSE-102057078229490" },
+                { icon: Instagram, name: "Instagram", href: "https://www.instagram.com/eqourse/" },
+                { icon: Youtube, name: "YouTube", href: "https://www.youtube.com/@eqourse" },
+                { icon: Twitter, name: "X", href: "https://twitter.com/EQourse" },
+              ].map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a key={social.name} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.name} className="w-10 h-10 rounded-full hover:-translate-y-1 hover:shadow-[0_4px_15px_rgba(20,184,166,0.3)] transition-all duration-300 border border-white/20 bg-white/5 flex items-center justify-center hover:bg-white/10 hover:border-primary/50 group">
+                    <Icon className="w-5 h-5 text-white/90 group-hover:text-primary transition-colors" />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
           {/* ── Quick Links ── */}
           <div>
-            <h4 className="font-heading font-semibold mb-4" style={headingColor}>Quick Links</h4>
+            <h4 className={headingClass} style={headingColor}>Quick Links</h4>
             <div className="space-y-3">
               {quickLinks.map((link) => (
                 <Link key={link.label} to={link.to} className={linkClass} style={linkColor}>
@@ -111,7 +112,7 @@ const Footer = () => {
 
           {/* ── Content Services ── */}
           <div>
-            <h4 className="font-heading font-semibold mb-4" style={headingColor}>Content Services</h4>
+            <h4 className={headingClass} style={headingColor}>Content Services</h4>
             <div className="space-y-3">
               {contentServicesLinks.map((link) => (
                 <Link key={link.label} to={link.to} className={linkClass} style={linkColor}>
@@ -123,7 +124,7 @@ const Footer = () => {
 
           {/* ── AI Data Services + Legal ── */}
           <div>
-            <h4 className="font-heading font-semibold mb-4" style={headingColor}>AI Data Services</h4>
+            <h4 className={headingClass} style={headingColor}>AI Data Services</h4>
             <div className="space-y-3">
               {aiServiceLinks.map((link) => (
                 <Link key={link.label} to={link.to} className={linkClass} style={linkColor}>
@@ -131,7 +132,7 @@ const Footer = () => {
                 </Link>
               ))}
             </div>
-            <h4 className="font-heading font-semibold mt-6 mb-3" style={headingColor}>Legal</h4>
+            <h4 className={`${headingClass} mt-6`} style={headingColor}>Legal</h4>
             <div className="space-y-3">
               {legalLinks.map((link) => (
                 <Link key={link.label} to={link.to} className={linkClass} style={linkColor}>
@@ -143,7 +144,7 @@ const Footer = () => {
 
           {/* ── Our Brand Family ── */}
           <div>
-            <h4 className="font-heading font-semibold mb-4" style={headingColor}>Our Brand Family</h4>
+            <h4 className={headingClass} style={headingColor}>Our Brand Family</h4>
             <div className="space-y-3">
               <Link to="/tutrain" className={linkClass} style={linkColor}>TUTRAIN</Link>
               <a href="https://tutrain.com" target="_blank" rel="noopener noreferrer" className={linkClass} style={linkColor}>Visit TUTRAIN.com →</a>
@@ -151,16 +152,16 @@ const Footer = () => {
           </div>
 
           {/* ── Contact ── */}
-          <div>
-            <h4 className="font-heading font-semibold mb-4" style={headingColor}>Contact</h4>
+          <div className="sm:col-span-2 lg:col-span-1">
+            <h4 className={headingClass} style={headingColor}>Contact</h4>
             <div className="space-y-4">
-              <a href="tel:+919214445870" className="flex items-center gap-2 text-sm hover:text-primary transition-colors" style={linkColor}>
+              <a href="tel:+919214445870" className="flex items-center gap-2 text-sm hover:text-primary transition-colors text-white/80" style={linkColor}>
                 <Phone className="w-4 h-4 text-primary flex-shrink-0" /> +91 - 92144 - 45870
               </a>
-              <a href="mailto:info@eqourse.com" className="flex items-center gap-2 text-sm hover:text-primary transition-colors" style={linkColor}>
+              <a href="mailto:info@eqourse.com" className="flex items-center gap-2 text-sm hover:text-primary transition-colors text-white/80" style={linkColor}>
                 <Mail className="w-4 h-4 text-primary flex-shrink-0" /> info@eqourse.com
               </a>
-              <div className="space-y-3 pt-2">
+              <div className="space-y-3 pt-2 text-white/80">
                 <div className="flex items-start gap-2 text-sm" style={linkColor}>
                   <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                   <div>
@@ -178,9 +179,9 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </div>
+        </nav>
 
-        <div className="border-t border-primary/10 mt-12 pt-8 text-center text-sm" style={{ color: "hsl(242, 20%, 50%)" }}>
+        <div className="border-t border-white/10 mt-12 pt-8 text-center text-sm font-medium text-white/60">
           &copy; {new Date().getFullYear()} eQOURSE. All rights reserved.
         </div>
       </div>

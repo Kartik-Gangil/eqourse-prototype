@@ -11,7 +11,7 @@ const reasons = [
   },
   {
     title: "Work from India’s STEM Capital",
-    description: "Our headquarters in Kota, Rajasthan — one of the world’s largest concentrations of STEM-educated professionals — gives you access to a vibrant community of educators, engineers, and data specialists.",
+    description: "Our headquarters in Kota, Rajasthan - one of the world’s largest concentrations of STEM-educated professionals - gives you access to a vibrant community of educators, engineers, and data specialists.",
     icon: MapPin,
     color: "from-teal-400 to-teal-600",
     bgLight: "bg-teal-500/10"
@@ -25,7 +25,7 @@ const reasons = [
   },
   {
     title: "ISO-Certified Quality Culture",
-    description: "We’re ISO 9001 & 27001 certified. Quality isn’t just a metric — it’s our culture. You’ll work in a structured, professional environment that values accuracy and continuous improvement.",
+    description: "We’re ISO 9001 & 27001 certified. Quality isn’t just a metric - it’s our culture. You’ll work in a structured, professional environment that values accuracy and continuous improvement.",
     icon: ShieldCheck,
     color: "from-amber-400 to-orange-500",
     bgLight: "bg-orange-500/10"

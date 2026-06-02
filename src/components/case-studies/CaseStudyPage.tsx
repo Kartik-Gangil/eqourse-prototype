@@ -8,7 +8,7 @@ import CaseStudyCard from "./CaseStudyCard";
 import CaseStudyModal from "./CaseStudyModal";
 import { caseStudiesData as staticCaseStudies, CaseStudyCategory, CaseStudy } from "./caseStudyData";
 import { fetchPublishedCaseStudies } from "@/lib/publicApi";
-import { Filter } from "lucide-react";
+import { Filter, Briefcase, Award, TrendingUp } from "lucide-react";
 
 const CaseStudyPage = () => {
   const [activeFilter, setActiveFilter] = useState<CaseStudyCategory | "All">("All");
@@ -107,9 +107,15 @@ const CaseStudyPage = () => {
         preHeadline="Real Results. Real Clients. Real Impact."
         headline="Case Studies &"
         headlineAccent="Success Stories"
-        subtext="See how eQOURSE partners with global education companies, Content Services platforms, publishers, and AI teams to deliver production-ready content, high-quality training data, and measurable learning outcomes. From K-12 curriculum development across 6 languages to AI model testing across 30+ dialects — explore the results that set us apart."
+        subtext="See how eQOURSE partners with global education companies, Content Services platforms, publishers, and AI teams to deliver production-ready content, high-quality training data, and measurable learning outcomes. From K-12 curriculum development across 6 languages to AI model testing across 30+ dialects - explore the results that set us apart."
         ctaText="Start Your Free Pilot"
         ctaLink="/#contact"
+        rotatingBadges={[
+          { icon: Briefcase, title: "Use Cases", subtitle: "Real-world projects", color: "hsl(170 82% 55%)" },
+          { icon: Award, title: "Success", subtitle: "Proven results", color: "hsl(190 85% 68%)" },
+          { icon: TrendingUp, title: "Impact", subtitle: "Measurable outcomes", color: "hsl(165 75% 71%)" }
+        ]}
+        bottomBadge={{ iconText: "WIN", title: "Success Stories", subtitle: "Data & content wins" }}
       />
 
       <StatsRibbon />
@@ -184,7 +190,7 @@ const CaseStudyPage = () => {
 
       <ServiceCTA 
         headline="Ready to Become Our Next Success Story?"
-        subtext="Join global education and AI leaders who trust eQOURSE for premium data services and Content Services. Start with a free pilot — no commitment required."
+        subtext="Join global education and AI leaders who trust eQOURSE for premium data services and Content Services. Start with a free pilot - no commitment required."
         ctaText="Talk to Our Team"
       />
 

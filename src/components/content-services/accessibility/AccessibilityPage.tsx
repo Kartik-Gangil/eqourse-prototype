@@ -5,6 +5,7 @@ import ServiceNarrativeSection from "@/components/ai-data-services/shared/Servic
 import FAQSection from "@/components/ai-data-services/shared/FAQSection";
 import ServiceCTA from "@/components/ai-data-services/shared/ServiceCTA";
 import AccessibilitySubServicesGrid from "./AccessibilitySubServicesGrid";
+import { Eye, ShieldCheck, Accessibility } from "lucide-react";
 
 const faqs = [
   {
@@ -33,7 +34,7 @@ const faqs = [
   },
   {
     question: "What is the difference between automated testing and manual accessibility review?",
-    answer: "Automated testing quickly scans for programmatic errors (like missing alt attributes). Manual review involves human experts testing with assistive technologies to evaluate the actual user experience, context, and logical flow—elements that automated tools cannot assess."
+    answer: "Automated testing quickly scans for programmatic errors (like missing alt attributes). Manual review involves human experts testing with assistive technologies to evaluate the actual user experience, context, and logical flow-elements that automated tools cannot assess."
   }
 ];
 
@@ -54,7 +55,13 @@ const AccessibilityPage = () => (
       ctaText="Request Accessibility Review"
       ctaLink="/contact"
       imageSrc="/assets/banners/content-services/main/accessibility.png"
-      imageAlt="Digital accessibility services by eQOURSE — WCAG compliance, Section 508 alignment, document remediation, accessible media, assessment accessibility and assistive technology testing"
+      imageAlt="Digital accessibility services by eQOURSE - WCAG compliance, Section 508 alignment, document remediation, accessible media, assessment accessibility and assistive technology testing"
+      rotatingBadges={[
+        { icon: Accessibility, title: "Inclusive", subtitle: "Accessibility for all", color: "hsl(170 82% 55%)" },
+        { icon: ShieldCheck, title: "Compliance", subtitle: "WCAG & PDF/UA", color: "hsl(190 85% 68%)" },
+        { icon: Eye, title: "Remediation", subtitle: "Document & Media", color: "hsl(165 75% 71%)" }
+      ]}
+      bottomBadge={{ iconText: "ACC", title: "Accessibility", subtitle: "Global standards" }}
     />
 
     <ServiceNarrativeSection
@@ -63,7 +70,7 @@ const AccessibilityPage = () => (
       gradientText="Learning Experiences"
       description="We combine deep technical expertise in global standards with a profound understanding of instructional design to create genuinely inclusive learning environments."
       paragraphs={[
-        "eQOURSE is dedicated to breaking down digital barriers in education. Our Accessibility Services ensure that digital learning content—from documents and courses to assessments and multimedia—is accessible and usable by all individuals, including those with visual, auditory, motor, or cognitive disabilities.",
+        "eQOURSE is dedicated to breaking down digital barriers in education. Our Accessibility Services ensure that digital learning content-from documents and courses to assessments and multimedia-is accessible and usable by all individuals, including those with visual, auditory, motor, or cognitive disabilities.",
         "Our approach goes beyond simple automated compliance checks; we focus on functional accessibility, employing manual testing, assistive technology verification, and thoughtful remediation to create genuinely inclusive learning environments."
       ]}
       bullets={[

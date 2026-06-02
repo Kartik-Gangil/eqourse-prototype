@@ -13,10 +13,10 @@ const PublishingProductionPage = () => (
     parentLabel={PARENT_LABEL}
     parentHref={PARENT_HREF}
     currentLabel="Publishing Production"
-    preHeadline="✦ Publishing Production — Structured Delivery for Learning Content"
+    preHeadline="✦ Publishing Production - Structured Delivery for Learning Content"
     headline="Publishing Production"
     headlineAccent="for Learning Content"
-    subtext="Publishing production support covers the structured handover between editorial, design, layout, conversion and final delivery teams — coordinating production-ready content, version control, asset tracking, proof review support and client-specific production requirements."
+    subtext="Publishing production support covers the structured handover between editorial, design, layout, conversion and final delivery teams - coordinating production-ready content, version control, asset tracking, proof review support and client-specific production requirements."
     ctaText="Request Production Support"
     ctaLink="/contact"
     introLabel="Production Workflow"
@@ -41,13 +41,13 @@ const PublishingProductionPage = () => (
         icon: BookOpen,
         title: "Typesetting & Page Composition",
         description:
-          "Professional typesetting and page composition for print and digital publications — including text flow, heading hierarchy, column layout and font consistency across chapters.",
+          "Professional typesetting and page composition for print and digital publications - including text flow, heading hierarchy, column layout and font consistency across chapters.",
       },
       {
         icon: Layers,
         title: "Template Design & Application",
         description:
-          "Master page templates for textbooks, workbooks, assessment packs and instructor guides — ensuring visual consistency across all publication components.",
+          "Master page templates for textbooks, workbooks, assessment packs and instructor guides - ensuring visual consistency across all publication components.",
       },
       {
         icon: List,
@@ -59,7 +59,7 @@ const PublishingProductionPage = () => (
         icon: ClipboardList,
         title: "Proof Review Support",
         description:
-          "Coordination and tracking of proof review cycles — from first proof to final sign-off — with change consolidation and annotated correction rounds.",
+          "Coordination and tracking of proof review cycles - from first proof to final sign-off - with change consolidation and annotated correction rounds.",
       },
       {
         icon: GitBranch,
@@ -71,7 +71,7 @@ const PublishingProductionPage = () => (
         icon: PackageCheck,
         title: "Production Handover",
         description:
-          "Structured final asset packaging — including print files, digital formats, metadata sheets, rights documentation and delivery checklists — for printer or platform handover.",
+          "Structured final asset packaging - including print files, digital formats, metadata sheets, rights documentation and delivery checklists - for printer or platform handover.",
       },
     ]}
     faqs={[

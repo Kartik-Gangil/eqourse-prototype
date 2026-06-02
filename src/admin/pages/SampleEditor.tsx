@@ -30,7 +30,7 @@ const SAMPLE_PAGES: PageOption[] = [
   { slug: "iit-jee-neet-samples", label: "IIT JEE / NEET", tabs: ["Theory Content", "Question Banks", "Mock Test"] },
   { slug: "upsc-state-psc-samples", label: "UPSC & State PSC", tabs: ["General Studies", "Current Affairs", "Previous Year Papers"] },
   { slug: "stem-content-samples", label: "STEM Content", tabs: ["Science", "Technology", "Engineering", "Mathematics"] },
-  { slug: "curriculum-samples", label: "CBSE Content", tabs: ["CBSE", "ICSE", "IB", "State Board"] },
+  { slug: "curriculum-samples", label: "Curriculum Content", tabs: ["CBSE", "ICSE", "IB", "State Board"] },
   { slug: "translation-and-localization-text-samples", label: "Localization (Text)", tabs: ["Hindi", "Tamil", "Telugu", "Bengali", "Kannada", "Malayalam", "Other Languages"] },
   { slug: "test-prep-and-assessments", label: "Test Prep & Assessments", tabs: ["TOEIC", "APTIS", "SAT", "IELTS", "ACT", "AP", "TOEFL", "PTE", "CEFR"] },
   // Video Content Samples
@@ -171,7 +171,7 @@ export default function SampleEditor() {
         <div>
           <Label>Title *</Label>
           <Input value={form.title} onChange={(e) => setField("title", e.target.value)}
-            placeholder="Math Course Book — Grade 2" />
+            placeholder="Math Course Book - Grade 2" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

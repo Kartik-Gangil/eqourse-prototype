@@ -2,7 +2,7 @@
  * Lightweight Excel/CSV export.
  *
  * Generates a UTF-8 CSV with BOM, which Excel opens natively as a spreadsheet.
- * For a true .xlsx, swap this for `xlsx` (SheetJS) — see the integration guide.
+ * For a true .xlsx, swap this for `xlsx` (SheetJS) - see the integration guide.
  */
 export function exportToCSV<T extends Record<string, unknown>>(
   rows: T[],

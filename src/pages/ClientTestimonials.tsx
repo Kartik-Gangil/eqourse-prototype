@@ -3,6 +3,7 @@ import { BreadcrumbSchema } from "@/components/shared/BreadcrumbSchema";
 import { Helmet } from "react-helmet-async";
 import ServiceHero from "@/components/ai-data-services/shared/ServiceHero";
 import TestimonialsGrid from "@/components/testimonials/TestimonialsGrid";
+import { Star, ThumbsUp, Heart } from "lucide-react";
 
 const ClientTestimonials = () => {
   return (
@@ -17,6 +18,10 @@ const ClientTestimonials = () => {
           name="keywords"
           content="eQOURSE testimonials, client reviews, Content Services testimonials, AI data services reviews, e-learning client feedback, data annotation reviews, education content testimonials"
         />
+        <link rel="canonical" href="https://www.eqourse.com/clients-testimonials" />
+        <meta property="og:title" content="Client Testimonials │ Content Services & AI Data Services │ eQOURSE" />
+        <meta property="og:description" content="Read what 200+ clients say about eQOURSE. Testimonials on e-learning content, data annotation, and model testing services." />
+        <meta property="og:url" content="https://www.eqourse.com/clients-testimonials" />
       </Helmet>
       
       <BreadcrumbSchema 
@@ -31,9 +36,17 @@ const ClientTestimonials = () => {
         preHeadline="eQOURSE Testimonials"
         headline="What Our Clients Are"
         headlineAccent="Saying"
-        subtext="At eQOURSE, we are proud to have worked with 200+ clients across Content Services and AI sectors, delivering scalable e-learning solutions and production-grade AI training data. From K-12 content and SAT preparation to multilingual data annotation and real-world model testing — our clients consistently share positive feedback about their experience with us."
+        subtext="At eQOURSE, we are proud to have worked with 200+ clients across Content Services and AI sectors, delivering scalable e-learning solutions and production-grade AI training data. From K-12 content and SAT preparation to multilingual data annotation and real-world model testing - our clients consistently share positive feedback about their experience with us."
         ctaText="View Reviews"
         ctaLink="#reviews"
+        imageSrc="/assets/about/Testiominal.png"
+        imageAlt="Satisfied eQOURSE global clients and partners"
+        rotatingBadges={[
+          { icon: Star, title: "Top Rated", subtitle: "4.9/5 satisfaction", color: "hsl(43 96% 58%)" },
+          { icon: ThumbsUp, title: "Reliability", subtitle: "Trusted partner", color: "hsl(170 82% 55%)" },
+          { icon: Heart, title: "Success", subtitle: "Happy clients", color: "hsl(340 82% 52%)" }
+        ]}
+        bottomBadge={{ iconText: "5★", title: "Proven Track Record", subtitle: "Consistently delivering quality" }}
       />
       
       <TestimonialsGrid />

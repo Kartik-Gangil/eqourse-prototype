@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
@@ -23,6 +24,117 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>eQOURSE | Content Services & AI Data Services Company | India & Singapore</title>
+        <meta
+          name="description"
+          content="eQOURSE delivers end-to-end Content Services and AI data services. Custom e-learning content, curriculum development, data annotation, model testing. 500+ specialists across 30+ languages. ISO 9001 & 27001 certified. Offices in India & Singapore. Trusted by 200+ global clients."
+        />
+        <meta
+          name="keywords"
+          content="eQOURSE, Content Services, AI data services, e-learning content development, custom e-learning, curriculum development, data annotation, AI training data, model testing, K12 content, educational technology, localization services, LMS integration, India, Singapore"
+        />
+        <link rel="canonical" href="https://www.eqourse.com/" />
+        <meta property="og:title" content="eQOURSE | Content Services & AI Data Services Company" />
+        <meta
+          property="og:description"
+          content="End-to-end Content Services and AI data services. 500+ specialists, 30+ languages, ISO certified. Custom e-learning, curriculum development, data annotation, model testing."
+        />
+        <meta property="og:url" content="https://www.eqourse.com/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="eQOURSE" />
+        <meta property="og:image" content="https://www.eqourse.com/assets/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@EQourse" />
+        <meta name="twitter:title" content="eQOURSE | Content Services & AI Data Services Company" />
+        <meta
+          name="twitter:description"
+          content="End-to-end Content Services and AI data services. 500+ specialists, 30+ languages, ISO certified. Custom e-learning, curriculum development, data annotation, model testing."
+        />
+        <meta name="twitter:image" content="https://www.eqourse.com/assets/og-image.png" />
+
+        {/* Organization structured data */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "eQOURSE",
+              "alternateName": "eQOURSE PTE LTD",
+              "url": "https://www.eqourse.com",
+              "logo": "https://www.eqourse.com/assets/og-image.png",
+              "description": "eQOURSE delivers end-to-end Content Services and AI data services. Custom e-learning content, curriculum development, data annotation, and model testing for global education and AI teams.",
+              "foundingDate": "2020",
+              "numberOfEmployees": {
+                "@type": "QuantitativeValue",
+                "minValue": 500
+              },
+              "sameAs": [
+                "https://www.linkedin.com/company/eqourse",
+                "https://www.facebook.com/eQOURSE-102057078229490",
+                "https://www.instagram.com/eqourse/",
+                "https://www.youtube.com/@eqourse",
+                "https://twitter.com/EQourse"
+              ],
+              "contactPoint": [
+                {
+                  "@type": "ContactPoint",
+                  "telephone": "+91-92144-45870",
+                  "contactType": "customer service",
+                  "email": "info@eqourse.com",
+                  "areaServed": ["IN", "SG", "US", "GB", "AE", "CN"],
+                  "availableLanguage": ["English", "Hindi"]
+                }
+              ],
+              "knowsAbout": [
+                "Content Services",
+                "AI Data Services",
+                "E-Learning Content Development",
+                "Curriculum Development",
+                "Data Annotation & Labeling",
+                "AI Model Testing",
+                "Localization Services",
+                "LMS Integration"
+              ],
+              "address": [
+                {
+                  "@type": "PostalAddress",
+                  "streetAddress": "C-29, Indra Vihar, Shiv Jyoti School Road",
+                  "addressLocality": "Kota",
+                  "addressRegion": "Rajasthan",
+                  "postalCode": "324005",
+                  "addressCountry": "IN"
+                },
+                {
+                  "@type": "PostalAddress",
+                  "streetAddress": "760 Bedok Reservoir Road, #04-13, Waterfront Waves",
+                  "addressLocality": "Singapore",
+                  "postalCode": "479245",
+                  "addressCountry": "SG"
+                }
+              ]
+            }
+          `}
+        </script>
+
+        {/* WebSite structured data for sitelinks search box */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "eQOURSE",
+              "url": "https://www.eqourse.com",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://www.eqourse.com/blog?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            }
+          `}
+        </script>
+      </Helmet>
+
       <Navbar />
       <HeroSection />
       <AboutSection />

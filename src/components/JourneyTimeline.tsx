@@ -283,7 +283,7 @@ const JourneyTimeline = () => {
             <span className="text-gradient">Impact & Innovation</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            From a passionate startup to a global dual-capability company —
+            From a passionate startup to a global dual-capability company -
             here's how we've grown.
           </p>
         </div>
@@ -455,7 +455,7 @@ const JourneyTimeline = () => {
                   </div>
                 </div>
 
-                {/* Expanded card — takes full width of the container */}
+                {/* Expanded card - takes full width of the container */}
                 {isActive && (
                   <div
                     className="mt-3 w-full rounded-2xl overflow-hidden border border-white/15 animate-in fade-in slide-in-from-bottom-2 duration-300 shadow-elevated"

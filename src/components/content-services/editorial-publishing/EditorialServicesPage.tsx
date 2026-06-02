@@ -13,16 +13,16 @@ const EditorialServicesPage = () => (
     parentLabel={PARENT_LABEL}
     parentHref={PARENT_HREF}
     currentLabel="Editorial Services"
-    preHeadline="✦ Editorial Services — Copy Editing, Proofreading & More"
+    preHeadline="✦ Editorial Services - Copy Editing, Proofreading & More"
     headline="Editorial Services for"
     headlineAccent="Global Learning Content"
-    subtext="eQOURSE delivers editorial services for education publishers, EdTech teams and institutions working with curriculum content, assessments, learning resources and digital products — including copyediting, language refinement, consistency checks and style-guide application."
+    subtext="eQOURSE delivers editorial services for education publishers, EdTech teams and institutions working with curriculum content, assessments, learning resources and digital products - including copyediting, language refinement, consistency checks and style-guide application."
     ctaText="Request Editorial Support"
     ctaLink="/contact"
     introLabel="Content Quality"
     introTitle="Editorial Support That"
     introGradient="Preserves Intent"
-    introDescription="Education content requires more than surface-level proofreading — it demands editorial workflows that preserve subject accuracy and keep content usable across formats."
+    introDescription="Education content requires more than surface-level proofreading - it demands editorial workflows that preserve subject accuracy and keep content usable across formats."
     introParagraphs={[
       "eQOURSE structures editorial support around intake review, content editing, terminology alignment, editorial QA and style-guide application across print, digital and platform-ready assets.",
       "Whether working with curriculum materials, assessments, instructor guides or training resources, the editorial workflow adapts to client requirements, review cycles and output specifications.",
@@ -65,7 +65,7 @@ const EditorialServicesPage = () => (
         icon: FileSearch,
         title: "Technical Editing",
         description:
-          "Accuracy review for STEM, scientific, legal or technical content — checking terminology, notation, formula rendering and subject-specific conventions.",
+          "Accuracy review for STEM, scientific, legal or technical content - checking terminology, notation, formula rendering and subject-specific conventions.",
       },
       {
         icon: BookMarked,

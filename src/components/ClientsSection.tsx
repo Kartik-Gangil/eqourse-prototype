@@ -20,11 +20,22 @@ const clients = [
   { name: "Vedantu",        color: "#4f46e5", bg: "#eef2ff", icon: "vedantu.com" },
   { name: "upGrad",         color: "#e84118", bg: "#fff0ee", icon: "upgrad.com" },
   { name: "Simplilearn",    color: "#f77f00", bg: "#fff8ee", icon: "simplilearn.com" },
+  { name: "Careervira",     color: "#2563eb", bg: "#eff6ff", icon: "careervira.com" },
+  { name: "E-DAC",          color: "#e11d48", bg: "#ffe4e6", icon: "edac.co.in" },
+  { name: "Edu Grow",       color: "#16a34a", bg: "#dcfce7", icon: "edugrow.in" },
+  { name: "ITD",            color: "#0284c7", bg: "#e0f2fe", icon: "itdeducation.in" },
+  { name: "NAR",            color: "#1d4ed8", bg: "#dbeafe", icon: "nar.realtor" },
+  { name: "Pandas of Carribian", color: "#9333ea", bg: "#f3e8ff", icon: "pandasofcaribbean.com" },
+  { name: "RSETI",          color: "#b45309", bg: "#fef3c7", icon: "rudsetitraining.org" },
+  { name: "TISS",           color: "#4338ca", bg: "#e0e7ff", icon: "tiss.edu" },
+  { name: "CBI",            color: "#1e3a8a", bg: "#dbeafe", icon: "cbi.gov.in" },
+  { name: "eVidyaloka",     color: "#ca8a04", bg: "#fef9c3", icon: "evidyaloka.org" },
+  { name: "Edukemy",        color: "#dc2626", bg: "#fee2e2", icon: "edukemy.com" },
 ];
 
-const row1 = [...clients.slice(0, 6)];
-const row2 = [...clients.slice(6, 12)];
-const row3 = [...clients.slice(12, 18)];
+const row1 = [...clients.slice(0, 10)];
+const row2 = [...clients.slice(10, 20)];
+const row3 = [...clients.slice(20, 29)];
 
 type Client = (typeof clients)[number];
 

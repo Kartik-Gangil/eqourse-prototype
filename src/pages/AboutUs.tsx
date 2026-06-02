@@ -7,6 +7,7 @@ import AboutTimeline from "@/components/about/AboutTimeline";
 import AboutFounder from "@/components/about/AboutFounder";
 import AboutStats from "@/components/about/AboutStats";
 import AboutNewsletter from "@/components/about/AboutNewsletter";
+import { Globe, ShieldCheck, Users } from "lucide-react";
 
 const AboutUs = () => {
   return (
@@ -91,12 +92,20 @@ const AboutUs = () => {
       />
 
       <ServiceHero
-        preHeadline="eQOURSE — Delivering Operational Excellence"
+        preHeadline="eQOURSE - Delivering Operational Excellence"
         headline="Who Are"
         headlineAccent="We?"
         subtext="Content Service and AI Data Services."
         ctaText="Explore Services"
         ctaLink="#who-we-are"
+        imageSrc="/assets/about/Who we are (A).png"
+        imageAlt="eQOURSE team working collaboratively on AI data and content services"
+        rotatingBadges={[
+          { icon: Globe, title: "Global Reach", subtitle: "200+ clients worldwide", color: "hsl(190 85% 68%)" },
+          { icon: ShieldCheck, title: "Certified", subtitle: "ISO 9001 & 27001", color: "hsl(165 75% 71%)" },
+          { icon: Users, title: "Experts", subtitle: "500+ specialists", color: "hsl(170 82% 55%)" }
+        ]}
+        bottomBadge={{ iconText: "EQ", title: "Dual Capability", subtitle: "Content & AI Data Services" }}
       />
       
       <div id="who-we-are">

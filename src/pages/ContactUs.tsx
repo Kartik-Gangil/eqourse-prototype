@@ -19,7 +19,7 @@ const ContactUs = () => {
         />
         <meta property="og:title" content="Contact Us │ Content Services & AI Data Services │ eQOURSE" />
         <meta property="og:description" content="Ready to start? Contact eQOURSE for Content Services or AI data services. Offices in Kota (India) and Singapore. Free consultation. 200+ clients worldwide." />
-        <link rel="canonical" href="https://www.eqourse.com/contact-us" />
+        <link rel="canonical" href="https://www.eqourse.com/contact" />
         <script type="application/ld+json">
           {`
             {
@@ -76,13 +76,15 @@ const ContactUs = () => {
       <BreadcrumbSchema
         items={[
           { name: "Home", item: "https://www.eqourse.com" },
-          { name: "Contact Us", item: "https://www.eqourse.com/contact-us" }
+          { name: "Contact Us", item: "https://www.eqourse.com/contact" }
         ]}
       />
 
       <ContactHero />
 
-      <ContactPage />
+      <div id="contact-form">
+        <ContactPage />
+      </div>
     </PageLayout>
   );
 };

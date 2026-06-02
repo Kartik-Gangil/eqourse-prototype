@@ -60,7 +60,7 @@ export default function CategorySamples() {
         <ArrowLeft className="w-4 h-4 mr-2" /> Back to categories
       </Button>
       <PageHeader
-        title={category ? `${category.name} — Samples` : "Samples"}
+        title={category ? `${category.name} - Samples` : "Samples"}
         description={
           category
             ? `Manage the samples shown on /samples/${category.slug}. Display labels (e.g. "Sample 2 of ${samples.length}") are derived from the order below.`

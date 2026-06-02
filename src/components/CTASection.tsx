@@ -25,7 +25,7 @@ const CTASection = () => {
       to.play().catch(() => {});
 
       // Bring the next video on top and fade it in
-      // Keep the old video fully visible underneath — no white flash
+      // Keep the old video fully visible underneath - no white flash
       to.style.zIndex = "2";
       to.style.opacity = "1";
       from.style.zIndex = "1";
@@ -73,7 +73,7 @@ const CTASection = () => {
 
   return (
     <section id="contact" className="relative py-20 overflow-hidden">
-      {/* Video A — starts first */}
+      {/* Video A - starts first */}
       <video
         ref={videoARef}
         autoPlay
@@ -85,7 +85,7 @@ const CTASection = () => {
         <source src="/assets/video-project.mp4" type="video/mp4" />
       </video>
 
-      {/* Video B — fades in when A is near the end */}
+      {/* Video B - fades in when A is near the end */}
       <video
         ref={videoBRef}
         muted

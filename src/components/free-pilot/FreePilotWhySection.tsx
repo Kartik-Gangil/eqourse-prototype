@@ -33,7 +33,7 @@ const FreePilotWhySection = () => {
       icon: Target,
       title: "Tailored to Your Use Case",
       description:
-        "We don't send generic samples. Your pilot is produced to your exact specifications — your curriculum standard, your annotation guidelines, your data format, your language.",
+        "We don't send generic samples. Your pilot is produced to your exact specifications - your curriculum standard, your annotation guidelines, your data format, your language.",
       gradient: "from-[#1B9AAA]/10 to-[#1B9AAA]/5",
       iconBg: "bg-[#1B9AAA]",
       delay: 150,

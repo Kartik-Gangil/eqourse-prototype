@@ -5,6 +5,7 @@ import ServiceNarrativeSection from "@/components/ai-data-services/shared/Servic
 import FAQSection from "@/components/ai-data-services/shared/FAQSection";
 import ServiceCTA from "@/components/ai-data-services/shared/ServiceCTA";
 import TechServicesGrid from "./TechServicesGrid";
+import { Server, LayoutDashboard, CloudCog } from "lucide-react";
 
 const faqs = [
   {
@@ -34,7 +35,13 @@ const TechSolutionsPage = () => (
       ctaText="Discuss Your LMS Project"
       ctaLink="#contact"
       imageSrc="/assets/banners/content-services/main/technology-solutions.png"
-      imageAlt="Educational technology solutions by eQOURSE — LMS course builds with SCORM and xAPI packaging, white-label LMS setup on Open edX and AWS cloud infrastructure"
+      imageAlt="Educational technology solutions by eQOURSE - LMS course builds with SCORM and xAPI packaging, white-label LMS setup on Open edX and AWS cloud infrastructure"
+      rotatingBadges={[
+        { icon: Server, title: "LMS", subtitle: "SCORM & xAPI", color: "hsl(170 82% 55%)" },
+        { icon: LayoutDashboard, title: "White-label", subtitle: "Custom branding", color: "hsl(190 85% 68%)" },
+        { icon: CloudCog, title: "Hosting", subtitle: "AWS infrastructure", color: "hsl(165 75% 71%)" }
+      ]}
+      bottomBadge={{ iconText: "TEC", title: "Technology", subtitle: "Scalable solutions" }}
     />
 
     <ServiceNarrativeSection

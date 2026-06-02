@@ -38,7 +38,7 @@ export interface SubServicePageProps {
   subtext: string;
   ctaText?: string;
   ctaLink?: string;
-  /** Optional banner image (fills the hero box — no side gaps). */
+  /** Optional banner image (fills the hero box - no side gaps). */
   bannerImage?: string;
   /** SEO-optimized alt text for the banner. Strongly recommended when bannerImage is set. */
   bannerImageAlt?: string;
@@ -70,6 +70,19 @@ export interface SubServicePageProps {
   /* Related pages */
   relatedPages?: { title: string; href: string }[];
   relatedLabel?: string;
+
+  /* Badges */
+  rotatingBadges?: {
+    icon: LucideIcon;
+    title: string;
+    subtitle: string;
+    color: string;
+  }[];
+  bottomBadge?: {
+    iconText: string;
+    title: string;
+    subtitle: string;
+  };
 }
 
 /* ─── Animated Stats Row ─── */
@@ -181,6 +194,21 @@ const RelatedPages = ({ pages, label }: { pages: { title: string; href: string }
 
 /* ─── Main Template Component ─── */
 const SubServicePageTemplate = (props: SubServicePageProps) => {
+  const defaultColors = ["hsl(170 82% 55%)", "hsl(190 85% 68%)", "hsl(165 75% 71%)", "hsl(43 96% 58%)", "hsl(340 82% 52%)"];
+  
+  const derivedRotatingBadges = props.rotatingBadges || (props.services && props.services.length > 0 ? props.services.slice(0, 3).map((s, i) => ({
+    icon: s.icon,
+    title: s.title.split(" ").slice(0, 3).join(" "), // Keep title short
+    subtitle: s.description.length > 30 ? s.description.substring(0, 27) + "..." : s.description,
+    color: defaultColors[i % defaultColors.length]
+  })) : undefined);
+
+  const derivedBottomBadge = props.bottomBadge || {
+    iconText: props.currentLabel.substring(0, 3).toUpperCase(),
+    title: props.currentLabel,
+    subtitle: props.seoKeywords ? props.seoKeywords.split(",")[0].trim() : "Specialized Solution"
+  };
+
   return (
     <ContentServicesLayout breadcrumbs={[{ label: props.parentLabel, href: props.parentHref }, { label: props.currentLabel }]}>
       <SEOHead
@@ -199,6 +227,8 @@ const SubServicePageTemplate = (props: SubServicePageProps) => {
         ctaLink={props.ctaLink || "#contact"}
         imageSrc={props.bannerImage}
         imageAlt={props.bannerImageAlt}
+        rotatingBadges={derivedRotatingBadges}
+        bottomBadge={derivedBottomBadge}
       />
 
       <IntroNarrative

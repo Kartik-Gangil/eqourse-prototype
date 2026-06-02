@@ -75,7 +75,7 @@ export const aiDataSamples: AiDataSample[] = [
       {
         id: "sentiment",
         title: "Sentiment Analysis",
-        teaser: "Detect mood at sentence & aspect level — even sarcasm and Hinglish.",
+        teaser: "Detect mood at sentence & aspect level - even sarcasm and Hinglish.",
         description:
           "Product reviews and social-media posts annotated with fine-grained sentiment (positive, negative, neutral, mixed) at sentence and aspect level. Sarcasm and negation handled for Hindi and Hinglish.",
         format: "JSONL / CSV",
@@ -341,7 +341,7 @@ export const aiDataSamples: AiDataSample[] = [
     headline: "RLHF Annotation",
     headlineAccent: "Samples",
     subtext:
-      "Browse our RLHF annotation samples including preference ranking, response-quality scoring, instruction-following evaluation, and red-teaming / safety labeling. Annotated by trained domain experts — not crowdworkers.",
+      "Browse our RLHF annotation samples including preference ranking, response-quality scoring, instruction-following evaluation, and red-teaming / safety labeling. Annotated by trained domain experts - not crowdworkers.",
     ctaText: "Request RLHF Pilot",
     heroVisual: "rlhf",
     shortDescription:
@@ -515,7 +515,7 @@ export const aiDataSamples: AiDataSample[] = [
     headline: "Cleaned & Validated",
     headlineAccent: "Dataset Samples",
     subtext:
-      "See the difference quality cleaning makes. Browse before / after samples demonstrating our deduplication, noise removal, PII redaction, consistency standardisation, and gold-standard validation processes — each with audit-trail documentation.",
+      "See the difference quality cleaning makes. Browse before / after samples demonstrating our deduplication, noise removal, PII redaction, consistency standardisation, and gold-standard validation processes - each with audit-trail documentation.",
     ctaText: "Request Data Audit",
     heroVisual: "cleaning",
     shortDescription:

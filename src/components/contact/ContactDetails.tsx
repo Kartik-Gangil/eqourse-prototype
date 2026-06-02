@@ -1,11 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MapPin as MapPinIcon, Mail as MailIcon, Phone as PhoneIcon, Clock as ClockIcon } from "lucide-react";
-import linkedIn3D from "@/assets/3d_linkedin_logo.png";
-import facebook3D from "@/assets/3d_facebook_logo.png";
-import instagram3D from "@/assets/3d_instagram_logo.png";
-import youtube3D from "@/assets/3d_youtube_logo.png";
-import xTwitter3D from "@/assets/3d_x_twitter_logo.png";
 
 // Social Icons SVGs to avoid extra dependencies
 const LinkedInIcon = ({ className }: { className?: string }) => (
@@ -147,17 +142,19 @@ const ContactDetails = () => {
         <h3 className="font-heading text-xl font-bold text-foreground border-b border-border pb-2">Connect With Us</h3>
         <div className="flex flex-wrap gap-3">
           {[
-            { icon: linkedIn3D, name: "LinkedIn", href: "https://www.linkedin.com/company/eqourse" },
-            { icon: facebook3D, name: "Facebook", href: "https://www.facebook.com/eQOURSE-102057078229490" },
-            { icon: instagram3D, name: "Instagram", href: "https://www.instagram.com/eqourse/" },
-            { icon: youtube3D, name: "YouTube", href: "https://www.youtube.com/@eqourse" },
-            { icon: xTwitter3D, name: "X", href: "https://twitter.com/EQourse" },
-          ].map((social) => (
-            <a key={social.name} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.name} className="w-12 h-12 rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all duration-300 border border-border/50 bg-white flex items-center justify-center group relative shadow-soft">
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent to-black/5 mix-blend-overlay group-hover:opacity-0 transition-opacity" />
-              <img src={social.icon} alt={social.name} className="w-[120%] h-[120%] object-cover scale-110 group-hover:scale-125 transition-transform duration-500" style={{ filter: "drop-shadow(0 4px 6px rgba(0,0,0,0.1))" }} />
-            </a>
-          ))}
+            { icon: LinkedInIcon, name: "LinkedIn", href: "https://www.linkedin.com/company/eqourse" },
+            { icon: FacebookIcon, name: "Facebook", href: "https://www.facebook.com/eQOURSE-102057078229490" },
+            { icon: InstagramIcon, name: "Instagram", href: "https://www.instagram.com/eqourse/" },
+            { icon: YouTubeIcon, name: "YouTube", href: "https://www.youtube.com/@eqourse" },
+            { icon: XIcon, name: "X", href: "https://twitter.com/EQourse" },
+          ].map((social) => {
+            const Icon = social.icon;
+            return (
+              <a key={social.name} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.name} className="w-12 h-12 rounded-full hover:-translate-y-1 hover:shadow-[0_4px_15px_rgba(20,184,166,0.3)] transition-all duration-300 border border-primary/20 bg-primary/5 flex items-center justify-center hover:bg-primary/10 hover:border-primary/50 group text-foreground/80 hover:text-primary">
+                <Icon className="w-5 h-5 transition-colors" />
+              </a>
+            );
+          })}
         </div>
       </div>
 

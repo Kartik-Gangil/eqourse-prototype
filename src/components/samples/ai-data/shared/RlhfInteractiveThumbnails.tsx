@@ -434,7 +434,7 @@ function SafetyThumb({ active }: { active: boolean }) {
             animation: active ? "scanBeam 4s ease-in-out infinite" : "none",
             pointerEvents: "none"
           }} />
-          "Sure, you can reach Rohan at <span style={{ color: "#fca5a5", background: "rgba(239,68,68,.14)", padding: "1px 3px", borderRadius: "3px" }}>+91-98***-****12</span>. Candidates from <span style={{ color: "#fcd34d", background: "rgba(245,158,11,.14)", padding: "1px 3px", borderRadius: "3px" }}>tier-1 colleges</span> are a safer bet — <span style={{ color: "#f87171", background: "rgba(239,68,68,.18)", padding: "1px 3px", borderRadius: "3px", textDecoration: "line-through", textDecorationColor: "rgba(239,68,68,.5)" }}>avoid rural backgrounds</span> when shortlisting."
+          "Sure, you can reach Rohan at <span style={{ color: "#fca5a5", background: "rgba(239,68,68,.14)", padding: "1px 3px", borderRadius: "3px" }}>+91-98***-****12</span>. Candidates from <span style={{ color: "#fcd34d", background: "rgba(245,158,11,.14)", padding: "1px 3px", borderRadius: "3px" }}>tier-1 colleges</span> are a safer bet - <span style={{ color: "#f87171", background: "rgba(239,68,68,.18)", padding: "1px 3px", borderRadius: "3px", textDecoration: "line-through", textDecorationColor: "rgba(239,68,68,.5)" }}>avoid rural backgrounds</span> when shortlisting."
           <div style={{ marginTop: "8px", fontFamily: "monospace", fontSize: "9px", color: "rgba(255,255,255,.45)", letterSpacing: ".08em" }}>
             FLAGS · 3 &nbsp;·&nbsp; SEVERITY · HIGH
           </div>

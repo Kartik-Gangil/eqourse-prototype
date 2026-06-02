@@ -144,7 +144,7 @@ export default function SampleFileEditor() {
       </Button>
       <PageHeader
         title={isNew ? `Upload to "${form.tabName}"` : "Edit file"}
-        description={`${sub.label} → ${form.tabName || "—"}`}
+        description={`${sub.label} → ${form.tabName || "-"}`}
         actions={<Button onClick={save} disabled={saving}><Save className="w-4 h-4 mr-2" /> Save</Button>}
       />
 
@@ -153,7 +153,7 @@ export default function SampleFileEditor() {
         <div>
           <Label>Title *</Label>
           <Input value={form.title} onChange={(e) => setField("title", e.target.value)}
-            placeholder={`e.g. Math Course Book — Grade 2`} />
+            placeholder={`e.g. Math Course Book - Grade 2`} />
         </div>
 
         {/* Context info (read-only) */}

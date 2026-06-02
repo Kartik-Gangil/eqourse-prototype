@@ -73,7 +73,7 @@ export default function Login() {
         </form>
 
         <p className="text-xs text-muted-foreground text-center mt-6">
-          Mock mode — any email + password (≥ 4 chars) will sign you in. Replace with real auth via the
+          Mock mode - any email + password (≥ 4 chars) will sign you in. Replace with real auth via the
           backend integration guide.
         </p>
       </Card>
