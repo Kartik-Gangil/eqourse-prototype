@@ -23,7 +23,7 @@ const PrivacyPolicy = () => {
           property="og:description"
           content="Read eQOURSE's privacy policy. Learn how we collect, use, store, and protect your personal data. ISO 27001 certified. GDPR-ready."
         />
-        <link rel="canonical" href="https://www.eqourse.com/privacy-policy" />
+        <link rel="canonical" href="https://www.eqourse.com/privacy_policy" />
         <meta name="robots" content="index, follow" />
         <script type="application/ld+json">
           {`
@@ -31,7 +31,7 @@ const PrivacyPolicy = () => {
               "@context": "https://schema.org",
               "@type": "WebPage",
               "name": "Privacy Policy",
-              "url": "https://www.eqourse.com/privacy-policy",
+              "url": "https://www.eqourse.com/privacy_policy",
               "description": "eQOURSE Privacy Policy - how we handle your data across Content Services and AI data services.",
               "publisher": {
                 "@type": "Organization",
@@ -46,7 +46,7 @@ const PrivacyPolicy = () => {
       <BreadcrumbSchema
         items={[
           { name: "Home", item: "https://www.eqourse.com" },
-          { name: "Privacy Policy", item: "https://www.eqourse.com/privacy-policy" },
+          { name: "Privacy Policy", item: "https://www.eqourse.com/privacy_policy" },
         ]}
       />
 

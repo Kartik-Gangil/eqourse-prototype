@@ -307,7 +307,7 @@ const videoSampleLinks = [
   { label: "Articulate Storyline", href: "/articulate-storyline-video-samples" },
   { label: "Pen Tab and PPT", href: "/pen-tab-and-ppt-samples" },
   { label: "AI Videos", href: "/ai-avatar-video-samples" },
-  { label: "Flash to HTML", href: "/flash-to-html-samples" },
+  { label: "Flash to HTML", href: "/flash-to-htm-samples" },
   { label: "2D 3D Animation", href: "/2d-3d-video-samples" },
   { label: "Promotional Video", href: "/promotional-video" },
   { label: "Immersive Simulation AR/VR", href: "/immersive-simulation-ar-vr-video" },
@@ -322,7 +322,7 @@ const SamplesMegaMenu = ({ onClose }: { onClose: () => void }) => (
       {/* Column 1 - Text (teal) */}
       <div className="py-6 px-5 border-r border-border/40 bg-gradient-to-b from-primary/5 to-transparent">
         <Link
-          to="/samples#tabs"
+          to="/text-samples"
           onClick={onClose}
           className="flex items-center gap-2.5 mb-4 pb-3 border-b border-primary/20 group"
         >
@@ -353,7 +353,7 @@ const SamplesMegaMenu = ({ onClose }: { onClose: () => void }) => (
       {/* Column 2 - Video (teal) */}
       <div className="py-6 px-5 border-r border-border/40">
         <Link
-          to="/samples#tabs"
+          to="/video-samples"
           onClick={onClose}
           className="flex items-center gap-2.5 mb-4 pb-3 border-b border-primary/20 group"
         >
@@ -460,7 +460,7 @@ const MobileSamplesAccordion = ({ onClose }: { onClose: () => void }) => {
             {isOpen && (
               <div className="pl-8 pb-1 animate-slide-up">
                 <Link
-                  to={sec.id === "ai-data" ? "/samples#ai-data" : "/samples#tabs"}
+                  to={sec.id === "ai-data" ? "/samples#ai-data" : sec.id === "text" ? "/text-samples" : "/video-samples"}
                   onClick={onClose}
                   className={`block px-3 py-1.5 text-xs font-semibold ${sec.accent} hover:underline mb-1`}
                 >
@@ -613,11 +613,11 @@ const Navbar = () => {
               ].map((social) => {
                 const Icon = social.icon;
                 return (
-                  <a 
-                    key={social.name} 
-                    href={social.href} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="hover:opacity-80 transition-opacity flex items-center gap-1 text-[10px] sm:text-xs font-medium group"
                     aria-label={social.name}
                   >
@@ -632,8 +632,8 @@ const Navbar = () => {
 
         <nav
           className={`border-b transition-all duration-300 ${transparent
-              ? "border-white/10"
-              : "border-border/50 glass"
+            ? "border-white/10"
+            : "border-border/50 glass"
             }`}
           style={
             transparent
@@ -651,15 +651,15 @@ const Navbar = () => {
               className="flex items-center flex-shrink-0 relative h-8 sm:h-10"
             >
               {/* Dark logo - visible on light/scrolled backgrounds */}
-              <img 
-                src={eqourseLogoDark} 
-                alt="eQOURSE Logo - Professional AI Data and Content Services" 
+              <img
+                src={eqourseLogoDark}
+                alt="eQOURSE Logo - Professional AI Data and Content Services"
                 className={`h-8 sm:h-10 w-auto object-contain absolute left-0 top-0 transition-opacity duration-300 ${transparent ? 'opacity-0' : 'opacity-100'}`}
               />
               {/* Light logo - visible on transparent/dark hero background */}
-              <img 
-                src={eqourseLogoLight} 
-                alt="eQOURSE Logo - Professional AI Data and Content Services" 
+              <img
+                src={eqourseLogoLight}
+                alt="eQOURSE Logo - Professional AI Data and Content Services"
                 className={`h-8 sm:h-10 w-auto object-contain transition-opacity duration-300 ${transparent ? 'opacity-100' : 'opacity-0'}`}
               />
             </Link>
@@ -676,8 +676,8 @@ const Navbar = () => {
                   <Link
                     to={link.to}
                     className={`px-4 py-2 text-sm font-medium transition-colors rounded-lg flex items-center gap-1 ${transparent
-                        ? "text-white/90 hover:text-white hover:bg-white/10"
-                        : "text-foreground/80 hover:text-primary hover:bg-primary/5"
+                      ? "text-white/90 hover:text-white hover:bg-white/10"
+                      : "text-foreground/80 hover:text-primary hover:bg-primary/5"
                       }`}
                   >
                     {link.label}
@@ -723,7 +723,7 @@ const Navbar = () => {
                 <Link to="/free-pilot">Free Pilot</Link>
               </Button>
               <Button asChild size="sm" className="bg-gradient-primary border-0 text-primary-foreground shadow-soft hover:opacity-90 transition-opacity">
-                <Link to="/contact">Contact Us</Link>
+                <Link to="/contact-us">Contact Us</Link>
               </Button>
             </div>
 
@@ -805,7 +805,7 @@ const Navbar = () => {
                   </div>
                 ))}
                 <Button asChild className="mt-2 bg-gradient-primary border-0 text-primary-foreground">
-                  <Link to="/contact" onClick={() => setIsOpen(false)}>Contact Us</Link>
+                  <Link to="/contact-us" onClick={() => setIsOpen(false)}>Contact Us</Link>
                 </Button>
               </div>
             </div>

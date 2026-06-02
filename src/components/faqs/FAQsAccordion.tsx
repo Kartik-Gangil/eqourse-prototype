@@ -630,7 +630,7 @@ const FAQsAccordion = () => {
             requirements.
           </p>
           <Link
-            to="/contact"
+            to="/contact-us"
             className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-primary text-white font-semibold rounded-xl shadow-soft hover:opacity-90 transition-opacity"
           >
             Contact Support <ExternalLink className="w-4 h-4" />

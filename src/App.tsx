@@ -83,11 +83,11 @@ const App = () => (
               <Route path="/clients-testimonials" element={<ClientTestimonials />} />
               <Route path="/career" element={<Careers />} />
               <Route path="/faq" element={<FAQs />} />
-              <Route path="/contact" element={<ContactUs />} />
-              <Route path="/contactus" element={<ContactUs />} />
+              {/* <Route path="/contact" element={<ContactUs />} /> */}
+              <Route path="/contact-us" element={<ContactUs />} />
               <Route path="/free-pilot" element={<FreePilot />} />
               <Route path="/casestudy" element={<CaseStudy />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/privacy_policy" element={<PrivacyPolicy />} />
               <Route path="/tutrain" element={<TuTrain />} />
               <Route path="/sitemap" element={<Sitemap />} />
               <Route path="/blog" element={<Blog />} />
@@ -108,16 +108,16 @@ const App = () => (
 
               {/* Content Service - Category Pages */}
               <Route path="/content-services" element={<ContentServicesOverview />} />
-              <Route path="/content-services/custom-e-learning-content" element={<CustomElearningContent />} />
-              <Route path="/content-services/exam-preparation-content" element={<ExamPreparationContent />} />
-              <Route path="/content-services/learning-solutions" element={<LearningSolutions />} />
-              <Route path="/content-services/elearning-video-solutions" element={<ElearningVideoSolutions />} />
-              <Route path="/content-services/localization-services" element={<LocalizationServices />} />
-              <Route path="/content-services/technology-solutions" element={<TechnologySolutions />} />
-               <Route path="/content-services/subject-matter-experts" element={<SubjectMatterExperts />} />
-              <Route path="/content-services/accessibility" element={<AccessibilityServices />} />
-              <Route path="/content-services/talent-assessment-workforce-evaluation" element={<TalentAssessmentWorkforceEvaluation />} />
-              <Route path="/content-services/editorial-publishing-designing-services" element={<EditorialPublishingDesigningServices />} />
+              <Route path="/custom-e-learning-content" element={<CustomElearningContent />} />
+              <Route path="/test-prep-content" element={<ExamPreparationContent />} />
+              <Route path="/learning-solutions" element={<LearningSolutions />} />
+              <Route path="/elearning-video-solutions" element={<ElearningVideoSolutions />} />
+              <Route path="/localization-services" element={<LocalizationServices />} />
+              <Route path="/technology-solutions" element={<TechnologySolutions />} />
+              <Route path="/smes" element={<SubjectMatterExperts />} />
+              <Route path="/accessibility" element={<AccessibilityServices />} />
+              <Route path="/talent-assessment-workforce-evaluation" element={<TalentAssessmentWorkforceEvaluation />} />
+              <Route path="/editorial-publishing-designing-services" element={<EditorialPublishingDesigningServices />} />
 
               {/* Content Service - 39 Sub-Service Detail Pages (lazy-loaded) */}
               {contentServicesSubServiceRoutes.map(({ path, Component }) => (
