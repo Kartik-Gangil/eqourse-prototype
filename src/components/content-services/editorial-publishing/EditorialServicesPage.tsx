@@ -2,7 +2,7 @@ import SubServicePageTemplate from "../shared/SubServicePageTemplate";
 import { Pencil, BookOpenCheck, Search, PenTool, FileSearch, BookMarked } from "lucide-react";
 
 const PARENT_LABEL = "Editorial, Publishing & Designing Services";
-const PARENT_HREF = "/content-services/editorial-publishing-designing-services";
+const PARENT_HREF = "/editorial-publishing-designing-services";
 
 const EditorialServicesPage = () => (
   <SubServicePageTemplate
@@ -98,8 +98,8 @@ const EditorialServicesPage = () => (
       { title: "Publishing Production", href: `${PARENT_HREF}/publishing-production` },
       { title: "Digital Conversion", href: `${PARENT_HREF}/digital-conversion` },
       { title: "Metadata Services", href: `${PARENT_HREF}/metadata-services` },
-      { title: "Accessibility Services", href: "/content-services/accessibility" },
-      { title: "Custom E-Learning Content", href: "/content-services/custom-e-learning-content" },
+      { title: "Accessibility Services", href: "/accessibility" },
+      { title: "Custom E-Learning Content", href: "/custom-e-learning-content" },
     ]}
   />
 );

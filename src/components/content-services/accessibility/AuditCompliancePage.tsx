@@ -16,7 +16,7 @@ const AuditCompliancePage = () => (
     seoCanonical="https://www.eqourse.com/content-services/accessibility/audit-compliance-support"
     seoKeywords="accessibility audit services, WCAG gap analysis, VPAT creation, ACR documentation, digital accessibility compliance, Content Services accessibility auditing"
     parentLabel="Accessibility"
-    parentHref="/content-services/accessibility"
+    parentHref="/accessibility"
     currentLabel="Audit & Compliance Support"
     bannerImage="/assets/banners/content-services/accessibility/audit-compliance-support.png"
     bannerImageAlt="Accessibility audit and compliance support services banner showing comprehensive WCAG audits, gap analysis, VPAT and ACR documentation by eQOURSE for educational platforms"

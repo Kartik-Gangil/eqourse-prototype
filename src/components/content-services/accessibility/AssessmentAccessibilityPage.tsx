@@ -16,7 +16,7 @@ const AssessmentAccessibilityPage = () => (
     seoCanonical="https://www.eqourse.com/content-services/accessibility/assessment-accessibility"
     seoKeywords="accessible assessments, inclusive test design, keyboard accessible quizzes, screen reader accessible tests"
     parentLabel="Accessibility"
-    parentHref="/content-services/accessibility"
+    parentHref="/accessibility"
     currentLabel="Assessment Accessibility"
     bannerImage="/assets/banners/content-services/accessibility/assessment-accessibility.png"
     bannerImageAlt="Assessment accessibility services banner showing inclusive item design, keyboard-only operability, screen reader testing and equitable WCAG-aligned testing experiences by eQOURSE"

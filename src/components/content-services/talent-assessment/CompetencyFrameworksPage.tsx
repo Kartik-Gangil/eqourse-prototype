@@ -8,7 +8,7 @@ const CompetencyFrameworksPage = () => (
     seoCanonical="https://www.eqourse.com/content-services/talent-assessment-workforce-evaluation/competency-frameworks"
     seoKeywords="competency frameworks, talent assessment, B2B workforce evaluation, eQOURSE"
     parentLabel="Talent Assessment & Workforce Evaluation"
-    parentHref="/content-services/talent-assessment-workforce-evaluation"
+    parentHref="/talent-assessment-workforce-evaluation"
     currentLabel="Competency Frameworks"
     preHeadline="COMPETENCY ARCHITECTURE"
     headline="Competency Frameworks for"

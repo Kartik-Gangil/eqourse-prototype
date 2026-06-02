@@ -16,7 +16,7 @@ const AccessibleMediaPage = () => (
     seoCanonical="https://www.eqourse.com/content-services/accessibility/accessible-media-enhancements"
     seoKeywords="accessible media services, alt text authoring, closed captioning for education, audio description services, MathML accessibility, accessible STEM content, multimedia accessibility"
     parentLabel="Accessibility"
-    parentHref="/content-services/accessibility"
+    parentHref="/accessibility"
     currentLabel="Accessible Media & Enhancements"
     bannerImage="/assets/banners/content-services/accessibility/accessible-media-enhancements.png"
     bannerImageAlt="Accessible media and enhancements services banner showing alt text authoring, closed captioning, transcripts, audio description and MathML accessible STEM notation by eQOURSE"

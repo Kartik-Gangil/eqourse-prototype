@@ -16,7 +16,7 @@ const StandardsCompliancePage = () => (
     seoCanonical="https://www.eqourse.com/content-services/accessibility/standards-compliance"
     seoKeywords="accessibility standards compliance, WCAG compliance services, Section 508 alignment, EN 301 549 support, EPUB 3 accessibility, digital learning compliance"
     parentLabel="Accessibility"
-    parentHref="/content-services/accessibility"
+    parentHref="/accessibility"
     currentLabel="Standards Compliance"
     bannerImage="/assets/banners/content-services/accessibility/standards-compliance.png"
     bannerImageAlt="Accessibility standards compliance services banner illustrating WCAG 2.1 and 2.2, Section 508, EN 301 549 and EPUB 3 alignment for digital learning content by eQOURSE"

@@ -8,7 +8,7 @@ const OrganizationalDiagnosticsPage = () => (
     seoCanonical="https://www.eqourse.com/content-services/talent-assessment-workforce-evaluation/organizational-diagnostics"
     seoKeywords="organizational diagnostics, talent assessment, B2B workforce evaluation, eQOURSE"
     parentLabel="Talent Assessment & Workforce Evaluation"
-    parentHref="/content-services/talent-assessment-workforce-evaluation"
+    parentHref="/talent-assessment-workforce-evaluation"
     currentLabel="Organizational Diagnostics"
     preHeadline="ORGANISATIONAL DIAGNOSTICS"
     headline="Organisational Diagnostics for"

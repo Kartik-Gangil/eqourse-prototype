@@ -257,7 +257,7 @@ export const contentServicesCategories: ContentServicesCategory[] = [
   },
   {
     label: "Accessibility",
-    href: "/content-services/accessibility",
+    href: "/accessibility",
     icon: ShieldCheck,
     image: "/assets/banners/content-services/main/accessibility.png",
     imageAlt: "Digital accessibility services by eQOURSE - WCAG compliance, document remediation, accessible media, assessment accessibility and assistive technology testing",
@@ -273,7 +273,7 @@ export const contentServicesCategories: ContentServicesCategory[] = [
   },
   {
     label: "Talent Assessment & Workforce Evaluation",
-    href: "/content-services/talent-assessment-workforce-evaluation",
+    href: "/talent-assessment-workforce-evaluation",
     icon: Users,
     image: "/assets/banners/content-services/main/talent-assessment-workforce-evaluation.png",
     imageAlt: "Talent assessment and workforce evaluation services by eQOURSE - psychometric assessments, skill testing, competency frameworks and organizational diagnostics",
@@ -325,7 +325,7 @@ export const contentServicesCategories: ContentServicesCategory[] = [
   },
   {
     label: "Editorial, Publishing & Designing Services",
-    href: "/content-services/editorial-publishing-designing-services",
+    href: "/editorial-publishing-designing-services",
     icon: Edit,
     image: "/assets/content-services/Editorial, Publishing & Designing Services.png",
     imageAlt: "Editorial, Publishing and Designing Services by eQOURSE",

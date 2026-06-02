@@ -2,7 +2,7 @@ import SubServicePageTemplate from "../shared/SubServicePageTemplate";
 import { Tag, Layers, Hash, BookOpen, Library, Link2, ShieldCheck } from "lucide-react";
 
 const PARENT_LABEL = "Editorial, Publishing & Designing Services";
-const PARENT_HREF = "/content-services/editorial-publishing-designing-services";
+const PARENT_HREF = "/editorial-publishing-designing-services";
 
 const MetadataServicesPage = () => (
   <SubServicePageTemplate
@@ -104,7 +104,7 @@ const MetadataServicesPage = () => (
       { title: "Editorial Services", href: `${PARENT_HREF}/editorial-services` },
       { title: "Digital Conversion", href: `${PARENT_HREF}/digital-conversion` },
       { title: "Production Support", href: `${PARENT_HREF}/production-support` },
-      { title: "Accessibility Services", href: "/content-services/accessibility" },
+      { title: "Accessibility Services", href: "/accessibility" },
     ]}
   />
 );

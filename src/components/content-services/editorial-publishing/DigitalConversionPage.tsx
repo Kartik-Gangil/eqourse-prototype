@@ -2,7 +2,7 @@ import SubServicePageTemplate from "../shared/SubServicePageTemplate";
 import { ScanLine, Code2, Globe, BookOpen, RefreshCw, FileCode, Sigma, Layers } from "lucide-react";
 
 const PARENT_LABEL = "Editorial, Publishing & Designing Services";
-const PARENT_HREF = "/content-services/editorial-publishing-designing-services";
+const PARENT_HREF = "/editorial-publishing-designing-services";
 
 const DigitalConversionPage = () => (
   <SubServicePageTemplate
@@ -110,7 +110,7 @@ const DigitalConversionPage = () => (
       { title: "Editorial Services", href: `${PARENT_HREF}/editorial-services` },
       { title: "Publishing Production", href: `${PARENT_HREF}/publishing-production` },
       { title: "Metadata Services", href: `${PARENT_HREF}/metadata-services` },
-      { title: "Accessibility Services", href: "/content-services/accessibility" },
+      { title: "Accessibility Services", href: "/accessibility" },
       { title: "Technology Solutions", href: "/content-services/technology-solutions" },
     ]}
   />

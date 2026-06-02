@@ -16,7 +16,7 @@ const AssistiveTechPage = () => (
     seoCanonical="https://www.eqourse.com/content-services/accessibility/assistive-technology-compatibility"
     seoKeywords="assistive technology compatibility, screen reader testing, JAWS testing, NVDA testing, VoiceOver testing, keyboard accessibility"
     parentLabel="Accessibility"
-    parentHref="/content-services/accessibility"
+    parentHref="/accessibility"
     currentLabel="Assistive Technology Compatibility"
     bannerImage="/assets/banners/content-services/accessibility/assistive-technology-compatibility.png"
     bannerImageAlt="Assistive technology compatibility services banner showing manual screen reader testing with JAWS, NVDA and VoiceOver plus keyboard and screen magnification verification by eQOURSE"

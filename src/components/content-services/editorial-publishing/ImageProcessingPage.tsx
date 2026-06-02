@@ -2,7 +2,7 @@ import SubServicePageTemplate from "../shared/SubServicePageTemplate";
 import { Sparkles, Scissors, ZoomIn, FileImage, FolderOpen, Tag } from "lucide-react";
 
 const PARENT_LABEL = "Editorial, Publishing & Designing Services";
-const PARENT_HREF = "/content-services/editorial-publishing-designing-services";
+const PARENT_HREF = "/editorial-publishing-designing-services";
 
 const ImageProcessingPage = () => (
   <SubServicePageTemplate
@@ -98,7 +98,7 @@ const ImageProcessingPage = () => (
       { title: "Editorial Services", href: `${PARENT_HREF}/editorial-services` },
       { title: "Design Services", href: `${PARENT_HREF}/design-services` },
       { title: "Prepress Services", href: `${PARENT_HREF}/prepress-services` },
-      { title: "Accessibility Services", href: "/content-services/accessibility" },
+      { title: "Accessibility Services", href: "/accessibility" },
     ]}
   />
 );

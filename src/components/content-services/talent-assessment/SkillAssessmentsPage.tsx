@@ -8,7 +8,7 @@ const SkillAssessmentsPage = () => (
     seoCanonical="https://www.eqourse.com/content-services/talent-assessment-workforce-evaluation/skill-assessments"
     seoKeywords="skill assessments, talent assessment, B2B workforce evaluation, eQOURSE"
     parentLabel="Talent Assessment & Workforce Evaluation"
-    parentHref="/content-services/talent-assessment-workforce-evaluation"
+    parentHref="/talent-assessment-workforce-evaluation"
     currentLabel="Skill Assessments"
     preHeadline="SKILL ASSESSMENT"
     headline="Skill-Based Assessments for"

@@ -8,7 +8,7 @@ const LearningReadinessPage = () => (
     seoCanonical="https://www.eqourse.com/content-services/talent-assessment-workforce-evaluation/learning-readiness"
     seoKeywords="learning readiness, talent assessment, B2B workforce evaluation, eQOURSE"
     parentLabel="Talent Assessment & Workforce Evaluation"
-    parentHref="/content-services/talent-assessment-workforce-evaluation"
+    parentHref="/talent-assessment-workforce-evaluation"
     currentLabel="Learning Readiness"
     preHeadline="LEARNING READINESS"
     headline="Learning Readiness Assessment"

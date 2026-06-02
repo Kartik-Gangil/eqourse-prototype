@@ -8,7 +8,7 @@ const DigitalAssessmentPage = () => (
     seoCanonical="https://www.eqourse.com/content-services/talent-assessment-workforce-evaluation/digital-assessment-infrastructure"
     seoKeywords="digital assessment infrastructure, talent assessment, B2B workforce evaluation, eQOURSE"
     parentLabel="Talent Assessment & Workforce Evaluation"
-    parentHref="/content-services/talent-assessment-workforce-evaluation"
+    parentHref="/talent-assessment-workforce-evaluation"
     currentLabel="Digital Assessment Infrastructure"
     preHeadline="DIGITAL ASSESSMENT INFRASTRUCTURE"
     headline="Digital Assessment Infrastructure"

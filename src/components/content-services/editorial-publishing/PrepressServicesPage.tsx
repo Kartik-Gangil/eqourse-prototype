@@ -2,7 +2,7 @@ import SubServicePageTemplate from "../shared/SubServicePageTemplate";
 import { CheckSquare, Palette, Printer, FileCheck, Type, AlignLeft } from "lucide-react";
 
 const PARENT_LABEL = "Editorial, Publishing & Designing Services";
-const PARENT_HREF = "/content-services/editorial-publishing-designing-services";
+const PARENT_HREF = "/editorial-publishing-designing-services";
 
 const PrepressServicesPage = () => (
   <SubServicePageTemplate

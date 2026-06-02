@@ -2,7 +2,7 @@ import SubServicePageTemplate from "../shared/SubServicePageTemplate";
 import { BookOpen, Layout, PenTool, FileImage, BarChart3, Layers } from "lucide-react";
 
 const PARENT_LABEL = "Editorial, Publishing & Designing Services";
-const PARENT_HREF = "/content-services/editorial-publishing-designing-services";
+const PARENT_HREF = "/editorial-publishing-designing-services";
 
 const DesignServicesPage = () => (
   <SubServicePageTemplate
@@ -99,7 +99,7 @@ const DesignServicesPage = () => (
       { title: "Publishing Production", href: `${PARENT_HREF}/publishing-production` },
       { title: "Prepress Services", href: `${PARENT_HREF}/prepress-services` },
       { title: "Image Processing", href: `${PARENT_HREF}/image-processing` },
-      { title: "Custom E-Learning Content", href: "/content-services/custom-e-learning-content" },
+      { title: "Custom E-Learning Content", href: "/custom-e-learning-content" },
     ]}
   />
 );

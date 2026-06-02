@@ -16,7 +16,7 @@ const DocumentRemediationPage = () => (
     seoCanonical="https://www.eqourse.com/content-services/accessibility/document-content-remediation"
     seoKeywords="document accessibility remediation, PDF remediation services, accessible EPUB creation, LMS course accessibility, accessible HTML content, Section 508 document compliance"
     parentLabel="Accessibility"
-    parentHref="/content-services/accessibility"
+    parentHref="/accessibility"
     currentLabel="Document & eContent Remediation"
     bannerImage="/assets/banners/content-services/accessibility/document-content-remediation.png"
     bannerImageAlt="Document and eContent accessibility remediation services banner showing PDF tagging, EPUB 3 enhancement, LMS course remediation and HTML accessibility work by eQOURSE"

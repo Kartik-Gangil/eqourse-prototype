@@ -8,7 +8,7 @@ const CandidateEvaluationPage = () => (
     seoCanonical="https://www.eqourse.com/content-services/talent-assessment-workforce-evaluation/candidate-evaluation"
     seoKeywords="candidate evaluation, talent assessment, B2B workforce evaluation, eQOURSE"
     parentLabel="Talent Assessment & Workforce Evaluation"
-    parentHref="/content-services/talent-assessment-workforce-evaluation"
+    parentHref="/talent-assessment-workforce-evaluation"
     currentLabel="Candidate Evaluation"
     preHeadline="CANDIDATE EVALUATION"
     headline="Candidate Evaluation Content"
