@@ -63,13 +63,13 @@ const ContentServicesMegaMenu = ({ onClose }: { onClose: () => void }) => {
 
   return (
     <nav
-      className="absolute top-full -left-[28vw] w-[1100px] bg-card/95 rounded-3xl border border-border/50 shadow-elevated animate-slide-up z-50  max-h-[80vh]"
+      className="absolute top-full -left-[35vw] w-[1300px] bg-card/95 rounded-3xl border border-border/50 shadow-elevated animate-slide-up z-50  max-h-[80vh]"
       style={{ backdropFilter: "blur(20px)" }}
       aria-label="Content Services navigation"
     >
       <div className="flex min-h-[450px]">
-        {/* Left: Categories (300px) */}
-        <div className="w-[300px] border-r border-border/40 py-6 bg-secondary/30 flex flex-col overflow-auto max-h-[80vh]" role="list" aria-label="Service categories">
+        {/* Left: Categories (380px) */}
+        <div className="w-[380px] border-r border-border/40 py-6 bg-secondary/30 flex flex-col overflow-auto max-h-[80vh]" role="list" aria-label="Service categories">
           <span className="px-6 py-2 text-[11px] font-bold uppercase tracking-widest text-muted-foreground/70">Our Expertise</span>
           {contentServicesCategories.map((c, i) => {
             const Icon = c.icon;
@@ -79,14 +79,14 @@ const ContentServicesMegaMenu = ({ onClose }: { onClose: () => void }) => {
                 key={c.label}
                 to={c.href}
                 role="listitem"
-                className={`flex items-center gap-3 px-6 py-3.5 text-left text-sm transition-all w-full group
+                className={`flex items-start gap-3 px-6 py-3.5 text-left text-sm transition-all w-full group
                   ${hoveredCatIndex === i ? "bg-primary/5 text-primary font-bold border-l-4 border-primary" : isActive ? "text-primary/80 border-l-4 border-transparent" : "text-foreground/80 hover:text-primary hover:bg-primary/5 border-l-4 border-transparent"}`}
                 onMouseEnter={() => { setHoveredCatIndex(i); setHoveredSubIndex(null); }}
                 onClick={onClose}
               >
-                <Icon className="w-5 h-5 flex-shrink-0" />
-                <span className="flex-1 truncate">{c.label}</span>
-                <ChevronRight className={`w-4 h-4 flex-shrink-0 transition-transform ${hoveredCatIndex === i ? "translate-x-1 text-primary" : "text-muted-foreground/40 opacity-0 group-hover:opacity-100 group-hover:translate-x-1"}`} />
+                <Icon className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                <span className="flex-1">{c.label}</span>
+                <ChevronRight className={`w-4 h-4 flex-shrink-0 transition-transform mt-0.5 ${hoveredCatIndex === i ? "translate-x-1 text-primary" : "text-muted-foreground/40 opacity-0 group-hover:opacity-100 group-hover:translate-x-1"}`} />
               </Link>
             );
           })}
@@ -114,15 +114,15 @@ const ContentServicesMegaMenu = ({ onClose }: { onClose: () => void }) => {
                   key={sub.href}
                   to={sub.href}
                   role="listitem"
-                  className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all group
+                  className={`flex items-start gap-3 px-3 py-2.5 rounded-xl text-sm transition-all group
                     ${isSubHovered ? "bg-primary/15 text-primary font-semibold shadow-sm ring-1 ring-primary/20" : isActive ? "bg-primary/10 text-primary font-semibold shadow-sm" : "text-foreground/80 hover:bg-primary/10 hover:text-primary hover:shadow-sm"}`}
                   onMouseEnter={() => setHoveredSubIndex(subIdx)}
                   onClick={onClose}
                 >
-                  {SubIcon && <SubIcon className={`w-4 h-4 flex-shrink-0 transition-colors ${isSubHovered ? "text-primary" : "text-primary/60 group-hover:text-primary"}`} />}
-                  <span className="truncate leading-tight">{sub.label}</span>
+                  {SubIcon && <SubIcon className={`w-4 h-4 flex-shrink-0 transition-colors mt-0.5 ${isSubHovered ? "text-primary" : "text-primary/60 group-hover:text-primary"}`} />}
+                  <span className="leading-tight">{sub.label}</span>
                   {sub.serviceHighlights && sub.serviceHighlights.length > 0 && (
-                    <ChevronRight className={`w-3.5 h-3.5 flex-shrink-0 ml-auto transition-all ${isSubHovered ? "translate-x-0.5 text-primary opacity-100" : "opacity-0 group-hover:opacity-60"}`} />
+                    <ChevronRight className={`w-3.5 h-3.5 flex-shrink-0 ml-auto transition-all mt-0.5 ${isSubHovered ? "translate-x-0.5 text-primary opacity-100" : "opacity-0 group-hover:opacity-60"}`} />
                   )}
                 </Link>
               );
@@ -214,82 +214,91 @@ const MobileContentServicesAccordion = ({ onClose }: { onClose: () => void }) =>
   const location = useLocation();
 
   return (
-    <div className="pl-2 pb-2">
+    <div className="flex flex-col gap-3 px-2 pb-4 mt-2">
       {contentServicesCategories.map((cat, i) => {
         const Icon = cat.icon;
         const isExpanded = expandedCat === i;
         const isCatActive = location.pathname.startsWith(cat.href);
         return (
-          <div key={cat.label}>
+          <div key={cat.label} className={`rounded-xl border transition-all duration-300 ${isExpanded ? "bg-primary/5 border-primary/30" : "bg-card border-border/50 shadow-sm"}`}>
             <button
-              className={`flex items-center gap-2.5 w-full px-4 py-2.5 text-sm text-left transition-colors rounded-lg ${isCatActive ? "text-primary font-medium" : "text-foreground/80 hover:text-primary"}`}
+              className="flex items-center gap-3 w-full p-4 text-left"
               onClick={() => { setExpandedCat(isExpanded ? null : i); setExpandedSub(null); }}
             >
-              <Icon className="w-4 h-4 flex-shrink-0" />
-              <span className="flex-1">{cat.label}</span>
-              <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isExpanded ? "rotate-180" : ""}`} />
+              <div className={`p-2 rounded-lg transition-colors ${isExpanded || isCatActive ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"}`}>
+                <Icon className="w-5 h-5" />
+              </div>
+              <span className={`flex-1 font-semibold ${isExpanded || isCatActive ? "text-foreground" : "text-foreground/80"}`}>{cat.label}</span>
+              <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`} />
             </button>
 
             {isExpanded && (
-              <div className="pl-8 pb-1 animate-slide-up">
+              <div className="px-4 pb-4 pt-1 animate-slide-up">
                 <Link
                   to={cat.href}
-                  className="block px-3 py-1.5 text-xs font-semibold text-primary hover:underline mb-1"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-3 hover:bg-primary/20 transition-colors"
                   onClick={onClose}
                 >
-                  View All →
+                  Overview <ArrowRight className="w-3 h-3" />
                 </Link>
-                {cat.subServices.map((sub) => {
-                  const isActive = location.pathname === sub.href;
-                  const isSubExpanded = expandedSub === sub.href;
-                  const hasHighlights = sub.serviceHighlights && sub.serviceHighlights.length > 0;
-                  return (
-                    <div key={sub.href}>
-                      <div className="flex items-center">
-                        <Link
-                          to={sub.href}
-                          className={`flex-1 block px-3 py-1.5 text-sm rounded-md transition-colors ${isActive ? "text-primary font-medium bg-primary/5" : "text-muted-foreground hover:text-primary"}`}
-                          onClick={onClose}
-                        >
-                          {sub.label}
-                        </Link>
-                        {hasHighlights && (
-                          <button
-                            className="p-1.5 rounded-md text-muted-foreground/60 hover:text-primary hover:bg-primary/5 transition-colors flex-shrink-0"
-                            onClick={() => setExpandedSub(isSubExpanded ? null : sub.href)}
-                            aria-label={`${isSubExpanded ? "Hide" : "Show"} services under ${sub.label}`}
+                <div className="grid grid-cols-1 gap-2">
+                  {cat.subServices.map((sub) => {
+                    const isActive = location.pathname === sub.href;
+                    const isSubExpanded = expandedSub === sub.href;
+                    const hasHighlights = sub.serviceHighlights && sub.serviceHighlights.length > 0;
+                    return (
+                      <div key={sub.href} className={`rounded-lg border transition-all ${isActive ? "bg-primary/10 border-primary/20" : "bg-background border-border/40 hover:border-primary/30 hover:shadow-sm"}`}>
+                        <div className="flex items-center">
+                          <Link
+                            to={sub.href}
+                            className={`flex items-center gap-3 p-3 flex-1 transition-colors ${isActive ? "text-primary font-medium" : "text-foreground/80 hover:text-primary"}`}
+                            onClick={onClose}
                           >
-                            <ChevronDown className={`w-3 h-3 transition-transform ${isSubExpanded ? "rotate-180" : ""}`} />
-                          </button>
+                            {sub.icon && <sub.icon className="w-4 h-4 text-primary/70" />}
+                            <span className="text-sm flex-1">{sub.label}</span>
+                          </Link>
+                          {hasHighlights && (
+                            <button
+                              className="p-3 text-muted-foreground/60 hover:text-primary transition-colors flex-shrink-0"
+                              onClick={() => setExpandedSub(isSubExpanded ? null : sub.href)}
+                              aria-label={`${isSubExpanded ? "Hide" : "Show"} services under ${sub.label}`}
+                            >
+                              <ChevronDown className={`w-4 h-4 transition-transform ${isSubExpanded ? "rotate-180" : ""}`} />
+                            </button>
+                          )}
+                        </div>
+                        {isSubExpanded && hasHighlights && (
+                          <div className="px-3 pb-3 animate-slide-up">
+                            <div className="pt-2 border-t border-border/40">
+                              <ul className="space-y-2 mt-2" aria-label={`Services under ${sub.label}`}>
+                                {sub.serviceHighlights!.map((highlight, hIdx) => (
+                                  <li key={hIdx}>
+                                    <Link
+                                      to={sub.href}
+                                      className="flex items-start gap-2 text-xs text-muted-foreground/80 hover:text-primary transition-colors"
+                                      onClick={onClose}
+                                    >
+                                      <span className="w-1 h-1 rounded-full bg-primary/40 mt-1.5 flex-shrink-0" />
+                                      <span className="leading-relaxed">{highlight}</span>
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
                         )}
                       </div>
-                      {isSubExpanded && hasHighlights && (
-                        <ul className="pl-5 pb-1.5 pt-0.5 animate-slide-up" aria-label={`Services under ${sub.label}`}>
-                          {sub.serviceHighlights!.map((highlight, hIdx) => (
-                            <li key={hIdx}>
-                              <Link
-                                to={sub.href}
-                                className="flex items-start gap-2 px-2 py-1 text-xs text-muted-foreground/80 hover:text-primary transition-colors rounded"
-                                onClick={onClose}
-                              >
-                                <span className="w-1 h-1 rounded-full bg-primary/40 mt-1.5 flex-shrink-0" />
-                                <span className="leading-relaxed">{highlight}</span>
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  );
-                })}
+                    )
+                  })}
+                </div>
               </div>
             )}
           </div>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}
 
 /* ─── Samples 3-Column Mega Menu (Desktop) ─── */
 const textSampleLinks = [
@@ -755,73 +764,88 @@ const Navbar = () => {
 
           {/* Mobile menu */}
           {isOpen && (
-            <div className="lg:hidden glass border-t border-border/50 animate-slide-up max-h-[80dvh] overflow-y-auto shadow-sm">
-              <div className="container mx-auto py-4 px-4 flex flex-col gap-2">
-                {navLinks.map((link) => (
-                  <div key={link.label}>
-                    {link.megaMenu ? (
-                      /* Content Services accordion for mobile */
-                      <>
-                        <button
-                          className="w-full px-4 py-3 text-sm font-medium text-foreground/80 hover:text-primary rounded-lg hover:bg-primary/5 flex items-center justify-between"
-                          onClick={() => setMobileContentServicesOpen(!mobileContentServicesOpen)}
-                        >
-                          {link.label}
-                          <ChevronDown className={`w-4 h-4 transition-transform ${mobileContentServicesOpen ? "rotate-180" : ""}`} />
-                        </button>
-                        {mobileContentServicesOpen && <MobileContentServicesAccordion onClose={() => setIsOpen(false)} />}
-                      </>
-                    ) : link.samplesMenu ? (
-                      <>
-                        <button
-                          className="w-full px-4 py-3 text-sm font-medium text-foreground/80 hover:text-primary rounded-lg hover:bg-primary/5 flex items-center justify-between"
-                          onClick={() => setMobileSamplesOpen(!mobileSamplesOpen)}
-                        >
-                          <span className="flex items-center gap-2">
-                            {link.label}
-                            <span className="text-[8px] font-bold tracking-widest uppercase px-1.5 py-0.5 rounded-full bg-gradient-to-r from-[hsl(220_85%_55%)] to-[hsl(190_85%_55%)] text-white">
-                              New
-                            </span>
-                          </span>
-                          <ChevronDown className={`w-4 h-4 transition-transform ${mobileSamplesOpen ? "rotate-180" : ""}`} />
-                        </button>
-                        {mobileSamplesOpen && <MobileSamplesAccordion onClose={() => setIsOpen(false)} />}
-                      </>
-                    ) : (
-                      <>
-                        <Link
-                          to={link.to}
-                          className="px-4 py-3 text-sm font-medium text-foreground/80 hover:text-primary rounded-lg hover:bg-primary/5 flex flex-col justify-center"
-                          onClick={() => !link.dropdown && setIsOpen(false)}
-                        >
-                          <div className="flex items-center justify-between w-full">
-                            {link.label}
-                            {link.dropdown && <ChevronDown className="w-4 h-4" />}
-                          </div>
-                          {link.subtext && (
-                            <span className="text-[10px] text-muted-foreground mt-0.5">{link.subtext}</span>
+            <div className="lg:hidden glass border-t border-border/50 animate-slide-up max-h-[80dvh] overflow-y-auto shadow-md">
+              <div className="container mx-auto py-6 px-4 flex flex-col gap-3">
+                {navLinks.map((link) => {
+                  const isLinkActive = location.pathname.startsWith(link.to);
+                  return (
+                    <div key={link.label} className="w-full">
+                      {link.megaMenu ? (
+                        /* Content Services accordion for mobile */
+                        <div className="rounded-xl border border-border/40 bg-card shadow-sm overflow-hidden transition-colors">
+                          <button
+                            className={`w-full px-4 py-3.5 text-sm font-semibold flex items-center justify-between transition-colors ${mobileContentServicesOpen ? "bg-primary/5 text-primary" : "text-foreground/90 hover:bg-primary/5 hover:text-primary"}`}
+                            onClick={() => setMobileContentServicesOpen(!mobileContentServicesOpen)}
+                          >
+                            <span>{link.label}</span>
+                            <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${mobileContentServicesOpen ? "rotate-180 text-primary" : "text-muted-foreground"}`} />
+                          </button>
+                          {mobileContentServicesOpen && (
+                            <div className="bg-secondary/10 border-t border-border/30 p-2">
+                              <MobileContentServicesAccordion onClose={() => setIsOpen(false)} />
+                            </div>
                           )}
-                        </Link>
+                        </div>
+                      ) : link.samplesMenu ? (
+                        /* Samples accordion for mobile */
+                        <div className="rounded-xl border border-border/40 bg-card shadow-sm overflow-hidden transition-colors">
+                          <button
+                            className={`w-full px-4 py-3.5 text-sm font-semibold flex items-center justify-between transition-colors ${mobileSamplesOpen ? "bg-primary/5 text-primary" : "text-foreground/90 hover:bg-primary/5 hover:text-primary"}`}
+                            onClick={() => setMobileSamplesOpen(!mobileSamplesOpen)}
+                          >
+                            <span className="flex items-center gap-2">
+                              {link.label}
+                              <span className="text-[9px] font-bold tracking-widest uppercase px-1.5 py-0.5 rounded-full bg-gradient-to-r from-[hsl(220_85%_55%)] to-[hsl(190_85%_55%)] text-white shadow-sm">
+                                New
+                              </span>
+                            </span>
+                            <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${mobileSamplesOpen ? "rotate-180 text-primary" : "text-muted-foreground"}`} />
+                          </button>
+                          {mobileSamplesOpen && (
+                            <div className="bg-secondary/10 border-t border-border/30 p-2">
+                              <MobileSamplesAccordion onClose={() => setIsOpen(false)} />
+                            </div>
+                          )}
+                        </div>
+                      ) : (
+                        /* Regular links & simple dropdowns */
+                        <div className="rounded-xl border border-border/40 bg-card shadow-sm overflow-hidden group hover:border-primary/30 transition-colors">
+                          <Link
+                            to={link.to}
+                            className={`flex flex-col justify-center px-4 py-3.5 transition-colors ${isLinkActive ? "bg-primary/5 text-primary" : "bg-card text-foreground/90 hover:bg-primary/5 hover:text-primary"}`}
+                            onClick={() => !link.dropdown && setIsOpen(false)}
+                          >
+                            <div className="flex items-center justify-between w-full">
+                              <span className="font-semibold text-sm">{link.label}</span>
+                              {link.dropdown && <ArrowRight className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" />}
+                            </div>
+                            {link.subtext && (
+                              <span className="text-xs text-muted-foreground mt-1">{link.subtext}</span>
+                            )}
+                          </Link>
 
-                        {link.dropdown && (
-                          <div className="pl-6 pb-1">
-                            {link.dropdown.map((sub) => (
-                              <Link
-                                key={sub.label}
-                                to={sub.to}
-                                className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary"
-                                onClick={() => setIsOpen(false)}
-                              >
-                                {sub.label}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </>
-                    )}
-                  </div>
-                ))}
-                <Button asChild className="mt-2 bg-gradient-primary border-0 text-primary-foreground">
+                          {link.dropdown && (
+                            <div className="bg-secondary/20 p-3 flex flex-col gap-2 border-t border-border/30">
+                              {link.dropdown.map((sub) => (
+                                <Link
+                                  key={sub.label}
+                                  to={sub.to}
+                                  className="group/sub flex items-center gap-3 px-3 py-2.5 rounded-lg border border-transparent hover:border-border hover:bg-background hover:shadow-sm text-sm text-foreground/70 hover:text-primary transition-all"
+                                  onClick={() => setIsOpen(false)}
+                                >
+                                  <span className="w-1.5 h-1.5 rounded-full bg-primary/40 flex-shrink-0 group-hover/sub:scale-125 transition-transform" />
+                                  <span className="flex-1 font-medium">{sub.label}</span>
+                                  <ChevronRight className="w-3.5 h-3.5 text-muted-foreground/40 opacity-0 group-hover/sub:opacity-100 group-hover/sub:translate-x-1 transition-all" />
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+                <Button asChild className="mt-4 bg-gradient-primary border-0 text-primary-foreground shadow-md h-12 rounded-xl text-base font-bold">
                   <Link to="/contact-us" onClick={() => setIsOpen(false)}>Contact Us</Link>
                 </Button>
               </div>
