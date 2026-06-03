@@ -14,6 +14,8 @@ const OrganizationalDiagnosticsPage = () => (
     headline="Organisational Diagnostics for"
     headlineAccent="Workforce Capability"
     subtext="eQOURSE develops organisational diagnostics content, assessment tools and reporting structures for HR, L&D, workforce planning and education organisations. The service supports capability mapping, skill gap analysis, job role benchmarking and training needs analysis for global B2B teams."
+    bannerImage="/assets/content-services/talent-assessment/organisational-diagnostics-for-workforce-capability.webp"
+    bannerImageAlt="Organizational diagnostics and workforce capability assessment matrices"
     ctaText="Request Diagnostic Support"
     introLabel="WORKFORCE INSIGHT"
     introTitle="Diagnose Capability Gaps Before Designing"

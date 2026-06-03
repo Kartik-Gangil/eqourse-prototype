@@ -14,6 +14,8 @@ const PsychometricAssessmentsPage = () => (
     headline="Psychometric Assessments for"
     headlineAccent="Workforce Evaluation"
     subtext="eQOURSE develops psychometric assessment content, scoring models, and reporting structures for B2B clients. We provide test construction support, scale development, reliability analysis, validity evidence, norming, and test-equating support for workforce, educational, and certification needs."
+    bannerImage="/assets/content-services/talent-assessment/psychometric-assessments-for-workforce-evaluation.webp"
+    bannerImageAlt="Psychometric assessments and testing workflows for workforce evaluation"
     ctaText="Request Psychometric Support"
     introLabel="PSYCHOMETRICS"
     introTitle="Scientifically Structured Psychometric"

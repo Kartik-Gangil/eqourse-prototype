@@ -14,6 +14,8 @@ const SkillAssessmentsPage = () => (
     headline="Skill-Based Assessments for"
     headlineAccent="Workforce Capability Evaluation"
     subtext="eQOURSE develops skill-based assessment assets for corporates, EdTech platforms, universities, workforce bodies and learning organisations. The service covers competency-mapped test items, practical task scenarios, scoring rubrics, item metadata and review-ready assessment documentation for digital or blended evaluation models."
+    bannerImage="/assets/content-services/talent-assessment/skill-based-assessments-for-workforce-capability-evaluation.webp"
+    bannerImageAlt="Skill-based assessments and technical capability evaluation formats"
     ctaText="Request Assessment Content"
     introLabel="ASSESSMENT DESIGN"
     introTitle="Competency-Mapped Evaluation Content"

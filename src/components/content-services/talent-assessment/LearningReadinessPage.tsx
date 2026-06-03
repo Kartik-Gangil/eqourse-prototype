@@ -14,6 +14,8 @@ const LearningReadinessPage = () => (
     headline="Learning Readiness Assessment"
     headlineAccent="Solutions"
     subtext="eQOURSE develops learning readiness assessments, pre-requisite tests, learner diagnostic tools and onboarding assessments for B2B training, higher education and corporate reskilling programmes."
+    bannerImage="/assets/content-services/talent-assessment/learning-readiness-assessment-solutions.webp"
+    bannerImageAlt="Learning readiness assessment solutions and prerequisite skill evaluation"
     ctaText="Request Assessment Support"
     introLabel="LEARNING READINESS"
     introTitle="Determine Learner Readiness and Prerequisite"

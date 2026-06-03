@@ -14,6 +14,8 @@ const CompetencyFrameworksPage = () => (
     headline="Competency Frameworks for"
     headlineAccent="Workforce Assessment"
     subtext="eQOURSE designs role-based competency frameworks, competency dictionaries, skills inventories, and role architecture maps. We help organizations structure the competency definitions required for job alignment, skill assessments, performance reviews, and training paths."
+    bannerImage="/assets/content-services/talent-assessment/competency-frameworks-for-workforce-assessment.webp"
+    bannerImageAlt="Competency frameworks and behavioral indicators for workforce assessment"
     ctaText="Discuss Framework Requirements"
     introLabel="COMPETENCY FRAMEWORKS"
     introTitle="Structure Your Workforce Competency"

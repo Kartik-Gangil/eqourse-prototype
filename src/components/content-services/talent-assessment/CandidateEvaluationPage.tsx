@@ -14,6 +14,8 @@ const CandidateEvaluationPage = () => (
     headline="Candidate Evaluation Content"
     headlineAccent="and Assessment Support"
     subtext="eQOURSE develops candidate evaluation content, pre-hiring tests, structured work samples, interview rubrics, and evaluation scorecards for B2B clients. We help organizations design consistent, role-linked candidate screening tools for structured recruitment workflows."
+    bannerImage="/assets/content-services/talent-assessment/candidate-evaluation-content-and-assessment-support.webp"
+    bannerImageAlt="Candidate evaluation content and screening assessment support interfaces"
     ctaText="Request Evaluation Support"
     introLabel="CANDIDATE SCREENING"
     introTitle="Develop Reliable Evidence-Based"

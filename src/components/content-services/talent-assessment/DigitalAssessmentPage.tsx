@@ -14,6 +14,8 @@ const DigitalAssessmentPage = () => (
     headline="Digital Assessment Infrastructure"
     headlineAccent="Support"
     subtext="eQOURSE develops scalable digital assessment content, online item-bank formats, remote proctoring process guidelines, and digital test-delivery workflows for B2B testing platforms."
+    bannerImage="/assets/content-services/talent-assessment/digital-assessment-infrastructure-support.webp"
+    bannerImageAlt="Digital assessment infrastructure and test delivery platform support"
     ctaText="Request Infrastructure Support"
     introLabel="DIGITAL INFRASTRUCTURE"
     introTitle="Content Workflows Built for"
