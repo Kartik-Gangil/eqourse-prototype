@@ -10,7 +10,7 @@ const TeacherLessonPlanPage = () => (
     parentLabel="Custom E-Learning Content"
     parentHref="/custom-e-learning-content"
     currentLabel="Teacher Lesson Plan"
-    bannerImage="/assets/banners/content-services/custom-elearning/teacher-lesson-plan.png"
+    bannerImage="/assets/banners/content-services/custom-elearning/teacher-lesson-plan.webp"
     bannerImageAlt="Teacher lesson plan solutions banner showing curriculum-aligned daily, weekly and subject-specific lesson plans crafted by eQOURSE for K-12 and higher education educators"
     preHeadline="Engaging & Curriculum-Aligned Teacher Lesson Plan Solutions for K-12 & Higher Education"
     headline="Teacher Lesson Plan"

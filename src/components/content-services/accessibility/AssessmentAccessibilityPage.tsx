@@ -18,7 +18,7 @@ const AssessmentAccessibilityPage = () => (
     parentLabel="Accessibility"
     parentHref="/accessibility"
     currentLabel="Assessment Accessibility"
-    bannerImage="/assets/banners/content-services/accessibility/assessment-accessibility.png"
+    bannerImage="/assets/banners/content-services/accessibility/assessment-accessibility.webp"
     bannerImageAlt="Assessment accessibility services banner showing inclusive item design, keyboard-only operability, screen reader testing and equitable WCAG-aligned testing experiences by eQOURSE"
     preHeadline="Assessment Accessibility Services"
     headline="Assessment"

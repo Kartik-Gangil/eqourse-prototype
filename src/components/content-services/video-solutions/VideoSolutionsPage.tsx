@@ -34,7 +34,7 @@ const VideoSolutionsPage = () => (
       subtext="Transform complex concepts into engaging visual learning experiences with our professional video production services. Scale visual knowledge transfer effectively."
       ctaText="Request Video Samples"
       ctaLink="#contact"
-      imageSrc="/assets/banners/content-services/main/elearning-video-solutions.jpeg"
+      imageSrc="/assets/banners/content-services/main/elearning-video-solutions.webp"
       imageAlt="E-learning video solutions by eQOURSE - animated explainer videos, PPT-to-video conversion, Articulate Storyline interactive courses and whiteboard animations"
       rotatingBadges={[
         { icon: PlayCircle, title: "2D Animation", subtitle: "Engaging visuals", color: "hsl(170 82% 55%)" },

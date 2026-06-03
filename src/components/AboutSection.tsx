@@ -1,6 +1,6 @@
 import { ArrowRight, Shield, Globe, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import aboutImage from "@/assets/who-we-are.png";
+import aboutImage from "@/assets/who-we-are.webp";
 import { Link } from "react-router-dom";
 
 const AboutSection = () => {

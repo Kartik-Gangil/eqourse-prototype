@@ -10,7 +10,7 @@ const EbookCreationPage = () => (
     parentLabel="Custom E-Learning Content"
     parentHref="/custom-e-learning-content"
     currentLabel="E-Book Creation"
-    bannerImage="/assets/banners/content-services/custom-elearning/ebook-creation.png"
+    bannerImage="/assets/banners/content-services/custom-elearning/ebook-creation.webp"
     bannerImageAlt="Interactive eBook creation services illustration showing EPUB3 digital textbooks with embedded videos, quizzes and accessibility features built by eQOURSE"
     preHeadline="Interactive eBook Creation Services for K-12 & Higher Education"
     headline="Interactive eBook"

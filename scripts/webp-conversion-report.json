@@ -1,0 +1,992 @@
+{
+  "converted": [
+    {
+      "original": "/assets/about/Carrer.png",
+      "webp": "/assets/about/Carrer.webp",
+      "originalSize": 1896739,
+      "webpSize": 95230
+    },
+    {
+      "original": "/assets/about/FAQ.png",
+      "webp": "/assets/about/FAQ.webp",
+      "originalSize": 1886759,
+      "webpSize": 91114
+    },
+    {
+      "original": "/assets/about/gallery/1.png",
+      "webp": "/assets/about/gallery/1.webp",
+      "originalSize": 8666803,
+      "webpSize": 317930
+    },
+    {
+      "original": "/assets/about/gallery/10.png",
+      "webp": "/assets/about/gallery/10.webp",
+      "originalSize": 3572807,
+      "webpSize": 345426
+    },
+    {
+      "original": "/assets/about/gallery/11.png",
+      "webp": "/assets/about/gallery/11.webp",
+      "originalSize": 5228383,
+      "webpSize": 171846
+    },
+    {
+      "original": "/assets/about/gallery/12.png",
+      "webp": "/assets/about/gallery/12.webp",
+      "originalSize": 5019706,
+      "webpSize": 329122
+    },
+    {
+      "original": "/assets/about/gallery/13.png",
+      "webp": "/assets/about/gallery/13.webp",
+      "originalSize": 1503628,
+      "webpSize": 107534
+    },
+    {
+      "original": "/assets/about/gallery/14.png",
+      "webp": "/assets/about/gallery/14.webp",
+      "originalSize": 9393115,
+      "webpSize": 1007854
+    },
+    {
+      "original": "/assets/about/gallery/15.png",
+      "webp": "/assets/about/gallery/15.webp",
+      "originalSize": 7241222,
+      "webpSize": 534178
+    },
+    {
+      "original": "/assets/about/gallery/16.png",
+      "webp": "/assets/about/gallery/16.webp",
+      "originalSize": 3989455,
+      "webpSize": 194962
+    },
+    {
+      "original": "/assets/about/gallery/17.png",
+      "webp": "/assets/about/gallery/17.webp",
+      "originalSize": 4786739,
+      "webpSize": 303634
+    },
+    {
+      "original": "/assets/about/gallery/18.png",
+      "webp": "/assets/about/gallery/18.webp",
+      "originalSize": 921204,
+      "webpSize": 68726
+    },
+    {
+      "original": "/assets/about/gallery/19.png",
+      "webp": "/assets/about/gallery/19.webp",
+      "originalSize": 3954673,
+      "webpSize": 155128
+    },
+    {
+      "original": "/assets/about/gallery/2.png",
+      "webp": "/assets/about/gallery/2.webp",
+      "originalSize": 11160533,
+      "webpSize": 470222
+    },
+    {
+      "original": "/assets/about/gallery/20.png",
+      "webp": "/assets/about/gallery/20.webp",
+      "originalSize": 8481248,
+      "webpSize": 313642
+    },
+    {
+      "original": "/assets/about/gallery/21.png",
+      "webp": "/assets/about/gallery/21.webp",
+      "originalSize": 2089864,
+      "webpSize": 128864
+    },
+    {
+      "original": "/assets/about/gallery/3.png",
+      "webp": "/assets/about/gallery/3.webp",
+      "originalSize": 8676597,
+      "webpSize": 305374
+    },
+    {
+      "original": "/assets/about/gallery/4.png",
+      "webp": "/assets/about/gallery/4.webp",
+      "originalSize": 6109797,
+      "webpSize": 142402
+    },
+    {
+      "original": "/assets/about/gallery/5.png",
+      "webp": "/assets/about/gallery/5.webp",
+      "originalSize": 10711263,
+      "webpSize": 549972
+    },
+    {
+      "original": "/assets/about/gallery/6.png",
+      "webp": "/assets/about/gallery/6.webp",
+      "originalSize": 11593176,
+      "webpSize": 913310
+    },
+    {
+      "original": "/assets/about/gallery/7.png",
+      "webp": "/assets/about/gallery/7.webp",
+      "originalSize": 6690634,
+      "webpSize": 342708
+    },
+    {
+      "original": "/assets/about/gallery/8.png",
+      "webp": "/assets/about/gallery/8.webp",
+      "originalSize": 16297286,
+      "webpSize": 2188912
+    },
+    {
+      "original": "/assets/about/gallery/9.png",
+      "webp": "/assets/about/gallery/9.webp",
+      "originalSize": 6629601,
+      "webpSize": 382548
+    },
+    {
+      "original": "/assets/about/Som sir Img.png",
+      "webp": "/assets/about/Som sir Img.webp",
+      "originalSize": 5208376,
+      "webpSize": 196026
+    },
+    {
+      "original": "/assets/about/Testiominal.png",
+      "webp": "/assets/about/Testiominal.webp",
+      "originalSize": 1751987,
+      "webpSize": 101820
+    },
+    {
+      "original": "/assets/about/Who we are (A).png",
+      "webp": "/assets/about/Who we are (A).webp",
+      "originalSize": 2067160,
+      "webpSize": 148060
+    },
+    {
+      "original": "/assets/ai-data/Annotation and Labeling.png",
+      "webp": "/assets/ai-data/Annotation and Labeling.webp",
+      "originalSize": 2233408,
+      "webpSize": 131064
+    },
+    {
+      "original": "/assets/ai-data/Cleaning and validation.png",
+      "webp": "/assets/ai-data/Cleaning and validation.webp",
+      "originalSize": 2054614,
+      "webpSize": 105782
+    },
+    {
+      "original": "/assets/ai-data/Data Collection V2.png",
+      "webp": "/assets/ai-data/Data Collection V2.webp",
+      "originalSize": 1747114,
+      "webpSize": 104840
+    },
+    {
+      "original": "/assets/ai-data/model testing.png",
+      "webp": "/assets/ai-data/model testing.webp",
+      "originalSize": 2080115,
+      "webpSize": 125802
+    },
+    {
+      "original": "/assets/banners/content-services/accessibility/accessible-media-enhancements.png",
+      "webp": "/assets/banners/content-services/accessibility/accessible-media-enhancements.webp",
+      "originalSize": 1760750,
+      "webpSize": 89508
+    },
+    {
+      "original": "/assets/banners/content-services/accessibility/assessment-accessibility.png",
+      "webp": "/assets/banners/content-services/accessibility/assessment-accessibility.webp",
+      "originalSize": 1786572,
+      "webpSize": 71360
+    },
+    {
+      "original": "/assets/banners/content-services/accessibility/assistive-technology-compatibility.png",
+      "webp": "/assets/banners/content-services/accessibility/assistive-technology-compatibility.webp",
+      "originalSize": 1677105,
+      "webpSize": 73318
+    },
+    {
+      "original": "/assets/banners/content-services/accessibility/audit-compliance-support.png",
+      "webp": "/assets/banners/content-services/accessibility/audit-compliance-support.webp",
+      "originalSize": 1570908,
+      "webpSize": 64088
+    },
+    {
+      "original": "/assets/banners/content-services/accessibility/document-content-remediation.png",
+      "webp": "/assets/banners/content-services/accessibility/document-content-remediation.webp",
+      "originalSize": 1464408,
+      "webpSize": 67450
+    },
+    {
+      "original": "/assets/banners/content-services/accessibility/standards-compliance.png",
+      "webp": "/assets/banners/content-services/accessibility/standards-compliance.webp",
+      "originalSize": 1290463,
+      "webpSize": 51380
+    },
+    {
+      "original": "/assets/banners/content-services/custom-elearning/2d-3d-videos.png",
+      "webp": "/assets/banners/content-services/custom-elearning/2d-3d-videos.webp",
+      "originalSize": 2450745,
+      "webpSize": 190478
+    },
+    {
+      "original": "/assets/banners/content-services/custom-elearning/assessment-development.png",
+      "webp": "/assets/banners/content-services/custom-elearning/assessment-development.webp",
+      "originalSize": 2023660,
+      "webpSize": 128792
+    },
+    {
+      "original": "/assets/banners/content-services/custom-elearning/ebook-creation.png",
+      "webp": "/assets/banners/content-services/custom-elearning/ebook-creation.webp",
+      "originalSize": 2115009,
+      "webpSize": 114046
+    },
+    {
+      "original": "/assets/banners/content-services/custom-elearning/educational-content-development.png",
+      "webp": "/assets/banners/content-services/custom-elearning/educational-content-development.webp",
+      "originalSize": 2511188,
+      "webpSize": 198170
+    },
+    {
+      "original": "/assets/banners/content-services/custom-elearning/k12-and-higher-education.png",
+      "webp": "/assets/banners/content-services/custom-elearning/k12-and-higher-education.webp",
+      "originalSize": 2300747,
+      "webpSize": 139864
+    },
+    {
+      "original": "/assets/banners/content-services/custom-elearning/k12-curriculum-development.png",
+      "webp": "/assets/banners/content-services/custom-elearning/k12-curriculum-development.webp",
+      "originalSize": 2571315,
+      "webpSize": 214380
+    },
+    {
+      "original": "/assets/banners/content-services/custom-elearning/quiz-question-bank.png",
+      "webp": "/assets/banners/content-services/custom-elearning/quiz-question-bank.webp",
+      "originalSize": 1919895,
+      "webpSize": 107128
+    },
+    {
+      "original": "/assets/banners/content-services/custom-elearning/stem-curriculum-services.png",
+      "webp": "/assets/banners/content-services/custom-elearning/stem-curriculum-services.webp",
+      "originalSize": 2387874,
+      "webpSize": 162984
+    },
+    {
+      "original": "/assets/banners/content-services/custom-elearning/teacher-lesson-plan.png",
+      "webp": "/assets/banners/content-services/custom-elearning/teacher-lesson-plan.webp",
+      "originalSize": 2382039,
+      "webpSize": 170930
+    },
+    {
+      "original": "/assets/banners/content-services/custom-elearning/workbook-development.png",
+      "webp": "/assets/banners/content-services/custom-elearning/workbook-development.webp",
+      "originalSize": 2413527,
+      "webpSize": 186996
+    },
+    {
+      "original": "/assets/banners/content-services/exam-prep/act.png",
+      "webp": "/assets/banners/content-services/exam-prep/act.webp",
+      "originalSize": 1827963,
+      "webpSize": 93844
+    },
+    {
+      "original": "/assets/banners/content-services/exam-prep/ap-exam.png",
+      "webp": "/assets/banners/content-services/exam-prep/ap-exam.webp",
+      "originalSize": 2292682,
+      "webpSize": 142502
+    },
+    {
+      "original": "/assets/banners/content-services/exam-prep/aptis.png",
+      "webp": "/assets/banners/content-services/exam-prep/aptis.webp",
+      "originalSize": 2082862,
+      "webpSize": 141800
+    },
+    {
+      "original": "/assets/banners/content-services/exam-prep/cefr.png",
+      "webp": "/assets/banners/content-services/exam-prep/cefr.webp",
+      "originalSize": 2075833,
+      "webpSize": 111572
+    },
+    {
+      "original": "/assets/banners/content-services/exam-prep/ielts.png",
+      "webp": "/assets/banners/content-services/exam-prep/ielts.webp",
+      "originalSize": 1904701,
+      "webpSize": 106684
+    },
+    {
+      "original": "/assets/banners/content-services/exam-prep/pte.png",
+      "webp": "/assets/banners/content-services/exam-prep/pte.webp",
+      "originalSize": 1907377,
+      "webpSize": 114098
+    },
+    {
+      "original": "/assets/banners/content-services/exam-prep/sat.png",
+      "webp": "/assets/banners/content-services/exam-prep/sat.webp",
+      "originalSize": 1925040,
+      "webpSize": 89240
+    },
+    {
+      "original": "/assets/banners/content-services/exam-prep/toefl.png",
+      "webp": "/assets/banners/content-services/exam-prep/toefl.webp",
+      "originalSize": 2247577,
+      "webpSize": 171174
+    },
+    {
+      "original": "/assets/banners/content-services/exam-prep/toeic.png",
+      "webp": "/assets/banners/content-services/exam-prep/toeic.webp",
+      "originalSize": 2063077,
+      "webpSize": 104966
+    },
+    {
+      "original": "/assets/banners/content-services/learning-solutions/adaptive-learning.png",
+      "webp": "/assets/banners/content-services/learning-solutions/adaptive-learning.webp",
+      "originalSize": 2022576,
+      "webpSize": 109246
+    },
+    {
+      "original": "/assets/banners/content-services/learning-solutions/ai-powered-learning.png",
+      "webp": "/assets/banners/content-services/learning-solutions/ai-powered-learning.webp",
+      "originalSize": 2129091,
+      "webpSize": 122476
+    },
+    {
+      "original": "/assets/banners/content-services/learning-solutions/ar-vr.png",
+      "webp": "/assets/banners/content-services/learning-solutions/ar-vr.webp",
+      "originalSize": 2203768,
+      "webpSize": 142598
+    },
+    {
+      "original": "/assets/banners/content-services/learning-solutions/blended-learning.png",
+      "webp": "/assets/banners/content-services/learning-solutions/blended-learning.webp",
+      "originalSize": 2193826,
+      "webpSize": 145072
+    },
+    {
+      "original": "/assets/banners/content-services/learning-solutions/corporate-elearning.png",
+      "webp": "/assets/banners/content-services/learning-solutions/corporate-elearning.webp",
+      "originalSize": 2171935,
+      "webpSize": 140626
+    },
+    {
+      "original": "/assets/banners/content-services/learning-solutions/gamified-learning.png",
+      "webp": "/assets/banners/content-services/learning-solutions/gamified-learning.webp",
+      "originalSize": 2268355,
+      "webpSize": 146190
+    },
+    {
+      "original": "/assets/banners/content-services/learning-solutions/ilt.png",
+      "webp": "/assets/banners/content-services/learning-solutions/ilt.webp",
+      "originalSize": 2144655,
+      "webpSize": 117490
+    },
+    {
+      "original": "/assets/banners/content-services/learning-solutions/instructional-design.png",
+      "webp": "/assets/banners/content-services/learning-solutions/instructional-design.webp",
+      "originalSize": 2198785,
+      "webpSize": 151918
+    },
+    {
+      "original": "/assets/banners/content-services/learning-solutions/training-modules.png",
+      "webp": "/assets/banners/content-services/learning-solutions/training-modules.webp",
+      "originalSize": 2339167,
+      "webpSize": 158016
+    },
+    {
+      "original": "/assets/banners/content-services/localization/subtitling.png",
+      "webp": "/assets/banners/content-services/localization/subtitling.webp",
+      "originalSize": 2095705,
+      "webpSize": 145600
+    },
+    {
+      "original": "/assets/banners/content-services/localization/translation.png",
+      "webp": "/assets/banners/content-services/localization/translation.webp",
+      "originalSize": 2065369,
+      "webpSize": 140288
+    },
+    {
+      "original": "/assets/banners/content-services/localization/voice-over.png",
+      "webp": "/assets/banners/content-services/localization/voice-over.webp",
+      "originalSize": 2170590,
+      "webpSize": 164274
+    },
+    {
+      "original": "/assets/banners/content-services/main/accessibility.png",
+      "webp": "/assets/banners/content-services/main/accessibility.webp",
+      "originalSize": 1795461,
+      "webpSize": 62994
+    },
+    {
+      "original": "/assets/banners/content-services/main/custom-e-learning-content.png",
+      "webp": "/assets/banners/content-services/main/custom-e-learning-content.webp",
+      "originalSize": 1998589,
+      "webpSize": 87240
+    },
+    {
+      "original": "/assets/banners/content-services/main/elearning-video-solutions.jpeg",
+      "webp": "/assets/banners/content-services/main/elearning-video-solutions.webp",
+      "originalSize": 2777479,
+      "webpSize": 189680
+    },
+    {
+      "original": "/assets/banners/content-services/main/exam-preparation-content.png",
+      "webp": "/assets/banners/content-services/main/exam-preparation-content.webp",
+      "originalSize": 1844763,
+      "webpSize": 94526
+    },
+    {
+      "original": "/assets/banners/content-services/main/learning-solutions.jpeg",
+      "webp": "/assets/banners/content-services/main/learning-solutions.webp",
+      "originalSize": 2521709,
+      "webpSize": 139732
+    },
+    {
+      "original": "/assets/banners/content-services/main/localization-services.png",
+      "webp": "/assets/banners/content-services/main/localization-services.webp",
+      "originalSize": 2085284,
+      "webpSize": 136200
+    },
+    {
+      "original": "/assets/banners/content-services/main/subject-matter-experts.png",
+      "webp": "/assets/banners/content-services/main/subject-matter-experts.webp",
+      "originalSize": 2101406,
+      "webpSize": 113770
+    },
+    {
+      "original": "/assets/banners/content-services/main/talent-assessment-workforce-evaluation.png",
+      "webp": "/assets/banners/content-services/main/talent-assessment-workforce-evaluation.webp",
+      "originalSize": 1570908,
+      "webpSize": 64088
+    },
+    {
+      "original": "/assets/banners/content-services/main/technology-solutions.png",
+      "webp": "/assets/banners/content-services/main/technology-solutions.webp",
+      "originalSize": 1873860,
+      "webpSize": 118774
+    },
+    {
+      "original": "/assets/banners/content-services/sme/live-online-tutors.png",
+      "webp": "/assets/banners/content-services/sme/live-online-tutors.webp",
+      "originalSize": 1872618,
+      "webpSize": 84262
+    },
+    {
+      "original": "/assets/banners/content-services/sme/recruitment.png",
+      "webp": "/assets/banners/content-services/sme/recruitment.webp",
+      "originalSize": 1924939,
+      "webpSize": 91088
+    },
+    {
+      "original": "/assets/banners/content-services/sme/training.png",
+      "webp": "/assets/banners/content-services/sme/training.webp",
+      "originalSize": 1923207,
+      "webpSize": 88830
+    },
+    {
+      "original": "/assets/banners/content-services/tech-solutions/lms-course-builds.png",
+      "webp": "/assets/banners/content-services/tech-solutions/lms-course-builds.webp",
+      "originalSize": 1849293,
+      "webpSize": 108732
+    },
+    {
+      "original": "/assets/banners/content-services/tech-solutions/white-label-lms.png",
+      "webp": "/assets/banners/content-services/tech-solutions/white-label-lms.webp",
+      "originalSize": 1740879,
+      "webpSize": 88258
+    },
+    {
+      "original": "/assets/banners/content-services/video-solutions/animated-videos.png",
+      "webp": "/assets/banners/content-services/video-solutions/animated-videos.webp",
+      "originalSize": 2178960,
+      "webpSize": 153356
+    },
+    {
+      "original": "/assets/banners/content-services/video-solutions/articulate-storyline.png",
+      "webp": "/assets/banners/content-services/video-solutions/articulate-storyline.webp",
+      "originalSize": 1967568,
+      "webpSize": 156866
+    },
+    {
+      "original": "/assets/banners/content-services/video-solutions/ppt-videos.png",
+      "webp": "/assets/banners/content-services/video-solutions/ppt-videos.webp",
+      "originalSize": 2182646,
+      "webpSize": 154480
+    },
+    {
+      "original": "/assets/banners/editorial-publishing/Design Services for Educational Publishing.png",
+      "webp": "/assets/banners/editorial-publishing/Design Services for Educational Publishing.webp",
+      "originalSize": 1853338,
+      "webpSize": 136172
+    },
+    {
+      "original": "/assets/banners/editorial-publishing/Digital Conversion for Modern Publishing.png",
+      "webp": "/assets/banners/editorial-publishing/Digital Conversion for Modern Publishing.webp",
+      "originalSize": 1473215,
+      "webpSize": 82120
+    },
+    {
+      "original": "/assets/banners/editorial-publishing/Editorial Services for Global Learning Content.png",
+      "webp": "/assets/banners/editorial-publishing/Editorial Services for Global Learning Content.webp",
+      "originalSize": 1577879,
+      "webpSize": 103922
+    },
+    {
+      "original": "/assets/banners/editorial-publishing/Editorial, Publishing & Designing Services(main ).png",
+      "webp": "/assets/banners/editorial-publishing/Editorial, Publishing & Designing Services(main ).webp",
+      "originalSize": 1841000,
+      "webpSize": 132918
+    },
+    {
+      "original": "/assets/banners/editorial-publishing/Image Processing for Learning Content.png",
+      "webp": "/assets/banners/editorial-publishing/Image Processing for Learning Content.webp",
+      "originalSize": 1668938,
+      "webpSize": 125840
+    },
+    {
+      "original": "/assets/banners/editorial-publishing/Metadata Services for Education Publishing.png",
+      "webp": "/assets/banners/editorial-publishing/Metadata Services for Education Publishing.webp",
+      "originalSize": 1660118,
+      "webpSize": 110784
+    },
+    {
+      "original": "/assets/banners/editorial-publishing/Prepress Services for Publication Production.png",
+      "webp": "/assets/banners/editorial-publishing/Prepress Services for Publication Production.webp",
+      "originalSize": 1861423,
+      "webpSize": 136906
+    },
+    {
+      "original": "/assets/banners/editorial-publishing/Publishing Production for Learning Content.png",
+      "webp": "/assets/banners/editorial-publishing/Publishing Production for Learning Content.webp",
+      "originalSize": 1726416,
+      "webpSize": 130078
+    },
+    {
+      "original": "/assets/contact/contact us.png",
+      "webp": "/assets/contact/contact us.webp",
+      "originalSize": 1925474,
+      "webpSize": 79408
+    },
+    {
+      "original": "/assets/contact-us.png",
+      "webp": "/assets/contact-us.webp",
+      "originalSize": 1925474,
+      "webpSize": 79408
+    },
+    {
+      "original": "/assets/content-services/Editorial, Publishing & Designing Services.png",
+      "webp": "/assets/content-services/Editorial, Publishing & Designing Services.webp",
+      "originalSize": 1841000,
+      "webpSize": 132918
+    },
+    {
+      "original": "/assets/dropdown/who_we_are.png",
+      "webp": "/assets/dropdown/who_we_are.webp",
+      "originalSize": 878044,
+      "webpSize": 140614
+    },
+    {
+      "original": "/assets/features/AI data service.png",
+      "webp": "/assets/features/AI data service.webp",
+      "originalSize": 1985782,
+      "webpSize": 99576
+    },
+    {
+      "original": "/assets/features/Content service.png",
+      "webp": "/assets/features/Content service.webp",
+      "originalSize": 1651790,
+      "webpSize": 76852
+    },
+    {
+      "original": "/assets/features/logo digram.png",
+      "webp": "/assets/features/logo digram.webp",
+      "originalSize": 160888,
+      "webpSize": 78732
+    },
+    {
+      "original": "/assets/features/Sample.png",
+      "webp": "/assets/features/Sample.webp",
+      "originalSize": 1799443,
+      "webpSize": 110556
+    },
+    {
+      "original": "/assets/features/TUTRAIN graphic.png",
+      "webp": "/assets/features/TUTRAIN graphic.webp",
+      "originalSize": 2023418,
+      "webpSize": 86798
+    },
+    {
+      "original": "/assets/free-pilot.png",
+      "webp": "/assets/free-pilot.webp",
+      "originalSize": 1994469,
+      "webpSize": 95620
+    },
+    {
+      "original": "/assets/industries/Assessment Organizations.png",
+      "webp": "/assets/industries/Assessment Organizations.webp",
+      "originalSize": 2210219,
+      "webpSize": 114290
+    },
+    {
+      "original": "/assets/industries/Banking, Finance & Insurance Institutions.png",
+      "webp": "/assets/industries/Banking, Finance & Insurance Institutions.webp",
+      "originalSize": 2011923,
+      "webpSize": 104216
+    },
+    {
+      "original": "/assets/industries/Certification Bodies.png",
+      "webp": "/assets/industries/Certification Bodies.webp",
+      "originalSize": 1973139,
+      "webpSize": 92240
+    },
+    {
+      "original": "/assets/industries/content_services_platforms.png",
+      "webp": "/assets/industries/content_services_platforms.webp",
+      "originalSize": 758986,
+      "webpSize": 100564
+    },
+    {
+      "original": "/assets/industries/Corporate Learning & L&D Teams.png",
+      "webp": "/assets/industries/Corporate Learning & L&D Teams.webp",
+      "originalSize": 1997429,
+      "webpSize": 102742
+    },
+    {
+      "original": "/assets/industries/Digital Publishing Platforms.png",
+      "webp": "/assets/industries/Digital Publishing Platforms.webp",
+      "originalSize": 2170567,
+      "webpSize": 137068
+    },
+    {
+      "original": "/assets/industries/Engineering & Manufacturing Organizations.png",
+      "webp": "/assets/industries/Engineering & Manufacturing Organizations.webp",
+      "originalSize": 2090426,
+      "webpSize": 116374
+    },
+    {
+      "original": "/assets/industries/Government Education Programs.png",
+      "webp": "/assets/industries/Government Education Programs.webp",
+      "originalSize": 2245615,
+      "webpSize": 143754
+    },
+    {
+      "original": "/assets/industries/Healthcare & Medical Education Providers.png",
+      "webp": "/assets/industries/Healthcare & Medical Education Providers.webp",
+      "originalSize": 2074298,
+      "webpSize": 107088
+    },
+    {
+      "original": "/assets/industries/Higher Education Institutions.png",
+      "webp": "/assets/industries/Higher Education Institutions.webp",
+      "originalSize": 2119026,
+      "webpSize": 112014
+    },
+    {
+      "original": "/assets/industries/industry_computer_vision_1778651255484.png",
+      "webp": "/assets/industries/industry_computer_vision_1778651255484.webp",
+      "originalSize": 922557,
+      "webpSize": 155130
+    },
+    {
+      "original": "/assets/industries/industry_conversational_ai_1778651325965.png",
+      "webp": "/assets/industries/industry_conversational_ai_1778651325965.webp",
+      "originalSize": 786701,
+      "webpSize": 98986
+    },
+    {
+      "original": "/assets/industries/industry_fintech_ai_1778651271949.png",
+      "webp": "/assets/industries/industry_fintech_ai_1778651271949.webp",
+      "originalSize": 830433,
+      "webpSize": 122514
+    },
+    {
+      "original": "/assets/industries/industry_healthcare_ai_1778651293947.png",
+      "webp": "/assets/industries/industry_healthcare_ai_1778651293947.webp",
+      "originalSize": 796309,
+      "webpSize": 108490
+    },
+    {
+      "original": "/assets/industries/industry_voice_nlp_ai_1778651235342.png",
+      "webp": "/assets/industries/industry_voice_nlp_ai_1778651235342.webp",
+      "originalSize": 850187,
+      "webpSize": 126100
+    },
+    {
+      "original": "/assets/industries/International Education Operators.png",
+      "webp": "/assets/industries/International Education Operators.webp",
+      "originalSize": 2112813,
+      "webpSize": 116302
+    },
+    {
+      "original": "/assets/industries/K–12 Education Providers.png",
+      "webp": "/assets/industries/K–12 Education Providers.webp",
+      "originalSize": 2136126,
+      "webpSize": 122114
+    },
+    {
+      "original": "/assets/industries/Learning Platform Providers (LMS_LXP).png",
+      "webp": "/assets/industries/Learning Platform Providers (LMS_LXP).webp",
+      "originalSize": 2181681,
+      "webpSize": 138422
+    },
+    {
+      "original": "/assets/industries/Legal & Regulatory Training Providers.png",
+      "webp": "/assets/industries/Legal & Regulatory Training Providers.webp",
+      "originalSize": 1986935,
+      "webpSize": 97108
+    },
+    {
+      "original": "/assets/industries/NGOs & Development Organizations.png",
+      "webp": "/assets/industries/NGOs & Development Organizations.webp",
+      "originalSize": 2335720,
+      "webpSize": 153728
+    },
+    {
+      "original": "/assets/industries/Professional Training Companies.png",
+      "webp": "/assets/industries/Professional Training Companies.webp",
+      "originalSize": 1965901,
+      "webpSize": 103396
+    },
+    {
+      "original": "/assets/industries/Publishers.png",
+      "webp": "/assets/industries/Publishers.webp",
+      "originalSize": 2186429,
+      "webpSize": 132298
+    },
+    {
+      "original": "/assets/industries/Research Institutions & Think Tanks.png",
+      "webp": "/assets/industries/Research Institutions & Think Tanks.webp",
+      "originalSize": 2099281,
+      "webpSize": 117896
+    },
+    {
+      "original": "/assets/industries/Technology & IT Training Providers.png",
+      "webp": "/assets/industries/Technology & IT Training Providers.webp",
+      "originalSize": 2080676,
+      "webpSize": 108106
+    },
+    {
+      "original": "/assets/industries/Test Preparation Companies.png",
+      "webp": "/assets/industries/Test Preparation Companies.webp",
+      "originalSize": 2485476,
+      "webpSize": 152988
+    },
+    {
+      "original": "/assets/industries/Tutoring Providers.png",
+      "webp": "/assets/industries/Tutoring Providers.webp",
+      "originalSize": 2264910,
+      "webpSize": 119458
+    },
+    {
+      "original": "/assets/industries/Workforce Development Agencies.png",
+      "webp": "/assets/industries/Workforce Development Agencies.webp",
+      "originalSize": 2176452,
+      "webpSize": 121818
+    },
+    {
+      "original": "/assets/legal/Privacy policy.png",
+      "webp": "/assets/legal/Privacy policy.webp",
+      "originalSize": 2054538,
+      "webpSize": 132780
+    },
+    {
+      "original": "/assets/samples/text-content/Carriuclam/CBSE.png",
+      "webp": "/assets/samples/text-content/Carriuclam/CBSE.webp",
+      "originalSize": 1903056,
+      "webpSize": 78462
+    },
+    {
+      "original": "/assets/samples/text-content/Carriuclam/IB.png",
+      "webp": "/assets/samples/text-content/Carriuclam/IB.webp",
+      "originalSize": 1973235,
+      "webpSize": 72890
+    },
+    {
+      "original": "/assets/samples/text-content/Carriuclam/ICSE.png",
+      "webp": "/assets/samples/text-content/Carriuclam/ICSE.webp",
+      "originalSize": 1874770,
+      "webpSize": 72536
+    },
+    {
+      "original": "/assets/samples/text-content/Carriuclam/State Board.png",
+      "webp": "/assets/samples/text-content/Carriuclam/State Board.webp",
+      "originalSize": 1846975,
+      "webpSize": 73656
+    },
+    {
+      "original": "/assets/samples/text-content/JEE_NEET/Mock Test.png",
+      "webp": "/assets/samples/text-content/JEE_NEET/Mock Test.webp",
+      "originalSize": 1673622,
+      "webpSize": 50066
+    },
+    {
+      "original": "/assets/samples/text-content/JEE_NEET/Question Bank.png",
+      "webp": "/assets/samples/text-content/JEE_NEET/Question Bank.webp",
+      "originalSize": 1794298,
+      "webpSize": 45556
+    },
+    {
+      "original": "/assets/samples/text-content/JEE_NEET/Theory Content.png",
+      "webp": "/assets/samples/text-content/JEE_NEET/Theory Content.webp",
+      "originalSize": 1770210,
+      "webpSize": 43382
+    },
+    {
+      "original": "/assets/samples/text-content/KG-5/Course book.png",
+      "webp": "/assets/samples/text-content/KG-5/Course book.webp",
+      "originalSize": 1619807,
+      "webpSize": 42696
+    },
+    {
+      "original": "/assets/samples/text-content/KG-5/Lesson plan.png",
+      "webp": "/assets/samples/text-content/KG-5/Lesson plan.webp",
+      "originalSize": 1670661,
+      "webpSize": 48640
+    },
+    {
+      "original": "/assets/samples/text-content/KG-5/Workbook.png",
+      "webp": "/assets/samples/text-content/KG-5/Workbook.webp",
+      "originalSize": 1728151,
+      "webpSize": 53766
+    },
+    {
+      "original": "/assets/samples/text-content/Localization/Bengali.png",
+      "webp": "/assets/samples/text-content/Localization/Bengali.webp",
+      "originalSize": 1857692,
+      "webpSize": 98138
+    },
+    {
+      "original": "/assets/samples/text-content/Localization/Hindi.png",
+      "webp": "/assets/samples/text-content/Localization/Hindi.webp",
+      "originalSize": 1943247,
+      "webpSize": 95008
+    },
+    {
+      "original": "/assets/samples/text-content/Localization/Kannada.png",
+      "webp": "/assets/samples/text-content/Localization/Kannada.webp",
+      "originalSize": 1879706,
+      "webpSize": 97592
+    },
+    {
+      "original": "/assets/samples/text-content/Localization/Malyalam.png",
+      "webp": "/assets/samples/text-content/Localization/Malyalam.webp",
+      "originalSize": 1971388,
+      "webpSize": 96448
+    },
+    {
+      "original": "/assets/samples/text-content/Localization/Other Language.png",
+      "webp": "/assets/samples/text-content/Localization/Other Language.webp",
+      "originalSize": 1921965,
+      "webpSize": 107126
+    },
+    {
+      "original": "/assets/samples/text-content/Localization/Tamil.png",
+      "webp": "/assets/samples/text-content/Localization/Tamil.webp",
+      "originalSize": 1910261,
+      "webpSize": 96094
+    },
+    {
+      "original": "/assets/samples/text-content/Localization/Telgu.png",
+      "webp": "/assets/samples/text-content/Localization/Telgu.webp",
+      "originalSize": 1823906,
+      "webpSize": 91042
+    },
+    {
+      "original": "/assets/samples/text-content/STEM/Engennering.png",
+      "webp": "/assets/samples/text-content/STEM/Engennering.webp",
+      "originalSize": 2029682,
+      "webpSize": 78726
+    },
+    {
+      "original": "/assets/samples/text-content/STEM/Mathmatics.png",
+      "webp": "/assets/samples/text-content/STEM/Mathmatics.webp",
+      "originalSize": 1809318,
+      "webpSize": 74068
+    },
+    {
+      "original": "/assets/samples/text-content/STEM/Science.png",
+      "webp": "/assets/samples/text-content/STEM/Science.webp",
+      "originalSize": 1959722,
+      "webpSize": 68148
+    },
+    {
+      "original": "/assets/samples/text-content/STEM/Technology.png",
+      "webp": "/assets/samples/text-content/STEM/Technology.webp",
+      "originalSize": 1839048,
+      "webpSize": 74178
+    },
+    {
+      "original": "/assets/samples/text-content/Test Prep/ACT.png",
+      "webp": "/assets/samples/text-content/Test Prep/ACT.webp",
+      "originalSize": 1868186,
+      "webpSize": 123500
+    },
+    {
+      "original": "/assets/samples/text-content/Test Prep/AP.png",
+      "webp": "/assets/samples/text-content/Test Prep/AP.webp",
+      "originalSize": 2007936,
+      "webpSize": 121478
+    },
+    {
+      "original": "/assets/samples/text-content/Test Prep/APTIS.png",
+      "webp": "/assets/samples/text-content/Test Prep/APTIS.webp",
+      "originalSize": 1883213,
+      "webpSize": 91780
+    },
+    {
+      "original": "/assets/samples/text-content/Test Prep/CEFR.png",
+      "webp": "/assets/samples/text-content/Test Prep/CEFR.webp",
+      "originalSize": 1970785,
+      "webpSize": 139914
+    },
+    {
+      "original": "/assets/samples/text-content/Test Prep/IELTS.png",
+      "webp": "/assets/samples/text-content/Test Prep/IELTS.webp",
+      "originalSize": 1909608,
+      "webpSize": 103158
+    },
+    {
+      "original": "/assets/samples/text-content/Test Prep/PTE.png",
+      "webp": "/assets/samples/text-content/Test Prep/PTE.webp",
+      "originalSize": 1914258,
+      "webpSize": 112154
+    },
+    {
+      "original": "/assets/samples/text-content/Test Prep/SAT.png",
+      "webp": "/assets/samples/text-content/Test Prep/SAT.webp",
+      "originalSize": 1924365,
+      "webpSize": 106702
+    },
+    {
+      "original": "/assets/samples/text-content/Test Prep/TOEFL.png",
+      "webp": "/assets/samples/text-content/Test Prep/TOEFL.webp",
+      "originalSize": 1919996,
+      "webpSize": 113080
+    },
+    {
+      "original": "/assets/samples/text-content/Test Prep/TOEIC.png",
+      "webp": "/assets/samples/text-content/Test Prep/TOEIC.webp",
+      "originalSize": 1874329,
+      "webpSize": 98854
+    },
+    {
+      "original": "/assets/samples/text-content/UPSC_State Board/Current Affair.png",
+      "webp": "/assets/samples/text-content/UPSC_State Board/Current Affair.webp",
+      "originalSize": 1790957,
+      "webpSize": 57328
+    },
+    {
+      "original": "/assets/samples/text-content/UPSC_State Board/Genral Study.png",
+      "webp": "/assets/samples/text-content/UPSC_State Board/Genral Study.webp",
+      "originalSize": 1874337,
+      "webpSize": 55692
+    },
+    {
+      "original": "/assets/samples/text-content/UPSC_State Board/PYQ.png",
+      "webp": "/assets/samples/text-content/UPSC_State Board/PYQ.webp",
+      "originalSize": 1868105,
+      "webpSize": 72814
+    },
+    {
+      "original": "/sitemap_hero.png",
+      "webp": "/sitemap_hero.webp",
+      "originalSize": 804440,
+      "webpSize": 120700
+    }
+  ],
+  "skipped": [
+    "/assets/og-image.png"
+  ],
+  "errors": []
+}

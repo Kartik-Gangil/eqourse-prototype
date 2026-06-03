@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import dashcamImg from "@/assets/dashcam_sample.png";
-import retailShelfImg from "@/assets/cv_retail_shelf.png";
-import pedestrianImg from "@/assets/cv_pedestrian.png";
+import dashcamImg from "@/assets/dashcam_sample.webp";
+import retailShelfImg from "@/assets/cv_retail_shelf.webp";
+import pedestrianImg from "@/assets/cv_pedestrian.webp";
 
 // ============================================================
 // 1. Bounding Box Annotation

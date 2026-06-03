@@ -38,7 +38,7 @@ const SMEPage = () => (
       subtext="Elevate your curriculum and live classroom deployments by leveraging our strictly vetted pool of 200+ trained academic professionals."
       ctaText="Request SME Profiles"
       ctaLink="#contact"
-      imageSrc="/assets/banners/content-services/main/subject-matter-experts.png"
+      imageSrc="/assets/banners/content-services/main/subject-matter-experts.webp"
       imageAlt="Subject matter expert services by eQOURSE - SME recruitment, tutor training and certification, and live online tutoring with 200+ vetted academic professionals"
       rotatingBadges={[
         { icon: Users, title: "SME Network", subtitle: "200+ experts", color: "hsl(170 82% 55%)" },

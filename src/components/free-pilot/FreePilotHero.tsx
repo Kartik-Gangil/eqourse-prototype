@@ -19,7 +19,7 @@ const FreePilotHero = () => {
     >
       {/* Banner Image Background */}
       <img 
-        src="/assets/free-pilot.png" 
+        src="/assets/free-pilot.webp" 
         alt="Start a Free Pilot Program with eQOURSE - Experience premium educational content and AI data services with no commitment" 
         className="absolute inset-0 w-full h-full object-cover object-center"
       />

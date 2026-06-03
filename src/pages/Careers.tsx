@@ -40,7 +40,7 @@ const Careers = () => {
         subtext="Shape the future of education and AI with eQOURSE. Be part of a dynamic team of 500+ specialists dedicated to innovative Content Services and production-grade AI data services. We're always looking for talented content creators, instructional designers, data annotators, NLP specialists, project managers, and operations professionals. Grow your career with us across our India and Singapore offices."
         ctaText="View Openings"
         ctaLink="#apply"
-        imageSrc="/assets/about/Carrer.png"
+        imageSrc="/assets/about/Carrer.webp"
         imageAlt="Careers at eQOURSE - Professionals collaborating on education and AI solutions"
         rotatingBadges={[
           { icon: Laptop, title: "Remote Options", subtitle: "Flexible working", color: "hsl(190 85% 68%)" },

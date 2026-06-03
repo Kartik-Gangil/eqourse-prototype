@@ -38,7 +38,7 @@ const LocalizationPage = () => (
       subtext="Ensure your educational materials resonate perfectly with native speakers through expert translation, culturally adapted voice-overs, and precise subtitling."
       ctaText="Get Free Consultation"
       ctaLink="#contact"
-      imageSrc="/assets/banners/content-services/main/localization-services.png"
+      imageSrc="/assets/banners/content-services/main/localization-services.webp"
       imageAlt="Localization services by eQOURSE - professional translation, voice-over recording and subtitling for educational content in Hindi, English, Tamil, Bengali and 30+ languages"
       rotatingBadges={[
         { icon: Languages, title: "Translation", subtitle: "Culturally adapted", color: "hsl(170 82% 55%)" },

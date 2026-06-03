@@ -188,7 +188,7 @@ const Sitemap = () => {
             <div className="relative animate-slide-up-delayed">
               <div className="relative rounded-3xl overflow-hidden shadow-elevated border border-white/10 group">
                 <img
-                  src="/sitemap_hero.png"
+                  src="/sitemap_hero.webp"
                   alt="eQOURSE Sitemap Network"
                   width={800}
                   height={600}

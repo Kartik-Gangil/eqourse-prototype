@@ -98,7 +98,7 @@ const AboutUs = () => {
         subtext="Content Service and AI Data Services."
         ctaText="Explore Services"
         ctaLink="#who-we-are"
-        imageSrc="/assets/about/Who we are (A).png"
+        imageSrc="/assets/about/Who we are (A).webp"
         imageAlt="eQOURSE team working collaboratively on AI data and content services"
         rotatingBadges={[
           { icon: Globe, title: "Global Reach", subtitle: "200+ clients worldwide", color: "hsl(190 85% 68%)" },

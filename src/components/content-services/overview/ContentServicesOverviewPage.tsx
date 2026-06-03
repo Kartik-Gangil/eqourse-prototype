@@ -50,7 +50,7 @@ const ContentServicesOverviewPage = () => (
       subtext="From custom K-12 content and curriculum design to interactive video learning, localization in 30+ languages, and LMS integration."
       ctaText="Start Your Free Pilot"
       ctaLink="/free-pilot"
-      imageSrc="/assets/features/Content service.png"
+      imageSrc="/assets/features/Content service.webp"
       imageAlt="End-to-End Content Services for Education, including K-12, Curriculum Design, and Video Learning"
       rotatingBadges={[
         { icon: BookOpen, title: "Curriculum", subtitle: "K-12 & Higher Ed", color: "hsl(170 82% 55%)" },

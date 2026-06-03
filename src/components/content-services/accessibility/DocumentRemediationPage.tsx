@@ -18,7 +18,7 @@ const DocumentRemediationPage = () => (
     parentLabel="Accessibility"
     parentHref="/accessibility"
     currentLabel="Document & eContent Remediation"
-    bannerImage="/assets/banners/content-services/accessibility/document-content-remediation.png"
+    bannerImage="/assets/banners/content-services/accessibility/document-content-remediation.webp"
     bannerImageAlt="Document and eContent accessibility remediation services banner showing PDF tagging, EPUB 3 enhancement, LMS course remediation and HTML accessibility work by eQOURSE"
     preHeadline="Document & eContent Accessibility Remediation"
     headline="Document & eContent"

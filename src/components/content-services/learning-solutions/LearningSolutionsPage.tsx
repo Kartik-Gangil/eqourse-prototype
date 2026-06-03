@@ -34,7 +34,7 @@ const LearningSolutionsPage = () => (
       subtext="Implement modern Instructor-Led Training (ILT), interactive e-learning, or cutting-edge AR/VR technologies customized to improve learner engagement, retention, and performance."
       ctaText="Start Your Free Pilot"
       ctaLink="/free-pilot"
-      imageSrc="/assets/banners/content-services/main/learning-solutions.jpeg"
+      imageSrc="/assets/banners/content-services/main/learning-solutions.webp"
       imageAlt="Learning solutions by eQOURSE - instructor-led training, corporate e-learning, gamified learning, adaptive AI-powered modules, blended learning and immersive AR/VR simulations"
       rotatingBadges={[
         { icon: BrainCircuit, title: "Adaptive", subtitle: "Personalized learning", color: "hsl(190 85% 68%)" },

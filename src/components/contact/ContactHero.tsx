@@ -12,7 +12,7 @@ const ContactHero = () => {
     <section className="relative overflow-hidden min-h-[70vh] flex items-center justify-center py-20 lg:py-32">
       {/* Banner Image Background */}
       <img 
-        src="/assets/contact-us.png" 
+        src="/assets/contact-us.webp" 
         alt="Contact eQOURSE - Get in touch for custom Content Services and AI Data solutions" 
         className="absolute inset-0 w-full h-full object-cover object-[center_30%]"
       />

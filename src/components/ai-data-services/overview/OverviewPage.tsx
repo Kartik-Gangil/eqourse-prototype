@@ -55,7 +55,7 @@ const OverviewPage = () => (
       subtext="Custom AI training data across 30+ languages - from raw collection to real-world model testing on actual users. The only closed-loop pipeline in the industry."
       ctaText="Start Free Pilot"
       ctaLink="/free-pilot"
-      imageSrc="/assets/features/AI data service.png"
+      imageSrc="/assets/features/AI data service.webp"
       imageAlt="End-to-End AI Data Services including Data Collection, Annotation, Cleaning, and Model Testing"
       rotatingBadges={[
         { icon: Database, title: "Data Collection", subtitle: "Raw data sourcing", color: "hsl(170 82% 55%)" },

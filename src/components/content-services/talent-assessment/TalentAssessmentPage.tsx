@@ -54,7 +54,7 @@ const TalentAssessmentPage = () => (
       subtext="eQOURSE designs and develops structured assessment content, competency frameworks and workforce evaluation assets for organisations that need reliable evidence for hiring, development and learning decisions. We support psychometric, skill, readiness and organisational diagnostic workflows with structured documentation, scoring logic and digital delivery assets."
       ctaText="Discuss Assessment Needs"
       ctaLink="#contact"
-      imageSrc="/assets/banners/content-services/main/talent-assessment-workforce-evaluation.png"
+      imageSrc="/assets/banners/content-services/main/talent-assessment-workforce-evaluation.webp"
       imageAlt="Talent assessment and workforce evaluation services by eQOURSE - psychometric assessments, skill testing, candidate evaluation, competency frameworks and organizational diagnostics"
       rotatingBadges={[
         { icon: ClipboardCheck, title: "Assessment", subtitle: "Skill testing", color: "hsl(170 82% 55%)" },

@@ -18,7 +18,7 @@ const AuditCompliancePage = () => (
     parentLabel="Accessibility"
     parentHref="/accessibility"
     currentLabel="Audit & Compliance Support"
-    bannerImage="/assets/banners/content-services/accessibility/audit-compliance-support.png"
+    bannerImage="/assets/banners/content-services/accessibility/audit-compliance-support.webp"
     bannerImageAlt="Accessibility audit and compliance support services banner showing comprehensive WCAG audits, gap analysis, VPAT and ACR documentation by eQOURSE for educational platforms"
     preHeadline="Audit & Compliance Support"
     headline="Audit & Compliance Support"

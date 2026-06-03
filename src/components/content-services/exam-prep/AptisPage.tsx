@@ -5,7 +5,7 @@ const AptisPage = () => (
   <SubServicePageTemplate
     seoTitle="APTIS Exam Preparation Content | eQOURSE" seoDescription="Expert APTIS exam preparation content by eQOURSE. Study guides, practice tests, and interactive materials for British Council APTIS assessment preparation." seoCanonical="https://www.eqourse.com/content-services/exam-preparation-content/aptis" seoKeywords="APTIS exam prep, British Council APTIS, APTIS grammar, APTIS reading, APTIS speaking"
     parentLabel="Exam Preparation Content" parentHref="/content-services/exam-preparation-content" currentLabel="APTIS Prep Content"
-    bannerImage="/assets/banners/content-services/exam-prep/aptis.png"
+    bannerImage="/assets/banners/content-services/exam-prep/aptis.webp"
     bannerImageAlt="APTIS exam preparation content banner showing British Council English language assessment practice for grammar, reading, writing, listening and speaking by eQOURSE"
     preHeadline="APTIS Exam Preparation Content - British Council Assessment" headline="APTIS Exam" headlineAccent="Preparation Content"
     subtext="Comprehensive APTIS preparation content designed to help candidates demonstrate their English language proficiency. Our materials cover all APTIS components: Grammar & Vocabulary, Reading, Writing, Listening, and Speaking, with practice tests aligned to British Council standards."

@@ -10,7 +10,7 @@ const Videos2D3DPage = () => (
     parentLabel="Custom E-Learning Content"
     parentHref="/custom-e-learning-content"
     currentLabel="2D & 3D Videos"
-    bannerImage="/assets/banners/content-services/custom-elearning/2d-3d-videos.png"
+    bannerImage="/assets/banners/content-services/custom-elearning/2d-3d-videos.webp"
     bannerImageAlt="2D and 3D educational video solutions banner showing animated explainer videos, motion graphics and whiteboard animations produced by eQOURSE for K-12 and higher education"
     preHeadline="Professional 2D & 3D Educational Video Production"
     headline="2D & 3D Educational"

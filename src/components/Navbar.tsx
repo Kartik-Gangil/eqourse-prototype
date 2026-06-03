@@ -25,18 +25,18 @@ interface MainLink {
 }
 
 const aiDataSubLinks: SubLink[] = [
-  { label: "Data Collection", to: "/ai-data-services/data-collection", image: "/assets/ai-data/Data Collection V2.png", imageAlt: "Global scale AI data collection and aggregation services", description: "Global scale secure data collection for accurate models." },
-  { label: "Annotation & Labeling", to: "/ai-data-services/annotation-labeling", image: "/assets/ai-data/Annotation and Labeling.png", imageAlt: "Expert data annotation and labeling for machine learning models", description: "Expert labeling with bounding boxes and polygons." },
-  { label: "Cleaning & Validation", to: "/ai-data-services/cleaning-validation", image: "/assets/ai-data/Cleaning and validation.png", imageAlt: "Data cleaning, validation, and impurity cleansing services", description: "Data stream validation & impurity cleansing." },
-  { label: "Model Testing", to: "/ai-data-services/model-testing", image: "/assets/ai-data/model testing.png", imageAlt: "Rigorous diagnostic testing and validation for AI neural networks", description: "Rigorous diagnostic testing for AI neural networks." },
+  { label: "Data Collection", to: "/ai-data-services/data-collection", image: "/assets/ai-data/Data Collection V2.webp", imageAlt: "Global scale AI data collection and aggregation services", description: "Global scale secure data collection for accurate models." },
+  { label: "Annotation & Labeling", to: "/ai-data-services/annotation-labeling", image: "/assets/ai-data/Annotation and Labeling.webp", imageAlt: "Expert data annotation and labeling for machine learning models", description: "Expert labeling with bounding boxes and polygons." },
+  { label: "Cleaning & Validation", to: "/ai-data-services/cleaning-validation", image: "/assets/ai-data/Cleaning and validation.webp", imageAlt: "Data cleaning, validation, and impurity cleansing services", description: "Data stream validation & impurity cleansing." },
+  { label: "Model Testing", to: "/ai-data-services/model-testing", image: "/assets/ai-data/model testing.webp", imageAlt: "Rigorous diagnostic testing and validation for AI neural networks", description: "Rigorous diagnostic testing for AI neural networks." },
 ];
 
 const aboutUsSubLinks: SubLink[] = [
-  { label: "Who We Are", to: "/aboutus", image: "/assets/about/Who we are (A).png", imageAlt: "eQOURSE team working collaboratively on AI data and content services", description: "Learn about our mission, vision and dynamic content services team." },
-  { label: "Gallery", to: "/gallery", image: "/assets/about/gallery/10.png", imageAlt: "eQOURSE Office Tours & Events Gallery", description: "Explore our office tours, business meetings, and industry events." },
-  { label: "Testimonials", to: "/clients-testimonials", image: "/assets/about/Testiominal.png", imageAlt: "Satisfied eQOURSE global clients and partners", description: "Hear what our global clients say about our services." },
-  { label: "Careers", to: "/career", image: "/assets/about/Carrer.png", imageAlt: "Careers at eQOURSE - Professionals collaborating on education and AI solutions", description: "Join our growing team and shape the future of AI & Content Services." },
-  { label: "FAQs", to: "/faq", image: "/assets/about/FAQ.png", imageAlt: "eQOURSE customer support and frequently asked questions", description: "Got questions? We've got answers for all your queries." },
+  { label: "Who We Are", to: "/aboutus", image: "/assets/about/Who we are (A).webp", imageAlt: "eQOURSE team working collaboratively on AI data and content services", description: "Learn about our mission, vision and dynamic content services team." },
+  { label: "Gallery", to: "/gallery", image: "/assets/about/gallery/10.webp", imageAlt: "eQOURSE Office Tours & Events Gallery", description: "Explore our office tours, business meetings, and industry events." },
+  { label: "Testimonials", to: "/clients-testimonials", image: "/assets/about/Testiominal.webp", imageAlt: "Satisfied eQOURSE global clients and partners", description: "Hear what our global clients say about our services." },
+  { label: "Careers", to: "/career", image: "/assets/about/Carrer.webp", imageAlt: "Careers at eQOURSE - Professionals collaborating on education and AI solutions", description: "Join our growing team and shape the future of AI & Content Services." },
+  { label: "FAQs", to: "/faq", image: "/assets/about/FAQ.webp", imageAlt: "eQOURSE customer support and frequently asked questions", description: "Got questions? We've got answers for all your queries." },
 ];
 
 const contentServicesSubLinks: SubLink[] = contentServicesCategories.map(c => ({

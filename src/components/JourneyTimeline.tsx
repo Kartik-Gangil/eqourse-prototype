@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect } from "react";
-import timeline2020 from "@/assets/timeline-2020.png";
-import timeline2021 from "@/assets/timeline-2021.png";
-import timeline2022 from "@/assets/timeline-2022.png";
-import timeline2023 from "@/assets/timeline-2023.png";
-import timeline2024 from "@/assets/timeline-2024.png";
-import timeline2025 from "@/assets/timeline-2025.png";
-import timeline2026 from "@/assets/timeline-2026.png";
+import timeline2020 from "@/assets/timeline-2020.webp";
+import timeline2021 from "@/assets/timeline-2021.webp";
+import timeline2022 from "@/assets/timeline-2022.webp";
+import timeline2023 from "@/assets/timeline-2023.webp";
+import timeline2024 from "@/assets/timeline-2024.webp";
+import timeline2025 from "@/assets/timeline-2025.webp";
+import timeline2026 from "@/assets/timeline-2026.webp";
 
 /* ── Milestone data ── */
 interface Milestone {

@@ -54,7 +54,7 @@ const AccessibilityPage = () => (
       subtext="Ensuring your educational materials are inclusive, usable, and technically aligned with global accessibility standards for all learners."
       ctaText="Request Accessibility Review"
       ctaLink="/contact"
-      imageSrc="/assets/banners/content-services/main/accessibility.png"
+      imageSrc="/assets/banners/content-services/main/accessibility.webp"
       imageAlt="Digital accessibility services by eQOURSE - WCAG compliance, Section 508 alignment, document remediation, accessible media, assessment accessibility and assistive technology testing"
       rotatingBadges={[
         { icon: Accessibility, title: "Inclusive", subtitle: "Accessibility for all", color: "hsl(170 82% 55%)" },

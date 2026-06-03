@@ -18,7 +18,7 @@ const AssistiveTechPage = () => (
     parentLabel="Accessibility"
     parentHref="/accessibility"
     currentLabel="Assistive Technology Compatibility"
-    bannerImage="/assets/banners/content-services/accessibility/assistive-technology-compatibility.png"
+    bannerImage="/assets/banners/content-services/accessibility/assistive-technology-compatibility.webp"
     bannerImageAlt="Assistive technology compatibility services banner showing manual screen reader testing with JAWS, NVDA and VoiceOver plus keyboard and screen magnification verification by eQOURSE"
     preHeadline="Assistive Technology Compatibility Services"
     headline="Assistive Technology"
