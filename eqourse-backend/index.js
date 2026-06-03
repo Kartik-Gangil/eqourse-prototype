@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const path = require("path");
 require("dotenv").config();
+const logger = require("./src/utils/logger");
+
 
 // ── Routers ──────────────────────────────────────────────────────────────────
 // Public routers (no auth required)
@@ -22,17 +24,13 @@ const app = express();
 
 // ── Middleware ──────────────────────────────────────────────────────────────
 app.use(cors({
-  origin: [
-    "http://localhost:8080",
-    "http://localhost:5173",
-    "http://localhost:5174",
-    // Add staging/production domains here when ready
-  ],
+  origin:'*',
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   credentials: true,
 }));
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
+app.use(logger.requestLogger);
 
 // Serve uploaded files
 app.use("/uploads", express.static(UPLOAD_DIR));
@@ -58,10 +56,10 @@ const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/eqourse";
 mongoose
   .connect(MONGO_URI)
   .then(() => {
-    console.log("✅ MongoDB connected:", MONGO_URI);
-    app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
+    logger.info(`✅ MongoDB connected: ${MONGO_URI}`);
+    app.listen(PORT, () => logger.info(`🚀 Server running on http://localhost:${PORT}`));
   })
   .catch((err) => {
-    console.error("❌ MongoDB connection failed:", err.message);
+    logger.error(`❌ MongoDB connection failed: ${err.message}`);
     process.exit(1);
   });
