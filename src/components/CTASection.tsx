@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -7,8 +7,21 @@ const CTASection = () => {
   const videoARef = useRef<HTMLVideoElement>(null);
   const videoBRef = useRef<HTMLVideoElement>(null);
   const isSwapping = useRef(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Only start loading/playing the video once the section is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
+    if (!isVisible) return; // lazy: don't load until user scrolls here
     const vA = videoARef.current;
     const vB = videoBRef.current;
     if (!vA || !vB) return;
@@ -58,7 +71,7 @@ const CTASection = () => {
       vA.removeEventListener("timeupdate", onTimeUpdateA);
       vB.removeEventListener("timeupdate", onTimeUpdateB);
     };
-  }, []);
+  }, [isVisible]);
 
   const videoStyle = (initial: boolean): React.CSSProperties => ({
     objectFit: "cover",
@@ -72,13 +85,13 @@ const CTASection = () => {
   });
 
   return (
-    <section id="contact" className="relative py-20 overflow-hidden">
-      {/* Video A - starts first */}
+    <section ref={sectionRef} id="contact" className="relative py-20 overflow-hidden">
+      {/* Video A — preload="none" until section is visible */}
       <video
         ref={videoARef}
-        autoPlay
         muted
         playsInline
+        preload="none"
         style={videoStyle(true)}
         aria-hidden="true"
       >
@@ -90,7 +103,7 @@ const CTASection = () => {
         ref={videoBRef}
         muted
         playsInline
-        preload="auto"
+        preload="none"
         style={videoStyle(false)}
         aria-hidden="true"
       >

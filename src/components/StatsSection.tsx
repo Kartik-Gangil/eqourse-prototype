@@ -43,8 +43,9 @@ const StatsSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Seamless crossfade loop for the background video
+  // Seamless crossfade loop — only starts once the section is visible
   useEffect(() => {
+    if (!isVisible) return; // lazy: don't play until user scrolls here
     const vA = videoARef.current;
     const vB = videoBRef.current;
     if (!vA || !vB) return;
@@ -83,7 +84,7 @@ const StatsSection = () => {
       vA.removeEventListener("timeupdate", onTimeUpdateA);
       vB.removeEventListener("timeupdate", onTimeUpdateB);
     };
-  }, []);
+  }, [isVisible]);
 
   const videoStyle = (initial: boolean): React.CSSProperties => ({
     objectFit: "cover",
@@ -98,12 +99,12 @@ const StatsSection = () => {
 
   return (
     <section ref={ref} id="stats-section" className="py-20 relative overflow-hidden">
-      {/* Background Video A */}
+      {/* Background Video A — preload="none" until section is visible */}
       <video
         ref={videoARef}
-        autoPlay
         muted
         playsInline
+        preload="none"
         style={videoStyle(true)}
         aria-hidden="true"
       >
@@ -115,7 +116,7 @@ const StatsSection = () => {
         ref={videoBRef}
         muted
         playsInline
-        preload="auto"
+        preload="none"
         style={videoStyle(false)}
         aria-hidden="true"
       >
