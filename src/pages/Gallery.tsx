@@ -6,7 +6,7 @@ import PageLayout from "@/components/shared/PageLayout";
 // Construct the array of 21 images dynamically
 const galleryImages = Array.from({ length: 21 }, (_, i) => ({
   id: i + 1,
-  src: `/assets/about/gallery/${i + 1}.png`,
+  src: `/assets/about/gallery/${i + 1}.webp`,
   alt: `eQOURSE Gallery Image ${i + 1} - Office Tour and Business Meetings`,
 }));
 
