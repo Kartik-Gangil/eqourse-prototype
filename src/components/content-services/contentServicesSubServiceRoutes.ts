@@ -113,7 +113,7 @@ export const contentServicesSubServiceRoutes = [
   { path: "/blended-learning", Component: BlendedLearningPage },
   { path: "/immersive-simulation-ar-vr", Component: ArVrPage },
   { path: "/instructional-design-services", Component: InstructionalDesignPage },
-  { path: "/optimizing-aI-powered-learning", Component: AiPoweredPage },
+  { path: "/optimizing-ai-powered-learning", Component: AiPoweredPage },
   // Category 4
   { path: "/ppt-videos-services", Component: PptVideosPage },
   { path: "/articulate-storyline-services", Component: ArticulatePage },

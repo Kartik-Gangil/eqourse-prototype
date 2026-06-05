@@ -166,7 +166,7 @@ export const contentServicesCategories: ContentServicesCategory[] = [
         serviceHighlights: ["ADDIE Model Implementation", "Learning Needs Analysis", "Storyboarding & Scripting", "Learning Outcome Mapping"],
       },
       {
-        label: "AI-Powered Learning", href: "/optimizing-aI-powered-learning", icon: Lightbulb,
+        label: "AI-Powered Learning", href: "/optimizing-ai-powered-learning", icon: Lightbulb,
         serviceHighlights: ["AI-Powered Personalization", "Intelligent Tutoring Systems", "Automated Content Generation", "Learning Analytics"],
       },
     ],
