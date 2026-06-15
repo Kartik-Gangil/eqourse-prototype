@@ -4,6 +4,7 @@ import { BlogPost } from "./blogData";
 
 interface BlogSidebarProps {
   recentPosts: BlogPost[];
+  categories: { id: string; label: string; count: number }[];
 }
 
 /* LinkedIn glyph - matches the canonical CTA used across the site */
@@ -19,7 +20,7 @@ const LinkedInGlyph = ({ className = "w-5 h-5" }: { className?: string }) => (
   </svg>
 );
 
-const BlogSidebar = ({ recentPosts }: BlogSidebarProps) => {
+const BlogSidebar = ({ recentPosts, categories }: BlogSidebarProps) => {
   return (
     <aside className="space-y-8 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
       {/* LinkedIn Follow CTA */}
@@ -57,24 +58,35 @@ const BlogSidebar = ({ recentPosts }: BlogSidebarProps) => {
           Categories
         </h3>
         <ul className="space-y-2">
-          <li>
-            <Link to="/blog?category=Content Services" className="flex items-center justify-between group p-2 hover:bg-muted rounded-lg transition-colors">
-              <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-2">
-                <ChevronRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity -ml-6 group-hover:ml-0" />
-                Content Service
-              </span>
-              <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full font-bold">17</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/blog?category=AI Data" className="flex items-center justify-between group p-2 hover:bg-muted rounded-lg transition-colors">
-              <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-2">
-                <ChevronRight className="w-4 h-4 text-[#1B9AAA] opacity-0 group-hover:opacity-100 transition-opacity -ml-6 group-hover:ml-0" />
-                AI Data Services
-              </span>
-              <span className="text-xs bg-[#0D1B2A]/10 text-[#0D1B2A] dark:text-[#1B9AAA] px-2 py-0.5 rounded-full font-bold">17</span>
-            </Link>
-          </li>
+          {categories
+            .filter((cat) => cat.id !== "All")
+            .map((cat) => {
+              const isContentServices = cat.id === "Content Services";
+              return (
+                <li key={cat.id}>
+                  <Link
+                    to={`/blog?category=${cat.id}`}
+                    className="flex items-center justify-between group p-2 hover:bg-muted rounded-lg transition-colors"
+                  >
+                    <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors flex items-center gap-2">
+                      <ChevronRight
+                        className={`w-4 h-4 ${isContentServices ? "text-primary" : "text-[#1B9AAA]"
+                          } opacity-0 group-hover:opacity-100 transition-opacity -ml-6 group-hover:ml-0`}
+                      />
+                      {cat.id === "Content Services" ? "Content Service" : cat.label}
+                    </span>
+                    <span
+                      className={`text-xs px-2 py-0.5 rounded-full font-bold ${isContentServices
+                        ? "bg-primary/10 text-primary"
+                        : "bg-[#0D1B2A]/10 text-[#0D1B2A] dark:text-[#1B9AAA]"
+                        }`}
+                    >
+                      {cat.count}
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
         </ul>
       </div>
 

@@ -207,9 +207,69 @@ const BlogPostContent = ({ blog }: BlogPostContentProps) => {
   const isTeal = blog.thumbnailColor === 'teal';
 
   // Get 3 related posts
-  const relatedPosts = blogsData
-    .filter(b => b.category === blog.category && b.id !== blog.id)
-    .slice(0, 3);
+  const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
+  const [isLoadingRelated, setIsLoadingRelated] = useState(true);
+
+  useEffect(() => {
+    setIsLoadingRelated(true);
+    setRelatedPosts([]);
+
+    const baseUrl = import.meta.env.VITE_API_BASE_URL || "";
+    if (!baseUrl) {
+      setIsLoadingRelated(false);
+      return;
+    }
+
+    const tags = blog.keywords || [];
+    if (tags.length === 0) {
+      setIsLoadingRelated(false);
+      return;
+    }
+
+    const tagsParam = tags.map(t => encodeURIComponent(t)).join(",");
+    let cancelled = false;
+
+    fetch(`${baseUrl}/api/blogs?limit=4&tags=${tagsParam}`)
+      .then((res) => {
+        if (!res.ok) return null;
+        return res.json();
+      })
+      .then((body) => {
+        if (cancelled) return;
+        setIsLoadingRelated(false);
+        if (!body || !body.success || !body.data || !body.data.items) return;
+        const apiBlogs = body.data.items as any[];
+        // Filter out current blog by slug to avoid showing the same blog as related
+        const filteredApiBlogs = apiBlogs.filter((b: any) => `/blog/${b.slug}` !== blog.slug);
+
+        if (filteredApiBlogs.length === 0) return;
+
+        const mapped: BlogPost[] = filteredApiBlogs.map((b: any, i: number) => ({
+          id: i + 1000,
+          title: b.title,
+          slug: `/blog/${b.slug}`,
+          category: (b.tags?.includes("AI Data") ? "AI Data" : "Content Services") as BlogPost["category"],
+          date: b.publishedAt ? new Date(b.publishedAt).toLocaleDateString("en-US", { month: "long", year: "numeric" }) : "2026",
+          author: b.author?.name || "eQOURSE",
+          excerpt: b.excerpt,
+          thumbnailColor: (b.tags?.includes("AI Data") ? "navy" : "teal") as BlogPost["thumbnailColor"],
+          keywords: b.tags,
+          coverImageUrl: b.coverImageUrl ? (b.coverImageUrl.startsWith("/") ? `${baseUrl}${b.coverImageUrl}` : b.coverImageUrl) : undefined,
+        }));
+
+        setRelatedPosts(mapped.slice(0, 3));
+      })
+      .catch((err) => {
+        console.error("Error fetching related blogs:", err);
+        if (!cancelled) {
+          setIsLoadingRelated(false);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [blog]);
 
   return (
     <article className="min-h-screen bg-background relative pb-20">
@@ -378,24 +438,41 @@ const BlogPostContent = ({ blog }: BlogPostContentProps) => {
       </div>
 
       {/* Related Posts */}
-      {relatedPosts.length > 0 && (
-        <div className="container mx-auto px-4 mt-24">
-          <div className="border-t border-border pt-16">
-            <div className="flex items-center justify-between mb-10">
-              <h2 className="font-heading text-2xl md:text-3xl font-bold">Related Articles</h2>
-              <Link to="/blog" className="text-primary font-bold flex items-center gap-2 hover:underline">
-                View All <ArrowRight className="w-4 h-4" />
-              </Link>
+      <div className="container mx-auto px-4 mt-24">
+        <div className="border-t border-border pt-16">
+          <div className="flex items-center justify-between mb-10">
+            <h2 className="font-heading text-2xl md:text-3xl font-bold">Related Articles</h2>
+            <Link to="/blog" className="text-primary font-bold flex items-center gap-2 hover:underline">
+              View All <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+          
+          {isLoadingRelated ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[1, 2, 3].map((n) => (
+                <div key={n} className="bg-card border border-border/50 rounded-2xl p-6 h-64 animate-pulse flex flex-col justify-between">
+                  <div className="space-y-3">
+                    <div className="h-4 bg-muted rounded w-1/4" />
+                    <div className="h-6 bg-muted rounded w-3/4" />
+                    <div className="h-4 bg-muted rounded w-full" />
+                  </div>
+                  <div className="h-4 bg-muted rounded w-1/2" />
+                </div>
+              ))}
             </div>
-            
+          ) : relatedPosts.length > 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {relatedPosts.map((related) => (
                 <BlogCard key={related.id} blog={related} />
               ))}
             </div>
-          </div>
+          ) : (
+            <div className="text-center py-12 bg-card rounded-2xl border border-border/50 shadow-sm">
+              <p className="text-muted-foreground font-medium">No related articles found.</p>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </article>
   );
 };

@@ -90,11 +90,19 @@ const BlogGrid = () => {
   const gridBlogs = showFeatured ? currentBlogs.slice(1) : currentBlogs;
 
   // Categories for filter bar
-  const categories = [
+  const [categories, setCategories] = useState([
     { id: "All", label: "All Topics", count: allBlogs.length },
     { id: "Content Services", label: "Content Services", count: allBlogs.filter(b => b.category === "Content Services").length },
     { id: "AI Data", label: "AI Data Services", count: allBlogs.filter(b => b.category === "AI Data").length }
-  ];
+  ]);
+
+  useEffect(() => {
+    setCategories([
+      { id: "All", label: "All Topics", count: allBlogs.length },
+      { id: "Content Services", label: "Content Services", count: allBlogs.filter(b => b.category === "Content Services").length },
+      { id: "AI Data", label: "AI Data Services", count: allBlogs.filter(b => b.category === "AI Data").length }
+    ]);
+  }, [allBlogs]);
 
   // Recent posts for sidebar (top 5 overall)
   const recentPosts = allBlogs.slice(0, 5);
@@ -163,7 +171,7 @@ const BlogGrid = () => {
           {/* Sidebar Area */}
           <div className="lg:w-1/3 xl:w-1/4">
             <div className="sticky top-24">
-              <BlogSidebar recentPosts={recentPosts} />
+              <BlogSidebar recentPosts={recentPosts} categories={categories} />
             </div>
           </div>
 
