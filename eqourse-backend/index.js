@@ -24,7 +24,7 @@ const app = express();
 
 // ── Middleware ──────────────────────────────────────────────────────────────
 app.use(cors({
-  origin:'*',
+  origin: '*',
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   credentials: true,
 }));
@@ -33,7 +33,7 @@ app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use(logger.requestLogger);
 
 // Serve uploaded files
-app.use("/uploads", express.static(UPLOAD_DIR));
+app.use("/api/uploads", express.static(UPLOAD_DIR));
 
 // ── Public Routes ────────────────────────────────────────────────────────────
 app.use("/api/contact", contactRouter);       // POST /api/contact (public submit)

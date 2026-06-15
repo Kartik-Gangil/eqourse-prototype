@@ -79,7 +79,7 @@ const uploadFile = (req, res) => {
 
     // Build the public URL — the frontend will use this to display the file
     const actualKind = path.basename(req.file.destination);
-    const fileUrl = `/uploads/${actualKind}/${req.file.filename}`;
+    const fileUrl = `/api/uploads/${actualKind}/${req.file.filename}`;
 
     return res.json({
       success: true,
