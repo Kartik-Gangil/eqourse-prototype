@@ -6,18 +6,18 @@ import heroImage from "@/assets/hero-image.jpg";
 
 const slides = [
   {
-    badge: "Content Service",
-    headline: "Partnering with Content Services Leaders to",
-    highlightedText: "Design and Create Top Quality E-Learning Content",
+    badge: "✦ Content & Learning Solutions",
+    headline: "Scalable Content Solutions ",
+    highlightedText: "For Businesses That Depend on Accuracy and Quality",
     cta: "Explore Content Service",
     ctaLink: "/content-services",
     ctaIsHash: false,
     icon: Sparkles,
   },
   {
-    badge: "Content Service",
-    headline: "Curriculum-Aligned Digital Learning Content,",
-    highlightedText: "Built at Scale Across 30+ Languages",
+    badge: "⚙ Corporate Learning & Performance",
+    headline: "Enterprise Learning Content ",
+    highlightedText: "Engineered for Scale",
     cta: "Explore Content Service",
     ctaLink: "/content-services",
     ctaIsHash: false,
