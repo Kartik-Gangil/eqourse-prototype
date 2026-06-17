@@ -1,6 +1,5 @@
 import { ArrowRight, Shield, Globe, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import aboutImage from "@/assets/who-we-are.webp";
 import { Link } from "react-router-dom";
 
 const AboutSection = () => {
@@ -9,8 +8,15 @@ const AboutSection = () => {
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative">
-            <div className="rounded-2xl overflow-hidden shadow-elevated">
-              <img src={aboutImage} alt="eQOURSE - Global Learning Content and AI Data Solutions Partner" width={800} height={600} loading="lazy" className="w-full object-cover" />
+            <div className="rounded-2xl overflow-hidden shadow-elevated relative aspect-video bg-black">
+              <iframe 
+                id="about-video-player"
+                className="absolute inset-0 w-full h-full border-0"
+                src="https://www.youtube.com/embed/CtR6vwjEyVQ?enablejsapi=1&rel=0" 
+                title="eQOURSE - Global Learning Content and AI Data Solutions Partner" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowFullScreen
+              ></iframe>
             </div>
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-primary rounded-2xl opacity-20 -z-10" />
             <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-accent/20 rounded-2xl -z-10" />

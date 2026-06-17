@@ -455,10 +455,21 @@ const HeroSection = () => {
               aria-label="Jump to services section"
             >
               <a
-                href="https://www.youtube.com/@eqourse"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Watch eQOURSE on YouTube"
+                href="#about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const target = document.getElementById("about");
+                  if (target) {
+                    target.scrollIntoView({ behavior: "smooth", block: "center" });
+                    setTimeout(() => {
+                      const iframe = document.getElementById("about-video-player") as HTMLIFrameElement;
+                      if (iframe && iframe.contentWindow) {
+                        iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                      }
+                    }, 800);
+                  }
+                }}
+                aria-label="Watch eQOURSE Video"
                 className="group flex items-center gap-2.5 px-5 py-2 rounded-full text-white text-sm font-semibold
                            border border-white/20 hover:border-white/40 transition-all hover:scale-[1.03]
                            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
@@ -533,10 +544,21 @@ const HeroSection = () => {
               aria-label="Jump to services section"
             >
               <a
-                href="https://www.youtube.com/@eqourse"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Watch eQOURSE on YouTube"
+                href="#about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const target = document.getElementById("about");
+                  if (target) {
+                    target.scrollIntoView({ behavior: "smooth", block: "center" });
+                    setTimeout(() => {
+                      const iframe = document.getElementById("about-video-player") as HTMLIFrameElement;
+                      if (iframe && iframe.contentWindow) {
+                        iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                      }
+                    }, 800);
+                  }
+                }}
+                aria-label="Watch eQOURSE Video"
                 className="group flex items-center gap-2.5 px-5 py-2 rounded-full text-white text-sm font-semibold
                            border border-white/20 hover:border-white/40 transition-all hover:scale-[1.03]
                            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
