@@ -12,7 +12,7 @@ const AboutSection = () => {
               <iframe 
                 id="about-video-player"
                 className="absolute inset-0 w-full h-full border-0"
-                src="https://www.youtube.com/embed/CtR6vwjEyVQ?enablejsapi=1&rel=0" 
+                src="https://www.youtube.com/embed/BglRq9Qu0RE?enablejsapi=1&rel=0" 
                 title="eQOURSE - Global Learning Content and AI Data Solutions Partner" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 allowFullScreen
