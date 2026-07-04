@@ -222,8 +222,9 @@ const ChatWidget = () => {
                 : "✅ Your Free Pilot request has been submitted! Our team will review it and get back to you within 2 business days. Is there anything else I can help with?"
             );
           } else {
+            const errorMessage = "error" in result ? result.error : "Unknown error";
             addBotMessage(
-              `❌ Sorry, there was an issue submitting your request: ${result.error}\n\nYou can try again or contact us directly at **info@eqourse.com** or call **+91-92144-45870**.`
+              `❌ Sorry, there was an issue submitting your request: ${errorMessage}\n\nYou can try again or contact us directly at **info@eqourse.com** or call **+91-92144-45870**.`
             );
           }
           return;
@@ -301,6 +302,17 @@ const ChatWidget = () => {
     try {
       // Send with conversation history for context
       const reply = await sendChatMessage(text, messages);
+      
+      // Check if AI decided to trigger a form flow
+      if (reply.includes("TRIGGER_FORM:contact")) {
+        startForm("contact");
+        return;
+      }
+      if (reply.includes("TRIGGER_FORM:pilot")) {
+        startForm("pilot");
+        return;
+      }
+      
       addBotMessage(reply);
     } catch {
       addBotMessage(
