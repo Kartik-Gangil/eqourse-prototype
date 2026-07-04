@@ -42,6 +42,7 @@ import Sitemap from "./pages/Sitemap.tsx";
 import Gallery from "./pages/Gallery.tsx";
 import { contentServicesSamples } from "./components/samples/content-services/contentServicesSamplesData";
 import { contentServicesSubServiceRoutes } from "./components/content-services/contentServicesSubServiceRoutes";
+import ChatWidget from "./components/chatbot/ChatWidget";
 
 // Admin
 import AdminLayout from "./admin/components/AdminLayout";
@@ -155,6 +156,7 @@ const App = () => (
 
               <Route path="*" element={<NotFound />} />
             </Routes>
+            <ChatWidget />
           </Suspense>
         </BrowserRouter>
       </TooltipProvider>

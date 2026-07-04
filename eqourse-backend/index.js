@@ -13,6 +13,7 @@ const pilotRouter = require("./src/router/pilotRouter");
 const blogRouter = require("./src/router/blogRouter");
 const caseStudyRouter = require("./src/router/caseStudyRouter");
 const sampleRouter = require("./src/router/sampleRouter");
+const chatRouter = require("./src/router/chatRouter");
 
 // Admin router (JWT auth on all sub-routes except /login)
 const adminRouter = require("./src/router/adminRouter");
@@ -42,6 +43,7 @@ app.use("/api/blogs", blogRouter);             // GET /api/blogs, GET /api/blogs
 app.use("/api/case-studies", caseStudyRouter); // GET /api/case-studies, GET /api/case-studies/:slug
 app.use("/api/sample-categories", sampleRouter); // GET /api/sample-categories
 app.use("/api/samples", sampleRouter);           // GET /api/samples, GET /api/samples/files
+app.use("/api/chat", chatRouter);                 // POST /api/chat (Gemini AI proxy)
 
 // ── Admin Routes ─────────────────────────────────────────────────────────────
 app.use("/api/admin", adminRouter);            // All admin routes under /api/admin/*
