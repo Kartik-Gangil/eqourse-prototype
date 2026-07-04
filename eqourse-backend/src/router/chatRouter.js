@@ -38,8 +38,8 @@ router.post("/", async (req, res) => {
 
   try {
     // Build the Gemini API request body
-    // We use the v1beta endpoint with gemini-2.5-flash (latest fast model)
-    const model = "gemini-2.5-flash";
+    // We use the v1beta endpoint with gemini-3.5-flash (fastest model with top reasoning for chatbots)
+    const model = "gemini-3.5-flash";
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
     // Build contents array from history + current message
