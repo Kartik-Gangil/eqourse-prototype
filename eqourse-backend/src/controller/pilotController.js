@@ -1,4 +1,6 @@
 const PilotQuery = require("../model/pilot");
+const { sendPilotNotification } = require("../utils/emailNotifier");
+const logger = require("../utils/logger");
 
 /**
  * POST /api/pilot
@@ -57,6 +59,11 @@ const submitPilotQuery = async (req, res) => {
     });
 
     await query.save();
+
+    // Fire-and-forget email notification — never blocks the response
+    sendPilotNotification(query).catch((err) =>
+      logger.error(`Pilot email notification failed: ${err.message}`)
+    );
 
     return res.status(201).json({
       success: true,

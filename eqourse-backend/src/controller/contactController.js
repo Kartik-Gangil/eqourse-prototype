@@ -1,4 +1,6 @@
 const ContactQuery = require("../model/contact_us_queries");
+const { sendContactNotification } = require("../utils/emailNotifier");
+const logger = require("../utils/logger");
 
 /**
  * POST /api/contact
@@ -40,6 +42,11 @@ const submitContactQuery = async (req, res) => {
     });
 
     await query.save();
+
+    // Fire-and-forget email notification — never blocks the response
+    sendContactNotification(query).catch((err) =>
+      logger.error(`Contact email notification failed: ${err.message}`)
+    );
 
     return res.status(201).json({
       success: true,
