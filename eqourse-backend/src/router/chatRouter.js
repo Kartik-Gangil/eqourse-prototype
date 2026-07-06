@@ -1,11 +1,13 @@
 /**
  * Chat Route — Gemini API Proxy
  *
- * Keeps the Gemini API key server-side so it is never exposed to the browser.
- * The frontend calls POST /api/chat with { message, history } and this
- * endpoint forwards it to the Gemini API with the system prompt.
- *
- * Environment variable: GEMINI_API_KEY (set in backend .env)
+ * Security model:
+ * - The Gemini API key stays server-side (GEMINI_API_KEY in backend .env).
+ * - The system prompt is built SERVER-SIDE from src/utils/chatbotKnowledge.js.
+ *   Any systemPrompt field sent by a client is ignored, so this endpoint can
+ *   only ever act as the eQOURSE assistant — never as a general-purpose proxy.
+ * - Per-IP rate limiting and strict input size caps protect against abuse
+ *   and runaway token costs.
  */
 
 const express = require("express");
@@ -13,11 +15,56 @@ const router = express.Router();
 const logger = require("../utils/logger");
 const { buildSystemPrompt } = require("../utils/chatbotKnowledge");
 
+// ─── Abuse protection ────────────────────────────────────────────────────────
+
+const RATE_WINDOW_MS = 60 * 1000; // 1 minute
+const RATE_MAX_REQUESTS = 15;     // max chat messages per IP per window
+const MESSAGE_MAX_CHARS = 1500;   // a genuine question fits well within this
+const HISTORY_MAX_TURNS = 20;     // only the most recent turns are forwarded
+const HISTORY_ENTRY_MAX_CHARS = 4000;
+const PAGE_CONTEXT_PATTERN = /^\/[a-zA-Z0-9\-_/]{0,120}$/; // site pathname only
+
+const ipHits = new Map(); // ip -> array of request timestamps
+
+function isRateLimited(ip) {
+  const now = Date.now();
+  const hits = (ipHits.get(ip) || []).filter((t) => now - t < RATE_WINDOW_MS);
+  if (hits.length >= RATE_MAX_REQUESTS) {
+    ipHits.set(ip, hits);
+    return true;
+  }
+  hits.push(now);
+  ipHits.set(ip, hits);
+  return false;
+}
+
+// Periodically drop stale IPs so the map never grows unbounded
+const cleanupTimer = setInterval(() => {
+  const now = Date.now();
+  for (const [ip, hits] of ipHits) {
+    const fresh = hits.filter((t) => now - t < RATE_WINDOW_MS);
+    if (fresh.length) ipHits.set(ip, fresh);
+    else ipHits.delete(ip);
+  }
+}, 5 * 60 * 1000);
+if (cleanupTimer.unref) cleanupTimer.unref();
+
+function clientIp(req) {
+  const fwd = req.headers["x-forwarded-for"];
+  if (typeof fwd === "string" && fwd.length > 0) return fwd.split(",")[0].trim();
+  return req.ip || req.socket?.remoteAddress || "unknown";
+}
+
 // ─── Gemini API call ─────────────────────────────────────────────────────────
 
 /**
  * POST /api/chat
- * Body: { message: string, history: Array<{role: "user"|"model", text: string}>, systemPrompt: string }
+ * Body: {
+ *   message: string,
+ *   history?: Array<{role: "user"|"model", text: string}>,
+ *   pageContext?: string  // pathname the visitor is currently on, e.g. "/free-pilot"
+ * }
+ * Note: any client-sent systemPrompt is deliberately ignored.
  * Returns: { reply: string }
  */
 router.post("/", async (req, res) => {
@@ -31,45 +78,49 @@ router.post("/", async (req, res) => {
     });
   }
 
-  const { message, history = [], pageContext = "" } = req.body;
-
-  if (!message || typeof message !== "string" || message.trim().length === 0 || message.length > 1500) {
-    return res.status(400).json({ success: false, reply: "Message is required and must be under 1500 characters." });
+  if (isRateLimited(clientIp(req))) {
+    return res.status(429).json({
+      success: false,
+      reply: "You're sending messages very quickly — give me a few seconds to catch up 😄 Please try again in a moment.",
+    });
   }
 
-  if (!Array.isArray(history) || history.length > 20) {
-    return res.status(400).json({ success: false, reply: "History too long." });
+  const { message, history = [], pageContext } = req.body;
+
+  if (!message || typeof message !== "string" || message.trim().length === 0) {
+    return res.status(400).json({ success: false, reply: "Message is required." });
   }
-  for (const entry of history) {
-    if (!entry.text || typeof entry.text !== "string" || entry.text.length > 4000) {
-      return res.status(400).json({ success: false, reply: "History entry invalid or too long." });
-    }
+  if (message.length > MESSAGE_MAX_CHARS) {
+    return res.status(400).json({
+      success: false,
+      reply: `That message is a little long for me — could you shorten it to under ${MESSAGE_MAX_CHARS} characters?`,
+    });
   }
 
-  if (pageContext && !/^\/[a-zA-Z0-9\-_/]{0,120}$/.test(pageContext)) {
-    return res.status(400).json({ success: false, reply: "Invalid page context." });
-  }
-
-  const systemPrompt = buildSystemPrompt();
+  // Build the system prompt server-side, optionally tailored to the page the
+  // visitor is browsing (pathname only — anything else is discarded).
+  const safePageContext =
+    typeof pageContext === "string" && PAGE_CONTEXT_PATTERN.test(pageContext)
+      ? pageContext
+      : undefined;
+  const systemPrompt = buildSystemPrompt(safePageContext);
 
   try {
-    // Build the Gemini API request body
-    // We use the v1beta endpoint with gemini-3.5-flash (fastest model with top reasoning for chatbots)
+    // v1beta endpoint with gemini-3.5-flash (fastest model with top reasoning for chatbots)
     const model = "gemini-3.5-flash";
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
-    // Build contents array from history + current message
+    // Cap and sanitise history, then build contents array + current message
     const contents = [];
-
-    // Add conversation history
-    for (const entry of history) {
+    const recentHistory = Array.isArray(history) ? history.slice(-HISTORY_MAX_TURNS) : [];
+    for (const entry of recentHistory) {
+      if (!entry || typeof entry.text !== "string" || entry.text.length === 0) continue;
       contents.push({
         role: entry.role === "model" ? "model" : "user",
-        parts: [{ text: entry.text }],
+        parts: [{ text: entry.text.slice(0, HISTORY_ENTRY_MAX_CHARS) }],
       });
     }
 
-    // Add the current user message
     contents.push({
       role: "user",
       parts: [{ text: message }],

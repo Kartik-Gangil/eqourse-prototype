@@ -278,7 +278,7 @@ function buildSummary(state: FormState): string {
     }
   }
 
-  summary += `\nDoes this look correct? Type **"yes"** to submit or **"edit"** to start over.`;
+  summary += `\nDoes this look correct? Type **"yes"** to submit, **"edit"** to re-enter your details, or **"cancel"** to discard.`;
   return summary;
 }
 
@@ -301,11 +301,18 @@ export async function submitForm(
   }
 
   if (state.formType === "pilot") {
+    const interestStr = (state.data.serviceInterest || "").toLowerCase();
+    const serviceInterest = interestStr.includes("ai") || interestStr.includes("data") 
+      ? "ai-data" 
+      : interestStr.includes("content") 
+        ? "content-services" 
+        : "other";
+
     const pilotData: FreePilotFormData = {
       name: state.data.name || "",
       email: state.data.email || "",
       company: state.data.company || "",
-      serviceInterest: state.data.serviceInterest || "",
+      serviceInterest,
       projectScope: state.data.projectScope || "",
       timeline: state.data.timeline || undefined,
       message: state.data.message || undefined,

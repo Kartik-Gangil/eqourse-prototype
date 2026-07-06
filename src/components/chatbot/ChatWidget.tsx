@@ -3,16 +3,20 @@
  *
  * Features:
  * - Floating chat icon on every page (bottom-right)
- * - AI-powered responses via Gemini (through backend proxy)
+ * - AI-powered responses via Gemini (through backend proxy; system prompt lives server-side)
  * - Session memory — remembers previous questions
- * - Contact Us and Free Pilot form submission directly from chat
+ * - Contact Us and Free Pilot form submission directly from chat (with cancel/edit at any step)
+ * - Page-context awareness — the bot knows which page the visitor is browsing
+ * - Follow-up suggestion chips parsed from the model reply
+ * - Internal eqourse.com links navigate in-app (no full page reload)
  * - Quick action buttons for common tasks
  * - Markdown rendering for rich bot responses
  * - Mobile and desktop optimized
  */
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { MessageCircle, X, Send, RotateCcw, Minus } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { MessageCircle, X, Send, RotateCcw, Minus, Sun, Moon } from "lucide-react";
 import {
   type ChatMessage,
   sendChatMessage,
@@ -34,6 +38,21 @@ import "./ChatWidget.css";
 // ─── Simple Markdown Parser ──────────────────────────────────────────────────
 // Converts basic markdown (bold, links, bullets) to HTML — no external deps
 
+const SITE_ORIGIN_PATTERN = /^https?:\/\/(www\.)?eqourse\.com/i;
+
+/**
+ * Render a link. eqourse.com URLs become in-app links (marked with
+ * data-internal so the click handler can route them through React Router);
+ * external URLs open in a new tab.
+ */
+function renderLink(label: string, url: string): string {
+  if (SITE_ORIGIN_PATTERN.test(url)) {
+    const path = url.replace(SITE_ORIGIN_PATTERN, "") || "/";
+    return `<a href="${path}" data-internal="true">${label}</a>`;
+  }
+  return `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+}
+
 function parseMarkdown(text: string): string {
   let html = text
     // Escape HTML first
@@ -45,14 +64,12 @@ function parseMarkdown(text: string): string {
     // Italic: *text*
     .replace(/\*(.*?)\*/g, "<em>$1</em>")
     // Links: [text](url)
-    .replace(
-      /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
-      '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, (_m, label, url) =>
+      renderLink(label, url)
     )
     // Bare URLs
-    .replace(
-      /(^|[^"'])(https?:\/\/[^\s<]+)/g,
-      '$1<a href="$2" target="_blank" rel="noopener noreferrer">$2</a>'
+    .replace(/(^|[^"'])(https?:\/\/[^\s<]+)/g, (_m, pre, url) =>
+      pre + renderLink(url, url)
     )
     // Line breaks
     .replace(/\n/g, "<br />");
@@ -71,6 +88,41 @@ function parseMarkdown(text: string): string {
   return html;
 }
 
+// ─── Reply post-processing ───────────────────────────────────────────────────
+
+/**
+ * The model ends normal replies with a "SUGGESTIONS: q1 | q2 | q3" line.
+ * Strip it from the visible text and return the parsed follow-up chips.
+ */
+function extractSuggestions(raw: string): { text: string; suggestions: string[] } {
+  const match = raw.match(/(?:^|\n)\s*SUGGESTIONS:\s*(.+?)\s*$/i);
+  if (!match || match.index === undefined) {
+    return { text: raw.trim(), suggestions: [] };
+  }
+  const suggestions = match[1]
+    .split("|")
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .slice(0, 3);
+  return { text: raw.slice(0, match.index).trim(), suggestions };
+}
+
+/**
+ * Detect a form trigger. The model is instructed to reply with EXACTLY
+ * "TRIGGER_FORM:contact" / "TRIGGER_FORM:pilot" and nothing else, so only a
+ * reply that STARTS with the trigger counts — a trigger string merely quoted
+ * mid-sentence (e.g. user asked the bot to echo it) must not fire a form.
+ */
+function parseFormTrigger(raw: string): FormType {
+  const cleaned = raw.trim().replace(/^`+|`+$/g, "").trim();
+  if (/^TRIGGER_FORM:contact\b/.test(cleaned)) return "contact";
+  if (/^TRIGGER_FORM:pilot\b/.test(cleaned)) return "pilot";
+  return null;
+}
+
+/** Words that exit a form flow at any step. */
+const CANCEL_WORDS = ["cancel", "stop", "exit", "quit", "nevermind", "never mind"];
+
 // ─── Welcome Message ─────────────────────────────────────────────────────────
 
 const WELCOME_MESSAGE: ChatMessage = {
@@ -83,6 +135,9 @@ const WELCOME_MESSAGE: ChatMessage = {
 // ─── Component ───────────────────────────────────────────────────────────────
 
 const ChatWidget = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -90,6 +145,27 @@ const ChatWidget = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
+  const [isDark, setIsDark] = useState(true);
+
+  // Fun, professional quotes while thinking
+  const thinkingQuotes = [
+    "Analyzing your request...",
+    "Gathering the best information...",
+    "Just a sec, thinking buddy...",
+    "Crafting the perfect response...",
+    "Connecting the dots...",
+    "Finding the exact details for you..."
+  ];
+  const [thinkingQuote, setThinkingQuote] = useState(thinkingQuotes[0]);
+
+  useEffect(() => {
+    if (isLoading) {
+      const interval = setInterval(() => {
+        setThinkingQuote(thinkingQuotes[Math.floor(Math.random() * thinkingQuotes.length)]);
+      }, 2500);
+      return () => clearInterval(interval);
+    }
+  }, [isLoading]);
 
   // Form state
   const [formState, setFormState] = useState<FormState | null>(null);
@@ -169,12 +245,13 @@ const ChatWidget = () => {
   }, []);
 
   // ── Add a bot message ──
-  const addBotMessage = useCallback((text: string) => {
+  const addBotMessage = useCallback((text: string, suggestions?: string[]) => {
     const msg: ChatMessage = {
       id: generateId(),
       role: "model",
       text,
       timestamp: Date.now(),
+      ...(suggestions && suggestions.length > 0 ? { suggestions } : {}),
     };
     setMessages((prev) => [...prev, msg]);
   }, []);
@@ -191,7 +268,7 @@ const ChatWidget = () => {
       const firstField = getCurrentField(state);
 
       addBotMessage(
-        `Great! Let me help you submit a **${formName}** request. I'll ask you a few questions.\n\n${firstField?.question || ""}`
+        `Great! Let me help you submit a **${formName}** request. I'll ask you a few questions — you can type **"cancel"** at any time to exit.\n\n${firstField?.question || ""}`
       );
     },
     [addBotMessage]
@@ -202,10 +279,21 @@ const ChatWidget = () => {
     async (input: string) => {
       if (!formState) return;
 
+      const lower = input.toLowerCase().trim();
+
+      // Global escape hatch — works at any step of the flow
+      if (CANCEL_WORDS.includes(lower)) {
+        setFormState(null);
+        setAwaitingConfirmation(false);
+        addBotMessage(
+          "No problem — I've cancelled that request. Feel free to ask me anything else, or we can restart it whenever you're ready. 🙂"
+        );
+        return;
+      }
+
       // Handle confirmation step
       if (awaitingConfirmation) {
-        const lower = input.toLowerCase().trim();
-        if (lower === "yes" || lower === "y" || lower === "confirm" || lower === "submit") {
+        if (["yes", "y", "confirm", "submit", "ok", "okay", "sure"].includes(lower)) {
           setIsLoading(true);
           addBotMessage("Submitting your request... ⏳");
 
@@ -228,7 +316,20 @@ const ChatWidget = () => {
             );
           }
           return;
-        } else if (lower === "edit" || lower === "cancel" || lower === "no") {
+        }
+
+        if (lower === "edit" || lower === "restart") {
+          const type = formState.formType;
+          const fresh = createFormState(type);
+          setFormState(fresh);
+          setAwaitingConfirmation(false);
+          addBotMessage(
+            `Sure — let's re-enter your details.\n\n${getCurrentField(fresh)?.question || ""}`
+          );
+          return;
+        }
+
+        if (lower === "no") {
           setFormState(null);
           setAwaitingConfirmation(false);
           addBotMessage(
@@ -236,6 +337,13 @@ const ChatWidget = () => {
           );
           return;
         }
+
+        // Anything else at the confirmation step — re-prompt instead of
+        // silently dropping the input (previous behavior).
+        addBotMessage(
+          'Please type **"yes"** to submit, **"edit"** to re-enter your details, or **"cancel"** to discard the request.'
+        );
+        return;
       }
 
       // Process form input
@@ -259,69 +367,78 @@ const ChatWidget = () => {
     [formState, awaitingConfirmation, addBotMessage]
   );
 
-  // ── Send message ──
-  const handleSend = useCallback(async () => {
-    const text = inputValue.trim();
-    if (!text || isLoading) return;
+  // ── Send any user text (typed input or suggestion chip) ──
+  const submitUserText = useCallback(
+    async (rawText: string) => {
+      const text = rawText.trim();
+      if (!text || isLoading) return;
 
-    // Add user message
-    const userMsg: ChatMessage = {
-      id: generateId(),
-      role: "user",
-      text,
-      timestamp: Date.now(),
-    };
-    setMessages((prev) => [...prev, userMsg]);
+      // Add user message
+      const userMsg: ChatMessage = {
+        id: generateId(),
+        role: "user",
+        text,
+        timestamp: Date.now(),
+      };
+      setMessages((prev) => [...prev, userMsg]);
+
+      // If we're in a form flow, handle form input
+      if (formState) {
+        handleFormInput(text);
+        return;
+      }
+
+      // Keyword shortcut for unmistakable form intent. Informational
+      // questions ("how does the free pilot work?") must NOT trigger a form —
+      // they go to the AI, which answers and offers to start the form.
+      const lower = text.toLowerCase();
+      const isInformational =
+        /^(what|how|why|when|where|who|which|does|do|is|are|tell me|explain)\b/.test(lower) ||
+        lower.endsWith("?");
+      if (!isInformational) {
+        const wantsAction = /\b(want|like|need|please|start|request|book|sign|begin|apply|submit|send|fill)\b/.test(lower);
+        if (wantsAction && /\b(contact|reach out|get in touch|inquiry|talk to)\b/.test(lower)) {
+          startForm("contact");
+          return;
+        }
+        if (wantsAction && /\b(pilot|free trial)\b/.test(lower)) {
+          startForm("pilot");
+          return;
+        }
+      }
+
+      // Regular AI chat
+      setIsLoading(true);
+      try {
+        // Send with conversation history + current page for context
+        const reply = await sendChatMessage(text, messages, location.pathname);
+
+        // Check if AI decided to trigger a form flow
+        const trigger = parseFormTrigger(reply);
+        if (trigger) {
+          startForm(trigger);
+          return;
+        }
+
+        const { text: replyText, suggestions } = extractSuggestions(reply);
+        addBotMessage(replyText || reply.trim(), suggestions);
+      } catch {
+        addBotMessage(
+          "I'm having trouble right now. Please try again, or contact us at **info@eqourse.com**."
+        );
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [isLoading, messages, formState, handleFormInput, startForm, addBotMessage, location.pathname]
+  );
+
+  // ── Send message from the input box ──
+  const handleSend = useCallback(() => {
+    const text = inputValue;
     setInputValue("");
-
-    // If we're in a form flow, handle form input
-    if (formState) {
-      handleFormInput(text);
-      return;
-    }
-
-    // Check for form trigger intents
-    const lower = text.toLowerCase();
-    if (
-      lower.includes("contact") &&
-      (lower.includes("form") || lower.includes("submit") || lower.includes("reach") || lower.includes("inquiry") || lower.includes("send"))
-    ) {
-      startForm("contact");
-      return;
-    }
-    if (
-      (lower.includes("pilot") || lower.includes("free pilot") || lower.includes("free trial")) &&
-      (lower.includes("request") || lower.includes("start") || lower.includes("book") || lower.includes("sign") || lower.includes("get") || lower.includes("want"))
-    ) {
-      startForm("pilot");
-      return;
-    }
-
-    // Regular AI chat
-    setIsLoading(true);
-    try {
-      // Send with conversation history for context
-      const reply = await sendChatMessage(text, messages);
-      
-      // Check if AI decided to trigger a form flow
-      if (reply.includes("TRIGGER_FORM:contact")) {
-        startForm("contact");
-        return;
-      }
-      if (reply.includes("TRIGGER_FORM:pilot")) {
-        startForm("pilot");
-        return;
-      }
-      
-      addBotMessage(reply);
-    } catch {
-      addBotMessage(
-        "I'm having trouble right now. Please try again, or contact us at **info@eqourse.com**."
-      );
-    } finally {
-      setIsLoading(false);
-    }
-  }, [inputValue, isLoading, messages, formState, handleFormInput, startForm, addBotMessage]);
+    submitUserText(text);
+  }, [inputValue, submitUserText]);
 
   // ── Quick action handlers ──
   const handleQuickAction = useCallback(
@@ -347,9 +464,10 @@ const ChatWidget = () => {
             { id: generateId(), role: "user", text: "Tell me about your services", timestamp: Date.now() },
           ]);
           setIsLoading(true);
-          sendChatMessage("Give me an overview of all your services with links to each", []).then(
+          sendChatMessage("Give me an overview of all your services with links to each", [], location.pathname).then(
             (reply) => {
-              addBotMessage(reply);
+              const { text: replyText, suggestions } = extractSuggestions(reply);
+              addBotMessage(replyText || reply.trim(), suggestions);
               setIsLoading(false);
             }
           );
@@ -360,23 +478,42 @@ const ChatWidget = () => {
             { id: generateId(), role: "user", text: "Show me FAQs", timestamp: Date.now() },
           ]);
           setIsLoading(true);
-          sendChatMessage("What are the most common questions people ask? Give me the top 5 with brief answers.", []).then(
+          sendChatMessage("What are the most common questions people ask? Give me the top 5 with brief answers.", [], location.pathname).then(
             (reply) => {
-              addBotMessage(reply);
+              const { text: replyText, suggestions } = extractSuggestions(reply);
+              addBotMessage(replyText || reply.trim(), suggestions);
               setIsLoading(false);
             }
           );
           break;
       }
     },
-    [startForm, addBotMessage]
+    [startForm, addBotMessage, location.pathname]
+  );
+
+  // ── In-app navigation for internal links inside bot messages ──
+  const handleMessagesClick = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      const anchor = (e.target as HTMLElement).closest("a");
+      if (anchor && anchor.dataset.internal === "true") {
+        e.preventDefault();
+        navigate(anchor.getAttribute("href") || "/");
+      }
+    },
+    [navigate]
   );
 
   // ── Render ──
   const showQuickActions = messages.length <= 1;
+  const lastMessage = messages[messages.length - 1];
+  const showSuggestions =
+    !isLoading &&
+    !formState &&
+    lastMessage?.role === "model" &&
+    (lastMessage.suggestions?.length ?? 0) > 0;
 
   return (
-    <>
+    <div className={`eqourse-chatbot-container ${isDark ? "dark" : ""}`}>
       {/* Floating Toggle Button */}
       <button
         className="eqourse-chatbot-toggle"
@@ -401,12 +538,20 @@ const ChatWidget = () => {
         <div className="eqourse-chatbot-window" role="dialog" aria-label="eQOURSE Chat Assistant">
           {/* Header */}
           <div className="eqourse-chatbot-header">
-            <div className="eqourse-chatbot-avatar">EQ</div>
+            <div className="eqourse-chatbot-avatar"><video src="/aiavtar-new.mp4" autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} /></div>
             <div className="eqourse-chatbot-header-info">
               <div className="eqourse-chatbot-header-title">eQOURSE Assistant</div>
               <div className="eqourse-chatbot-header-status">Online</div>
             </div>
             <div className="eqourse-chatbot-header-actions">
+              <button
+                className="eqourse-chatbot-header-btn"
+                onClick={() => setIsDark(!isDark)}
+                aria-label="Toggle theme"
+                title="Toggle theme"
+              >
+                {isDark ? <Sun size={15} /> : <Moon size={15} />}
+              </button>
               <button
                 className="eqourse-chatbot-header-btn"
                 onClick={handleNewChat}
@@ -435,11 +580,11 @@ const ChatWidget = () => {
           </div>
 
           {/* Messages */}
-          <div className="eqourse-chatbot-messages">
+          <div className="eqourse-chatbot-messages" onClick={handleMessagesClick}>
             {messages.map((msg) => (
               <div key={msg.id} className={`eqourse-chat-msg ${msg.role === "user" ? "user" : "bot"}`}>
                 <div className="eqourse-chat-msg-avatar">
-                  {msg.role === "user" ? "You" : "EQ"}
+                  {msg.role === "user" ? "You" : <video src="/aiavtar-new.mp4" autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />}
                 </div>
                 <div
                   className="eqourse-chat-msg-bubble"
@@ -466,16 +611,34 @@ const ChatWidget = () => {
               </div>
             )}
 
-            {/* Typing Indicator */}
+            {/* Follow-up suggestion chips — parsed from the latest bot reply */}
+            {showSuggestions && (
+              <div className="eqourse-chatbot-suggestions">
+                {lastMessage.suggestions!.map((s) => (
+                  <button
+                    key={s}
+                    className="eqourse-chatbot-suggestion-btn"
+                    onClick={() => submitUserText(s)}
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* Thinking Indicator */}
             {isLoading && (
-              <div className="eqourse-chatbot-typing">
-                <div className="eqourse-chat-msg-avatar" style={{ background: "linear-gradient(135deg, hsl(170 82% 40%), hsl(170 82% 32%))", color: "white", width: 30, height: 30, borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontWeight: 700 }}>
-                  EQ
+              <div className="eqourse-chatbot-thinking">
+                <div className="eqourse-chat-msg-avatar">
+                  <video src="/aiavtar-new.mp4" autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
-                <div className="eqourse-chatbot-typing-dots">
-                  <span className="eqourse-chatbot-typing-dot" />
-                  <span className="eqourse-chatbot-typing-dot" />
-                  <span className="eqourse-chatbot-typing-dot" />
+                <div className="eqourse-chatbot-thinking-bubble">
+                  {thinkingQuote}
+                  <div className="eqourse-chatbot-thinking-dots">
+                    <span className="eqourse-chatbot-typing-dot" />
+                    <span className="eqourse-chatbot-typing-dot" />
+                    <span className="eqourse-chatbot-typing-dot" />
+                  </div>
                 </div>
               </div>
             )}
@@ -517,7 +680,7 @@ const ChatWidget = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
