@@ -10,14 +10,7 @@
 // ─── Page Directory ──────────────────────────────────────────────────────────
 // Every page on the website mapped to title + description + path
 
-export interface PageEntry {
-  title: string;
-  path: string;
-  description: string;
-  category?: string;
-}
-
-export const pageDirectory: PageEntry[] = [
+const pageDirectory = [
   // ── Core Pages ──
   { title: "Home", path: "/", description: "eQOURSE homepage — overview of Content Services and AI Data Services", category: "Main" },
   { title: "About Us", path: "/aboutus", description: "Company overview, mission, history, team, and ISO certifications", category: "Main" },
@@ -139,7 +132,7 @@ export const pageDirectory: PageEntry[] = [
 // ─── System Prompt ──────────────────────────────────────────────────────────
 // This is injected into every Gemini conversation as the system instruction
 
-export function buildSystemPrompt(): string {
+function buildSystemPrompt() {
   const pageList = pageDirectory
     .map((p) => `- ${p.title}: https://www.eqourse.com${p.path} — ${p.description}`)
     .join("\n");
@@ -214,3 +207,5 @@ ${pageList}
 9. **Remember conversation context** — refer back to earlier messages in the same session for continuity.
 10. **Greet warmly** — on first message, introduce yourself briefly: "Hi! I'm the eQOURSE Assistant. I can help you learn about our Content Services, AI Data Services, or help you get started with a free pilot. What can I help you with?"`;
 }
+
+module.exports = { buildSystemPrompt, pageDirectory };

@@ -5,7 +5,6 @@
  * Maintains conversation history for session memory.
  */
 
-import { buildSystemPrompt } from "./chatbotKnowledge";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -79,8 +78,8 @@ export async function sendChatMessage(
     text: m.text,
   }));
 
-  // Build the system prompt
-  const systemPrompt = buildSystemPrompt();
+  // Get current page context
+  const pageContext = window.location.pathname;
 
   try {
     const res = await fetch(`${apiBase}/api/chat`, {
@@ -89,7 +88,7 @@ export async function sendChatMessage(
       body: JSON.stringify({
         message: userMessage,
         history: apiHistory,
-        systemPrompt,
+        pageContext,
       }),
     });
 

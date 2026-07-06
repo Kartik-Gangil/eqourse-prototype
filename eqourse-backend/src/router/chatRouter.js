@@ -11,6 +11,7 @@
 const express = require("express");
 const router = express.Router();
 const logger = require("../utils/logger");
+const { buildSystemPrompt } = require("../utils/chatbotKnowledge");
 
 // ─── Gemini API call ─────────────────────────────────────────────────────────
 
@@ -30,11 +31,26 @@ router.post("/", async (req, res) => {
     });
   }
 
-  const { message, history = [], systemPrompt = "" } = req.body;
+  const { message, history = [], pageContext = "" } = req.body;
 
-  if (!message || typeof message !== "string" || message.trim().length === 0) {
-    return res.status(400).json({ success: false, reply: "Message is required." });
+  if (!message || typeof message !== "string" || message.trim().length === 0 || message.length > 1500) {
+    return res.status(400).json({ success: false, reply: "Message is required and must be under 1500 characters." });
   }
+
+  if (!Array.isArray(history) || history.length > 20) {
+    return res.status(400).json({ success: false, reply: "History too long." });
+  }
+  for (const entry of history) {
+    if (!entry.text || typeof entry.text !== "string" || entry.text.length > 4000) {
+      return res.status(400).json({ success: false, reply: "History entry invalid or too long." });
+    }
+  }
+
+  if (pageContext && !/^\/[a-zA-Z0-9\-_/]{0,120}$/.test(pageContext)) {
+    return res.status(400).json({ success: false, reply: "Invalid page context." });
+  }
+
+  const systemPrompt = buildSystemPrompt();
 
   try {
     // Build the Gemini API request body
