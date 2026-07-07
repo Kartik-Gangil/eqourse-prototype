@@ -134,10 +134,6 @@ const GlassPopup = ({
           />
           {/* Image overlay gradient */}
           <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent" />
-          {/* Year badge on image */}
-          <div className="absolute top-2 right-2 px-2.5 py-1 rounded-full bg-gradient-primary text-white text-[10px] font-bold tracking-wider shadow-soft">
-            {milestone.year}
-          </div>
         </div>
 
         {/* Content */}
