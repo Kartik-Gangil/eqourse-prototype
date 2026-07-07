@@ -1,11 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import timeline2020 from "@/assets/timeline-2020.webp";
-import timeline2021 from "@/assets/timeline-2021.webp";
-import timeline2022 from "@/assets/timeline-2022.webp";
-import timeline2023 from "@/assets/timeline-2023.webp";
-import timeline2024 from "@/assets/timeline-2024.webp";
-import timeline2025 from "@/assets/timeline-2025.webp";
-import timeline2026 from "@/assets/timeline-2026.webp";
+// Images are now served from the public/assets/journey directory for better asset management and SEO
 
 /* ── Milestone data ── */
 interface Milestone {
@@ -23,7 +17,7 @@ const milestones: Milestone[] = [
     title: "Foundation Phase",
     shortDesc: "Built the foundation for structured learning systems.",
     fullDesc: "eQOURSE began with a focused vision to strengthen learning and digital content ecosystems through curriculum development, assessments, and structured academic workflows. Early projects in CMS/LMS systems and international curriculum support laid the groundwork for scalable, process-driven execution across learning platforms.",
-    image: timeline2020,
+    image: "/assets/journey/2020.png",
     icon: "🏗️",
   },
   {
@@ -31,7 +25,7 @@ const milestones: Milestone[] = [
     title: "The Beginning",
     shortDesc: "Expanded into multilingual and distributed learning workflows.",
     fullDesc: "As demand grew, our capabilities expanded into multilingual content delivery, assessment frameworks, transcription workflows, and SME-driven execution systems. This phase strengthened our expertise in structured content operations and scalable learning delivery across platforms and regions.",
-    image: timeline2021,
+    image: "/assets/journey/2021.png",
     icon: "🚀",
   },
   {
@@ -39,7 +33,7 @@ const milestones: Milestone[] = [
     title: "Scaling Up",
     shortDesc: "Evolved into large-scale learning ecosystems.",
     fullDesc: "By 2022, our work expanded into integrated learning ecosystems combining instructional modules, multimedia learning, worksheets, multilingual adaptation, and instructor-led delivery systems. During this phase, we also executed a major international engagement delivering over 10,000 STEM video solutions across K–12 and college-level subjects spanning multiple disciplines.",
-    image: timeline2022,
+    image: "/assets/journey/2022.png",
     icon: "📈",
   },
   {
@@ -47,7 +41,7 @@ const milestones: Milestone[] = [
     title: "AI Data Division",
     shortDesc: "Expanded into AI-aligned systems and future learning programs.",
     fullDesc: "As AI adoption accelerated globally, eQOURSE expanded into AI-aligned ecosystems through multilingual datasets, validation systems, AI quality workflows, and annotation pipelines. Alongside this, we launched large-scale digital literacy, coding, and AI learning programs supported by AI-generated videos, 2D learning content, and simulation-based learning systems.",
-    image: timeline2023,
+    image: "/assets/journey/2023.png",
     icon: "🤖",
   },
   {
@@ -55,7 +49,7 @@ const milestones: Milestone[] = [
     title: "Going Global",
     shortDesc: "Strengthened global capability and validation systems.",
     fullDesc: "This phase marked significant global expansion through multilingual delivery systems, compliance-driven workflows, government and institutional collaborations, and real-world validation frameworks. With ISO-certified operations, RLHF workflows, and multilingual execution across large-scale programs, eQOURSE strengthened its position as a global learning and AI solutions partner.",
-    image: timeline2024,
+    image: "/assets/journey/2024.png",
     icon: "🌏",
   },
   {
@@ -63,7 +57,7 @@ const milestones: Milestone[] = [
     title: "Integration at Scale",
     shortDesc: "Unified content, AI, localization, and validation ecosystems.",
     fullDesc: "By 2025, our systems evolved into fully integrated pipelines connecting content creation, localization, video production, assessments, and AI-supported workflows. This phase also marked the establishment of our Singapore headquarters and the launch of TUTRAIN, enabling real learner feedback and continuous refinement across learning and AI systems.",
-    image: timeline2025,
+    image: "/assets/journey/2025.png",
     icon: "⚡",
   },
   {
@@ -71,7 +65,7 @@ const milestones: Milestone[] = [
     title: "Unified Ecosystem",
     shortDesc: "Learning and AI systems operating as one evolving ecosystem.",
     fullDesc: "Today, eQOURSE operates as a mature dual-capability ecosystem where learning content systems, AI data pipelines, multilingual delivery frameworks, and real-world validation mechanisms function together continuously. With global delivery capabilities, scalable infrastructure, and integrated execution models, we continue building meaningful impact across learning and intelligent systems worldwide.",
-    image: timeline2026,
+    image: "/assets/journey/2026.png",
     icon: "🔮",
   },
 ];
@@ -133,7 +127,9 @@ const GlassPopup = ({
         <div className="relative overflow-hidden">
           <img
             src={milestone.image}
-            alt={milestone.title}
+            alt={`eQOURSE Corporate Journey ${milestone.year} - ${milestone.title}`}
+            title={`eQOURSE Milestone: ${milestone.title} in ${milestone.year}`}
+            loading="lazy"
             className="w-full h-28 object-cover"
           />
           {/* Image overlay gradient */}
@@ -283,7 +279,7 @@ const JourneyTimeline = () => {
             Our Journey
           </span>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mt-2 mb-4">
-            Five Years of{" "}
+            Seven Years of{" "}
             <span className="text-gradient">Impact & Innovation</span>
           </h2>
           <p className="text-muted-foreground text-lg">
@@ -368,7 +364,9 @@ const JourneyTimeline = () => {
                       >
                         <img
                           src={milestone.image}
-                          alt={milestone.title}
+                          alt={`eQOURSE Journey ${milestone.year} - ${milestone.title}`}
+                          title={`eQOURSE Milestone ${milestone.year}`}
+                          loading="lazy"
                           className="w-full h-full object-cover"
                         />
                         {/* Overlay with icon */}
