@@ -58,7 +58,10 @@ import AdminCaseStudyEditor from "./admin/pages/CaseStudyEditor";
 import AdminSampleCategories from "./admin/pages/SampleCategories";
 import AdminSampleSubCategories from "./admin/pages/SampleSubCategories";
 import AdminSampleTabFiles from "./admin/pages/SampleTabFiles";
-import AdminSampleFileEditor from "./admin/pages/SampleFileEditor";
+import AdminSampleEditor from "./admin/pages/SampleEditor";
+import AdminCareers from "./admin/pages/Careers";
+import AdminCareerEditor from "./admin/pages/CareerEditor";
+import AdminCareerApplicants from "./admin/pages/CareerApplicants";
 
 const queryClient = new QueryClient();
 
@@ -150,8 +153,12 @@ const App = () => (
                 <Route path="sample-categories" element={<AdminSampleCategories />} />
                 <Route path="samples/:mainCategoryId" element={<AdminSampleSubCategories />} />
                 <Route path="samples/:mainCategoryId/:pageSlug" element={<AdminSampleTabFiles />} />
-                <Route path="samples/:mainCategoryId/:pageSlug/upload" element={<AdminSampleFileEditor />} />
-                <Route path="samples/:mainCategoryId/:pageSlug/:sampleId" element={<AdminSampleFileEditor />} />
+                <Route path="samples/:categorySlug/:pageSlug/:tabName/new" element={<AdminSampleEditor />} />
+                <Route path="samples/:categorySlug/:pageSlug/:tabName/:sampleId" element={<AdminSampleEditor />} />
+                <Route path="careers" element={<AdminCareers />} />
+                <Route path="careers/new" element={<AdminCareerEditor />} />
+                <Route path="careers/:id" element={<AdminCareerEditor />} />
+                <Route path="careers/:id/applicants" element={<AdminCareerApplicants />} />
               </Route>
 
               <Route path="*" element={<NotFound />} />

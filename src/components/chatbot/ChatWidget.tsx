@@ -512,6 +512,11 @@ const ChatWidget = () => {
     lastMessage?.role === "model" &&
     (lastMessage.suggestions?.length ?? 0) > 0;
 
+  // Chatbot is for the public website only — never render inside the admin panel.
+  if (location.pathname.startsWith("/admin")) {
+    return null;
+  }
+
   return (
     <div className={`eqourse-chatbot-container ${isDark ? "dark" : ""}`}>
       {/* Floating Toggle Button */}

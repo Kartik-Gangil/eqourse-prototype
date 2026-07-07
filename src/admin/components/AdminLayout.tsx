@@ -11,6 +11,7 @@ import {
   ExternalLink,
   Menu,
   X,
+  Briefcase,
 } from "lucide-react";
 import { adminApi } from "../lib/api";
 import { Button } from "@/components/ui/button";
@@ -20,6 +21,7 @@ const navItems = [
   { to: "/admin", label: "Dashboard", icon: LayoutDashboard, end: true },
   { to: "/admin/contact-queries", label: "Contact Queries", icon: Mail },
   { to: "/admin/pilot-queries", label: "Free-Pilot Queries", icon: Rocket },
+  { to: "/admin/careers", label: "Careers", icon: Briefcase },
   { to: "/admin/blogs", label: "Blogs", icon: FileText },
   { to: "/admin/case-studies", label: "Case Studies", icon: BookOpen },
   { to: "/admin/sample-categories", label: "Samples", icon: FolderTree },
@@ -138,7 +140,9 @@ export default function AdminLayout() {
 
       {/* Main */}
       <main className="flex-1 md:ml-64 min-h-screen">
-        <Outlet />
+        <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full">
+          <Outlet />
+        </div>
       </main>
     </div>
   );
