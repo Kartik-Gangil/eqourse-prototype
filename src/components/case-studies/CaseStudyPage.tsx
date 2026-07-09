@@ -60,25 +60,33 @@ const CaseStudyPage = () => {
         return links;
       };
 
-      // Map API case studies to the static CaseStudy shape
-      const mapped: CaseStudy[] = apiStudies.map((cs) => ({
-        id: cs.id,
-        title: cs.title,
-        category: (cs.industry?.toLowerCase().includes("ai") || cs.tags?.includes("AI Data Services") ? "AI Data Services" : "Content Service") as CaseStudyCategory,
-        industry: cs.industry,
-        region: "",
-        serviceTags: cs.tags || [],
-        problem: cs.challenge || "",
-        solution: cs.solution || "",
-        impact: cs.results || "",
-        metrics: cs.metrics || [],
-        cardSummary: cs.summary || "",
-        visualDirection: { theme: cs.tags?.includes("AI Data Services") ? "navy-cyan" as const : "teal" as const },
-        relatedLinks: cs.relatedLinks && cs.relatedLinks.length > 0
-          ? cs.relatedLinks
-          : mapTagsToRelatedLinks(cs.tags || []),
-        image: cs.heroImageUrl ? (cs.heroImageUrl.startsWith("/") ? `${import.meta.env.VITE_API_BASE_URL || ""}${cs.heroImageUrl}` : cs.heroImageUrl) : undefined,
-      }));
+      // Map API case studies to the static CaseStudy shape.
+      // The "Client" field in the admin uses the convention "Region | Client Name"
+      // (e.g. "India | Confidential Client") so we can populate the region chip on the card.
+      const mapped: CaseStudy[] = apiStudies.map((cs) => {
+        // Extract region from client field: "India | Client Name" → region = "India"
+        const clientParts = (cs.client || "").split("|").map((s) => s.trim());
+        const region = clientParts.length >= 2 ? clientParts[0] : (cs.client || "Global");
+
+        return {
+          id: cs.id,
+          title: cs.title,
+          category: (cs.industry?.toLowerCase().includes("ai") || cs.tags?.includes("AI Data Services") ? "AI Data Services" : "Content Service") as CaseStudyCategory,
+          industry: cs.industry,
+          region,
+          serviceTags: cs.tags || [],
+          problem: cs.challenge || "",
+          solution: cs.solution || "",
+          impact: cs.results || "",
+          metrics: cs.metrics || [],
+          cardSummary: cs.summary || "",
+          visualDirection: { theme: cs.tags?.includes("AI Data Services") ? "navy-cyan" as const : "teal" as const },
+          relatedLinks: cs.relatedLinks && cs.relatedLinks.length > 0
+            ? cs.relatedLinks
+            : mapTagsToRelatedLinks(cs.tags || []),
+          image: cs.heroImageUrl ? (cs.heroImageUrl.startsWith("/") ? `${import.meta.env.VITE_API_BASE_URL || ""}${cs.heroImageUrl}` : cs.heroImageUrl) : undefined,
+        };
+      });
       setAllStudies(mapped);
     });
     return () => { cancelled = true; };
