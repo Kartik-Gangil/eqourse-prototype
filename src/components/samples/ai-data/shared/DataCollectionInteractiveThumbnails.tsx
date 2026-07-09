@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import handwrittenDocImg from "@/assets/handwritten_doc_sample.png";
-import dashcamImg from "@/assets/dashcam_sample.png";
+import handwrittenDocImg from "@/assets/handwritten_doc_sample.webp";
+import dashcamImg from "@/assets/dashcam_sample.webp";
 
 // ============================================================
 // 1. Text Collection Samples

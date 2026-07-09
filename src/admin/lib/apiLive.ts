@@ -14,9 +14,12 @@ import * as client from "./apiClient";
 import type {
   AdminUser,
   AnalyticsSummary,
+  ApplicationStatus,
   BlogPost,
   CaseStudy,
   ContactQuery,
+  JobApplication,
+  JobOpening,
   PagedResponse,
   PilotQuery,
   PublishStatus,
@@ -299,5 +302,58 @@ export const liveApi = {
       "file",
       { kind },
     );
+  },
+
+  // ═══════════════════════════════════════════════════════════
+  // Careers / Job Openings
+  // ═══════════════════════════════════════════════════════════
+  async listJobOpenings(params: { status?: string; department?: string; q?: string; page?: number; pageSize?: number } = {}): Promise<PagedResponse<JobOpening>> {
+    const qs = new URLSearchParams();
+    if (params.status) qs.set("status", params.status);
+    if (params.department) qs.set("department", params.department);
+    if (params.q) qs.set("q", params.q);
+    if (params.page) qs.set("page", String(params.page));
+    if (params.pageSize) qs.set("pageSize", String(params.pageSize));
+    return client.get<PagedResponse<JobOpening>>(`/api/admin/careers?${qs}`);
+  },
+
+  async getJobOpening(id: string): Promise<JobOpening> {
+    return client.get<JobOpening>(`/api/admin/careers/${id}`);
+  },
+
+  async createJobOpening(input: Partial<JobOpening>): Promise<JobOpening> {
+    return client.post<JobOpening>("/api/admin/careers", input);
+  },
+
+  async updateJobOpening(id: string, patch: Partial<JobOpening>): Promise<JobOpening> {
+    return client.patch<JobOpening>(`/api/admin/careers/${id}`, patch);
+  },
+
+  async deleteJobOpening(id: string) {
+    return client.del(`/api/admin/careers/${id}`);
+  },
+
+  // ═══════════════════════════════════════════════════════════
+  // Job Applications
+  // ═══════════════════════════════════════════════════════════
+  async listApplications(jobId: string, params: { status?: string; q?: string; page?: number; pageSize?: number } = {}): Promise<PagedResponse<JobApplication> & { statusCounts?: Record<string, number> }> {
+    const qs = new URLSearchParams();
+    if (params.status) qs.set("status", params.status);
+    if (params.q) qs.set("q", params.q);
+    if (params.page) qs.set("page", String(params.page));
+    if (params.pageSize) qs.set("pageSize", String(params.pageSize));
+    return client.get(`/api/admin/careers/${jobId}/applications?${qs}`);
+  },
+
+  async getApplication(id: string): Promise<JobApplication> {
+    return client.get<JobApplication>(`/api/admin/applications/${id}`);
+  },
+
+  async updateApplicationStatus(id: string, status: ApplicationStatus, internalNotes?: string): Promise<JobApplication> {
+    return client.patch<JobApplication>(`/api/admin/applications/${id}/status`, { status, internalNotes });
+  },
+
+  async smartFilterApplications(jobId: string, query: string): Promise<{ items: JobApplication[]; total: number }> {
+    return client.post(`/api/admin/careers/${jobId}/smart-filter`, { query });
   },
 };

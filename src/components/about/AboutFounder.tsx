@@ -22,7 +22,7 @@ const AboutFounder = () => {
               {/* Note: Wait, since no specific image path was provided, use a placeholder or check asset folder, but we know there's about-image.jpg or founder picture in existing site. Using a generic solid placeholder or standard path for now */}
               <div className="absolute inset-0 bg-secondary/80 flex items-center justify-center">
                  <img 
-                   src="/assets/about/Som sir Img.png" 
+                   src="/assets/about/Som sir Img.webp" 
                    alt="Somveer Tayal - Founder and CEO of eQOURSE, bringing 20+ years of Education and AI Data expertise" 
                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                    onError={(e) => {

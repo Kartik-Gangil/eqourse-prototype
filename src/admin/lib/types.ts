@@ -153,3 +153,71 @@ export interface QueryListParams {
   page?: number;
   pageSize?: number;
 }
+
+// ─── Career / Hiring Management ──────────────────────────────
+
+export type JobDepartment = "ai-data" | "content-services" | "operations" | "marketing" | "technology" | "hr" | "other";
+export type EmploymentType = "full-time" | "part-time" | "contract" | "internship";
+export type JobStatus = "active" | "paused" | "closed";
+export type ApplicationStatus = "applied" | "shortlisted" | "rejected" | "hired";
+
+export type CustomQuestionType = "text" | "textarea" | "select" | "checkbox" | "radio" | "url";
+
+export interface CustomQuestion {
+  _id?: string;
+  label: string;
+  type: CustomQuestionType;
+  required: boolean;
+  options: string[];
+}
+
+export interface JobOpening {
+  id: string;
+  title: string;
+  slug: string;
+  department: JobDepartment;
+  departmentLabel: string;
+  location: string;
+  employmentType: EmploymentType;
+  experienceRange: string;
+  description: string;
+  responsibilities: string[];
+  requirements: string[];
+  niceToHave: string[];
+  salaryRange: string;
+  status: JobStatus;
+  applicationCount: number;
+  postedAt: string;
+  closingDate?: string;
+  customQuestions?: CustomQuestion[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CustomAnswer {
+  questionLabel: string;
+  answerValue: string | string[];
+}
+
+export interface JobApplication {
+  id: string;
+  jobId: string;
+  receiptId: string;
+  fullName: string;
+  email: string;
+  phone: string;
+  experience: string;
+  currentRole: string;
+  qualification: string;
+  portfolioLink: string;
+  resumeDriveLink: string;
+  resumeFile: Attachment | null;
+  coverLetter: string;
+  skills: string[];
+  status: ApplicationStatus;
+  internalNotes: string;
+  customAnswers?: CustomAnswer[];
+  statusChangedAt?: string;
+  createdAt: string;
+  updatedAt: string;
+}

@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -7,14 +7,27 @@ const CTASection = () => {
   const videoARef = useRef<HTMLVideoElement>(null);
   const videoBRef = useRef<HTMLVideoElement>(null);
   const isSwapping = useRef(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Only start loading/playing the video once the section is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
+    if (!isVisible) return; // lazy: don't load until user scrolls here
     const vA = videoARef.current;
     const vB = videoBRef.current;
     if (!vA || !vB) return;
 
     // Start video A
-    vA.play().catch(() => {});
+    vA.play().catch(() => { });
 
     const startCrossfade = (from: HTMLVideoElement, to: HTMLVideoElement) => {
       if (isSwapping.current) return;
@@ -22,7 +35,7 @@ const CTASection = () => {
 
       // Prepare the next video at beginning
       to.currentTime = 0;
-      to.play().catch(() => {});
+      to.play().catch(() => { });
 
       // Bring the next video on top and fade it in
       // Keep the old video fully visible underneath - no white flash
@@ -58,7 +71,7 @@ const CTASection = () => {
       vA.removeEventListener("timeupdate", onTimeUpdateA);
       vB.removeEventListener("timeupdate", onTimeUpdateB);
     };
-  }, []);
+  }, [isVisible]);
 
   const videoStyle = (initial: boolean): React.CSSProperties => ({
     objectFit: "cover",
@@ -72,13 +85,13 @@ const CTASection = () => {
   });
 
   return (
-    <section id="contact" className="relative py-20 overflow-hidden">
-      {/* Video A - starts first */}
+    <section ref={sectionRef} id="contact" className="relative py-20 overflow-hidden">
+      {/* Video A — preload="none" until section is visible */}
       <video
         ref={videoARef}
-        autoPlay
         muted
         playsInline
+        preload="none"
         style={videoStyle(true)}
         aria-hidden="true"
       >
@@ -90,7 +103,7 @@ const CTASection = () => {
         ref={videoBRef}
         muted
         playsInline
-        preload="auto"
+        preload="none"
         style={videoStyle(false)}
         aria-hidden="true"
       >
@@ -126,7 +139,7 @@ const CTASection = () => {
               Start Free Pilot <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </Link>
-          <Link to="/contact">
+          <Link to="/contact-us">
             <Button size="lg" className="bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 hover:animate-pulse transition-all duration-300 px-8">
               <Phone className="mr-2 w-5 h-5" /> Schedule a Call
             </Button>

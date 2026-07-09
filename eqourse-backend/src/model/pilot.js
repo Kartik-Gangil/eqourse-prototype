@@ -31,7 +31,7 @@ const pilotQuerySchema = new mongoose.Schema(
     // serviceInterest: what area of service they want a pilot for
     serviceInterest: {
       type: String,
-      enum: ["ai-data", "edtech", "localization", "other"],
+      enum: ["ai-data", "edtech", "localization", "content-services", "other"],
       required: true,
     },
     // projectScope: detailed description of the project/scope

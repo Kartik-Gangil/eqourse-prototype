@@ -16,16 +16,16 @@ const quickLinks = [
 /* ── Content Services: 7 top-level service categories for SEO ── */
 const contentServicesLinks = [
   { label: "Content Services Overview", to: "/content-services" },
-  { label: "Custom E-Learning Content", to: "/content-services/custom-e-learning-content" },
-  { label: "Exam Preparation Content", to: "/content-services/exam-preparation-content" },
-  { label: "Learning Solutions", to: "/content-services/learning-solutions" },
-  { label: "E-Learning Video Solutions", to: "/content-services/elearning-video-solutions" },
-  { label: "Localization Services", to: "/content-services/localization-services" },
-  { label: "Technology Solutions", to: "/content-services/technology-solutions" },
-  { label: "Subject Matter Experts", to: "/content-services/subject-matter-experts" },
-  { label: "Accessibility Services", to: "/content-services/accessibility" },
-  { label: "Talent Assessment", to: "/content-services/talent-assessment-workforce-evaluation" },
-  { label: "Editorial & Publishing", to: "/content-services/editorial-publishing-designing-services" },
+  { label: "Custom E-Learning Content", to: "/custom-e-learning-content" },
+  { label: "Exam Preparation Content", to: "/test-prep-content" },
+  { label: "Learning Solutions", to: "/learning-solutions" },
+  { label: "E-Learning Video Solutions", to: "/elearning-video-solutions" },
+  { label: "Localization Services", to: "/localization-services" },
+  { label: "Technology Solutions", to: "/technology-solutions" },
+  { label: "Subject Matter Experts", to: "/smes" },
+  { label: "Accessibility Services", to: "/accessibility" },
+  { label: "Talent Assessment", to: "/talent-assessment-workforce-evaluation" },
+  { label: "Editorial & Publishing", to: "/editorial-publishing-designing-services" },
 ];
 
 /* ── AI Data Services ── */
@@ -40,8 +40,8 @@ const aiServiceLinks = [
 
 /* ── Legal ── */
 const legalLinks = [
-  { label: "Privacy Policy", to: "/privacy-policy" },
-  { label: "Contact Us", to: "/contact" },
+  { label: "Privacy Policy", to: "/privacy_policy" },
+  { label: "Contact Us", to: "/contact-us" },
   { label: "Sitemap", to: "/sitemap" },
 ];
 
@@ -58,10 +58,10 @@ const Footer = () => {
           {/* ── Brand Column ── */}
           <div className="sm:col-span-2 lg:col-span-2 space-y-5">
             <Link to="/" className="inline-block">
-              <img 
-                src={eqourseLogoLight} 
-                alt="eQOURSE Logo - Professional AI Data and Content Services" 
-                className="h-10 sm:h-12 w-auto object-contain" 
+              <img
+                src={eqourseLogoLight}
+                alt="eQOURSE Logo - Professional AI Data and Content Services"
+                className="h-10 sm:h-12 w-auto object-contain"
               />
             </Link>
             <p className="text-sm leading-relaxed text-white/80" style={linkColor}>

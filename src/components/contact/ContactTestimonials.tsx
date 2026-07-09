@@ -7,7 +7,7 @@ const testimonials = [
     name: "Viraj Panwar",
     title: "Content Manager",
     company: "ExamFactor (ABP Learning)",
-    image: "/assets/dropdown/who_we_are.png", // Using existing asset as fallback
+    image: "/assets/dropdown/who_we_are.webp", // Using existing asset as fallback
     tag: "Content Services"
   },
   {
@@ -15,7 +15,7 @@ const testimonials = [
     name: "Mira Sood",
     title: "Managing Director",
     company: "ContentWize",
-    image: "/assets/dropdown/who_we_are.png",
+    image: "/assets/dropdown/who_we_are.webp",
     tag: "Content Services"
   },
   {
@@ -23,7 +23,7 @@ const testimonials = [
     name: "Khyati Srinivas",
     title: "Head Program Designer",
     company: "eVidyaloka Trust",
-    image: "/assets/dropdown/who_we_are.png",
+    image: "/assets/dropdown/who_we_are.webp",
     tag: "Content Services"
   },
   {
@@ -31,7 +31,7 @@ const testimonials = [
     name: "Shakti Jhala",
     title: "Curriculum Head",
     company: "SPI",
-    image: "/assets/dropdown/who_we_are.png",
+    image: "/assets/dropdown/who_we_are.webp",
     tag: "Content Services"
   },
   {
@@ -39,7 +39,7 @@ const testimonials = [
     name: "Kola Xu",
     title: "Product Manager",
     company: "Data Driven Interactive Technology",
-    image: "/assets/dropdown/who_we_are.png",
+    image: "/assets/dropdown/who_we_are.webp",
     tag: "Content Services"
   }
 ];

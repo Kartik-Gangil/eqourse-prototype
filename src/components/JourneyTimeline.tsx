@@ -1,11 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import timeline2020 from "@/assets/timeline-2020.png";
-import timeline2021 from "@/assets/timeline-2021.png";
-import timeline2022 from "@/assets/timeline-2022.png";
-import timeline2023 from "@/assets/timeline-2023.png";
-import timeline2024 from "@/assets/timeline-2024.png";
-import timeline2025 from "@/assets/timeline-2025.png";
-import timeline2026 from "@/assets/timeline-2026.png";
+// Images are now served from the public/assets/journey directory for better asset management and SEO
 
 /* ── Milestone data ── */
 interface Milestone {
@@ -23,7 +17,7 @@ const milestones: Milestone[] = [
     title: "Foundation Phase",
     shortDesc: "Built the foundation for structured learning systems.",
     fullDesc: "eQOURSE began with a focused vision to strengthen learning and digital content ecosystems through curriculum development, assessments, and structured academic workflows. Early projects in CMS/LMS systems and international curriculum support laid the groundwork for scalable, process-driven execution across learning platforms.",
-    image: timeline2020,
+    image: "/assets/journey/2020.webp",
     icon: "🏗️",
   },
   {
@@ -31,7 +25,7 @@ const milestones: Milestone[] = [
     title: "The Beginning",
     shortDesc: "Expanded into multilingual and distributed learning workflows.",
     fullDesc: "As demand grew, our capabilities expanded into multilingual content delivery, assessment frameworks, transcription workflows, and SME-driven execution systems. This phase strengthened our expertise in structured content operations and scalable learning delivery across platforms and regions.",
-    image: timeline2021,
+    image: "/assets/journey/2021.webp",
     icon: "🚀",
   },
   {
@@ -39,7 +33,7 @@ const milestones: Milestone[] = [
     title: "Scaling Up",
     shortDesc: "Evolved into large-scale learning ecosystems.",
     fullDesc: "By 2022, our work expanded into integrated learning ecosystems combining instructional modules, multimedia learning, worksheets, multilingual adaptation, and instructor-led delivery systems. During this phase, we also executed a major international engagement delivering over 10,000 STEM video solutions across K–12 and college-level subjects spanning multiple disciplines.",
-    image: timeline2022,
+    image: "/assets/journey/2022.webp",
     icon: "📈",
   },
   {
@@ -47,7 +41,7 @@ const milestones: Milestone[] = [
     title: "AI Data Division",
     shortDesc: "Expanded into AI-aligned systems and future learning programs.",
     fullDesc: "As AI adoption accelerated globally, eQOURSE expanded into AI-aligned ecosystems through multilingual datasets, validation systems, AI quality workflows, and annotation pipelines. Alongside this, we launched large-scale digital literacy, coding, and AI learning programs supported by AI-generated videos, 2D learning content, and simulation-based learning systems.",
-    image: timeline2023,
+    image: "/assets/journey/2023.webp",
     icon: "🤖",
   },
   {
@@ -55,7 +49,7 @@ const milestones: Milestone[] = [
     title: "Going Global",
     shortDesc: "Strengthened global capability and validation systems.",
     fullDesc: "This phase marked significant global expansion through multilingual delivery systems, compliance-driven workflows, government and institutional collaborations, and real-world validation frameworks. With ISO-certified operations, RLHF workflows, and multilingual execution across large-scale programs, eQOURSE strengthened its position as a global learning and AI solutions partner.",
-    image: timeline2024,
+    image: "/assets/journey/2024.webp",
     icon: "🌏",
   },
   {
@@ -63,7 +57,7 @@ const milestones: Milestone[] = [
     title: "Integration at Scale",
     shortDesc: "Unified content, AI, localization, and validation ecosystems.",
     fullDesc: "By 2025, our systems evolved into fully integrated pipelines connecting content creation, localization, video production, assessments, and AI-supported workflows. This phase also marked the establishment of our Singapore headquarters and the launch of TUTRAIN, enabling real learner feedback and continuous refinement across learning and AI systems.",
-    image: timeline2025,
+    image: "/assets/journey/2025.webp",
     icon: "⚡",
   },
   {
@@ -71,7 +65,7 @@ const milestones: Milestone[] = [
     title: "Unified Ecosystem",
     shortDesc: "Learning and AI systems operating as one evolving ecosystem.",
     fullDesc: "Today, eQOURSE operates as a mature dual-capability ecosystem where learning content systems, AI data pipelines, multilingual delivery frameworks, and real-world validation mechanisms function together continuously. With global delivery capabilities, scalable infrastructure, and integrated execution models, we continue building meaningful impact across learning and intelligent systems worldwide.",
-    image: timeline2026,
+    image: "/assets/journey/2026.webp",
     icon: "🔮",
   },
 ];
@@ -82,15 +76,15 @@ const PulseRing = ({ isActive }: { isActive: boolean }) => (
     {/* Outer pulse ring */}
     <div
       className={`absolute inset-[-6px] rounded-full border-2 transition-all duration-500 ${isActive
-          ? "border-primary/50 animate-[pulse-ring_2s_ease-out_infinite]"
-          : "border-primary/20 animate-[pulse-ring_3s_ease-out_infinite]"
+        ? "border-primary/50 animate-[pulse-ring_2s_ease-out_infinite]"
+        : "border-primary/20 animate-[pulse-ring_3s_ease-out_infinite]"
         }`}
     />
     {/* Inner glow */}
     <div
       className={`absolute inset-[-3px] rounded-full transition-all duration-500 ${isActive
-          ? "bg-primary/20 shadow-[0_0_20px_hsl(170_82%_32%/0.4)]"
-          : "bg-primary/5"
+        ? "bg-primary/20 shadow-[0_0_20px_hsl(170_82%_32%/0.4)]"
+        : "bg-primary/5"
         }`}
     />
   </div>
@@ -102,18 +96,20 @@ const GlassPopup = ({
   position,
   onMouseEnter,
   onMouseLeave,
+  index
 }: {
   milestone: Milestone;
   position: "above" | "below";
   onMouseEnter: () => void;
   onMouseLeave: () => void;
+  index: number;
 }) => {
   return (
     <div
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      className={`absolute z-50 w-[280px] md:w-[320px] left-1/2 -translate-x-1/2 transition-all duration-500 ease-out
-        ${position === "above" ? "bottom-full mb-4" : "top-full mt-4"}
+      className={`absolute z-70 w-[280px] md:w-[320px] left-1/2 -translate-x-1/2 transition-all duration-500 ease-out
+        ${position === "above" ? "bottom-full mb-4" : "top-full mt-4"} ${index === 0 ? "md:!left-0 md:!translate-x-0" : ""} ${index === 6 ? " md:!left-auto md:!right-0 md:!translate-x-0" : ""}
         animate-[popupFadeIn_0.4s_ease-out_forwards]
       `}
     >
@@ -131,15 +127,13 @@ const GlassPopup = ({
         <div className="relative overflow-hidden">
           <img
             src={milestone.image}
-            alt={milestone.title}
+            alt={`eQOURSE Corporate Journey ${milestone.year} - ${milestone.title}`}
+            title={`eQOURSE Milestone: ${milestone.title} in ${milestone.year}`}
+            loading="lazy"
             className="w-full h-28 object-cover"
           />
           {/* Image overlay gradient */}
           <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent" />
-          {/* Year badge on image */}
-          <div className="absolute top-2 right-2 px-2.5 py-1 rounded-full bg-gradient-primary text-white text-[10px] font-bold tracking-wider shadow-soft">
-            {milestone.year}
-          </div>
         </div>
 
         {/* Content */}
@@ -165,7 +159,9 @@ const GlassPopup = ({
 
       {/* Arrow/pointer */}
       <div
-        className={`absolute left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 border border-white/20 ${position === "above"
+        className={`absolute left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 border border-white/20 
+          ${index === 0 ? "md:left-5 md:-translate-x-0" : ""} ${index === 6 ? " md:!left-auto md:!right-5 md:-translate-x-0" : ""}
+          ${position === "above"
             ? "bottom-[-6px] border-t-0 border-l-0"
             : "top-[-6px] border-b-0 border-r-0"
           }`}
@@ -279,7 +275,7 @@ const JourneyTimeline = () => {
             Our Journey
           </span>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mt-2 mb-4">
-            Five Years of{" "}
+            Seven Years of{" "}
             <span className="text-gradient">Impact & Innovation</span>
           </h2>
           <p className="text-muted-foreground text-lg">
@@ -289,7 +285,7 @@ const JourneyTimeline = () => {
         </div>
 
         {/* ── DESKTOP TIMELINE (horizontal) ── */}
-        <div className="hidden md:block" ref={timelineRef}>
+        <div className="hidden md:block overflow-x-clip overflow-y-visible" ref={timelineRef}>
           <div className="relative">
             {/* The main connecting line */}
             <div className="absolute top-1/2 left-0 right-0 h-[2px] -translate-y-1/2">
@@ -330,10 +326,10 @@ const JourneyTimeline = () => {
                   >
                     {/* Year label - alternating position */}
                     <div
-                      className={`absolute whitespace-nowrap text-center ${index % 2 === 0
-                          ? "top-full mt-4"
-                          : "bottom-full mb-4"
-                        }`}
+                      className={`absolute text-center ${index % 2 === 0
+                        ? "top-full mt-4"
+                        : "bottom-full mb-4"
+                        } ${index === 0 ? " md:left-0 md:text-left" : ""} ${index === milestones.length - 1 ? " md:right-0 md:text-right" : ""}`}
                     >
                       <div className="text-2xl font-heading font-bold text-foreground tracking-tight">
                         {milestone.year}
@@ -341,7 +337,7 @@ const JourneyTimeline = () => {
                       <div className="text-xs font-semibold text-primary mt-0.5 tracking-wide">
                         {milestone.title}
                       </div>
-                      <div className="text-[11px] text-muted-foreground mt-1 max-w-[140px] leading-snug">
+                      <div className="text-[11px] text-muted-foreground mt-1 min-w-[200px] w-full leading-snug">
                         {milestone.shortDesc}
                       </div>
                     </div>
@@ -358,13 +354,15 @@ const JourneyTimeline = () => {
                       {/* Main dot with thumbnail */}
                       <div
                         className={`relative w-14 h-14 rounded-full overflow-hidden border-[3px] transition-all duration-400 ${isActive
-                            ? "border-primary scale-125 shadow-[0_0_25px_hsl(170_82%_32%/0.5)]"
-                            : "border-primary/50 group-hover:border-primary group-hover:scale-110 shadow-[0_0_10px_hsl(170_82%_32%/0.2)]"
+                          ? "border-primary scale-125 shadow-[0_0_25px_hsl(170_82%_32%/0.5)]"
+                          : "border-primary/50 group-hover:border-primary group-hover:scale-110 shadow-[0_0_10px_hsl(170_82%_32%/0.2)]"
                           }`}
                       >
                         <img
                           src={milestone.image}
-                          alt={milestone.title}
+                          alt={`eQOURSE Journey ${milestone.year} - ${milestone.title}`}
+                          title={`eQOURSE Milestone ${milestone.year}`}
+                          loading="lazy"
                           className="w-full h-full object-cover"
                         />
                         {/* Overlay with icon */}
@@ -386,6 +384,7 @@ const JourneyTimeline = () => {
                         position={popupPosition}
                         onMouseEnter={handlePopupEnter}
                         onMouseLeave={handlePopupLeave}
+                        index={index}
                       />
                     )}
                   </div>
@@ -423,8 +422,8 @@ const JourneyTimeline = () => {
                       <PulseRing isActive={isActive} />
                       <div
                         className={`relative w-10 h-10 rounded-full overflow-hidden border-[2px] transition-all duration-300 ${isActive
-                            ? "border-primary scale-110 shadow-[0_0_20px_hsl(170_82%_32%/0.5)]"
-                            : "border-primary/50"
+                          ? "border-primary scale-110 shadow-[0_0_20px_hsl(170_82%_32%/0.5)]"
+                          : "border-primary/50"
                           }`}
                       >
                         <img

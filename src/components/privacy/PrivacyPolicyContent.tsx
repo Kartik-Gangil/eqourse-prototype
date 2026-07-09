@@ -102,11 +102,10 @@ const PrivacyPolicyContent = () => {
                       <button
                         key={s.id}
                         onClick={() => scrollTo(s.id)}
-                        className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-left text-sm transition-all duration-200 ${
-                          isActive
+                        className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-left text-sm transition-all duration-200 ${isActive
                             ? "bg-primary/10 text-primary font-semibold border border-primary/20"
                             : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                        }`}
+                          }`}
                       >
                         <Icon className={`w-3.5 h-3.5 flex-shrink-0 ${isActive ? "text-primary" : ""}`} />
                         <span className="truncate">
@@ -142,11 +141,10 @@ const PrivacyPolicyContent = () => {
                       <button
                         key={s.id}
                         onClick={() => scrollTo(s.id)}
-                        className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-left text-sm transition-all ${
-                          isActive
+                        className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-left text-sm transition-all ${isActive
                             ? "bg-primary/10 text-primary font-semibold"
                             : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                        }`}
+                          }`}
                       >
                         <Icon className="w-3.5 h-3.5 flex-shrink-0" />
                         <span className="truncate">{s.number}. {s.title}</span>
@@ -227,7 +225,7 @@ const PrivacyPolicyContent = () => {
                 </p>
                 <div className="flex flex-wrap items-center justify-center gap-4">
                   <Link
-                    to="/contact"
+                    to="/contact-us"
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-primary text-white font-semibold text-sm hover:opacity-90 transition-all hover:scale-[1.02] shadow-soft"
                   >
                     Contact Us

@@ -6,7 +6,7 @@ import {
   BookOpen, Briefcase, BarChart3, ArrowRight
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import strategyImage from "@/assets/why-choose-eqourse.png";
+import strategyImage from "@/assets/why-choose-eqourse.webp";
 
 const reasons = [
   {

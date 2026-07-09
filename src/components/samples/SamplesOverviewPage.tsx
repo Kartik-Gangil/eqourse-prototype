@@ -22,7 +22,7 @@ const SamplesOverviewPage = () => (
       subtext="We partner with educational institutions, Content Services platforms, and AI teams to deliver expertly crafted content and production-grade training data. Browse samples across three categories - Text Content, Video Content, and AI Data - each demonstrating the quality and scale that 200+ clients trust."
       ctaText="Request Custom Samples"
       ctaLink="#contact"
-      imageSrc="/assets/features/Sample.png"
+      imageSrc="/assets/features/Sample.webp"
       imageAlt="Examples and Samples of eQOURSE Content Services and AI Data Services"
       rotatingBadges={[
         { icon: Layers, title: "Portfolio", subtitle: "Work samples", color: "hsl(170 82% 55%)" },

@@ -5,15 +5,17 @@ const DigitalAssessmentPage = () => (
   <SubServicePageTemplate
     seoTitle="Digital Assessment Infrastructure | eQOURSE"
     seoDescription="eQOURSE develops scalable digital assessment content, item-bank workflows and remote proctoring process support for online talent evaluation programmes."
-    seoCanonical="https://www.eqourse.com/content-services/talent-assessment-workforce-evaluation/digital-assessment-infrastructure"
+    seoCanonical="https://www.eqourse.com/digital-assessment-infrastructure"
     seoKeywords="digital assessment infrastructure, talent assessment, B2B workforce evaluation, eQOURSE"
     parentLabel="Talent Assessment & Workforce Evaluation"
-    parentHref="/content-services/talent-assessment-workforce-evaluation"
+    parentHref="/talent-assessment-workforce-evaluation"
     currentLabel="Digital Assessment Infrastructure"
     preHeadline="DIGITAL ASSESSMENT INFRASTRUCTURE"
     headline="Digital Assessment Infrastructure"
     headlineAccent="Support"
     subtext="eQOURSE develops scalable digital assessment content, online item-bank formats, remote proctoring process guidelines, and digital test-delivery workflows for B2B testing platforms."
+    bannerImage="/assets/content-services/talent-assessment/digital-assessment-infrastructure-support.webp"
+    bannerImageAlt="Digital assessment infrastructure and test delivery platform support"
     ctaText="Request Infrastructure Support"
     introLabel="DIGITAL INFRASTRUCTURE"
     introTitle="Content Workflows Built for"
@@ -38,7 +40,7 @@ const DigitalAssessmentPage = () => (
     ctaHeadline="Scale Your Digital Assessment Delivery"
     ctaSubtext="eQOURSE builds digital assessment content, item-bank metadata templates and exam administration guidelines for online talent testing."
     ctaButtonText="Discuss Digital Integration"
-    relatedPages={[{"title":"Psychometric Assessments","href":"/content-services/talent-assessment-workforce-evaluation/psychometric-assessments"},{"title":"Skill Assessments","href":"/content-services/talent-assessment-workforce-evaluation/skill-assessments"},{"title":"Candidate Evaluation","href":"/content-services/talent-assessment-workforce-evaluation/candidate-evaluation"}]}
+    relatedPages={[{"title":"Psychometric Assessments","href":"/psychometric-assessments"},{"title":"Skill Assessments","href":"/skill-assessments"},{"title":"Candidate Evaluation","href":"/candidate-evaluation"}]}
   />
 );
 

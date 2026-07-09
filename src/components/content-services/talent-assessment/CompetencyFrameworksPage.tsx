@@ -5,15 +5,17 @@ const CompetencyFrameworksPage = () => (
   <SubServicePageTemplate
     seoTitle="Competency Frameworks for Workforce Assessment | eQOURSE"
     seoDescription="Build role-based competency frameworks, dictionaries and role architecture maps for structured workforce assessment and L&D planning."
-    seoCanonical="https://www.eqourse.com/content-services/talent-assessment-workforce-evaluation/competency-frameworks"
+    seoCanonical="https://www.eqourse.com/competency-frameworks"
     seoKeywords="competency frameworks, talent assessment, B2B workforce evaluation, eQOURSE"
     parentLabel="Talent Assessment & Workforce Evaluation"
-    parentHref="/content-services/talent-assessment-workforce-evaluation"
+    parentHref="/talent-assessment-workforce-evaluation"
     currentLabel="Competency Frameworks"
     preHeadline="COMPETENCY ARCHITECTURE"
     headline="Competency Frameworks for"
     headlineAccent="Workforce Assessment"
     subtext="eQOURSE designs role-based competency frameworks, competency dictionaries, skills inventories, and role architecture maps. We help organizations structure the competency definitions required for job alignment, skill assessments, performance reviews, and training paths."
+    bannerImage="/assets/content-services/talent-assessment/competency-frameworks-for-workforce-assessment.webp"
+    bannerImageAlt="Competency frameworks and behavioral indicators for workforce assessment"
     ctaText="Discuss Framework Requirements"
     introLabel="COMPETENCY FRAMEWORKS"
     introTitle="Structure Your Workforce Competency"
@@ -43,7 +45,7 @@ const CompetencyFrameworksPage = () => (
     ctaHeadline="Build a Structured Competency Framework"
     ctaSubtext="eQOURSE develops role-based competency frameworks, skills dictionaries and role architecture maps for B2B talent assessment and capability mapping."
     ctaButtonText="Request Framework Support"
-    relatedPages={[{"title":"Psychometric Assessments","href":"/content-services/talent-assessment-workforce-evaluation/psychometric-assessments"},{"title":"Skill Assessments","href":"/content-services/talent-assessment-workforce-evaluation/skill-assessments"},{"title":"Candidate Evaluation","href":"/content-services/talent-assessment-workforce-evaluation/candidate-evaluation"}]}
+    relatedPages={[{"title":"Psychometric Assessments","href":"/psychometric-assessments"},{"title":"Skill Assessments","href":"/skill-assessments"},{"title":"Candidate Evaluation","href":"/candidate-evaluation"}]}
   />
 );
 

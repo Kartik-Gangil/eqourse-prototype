@@ -17,8 +17,8 @@ const sitemapData = [
       { name: "Case Studies", to: "/casestudy" },
       { name: "Client Testimonials", to: "/clients-testimonials" },
       { name: "Blog", to: "/blog" },
-      { name: "Contact Us", to: "/contact" },
-      { name: "Privacy Policy", to: "/privacy-policy" },
+      { name: "Contact Us", to: "/contact-us" },
+      { name: "Privacy Policy", to: "/privacy_policy" },
       { name: "Free Pilot", to: "/free-pilot" },
     ],
   },
@@ -37,34 +37,42 @@ const sitemapData = [
     category: "Content Service",
     links: [
       { name: "Content Services overview", to: "/content-services" },
-      { name: "Custom E-Learning Content", to: "/content-services/custom-e-learning-content" },
-      { name: "Exam Preparation Content", to: "/content-services/exam-preparation-content" },
-      { name: "Learning Solutions", to: "/content-services/learning-solutions" },
-      { name: "E-Learning Video Solutions", to: "/content-services/elearning-video-solutions" },
-      { name: "Localization Services", to: "/content-services/localization-services" },
-      { name: "Technology Solutions", to: "/content-services/technology-solutions" },
-      { name: "Subject Matter Experts", to: "/content-services/subject-matter-experts" },
-      { name: "Accessibility Services", to: "/content-services/accessibility" },
-      { name: "- Standards Compliance", to: "/content-services/accessibility/standards-compliance" },
-      { name: "- Document Remediation", to: "/content-services/accessibility/document-content-remediation" },
-      { name: "- Accessible Media", to: "/content-services/accessibility/accessible-media-enhancements" },
-      { name: "- Assessment Accessibility", to: "/content-services/accessibility/assessment-accessibility" },
-      { name: "- Assistive Tech Compatibility", to: "/content-services/accessibility/assistive-technology-compatibility" },
-      { name: "- Audit & Compliance Support", to: "/content-services/accessibility/audit-compliance-support" },
+      { name: "Custom E-Learning Content", to: "/custom-e-learning-content" },
+      { name: "Exam Preparation Content", to: "/test-prep-content" },
+      { name: "Learning Solutions", to: "/learning-solutions" },
+      { name: "E-Learning Video Solutions", to: "/elearning-video-solutions" },
+      { name: "Localization Services", to: "/localization-services" },
+      { name: "Technology Solutions", to: "/technology-solutions" },
+      { name: "Subject Matter Experts", to: "/smes" },
+      { name: "Accessibility Services", to: "/accessibility" },
+      { name: "- Standards Compliance", to: "/standards-compliance" },
+      { name: "- Document Remediation", to: "/document-content-remediation" },
+      { name: "- Accessible Media", to: "/accessible-media-enhancements" },
+      { name: "- Assessment Accessibility", to: "/assessment-accessibility" },
+      { name: "- Assistive Tech Compatibility", to: "/assistive-technology-compatibility" },
+      { name: "- Audit & Compliance Support", to: "/audit-compliance-support" },
+      { name: "Talent Assessment & Workforce Evaluation", to: "/talent-assessment-workforce-evaluation" },
+      { name: "- Psychometric Assessments", to: "/psychometric-assessments" },
+      { name: "- Skill Assessments", to: "/skill-assessments" },
+      { name: "- Candidate Evaluation", to: "/candidate-evaluation" },
+      { name: "- Competency Frameworks", to: "/competency-frameworks" },
+      { name: "- Learning Readiness", to: "/learning-readiness" },
+      { name: "- Organizational Diagnostics", to: "/organizational-diagnostics" },
+      { name: "- Digital Assessment Infrastructure", to: "/digital-assessment-infrastructure" },
     ],
   },
   {
     category: "Editorial, Publishing & Designing",
     links: [
-      { name: "Editorial, Publishing & Designing Services", to: "/content-services/editorial-publishing-designing-services" },
-      { name: "- Editorial Services", to: "/content-services/editorial-publishing-designing-services/editorial-services" },
-      { name: "- Publishing Production", to: "/content-services/editorial-publishing-designing-services/publishing-production" },
-      { name: "- Digital Conversion", to: "/content-services/editorial-publishing-designing-services/digital-conversion" },
-      { name: "- Image Processing", to: "/content-services/editorial-publishing-designing-services/image-processing" },
-      { name: "- Metadata Services", to: "/content-services/editorial-publishing-designing-services/metadata-services" },
-      { name: "- Design Services", to: "/content-services/editorial-publishing-designing-services/design-services" },
-      { name: "- Prepress Services", to: "/content-services/editorial-publishing-designing-services/prepress-services" },
-      { name: "- Production Support", to: "/content-services/editorial-publishing-designing-services/production-support" },
+      { name: "Editorial, Publishing & Designing Services", to: "/editorial-publishing-designing-services" },
+      { name: "- Editorial Services", to: "/editorial-services" },
+      { name: "- Publishing Production", to: "/publishing-production" },
+      { name: "- Digital Conversion", to: "/digital-conversion" },
+      { name: "- Image Processing", to: "/image-processing" },
+      { name: "- Metadata Services", to: "/metadata-services" },
+      { name: "- Design Services", to: "/design-services" },
+      { name: "- Prepress Services", to: "/prepress-services" },
+      { name: "- Production Support", to: "/production-support" },
     ],
   },
   {
@@ -83,7 +91,7 @@ const sitemapData = [
       { name: "Articulate Storyline", to: "/articulate-storyline-video-samples" },
       { name: "Pen Tab and PPT", to: "/pen-tab-and-ppt-samples" },
       { name: "AI Avatar Videos", to: "/ai-avatar-video-samples" },
-      { name: "Flash to HTML", to: "/flash-to-html-samples" },
+      { name: "Flash to HTML", to: "/flash-to-htm-samples" },
       { name: "2D 3D Animation", to: "/2d-3d-video-samples" },
       { name: "Promotional Video", to: "/promotional-video" },
       { name: "Immersive Simulation AR/VR", to: "/immersive-simulation-ar-vr-video" },
@@ -166,21 +174,21 @@ const Sitemap = () => {
               <p className="text-lg md:text-xl text-white/75 animate-slide-up-delayed-2 max-w-2xl">
                 Explore our comprehensive suite of Content Service, AI Data Services, case studies, and extensive sample catalog.
               </p>
-              
+
               <div className="pt-4 animate-slide-up-delayed-2">
-                 <Link to="/contact">
-                   <Button size="lg" className="bg-gradient-primary border-0 text-primary-foreground shadow-soft hover:opacity-90 transition-all hover:scale-[1.02] px-8">
-                     Can't find what you're looking for?
-                     <ArrowRight className="ml-2 w-5 h-5" />
-                   </Button>
-                 </Link>
+                <Link to="/contact-us">
+                  <Button size="lg" className="bg-gradient-primary border-0 text-primary-foreground shadow-soft hover:opacity-90 transition-all hover:scale-[1.02] px-8">
+                    Can't find what you're looking for?
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </Link>
               </div>
             </div>
 
             <div className="relative animate-slide-up-delayed">
               <div className="relative rounded-3xl overflow-hidden shadow-elevated border border-white/10 group">
                 <img
-                  src="/sitemap_hero.png"
+                  src="/sitemap_hero.webp"
                   alt="eQOURSE Sitemap Network"
                   width={800}
                   height={600}
@@ -217,12 +225,12 @@ const Sitemap = () => {
               >
                 {/* Glow effect on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                
+
                 <h2 className="font-heading text-2xl font-bold text-white mb-6 relative z-10 border-b border-white/10 pb-4 flex items-center gap-3">
                   <div className="w-2 h-6 bg-primary rounded-full group-hover:h-8 transition-all duration-300" />
                   {section.category}
                 </h2>
-                
+
                 <ul className="space-y-4 relative z-10 flex-grow">
                   {section.links.map((link) => (
                     <li key={link.name}>

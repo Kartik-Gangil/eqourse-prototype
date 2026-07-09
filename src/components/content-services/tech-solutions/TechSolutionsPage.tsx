@@ -34,7 +34,7 @@ const TechSolutionsPage = () => (
       subtext="Comprehensive technological integrations linking robust pedagogical content flawlessly with modern, reliable Learning Management Systems."
       ctaText="Discuss Your LMS Project"
       ctaLink="#contact"
-      imageSrc="/assets/banners/content-services/main/technology-solutions.png"
+      imageSrc="/assets/banners/content-services/main/technology-solutions.webp"
       imageAlt="Educational technology solutions by eQOURSE - LMS course builds with SCORM and xAPI packaging, white-label LMS setup on Open edX and AWS cloud infrastructure"
       rotatingBadges={[
         { icon: Server, title: "LMS", subtitle: "SCORM & xAPI", color: "hsl(170 82% 55%)" },

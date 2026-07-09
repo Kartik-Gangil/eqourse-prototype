@@ -42,6 +42,7 @@ import Sitemap from "./pages/Sitemap.tsx";
 import Gallery from "./pages/Gallery.tsx";
 import { contentServicesSamples } from "./components/samples/content-services/contentServicesSamplesData";
 import { contentServicesSubServiceRoutes } from "./components/content-services/contentServicesSubServiceRoutes";
+import ChatWidget from "./components/chatbot/ChatWidget";
 
 // Admin
 import AdminLayout from "./admin/components/AdminLayout";
@@ -57,7 +58,10 @@ import AdminCaseStudyEditor from "./admin/pages/CaseStudyEditor";
 import AdminSampleCategories from "./admin/pages/SampleCategories";
 import AdminSampleSubCategories from "./admin/pages/SampleSubCategories";
 import AdminSampleTabFiles from "./admin/pages/SampleTabFiles";
-import AdminSampleFileEditor from "./admin/pages/SampleFileEditor";
+import AdminSampleEditor from "./admin/pages/SampleEditor";
+import AdminCareers from "./admin/pages/Careers";
+import AdminCareerEditor from "./admin/pages/CareerEditor";
+import AdminCareerApplicants from "./admin/pages/CareerApplicants";
 
 const queryClient = new QueryClient();
 
@@ -83,11 +87,11 @@ const App = () => (
               <Route path="/clients-testimonials" element={<ClientTestimonials />} />
               <Route path="/career" element={<Careers />} />
               <Route path="/faq" element={<FAQs />} />
-              <Route path="/contact" element={<ContactUs />} />
-              <Route path="/contactus" element={<ContactUs />} />
+              {/* <Route path="/contact" element={<ContactUs />} /> */}
+              <Route path="/contact-us" element={<ContactUs />} />
               <Route path="/free-pilot" element={<FreePilot />} />
               <Route path="/casestudy" element={<CaseStudy />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/privacy_policy" element={<PrivacyPolicy />} />
               <Route path="/tutrain" element={<TuTrain />} />
               <Route path="/sitemap" element={<Sitemap />} />
               <Route path="/blog" element={<Blog />} />
@@ -108,16 +112,16 @@ const App = () => (
 
               {/* Content Service - Category Pages */}
               <Route path="/content-services" element={<ContentServicesOverview />} />
-              <Route path="/content-services/custom-e-learning-content" element={<CustomElearningContent />} />
-              <Route path="/content-services/exam-preparation-content" element={<ExamPreparationContent />} />
-              <Route path="/content-services/learning-solutions" element={<LearningSolutions />} />
-              <Route path="/content-services/elearning-video-solutions" element={<ElearningVideoSolutions />} />
-              <Route path="/content-services/localization-services" element={<LocalizationServices />} />
-              <Route path="/content-services/technology-solutions" element={<TechnologySolutions />} />
-               <Route path="/content-services/subject-matter-experts" element={<SubjectMatterExperts />} />
-              <Route path="/content-services/accessibility" element={<AccessibilityServices />} />
-              <Route path="/content-services/talent-assessment-workforce-evaluation" element={<TalentAssessmentWorkforceEvaluation />} />
-              <Route path="/content-services/editorial-publishing-designing-services" element={<EditorialPublishingDesigningServices />} />
+              <Route path="/custom-e-learning-content" element={<CustomElearningContent />} />
+              <Route path="/test-prep-content" element={<ExamPreparationContent />} />
+              <Route path="/learning-solutions" element={<LearningSolutions />} />
+              <Route path="/elearning-video-solutions" element={<ElearningVideoSolutions />} />
+              <Route path="/localization-services" element={<LocalizationServices />} />
+              <Route path="/technology-solutions" element={<TechnologySolutions />} />
+              <Route path="/smes" element={<SubjectMatterExperts />} />
+              <Route path="/accessibility" element={<AccessibilityServices />} />
+              <Route path="/talent-assessment-workforce-evaluation" element={<TalentAssessmentWorkforceEvaluation />} />
+              <Route path="/editorial-publishing-designing-services" element={<EditorialPublishingDesigningServices />} />
 
               {/* Content Service - 39 Sub-Service Detail Pages (lazy-loaded) */}
               {contentServicesSubServiceRoutes.map(({ path, Component }) => (
@@ -149,12 +153,17 @@ const App = () => (
                 <Route path="sample-categories" element={<AdminSampleCategories />} />
                 <Route path="samples/:mainCategoryId" element={<AdminSampleSubCategories />} />
                 <Route path="samples/:mainCategoryId/:pageSlug" element={<AdminSampleTabFiles />} />
-                <Route path="samples/:mainCategoryId/:pageSlug/upload" element={<AdminSampleFileEditor />} />
-                <Route path="samples/:mainCategoryId/:pageSlug/:sampleId" element={<AdminSampleFileEditor />} />
+                <Route path="samples/:categorySlug/:pageSlug/:tabName/new" element={<AdminSampleEditor />} />
+                <Route path="samples/:categorySlug/:pageSlug/:tabName/:sampleId" element={<AdminSampleEditor />} />
+                <Route path="careers" element={<AdminCareers />} />
+                <Route path="careers/new" element={<AdminCareerEditor />} />
+                <Route path="careers/:id" element={<AdminCareerEditor />} />
+                <Route path="careers/:id/applicants" element={<AdminCareerApplicants />} />
               </Route>
 
               <Route path="*" element={<NotFound />} />
             </Routes>
+            <ChatWidget />
           </Suspense>
         </BrowserRouter>
       </TooltipProvider>

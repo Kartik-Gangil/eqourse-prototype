@@ -18,6 +18,7 @@ const sampleCtrl = require("../controller/sampleController");
 const caseStudyCtrl = require("../controller/caseStudyController");
 const analyticsCtrl = require("../controller/analyticsController");
 const uploadCtrl = require("../controller/uploadController");
+const careerCtrl = require("../controller/careerController");
 
 // ═══════════════════════════════════════════════════════════════
 // AUTH (no middleware)
@@ -78,5 +79,18 @@ router.delete("/samples/:id", sampleCtrl.deleteItem);
 
 // ── File Uploads ─────────────────────────────────────────────
 router.post("/uploads", uploadCtrl.uploadFile);
+
+// ── Careers / Job Openings ───────────────────────────────────
+router.get("/careers", careerCtrl.adminListJobOpenings);
+router.get("/careers/:id", careerCtrl.adminGetJobOpening);
+router.post("/careers", careerCtrl.adminCreateJobOpening);
+router.patch("/careers/:id", careerCtrl.adminUpdateJobOpening);
+router.delete("/careers/:id", careerCtrl.adminDeleteJobOpening);
+
+// ── Job Applications ─────────────────────────────────────────
+router.get("/careers/:jobId/applications", careerCtrl.adminListApplications);
+router.get("/applications/:id", careerCtrl.adminGetApplication);
+router.patch("/applications/:id/status", careerCtrl.adminUpdateApplicationStatus);
+router.post("/careers/:jobId/smart-filter", careerCtrl.adminSmartFilter);
 
 module.exports = router;

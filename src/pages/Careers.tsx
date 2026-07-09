@@ -1,12 +1,18 @@
+import { useState } from "react";
 import PageLayout from "@/components/shared/PageLayout";
 import { BreadcrumbSchema } from "@/components/shared/BreadcrumbSchema";
 import { Helmet } from "react-helmet-async";
 import ServiceHero from "@/components/ai-data-services/shared/ServiceHero";
 import CareersWhyWork from "@/components/careers/CareersWhyWork";
-import CareerApplicationForm from "@/components/careers/CareerApplicationForm";
 import { Laptop, GraduationCap, TrendingUp } from "lucide-react";
 
+import JobListings from "@/components/careers/JobListings";
+import JobApplicationForm from "@/components/careers/JobApplicationForm";
+import type { JobOpening } from "@/admin/lib/types";
+
 const Careers = () => {
+  const [selectedJob, setSelectedJob] = useState<JobOpening | null>(null);
+
   return (
     <PageLayout breadcrumbs={[{ label: "About Us", href: "/aboutus" }, { label: "Careers" }]}>
       <Helmet>
@@ -40,7 +46,7 @@ const Careers = () => {
         subtext="Shape the future of education and AI with eQOURSE. Be part of a dynamic team of 500+ specialists dedicated to innovative Content Services and production-grade AI data services. We're always looking for talented content creators, instructional designers, data annotators, NLP specialists, project managers, and operations professionals. Grow your career with us across our India and Singapore offices."
         ctaText="View Openings"
         ctaLink="#apply"
-        imageSrc="/assets/about/Carrer.png"
+        imageSrc="/assets/about/Carrer.webp"
         imageAlt="Careers at eQOURSE - Professionals collaborating on education and AI solutions"
         rotatingBadges={[
           { icon: Laptop, title: "Remote Options", subtitle: "Flexible working", color: "hsl(190 85% 68%)" },
@@ -51,7 +57,19 @@ const Careers = () => {
       />
       
       <CareersWhyWork />
-      <CareerApplicationForm />
+      
+      {/* Job Board Section */}
+      <section id="apply" className="bg-slate-50 border-t border-slate-200">
+        <JobListings onApplyClick={(job) => setSelectedJob(job)} />
+      </section>
+
+      {/* Application Form Modal */}
+      {selectedJob && (
+        <JobApplicationForm 
+          job={selectedJob} 
+          onClose={() => setSelectedJob(null)} 
+        />
+      )}
     </PageLayout>
   );
 };

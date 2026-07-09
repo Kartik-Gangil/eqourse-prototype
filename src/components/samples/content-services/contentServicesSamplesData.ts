@@ -447,8 +447,8 @@ export const contentServicesSamples: ContentServicesSample[] = [
     faqs: commonFaqs,
   },
   {
-    slug: "flash-to-html-samples",
-    path: "/flash-to-html-samples",
+    slug: "flash-to-htm-samples",
+    path: "/flash-to-htm-samples",
     kind: "video",
     icon: RefreshCw,
     accentHsl: "30 80% 55%",

@@ -13,13 +13,19 @@ interface ServiceHeroProps {
   ctaLink?: string;
   illustration?: React.ReactNode;
   /**
+   * Optional YouTube embed URL (use /embed/VIDEO_ID?... format).
+   * When provided, renders a responsive 16:9 iframe instead of an image.
+   * SEO: iframe title is auto-derived from imageAlt if set.
+   */
+  videoSrc?: string;
+  /**
    * Optional custom hero/banner image. When provided, replaces the default
    * hero illustration. The image fills the hero box completely (object-cover)
    * so there are no empty side bars regardless of the source aspect ratio.
    */
   imageSrc?: string;
   /**
-   * SEO-optimized alt text for the banner. Strongly recommended when imageSrc is set.
+   * SEO-optimized alt text for the banner. Strongly recommended when imageSrc/videoSrc is set.
    */
   imageAlt?: string;
   /**
@@ -71,6 +77,7 @@ const ServiceHero = ({
   ctaText,
   ctaLink = "#contact",
   illustration,
+  videoSrc,
   imageSrc,
   imageAlt,
   rotatingBadges,
@@ -161,7 +168,19 @@ const ServiceHero = ({
 
           <div className="relative animate-slide-up-delayed">
             <div className="relative rounded-3xl overflow-hidden shadow-elevated border border-white/10 bg-gradient-to-br from-primary/20 via-foreground/30 to-accent/20">
-              {imageSrc ? (
+              {videoSrc ? (
+                /* Responsive 16:9 YouTube embed — SEO: title attr used by Google for video indexing */
+                <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+                  <iframe
+                    className="absolute inset-0 w-full h-full border-0"
+                    src={videoSrc}
+                    title={imageAlt || "eQOURSE — Content Service and AI Data Services"}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    loading="lazy"
+                  />
+                </div>
+              ) : imageSrc ? (
                 /* Fill the hero box completely - no side gaps regardless of source ratio */
                 <img
                   src={imageSrc}

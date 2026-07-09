@@ -58,7 +58,7 @@ const AnnotationPage = () => (
       subtext="NLP, Computer Vision, Audio, and RLHF labeling with inter-annotator agreement >= 0.80. Multi-tier QA ensures 98%+ accuracy on every project."
       ctaText="Get Annotation Quote"
       ctaLink="/free-pilot"
-      imageSrc="/assets/ai-data/Annotation and Labeling.png"
+      imageSrc="/assets/ai-data/Annotation and Labeling.webp"
       imageAlt="Expert data annotation and labeling for machine learning models"
       rotatingBadges={[
         { icon: Tag, title: "Labeling", subtitle: "Expert annotations", color: "hsl(190 85% 68%)" },

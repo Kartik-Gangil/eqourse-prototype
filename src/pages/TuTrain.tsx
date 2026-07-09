@@ -72,7 +72,7 @@ const TuTrain = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="tutrain-hero pt-24 min-h-[500px] flex flex-col md:flex-row relative">
+      <section className="tutrain-hero min-h-[500px] flex flex-col md:flex-row relative">
         <div className="md:w-1/2 split-left flex items-center justify-center p-8 md:p-16 relative z-10">
           <div className="max-w-lg mx-auto md:ml-auto md:mr-12 text-center md:text-left">
             <Reveal>
@@ -108,7 +108,7 @@ const TuTrain = () => {
 
         <div className="md:w-1/2 split-right relative overflow-hidden flex items-center justify-center min-h-[300px] md:min-h-0">
           <img 
-            src="/assets/features/TUTRAIN graphic.png" 
+            src="/assets/features/TUTRAIN graphic.webp" 
             alt="TUTRAIN - Online 1-on-1 Tutoring for Grades 4-12 Worldwide by eQOURSE" 
             className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-700" 
           />
@@ -138,7 +138,7 @@ const TuTrain = () => {
               <Reveal delay="0.2s">
                 <div className="bg-white rounded-3xl shadow-card border border-border/50 p-4 max-w-sm w-full transition-transform hover:-translate-y-2 duration-500">
                   <img 
-                    src="/assets/features/logo digram.png" 
+                    src="/assets/features/logo digram.webp" 
                     alt="eQOURSE to TUTRAIN Brand Hierarchy Diagram" 
                     className="w-full h-auto rounded-2xl"
                   />
