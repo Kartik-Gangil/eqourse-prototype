@@ -21,6 +21,7 @@ function formatCaseStudy(doc) {
       title: doc.seo?.title || "",
       description: doc.seo?.description || "",
       ogImageUrl: doc.seo?.ogImageUrl || "",
+      heroImageAlt: doc.seo?.heroImageAlt || `${doc.title} — ${doc.industry} case study by eQOURSE`,
     },
     status: doc.status,
     publishedAt: doc.publishedAt ? doc.publishedAt.toISOString() : undefined,

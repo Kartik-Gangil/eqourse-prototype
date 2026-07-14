@@ -13,6 +13,7 @@ export interface CaseStudyInternalLink {
 
 export interface CaseStudy {
   id: string; // Used for URL hashes or keys
+  slug?: string; // URL slug for dedicated detail page (API studies only)
   title: string;
   category: CaseStudyCategory;
   industry: string;
@@ -29,6 +30,7 @@ export interface CaseStudy {
   };
   relatedLinks: CaseStudyInternalLink[];
   image?: string;
+  heroImageAlt?: string;
 }
 
 export const caseStudiesData: CaseStudy[] = [

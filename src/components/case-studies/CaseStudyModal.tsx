@@ -80,7 +80,7 @@ const CaseStudyModal = ({ study, isOpen, onClose }: CaseStudyModalProps) => {
               >
                 <img 
                   src={study.image} 
-                  alt="" 
+                  alt={study.heroImageAlt || `${study.title} — case study by eQOURSE`} 
                   className="w-full h-full object-cover opacity-[0.55] dark:opacity-70 transition-opacity duration-700 ease-in-out" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background flex-1" />

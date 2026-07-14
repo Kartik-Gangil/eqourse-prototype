@@ -27,6 +27,7 @@ import AccessibilityServices from "./pages/AccessibilityServices.tsx";
 import TalentAssessmentWorkforceEvaluation from "./pages/TalentAssessmentWorkforceEvaluation.tsx";
 import EditorialPublishingDesigningServices from "./pages/EditorialPublishingDesigningServices.tsx";
 import CaseStudy from "./pages/CaseStudy.tsx";
+import CaseStudyDetail from "./pages/CaseStudyDetail.tsx";
 import ContactUs from "./pages/ContactUs.tsx";
 import AboutUs from "./pages/AboutUs.tsx";
 import ClientTestimonials from "./pages/ClientTestimonials.tsx";
@@ -91,6 +92,7 @@ const App = () => (
               <Route path="/contact-us" element={<ContactUs />} />
               <Route path="/free-pilot" element={<FreePilot />} />
               <Route path="/casestudy" element={<CaseStudy />} />
+              <Route path="/casestudy/:slug" element={<CaseStudyDetail />} />
               <Route path="/privacy_policy" element={<PrivacyPolicy />} />
               <Route path="/tutrain" element={<TuTrain />} />
               <Route path="/sitemap" element={<Sitemap />} />
