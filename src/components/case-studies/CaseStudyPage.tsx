@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import ContentServicesLayout from "@/components/content-services/shared/ContentServicesLayout";
 import SEOHead from "@/components/ai-data-services/shared/SEOHead";
 import ServiceHero from "@/components/ai-data-services/shared/ServiceHero";
@@ -11,6 +12,7 @@ import { fetchPublishedCaseStudies } from "@/lib/publicApi";
 import { Filter, Briefcase, Award, TrendingUp } from "lucide-react";
 
 const CaseStudyPage = () => {
+  const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState<CaseStudyCategory | "All">("All");
   const [selectedStudy, setSelectedStudy] = useState<CaseStudy | null>(null);
   const [allStudies, setAllStudies] = useState<CaseStudy[]>(staticCaseStudies);
@@ -70,6 +72,7 @@ const CaseStudyPage = () => {
 
         return {
           id: cs.id,
+          slug: cs.slug,
           title: cs.title,
           category: (cs.industry?.toLowerCase().includes("ai") || cs.tags?.includes("AI Data Services") ? "AI Data Services" : "Content Service") as CaseStudyCategory,
           industry: cs.industry,
@@ -85,6 +88,7 @@ const CaseStudyPage = () => {
             ? cs.relatedLinks
             : mapTagsToRelatedLinks(cs.tags || []),
           image: cs.heroImageUrl ? (cs.heroImageUrl.startsWith("/") ? `${import.meta.env.VITE_API_BASE_URL || ""}${cs.heroImageUrl}` : cs.heroImageUrl) : undefined,
+          heroImageAlt: cs.seo?.heroImageAlt || `${cs.title} — ${cs.industry} case study by eQOURSE`,
         };
       });
       setAllStudies(mapped);
@@ -99,7 +103,13 @@ const CaseStudyPage = () => {
   const filterOptions = ["All", "Content Service", "AI Data Services"] as const;
 
   const handleStudyClick = (study: CaseStudy) => {
-    setSelectedStudy(study);
+    // API studies with slugs → navigate to dedicated SEO-friendly page
+    if (study.slug) {
+      navigate(`/casestudy/${study.slug}`);
+    } else {
+      // Static fallback studies → open modal
+      setSelectedStudy(study);
+    }
   };
 
   return (
