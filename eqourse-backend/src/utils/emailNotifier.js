@@ -18,6 +18,7 @@ const logger = require("./logger");
 // ─── SMTP Transport ─────────────────────────────────────────────────────────
 
 let transporter = null;
+let smtpVerified = false;
 
 function getTransporter() {
   if (transporter) return transporter;
@@ -27,10 +28,21 @@ function getTransporter() {
   const user = process.env.SMTP_USER;
   const pass = process.env.SMTP_PASS;
 
-  if (!host || !user || !pass) {
-    logger.warn("SMTP not configured — email notifications are disabled. Set SMTP_HOST, SMTP_USER, and SMTP_PASS in .env");
+  // Log what we see — critical for production debugging
+  const missing = [];
+  if (!host) missing.push("SMTP_HOST");
+  if (!user) missing.push("SMTP_USER");
+  if (!pass) missing.push("SMTP_PASS");
+
+  if (missing.length > 0) {
+    const msg = `❌ SMTP NOT CONFIGURED — missing env vars: ${missing.join(", ")}. Email notifications are DISABLED.`;
+    console.error(msg);
+    logger.error(msg);
     return null;
   }
+
+  console.log(`✅ SMTP configured: host=${host}, port=${port}, user=${user}`);
+  logger.info(`SMTP configured: host=${host}, port=${port}, user=${user}`);
 
   transporter = nodemailer.createTransport({
     host,
@@ -39,7 +51,38 @@ function getTransporter() {
     auth: { user, pass },
   });
 
+  // Verify SMTP connection on first use (async, non-blocking)
+  if (!smtpVerified) {
+    transporter.verify()
+      .then(() => {
+        smtpVerified = true;
+        console.log("✅ SMTP connection verified — emails WILL be sent");
+        logger.info("SMTP connection verified successfully");
+      })
+      .catch((err) => {
+        console.error(`❌ SMTP connection FAILED: ${err.message}`);
+        logger.error(`SMTP connection verification failed: ${err.message}`);
+        // Reset transporter so next attempt re-tries
+        transporter = null;
+      });
+  }
+
   return transporter;
+}
+
+/**
+ * Health-check: call from an API route to verify SMTP is working.
+ * Returns { ok: boolean, message: string }
+ */
+async function smtpHealthCheck() {
+  const t = getTransporter();
+  if (!t) return { ok: false, message: "SMTP not configured — missing env vars" };
+  try {
+    await t.verify();
+    return { ok: true, message: "SMTP connection verified" };
+  } catch (err) {
+    return { ok: false, message: `SMTP verify failed: ${err.message}` };
+  }
 }
 
 // ─── Shared Styles ──────────────────────────────────────────────────────────
@@ -166,7 +209,12 @@ const SERVICE_LABELS = {
  */
 async function sendContactNotification(query) {
   const mailer = getTransporter();
-  if (!mailer) return;
+  if (!mailer) {
+    console.error("❌ sendContactNotification SKIPPED — SMTP not configured");
+    logger.error("sendContactNotification SKIPPED — SMTP transporter is null");
+    return;
+  }
+  console.log(`📧 Attempting to send contact notification for ${query.email}...`);
 
   const to = process.env.NOTIFY_EMAIL || "som@eqourse.com";
   const smtpUser = process.env.SMTP_USER || "eqourse@gmail.com";
@@ -226,7 +274,12 @@ async function sendContactNotification(query) {
  */
 async function sendPilotNotification(query) {
   const mailer = getTransporter();
-  if (!mailer) return;
+  if (!mailer) {
+    console.error("❌ sendPilotNotification SKIPPED — SMTP not configured");
+    logger.error("sendPilotNotification SKIPPED — SMTP transporter is null");
+    return;
+  }
+  console.log(`📧 Attempting to send pilot notification for ${query.email}...`);
 
   const to = process.env.NOTIFY_EMAIL || "som@eqourse.com";
   const smtpUser = process.env.SMTP_USER || "eqourse@gmail.com";
@@ -291,7 +344,7 @@ async function sendPilotNotification(query) {
   }
 }
 
-module.exports = { sendContactNotification, sendPilotNotification };
+// (final module.exports is at end of file)
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CAREER EMAIL SYSTEM (uses team@eqourse.com — separate SMTP transport)
@@ -549,4 +602,5 @@ module.exports = {
   sendApplicationReceivedNotification,
   sendCandidateConfirmation,
   sendCandidateStatusUpdate,
+  smtpHealthCheck,
 };
