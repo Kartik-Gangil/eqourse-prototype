@@ -49,6 +49,7 @@ function getTransporter() {
     port,
     secure: port === 465,
     auth: { user, pass },
+    family: 4, // Force IPv4 to prevent ENETUNREACH for IPv6
   });
 
   // Verify SMTP connection on first use (async, non-blocking)
@@ -370,6 +371,7 @@ function getCareerTransporter() {
     port,
     secure: port === 465,
     auth: { user, pass },
+    family: 4, // Force IPv4 to prevent ENETUNREACH for IPv6
   });
 
   return careerTransporter;
