@@ -169,7 +169,7 @@ async function sendContactNotification(query) {
   if (!mailer) return;
 
   const to = process.env.NOTIFY_EMAIL || "som@eqourse.com";
-  const from = process.env.NOTIFY_FROM || "eQOURSE Notifications <noreply@eqourse.com>";
+  const from = process.env.NOTIFY_FROM || "eQOURSE Notifications <eqourse@gmail.com>";
 
   const sourceBadge = (query.source || "website").toLowerCase();
 
@@ -228,7 +228,7 @@ async function sendPilotNotification(query) {
   if (!mailer) return;
 
   const to = process.env.NOTIFY_EMAIL || "som@eqourse.com";
-  const from = process.env.NOTIFY_FROM || "eQOURSE Notifications <noreply@eqourse.com>";
+  const from = process.env.NOTIFY_FROM || "eQOURSE Notifications <eqourse@gmail.com>";
 
   const sourceBadge = (query.source || "website").toLowerCase();
   const serviceLabel = SERVICE_LABELS[query.serviceInterest] || query.serviceInterest;
