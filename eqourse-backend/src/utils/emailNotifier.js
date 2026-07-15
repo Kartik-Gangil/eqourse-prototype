@@ -169,7 +169,8 @@ async function sendContactNotification(query) {
   if (!mailer) return;
 
   const to = process.env.NOTIFY_EMAIL || "som@eqourse.com";
-  const from = process.env.NOTIFY_FROM || "eQOURSE Notifications <eqourse@gmail.com>";
+  const smtpUser = process.env.SMTP_USER || "eqourse@gmail.com";
+  const from = `eQOURSE Notifications <${smtpUser}>`;
 
   const sourceBadge = (query.source || "website").toLowerCase();
 
@@ -228,7 +229,8 @@ async function sendPilotNotification(query) {
   if (!mailer) return;
 
   const to = process.env.NOTIFY_EMAIL || "som@eqourse.com";
-  const from = process.env.NOTIFY_FROM || "eQOURSE Notifications <eqourse@gmail.com>";
+  const smtpUser = process.env.SMTP_USER || "eqourse@gmail.com";
+  const from = `eQOURSE Notifications <${smtpUser}>`;
 
   const sourceBadge = (query.source || "website").toLowerCase();
   const serviceLabel = SERVICE_LABELS[query.serviceInterest] || query.serviceInterest;
@@ -338,7 +340,8 @@ async function sendApplicationReceivedNotification(application, job) {
   if (!mailer) return;
 
   const to = process.env.CAREERS_NOTIFY_EMAIL || "team@eqourse.com";
-  const from = process.env.CAREERS_FROM || "eQOURSE Careers <team@eqourse.com>";
+  const smtpUser = process.env.CAREERS_SMTP_USER || "team@eqourse.com";
+  const from = `eQOURSE Careers <${smtpUser}>`;
   const deptLabel = DEPT_LABELS_EMAIL[job.department] || job.department;
 
   const bodyHtml = `
@@ -387,7 +390,8 @@ async function sendCandidateConfirmation(application, job) {
   const mailer = getCareerTransporter();
   if (!mailer) return;
 
-  const from = process.env.CAREERS_FROM || "eQOURSE Careers <team@eqourse.com>";
+  const smtpUser = process.env.CAREERS_SMTP_USER || "team@eqourse.com";
+  const from = `eQOURSE Careers <${smtpUser}>`;
   const deptLabel = DEPT_LABELS_EMAIL[job.department] || job.department;
 
   const bodyHtml = `
@@ -442,7 +446,8 @@ async function sendCandidateStatusUpdate(application, job, status) {
   const mailer = getCareerTransporter();
   if (!mailer) return;
 
-  const from = process.env.CAREERS_FROM || "eQOURSE Careers <team@eqourse.com>";
+  const smtpUser = process.env.CAREERS_SMTP_USER || "team@eqourse.com";
+  const from = `eQOURSE Careers <${smtpUser}>`;
   const jobTitle = job ? job.title : "the position";
 
   let bodyHtml;
