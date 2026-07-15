@@ -18,7 +18,6 @@ const logger = require("./logger");
 // ─── SMTP Transport ─────────────────────────────────────────────────────────
 
 let transporter = null;
-let smtpVerified = false;
 
 function getTransporter() {
   if (transporter) return transporter;
@@ -50,39 +49,99 @@ function getTransporter() {
     secure: port === 465,
     auth: { user, pass },
     family: 4, // Force IPv4 to prevent ENETUNREACH for IPv6
+    connectionTimeout: 10000, // 10s connection timeout
+    greetingTimeout: 10000,   // 10s greeting timeout
+    socketTimeout: 15000,     // 15s socket timeout
   });
-
-  // Verify SMTP connection on first use (async, non-blocking)
-  if (!smtpVerified) {
-    transporter.verify()
-      .then(() => {
-        smtpVerified = true;
-        console.log("✅ SMTP connection verified — emails WILL be sent");
-        logger.info("SMTP connection verified successfully");
-      })
-      .catch((err) => {
-        console.error(`❌ SMTP connection FAILED: ${err.message}`);
-        logger.error(`SMTP connection verification failed: ${err.message}`);
-        // Reset transporter so next attempt re-tries
-        transporter = null;
-      });
-  }
 
   return transporter;
 }
 
 /**
  * Health-check: call from an API route to verify SMTP is working.
- * Returns { ok: boolean, message: string }
+ * Returns { ok: boolean, message: string, details: object }
  */
 async function smtpHealthCheck() {
+  const host = process.env.SMTP_HOST;
+  const user = process.env.SMTP_USER;
+  const pass = process.env.SMTP_PASS;
+
+  const details = {
+    SMTP_HOST: host || "NOT SET",
+    SMTP_PORT: process.env.SMTP_PORT || "587 (default)",
+    SMTP_USER: user || "NOT SET",
+    SMTP_PASS: pass ? "***SET***" : "NOT SET",
+    NOTIFY_EMAIL: process.env.NOTIFY_EMAIL || "som@eqourse.com (default)",
+    NODE_ENV: process.env.NODE_ENV || "not set",
+  };
+
   const t = getTransporter();
-  if (!t) return { ok: false, message: "SMTP not configured — missing env vars" };
+  if (!t) return { ok: false, message: "SMTP not configured — missing env vars", details };
   try {
     await t.verify();
-    return { ok: true, message: "SMTP connection verified" };
+    return { ok: true, message: "SMTP connection verified — emails WILL work", details };
   } catch (err) {
-    return { ok: false, message: `SMTP verify failed: ${err.message}` };
+    // Reset transporter on verify failure so next call recreates it
+    transporter = null;
+    return { ok: false, message: `SMTP verify FAILED: ${err.message}`, details };
+  }
+}
+
+/**
+ * Send a real test email — call from an API route to confirm end-to-end delivery.
+ */
+async function sendTestEmail() {
+  const t = getTransporter();
+  if (!t) {
+    return { ok: false, message: "SMTP not configured — cannot send test email" };
+  }
+
+  const user = process.env.SMTP_USER || "eqourse@gmail.com";
+  const to = process.env.NOTIFY_EMAIL || "som@eqourse.com";
+  const from = `eQOURSE Test <${user}>`;
+  const timestamp = new Date().toISOString();
+
+  try {
+    // First verify connection
+    await t.verify();
+    console.log("✅ SMTP verify passed, now sending test email...");
+
+    const info = await t.sendMail({
+      from,
+      to,
+      subject: `✅ eQOURSE Email Test — ${timestamp}`,
+      html: `<div style="font-family:sans-serif;padding:20px;">
+        <h2 style="color:#0d9488;">✅ Email System Working!</h2>
+        <p>This test email was sent at: <strong>${timestamp}</strong></p>
+        <p>From: <code>${from}</code></p>
+        <p>To: <code>${to}</code></p>
+        <p>SMTP Host: <code>${process.env.SMTP_HOST}</code></p>
+        <p>SMTP User: <code>${user}</code></p>
+        <hr/>
+        <p style="color:#666;font-size:12px;">If you received this, the email system is working correctly on production.</p>
+      </div>`,
+    });
+
+    console.log(`✅ TEST EMAIL SENT! MessageId: ${info.messageId}, Response: ${info.response}`);
+    return {
+      ok: true,
+      message: "Test email sent successfully!",
+      messageId: info.messageId,
+      response: info.response,
+      sentTo: to,
+      sentFrom: from,
+    };
+  } catch (err) {
+    console.error(`❌ TEST EMAIL FAILED: ${err.message}`);
+    console.error("Full error:", err);
+    // Reset transporter on failure
+    transporter = null;
+    return {
+      ok: false,
+      message: `Email send FAILED: ${err.message}`,
+      errorCode: err.code,
+      errorCommand: err.command,
+    };
   }
 }
 
@@ -261,9 +320,13 @@ async function sendContactNotification(query) {
         footerNote: "This is an automated notification from the eQOURSE website contact form.",
       }),
     });
+    console.log(`✅ Contact notification sent to ${to} for query from ${query.email}`);
     logger.info(`📧 Contact notification sent to ${to} for query from ${query.email}`);
   } catch (err) {
+    console.error(`❌ CONTACT EMAIL FAILED: ${err.message}`, err);
     logger.error(`Failed to send contact notification: ${err.message}`);
+    // Reset transporter so next attempt recreates connection
+    transporter = null;
   }
 }
 
@@ -339,9 +402,13 @@ async function sendPilotNotification(query) {
         footerNote: "This is an automated notification from the eQOURSE Free Pilot request form.",
       }),
     });
+    console.log(`✅ Pilot notification sent to ${to} for request from ${query.email}`);
     logger.info(`📧 Pilot notification sent to ${to} for request from ${query.email}`);
   } catch (err) {
+    console.error(`❌ PILOT EMAIL FAILED: ${err.message}`, err);
     logger.error(`Failed to send pilot notification: ${err.message}`);
+    // Reset transporter so next attempt recreates connection
+    transporter = null;
   }
 }
 
@@ -605,4 +672,5 @@ module.exports = {
   sendCandidateConfirmation,
   sendCandidateStatusUpdate,
   smtpHealthCheck,
+  sendTestEmail,
 };

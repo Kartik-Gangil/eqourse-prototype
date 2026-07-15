@@ -51,10 +51,15 @@ app.use("/api/careers", careerRouter);               // GET /api/careers, POST /
 app.use("/api/admin", adminRouter);            // All admin routes under /api/admin/*
 
 // ── Health check ─────────────────────────────────────────────────────────────
-const { smtpHealthCheck } = require("./src/utils/emailNotifier");
+const { smtpHealthCheck, sendTestEmail } = require("./src/utils/emailNotifier");
 app.get("/", (req, res) => res.json({ status: "eQOURSE backend is running", version: "2.0.0" }));
 app.get("/api/health/smtp", async (req, res) => {
   const result = await smtpHealthCheck();
+  res.status(result.ok ? 200 : 503).json(result);
+});
+// Actually sends a real test email — use to verify end-to-end delivery
+app.get("/api/health/smtp/test", async (req, res) => {
+  const result = await sendTestEmail();
   res.status(result.ok ? 200 : 503).json(result);
 });
 
