@@ -224,7 +224,7 @@ const StandardSampleElements = () => {
                 timelines, and a custom plan - completely free.
               </p>
               <div className="flex flex-wrap gap-3 justify-center">
-                <Link to="/contactus">
+                <Link to="/contact-us">
                   <Button
                     size="lg"
                     className="bg-white text-primary hover:bg-white/90 shadow-soft px-8"
