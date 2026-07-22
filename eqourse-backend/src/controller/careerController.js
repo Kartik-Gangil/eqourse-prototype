@@ -204,7 +204,7 @@ const submitApplication = async (req, res) => {
     if (req.file) {
       const actualKind = path.basename(req.file.destination);
       resumeFile = {
-        url: `/uploads/${actualKind}/${req.file.filename}`,
+        url: `/api/uploads/${actualKind}/${req.file.filename}`,
         originalName: req.file.originalname,
         size: req.file.size,
         mimeType: req.file.mimetype,
@@ -672,6 +672,100 @@ Rules:
   }
 };
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// EXPORT APPLICATIONS AS CSV (Excel-compatible)
+// ═══════════════════════════════════════════════════════════════════════════════
+
+/**
+ * GET /api/admin/careers/:jobId/applications/export
+ * Admin — Download all applications for a job as CSV (Excel-compatible)
+ */
+const exportApplicationsCSV = async (req, res) => {
+  try {
+    const { jobId } = req.params;
+    const job = await JobOpening.findById(jobId);
+    if (!job) {
+      return res.status(404).json({ success: false, message: "Job not found" });
+    }
+
+    const applications = await JobApplication.find({ jobId })
+      .sort({ createdAt: -1 })
+      .lean();
+
+    // CSV helper — escape values with commas, quotes, newlines
+    const esc = (val) => {
+      if (val === null || val === undefined) return "";
+      const s = String(val).replace(/"/g, '""');
+      return s.includes(",") || s.includes('"') || s.includes("\n") ? `"${s}"` : s;
+    };
+
+    // Build custom question headers
+    const customQLabels = (job.customQuestions || []).map(q => q.label);
+
+    // CSV Headers
+    const headers = [
+      "Receipt ID",
+      "Full Name",
+      "Email",
+      "Phone",
+      "Experience",
+      "Current Role",
+      "Qualification",
+      "Skills",
+      "Portfolio Link",
+      "Resume (Drive Link)",
+      "Cover Letter",
+      "Status",
+      ...customQLabels,
+      "Applied At",
+    ];
+
+    const rows = applications.map(app => {
+      const customValues = customQLabels.map((label) => {
+        const answer = (app.customAnswers || []).find(a => a.questionLabel === label);
+        if (!answer) return "";
+        return Array.isArray(answer.answerValue)
+          ? answer.answerValue.join("; ")
+          : String(answer.answerValue || "");
+      });
+
+      return [
+        app.receiptId,
+        app.fullName,
+        app.email,
+        app.phone || "",
+        app.experience || "",
+        app.currentRole || "",
+        app.qualification || "",
+        (app.skills || []).join(", "),
+        app.portfolioLink || "",
+        app.resumeDriveLink || "",
+        app.coverLetter || "",
+        app.status,
+        ...customValues,
+        app.createdAt ? new Date(app.createdAt).toISOString() : "",
+      ];
+    });
+
+    // Build CSV string with BOM for Excel UTF-8 compatibility
+    const BOM = "\uFEFF";
+    const csv = BOM + [
+      headers.map(esc).join(","),
+      ...rows.map(row => row.map(esc).join(","))
+    ].join("\n");
+
+    const sanitizedTitle = job.title.replace(/[^a-zA-Z0-9 ]/g, "").replace(/\s+/g, "_");
+    const filename = `${sanitizedTitle}_Applicants_${new Date().toISOString().split("T")[0]}.csv`;
+
+    res.setHeader("Content-Type", "text/csv; charset=utf-8");
+    res.setHeader("Content-Disposition", `attachment; filename="${filename}"`);
+    res.send(csv);
+  } catch (err) {
+    logger.error(`Export CSV failed: ${err.message}`);
+    res.status(500).json({ success: false, message: "Export failed" });
+  }
+};
+
 module.exports = {
   // Public
   getActiveJobOpenings,
@@ -687,4 +781,5 @@ module.exports = {
   adminGetApplication,
   adminUpdateApplicationStatus,
   adminSmartFilter,
+  exportApplicationsCSV,
 };

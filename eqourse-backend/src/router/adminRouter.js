@@ -92,5 +92,6 @@ router.get("/careers/:jobId/applications", careerCtrl.adminListApplications);
 router.get("/applications/:id", careerCtrl.adminGetApplication);
 router.patch("/applications/:id/status", careerCtrl.adminUpdateApplicationStatus);
 router.post("/careers/:jobId/smart-filter", careerCtrl.adminSmartFilter);
+router.get("/careers/:jobId/applications/export", careerCtrl.exportApplicationsCSV);
 
 module.exports = router;

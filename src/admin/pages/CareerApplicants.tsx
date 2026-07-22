@@ -133,9 +133,43 @@ export default function AdminCareerApplicants() {
               {job?.departmentLabel} • {job?.location}
             </p>
           </div>
-          <div className="text-right text-sm">
-            <div className="font-semibold text-xl">{total}</div>
-            <div className="text-muted-foreground">Total Applicants</div>
+          <div className="flex flex-col items-end gap-2">
+            <div className="text-right text-sm">
+              <div className="font-semibold text-xl">{total}</div>
+              <div className="text-muted-foreground">Total Applicants</div>
+            </div>
+            {total > 0 && (
+              <button
+                onClick={async () => {
+                  try {
+                    const token = localStorage.getItem("eqourse_admin_token");
+                    const res = await fetch(
+                      `${import.meta.env.VITE_API_BASE_URL || ""}/api/admin/careers/${id}/applications/export`,
+                      { headers: token ? { Authorization: `Bearer ${token}` } : {} }
+                    );
+                    if (!res.ok) throw new Error("Export failed");
+                    const blob = await res.blob();
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    // Extract filename from Content-Disposition header or use default
+                    const cd = res.headers.get("Content-Disposition");
+                    a.download = cd?.match(/filename="?(.+?)"?$/)?.[1] || "applicants.csv";
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    URL.revokeObjectURL(url);
+                    toast.success("Records downloaded successfully!");
+                  } catch {
+                    toast.error("Failed to download records");
+                  }
+                }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-medium transition-colors shadow-sm"
+              >
+                <Download className="w-4 h-4" />
+                Download All Records
+              </button>
+            )}
           </div>
         </div>
       </div>
