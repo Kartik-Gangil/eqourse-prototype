@@ -7,11 +7,32 @@ import CareersWhyWork from "@/components/careers/CareersWhyWork";
 import { Laptop, GraduationCap, TrendingUp } from "lucide-react";
 
 import JobListings from "@/components/careers/JobListings";
+import JobDetailModal from "@/components/careers/JobDetailModal";
 import JobApplicationForm from "@/components/careers/JobApplicationForm";
 import type { JobOpening } from "@/admin/lib/types";
 
 const Careers = () => {
-  const [selectedJob, setSelectedJob] = useState<JobOpening | null>(null);
+  // Two-step flow: first view JD details, then apply
+  const [detailJob, setDetailJob] = useState<JobOpening | null>(null);
+  const [applyJob, setApplyJob] = useState<JobOpening | null>(null);
+
+  const handleViewDetails = (job: JobOpening) => {
+    setDetailJob(job);
+  };
+
+  const handleApplyFromDetail = () => {
+    // Move from detail view to application form
+    setApplyJob(detailJob);
+    setDetailJob(null);
+  };
+
+  const handleCloseDetail = () => {
+    setDetailJob(null);
+  };
+
+  const handleCloseApply = () => {
+    setApplyJob(null);
+  };
 
   return (
     <PageLayout breadcrumbs={[{ label: "About Us", href: "/aboutus" }, { label: "Careers" }]}>
@@ -60,14 +81,23 @@ const Careers = () => {
       
       {/* Job Board Section */}
       <section id="apply" className="bg-slate-50 border-t border-slate-200">
-        <JobListings onApplyClick={(job) => setSelectedJob(job)} />
+        <JobListings onApplyClick={handleViewDetails} />
       </section>
 
+      {/* Job Detail Modal — shows full JD before applying */}
+      {detailJob && (
+        <JobDetailModal
+          job={detailJob}
+          onClose={handleCloseDetail}
+          onApply={handleApplyFromDetail}
+        />
+      )}
+
       {/* Application Form Modal */}
-      {selectedJob && (
+      {applyJob && (
         <JobApplicationForm 
-          job={selectedJob} 
-          onClose={() => setSelectedJob(null)} 
+          job={applyJob} 
+          onClose={handleCloseApply} 
         />
       )}
     </PageLayout>

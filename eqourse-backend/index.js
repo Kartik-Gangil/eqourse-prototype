@@ -36,6 +36,7 @@ app.use(logger.requestLogger);
 
 // Serve uploaded files
 app.use("/api/uploads", express.static(UPLOAD_DIR));
+app.use("/uploads", express.static(UPLOAD_DIR)); // Fallback for existing resume URLs without /api prefix
 
 // ── Public Routes ────────────────────────────────────────────────────────────
 app.use("/api/contact", contactRouter);       // POST /api/contact (public submit)
