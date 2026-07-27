@@ -5,11 +5,18 @@ import {
   MapPin,
   Clock,
   Briefcase,
-  DollarSign,
   CheckCircle2,
   Star,
   ChevronRight,
 } from "lucide-react";
+
+const CURRENCY_SYMBOLS: Record<string, string> = {
+  INR: "₹",
+  USD: "$",
+  EUR: "€",
+  GBP: "£",
+  SGD: "S$",
+};
 
 interface JobDetailModalProps {
   job: JobOpening;
@@ -84,7 +91,7 @@ export default function JobDetailModal({ job, onClose, onApply }: JobDetailModal
               </div>
               {job.salaryRange && (
                 <div className="flex items-center gap-1.5">
-                  <DollarSign className="w-4 h-4" /> {job.salaryRange}
+                  <span className="text-sm font-semibold">{CURRENCY_SYMBOLS[job.salaryCurrency] || "₹"}</span> {job.salaryRange}
                 </div>
               )}
             </div>

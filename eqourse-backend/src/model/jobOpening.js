@@ -42,6 +42,11 @@ const jobOpeningSchema = new mongoose.Schema(
       options: { type: [String], default: [] } // Used for select, checkbox, radio
     }],
     salaryRange: { type: String, trim: true, default: "" },
+    salaryCurrency: {
+      type: String,
+      enum: ["INR", "USD", "EUR", "GBP", "SGD"],
+      default: "INR",
+    },
     status: {
       type: String,
       enum: ["active", "paused", "closed"],

@@ -185,6 +185,7 @@ export interface JobOpening {
   requirements: string[];
   niceToHave: string[];
   salaryRange: string;
+  salaryCurrency: "INR" | "USD" | "EUR" | "GBP" | "SGD";
   status: JobStatus;
   applicationCount: number;
   postedAt: string;

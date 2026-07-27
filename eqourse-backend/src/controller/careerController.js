@@ -48,6 +48,7 @@ function formatOpening(doc) {
     niceToHave: doc.niceToHave || [],
     customQuestions: doc.customQuestions || [],
     salaryRange: doc.salaryRange,
+    salaryCurrency: doc.salaryCurrency || "INR",
     status: doc.status,
     applicationCount: doc.applicationCount || 0,
     postedAt: doc.postedAt,

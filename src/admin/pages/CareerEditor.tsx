@@ -31,11 +31,11 @@ export default function AdminCareerEditor() {
     employmentType: "full-time",
     experienceRange: "",
     description: "",
-    responsibilities: [""],
-    requirements: [""],
-    niceToHave: [""],
-    niceToHave: [""],
+    responsibilities: [],
+    requirements: [],
+    niceToHave: [],
     salaryRange: "",
+    salaryCurrency: "INR",
     status: "active",
     customQuestions: [],
   });
@@ -52,11 +52,11 @@ export default function AdminCareerEditor() {
           employmentType: job.employmentType,
           experienceRange: job.experienceRange,
           description: job.description,
-          responsibilities: job.responsibilities.length ? job.responsibilities : [""],
-          requirements: job.requirements.length ? job.requirements : [""],
-          niceToHave: job.niceToHave.length ? job.niceToHave : [""],
-          niceToHave: job.niceToHave.length ? job.niceToHave : [""],
+          responsibilities: job.responsibilities || [],
+          requirements: job.requirements || [],
+          niceToHave: job.niceToHave || [],
           salaryRange: job.salaryRange,
+          salaryCurrency: job.salaryCurrency || "INR",
           status: job.status,
           customQuestions: job.customQuestions || [],
           closingDate: job.closingDate ? new Date(job.closingDate).toISOString().split("T")[0] : "",
@@ -271,14 +271,28 @@ export default function AdminCareerEditor() {
             </div>
             <div className="space-y-2">
               <label className="text-sm font-medium">Salary Range (Optional)</label>
-              <input
-                type="text"
-                name="salaryRange"
-                value={formData.salaryRange}
-                onChange={handleChange}
-                className="w-full px-3 py-2 rounded-md border border-border bg-background focus:ring-2 focus:ring-primary/40 outline-none"
-                placeholder="e.g. ₹5-8 LPA"
-              />
+              <div className="flex gap-2">
+                <select
+                  name="salaryCurrency"
+                  value={formData.salaryCurrency || "INR"}
+                  onChange={handleChange}
+                  className="w-28 px-3 py-2 rounded-md border border-border bg-background focus:ring-2 focus:ring-primary/40 outline-none text-sm font-medium shrink-0"
+                >
+                  <option value="INR">₹ INR</option>
+                  <option value="USD">$ USD</option>
+                  <option value="EUR">€ EUR</option>
+                  <option value="GBP">£ GBP</option>
+                  <option value="SGD">S$ SGD</option>
+                </select>
+                <input
+                  type="text"
+                  name="salaryRange"
+                  value={formData.salaryRange}
+                  onChange={handleChange}
+                  className="flex-1 px-3 py-2 rounded-md border border-border bg-background focus:ring-2 focus:ring-primary/40 outline-none"
+                  placeholder="e.g. 5-8 LPA"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -298,43 +312,87 @@ export default function AdminCareerEditor() {
         </section>
 
         {/* Lists (Responsibilities, Requirements, Nice to Have) */}
-        {(["responsibilities", "requirements", "niceToHave"] as const).map((field) => (
-          <section key={field} className="space-y-4">
-            <h2 className="text-lg font-semibold border-b border-border pb-2 capitalize">
-              {field.replace(/([A-Z])/g, ' $1').trim()}
-            </h2>
-            <div className="space-y-2">
-              {formData[field]?.map((val, idx) => (
-                <div key={idx} className="flex items-start gap-2">
-                  <div className="mt-2.5 w-1.5 h-1.5 rounded-full bg-muted-foreground shrink-0" />
-                  <input
-                    type="text"
-                    value={val}
-                    onChange={(e) => handleArrayChange(field, idx, e.target.value)}
-                    className="flex-1 px-3 py-1.5 rounded-md border border-transparent hover:border-border focus:border-primary focus:ring-2 focus:ring-primary/40 outline-none bg-secondary/50 focus:bg-background transition-colors"
-                    placeholder="Enter an item..."
-                  />
-                  <button
-                    type="button"
-                    onClick={() => removeArrayItem(field, idx)}
-                    className="p-1.5 text-muted-foreground hover:text-red-500 hover:bg-red-50 rounded-md transition-colors shrink-0"
-                  >
-                    <X className="w-4 h-4" />
-                  </button>
-                </div>
-              ))}
-              <Button
-                type="button"
-                variant="ghost"
-                size="sm"
-                onClick={() => addArrayItem(field)}
-                className="text-primary hover:text-primary hover:bg-primary/10 -ml-2"
-              >
-                <Plus className="w-4 h-4 mr-1" /> Add Item
-              </Button>
-            </div>
-          </section>
-        ))}
+        {(["responsibilities", "requirements", "niceToHave"] as const).map((field) => {
+          const FIELD_LABELS: Record<string, string> = {
+            responsibilities: "Responsibilities",
+            requirements: "Requirements",
+            niceToHave: "Nice To Have",
+          };
+          const items = (formData[field] || []).filter((s) => s.trim() !== "");
+          return (
+            <section key={field} className="space-y-4">
+              <h2 className="text-lg font-semibold border-b border-border pb-2">
+                {FIELD_LABELS[field]}
+              </h2>
+              <div className="space-y-3">
+                {/* Bulk paste textarea */}
+                <textarea
+                  rows={4}
+                  value={(formData[field] || []).join("\n")}
+                  onChange={(e) => {
+                    const lines = e.target.value.split("\n");
+                    setFormData((prev) => ({ ...prev, [field]: lines }));
+                  }}
+                  onPaste={(e) => {
+                    e.preventDefault();
+                    const pasted = e.clipboardData.getData("text");
+                    const newLines = pasted.split(/\r?\n/).filter((l) => l.trim() !== "");
+                    const textarea = e.target as HTMLTextAreaElement;
+                    const start = textarea.selectionStart;
+                    const end = textarea.selectionEnd;
+                    const current = (formData[field] || []).join("\n");
+                    const before = current.substring(0, start);
+                    const after = current.substring(end);
+                    const merged = (before + newLines.join("\n") + after).split("\n").filter((l) => l.trim() !== "");
+                    setFormData((prev) => ({ ...prev, [field]: merged }));
+                  }}
+                  className="w-full px-3 py-2 rounded-md border border-border bg-background focus:ring-2 focus:ring-primary/40 outline-none resize-y text-sm font-mono"
+                  placeholder={`Paste or type items here. Each new line becomes a separate bullet point.\n\nExample:\nStrong communication skills\nProficiency in Microsoft Office\nTeam player with attention to detail`}
+                />
+                <p className="text-xs text-muted-foreground -mt-1">
+                  💡 Tip: Paste from Word/Email — each line auto-converts to a bullet point.
+                </p>
+
+                {/* Live preview of parsed items */}
+                {items.length > 0 && (
+                  <div className="bg-secondary/30 rounded-lg p-3 space-y-1.5">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Preview ({items.length} items)</span>
+                    </div>
+                    {items.map((val, idx) => (
+                      <div key={idx} className="flex items-start gap-2 group">
+                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0" />
+                        <span className="flex-1 text-sm text-foreground">{val}</span>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const allLines = [...(formData[field] || [])];
+                            // Find the actual index in the raw array (including empty lines)
+                            let realIdx = -1;
+                            let count = 0;
+                            for (let i = 0; i < allLines.length; i++) {
+                              if (allLines[i].trim() !== "") {
+                                if (count === idx) { realIdx = i; break; }
+                                count++;
+                              }
+                            }
+                            if (realIdx >= 0) {
+                              allLines.splice(realIdx, 1);
+                              setFormData((prev) => ({ ...prev, [field]: allLines }));
+                            }
+                          }}
+                          className="p-1 text-muted-foreground hover:text-red-500 hover:bg-red-50 rounded opacity-0 group-hover:opacity-100 transition-all shrink-0"
+                        >
+                          <X className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </section>
+          );
+        })}
 
         {/* Custom Form Builder */}
         <section className="space-y-4">
