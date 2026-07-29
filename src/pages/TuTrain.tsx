@@ -39,18 +39,11 @@ const TuTrain = () => {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "eQOURSE",
-    "url": "https://www.eqourse.com",
-    "subOrganization": {
-      "@type": "Organization",
-      "name": "TUTRAIN",
-      "url": "https://tutrain.com",
-      "description": "Online 1-on-1 and small-batch tutoring for Grades 4–12 worldwide.",
-      "parentOrganization": {
-        "@type": "Organization",
-        "name": "eQOURSE"
-      }
-    }
+    "@id": "https://tutrain.com/#organization",
+    "name": "TUTRAIN",
+    "url": "https://tutrain.com",
+    "description": "Online 1-on-1 and small-batch tutoring for Grades 4–12 worldwide.",
+    "parentOrganization": { "@id": "https://www.eqourse.com/#organization" }
   };
 
   const bridgeRef = useReveal();
