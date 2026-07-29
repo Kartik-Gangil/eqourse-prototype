@@ -72,7 +72,7 @@ const OverviewPage = () => (
       description="Every high-performing AI model starts with dependable data operations, not random data volume."
       paragraphs={[
         "AI data services cover the full lifecycle: collection, annotation, cleaning, validation, and testing so your model performs reliably in production conditions.",
-        "At eQOURSE, we combine linguistic depth, domain specialists, and strict quality controls to build datasets that reflect real human behavior, context, and regional variation.",
+        "At eQOURSE, we combine linguistic depth, domain specialists, and strict quality controls to build datasets that reflect real human behavior, context, and regional variation. Our upcoming eQOURSE+ talent platform will further streamline how we source and verify these domain experts.",
       ]}
       bullets={[
         "Integrated pipeline from raw data sourcing to deployment-readiness testing",

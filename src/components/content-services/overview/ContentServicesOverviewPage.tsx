@@ -66,7 +66,7 @@ const ContentServicesOverviewPage = () => (
       gradientText="Solutions?"
       description="Content Services encompass the full range of services needed to create, deliver, and scale digital education."
       paragraphs={[
-        "This includes designing curriculum-aligned content, developing interactive assessments, producing engaging video lessons, localizing materials for multilingual audiences, building LMS-ready course packages, and sourcing qualified subject matter experts.",
+        "This includes designing curriculum-aligned content, developing interactive assessments, producing engaging video lessons, localizing materials for multilingual audiences, building LMS-ready course packages, and sourcing qualified subject matter experts — work the eQOURSE+ platform we are building will match to verified specialists.",
         "At eQOURSE, we combine deep expertise in K-12 and higher education with cutting-edge instructional design methodologies and AI-powered content tools. Our integrated approach means you get a single trusted partner for your entire educational content lifecycle."
       ]}
       bullets={[

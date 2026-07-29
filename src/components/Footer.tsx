@@ -148,6 +148,7 @@ const Footer = () => {
             <div className="space-y-3">
               <Link to="/tutrain" className={linkClass} style={linkColor}>TUTRAIN</Link>
               <a href="https://tutrain.com" target="_blank" rel="noopener noreferrer" className={linkClass} style={linkColor}>Visit TUTRAIN.com →</a>
+              <a href="https://plus.eqourse.com" target="_blank" rel="noopener" className={linkClass} style={linkColor}>Visit eQOURSE+ →</a>
             </div>
           </div>
 

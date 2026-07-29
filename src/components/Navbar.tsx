@@ -22,6 +22,7 @@ interface MainLink {
   megaMenu?: boolean;          // flag: use mega-menu instead of simple dropdown
   samplesMenu?: boolean;       // flag: 3-column Samples mega menu
   subtext?: string;            // flag: simple tooltip text
+  external?: boolean;          // flag: external link
 }
 
 const aiDataSubLinks: SubLink[] = [
@@ -51,6 +52,7 @@ const navLinks: MainLink[] = [
   { label: "AI Data Services", to: "/ai-data-services", dropdown: aiDataSubLinks },
   { label: "Samples", to: "/samples", samplesMenu: true },
   { label: "TUTRAIN", to: "/tutrain", subtext: "Our Online Tutoring Brand" },
+  { label: "eQOURSE+", to: "https://plus.eqourse.com/", subtext: "Our Talent Platform", external: true },
 ];
 
 /* ─── Content Services Mega‑Menu (Desktop) ─── */
@@ -699,16 +701,31 @@ const Navbar = () => {
                   onMouseEnter={() => (link.dropdown || link.megaMenu || link.samplesMenu || link.subtext) && openDropdown(link.label)}
                   onMouseLeave={() => (link.dropdown || link.megaMenu || link.samplesMenu || link.subtext) && closeDropdownWithDelay()}
                 >
-                  <Link
-                    to={link.to}
-                    className={`px-4 py-2 text-sm font-medium transition-colors rounded-lg flex items-center gap-1 ${transparent
-                      ? "text-white/90 hover:text-white hover:bg-white/10"
-                      : "text-foreground/80 hover:text-primary hover:bg-primary/5"
-                      }`}
-                  >
-                    {link.label}
-                    {(link.dropdown || link.samplesMenu) && <ChevronDown className="w-3.5 h-3.5" />}
-                  </Link>
+                  {link.external ? (
+                    <a
+                      href={link.to}
+                      target="_blank"
+                      rel="noopener"
+                      className={`px-4 py-2 text-sm font-medium transition-colors rounded-lg flex items-center gap-1 ${transparent
+                        ? "text-white/90 hover:text-white hover:bg-white/10"
+                        : "text-foreground/80 hover:text-primary hover:bg-primary/5"
+                        }`}
+                    >
+                      {link.label}
+                      {(link.dropdown || link.samplesMenu) && <ChevronDown className="w-3.5 h-3.5" />}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.to}
+                      className={`px-4 py-2 text-sm font-medium transition-colors rounded-lg flex items-center gap-1 ${transparent
+                        ? "text-white/90 hover:text-white hover:bg-white/10"
+                        : "text-foreground/80 hover:text-primary hover:bg-primary/5"
+                        }`}
+                    >
+                      {link.label}
+                      {(link.dropdown || link.samplesMenu) && <ChevronDown className="w-3.5 h-3.5" />}
+                    </Link>
+                  )}
 
                   {/* Subtext tooltip */}
                   {link.subtext && activeDropdown === link.label && (
@@ -810,19 +827,37 @@ const Navbar = () => {
                       ) : (
                         /* Regular links & simple dropdowns */
                         <div className="rounded-xl border border-border/40 bg-card shadow-sm overflow-hidden group hover:border-primary/30 transition-colors">
-                          <Link
-                            to={link.to}
-                            className={`flex flex-col justify-center px-4 py-3.5 transition-colors ${isLinkActive ? "bg-primary/5 text-primary" : "bg-card text-foreground/90 hover:bg-primary/5 hover:text-primary"}`}
-                            onClick={() => !link.dropdown && setIsOpen(false)}
-                          >
-                            <div className="flex items-center justify-between w-full">
-                              <span className="font-semibold text-sm">{link.label}</span>
-                              {link.dropdown && <ArrowRight className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" />}
-                            </div>
-                            {link.subtext && (
-                              <span className="text-xs text-muted-foreground mt-1">{link.subtext}</span>
-                            )}
-                          </Link>
+                          {link.external ? (
+                            <a
+                              href={link.to}
+                              target="_blank"
+                              rel="noopener"
+                              className={`flex flex-col justify-center px-4 py-3.5 transition-colors ${isLinkActive ? "bg-primary/5 text-primary" : "bg-card text-foreground/90 hover:bg-primary/5 hover:text-primary"}`}
+                              onClick={() => !link.dropdown && setIsOpen(false)}
+                            >
+                              <div className="flex items-center justify-between w-full">
+                                <span className="font-semibold text-sm">{link.label}</span>
+                                {link.dropdown && <ArrowRight className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" />}
+                              </div>
+                              {link.subtext && (
+                                <span className="text-xs text-muted-foreground mt-1">{link.subtext}</span>
+                              )}
+                            </a>
+                          ) : (
+                            <Link
+                              to={link.to}
+                              className={`flex flex-col justify-center px-4 py-3.5 transition-colors ${isLinkActive ? "bg-primary/5 text-primary" : "bg-card text-foreground/90 hover:bg-primary/5 hover:text-primary"}`}
+                              onClick={() => !link.dropdown && setIsOpen(false)}
+                            >
+                              <div className="flex items-center justify-between w-full">
+                                <span className="font-semibold text-sm">{link.label}</span>
+                                {link.dropdown && <ArrowRight className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" />}
+                              </div>
+                              {link.subtext && (
+                                <span className="text-xs text-muted-foreground mt-1">{link.subtext}</span>
+                              )}
+                            </Link>
+                          )}
 
                           {link.dropdown && (
                             <div className="bg-secondary/20 p-3 flex flex-col gap-2 border-t border-border/30">

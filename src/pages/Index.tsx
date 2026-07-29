@@ -16,6 +16,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import BlogSection from "@/components/BlogSection";
 import NewsletterSection from "@/components/NewsletterSection";
 import Footer from "@/components/Footer";
+import OurBrandsSection from "@/components/OurBrandsSection";
 
 import LeadFormPopup from "@/components/LeadFormPopup";
 
@@ -59,6 +60,7 @@ const Index = () => {
             {
               "@context": "https://schema.org",
               "@type": "Organization",
+              "@id": "https://www.eqourse.com/#organization",
               "name": "eQOURSE",
               "alternateName": "eQOURSE PTE LTD",
               "url": "https://www.eqourse.com",
@@ -75,6 +77,20 @@ const Index = () => {
                 "https://www.instagram.com/eqourse/",
                 "https://www.youtube.com/@eqourse",
                 "https://twitter.com/EQourse"
+              ],
+              "subOrganization": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://tutrain.com/#organization",
+                  "name": "TUTRAIN",
+                  "url": "https://tutrain.com"
+                },
+                {
+                  "@type": "Organization",
+                  "@id": "https://plus.eqourse.com/#organization",
+                  "name": "eQOURSE+",
+                  "url": "https://plus.eqourse.com"
+                }
               ],
               "contactPoint": [
                 {
@@ -147,6 +163,7 @@ const Index = () => {
       <CaseStudiesSection />
       <WhyChooseUs />
       <CTASection />
+      <OurBrandsSection />
       <ClientsSection />
       <TestimonialsSection />
       <BlogSection />
