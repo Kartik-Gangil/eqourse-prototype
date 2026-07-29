@@ -52,7 +52,7 @@ const navLinks: MainLink[] = [
   { label: "AI Data Services", to: "/ai-data-services", dropdown: aiDataSubLinks },
   { label: "Samples", to: "/samples", samplesMenu: true },
   { label: "TUTRAIN", to: "/tutrain", subtext: "Our Online Tutoring Brand" },
-  { label: "eQOURSE+", to: "https://plus.eqourse.com/", subtext: "Our Talent Platform", external: true },
+  { label: "eQOURSE+", to: "https://plus.eqourse.com", subtext: "Our Talent Platform", external: true },
 ];
 
 /* ─── Content Services Mega‑Menu (Desktop) ─── */
@@ -706,7 +706,7 @@ const Navbar = () => {
                       href={link.to}
                       target="_blank"
                       rel="noopener"
-                      className={`px-4 py-2 text-sm font-medium transition-colors rounded-lg flex items-center gap-1 ${transparent
+                      className={`px-2.5 xl:px-4 py-2 text-sm font-medium transition-colors rounded-lg flex items-center gap-1 ${transparent
                         ? "text-white/90 hover:text-white hover:bg-white/10"
                         : "text-foreground/80 hover:text-primary hover:bg-primary/5"
                         }`}
@@ -717,7 +717,7 @@ const Navbar = () => {
                   ) : (
                     <Link
                       to={link.to}
-                      className={`px-4 py-2 text-sm font-medium transition-colors rounded-lg flex items-center gap-1 ${transparent
+                      className={`px-2.5 xl:px-4 py-2 text-sm font-medium transition-colors rounded-lg flex items-center gap-1 ${transparent
                         ? "text-white/90 hover:text-white hover:bg-white/10"
                         : "text-foreground/80 hover:text-primary hover:bg-primary/5"
                         }`}
