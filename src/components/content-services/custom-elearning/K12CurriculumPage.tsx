@@ -5,7 +5,7 @@ const K12CurriculumPage = () => (
   <SubServicePageTemplate
     seoTitle="K12 Curriculum Development & Design Services | eQOURSE"
     seoDescription="Leading provider of K-12 curriculum development services. Subject-centered, learner-centered, and problem-oriented curriculum design for CBSE, ICSE, IB, and State Board."
-    seoCanonical="https://www.eqourse.com/content-services/custom-e-learning-content/k12-curriculum-development"
+    seoCanonical="https://www.eqourse.com/k12-curriculum-development-and-design-services"
     seoKeywords="K12 curriculum development, curriculum design, CBSE curriculum, ICSE curriculum, IB curriculum"
     parentLabel="Custom E-Learning Content"
     parentHref="/custom-e-learning-content"
@@ -42,9 +42,9 @@ const K12CurriculumPage = () => (
     ctaSubtext="Partner with our instructional design experts to create curriculum that meets the highest educational standards."
     ctaButtonText="Get Free Consultation"
     relatedPages={[
-      { title: "K12 & Higher Education", href: "/content-services/custom-e-learning-content/k12-and-higher-education" },
-      { title: "Assessment Development", href: "/content-services/custom-e-learning-content/assessment-development" },
-      { title: "STEM Curriculum", href: "/content-services/custom-e-learning-content/stem-curriculum-services" },
+      { title: "K12 & Higher Education", href: "/k12-and-higher-education" },
+      { title: "Assessment Development", href: "/assessment-development-services" },
+      { title: "STEM Curriculum", href: "/stem-curriculum-services" },
     ]}
   />
 );

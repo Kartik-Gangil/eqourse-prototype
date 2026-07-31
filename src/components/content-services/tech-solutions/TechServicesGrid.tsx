@@ -8,14 +8,14 @@ const services = [
     icon: HardDrive,
     title: "LMS Course Builds",
     description: "Developing robust content specifically tailored for leading Learning Management Systems (LMS), utilizing industry standards such as SCORM, xAPI, and cmi5 to ensure flawless integration and tracking.",
-    link: "/content-services/technology-solutions/lms-course-builds",
+    link: "/lms-course-builds",
     gradient: "from-blue-500/20 to-cyan-500/10"
   },
   {
     icon: Server,
     title: "White Label LMS",
     description: "Configuring incredibly scalable, cost-effective white-label Learning Management Systems built primarily on the robust Open edX platform and seamlessly hosted on AWS for supreme reliability.",
-    link: "/content-services/technology-solutions/white-label-lms",
+    link: "/white-label-lms",
     gradient: "from-emerald-500/20 to-teal-500/10"
   }
 ];

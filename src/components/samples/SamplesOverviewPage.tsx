@@ -21,7 +21,7 @@ const SamplesOverviewPage = () => (
       headlineAccent="AI Data Samples"
       subtext="We partner with educational institutions, Content Services platforms, and AI teams to deliver expertly crafted content and production-grade training data. Browse samples across three categories - Text Content, Video Content, and AI Data - each demonstrating the quality and scale that 200+ clients trust."
       ctaText="Request Custom Samples"
-      ctaLink="#contact"
+      ctaLink="/contact-us"
       imageSrc="/assets/features/Sample.webp"
       imageAlt="Examples and Samples of eQOURSE Content Services and AI Data Services"
       rotatingBadges={[

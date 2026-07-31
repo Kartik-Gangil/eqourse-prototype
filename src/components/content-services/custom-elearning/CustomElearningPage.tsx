@@ -27,7 +27,7 @@ const CustomElearningPage = () => (
     <SEOHead
       title="Custom E-Learning Content | eQOURSE"
       description="Custom E-learning content development solutions covering K12 academic content, assessments, workbooks, lesson plans, STEM curriculum, and interactive media."
-      canonical="https://eqourse.com/content-services/custom-e-learning-content"
+      canonical="https://www.eqourse.com/custom-e-learning-content"
       keywords="custom e-learning content, k12 academic content, STEM curriculum, digital learning content, e-learning platforms, instructional design"
     />
 

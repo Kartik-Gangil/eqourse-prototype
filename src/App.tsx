@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
@@ -22,7 +22,6 @@ import ElearningVideoSolutions from "./pages/ElearningVideoSolutions.tsx";
 import LocalizationServices from "./pages/LocalizationServices.tsx";
 import TechnologySolutions from "./pages/TechnologySolutions.tsx";
 import SubjectMatterExperts from "./pages/SubjectMatterExperts.tsx";
-import ContentServicesStubPage from "./pages/ContentServicesStubPage.tsx";
 import AccessibilityServices from "./pages/AccessibilityServices.tsx";
 import TalentAssessmentWorkforceEvaluation from "./pages/TalentAssessmentWorkforceEvaluation.tsx";
 import EditorialPublishingDesigningServices from "./pages/EditorialPublishingDesigningServices.tsx";
@@ -43,6 +42,7 @@ import Sitemap from "./pages/Sitemap.tsx";
 import Gallery from "./pages/Gallery.tsx";
 import { contentServicesSamples } from "./components/samples/content-services/contentServicesSamplesData";
 import { contentServicesSubServiceRoutes } from "./components/content-services/contentServicesSubServiceRoutes";
+import { legacyRedirects } from "./routes/legacyRedirects";
 import ChatWidget from "./components/chatbot/ChatWidget";
 
 // Admin
@@ -88,7 +88,6 @@ const App = () => (
               <Route path="/clients-testimonials" element={<ClientTestimonials />} />
               <Route path="/career" element={<Careers />} />
               <Route path="/faq" element={<FAQs />} />
-              {/* <Route path="/contact" element={<ContactUs />} /> */}
               <Route path="/contact-us" element={<ContactUs />} />
               <Route path="/free-pilot" element={<FreePilot />} />
               <Route path="/casestudy" element={<CaseStudy />} />
@@ -130,8 +129,15 @@ const App = () => (
                 <Route key={path} path={path} element={<Component />} />
               ))}
 
-              {/* Catch-all for any remaining Content Services stub pages */}
-              <Route path="/content-services/*" element={<ContentServicesStubPage />} />
+              {/*
+                Legacy long-tail URLs -> canonical routes.
+                Keeps already-indexed URLs and external backlinks alive instead of
+                dumping them on a "Coming Soon" stub. Must be declared after the
+                real routes above so it never shadows them.
+              */}
+              {Object.entries(legacyRedirects).map(([from, to]) => (
+                <Route key={from} path={from} element={<Navigate to={to} replace />} />
+              ))}
 
               {/* Admin */}
               <Route path="/admin/login" element={<AdminLogin />} />

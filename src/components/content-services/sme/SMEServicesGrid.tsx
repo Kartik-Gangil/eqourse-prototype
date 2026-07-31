@@ -8,21 +8,21 @@ const services = [
     icon: UserCheck,
     title: "SME Recruitment",
     description: "Rigorous sourcing, screening, and selection of highly qualified Subject Matter Experts specifically matched to your unique domain requirements.",
-    link: "/content-services/subject-matter-experts/recruitment",
+    link: "/tutors-and-sme-recruitment",
     color: "hsl(170 82% 45%)"
   },
   {
     icon: BookOpenCheck,
     title: "SME Training and Certification",
     description: "Comprehensive onboarding, pedagogical training, and certification programs ensuring experts understand modern instructional logic.",
-    link: "/content-services/subject-matter-experts/training-certification",
+    link: "/tutors-and-sme-training",
     color: "hsl(280 80% 65%)"
   },
   {
     icon: MonitorPlay,
     title: "Live Online Tutors",
     description: "Sourcing and deploying dynamic, engaging live online tutors experienced in digital classroom management and student interaction.",
-    link: "/content-services/subject-matter-experts/live-tutors",
+    link: "/live-online-tutor",
     color: "hsl(210 100% 60%)"
   }
 ];

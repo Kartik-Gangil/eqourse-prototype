@@ -28,7 +28,7 @@ const ExamPrepPage = () => (
     <SEOHead
       title="Exam Preparation Content & Test Prep | eQOURSE"
       description="Expert-designed test prep content for SAT, GMAT, TOEFL, IIT-JEE, NEET, UPSC, and more. Customized study guides, video lessons, and interactive quiz materials."
-      canonical="https://eqourse.com/content-services/exam-preparation-content"
+      canonical="https://www.eqourse.com/test-prep-content"
       keywords="exam preparation content, SAT test prep, TOEFL preparation, IIT-JEE content, NEET study materials, test prep content development"
     />
 

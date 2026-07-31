@@ -5,7 +5,7 @@ const WorkbookPage = () => (
   <SubServicePageTemplate
     seoTitle="Academic Workbook Development Services for K12 | eQOURSE"
     seoDescription="Expert workbook development for K-12 and higher education. Chapter-wise, full-syllabus, topic-based, interactive, and assessment-integrated workbooks aligned with curriculum standards."
-    seoCanonical="https://www.eqourse.com/content-services/custom-e-learning-content/workbook-development"
+    seoCanonical="https://www.eqourse.com/workbook-development"
     seoKeywords="workbook development, academic workbooks, interactive workbooks, K12 workbooks, assessment workbooks"
     parentLabel="Custom E-Learning Content"
     parentHref="/custom-e-learning-content"
@@ -35,9 +35,9 @@ const WorkbookPage = () => (
     ctaSubtext="Create engaging, curriculum-aligned workbooks that drive student participation and measurable outcomes."
     ctaButtonText="Get Free Consultation"
     relatedPages={[
-      { title: "K12 & Higher Education", href: "/content-services/custom-e-learning-content/k12-and-higher-education" },
-      { title: "Educational Content", href: "/content-services/custom-e-learning-content/educational-content-development" },
-      { title: "Assessment Development", href: "/content-services/custom-e-learning-content/assessment-development" },
+      { title: "K12 & Higher Education", href: "/k12-and-higher-education" },
+      { title: "Educational Content", href: "/educational-content-development" },
+      { title: "Assessment Development", href: "/assessment-development-services" },
     ]}
   />
 );

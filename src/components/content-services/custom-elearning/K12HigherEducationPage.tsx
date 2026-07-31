@@ -2,18 +2,18 @@ import SubServicePageTemplate from "../shared/SubServicePageTemplate";
 import { BookOpen, ClipboardCheck, FileText, Trophy, BookMarked, GraduationCap, Video } from "lucide-react";
 
 const relatedPages = [
-  { title: "K12 Curriculum Development", href: "/content-services/custom-e-learning-content/k12-curriculum-development" },
-  { title: "Assessment Development", href: "/content-services/custom-e-learning-content/assessment-development" },
-  { title: "Educational Content", href: "/content-services/custom-e-learning-content/educational-content-development" },
-  { title: "Workbook Development", href: "/content-services/custom-e-learning-content/workbook-development" },
-  { title: "STEM Curriculum", href: "/content-services/custom-e-learning-content/stem-curriculum-services" },
+  { title: "K12 Curriculum Development", href: "/k12-curriculum-development-and-design-services" },
+  { title: "Assessment Development", href: "/assessment-development-services" },
+  { title: "Educational Content", href: "/educational-content-development" },
+  { title: "Workbook Development", href: "/workbook-development" },
+  { title: "STEM Curriculum", href: "/stem-curriculum-services" },
 ];
 
 const K12HigherEducationPage = () => (
   <SubServicePageTemplate
     seoTitle="K12 & Higher Education Solutions | eQOURSE"
     seoDescription="eQOURSE provides specialized K-12 Content Services and Higher Education Solutions to institutions and e-learning platforms. 100+ SMEs, curriculum development, assessment creation, e-learning content."
-    seoCanonical="https://www.eqourse.com/content-services/custom-e-learning-content/k12-and-higher-education"
+    seoCanonical="https://www.eqourse.com/k12-and-higher-education"
     seoKeywords="K12 content services, higher education solutions, curriculum development, e-learning content, academic content"
     parentLabel="Custom E-Learning Content"
     parentHref="/custom-e-learning-content"

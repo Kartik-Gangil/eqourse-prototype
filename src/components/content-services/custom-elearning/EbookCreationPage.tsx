@@ -5,7 +5,7 @@ const EbookCreationPage = () => (
   <SubServicePageTemplate
     seoTitle="Ebook Creation for K12 & Higher Education | eQOURSE"
     seoDescription="Interactive eBook creation services for K-12 and higher education. Digital textbooks with multimedia, interactive elements, and engaging content for modern learners."
-    seoCanonical="https://www.eqourse.com/content-services/custom-e-learning-content/ebook-creation"
+    seoCanonical="https://www.eqourse.com/interactive-ebook-creation"
     seoKeywords="ebook creation, interactive ebooks, digital textbooks, EPUB3, educational ebooks"
     parentLabel="Custom E-Learning Content"
     parentHref="/custom-e-learning-content"
@@ -35,9 +35,9 @@ const EbookCreationPage = () => (
     ctaSubtext="Convert your print materials into engaging, interactive digital e-books. Talk to our e-book production team."
     ctaButtonText="Get Free Consultation"
     relatedPages={[
-      { title: "Educational Content", href: "/content-services/custom-e-learning-content/educational-content-development" },
-      { title: "2D & 3D Videos", href: "/content-services/custom-e-learning-content/2d-3d-videos" },
-      { title: "Workbook Development", href: "/content-services/custom-e-learning-content/workbook-development" },
+      { title: "Educational Content", href: "/educational-content-development" },
+      { title: "2D & 3D Videos", href: "/2d-3d-videos" },
+      { title: "Workbook Development", href: "/workbook-development" },
     ]}
   />
 );

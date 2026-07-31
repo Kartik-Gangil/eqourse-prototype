@@ -18,7 +18,7 @@ const MetadataServicesPage = () => (
     headlineAccent="Education Publishing"
     subtext="Metadata services improve the structure, discoverability and management of learning-content assets across catalogues, publishing systems and digital platforms - preparing descriptive metadata, file naming conventions, asset tags, taxonomy inputs and structured records."
     ctaText="Request Metadata Support"
-    ctaLink="/contact"
+    ctaLink="/contact-us"
     bannerImage="/assets/banners/editorial-publishing/Metadata Services for Education Publishing.webp"
     bannerImageAlt="Metadata services for education publishing including taxonomy, ONIX, and MARC records by eQOURSE."
     introLabel="Content Discovery"

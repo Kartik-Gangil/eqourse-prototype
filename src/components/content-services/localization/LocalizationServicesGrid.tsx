@@ -8,21 +8,21 @@ const services = [
     icon: Languages,
     title: "Content Translation",
     description: "Expert translation services ensuring supreme pedagogical accuracy and cultural relevance across India's diverse linguistic groups.",
-    link: "/content-services/localization-services/translation",
+    link: "/translation-services",
     color: "hsl(170 82% 45%)"
   },
   {
     icon: Mic,
     title: "Voice Over",
     description: "Professional native voice-over services bringing e-learning modules to life with engaging, authentic narration for regional audiences.",
-    link: "/content-services/localization-services/voice-over",
+    link: "/voice-over-services",
     color: "hsl(280 80% 65%)"
   },
   {
     icon: Captions,
     title: "Subtitling",
     description: "Accurate, well-timed, and localized subtitles for video content, drastically enhancing accessibility across different geographical regions.",
-    link: "/content-services/localization-services/subtitling",
+    link: "/subtitling-services",
     color: "hsl(210 100% 60%)"
   }
 ];

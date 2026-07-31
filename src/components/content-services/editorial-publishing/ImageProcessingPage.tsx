@@ -18,7 +18,7 @@ const ImageProcessingPage = () => (
     headlineAccent="for Learning Content"
     subtext="Image processing support prepares educational visuals, diagrams, screenshots, scanned pages and production assets for consistent use across print and digital formats - covering cleanup, cropping, resizing, naming, format preparation, resolution checks and asset organisation."
     ctaText="Request Image Support"
-    ctaLink="/contact"
+    ctaLink="/contact-us"
     bannerImage="/assets/banners/editorial-publishing/Image Processing for Learning Content.webp"
     bannerImageAlt="Image processing services for learning content including color correction, masking, and optimization by eQOURSE."
     introLabel="Visual Quality"

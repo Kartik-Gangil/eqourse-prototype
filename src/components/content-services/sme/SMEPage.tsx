@@ -27,7 +27,7 @@ const SMEPage = () => (
     <SEOHead
       title="Subject Matter Experts & Live Online Tutors | eQOURSE"
       description="Access top-tier Subject Matter Experts (SMEs). We offer SME recruitment, training, certification, and live online tutors for Content Services companies."
-      canonical="https://eqourse.com/content-services/subject-matter-experts"
+      canonical="https://www.eqourse.com/smes"
       keywords="subject matter experts, SME recruitment, content services tutors, live online tutors, SME training, academic experts"
     />
 
@@ -37,7 +37,7 @@ const SMEPage = () => (
       headlineAccent="Live Tutors"
       subtext="Elevate your curriculum and live classroom deployments by leveraging our strictly vetted pool of 200+ trained academic professionals."
       ctaText="Request SME Profiles"
-      ctaLink="#contact"
+      ctaLink="/contact-us"
       imageSrc="/assets/banners/content-services/main/subject-matter-experts.webp"
       imageAlt="Subject matter expert services by eQOURSE - SME recruitment, tutor training and certification, and live online tutoring with 200+ vetted academic professionals"
       rotatingBadges={[

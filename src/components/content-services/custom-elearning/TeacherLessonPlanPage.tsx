@@ -5,7 +5,7 @@ const TeacherLessonPlanPage = () => (
   <SubServicePageTemplate
     seoTitle="Teacher Lesson Plan Solutions for K12 & Higher Education"
     seoDescription="Customized teacher lesson plan solutions for K-12 and higher education. Interactive, curriculum-aligned lesson plans that promote student engagement and improve instructional delivery."
-    seoCanonical="https://www.eqourse.com/content-services/custom-e-learning-content/teacher-lesson-plan"
+    seoCanonical="https://www.eqourse.com/teacher-lesson-plan"
     seoKeywords="teacher lesson plans, lesson plan development, K12 lesson plans, curriculum-aligned lessons, instructional delivery"
     parentLabel="Custom E-Learning Content"
     parentHref="/custom-e-learning-content"
@@ -35,9 +35,9 @@ const TeacherLessonPlanPage = () => (
     ctaSubtext="Give your educators the structured, engaging lesson plans they need. Talk to our instructional design team."
     ctaButtonText="Get Free Consultation"
     relatedPages={[
-      { title: "K12 & Higher Education", href: "/content-services/custom-e-learning-content/k12-and-higher-education" },
-      { title: "Educational Content", href: "/content-services/custom-e-learning-content/educational-content-development" },
-      { title: "K12 Curriculum", href: "/content-services/custom-e-learning-content/k12-curriculum-development" },
+      { title: "K12 & Higher Education", href: "/k12-and-higher-education" },
+      { title: "Educational Content", href: "/educational-content-development" },
+      { title: "K12 Curriculum", href: "/k12-curriculum-development-and-design-services" },
     ]}
   />
 );

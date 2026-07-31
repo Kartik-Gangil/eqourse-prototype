@@ -8,55 +8,55 @@ const services = [
     icon: Presentation,
     title: "ILT (Instructor-Led Training)",
     description: "Comprehensive ILT content to support live, instructor-led sessions with interactive visual materials and facilitator guides.",
-    link: "/content-services/learning-solutions/ilt"
+    link: "/ilt-solutions"
   },
   {
     icon: Building2,
     title: "Corporate E-learning Solutions",
     description: "Scalable e-learning modules for businesses covering onboarding, upskilling, and crucial compliance training.",
-    link: "/content-services/learning-solutions/corporate-elearning"
+    link: "/corporate-e-learning-solutions"
   },
   {
     icon: Layout,
     title: "Training Modules",
     description: "Interactive and engaging training modules strictly aligned with specific, measurable learning objectives.",
-    link: "/content-services/learning-solutions/training-modules"
+    link: "/training-modules"
   },
   {
     icon: Gamepad2,
     title: "Gamified Learning",
     description: "Gamification elements including rewards, points, badges, and leaderboards for fun and effective engagement.",
-    link: "/content-services/learning-solutions/gamified-learning"
+    link: "/gamified-learning"
   },
   {
     icon: Brain,
     title: "Adaptive Learning",
     description: "AI-driven content paths that automatically adapt to individual learner pace, mastery, and performance.",
-    link: "/content-services/learning-solutions/adaptive-learning"
+    link: "/adaptive-learning"
   },
   {
     icon: Network,
     title: "Blended Learning",
     description: "Combining online asynchronous and offline synchronous learning models for flexible, comprehensive education.",
-    link: "/content-services/learning-solutions/blended-learning"
+    link: "/blended-learning"
   },
   {
     icon: Glasses,
     title: "Immersive Simulation AR/VR",
     description: "Augmented and virtual reality experiences for risk-free, hands-on immersive practical learning.",
-    link: "/content-services/learning-solutions/ar-vr"
+    link: "/immersive-simulation-ar-vr"
   },
   {
     icon: CircuitBoard,
     title: "Instructional Design",
     description: "Expert instructional design services utilizing ADDIE and SAM methodologies for effective content structuring.",
-    link: "/content-services/learning-solutions/instructional-design"
+    link: "/instructional-design-services"
   },
   {
     icon: Lightbulb,
     title: "Optimizing AI-Powered Learning",
     description: "Enhancing traditional content with AI for hyper-personalised learning paths and maximum learner impact.",
-    link: "/content-services/learning-solutions/ai-powered-learning"
+    link: "/optimizing-ai-powered-learning"
   }
 ];
 

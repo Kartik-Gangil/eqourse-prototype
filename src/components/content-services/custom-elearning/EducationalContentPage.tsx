@@ -5,7 +5,7 @@ const EducationalContentPage = () => (
   <SubServicePageTemplate
     seoTitle="Educational Content Development for K12 | eQOURSE"
     seoDescription="Comprehensive educational content development services creating engaging instructional materials. Text, video, and interactive solutions by expert SMEs and instructional designers."
-    seoCanonical="https://www.eqourse.com/content-services/custom-e-learning-content/educational-content-development"
+    seoCanonical="https://www.eqourse.com/educational-content-development"
     seoKeywords="educational content development, instructional materials, textbook content, study guides, curriculum development"
     parentLabel="Custom E-Learning Content"
     parentHref="/custom-e-learning-content"
@@ -36,9 +36,9 @@ const EducationalContentPage = () => (
     ctaSubtext="Get high-quality, curriculum-aligned educational materials from our team of 200+ subject matter experts."
     ctaButtonText="Get Free Consultation"
     relatedPages={[
-      { title: "K12 & Higher Education", href: "/content-services/custom-e-learning-content/k12-and-higher-education" },
-      { title: "Workbook Development", href: "/content-services/custom-e-learning-content/workbook-development" },
-      { title: "Teacher Lesson Plan", href: "/content-services/custom-e-learning-content/teacher-lesson-plan" },
+      { title: "K12 & Higher Education", href: "/k12-and-higher-education" },
+      { title: "Workbook Development", href: "/workbook-development" },
+      { title: "Teacher Lesson Plan", href: "/teacher-lesson-plan" },
     ]}
   />
 );
