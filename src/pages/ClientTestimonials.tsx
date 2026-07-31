@@ -4,16 +4,17 @@ import { Helmet } from "react-helmet-async";
 import ServiceHero from "@/components/ai-data-services/shared/ServiceHero";
 import TestimonialsGrid from "@/components/testimonials/TestimonialsGrid";
 import { Star, ThumbsUp, Heart } from "lucide-react";
+import { pageSeo } from "@/seo/pageSeo";
+
+/* Approved title + meta description for this route (see src/seo/pageSeo.ts). */
+const PAGE_SEO = pageSeo["/clients-testimonials"];
 
 const ClientTestimonials = () => {
   return (
     <PageLayout breadcrumbs={[{ label: "About Us", href: "/aboutus" }, { label: "Client Testimonials" }]}>
       <Helmet>
-        <title>Client Testimonials │ Content Services & AI Data Services Reviews │ eQOURSE</title>
-        <meta
-          name="description"
-          content="Read what 200+ clients say about eQOURSE. Testimonials from education companies, Content Services platforms, AI teams, and enterprise clients on our e-learning content, data annotation, and model testing services."
-        />
+        <title>{PAGE_SEO.title}</title>
+        <meta name="description" content={PAGE_SEO.description} />
         <meta
           name="keywords"
           content="eQOURSE testimonials, client reviews, Content Services testimonials, AI data services reviews, e-learning client feedback, data annotation reviews, education content testimonials"

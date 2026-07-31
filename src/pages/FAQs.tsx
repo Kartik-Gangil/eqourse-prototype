@@ -4,16 +4,17 @@ import { Helmet } from "react-helmet-async";
 import ServiceHero from "@/components/ai-data-services/shared/ServiceHero";
 import FAQsAccordion from "@/components/faqs/FAQsAccordion";
 import { HelpCircle, MessageCircle, Info } from "lucide-react";
+import { pageSeo } from "@/seo/pageSeo";
+
+/* Approved title + meta description for this route (see src/seo/pageSeo.ts). */
+const PAGE_SEO = pageSeo["/faq"];
 
 const FAQs = () => {
   return (
     <PageLayout breadcrumbs={[{ label: "About Us", href: "/aboutus" }, { label: "FAQs" }]}>
       <Helmet>
-        <title>FAQs │ Content Service & AI Data Services │ eQOURSE</title>
-        <meta
-          name="description"
-          content="Frequently asked questions about eQOURSE's Content Services and AI data services. Learn about K-12 content development, data annotation, AI training data, LMS integration, multilingual localization, and more."
-        />
+        <title>{PAGE_SEO.title}</title>
+        <meta name="description" content={PAGE_SEO.description} />
         <meta
           name="keywords"
           content="eQOURSE FAQ, Content Services FAQ, AI data services FAQ, e-learning questions, data annotation questions, K12 content FAQ, LMS integration FAQ, AI training data FAQ"

@@ -7,6 +7,10 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import brandHierarchyImg from "@/assets/tutrain-brand-hierarchy.png";
 import "./TuTrain.css";
+import { pageSeo } from "@/seo/pageSeo";
+
+/* Approved title + meta description for this route (see src/seo/pageSeo.ts). */
+const PAGE_SEO = pageSeo["/tutrain"];
 
 const useReveal = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -51,8 +55,8 @@ const TuTrain = () => {
   return (
     <div className="min-h-screen bg-background font-sans">
       <Helmet>
-        <title>TUTRAIN by eQOURSE │ Online 1-on-1 Tutoring for Grades 4–12 Worldwide</title>
-        <meta name="description" content="TUTRAIN is eQOURSE's consumer online tutoring brand - personalized 1-on-1 and small-batch live classes for Grades 4–12 across CBSE, IB, IGCSE, A-Levels & US Common Core. Book a free demo." />
+        <title>{PAGE_SEO.title}</title>
+        <meta name="description" content={PAGE_SEO.description} />
         <meta name="keywords" content="tutrain, online tutoring, 1-on-1 tutoring, personalized tutoring, eqourse tutoring brand, online tuition, live tutoring platform, tutrain by eqourse" />
         <meta property="og:title" content="TUTRAIN by eQOURSE - Personalized Online Tutoring Worldwide" />
         <meta property="og:description" content="The consumer online tutoring brand from eQOURSE. Live 1-on-1 and small-batch classes for students in Grades 4–12, across all major curricula." />

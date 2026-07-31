@@ -8,16 +8,17 @@ import AboutFounder from "@/components/about/AboutFounder";
 import AboutStats from "@/components/about/AboutStats";
 import AboutNewsletter from "@/components/about/AboutNewsletter";
 import { Globe, ShieldCheck, Users } from "lucide-react";
+import { pageSeo } from "@/seo/pageSeo";
+
+/* Approved title + meta description for this route (see src/seo/pageSeo.ts). */
+const PAGE_SEO = pageSeo["/aboutus"];
 
 const AboutUs = () => {
   return (
     <PageLayout breadcrumbs={[{ label: "About Us" }]}>
       <Helmet>
-        <title>About eQOURSE │ Content Service & AI Data Services Company │ India & Singapore</title>
-        <meta
-          name="description"
-          content="eQOURSE is an ISO 9001 & 27001 certified company delivering Content Services and AI data services. 500+ specialists, 30+ languages, offices in India & Singapore. Custom e-learning content, curriculum development, data annotation, and real-world AI model testing. Trusted by 200+ global clients."
-        />
+        <title>{PAGE_SEO.title}</title>
+        <meta name="description" content={PAGE_SEO.description} />
         <meta
           name="keywords"
           content="about eQOURSE, Content Services company India, AI data services company, e-learning solutions provider, data annotation company, education technology Singapore, ISO certified Content Services, curriculum development company, AI training data provider"

@@ -3,16 +3,17 @@ import { BreadcrumbSchema } from "@/components/shared/BreadcrumbSchema";
 import { Helmet } from "react-helmet-async";
 import BlogHero from "@/components/blog/BlogHero";
 import BlogGrid from "@/components/blog/BlogGrid";
+import { pageSeo } from "@/seo/pageSeo";
+
+/* Approved title + meta description for this route (see src/seo/pageSeo.ts). */
+const PAGE_SEO = pageSeo["/blog"];
 
 const Blog = () => {
   return (
     <PageLayout breadcrumbs={[{ label: "Blog", href: "/blog" }]}>
       <Helmet>
-        <title>Insights & Trends in Content Services and AI Data Services │ eQOURSE</title>
-        <meta
-          name="description"
-          content="Expert articles, guides, and industry perspectives from the eQOURSE team. Covering K-12 education, curriculum design, exam preparation, AI training data, annotation best practices, and real-world model testing."
-        />
+        <title>{PAGE_SEO.title}</title>
+        <meta name="description" content={PAGE_SEO.description} />
         <meta
           name="keywords"
           content="Content Services blog, AI data services blog, e-learning insights, machine learning training data, annotation best practices, eQOURSE blog"
