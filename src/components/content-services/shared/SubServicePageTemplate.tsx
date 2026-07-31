@@ -66,6 +66,8 @@ export interface SubServicePageProps {
   ctaHeadline: string;
   ctaSubtext: string;
   ctaButtonText: string;
+  /** Overrides the destination of the bottom CTA button. */
+  ctaButtonLink?: string;
 
   /* Related pages */
   relatedPages?: { title: string; href: string }[];
@@ -192,6 +194,14 @@ const RelatedPages = ({ pages, label }: { pages: { title: string; href: string }
   );
 };
 
+/**
+ * Keeps the bottom CTA's destination consistent with its label.
+ * "Get Free Consultation" / "Talk to an expert" style buttons belong on the
+ * contact page; anything else falls back to the free pilot funnel.
+ */
+const resolveCtaLink = (label?: string) =>
+  /consult|contact|talk|quote|enquir|inquir/i.test(label || "") ? "/contact-us" : "/free-pilot";
+
 /* ─── Main Template Component ─── */
 const SubServicePageTemplate = (props: SubServicePageProps) => {
   const defaultColors = ["hsl(170 82% 55%)", "hsl(190 85% 68%)", "hsl(165 75% 71%)", "hsl(43 96% 58%)", "hsl(340 82% 52%)"];
@@ -224,7 +234,7 @@ const SubServicePageTemplate = (props: SubServicePageProps) => {
         headlineAccent={props.headlineAccent}
         subtext={props.subtext}
         ctaText={props.ctaText || "Get Free Consultation"}
-        ctaLink={props.ctaLink || "#contact"}
+        ctaLink={props.ctaLink || "/contact-us"}
         imageSrc={props.bannerImage}
         imageAlt={props.bannerImageAlt}
         rotatingBadges={derivedRotatingBadges}
@@ -266,6 +276,7 @@ const SubServicePageTemplate = (props: SubServicePageProps) => {
         headline={props.ctaHeadline}
         subtext={props.ctaSubtext}
         ctaText={props.ctaButtonText}
+        ctaLink={props.ctaButtonLink || resolveCtaLink(props.ctaButtonText)}
       />
     </ContentServicesLayout>
   );

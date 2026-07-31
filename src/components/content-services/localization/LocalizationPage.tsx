@@ -27,7 +27,7 @@ const LocalizationPage = () => (
     <SEOHead
       title="Content Services Localization Services | eQOURSE"
       description="Localized learning solutions in Hindi, English & regional languages. Accurate content translation, professional voice-over, and subtitling services."
-      canonical="https://eqourse.com/content-services/localization-services"
+      canonical="https://www.eqourse.com/localization-services"
       keywords="content services localization, content translation, educational voice over, subtitling services, regional language education, multilingual learning content"
     />
 
@@ -37,7 +37,7 @@ const LocalizationPage = () => (
       headlineAccent="Localization Services"
       subtext="Ensure your educational materials resonate perfectly with native speakers through expert translation, culturally adapted voice-overs, and precise subtitling."
       ctaText="Get Free Consultation"
-      ctaLink="#contact"
+      ctaLink="/contact-us"
       imageSrc="/assets/banners/content-services/main/localization-services.webp"
       imageAlt="Localization services by eQOURSE - professional translation, voice-over recording and subtitling for educational content in Hindi, English, Tamil, Bengali and 30+ languages"
       rotatingBadges={[

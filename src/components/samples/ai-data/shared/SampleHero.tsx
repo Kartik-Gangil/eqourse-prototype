@@ -39,7 +39,7 @@ const SampleHero = ({ sample }: { sample: AiDataSample }) => {
             </p>
 
             <div className="flex flex-wrap gap-3 animate-slide-up-delayed-2">
-              <a href="#contact">
+              <Link to="/contact-us">
                 <Button
                   size="lg"
                   className="bg-gradient-primary border-0 text-primary-foreground shadow-soft hover:opacity-90 transition-all hover:scale-[1.02] px-6 md:px-8"
@@ -47,7 +47,7 @@ const SampleHero = ({ sample }: { sample: AiDataSample }) => {
                   {sample.ctaText}
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
-              </a>
+              </Link>
               <Link to={sample.serviceLink}>
                 <Button
                   size="lg"

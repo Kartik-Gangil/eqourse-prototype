@@ -5,7 +5,7 @@ const AssessmentDevelopmentPage = () => (
   <SubServicePageTemplate
     seoTitle="Assessment Development Services for K12 Education | eQOURSE"
     seoDescription="Customized K-12 Assessment Development Services for content services institutions and e-learning platforms. Interactive quizzes, tests, assignments aligned with educational goals."
-    seoCanonical="https://www.eqourse.com/content-services/custom-e-learning-content/assessment-development"
+    seoCanonical="https://www.eqourse.com/assessment-development-services"
     seoKeywords="assessment development, K12 assessments, interactive quizzes, adaptive testing, game-based assessments"
     parentLabel="Custom E-Learning Content"
     parentHref="/custom-e-learning-content"
@@ -39,9 +39,9 @@ const AssessmentDevelopmentPage = () => (
     ctaSubtext="Build reliable, engaging assessment tools that truly measure learner progress. Talk to our assessment experts."
     ctaButtonText="Get Free Consultation"
     relatedPages={[
-      { title: "K12 & Higher Education", href: "/content-services/custom-e-learning-content/k12-and-higher-education" },
-      { title: "Quiz & Question Bank", href: "/content-services/custom-e-learning-content/quiz-question-bank" },
-      { title: "Educational Content", href: "/content-services/custom-e-learning-content/educational-content-development" },
+      { title: "K12 & Higher Education", href: "/k12-and-higher-education" },
+      { title: "Quiz & Question Bank", href: "/quiz-question-bank-development" },
+      { title: "Educational Content", href: "/educational-content-development" },
     ]}
   />
 );

@@ -18,7 +18,7 @@ const DigitalConversionPage = () => (
     headlineAccent="for Modern Publishing"
     subtext="eQOURSE prepares learning content for web, LMS, eBook and platform-based delivery through structured conversion from source files into clean digital formats - including HTML-ready content, EPUB 3-aligned eBook preparation, accessible-friendly structure and asset organisation."
     ctaText="Request Conversion Support"
-    ctaLink="/contact"
+    ctaLink="/contact-us"
     bannerImage="/assets/banners/editorial-publishing/Digital Conversion for Modern Publishing.webp"
     bannerImageAlt="Digital conversion services for modern publishing including XML, EPUB3, and HTML5 formats by eQOURSE."
     introLabel="Format Transformation"
@@ -113,7 +113,7 @@ const DigitalConversionPage = () => (
       { title: "Publishing Production", href: `${PARENT_HREF}/publishing-production` },
       { title: "Metadata Services", href: `${PARENT_HREF}/metadata-services` },
       { title: "Accessibility Services", href: "/accessibility" },
-      { title: "Technology Solutions", href: "/content-services/technology-solutions" },
+      { title: "Technology Solutions", href: "/technology-solutions" },
     ]}
   />
 );

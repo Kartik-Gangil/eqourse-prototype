@@ -23,7 +23,7 @@ const LearningSolutionsPage = () => (
     <SEOHead
       title="Innovative Learning Solutions & Corporate Training | eQOURSE"
       description="Custom learning solutions for educational institutions and corporate training. ILT, gamified learning, AR/VR simulations, and adaptive e-learning modules."
-      canonical="https://eqourse.com/content-services/learning-solutions"
+      canonical="https://www.eqourse.com/learning-solutions"
       keywords="learning solutions, corporate training, ILT content, gamified learning, adaptive e-learning, AR/VR learning, instructional design"
     />
 

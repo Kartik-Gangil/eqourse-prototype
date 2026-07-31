@@ -8,61 +8,61 @@ const subServices = [
     icon: BookOpen,
     title: "K12 Higher Education / Academic Content",
     description: "Comprehensive and curriculum-aligned academic content for K12 and higher education, focusing on student outcomes.",
-    link: "/content-services/custom-e-learning-content/k12-and-higher-education"
+    link: "/k12-and-higher-education"
   },
   {
     icon: Map,
     title: "K12 Curriculum Development",
     description: "Subject-centered, learner-centered, and problem-oriented curriculum design for CBSE, ICSE, IB, and State Board.",
-    link: "/content-services/custom-e-learning-content/k12-curriculum-development"
+    link: "/k12-curriculum-development-and-design-services"
   },
   {
     icon: ClipboardCheck,
     title: "Assessment Development Services",
     description: "Formative assessments, game-based, adaptive testing, competitive exam assessments, and subject-integrated assessments.",
-    link: "/content-services/custom-e-learning-content/assessment-development"
+    link: "/assessment-development-services"
   },
   {
     icon: LayoutTemplate,
     title: "Educational Content Development",
     description: "Wide range of educational content incorporating multimedia and interactive elements for engaging lessons.",
-    link: "/content-services/custom-e-learning-content/educational-content-development"
+    link: "/educational-content-development"
   },
   {
     icon: BookText,
     title: "Workbook Development",
     description: "Workbooks aligned with curriculum objectives, providing hands-on practice and reinforcing key concepts.",
-    link: "/content-services/custom-e-learning-content/workbook-development"
+    link: "/workbook-development"
   },
   {
     icon: PersonStanding,
     title: "Teacher Lesson Plan",
     description: "Comprehensive lesson plans that guide teachers through structured, engaging classroom sessions.",
-    link: "/content-services/custom-e-learning-content/teacher-lesson-plan"
+    link: "/teacher-lesson-plan"
   },
   {
     icon: FlaskConical,
     title: "STEM Curriculum Services",
     description: "Specialized STEM content integrating science, technology, engineering, and mathematics natively.",
-    link: "/content-services/custom-e-learning-content/stem-curriculum"
+    link: "/stem-curriculum-services"
   },
   {
     icon: TabletSmartphone,
     title: "E-Book Creation",
     description: "Interactive e-books with multimedia elements for compelling digital-first learning experiences.",
-    link: "/content-services/custom-e-learning-content/ebook-creation"
+    link: "/interactive-ebook-creation"
   },
   {
     icon: MonitorPlay,
     title: "2D and 3D Videos",
     description: "Educational animated videos bringing complex concepts to life through professional visual storytelling.",
-    link: "/content-services/custom-e-learning-content/2d-3d-videos"
+    link: "/2d-3d-videos"
   },
   {
     icon: HelpCircle,
     title: "Quiz and Question Bank Development",
     description: "Custom quizzes and question banks tailored to curriculum, providing tools for regular evaluation and practice.",
-    link: "/content-services/custom-e-learning-content/quiz-question-bank"
+    link: "/quiz-question-bank-development"
   }
 ];
 

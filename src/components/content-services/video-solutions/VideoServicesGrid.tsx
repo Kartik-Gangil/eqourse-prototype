@@ -8,28 +8,28 @@ const services = [
     icon: Clapperboard,
     title: "2D & 3D Videos",
     description: "Educational animated videos bringing complex academic concepts to life through professional 2D and 3D narrative animation.",
-    link: "/content-services/elearning-video-solutions/2d-3d-videos",
+    link: "/2d-3d-videos",
     color: "hsl(170 82% 55%)"
   },
   {
     icon: MonitorPlay,
     title: "PPT Video Lessons",
     description: "PowerPoint-based video lessons expertly synchronized with professional voice-over and visual enhancements for efficient delivery.",
-    link: "/content-services/elearning-video-solutions/ppt-videos",
+    link: "/ppt-videos-services",
     color: "hsl(210 100% 65%)"
   },
   {
     icon: MousePointerClick,
     title: "Articulate Storyline",
     description: "Highly interactive e-learning courses built with Articulate Storyline for rich, non-linear, engaging learning experiences.",
-    link: "/content-services/elearning-video-solutions/articulate-storyline",
+    link: "/articulate-storyline-services",
     color: "hsl(280 80% 65%)"
   },
   {
     icon: Video,
     title: "Animated Explainers",
     description: "Custom animated explainer short videos for micro-educational concepts, product tutorials, and corporate training modules.",
-    link: "/content-services/elearning-video-solutions/animated-videos",
+    link: "/animated-videos-services",
     color: "hsl(35 100% 60%)"
   }
 ];

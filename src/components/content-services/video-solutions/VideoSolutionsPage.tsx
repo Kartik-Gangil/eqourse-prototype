@@ -23,7 +23,7 @@ const VideoSolutionsPage = () => (
     <SEOHead
       title="E-Learning Video Solutions & Interactive Animation | eQOURSE"
       description="Transform complex concepts into engaging visual learning experiences. 2D/3D animation, Articulate Storyline courses, and interactive video production."
-      canonical="https://eqourse.com/content-services/elearning-video-solutions"
+      canonical="https://www.eqourse.com/elearning-video-solutions"
       keywords="elearning video solutions, educational animation, 2d 3d videos, articulate storyline, explainer videos, educational video production"
     />
 
@@ -33,7 +33,7 @@ const VideoSolutionsPage = () => (
       headlineAccent="Solutions"
       subtext="Transform complex concepts into engaging visual learning experiences with our professional video production services. Scale visual knowledge transfer effectively."
       ctaText="Request Video Samples"
-      ctaLink="#contact"
+      ctaLink="/contact-us"
       imageSrc="/assets/banners/content-services/main/elearning-video-solutions.webp"
       imageAlt="E-learning video solutions by eQOURSE - animated explainer videos, PPT-to-video conversion, Articulate Storyline interactive courses and whiteboard animations"
       rotatingBadges={[

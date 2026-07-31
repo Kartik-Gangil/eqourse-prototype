@@ -3,8 +3,8 @@ import { BookOpen, FileText, PenTool, Headphones, Mic } from "lucide-react";
 
 const AptisPage = () => (
   <SubServicePageTemplate
-    seoTitle="APTIS Exam Preparation Content | eQOURSE" seoDescription="Expert APTIS exam preparation content by eQOURSE. Study guides, practice tests, and interactive materials for British Council APTIS assessment preparation." seoCanonical="https://www.eqourse.com/content-services/exam-preparation-content/aptis" seoKeywords="APTIS exam prep, British Council APTIS, APTIS grammar, APTIS reading, APTIS speaking"
-    parentLabel="Exam Preparation Content" parentHref="/content-services/exam-preparation-content" currentLabel="APTIS Prep Content"
+    seoTitle="APTIS Exam Preparation Content | eQOURSE" seoDescription="Expert APTIS exam preparation content by eQOURSE. Study guides, practice tests, and interactive materials for British Council APTIS assessment preparation." seoCanonical="https://www.eqourse.com/test-prep-content/aptis" seoKeywords="APTIS exam prep, British Council APTIS, APTIS grammar, APTIS reading, APTIS speaking"
+    parentLabel="Exam Preparation Content" parentHref="/test-prep-content" currentLabel="APTIS Prep Content"
     bannerImage="/assets/banners/content-services/exam-prep/aptis.webp"
     bannerImageAlt="APTIS exam preparation content banner showing British Council English language assessment practice for grammar, reading, writing, listening and speaking by eQOURSE"
     preHeadline="APTIS Exam Preparation Content - British Council Assessment" headline="APTIS Exam" headlineAccent="Preparation Content"
@@ -22,7 +22,7 @@ const AptisPage = () => (
       { icon: Mic, title: "APTIS Speaking Preparation", description: "Speaking task preparation with sample responses and scoring rubrics." },
     ]}
     ctaHeadline="Prepare for APTIS with eQOURSE" ctaSubtext="Get comprehensive, exam-aligned APTIS preparation content. Contact our test prep team." ctaButtonText="Request Sample Content"
-    relatedPages={[{ title: "TOEIC", href: "/content-services/exam-preparation-content/toeic" }, { title: "IELTS", href: "/content-services/exam-preparation-content/ielts" }, { title: "PTE", href: "/content-services/exam-preparation-content/pte" }]}
+    relatedPages={[{ title: "TOEIC", href: "/test-prep-content/toeic" }, { title: "IELTS", href: "/test-prep-content/ielts" }, { title: "PTE", href: "/test-prep-content/pte" }]}
   />
 );
 export default AptisPage;

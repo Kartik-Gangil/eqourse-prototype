@@ -18,7 +18,7 @@ const PrepressServicesPage = () => (
     headlineAccent="Publication Production"
     subtext="Prepress services prepare publication files for print and production review - through layout checks, pagination validation, image readiness, font consistency, bleed and margin review, proofing support and final file preparation for printer or production handover."
     ctaText="Request Prepress Support"
-    ctaLink="/contact"
+    ctaLink="/contact-us"
     bannerImage="/assets/banners/editorial-publishing/Prepress Services for Publication Production.webp"
     bannerImageAlt="Prepress services for publication production including color management, preflight checks, and print-ready files by eQOURSE."
     introLabel="Print Readiness"

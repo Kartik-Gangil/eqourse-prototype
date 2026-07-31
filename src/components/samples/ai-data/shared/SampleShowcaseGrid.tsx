@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { FileJson, Globe2, Check, Download, Eye, ChevronDown } from "lucide-react";
 import type { SampleShowcase } from "./aiDataSamplesData";
 import { PreviewFilesModal, type PreviewFile } from "../../shared/PreviewFilesModal";
@@ -232,13 +233,14 @@ const SampleShowcaseGrid = ({
                   <Eye className="w-4 h-4" />
                   Preview Files
                 </button>
-                <a
-                  href="#consultation"
+                {/* AI data sample pages render no #consultation section, so link to the contact page. */}
+                <Link
+                  to="/contact-us"
                   className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold border transition-all hover:bg-muted border-border text-foreground"
                 >
                   <Download className="w-4 h-4" />
                   Request Full Set
-                </a>
+                </Link>
               </div>
 
               {current.qa && (

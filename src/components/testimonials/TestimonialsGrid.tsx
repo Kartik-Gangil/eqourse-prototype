@@ -177,7 +177,7 @@ const TestimonialsGrid = () => {
   const filteredTestimonials = testimonials.filter(t => filter === "All" || t.type === filter);
 
   return (
-    <section className="py-20 bg-background relative z-10 -mt-16">
+    <section id="reviews" className="py-20 bg-background relative z-10 -mt-16">
       <div className="container mx-auto px-4">
         
         {/* Filter System */}

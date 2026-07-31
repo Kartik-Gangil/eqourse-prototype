@@ -23,7 +23,7 @@ const TechSolutionsPage = () => (
     <SEOHead
       title="Content Services Technology Solutions & LMS Platforms | eQOURSE"
       description="Scalable Technology Solutions including standard-compliant LMS course builds (SCORM, xAPI) and white-label Open edX platform deployments."
-      canonical="https://eqourse.com/content-services/technology-solutions"
+      canonical="https://www.eqourse.com/technology-solutions"
       keywords="lms course build, scorm compliant courses, white label lms, open edx hosting, content services technology solutions, xapi compatible"
     />
 
@@ -33,7 +33,7 @@ const TechSolutionsPage = () => (
       headlineAccent="Solutions"
       subtext="Comprehensive technological integrations linking robust pedagogical content flawlessly with modern, reliable Learning Management Systems."
       ctaText="Discuss Your LMS Project"
-      ctaLink="#contact"
+      ctaLink="/contact-us"
       imageSrc="/assets/banners/content-services/main/technology-solutions.webp"
       imageAlt="Educational technology solutions by eQOURSE - LMS course builds with SCORM and xAPI packaging, white-label LMS setup on Open edX and AWS cloud infrastructure"
       rotatingBadges={[

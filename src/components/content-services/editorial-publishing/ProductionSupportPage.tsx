@@ -18,7 +18,7 @@ const ProductionSupportPage = () => (
     headlineAccent="for Learning Programmes"
     subtext="Production support helps clients manage ongoing content updates, corrections, file tracking, release preparation and cross-team coordination - with structured communication, documented change management, version control assistance and final asset packaging."
     ctaText="Request Production Support"
-    ctaLink="/contact"
+    ctaLink="/contact-us"
     introLabel="Operational Support"
     introTitle="Production Support That"
     introGradient="Keeps Programmes Moving"

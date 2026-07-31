@@ -75,7 +75,7 @@ const ServiceHero = ({
   headlineAccent,
   subtext,
   ctaText,
-  ctaLink = "#contact",
+  ctaLink = "/contact-us",
   illustration,
   videoSrc,
   imageSrc,

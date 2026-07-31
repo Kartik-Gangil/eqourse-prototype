@@ -43,7 +43,7 @@ const AccessibilityPage = () => (
     <SEOHead
       title="Accessibility Solutions for Digital Learning | eQOURSE"
       description="eQOURSE offers comprehensive digital accessibility services for educational content, including document remediation, WCAG compliance support, and inclusive media enhancements."
-      canonical="https://www.eqourse.com/content-services/accessibility"
+      canonical="https://www.eqourse.com/accessibility"
       keywords="digital accessibility services, accessible educational content, WCAG compliance for elearning, document remediation, accessible media, VPAT support, Section 508 compliance"
     />
 
@@ -53,7 +53,7 @@ const AccessibilityPage = () => (
       headlineAccent="Digital Learning Content"
       subtext="Ensuring your educational materials are inclusive, usable, and technically aligned with global accessibility standards for all learners."
       ctaText="Request Accessibility Review"
-      ctaLink="/contact"
+      ctaLink="/contact-us"
       imageSrc="/assets/banners/content-services/main/accessibility.webp"
       imageAlt="Digital accessibility services by eQOURSE - WCAG compliance, Section 508 alignment, document remediation, accessible media, assessment accessibility and assistive technology testing"
       rotatingBadges={[
@@ -102,7 +102,7 @@ const AccessibilityPage = () => (
       headline="Ready to Create Inclusive Learning Content?"
       subtext="Contact our accessibility specialists to plan a review of your digital learning assets and discover how we can help you align with global accessibility standards."
       ctaText="Plan an Accessibility Review"
-      ctaLink="/contact"
+      ctaLink="/contact-us"
     />
   </ContentServicesLayout>
 );

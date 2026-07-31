@@ -18,7 +18,7 @@ const PublishingProductionPage = () => (
     headlineAccent="for Learning Content"
     subtext="Publishing production support covers the structured handover between editorial, design, layout, conversion and final delivery teams - coordinating production-ready content, version control, asset tracking, proof review support and client-specific production requirements."
     ctaText="Request Production Support"
-    ctaLink="/contact"
+    ctaLink="/contact-us"
     bannerImage="/assets/banners/editorial-publishing/Publishing Production for Learning Content.webp"
     bannerImageAlt="Publishing production services for learning content including XML workflows, typesetting and layout design by eQOURSE."
     introLabel="Production Workflow"
