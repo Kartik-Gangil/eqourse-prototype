@@ -3,16 +3,17 @@ import { BreadcrumbSchema } from "@/components/shared/BreadcrumbSchema";
 import { Helmet } from "react-helmet-async";
 import ContactHero from "@/components/contact/ContactHero";
 import ContactPage from "@/components/contact/ContactPage";
+import { pageSeo } from "@/seo/pageSeo";
+
+/* Approved title + meta description for this route (see src/seo/pageSeo.ts). */
+const PAGE_SEO = pageSeo["/contact-us"];
 
 const ContactUs = () => {
   return (
     <PageLayout breadcrumbs={[{ label: "Contact Us" }]}>
       <Helmet>
-        <title>Contact Us │ Content Service & AI Data Services │ eQOURSE</title>
-        <meta
-          name="description"
-          content="Get in touch with eQOURSE for Content Services and AI data services. Custom e-learning content, curriculum development, data annotation, model testing. Offices in India & Singapore. Call +91-92144-45870 or email info@eqourse.com. Free consultation available."
-        />
+        <title>{PAGE_SEO.title}</title>
+        <meta name="description" content={PAGE_SEO.description} />
         <meta
           name="keywords"
           content="contact eQOURSE, Content Services contact, AI data services inquiry, e-learning consultation, data annotation quote, curriculum development contact, eQOURSE India office, eQOURSE Singapore office, free consultation"

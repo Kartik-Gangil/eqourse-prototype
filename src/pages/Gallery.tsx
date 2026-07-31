@@ -2,6 +2,10 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { X, ZoomIn } from "lucide-react";
 import PageLayout from "@/components/shared/PageLayout";
+import { pageSeo } from "@/seo/pageSeo";
+
+/* Approved title + meta description for this route (see src/seo/pageSeo.ts). */
+const PAGE_SEO = pageSeo["/gallery"];
 
 // Construct the array of 21 images dynamically
 const galleryImages = Array.from({ length: 21 }, (_, i) => ({
@@ -16,11 +20,8 @@ const Gallery = () => {
   return (
     <PageLayout breadcrumbs={[{ label: "About Us", href: "/aboutus" }, { label: "Gallery" }]}>
       <Helmet>
-        <title>eQOURSE Gallery | Office Tours & Business Highlights</title>
-        <meta 
-          name="description" 
-          content="Explore the eQOURSE gallery featuring our office tours, CEO business meetings, and event highlights. See the people behind our AI data and content services." 
-        />
+        <title>{PAGE_SEO.title}</title>
+        <meta name="description" content={PAGE_SEO.description} />
         <meta name="keywords" content="eQOURSE gallery, office tour, business meetings, eQOURSE team, company culture, AI data services team, content services office" />
         <link rel="canonical" href="https://www.eqourse.com/gallery" />
         <meta property="og:title" content="eQOURSE Gallery | Office Tours & Business Highlights" />

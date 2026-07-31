@@ -4,16 +4,17 @@ import { Helmet } from "react-helmet-async";
 import ServiceHero from "@/components/ai-data-services/shared/ServiceHero";
 import PrivacyPolicyContent from "@/components/privacy/PrivacyPolicyContent";
 import { Shield, Lock, FileText } from "lucide-react";
+import { pageSeo } from "@/seo/pageSeo";
+
+/* Approved title + meta description for this route (see src/seo/pageSeo.ts). */
+const PAGE_SEO = pageSeo["/privacy_policy"];
 
 const PrivacyPolicy = () => {
   return (
     <PageLayout breadcrumbs={[{ label: "Privacy Policy" }]}>
       <Helmet>
-        <title>Privacy Policy │ eQOURSE - Content Service &amp; AI Data Services</title>
-        <meta
-          name="description"
-          content="Read eQOURSE's privacy policy. Learn how we collect, use, store, and protect your personal data across our Content Services and AI data services. ISO 27001 certified. GDPR-ready. Offices in India & Singapore."
-        />
+        <title>{PAGE_SEO.title}</title>
+        <meta name="description" content={PAGE_SEO.description} />
         <meta
           name="keywords"
           content="eQOURSE privacy policy, data protection, GDPR, ISO 27001, Content Services privacy, AI data privacy, personal data, data security, cookie policy, data retention"

@@ -10,6 +10,10 @@ import JobListings from "@/components/careers/JobListings";
 import JobDetailModal from "@/components/careers/JobDetailModal";
 import JobApplicationForm from "@/components/careers/JobApplicationForm";
 import type { JobOpening } from "@/admin/lib/types";
+import { pageSeo } from "@/seo/pageSeo";
+
+/* Approved title + meta description for this route (see src/seo/pageSeo.ts). */
+const PAGE_SEO = pageSeo["/career"];
 
 const Careers = () => {
   // Two-step flow: first view JD details, then apply
@@ -37,11 +41,8 @@ const Careers = () => {
   return (
     <PageLayout breadcrumbs={[{ label: "About Us", href: "/aboutus" }, { label: "Careers" }]}>
       <Helmet>
-        <title>Careers at eQOURSE │ Content Services & AI Data Services Jobs │ India & Singapore</title>
-        <meta
-          name="description"
-          content="Join eQOURSE - careers in Content Services development, instructional design, AI data annotation, NLP, computer vision, and more. Work with 500+ specialists across India and Singapore. Apply now."
-        />
+        <title>{PAGE_SEO.title}</title>
+        <meta name="description" content={PAGE_SEO.description} />
         <meta
           name="keywords"
           content="eQOURSE careers, Content Services jobs, AI data annotation jobs, content development careers, instructional design jobs, data labeling jobs India, NLP annotator jobs, education technology careers"

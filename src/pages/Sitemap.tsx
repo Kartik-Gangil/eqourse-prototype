@@ -5,6 +5,10 @@ import { motion, Variants } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Map } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { pageSeo } from "@/seo/pageSeo";
+
+/* Approved title + meta description for this route (see src/seo/pageSeo.ts). */
+const PAGE_SEO = pageSeo["/sitemap"];
 
 const sitemapData = [
   {
@@ -125,11 +129,8 @@ const Sitemap = () => {
   return (
     <PageLayout breadcrumbs={[{ label: "Sitemap" }]}>
       <Helmet>
-        <title>Sitemap │ eQOURSE - Content Service &amp; AI Data Services</title>
-        <meta
-          name="description"
-          content="Navigate the eQOURSE website. Find quick links to our Content Services, AI data services, company information, samples, and legal policies."
-        />
+        <title>{PAGE_SEO.title}</title>
+        <meta name="description" content={PAGE_SEO.description} />
         <meta
           name="keywords"
           content="eQOURSE sitemap, website navigation, Content Services directory, AI data services directory, eQOURSE links"

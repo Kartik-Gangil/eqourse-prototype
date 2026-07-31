@@ -9,6 +9,10 @@ import FreePilotWhySection from "@/components/free-pilot/FreePilotWhySection";
 import ClientsSection from "@/components/ClientsSection";
 import FreePilotFAQs from "@/components/free-pilot/FreePilotFAQs";
 import ContactStatsBar from "@/components/contact/ContactStatsBar";
+import { pageSeo } from "@/seo/pageSeo";
+
+/* Approved title + meta description for this route (see src/seo/pageSeo.ts). */
+const PAGE_SEO = pageSeo["/free-pilot"];
 
 const FreePilot = () => {
   // Build FAQPage JSON-LD schema
@@ -86,11 +90,8 @@ const FreePilot = () => {
   return (
     <PageLayout breadcrumbs={[{ label: "Free Pilot" }]}>
       <Helmet>
-        <title>Free Pilot Program │ Try Content Services & AI Data Services Free │ eQOURSE</title>
-        <meta
-          name="description"
-          content="Start your free pilot with eQOURSE. Get a complimentary sample of custom e-learning content or AI training data - tailored to your specifications. No payment, no obligation. Content Services pilots delivered in 5–7 days, AI data pilots in 5–10 days. ISO 9001 & 27001 certified."
-        />
+        <title>{PAGE_SEO.title}</title>
+        <meta name="description" content={PAGE_SEO.description} />
         <meta
           name="keywords"
           content="free pilot program, free e-learning sample, free AI data annotation sample, Content Services pilot, AI training data pilot, eQOURSE free trial, curriculum development sample, data annotation sample, NLP annotation, computer vision annotation, RLHF annotation, free content sample"
