@@ -254,7 +254,8 @@ export default function CaseStudyEditor() {
         <div className="space-y-6">
           <Card className="p-6">
             <ImageUpload value={form.heroImageUrl} onChange={(url) => setField("heroImageUrl", url)}
-              kind="case-study-hero" label="Hero image *" />
+              kind="case-study-hero" label="Hero image *"
+              imageTitle={form.seo.heroImageTitle || form.title || "Case study hero image"} />
           </Card>
 
           <Card className="p-6 space-y-3">
@@ -385,6 +386,19 @@ export default function CaseStudyEditor() {
               <Label>Meta description</Label>
               <Textarea rows={3} value={form.seo.description ?? ""}
                 onChange={(e) => setField("seo", { ...form.seo, description: e.target.value })} />
+            </div>
+            <div>
+              <Label>Hero image alt text</Label>
+              <Input value={form.seo.heroImageAlt ?? ""}
+                placeholder={form.title ? `${form.title} — ${form.industry || "case study"} by eQOURSE` : "Generated automatically from the case-study title"}
+                onChange={(e) => setField("seo", { ...form.seo, heroImageAlt: e.target.value })} />
+            </div>
+            <div>
+              <Label>Hero image title</Label>
+              <Input value={form.seo.heroImageTitle ?? ""}
+                placeholder={form.title || "Generated automatically from the case-study title"}
+                onChange={(e) => setField("seo", { ...form.seo, heroImageTitle: e.target.value })} />
+              <p className="text-xs text-muted-foreground mt-1">Leave blank to use the case-study title automatically, including for existing records.</p>
             </div>
           </Card>
         </div>

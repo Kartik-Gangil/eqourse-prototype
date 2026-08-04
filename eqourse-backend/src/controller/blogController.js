@@ -307,7 +307,9 @@ function formatBlog(doc) {
     seo: {
       title: doc.seo?.title || "",
       description: doc.seo?.description || "",
-      ogImageUrl: doc.seo?.ogImageUrl || ""
+      ogImageUrl: doc.seo?.ogImageUrl || "",
+      coverImageAlt: doc.seo?.coverImageAlt || `${doc.title} — eQOURSE blog cover image`,
+      coverImageTitle: doc.seo?.coverImageTitle || doc.title
     },
     status: doc.status,
     publishedAt: doc.publishedAt ? doc.publishedAt.toISOString() : undefined,

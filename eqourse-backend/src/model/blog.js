@@ -71,6 +71,8 @@ const blogSchema = new mongoose.Schema(
       title: { type: String, default: "" },
       description: { type: String, default: "" },
       ogImageUrl: { type: String, default: "" },
+      coverImageAlt: { type: String, default: "" },
+      coverImageTitle: { type: String, default: "" },
     },
 
     // ── Publishing ───────────────────────────────────────────

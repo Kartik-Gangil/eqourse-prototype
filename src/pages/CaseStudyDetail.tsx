@@ -101,6 +101,7 @@ const CaseStudyDetail = () => {
             : apiCs.heroImageUrl
           : undefined,
         heroImageAlt: apiCs.seo?.heroImageAlt || `${apiCs.title} — ${apiCs.industry} case study by eQOURSE`,
+        heroImageTitle: apiCs.seo?.heroImageTitle || apiCs.title,
       });
     });
   }, [slug]);
@@ -131,6 +132,7 @@ const CaseStudyDetail = () => {
 
   const canonicalUrl = `https://www.eqourse.com/casestudy/${study.slug || slug}`;
   const heroAlt = study.heroImageAlt || `${study.title} — ${study.industry} case study by eQOURSE`;
+  const heroTitle = study.heroImageTitle || study.title;
 
   return (
     <ContentServicesLayout breadcrumbs={[{ label: "Case Studies", href: "/casestudy" }, { label: study.title }]}>
@@ -213,6 +215,7 @@ const CaseStudyDetail = () => {
                 <img
                   src={study.image}
                   alt={heroAlt}
+                  title={heroTitle}
                   className="w-full h-full object-cover opacity-[0.55] dark:opacity-70"
                   loading="eager"
                 />

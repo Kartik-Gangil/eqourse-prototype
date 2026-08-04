@@ -255,6 +255,8 @@ const BlogPostContent = ({ blog }: BlogPostContentProps) => {
           thumbnailColor: (b.tags?.includes("AI Data") ? "navy" : "teal") as BlogPost["thumbnailColor"],
           keywords: b.tags,
           coverImageUrl: b.coverImageUrl ? (b.coverImageUrl.startsWith("/") ? `${baseUrl}${b.coverImageUrl}` : b.coverImageUrl) : undefined,
+          coverImageAlt: b.seo?.coverImageAlt || `${b.title} — eQOURSE blog cover image`,
+          coverImageTitle: b.seo?.coverImageTitle || b.title,
         }));
 
         setRelatedPosts(mapped.slice(0, 3));
@@ -363,7 +365,7 @@ const BlogPostContent = ({ blog }: BlogPostContentProps) => {
           <div className="lg:w-3/4 max-w-3xl">
             {blog.coverImageUrl && (
               <div className="mb-8 rounded-2xl overflow-hidden aspect-[16/9] w-full border border-border/50">
-                <img src={blog.coverImageUrl} alt={blog.title} className="w-full h-full object-cover" />
+                <img src={blog.coverImageUrl} alt={blog.coverImageAlt || blog.title} title={blog.coverImageTitle || blog.title} className="w-full h-full object-cover" />
               </div>
             )}
             <div className="prose prose-lg dark:prose-invert max-w-none">

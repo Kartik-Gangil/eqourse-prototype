@@ -89,6 +89,7 @@ const CaseStudyPage = () => {
             : mapTagsToRelatedLinks(cs.tags || []),
           image: cs.heroImageUrl ? (cs.heroImageUrl.startsWith("/") ? `${import.meta.env.VITE_API_BASE_URL || ""}${cs.heroImageUrl}` : cs.heroImageUrl) : undefined,
           heroImageAlt: cs.seo?.heroImageAlt || `${cs.title} — ${cs.industry} case study by eQOURSE`,
+          heroImageTitle: cs.seo?.heroImageTitle || cs.title,
         };
       });
       setAllStudies(mapped);

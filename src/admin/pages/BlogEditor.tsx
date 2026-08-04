@@ -161,6 +161,7 @@ export default function BlogEditor() {
               onChange={(url) => setField("coverImageUrl", url)}
               kind="blog-cover"
               label="Cover image *"
+              imageTitle={form.seo.coverImageTitle || form.title || "Blog cover image"}
             />
           </Card>
 
@@ -188,6 +189,19 @@ export default function BlogEditor() {
               <Label>Meta description</Label>
               <Textarea rows={3} value={form.seo.description ?? ""}
                 onChange={(e) => setField("seo", { ...form.seo, description: e.target.value })} />
+            </div>
+            <div>
+              <Label>Cover image alt text</Label>
+              <Input value={form.seo.coverImageAlt ?? ""}
+                placeholder={form.title ? `${form.title} — eQOURSE blog cover image` : "Generated automatically from the blog title"}
+                onChange={(e) => setField("seo", { ...form.seo, coverImageAlt: e.target.value })} />
+            </div>
+            <div>
+              <Label>Cover image title</Label>
+              <Input value={form.seo.coverImageTitle ?? ""}
+                placeholder={form.title || "Generated automatically from the blog title"}
+                onChange={(e) => setField("seo", { ...form.seo, coverImageTitle: e.target.value })} />
+              <p className="text-xs text-muted-foreground mt-1">Leave blank to use the blog title automatically, including for existing posts.</p>
             </div>
           </Card>
         </div>

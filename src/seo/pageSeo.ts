@@ -17,6 +17,10 @@ export interface PageSeo {
 }
 
 export const pageSeo: Record<string, PageSeo> = {
+  "/": {
+    title: "eQOURSE – Content & AI Data Services | India & Singapore",
+    description: "eQOURSE: ISO 9001 & 27001 certified Content & AI Data Services. Custom e-learning content, data annotation & model testing. 500+ expert.",
+  },
   "/2d-3d-video-samples": {
     title: "2D & 3D Video Animation Samples | Eqourse",
     description: "Explore 2D and 3D video samples created for education, training and visual storytelling. View eQOURSE work today.",

@@ -44,6 +44,8 @@ const BlogSection = () => {
         thumbnailColor: (b.tags?.includes("AI Data") ? "navy" : "teal") as BlogPost["thumbnailColor"],
         keywords: b.tags,
         coverImageUrl: b.coverImageUrl ? (b.coverImageUrl.startsWith("/") ? `${import.meta.env.VITE_API_BASE_URL || ""}${b.coverImageUrl}` : b.coverImageUrl) : undefined,
+        coverImageAlt: b.seo?.coverImageAlt || `${b.title} — eQOURSE blog cover image`,
+        coverImageTitle: b.seo?.coverImageTitle || b.title,
       }));
       setRecentBlogs(mapped);
     });
@@ -69,7 +71,7 @@ const BlogSection = () => {
             <Link to={recentBlogs[0].slug} className="group relative rounded-3xl overflow-hidden min-h-[420px] flex items-end neon-card">
               <div className="absolute inset-0 z-0 group-hover:scale-105 transition-transform duration-700">
                 {recentBlogs[0].coverImageUrl ? (
-                  <img src={recentBlogs[0].coverImageUrl} alt={recentBlogs[0].title} className="w-full h-full object-cover" />
+                  <img src={recentBlogs[0].coverImageUrl} alt={recentBlogs[0].coverImageAlt || recentBlogs[0].title} title={recentBlogs[0].coverImageTitle || recentBlogs[0].title} className="w-full h-full object-cover" />
                 ) : (
                   generateAbstractPattern(recentBlogs[0].id, recentBlogs[0].thumbnailColor)
                 )}
@@ -100,7 +102,7 @@ const BlogSection = () => {
                 <div className="w-28 h-28 md:w-32 md:h-32 flex-shrink-0 rounded-xl overflow-hidden relative">
                   <div className="absolute inset-0 z-0 group-hover:scale-110 transition-transform duration-500">
                     {blog.coverImageUrl ? (
-                      <img src={blog.coverImageUrl} alt={blog.title} className="w-full h-full object-cover" />
+                      <img src={blog.coverImageUrl} alt={blog.coverImageAlt || blog.title} title={blog.coverImageTitle || blog.title} className="w-full h-full object-cover" />
                     ) : (
                       generateAbstractPattern(blog.id, blog.thumbnailColor)
                     )}

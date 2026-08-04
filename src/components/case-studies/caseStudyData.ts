@@ -31,6 +31,7 @@ export interface CaseStudy {
   relatedLinks: CaseStudyInternalLink[];
   image?: string;
   heroImageAlt?: string;
+  heroImageTitle?: string;
 }
 
 export const caseStudiesData: CaseStudy[] = [

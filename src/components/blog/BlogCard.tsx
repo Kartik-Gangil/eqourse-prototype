@@ -59,7 +59,7 @@ const BlogCard = ({ blog, featured = false }: BlogCardProps) => {
       <Link to={blog.slug} className="group relative rounded-3xl overflow-hidden min-h-[420px] md:min-h-[500px] flex items-end neon-card block">
         <div className="absolute inset-0 z-0">
           {blog.coverImageUrl ? (
-            <img src={blog.coverImageUrl} alt={blog.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <img src={blog.coverImageUrl} alt={blog.coverImageAlt || blog.title} title={blog.coverImageTitle || blog.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
           ) : (
             generateAbstractPattern(blog.id, blog.thumbnailColor)
           )}
@@ -106,7 +106,7 @@ const BlogCard = ({ blog, featured = false }: BlogCardProps) => {
       <div className="relative h-48 md:h-56 w-full overflow-hidden flex-shrink-0">
         <div className="absolute inset-0 z-0 group-hover:scale-110 transition-transform duration-700">
           {blog.coverImageUrl ? (
-            <img src={blog.coverImageUrl} alt={blog.title} className="w-full h-full object-cover" />
+            <img src={blog.coverImageUrl} alt={blog.coverImageAlt || blog.title} title={blog.coverImageTitle || blog.title} className="w-full h-full object-cover" />
           ) : (
             generateAbstractPattern(blog.id, blog.thumbnailColor)
           )}
