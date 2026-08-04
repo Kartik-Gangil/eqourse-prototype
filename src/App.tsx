@@ -44,6 +44,7 @@ import { contentServicesSamples } from "./components/samples/content-services/co
 import { contentServicesSubServiceRoutes } from "./components/content-services/contentServicesSubServiceRoutes";
 import { legacyRedirects } from "./routes/legacyRedirects";
 import ChatWidget from "./components/chatbot/ChatWidget";
+import ImageSeoTitles from "./components/seo/ImageSeoTitles";
 
 // Admin
 import AdminLayout from "./admin/components/AdminLayout";
@@ -77,6 +78,7 @@ const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <ImageSeoTitles />
         <Toaster />
         <Sonner />
         <BrowserRouter>

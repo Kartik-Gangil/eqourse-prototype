@@ -11,6 +11,8 @@ export interface BlogPost {
   internalLinks?: string[];
   keywords?: string[];
   coverImageUrl?: string;
+  coverImageAlt?: string;
+  coverImageTitle?: string;
   body?: string;
   bodyFormat?: 'html' | 'markdown';
 }

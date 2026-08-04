@@ -25,17 +25,20 @@ const SEOHead = ({ title, description, canonical, ogTitle, ogDescription, keywor
   const mapped = getPageSeo(pathname);
   const resolvedTitle = mapped?.title ?? title;
   const resolvedDescription = mapped?.description ?? description;
+  const resolvedCanonical = mapped
+    ? `https://www.eqourse.com${pathname === "/" ? "/" : pathname.replace(/\/+$/, "")}`
+    : canonical;
 
   return (
     <Helmet>
       <title>{resolvedTitle}</title>
       <meta name="description" content={resolvedDescription} />
       {keywords && <meta name="keywords" content={keywords} />}
-      <link rel="canonical" href={canonical} />
+      <link rel="canonical" href={resolvedCanonical} />
       <meta property="og:title" content={ogTitle || resolvedTitle} />
       <meta property="og:description" content={ogDescription || resolvedDescription} />
       <meta property="og:type" content="website" />
-      <meta property="og:url" content={canonical} />
+      <meta property="og:url" content={resolvedCanonical} />
       <meta property="og:site_name" content="eQOURSE" />
       <meta property="og:image" content={ogImage || "https://www.eqourse.com/assets/og-image.png"} />
       <meta name="twitter:card" content="summary_large_image" />

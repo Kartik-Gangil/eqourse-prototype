@@ -19,6 +19,9 @@ import Footer from "@/components/Footer";
 import OurBrandsSection from "@/components/OurBrandsSection";
 
 import LeadFormPopup from "@/components/LeadFormPopup";
+import { pageSeo } from "@/seo/pageSeo";
+
+const PAGE_SEO = pageSeo["/"];
 
 const Index = () => {
   const [activeServiceTab, setActiveServiceTab] = useState<"education" | "ai">("education");
@@ -26,20 +29,20 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>eQOURSE | Content Services & AI Data Services Company | India & Singapore</title>
+        <title>{PAGE_SEO.title}</title>
         <meta
           name="description"
-          content="eQOURSE delivers end-to-end Content Services and AI data services. Custom e-learning content, curriculum development, data annotation, model testing. 500+ specialists across 30+ languages. ISO 9001 & 27001 certified. Offices in India & Singapore. Trusted by 200+ global clients."
+          content={PAGE_SEO.description}
         />
         <meta
           name="keywords"
           content="eQOURSE, Content Services, AI data services, e-learning content development, custom e-learning, curriculum development, data annotation, AI training data, model testing, K12 content, educational technology, localization services, LMS integration, India, Singapore"
         />
         <link rel="canonical" href="https://www.eqourse.com/" />
-        <meta property="og:title" content="eQOURSE | Content Services & AI Data Services Company" />
+        <meta property="og:title" content={PAGE_SEO.title} />
         <meta
           property="og:description"
-          content="End-to-end Content Services and AI data services. 500+ specialists, 30+ languages, ISO certified. Custom e-learning, curriculum development, data annotation, model testing."
+          content={PAGE_SEO.description}
         />
         <meta property="og:url" content="https://www.eqourse.com/" />
         <meta property="og:type" content="website" />
@@ -47,10 +50,10 @@ const Index = () => {
         <meta property="og:image" content="https://www.eqourse.com/assets/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@EQourse" />
-        <meta name="twitter:title" content="eQOURSE | Content Services & AI Data Services Company" />
+        <meta name="twitter:title" content={PAGE_SEO.title} />
         <meta
           name="twitter:description"
-          content="End-to-end Content Services and AI data services. 500+ specialists, 30+ languages, ISO certified. Custom e-learning, curriculum development, data annotation, model testing."
+          content={PAGE_SEO.description}
         />
         <meta name="twitter:image" content="https://www.eqourse.com/assets/og-image.png" />
 

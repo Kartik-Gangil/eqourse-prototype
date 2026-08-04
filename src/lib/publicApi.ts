@@ -51,7 +51,13 @@ export interface PublicBlog {
   bodyFormat: "html" | "markdown";
   tags: string[];
   author: { name: string; avatarUrl?: string };
-  seo: { title?: string; description?: string; ogImageUrl?: string };
+  seo: {
+    title?: string;
+    description?: string;
+    ogImageUrl?: string;
+    coverImageAlt?: string;
+    coverImageTitle?: string;
+  };
   publishedAt?: string;
   readingMinutes?: number;
 }
@@ -103,7 +109,13 @@ export interface PublicCaseStudy {
   metrics: { label: string; value: string }[];
   tags: string[];
   relatedLinks?: { label: string; href: string }[];
-  seo: { title?: string; description?: string; ogImageUrl?: string };
+  seo: {
+    title?: string;
+    description?: string;
+    ogImageUrl?: string;
+    heroImageAlt?: string;
+    heroImageTitle?: string;
+  };
   publishedAt?: string;
 }
 

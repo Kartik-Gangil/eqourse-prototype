@@ -55,7 +55,13 @@ export interface BlogPost {
   bodyFormat: "html" | "markdown";
   tags: string[];
   author: { name: string; avatarUrl?: string };
-  seo: { title?: string; description?: string; ogImageUrl?: string };
+  seo: {
+    title?: string;
+    description?: string;
+    ogImageUrl?: string;
+    coverImageAlt?: string;
+    coverImageTitle?: string;
+  };
   status: PublishStatus;
   publishedAt?: string;
   readingMinutes?: number;
@@ -78,7 +84,13 @@ export interface CaseStudy {
   tags: string[];
   relatedLinks?: { label: string; href: string }[];
   bodyFormat: "html" | "markdown";
-  seo: { title?: string; description?: string; ogImageUrl?: string };
+  seo: {
+    title?: string;
+    description?: string;
+    ogImageUrl?: string;
+    heroImageAlt?: string;
+    heroImageTitle?: string;
+  };
   status: PublishStatus;
   publishedAt?: string;
   createdAt: string;

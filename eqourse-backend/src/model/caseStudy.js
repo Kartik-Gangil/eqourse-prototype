@@ -32,6 +32,7 @@ const caseStudySchema = new mongoose.Schema(
       description: { type: String, default: "" },
       ogImageUrl: { type: String, default: "" },
       heroImageAlt: { type: String, default: "" },
+      heroImageTitle: { type: String, default: "" },
     },
     status: { type: String, enum: ["draft", "published"], default: "draft" },
     publishedAt: { type: Date },

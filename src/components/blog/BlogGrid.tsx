@@ -35,6 +35,8 @@ const BlogGrid = () => {
         thumbnailColor: (b.tags?.includes("AI Data") ? "navy" : "teal") as BlogPost["thumbnailColor"],
         keywords: b.tags,
         coverImageUrl: b.coverImageUrl ? (b.coverImageUrl.startsWith("/") ? `${import.meta.env.VITE_API_BASE_URL || ""}${b.coverImageUrl}` : b.coverImageUrl) : undefined,
+        coverImageAlt: b.seo?.coverImageAlt || `${b.title} — eQOURSE blog cover image`,
+        coverImageTitle: b.seo?.coverImageTitle || b.title,
       }));
       setAllBlogs(mapped);
     });

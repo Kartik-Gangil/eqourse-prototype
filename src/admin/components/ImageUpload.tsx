@@ -9,12 +9,14 @@ export default function ImageUpload({
   onChange,
   kind,
   label = "Image",
+  imageTitle,
   className,
 }: {
   value?: string;
   onChange: (url: string) => void;
   kind: string;
   label?: string;
+  imageTitle?: string;
   className?: string;
 }) {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -59,6 +61,7 @@ export default function ImageUpload({
           <img 
             src={value.startsWith("/") ? `${import.meta.env.VITE_API_BASE_URL || ""}${value}` : value} 
             alt={label} 
+            title={imageTitle || label}
             className="w-full h-full object-cover" 
           />
           <Button

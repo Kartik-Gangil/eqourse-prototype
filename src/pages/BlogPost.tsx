@@ -42,6 +42,8 @@ const BlogPost = () => {
         thumbnailColor: (apiBlog.tags?.includes("AI Data") ? "navy" : "teal") as BlogPostType["thumbnailColor"],
         keywords: apiBlog.tags,
         coverImageUrl: apiBlog.coverImageUrl ? (apiBlog.coverImageUrl.startsWith("/") ? `${import.meta.env.VITE_API_BASE_URL || ""}${apiBlog.coverImageUrl}` : apiBlog.coverImageUrl) : undefined,
+        coverImageAlt: apiBlog.seo?.coverImageAlt || `${apiBlog.title} — eQOURSE blog cover image`,
+        coverImageTitle: apiBlog.seo?.coverImageTitle || apiBlog.title,
         body: apiBlog.body,
         bodyFormat: apiBlog.bodyFormat,
       });

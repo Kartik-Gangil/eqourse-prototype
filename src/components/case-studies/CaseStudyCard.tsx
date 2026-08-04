@@ -70,7 +70,8 @@ const CaseStudyCard = ({ study, onClick, index }: CaseStudyCardProps) => {
             {study.image && (
               <img 
                 src={study.image} 
-                alt={study.title} 
+                alt={study.heroImageAlt || `${study.title} — case study by eQOURSE`}
+                title={study.heroImageTitle || study.title}
                 className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
               />
             )}
