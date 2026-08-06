@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const distDir = join(root, "dist");
 const pageSeoSource = readFileSync(join(root, "src", "seo", "pageSeo.ts"), "utf8");
+const manifestPath = join(distDir, "seo-manifest.json");
 const SITE_URL = "https://www.eqourse.com";
 
 const entries = [];
@@ -16,6 +17,10 @@ while ((match = entryPattern.exec(pageSeoSource)) !== null) {
     title: match[2].replace(/\\"/g, '"'),
     description: match[3].replace(/\\"/g, '"'),
   });
+}
+
+if (existsSync(manifestPath)) {
+  entries.splice(0, entries.length, ...JSON.parse(readFileSync(manifestPath, "utf8")));
 }
 
 const escapeHtml = (value) => value

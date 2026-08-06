@@ -44,6 +44,9 @@ const BlogPost = () => {
         coverImageUrl: apiBlog.coverImageUrl ? (apiBlog.coverImageUrl.startsWith("/") ? `${import.meta.env.VITE_API_BASE_URL || ""}${apiBlog.coverImageUrl}` : apiBlog.coverImageUrl) : undefined,
         coverImageAlt: apiBlog.seo?.coverImageAlt || `${apiBlog.title} — eQOURSE blog cover image`,
         coverImageTitle: apiBlog.seo?.coverImageTitle || apiBlog.title,
+        seoTitle: apiBlog.seo?.title?.trim() || apiBlog.title,
+        seoDescription: apiBlog.seo?.description?.trim() || apiBlog.excerpt,
+        publishedAt: apiBlog.publishedAt,
         body: apiBlog.body,
         bodyFormat: apiBlog.bodyFormat,
       });
@@ -65,51 +68,60 @@ const BlogPost = () => {
     return <Navigate to="/" replace />;
   }
 
+  const seoTitle = blog.seoTitle?.trim() || blog.title;
+  const seoDescription = blog.seoDescription?.trim() || blog.excerpt;
+  const canonicalUrl = `https://www.eqourse.com${blog.slug}`;
+
   return (
     <PageLayout breadcrumbs={[
       { label: "Blog", href: "/blog" },
       { label: blog.title }
     ]}>
       <Helmet>
-        <title>{blog.title} │ eQOURSE Blog</title>
-        <meta name="description" content={blog.excerpt} />
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDescription} />
         {blog.keywords && (
           <meta name="keywords" content={blog.keywords.join(", ")} />
         )}
-        <meta property="og:title" content={blog.title} />
-        <meta property="og:description" content={blog.excerpt} />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDescription} />
         <meta property="og:type" content="article" />
-        <meta property="article:published_time" content={blog.date} />
+        <meta property="og:url" content={canonicalUrl} />
+        {blog.publishedAt && <meta property="article:published_time" content={blog.publishedAt} />}
         <meta property="article:author" content={blog.author} />
-        <link rel="canonical" href={`https://www.eqourse.com${blog.slug}`} />
+        {blog.coverImageUrl && <meta property="og:image" content={blog.coverImageUrl} />}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={seoTitle} />
+        <meta name="twitter:description" content={seoDescription} />
+        {blog.coverImageUrl && <meta name="twitter:image" content={blog.coverImageUrl} />}
+        <link rel="canonical" href={canonicalUrl} />
 
         {/* BlogPosting Schema */}
         <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "BlogPosting",
-              "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "https://www.eqourse.com${blog.slug}"
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": canonicalUrl,
+            },
+            headline: seoTitle,
+            description: seoDescription,
+            image: blog.coverImageUrl || undefined,
+            author: {
+              "@type": "Organization",
+              name: blog.author,
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "eQOURSE",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://www.eqourse.com/logo.png",
               },
-              "headline": "${blog.title}",
-              "description": "${blog.excerpt.replace(/"/g, '\\"')}",
-              "author": {
-                "@type": "Organization",
-                "name": "${blog.author}"
-              },
-              "publisher": {
-                "@type": "Organization",
-                "name": "eQOURSE",
-                "logo": {
-                  "@type": "ImageObject",
-                  "url": "https://www.eqourse.com/logo.png"
-                }
-              },
-              "datePublished": "2026-04-01"
-            }
-          `}
+            },
+            datePublished: blog.publishedAt || undefined,
+          })}
         </script>
       </Helmet>
 

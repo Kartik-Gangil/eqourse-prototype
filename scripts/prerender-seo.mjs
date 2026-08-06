@@ -30,6 +30,10 @@ const distIndexPath = join(distDir, "index.html");
 const pageSeoPath = join(root, "src", "seo", "pageSeo.ts");
 const SITE_URL = "https://www.eqourse.com";
 const OG_IMAGE = `${SITE_URL}/assets/og-image.png`;
+const configuredApiBase = process.env.CMS_SEO_SOURCE_URL || process.env.VITE_API_BASE_URL || SITE_URL;
+const CMS_API_BASE = configuredApiBase.startsWith("http")
+  ? configuredApiBase.replace(/\/+$/, "")
+  : SITE_URL;
 
 function parsePageSeo(source) {
   const pattern = /"(\/[^"]*)":\s*\{\s*title:\s*"((?:[^"\\]|\\.)*)",\s*description:\s*"((?:[^"\\]|\\.)*)",/gs;
@@ -53,7 +57,13 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;");
 }
 
-function buildHead(template, { path, title, description }) {
+function toAbsoluteUrl(value) {
+  if (!value) return OG_IMAGE;
+  if (/^https?:\/\//i.test(value)) return value;
+  return `${SITE_URL}${value.startsWith("/") ? value : `/${value}`}`;
+}
+
+function buildHead(template, { path, title, description, ogType = "website", image = OG_IMAGE }) {
   const canonical = `${SITE_URL}${path === "/" ? "/" : path.replace(/\/+$/, "")}`;
   const t = escapeHtml(title);
   const d = escapeHtml(description);
@@ -80,12 +90,12 @@ function buildHead(template, { path, title, description }) {
     `<title data-rh="true">${t}</title>`,
     `<meta data-rh="true" name="description" content="${d}" />`,
     `<link data-rh="true" rel="canonical" href="${canonical}" />`,
-    `<meta data-rh="true" property="og:type" content="website" />`,
+    `<meta data-rh="true" property="og:type" content="${escapeHtml(ogType)}" />`,
     `<meta data-rh="true" property="og:site_name" content="eQOURSE" />`,
     `<meta data-rh="true" property="og:title" content="${t}" />`,
     `<meta data-rh="true" property="og:description" content="${d}" />`,
     `<meta data-rh="true" property="og:url" content="${canonical}" />`,
-    `<meta data-rh="true" property="og:image" content="${OG_IMAGE}" />`,
+    `<meta data-rh="true" property="og:image" content="${escapeHtml(toAbsoluteUrl(image))}" />`,
     `<meta data-rh="true" property="og:image:width" content="1200" />`,
     `<meta data-rh="true" property="og:image:height" content="630" />`,
     `<meta data-rh="true" property="og:locale" content="en_US" />`,
@@ -93,13 +103,65 @@ function buildHead(template, { path, title, description }) {
     `<meta data-rh="true" name="twitter:site" content="@EQourse" />`,
     `<meta data-rh="true" name="twitter:title" content="${t}" />`,
     `<meta data-rh="true" name="twitter:description" content="${d}" />`,
-    `<meta data-rh="true" name="twitter:image" content="${OG_IMAGE}" />`,
+    `<meta data-rh="true" name="twitter:image" content="${escapeHtml(toAbsoluteUrl(image))}" />`,
   ].join("\n    ");
 
   return html.replace(/<meta charset="UTF-8" \/>/, (m) => `${m}\n    ${block}`);
 }
 
-function main() {
+async function fetchCmsItems(resource) {
+  const url = `${CMS_API_BASE}/api/${resource}?limit=1000`;
+  const response = await fetch(url, {
+    headers: { accept: "application/json" },
+    signal: AbortSignal.timeout(20000),
+  });
+
+  if (!response.ok) {
+    throw new Error(`${url} returned HTTP ${response.status}`);
+  }
+
+  const body = await response.json();
+  const items = body?.success ? body?.data?.items : body?.items;
+  if (!Array.isArray(items)) {
+    throw new Error(`${url} did not return an items array`);
+  }
+  return items;
+}
+
+async function loadCmsSeoEntries() {
+  const [blogs, caseStudies] = await Promise.all([
+    fetchCmsItems("blogs"),
+    fetchCmsItems("case-studies"),
+  ]);
+
+  const blogEntries = blogs
+    .filter((blog) => blog?.slug)
+    .map((blog) => ({
+      path: `/blog/${blog.slug}`,
+      title: blog.seo?.title?.trim() || blog.title,
+      description: blog.seo?.description?.trim() || blog.excerpt,
+      ogType: "article",
+      image: blog.seo?.ogImageUrl || blog.coverImageUrl || OG_IMAGE,
+      source: "blog",
+    }));
+
+  const caseStudyEntries = caseStudies
+    .filter((study) => study?.slug)
+    .map((study) => ({
+      path: `/casestudy/${study.slug}`,
+      title: study.seo?.title?.trim() || study.title,
+      description: study.seo?.description?.trim() || study.summary || study.challenge?.slice(0, 160),
+      ogType: "article",
+      image: study.seo?.ogImageUrl || study.heroImageUrl || OG_IMAGE,
+      source: "case-study",
+    }));
+
+  return [...blogEntries, ...caseStudyEntries].filter(
+    (entry) => entry.title?.trim() && entry.description?.trim(),
+  );
+}
+
+async function main() {
   if (!existsSync(distIndexPath)) {
     console.error("[prerender-seo] dist/index.html not found — run `vite build` first.");
     process.exit(1);
@@ -107,12 +169,27 @@ function main() {
 
   const template = readFileSync(distIndexPath, "utf-8");
   const pageSeoSource = readFileSync(pageSeoPath, "utf-8");
-  const entries = parsePageSeo(pageSeoSource);
+  const staticEntries = parsePageSeo(pageSeoSource);
 
-  if (entries.length === 0) {
+  if (staticEntries.length === 0) {
     console.error("[prerender-seo] No routes parsed from pageSeo.ts — aborting to avoid clobbering dist/index.html.");
     process.exit(1);
   }
+
+  let cmsEntries;
+  try {
+    cmsEntries = await loadCmsSeoEntries();
+  } catch (error) {
+    console.error(`[prerender-seo] Unable to load CMS SEO data: ${error.message}`);
+    console.error("[prerender-seo] Refusing to build a production bundle with incorrect blog/case-study fallback metadata.");
+    console.error("[prerender-seo] Set CMS_SEO_OPTIONAL=true only for an intentionally offline development build.");
+    if (process.env.CMS_SEO_OPTIONAL !== "true") process.exit(1);
+    cmsEntries = [];
+  }
+
+  const entries = [...new Map(
+    [...staticEntries, ...cmsEntries].map((entry) => [entry.path, entry]),
+  ).values()];
 
   let written = 0;
   for (const entry of entries) {
@@ -123,7 +200,15 @@ function main() {
     written += 1;
   }
 
-  console.log(`[prerender-seo] Wrote ${written} route(s) with baked-in title/meta tags.`);
+  writeFileSync(
+    join(distDir, "seo-manifest.json"),
+    JSON.stringify(entries, null, 2),
+    "utf-8",
+  );
+
+  console.log(
+    `[prerender-seo] Wrote ${written} route(s): ${staticEntries.length} static and ${cmsEntries.length} CMS detail route(s).`,
+  );
 }
 
-main();
+await main();

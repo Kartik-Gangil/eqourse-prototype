@@ -13,6 +13,9 @@ export interface BlogPost {
   coverImageUrl?: string;
   coverImageAlt?: string;
   coverImageTitle?: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  publishedAt?: string;
   body?: string;
   bodyFormat?: 'html' | 'markdown';
 }

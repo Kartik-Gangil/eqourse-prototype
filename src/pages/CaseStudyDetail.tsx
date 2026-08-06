@@ -102,6 +102,8 @@ const CaseStudyDetail = () => {
           : undefined,
         heroImageAlt: apiCs.seo?.heroImageAlt || `${apiCs.title} — ${apiCs.industry} case study by eQOURSE`,
         heroImageTitle: apiCs.seo?.heroImageTitle || apiCs.title,
+        seoTitle: apiCs.seo?.title?.trim() || apiCs.title,
+        seoDescription: apiCs.seo?.description?.trim() || apiCs.summary || apiCs.challenge?.slice(0, 160),
       });
     });
   }, [slug]);
@@ -133,19 +135,21 @@ const CaseStudyDetail = () => {
   const canonicalUrl = `https://www.eqourse.com/casestudy/${study.slug || slug}`;
   const heroAlt = study.heroImageAlt || `${study.title} — ${study.industry} case study by eQOURSE`;
   const heroTitle = study.heroImageTitle || study.title;
+  const seoTitle = study.seoTitle?.trim() || study.title;
+  const seoDescription = study.seoDescription?.trim() || study.cardSummary || study.problem.slice(0, 160);
 
   return (
     <ContentServicesLayout breadcrumbs={[{ label: "Case Studies", href: "/casestudy" }, { label: study.title }]}>
       {/* Full SEO Head */}
       <Helmet>
-        <title>{study.title} | Case Study | eQOURSE</title>
-        <meta name="description" content={study.cardSummary || study.problem.slice(0, 160)} />
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDescription} />
         <meta name="keywords" content={study.serviceTags?.join(", ")} />
         <link rel="canonical" href={canonicalUrl} />
 
         {/* Open Graph */}
-        <meta property="og:title" content={`${study.title} | eQOURSE Case Study`} />
-        <meta property="og:description" content={study.cardSummary || study.problem.slice(0, 160)} />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDescription} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={canonicalUrl} />
         {study.image && <meta property="og:image" content={study.image} />}
@@ -153,8 +157,8 @@ const CaseStudyDetail = () => {
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${study.title} | eQOURSE Case Study`} />
-        <meta name="twitter:description" content={study.cardSummary || study.problem.slice(0, 160)} />
+        <meta name="twitter:title" content={seoTitle} />
+        <meta name="twitter:description" content={seoDescription} />
         {study.image && <meta name="twitter:image" content={study.image} />}
         {study.image && <meta name="twitter:image:alt" content={heroAlt} />}
 
@@ -167,8 +171,8 @@ const CaseStudyDetail = () => {
               "@type": "WebPage",
               "@id": canonicalUrl,
             },
-            headline: study.title,
-            description: study.cardSummary || study.problem.slice(0, 160),
+            headline: seoTitle,
+            description: seoDescription,
             image: study.image || "",
             author: {
               "@type": "Organization",
