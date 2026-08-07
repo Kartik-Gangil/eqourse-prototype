@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 import { normalisePath, pageSeo } from "./src/seo/pageSeo";
+import { legacyRedirects } from "./src/routes/legacyRedirects";
 
 const SITE_URL = "https://www.eqourse.com";
 
@@ -23,6 +24,18 @@ const escapeHtml = (value: string) =>
 const routeSeoHtml = (): Plugin => ({
   name: "eqourse-route-seo-html",
   enforce: "pre",
+  configureServer(server) {
+    server.middlewares.use((request, response, next) => {
+      const pathname = normalisePath(new URL(request.url || "/", "http://localhost").pathname);
+      const destination = legacyRedirects[pathname];
+      if (!destination) return next();
+
+      response.statusCode = 301;
+      response.setHeader("Location", destination);
+      response.setHeader("Cache-Control", "no-store");
+      response.end();
+    });
+  },
   transformIndexHtml: {
     order: "pre",
     handler(html: string, context?: IndexHtmlTransformContext) {

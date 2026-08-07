@@ -126,10 +126,10 @@ export const pilotFields: FormField[] = [
   {
     key: "serviceInterest",
     label: "Service Interest",
-    question: "Which service are you interested in? Please choose:\n\n• **Content Services** (K-12, e-learning, curriculum, assessments)\n• **AI Data Services** (data collection, annotation, model testing)\n• **Both**",
+    question: "Which service are you interested in? Please choose:\n\n• **Content Services** (K-12, e-learning, curriculum, assessments)\n• **AI Data Services** (data collection, annotation, model testing)\n• **Robotics & Physical AI Training Data**\n• **Both**",
     required: true,
     type: "select",
-    options: ["Content Services", "AI Data Services", "Both"],
+    options: ["Content Services", "AI Data Services", "Robotics & Physical AI Training Data", "Both"],
     validate: validateRequired,
   },
   {

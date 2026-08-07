@@ -39,6 +39,7 @@ const pageDirectory = [
   { title: "Annotation & Labeling", path: "/ai-data-services/annotation-labeling", description: "Expert data annotation — NER, bounding boxes, segmentation, sentiment, RLHF" },
   { title: "Data Cleaning & Validation", path: "/ai-data-services/cleaning-validation", description: "Data quality assurance — deduplication, normalization, golden set validation" },
   { title: "Model Testing", path: "/ai-data-services/model-testing", description: "Real-world AI model testing with human evaluators — red-teaming, A/B testing, safety" },
+  { title: "Robotics & Physical AI Training Data Services", path: "/robotics-training-data-services", description: "Human demonstrations, egocentric video, multimodal robotics annotation, validation and model evaluation for Physical AI and Embodied AI" },
 
   // ── Content Services (Category Pages) ──
   { title: "Content Services (Overview)", path: "/content-services", description: "Overview of all Content Services — e-learning, curriculum, assessment, video, localization" },
@@ -220,6 +221,14 @@ const faqs = [
   { q: "How long does a model testing cycle take?", a: "Typically 5–10 business days depending on scope. Agile sprints: initial results in 2–3 days, full analysis by end of sprint. For continuous testing, we offer always-on crowd access with weekly reporting." },
   { q: "Can you test models across multiple languages?", a: "Yes — across 30+ languages with native speakers who understand regional dialects, accent variations, and cultural context. Critical for Voice AI, Conversational AI, and multilingual NLP models." },
   { q: "Which industries do you serve with AI data services?", a: "Voice and Speech AI, Autonomous Vehicles, Conversational AI, Healthcare and Medical AI, FinTech and Banking, and more. Domain-specific expertise ensures annotation guidelines and quality benchmarks are tailored to each industry's requirements." },
+  { q: "What robotics training data services does eQOURSE provide?", a: "eQOURSE can support human demonstration data, egocentric and multi-view video, language-conditioned action data, robotics annotation, multimodal validation and model-evaluation datasets. Final modalities depend on the approved collection setup and client requirements. Learn more at https://www.eqourse.com/robotics-training-data-services" },
+  { q: "Can eQOURSE collect robot teleoperation data?", a: "Yes, where the project uses client-provided robots, an approved collection environment or a qualified technology partner. Hardware access, safety procedures, operator training and required state/action logs are confirmed during scoping." },
+  { q: "Does eQOURSE support humanoid and Vision-Language-Action models?", a: "eQOURSE can design and enrich datasets for humanoid, manipulation and Vision-Language-Action use cases, including human demonstrations, action segmentation, object interaction, language alignment and evaluation examples." },
+  { q: "Which annotation types are available for robotics video?", a: "Typical labels include object boxes and masks, tracking, hand and body pose, task steps, actions, grasp points, affordances, contact events, instructions, outcomes, failures and recovery behaviour." },
+  { q: "How does eQOURSE validate synchronised multimodal robotics data?", a: "Validation may include timestamp checks, missing-stream detection, calibration verification, duplicate and corruption checks, metadata review and sample-level alignment audits across video, audio, pose and robot logs." },
+  { q: "Can eQOURSE work with robotics simulation or synthetic data?", a: "eQOURSE can curate, annotate, review and validate client-generated simulation or synthetic data. Do not represent eQOURSE as the simulation-engine provider unless that capability has been separately confirmed." },
+  { q: "How is sensitive robotics visual data protected?", a: "Projects can use informed consent, restricted access, PII review, face or environment redaction, secure transfer, retention controls and client-defined data-processing requirements." },
+  { q: "Can a robotics data project begin with a pilot?", a: "Yes. A pilot can validate task instructions, capture quality, annotation guidelines, QA thresholds and delivery structure before the programme scales. Request one at https://www.eqourse.com/free-pilot" },
 ];
 
 // ─── Case Study Highlights (from src/components/case-studies/caseStudyData.ts) ─
@@ -264,6 +273,9 @@ const testimonials = [
  * @returns {string}
  */
 function buildSystemPrompt(pageContext) {
+  const normalisedPageContext = pageContext && pageContext !== "/"
+    ? pageContext.replace(/\/+$/, "")
+    : pageContext;
   const pageList = pageDirectory
     .map((p) => `- ${p.title}: https://www.eqourse.com${p.path} — ${p.description}`)
     .join("\n");
@@ -279,11 +291,11 @@ function buildSystemPrompt(pageContext) {
     .join("\n");
 
   let currentPageSection = "";
-  if (pageContext) {
-    const match = pageDirectory.find((p) => p.path === pageContext);
+  if (normalisedPageContext) {
+    const match = pageDirectory.find((p) => p.path.replace(/\/+$/, "") === normalisedPageContext);
     currentPageSection = `
 ## CURRENT PAGE CONTEXT
-The user is currently browsing: https://www.eqourse.com${pageContext}${match ? ` — "${match.title}" (${match.description})` : ""}
+The user is currently browsing: https://www.eqourse.com${match?.path || normalisedPageContext}${match ? ` — "${match.title}" (${match.description})` : ""}
 When their question is ambiguous, assume it relates to this page and tailor your answer accordingly.
 `;
   }
@@ -327,6 +339,7 @@ eQOURSE is a dual-capability solutions company delivering:
 - **Annotation & Labeling**: NER, bounding boxes, semantic segmentation, sentiment, intent, RLHF preference ranking
 - **Data Cleaning & Validation**: Deduplication, normalization, PII redaction, golden set validation, IAA scoring
 - **Model Testing**: Human-in-the-loop evaluation via TuTrain, red-teaming, A/B testing, safety assessment
+- **Robotics & Physical AI Training Data**: Human demonstrations, egocentric and multi-view video, multimodal robotics annotation, synchronisation, validation and behaviour evaluation; robot or teleoperation data is scoped around client-provided hardware, approved environments or qualified partners
 - Accuracy: 98%+ validated datasets, IAA ≥ 0.80
 - Formats: COCO JSON, Pascal VOC, CoNLL, JSONL, Parquet, NIfTI, CSV/TSV, custom schemas
 
@@ -335,6 +348,8 @@ eQOURSE offers a 100% free pilot — no payment, no commitment:
 - Content Services pilot: sample content piece delivered in 5–7 business days
 - AI Data pilot: sample annotated dataset (50–500 units) delivered in 5–10 business days
 - Request at: https://www.eqourse.com/free-pilot
+
+- Robotics data pilot: scope task protocols, sample episodes, annotation criteria and delivery structure before scaling; exact modalities and timelines are confirmed during technical scoping
 
 ### TuTrain (two roles)
 1. **Consumer brand**: TuTrain is eQOURSE's 1-on-1 live online tutoring brand — see https://www.eqourse.com/tutrain and https://tutrain.com

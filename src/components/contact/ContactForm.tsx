@@ -1,12 +1,26 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Loader2, CheckCircle, AlertCircle } from "lucide-react";
 import { submitContactForm } from "@/lib/publicApi";
+import { trackRoboticsEvent } from "@/lib/roboticsAnalytics";
 
 const ContactForm = () => {
+  const [searchParams] = useSearchParams();
+  const isRoboticsReferral = searchParams.get("service") === "robotics-training-data";
+  const formStartTracked = useRef(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const handleFormStart = () => {
+    if (!isRoboticsReferral || formStartTracked.current) return;
+    formStartTracked.current = true;
+    trackRoboticsEvent("robotics_form_start", {
+      form_type: "contact",
+      source_page: "robotics-training-data-services",
+    });
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -55,7 +69,7 @@ const ContactForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 animate-fade-in-up">
+    <form onSubmit={handleSubmit} onFocusCapture={handleFormStart} className="space-y-5 animate-fade-in-up">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div className="space-y-1.5 glow-border rounded-lg">
           <label htmlFor="fullName" className="text-sm font-medium text-foreground">Full Name <span className="text-destructive">*</span></label>
@@ -142,7 +156,7 @@ const ContactForm = () => {
           <select
             id="interest"
             required
-            defaultValue=""
+            defaultValue={isRoboticsReferral ? "Robotics / Physical AI Data" : ""}
             className="w-full px-3 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 transition-shadow cursor-pointer"
           >
             <option value="" disabled>Select Service Category</option>
@@ -159,6 +173,7 @@ const ContactForm = () => {
               <option value="Talent Assessment">Talent Assessment & Workforce Evaluation</option>
             </optgroup>
             <optgroup label="--- AI Data Services ---">
+              <option value="Robotics / Physical AI Data">Robotics & Physical AI Training Data</option>
               <option value="Data Collection">AI Training Data Collection</option>
               <option value="NLP Annotation">Data Annotation & Labeling (NLP)</option>
               <option value="CV Annotation">Data Annotation & Labeling (Computer Vision)</option>

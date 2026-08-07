@@ -34,6 +34,7 @@ const sitemapData = [
       { name: "Annotation & Labeling", to: "/ai-data-services/annotation-labeling" },
       { name: "Cleaning & Validation", to: "/ai-data-services/cleaning-validation" },
       { name: "Model Testing", to: "/ai-data-services/model-testing" },
+      { name: "Robotics & Physical AI Training Data", to: "/robotics-training-data-services" },
       { name: "AI Data Samples", to: "/ai-data-samples" },
     ],
   },
@@ -105,7 +106,7 @@ const sitemapData = [
     category: "Our Brand Family",
     links: [
       { name: "TUTRAIN", to: "/tutrain" },
-      { name: "Visit TUTRAIN.com →", to: "https://tutrain.com", external: true },
+      { name: "eQOURSE+", to: "https://plus.eqourse.com", external: true },
     ],
   },
 ];

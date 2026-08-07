@@ -42,7 +42,7 @@ const AboutSection = () => {
               We are a global learning content and AI data solutions partner supporting enterprises, governments, publishers, Content Services platforms, universities, and NGOs with scalable, high-quality solutions for education, workforce training, certification, and large-scale learning programs.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              For <strong className="text-foreground">AI and ML teams</strong>, we deliver production-grade AI training data services, including custom dataset collection, expert annotation & labeling, data cleaning & validation, and real-world model testing, supporting 30+ languages and every major data modality (text, audio, image, and video).
+              For <strong className="text-foreground">AI, ML and robotics teams</strong>, we deliver production-grade training data services—including custom dataset collection, expert annotation and labeling, data cleaning and validation, real-world model testing, and <Link to="/robotics-training-data-services" className="font-semibold text-primary hover:underline">Robotics & Physical AI training data</Link>—across text, audio, image, video and multimodal robot-learning data.
             </p>
             <div className="flex items-center gap-6 pt-2">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">

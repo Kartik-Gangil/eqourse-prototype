@@ -36,7 +36,7 @@ const Index = () => {
         />
         <meta
           name="keywords"
-          content="eQOURSE, Content Services, AI data services, e-learning content development, custom e-learning, curriculum development, data annotation, AI training data, model testing, K12 content, educational technology, localization services, LMS integration, India, Singapore"
+          content="eQOURSE, Content Services, AI data services, robotics training data, Physical AI, Embodied AI, e-learning content development, custom e-learning, curriculum development, data annotation, AI training data, model testing, K12 content, educational technology, localization services, LMS integration, India, Singapore"
         />
         <link rel="canonical" href="https://www.eqourse.com/" />
         <meta property="og:title" content={PAGE_SEO.title} />
@@ -112,6 +112,8 @@ const Index = () => {
                 "Curriculum Development",
                 "Data Annotation & Labeling",
                 "AI Model Testing",
+                "Robotics & Physical AI Training Data",
+                "Embodied AI Data",
                 "Localization Services",
                 "LMS Integration"
               ],

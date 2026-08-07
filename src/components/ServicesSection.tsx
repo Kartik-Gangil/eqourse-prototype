@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { BookOpen, Lightbulb, GraduationCap, Brain, ArrowRight, Database, Tag, ShieldCheck, FlaskConical, ClipboardCheck, Briefcase, Accessibility, Video, Globe, Cpu, Package, Users, FileEdit } from "lucide-react";
+import { BookOpen, Lightbulb, GraduationCap, Brain, ArrowRight, Database, Tag, ShieldCheck, FlaskConical, ClipboardCheck, Briefcase, Accessibility, Video, Globe, Cpu, Package, Users, FileEdit, Bot } from "lucide-react";
 
 /* ── Decorative SVG illustrations for each card ── */
 const CardIllustrations: Record<string, React.FC<{ className?: string }>> = {
@@ -339,6 +339,13 @@ const aiServices = [
     link: "/ai-data-services/model-testing",
     accent: "from-accent/15 to-primary/20",
   },
+  {
+    icon: Bot,
+    title: "Robotics & Physical AI Training Data",
+    description: "Human demonstrations, egocentric and multi-view video, language-action data, robotics annotation, multimodal validation, and real-world behaviour evaluation.",
+    link: "/robotics-training-data-services",
+    accent: "from-primary/20 to-accent/15",
+  },
 ];
 
 interface ServicesSectionProps {
@@ -392,10 +399,11 @@ const ServicesSection = ({ activeTab = "education", onTabChange }: ServicesSecti
           {services.map((service, i) => {
             const ServiceIcon = service.icon;
             const Illustration = CardIllustrations[service.title];
+
             return (
               <div
                 key={service.title}
-                className="group relative rounded-2xl sm:rounded-3xl overflow-hidden neon-card border border-border/50"
+                className={`group relative rounded-2xl sm:rounded-3xl overflow-hidden neon-card border border-border/50 ${activeTab === "ai" && i === services.length - 1 ? "sm:col-span-2 sm:w-[calc(50%_-_0.75rem)] sm:justify-self-center" : ""}`}
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.accent} opacity-30`} />
                 {/* Wave decoration at bottom */}

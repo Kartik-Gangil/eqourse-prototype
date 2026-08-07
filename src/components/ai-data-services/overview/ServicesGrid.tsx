@@ -1,4 +1,4 @@
-import { Database, Tag, ShieldCheck, FlaskConical, ArrowRight } from "lucide-react";
+import { Database, Tag, ShieldCheck, FlaskConical, ArrowRight, Bot } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import SectionHeader from "../shared/SectionHeader";
@@ -32,6 +32,13 @@ const services = [
     link: "/ai-data-services/model-testing",
     gradient: "from-accent/15 to-primary/20",
   },
+  {
+    icon: Bot,
+    title: "Robotics & Physical AI Training Data",
+    description: "Human demonstrations, egocentric video, multimodal robotics annotation, validation and model evaluation for Physical AI teams.",
+    link: "/robotics-training-data-services",
+    gradient: "from-primary/20 to-accent/15",
+  },
 ];
 
 const ServicesGrid = () => {
@@ -44,7 +51,7 @@ const ServicesGrid = () => {
           label="Our Services"
           title="End-to-End AI Data"
           gradientText="Solutions"
-          subtitle="Four specialized service verticals that cover your entire AI data pipeline from collection to model validation."
+          subtitle="Five specialized service verticals that cover your AI data pipeline from collection to robotics and model validation."
         />
 
         <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -54,7 +61,7 @@ const ServicesGrid = () => {
               <Link
                 key={service.title}
                 to={service.link}
-                className={`group relative rounded-3xl overflow-hidden neon-card border border-border/50 p-8 block reveal-up ${isVisible ? "visible" : ""}`}
+                className={`group relative rounded-3xl overflow-hidden neon-card border border-border/50 p-8 block reveal-up ${isVisible ? "visible" : ""} ${i === services.length - 1 ? "md:col-span-2 md:w-[calc(50%_-_0.75rem)] md:justify-self-center" : ""}`}
                 style={{ transitionDelay: `${i * 0.1}s` }}
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-40`} />

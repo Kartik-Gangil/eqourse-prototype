@@ -26,7 +26,7 @@ const SEOHead = ({ title, description, canonical, ogTitle, ogDescription, keywor
   const resolvedTitle = mapped?.title ?? title;
   const resolvedDescription = mapped?.description ?? description;
   const resolvedCanonical = mapped
-    ? `https://www.eqourse.com${pathname === "/" ? "/" : pathname.replace(/\/+$/, "")}`
+    ? mapped.canonical ?? `https://www.eqourse.com${pathname === "/" ? "/" : pathname.replace(/\/+$/, "")}`
     : canonical;
 
   return (

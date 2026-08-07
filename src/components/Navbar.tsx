@@ -30,6 +30,7 @@ const aiDataSubLinks: SubLink[] = [
   { label: "Annotation & Labeling", to: "/ai-data-services/annotation-labeling", image: "/assets/ai-data/Annotation and Labeling.webp", imageAlt: "Expert data annotation and labeling for machine learning models", description: "Expert labeling with bounding boxes and polygons." },
   { label: "Cleaning & Validation", to: "/ai-data-services/cleaning-validation", image: "/assets/ai-data/Cleaning and validation.webp", imageAlt: "Data cleaning, validation, and impurity cleansing services", description: "Data stream validation & impurity cleansing." },
   { label: "Model Testing", to: "/ai-data-services/model-testing", image: "/assets/ai-data/model testing.webp", imageAlt: "Rigorous diagnostic testing and validation for AI neural networks", description: "Rigorous diagnostic testing for AI neural networks." },
+  { label: "Robotics Training Data", to: "/robotics-training-data-services", image: "/assets/ai-data/robotics/robotics-training-data-hero.webp", imageAlt: "Engineer reviewing robotics training data beside a collaborative robot", description: "Human demonstrations, multimodal annotation and Physical AI evaluation." },
 ];
 
 const aboutUsSubLinks: SubLink[] = [

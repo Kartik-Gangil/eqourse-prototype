@@ -7,6 +7,7 @@ import ComplianceSecurity from "./ComplianceSecurity";
 import FAQSection from "../shared/FAQSection";
 import ServiceCTA from "../shared/ServiceCTA";
 import ServiceNarrativeSection from "../shared/ServiceNarrativeSection";
+import RoboticsServiceBridge from "../shared/RoboticsServiceBridge";
 import { Sparkles, ShieldAlert, CheckCircle2 } from "lucide-react";
 
 const faqs = [
@@ -47,7 +48,7 @@ const CleaningPage = () => (
     <SEOHead
       title="AI Data Cleaning & Validation Services | eQOURSE"
       description="Deduplication, PII redaction, noise removal, and 3-tier validation delivering 98%+ accuracy. GDPR compliant, ISO certified."
-      canonical="https://eqourse.com/ai-data-services/cleaning-validation"
+      canonical="https://www.eqourse.com/ai-data-services/cleaning-validation"
       keywords="data cleaning, data validation, PII redaction, deduplication, data quality, GDPR compliance, data normalization"
     />
 
@@ -103,6 +104,7 @@ const CleaningPage = () => (
     <CleaningServices />
     <ValidationPipeline />
     <ComplianceSecurity />
+    <RoboticsServiceBridge context="validation" />
     <FAQSection faqs={faqs} />
     <ServiceCTA
       headline="Need Cleaner Data?"

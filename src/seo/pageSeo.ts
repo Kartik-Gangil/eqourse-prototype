@@ -14,6 +14,7 @@
 export interface PageSeo {
   title: string;
   description: string;
+  canonical?: string;
 }
 
 export const pageSeo: Record<string, PageSeo> = {
@@ -96,6 +97,11 @@ export const pageSeo: Record<string, PageSeo> = {
   "/ai-data-services/model-testing": {
     title: "AI Model Testing – Ensure Model Accuracy | Eqourse",
     description: "Test AI models for accuracy, safety, reliability and real-world performance with expert evaluation services. Start a free pilot.",
+  },
+  "/robotics-training-data-services": {
+    title: "Robotics Training Data Services for Physical AI | eQOURSE",
+    description: "Custom robotics training data for Physical AI, including egocentric video, multimodal annotation, validation and real-world model evaluation.",
+    canonical: "https://www.eqourse.com/robotics-training-data-services",
   },
   "/animated-videos-services": {
     title: "Animated Video Services – Custom 2D & 3D | Eqourse",

@@ -12,9 +12,29 @@
  * so that URLs already indexed by search engines, or sitting in external
  * backlinks, still resolve to real content instead of a dead end.
  *
- * Rendered in App.tsx as <Navigate replace /> routes.
+ * Used by the app router, development server, and generated hosting rules.
  */
 export const legacyRedirects: Record<string, string> = {
+  // Homepage and old PHP/static aliases reported by Search Console.
+  "/index": "/",
+  "/index.php": "/",
+  "/index.html": "/",
+
+  // Legacy primary-navigation and utility routes.
+  "/career.html": "/career",
+  "/free_pilot_signup": "/free-pilot",
+  "/blog-detail.php": "/blog",
+  "/blogs": "/blog",
+  "/blogs/career": "/career",
+  "/custom-elearning-solutions": "/custom-e-learning-content",
+
+  // Old article URLs consolidated into substantial, current service pages.
+  // Blog and case-study publishing remains controlled by the admin panel.
+  "/blogs/key-features-online-assessment-system": "/digital-assessment-infrastructure",
+  "/blogs/five-key-indicators-adaptive-learning": "/adaptive-learning",
+  "/blogs/immersive-simulation-ai": "/immersive-simulation-ar-vr",
+  "/immersive-simulation-ai": "/immersive-simulation-ar-vr",
+
   // ── Category / overview pages ──
   "/content-services/custom-e-learning-content": "/custom-e-learning-content",
   "/content-services/exam-preparation-content": "/test-prep-content",
@@ -53,6 +73,7 @@ export const legacyRedirects: Record<string, string> = {
   // ── Learning Solutions ──
   "/content-services/learning-solutions/ilt": "/ilt-solutions",
   "/content-services/learning-solutions/corporate-elearning": "/corporate-e-learning-solutions",
+  "/content-services/learning-solutions/corporate-learning": "/corporate-e-learning-solutions",
   "/content-services/learning-solutions/training-modules": "/training-modules",
   "/content-services/learning-solutions/gamified-learning": "/gamified-learning",
   "/content-services/learning-solutions/adaptive-learning": "/adaptive-learning",
