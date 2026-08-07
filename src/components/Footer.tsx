@@ -13,7 +13,7 @@ const quickLinks = [
   { label: "FAQs", to: "/faq" },
 ];
 
-/* ── Content Services: 7 top-level service categories for SEO ── */
+/* ── Content Services: top-level service categories for SEO ── */
 const contentServicesLinks = [
   { label: "Content Services Overview", to: "/content-services" },
   { label: "Custom E-Learning Content", to: "/custom-e-learning-content" },
@@ -30,11 +30,12 @@ const contentServicesLinks = [
 
 /* ── AI Data Services ── */
 const aiServiceLinks = [
-  { label: "AI Services Overview", to: "/ai-data-services" },
+  { label: "AI Data Services Overview", to: "/ai-data-services" },
   { label: "Data Collection", to: "/ai-data-services/data-collection" },
   { label: "Annotation & Labeling", to: "/ai-data-services/annotation-labeling" },
   { label: "Cleaning & Validation", to: "/ai-data-services/cleaning-validation" },
   { label: "Model Testing", to: "/ai-data-services/model-testing" },
+  { label: "Robotics Training Data", to: "/robotics-training-data-services" },
   { label: "Start Free Pilot", to: "/free-pilot" },
 ];
 
@@ -147,8 +148,7 @@ const Footer = () => {
             <h4 className={headingClass} style={headingColor}>Our Brand Family</h4>
             <div className="space-y-3">
               <Link to="/tutrain" className={linkClass} style={linkColor}>TUTRAIN</Link>
-              <a href="https://tutrain.com" target="_blank" rel="noopener noreferrer" className={linkClass} style={linkColor}>Visit TUTRAIN.com →</a>
-              <a href="https://plus.eqourse.com" target="_blank" rel="noopener" className={linkClass} style={linkColor}>Visit eQOURSE+ →</a>
+              <a href="https://plus.eqourse.com" target="_blank" rel="noopener noreferrer" className={linkClass} style={linkColor}>eQOURSE+</a>
             </div>
           </div>
 

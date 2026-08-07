@@ -93,7 +93,7 @@ const OurBrandsSection = () => {
             
             <div className="pt-6 border-t border-border/50">
               <Button asChild variant="outline" className="w-full justify-between group/btn hover:bg-primary hover:text-primary-foreground border-primary/20 hover:border-primary transition-all duration-300 rounded-xl h-12">
-                <a href="https://plus.eqourse.com" target="_blank" rel="noopener">
+                <a href="https://plus.eqourse.com" target="_blank" rel="noopener noreferrer">
                   Visit eQOURSE+
                   <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                 </a>

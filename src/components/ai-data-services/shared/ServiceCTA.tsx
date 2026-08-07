@@ -7,6 +7,11 @@ interface ServiceCTAProps {
   subtext?: string;
   ctaText?: string;
   ctaLink?: string;
+  secondaryCtaText?: string;
+  secondaryCtaLink?: string;
+  note?: string;
+  onCtaClick?: () => void;
+  onSecondaryCtaClick?: () => void;
 }
 
 const ServiceCTA = ({
@@ -14,6 +19,11 @@ const ServiceCTA = ({
   subtext = "Join global AI teams who trust eQOURSE for production-grade training data. Start with a free pilot - no commitment required.",
   ctaText = "Start Free Pilot",
   ctaLink = "/free-pilot",
+  secondaryCtaText,
+  secondaryCtaLink,
+  note = "Pilot setup in 48 hours",
+  onCtaClick,
+  onSecondaryCtaClick,
 }: ServiceCTAProps) => (
   <section className="py-24 relative overflow-hidden">
     <div className="absolute inset-0 bg-gradient-hero" />
@@ -36,7 +46,7 @@ const ServiceCTA = ({
       <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">{headline}</h2>
       <p className="text-white/75 text-base md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">{subtext}</p>
       <div className="inline-flex flex-col sm:flex-row items-center gap-3 rounded-2xl bg-black/25 border border-white/10 px-4 py-4 backdrop-blur-md">
-        <Link to={ctaLink}>
+        <Link to={ctaLink} onClick={onCtaClick}>
           <Button
             size="lg"
             className="bg-gradient-primary border-0 text-primary-foreground shadow-soft hover:opacity-90 transition-opacity text-base px-8 gap-2"
@@ -45,7 +55,18 @@ const ServiceCTA = ({
             <ArrowRight className="w-4 h-4" />
           </Button>
         </Link>
-        <span className="text-xs uppercase tracking-wide text-white/60">Pilot setup in 48 hours</span>
+        {secondaryCtaText && secondaryCtaLink && (
+          <Link to={secondaryCtaLink} onClick={onSecondaryCtaClick}>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/25 bg-white/10 text-white hover:bg-white/20 hover:text-white px-8"
+            >
+              {secondaryCtaText}
+            </Button>
+          </Link>
+        )}
+        <span className="text-xs uppercase tracking-wide text-white/60">{note}</span>
       </div>
     </div>
   </section>

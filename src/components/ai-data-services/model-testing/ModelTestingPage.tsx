@@ -9,6 +9,7 @@ import WhoThisIsFor from "./WhoThisIsFor";
 import FAQSection from "../shared/FAQSection";
 import ServiceCTA from "../shared/ServiceCTA";
 import ServiceNarrativeSection from "../shared/ServiceNarrativeSection";
+import RoboticsServiceBridge from "../shared/RoboticsServiceBridge";
 import { Gauge, Microscope, CheckCircle } from "lucide-react";
 
 const faqs = [
@@ -49,7 +50,7 @@ const ModelTestingPage = () => (
     <SEOHead
       title="AI Model Testing & Evaluation | eQOURSE - Real-World Testing via TuTrain"
       description="Go beyond benchmarks. Test your AI models with real users across 30+ languages. Closed-loop feedback pipeline for 20-40% faster model improvement."
-      canonical="https://eqourse.com/ai-data-services/model-testing"
+      canonical="https://www.eqourse.com/ai-data-services/model-testing"
       keywords="AI model testing, model evaluation, A/B testing AI, dialect testing, WER measurement, closed-loop ML, TuTrain platform"
     />
 
@@ -105,6 +106,7 @@ const ModelTestingPage = () => (
     <ClosedLoopAdvantage />
     <TuTrainPlatform />
     <WhoThisIsFor />
+    <RoboticsServiceBridge context="evaluation" />
     <FAQSection faqs={faqs} />
     <ServiceCTA
       headline="Ready to Test Your Model?"

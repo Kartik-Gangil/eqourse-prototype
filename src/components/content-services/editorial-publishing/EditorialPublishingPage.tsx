@@ -45,7 +45,7 @@ const EditorialPublishingPage = () => (
     <SEOHead
       title="Editorial, Publishing & Designing Services | eQOURSE"
       description="Editorial services for publishers, EdTech firms and institutions: editing, production, conversion, metadata, design, prepress and support."
-      canonical="https://eqourse.com/content-services/editorial-publishing-designing-services"
+      canonical="https://www.eqourse.com/editorial-publishing-designing-services"
       keywords="editorial services, publishing production services, educational content editing, digital publishing services, prepress services, metadata services, image processing, design services"
     />
 

@@ -9,6 +9,7 @@ import TalentAdvantage from "./TalentAdvantage";
 import FAQSection from "../shared/FAQSection";
 import ServiceCTA from "../shared/ServiceCTA";
 import ServiceNarrativeSection from "../shared/ServiceNarrativeSection";
+import RoboticsServiceBridge from "../shared/RoboticsServiceBridge";
 import { FolderKanban, Users, Languages } from "lucide-react";
 
 const faqs = [
@@ -49,7 +50,7 @@ const DataCollectionPage = () => (
     <SEOHead
       title="AI Data Collection Services | eQOURSE - Multi-Modal, 30+ Languages"
       description="Custom text, audio, image, and video dataset collection across 30+ languages. Crowdsourced, web-sourced, and field collection methods with quality controls."
-      canonical="https://eqourse.com/ai-data-services/data-collection"
+      canonical="https://www.eqourse.com/ai-data-services/data-collection"
       keywords="AI data collection, training data, speech data, image dataset, multilingual data, crowdsourced data collection"
     />
 
@@ -106,6 +107,7 @@ const DataCollectionPage = () => (
     <CollectionMethods />
     <UseCases />
     <TalentAdvantage />
+    <RoboticsServiceBridge context="collection" />
     <FAQSection faqs={faqs} />
     <ServiceCTA
       headline="Ready to Build Your Dataset?"

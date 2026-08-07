@@ -14,6 +14,7 @@ import AIDataCollection from "./pages/AIDataCollection.tsx";
 import AIAnnotationLabeling from "./pages/AIAnnotationLabeling.tsx";
 import AICleaningValidation from "./pages/AICleaningValidation.tsx";
 import AIModelTesting from "./pages/AIModelTesting.tsx";
+import RoboticsTrainingData from "./pages/RoboticsTrainingData.tsx";
 import ContentServicesOverview from "./pages/ContentServicesOverview.tsx";
 import CustomElearningContent from "./pages/CustomElearningContent.tsx";
 import ExamPreparationContent from "./pages/ExamPreparationContent.tsx";
@@ -112,6 +113,7 @@ const App = () => (
               <Route path="/ai-data-services/annotation-labeling" element={<AIAnnotationLabeling />} />
               <Route path="/ai-data-services/cleaning-validation" element={<AICleaningValidation />} />
               <Route path="/ai-data-services/model-testing" element={<AIModelTesting />} />
+              <Route path="/robotics-training-data-services" element={<RoboticsTrainingData />} />
 
               {/* Content Service - Category Pages */}
               <Route path="/content-services" element={<ContentServicesOverview />} />

@@ -15,16 +15,26 @@ interface FAQSectionProps {
   faqs: FAQItem[];
   label?: string;
   title?: string;
+  onOpen?: (index: number, question: string) => void;
 }
 
-const FAQSection = ({ faqs, label = "FAQs", title = "Frequently Asked Questions" }: FAQSectionProps) => (
+const FAQSection = ({ faqs, label = "FAQs", title = "Frequently Asked Questions", onOpen }: FAQSectionProps) => (
   <section className="py-24 bg-background relative overflow-hidden">
     <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle, hsl(170 82% 40%) 1px, transparent 1px)", backgroundSize: "30px 30px" }} />
 
     <div className="container mx-auto px-4 relative z-10">
       <SectionHeader label={label} title={title} />
       <div className="max-w-4xl mx-auto">
-        <Accordion type="single" collapsible className="space-y-4">
+        <Accordion
+          type="single"
+          collapsible
+          className="space-y-4"
+          onValueChange={(value) => {
+            if (!value || !onOpen) return;
+            const index = Number(value.replace("faq-", ""));
+            if (Number.isInteger(index) && faqs[index]) onOpen(index, faqs[index].question);
+          }}
+        >
           {faqs.map((faq, index) => (
             <AccordionItem
               key={faq.question}

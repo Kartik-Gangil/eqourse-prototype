@@ -1,0 +1,95 @@
+# Generated from src/routes/legacyRedirects.ts. Do not edit by hand.
+Options -MultiViews
+DirectoryIndex index.html
+DirectorySlash Off
+RewriteEngine On
+
+# Legacy URLs redirect directly to the final HTTPS + www canonical URL.
+RewriteRule ^index/?$ https://www.eqourse.com/ [R=301,L,NE]
+RewriteRule ^index\.php/?$ https://www.eqourse.com/ [R=301,L,NE]
+RewriteRule ^index\.html/?$ https://www.eqourse.com/ [R=301,L,NE]
+RewriteRule ^career\.html/?$ https://www.eqourse.com/career [R=301,L,NE]
+RewriteRule ^free_pilot_signup/?$ https://www.eqourse.com/free-pilot [R=301,L,NE]
+RewriteRule ^blog-detail\.php/?$ https://www.eqourse.com/blog [R=301,L,NE]
+RewriteRule ^blogs/?$ https://www.eqourse.com/blog [R=301,L,NE]
+RewriteRule ^blogs/career/?$ https://www.eqourse.com/career [R=301,L,NE]
+RewriteRule ^custom-elearning-solutions/?$ https://www.eqourse.com/custom-e-learning-content [R=301,L,NE]
+RewriteRule ^blogs/key-features-online-assessment-system/?$ https://www.eqourse.com/digital-assessment-infrastructure [R=301,L,NE]
+RewriteRule ^blogs/five-key-indicators-adaptive-learning/?$ https://www.eqourse.com/adaptive-learning [R=301,L,NE]
+RewriteRule ^blogs/immersive-simulation-ai/?$ https://www.eqourse.com/immersive-simulation-ar-vr [R=301,L,NE]
+RewriteRule ^immersive-simulation-ai/?$ https://www.eqourse.com/immersive-simulation-ar-vr [R=301,L,NE]
+RewriteRule ^content-services/custom-e-learning-content/?$ https://www.eqourse.com/custom-e-learning-content [R=301,L,NE]
+RewriteRule ^content-services/exam-preparation-content/?$ https://www.eqourse.com/test-prep-content [R=301,L,NE]
+RewriteRule ^content-services/learning-solutions/?$ https://www.eqourse.com/learning-solutions [R=301,L,NE]
+RewriteRule ^content-services/elearning-video-solutions/?$ https://www.eqourse.com/elearning-video-solutions [R=301,L,NE]
+RewriteRule ^content-services/localization-services/?$ https://www.eqourse.com/localization-services [R=301,L,NE]
+RewriteRule ^content-services/technology-solutions/?$ https://www.eqourse.com/technology-solutions [R=301,L,NE]
+RewriteRule ^content-services/subject-matter-experts/?$ https://www.eqourse.com/smes [R=301,L,NE]
+RewriteRule ^content-services/accessibility/?$ https://www.eqourse.com/accessibility [R=301,L,NE]
+RewriteRule ^content-services/custom-e-learning-content/k12-and-higher-education/?$ https://www.eqourse.com/k12-and-higher-education [R=301,L,NE]
+RewriteRule ^content-services/custom-e-learning-content/k12-curriculum-development/?$ https://www.eqourse.com/k12-curriculum-development-and-design-services [R=301,L,NE]
+RewriteRule ^content-services/custom-e-learning-content/assessment-development/?$ https://www.eqourse.com/assessment-development-services [R=301,L,NE]
+RewriteRule ^content-services/custom-e-learning-content/educational-content-development/?$ https://www.eqourse.com/educational-content-development [R=301,L,NE]
+RewriteRule ^content-services/custom-e-learning-content/workbook-development/?$ https://www.eqourse.com/workbook-development [R=301,L,NE]
+RewriteRule ^content-services/custom-e-learning-content/teacher-lesson-plan/?$ https://www.eqourse.com/teacher-lesson-plan [R=301,L,NE]
+RewriteRule ^content-services/custom-e-learning-content/stem-curriculum/?$ https://www.eqourse.com/stem-curriculum-services [R=301,L,NE]
+RewriteRule ^content-services/custom-e-learning-content/stem-curriculum-services/?$ https://www.eqourse.com/stem-curriculum-services [R=301,L,NE]
+RewriteRule ^content-services/custom-e-learning-content/ebook-creation/?$ https://www.eqourse.com/interactive-ebook-creation [R=301,L,NE]
+RewriteRule ^content-services/custom-e-learning-content/2d-3d-videos/?$ https://www.eqourse.com/2d-3d-videos [R=301,L,NE]
+RewriteRule ^content-services/custom-e-learning-content/quiz-question-bank/?$ https://www.eqourse.com/quiz-question-bank-development [R=301,L,NE]
+RewriteRule ^content-services/exam-preparation-content/aptis/?$ https://www.eqourse.com/test-prep-content/aptis [R=301,L,NE]
+RewriteRule ^content-services/exam-preparation-content/toeic/?$ https://www.eqourse.com/test-prep-content/toeic [R=301,L,NE]
+RewriteRule ^content-services/exam-preparation-content/sat/?$ https://www.eqourse.com/test-prep-content/sat [R=301,L,NE]
+RewriteRule ^content-services/exam-preparation-content/act/?$ https://www.eqourse.com/test-prep-content/act [R=301,L,NE]
+RewriteRule ^content-services/exam-preparation-content/ap-exam/?$ https://www.eqourse.com/test-prep-content/ap-exam [R=301,L,NE]
+RewriteRule ^content-services/exam-preparation-content/ielts/?$ https://www.eqourse.com/test-prep-content/ielts [R=301,L,NE]
+RewriteRule ^content-services/exam-preparation-content/cefr/?$ https://www.eqourse.com/test-prep-content/cefr-placement-solutions [R=301,L,NE]
+RewriteRule ^content-services/exam-preparation-content/cefr-placement-solutions/?$ https://www.eqourse.com/test-prep-content/cefr-placement-solutions [R=301,L,NE]
+RewriteRule ^content-services/exam-preparation-content/pte/?$ https://www.eqourse.com/test-prep-content/pte [R=301,L,NE]
+RewriteRule ^content-services/exam-preparation-content/toefl/?$ https://www.eqourse.com/test-prep-content/toefl [R=301,L,NE]
+RewriteRule ^content-services/learning-solutions/ilt/?$ https://www.eqourse.com/ilt-solutions [R=301,L,NE]
+RewriteRule ^content-services/learning-solutions/corporate-elearning/?$ https://www.eqourse.com/corporate-e-learning-solutions [R=301,L,NE]
+RewriteRule ^content-services/learning-solutions/corporate-learning/?$ https://www.eqourse.com/corporate-e-learning-solutions [R=301,L,NE]
+RewriteRule ^content-services/learning-solutions/training-modules/?$ https://www.eqourse.com/training-modules [R=301,L,NE]
+RewriteRule ^content-services/learning-solutions/gamified-learning/?$ https://www.eqourse.com/gamified-learning [R=301,L,NE]
+RewriteRule ^content-services/learning-solutions/adaptive-learning/?$ https://www.eqourse.com/adaptive-learning [R=301,L,NE]
+RewriteRule ^content-services/learning-solutions/blended-learning/?$ https://www.eqourse.com/blended-learning [R=301,L,NE]
+RewriteRule ^content-services/learning-solutions/ar-vr/?$ https://www.eqourse.com/immersive-simulation-ar-vr [R=301,L,NE]
+RewriteRule ^content-services/learning-solutions/instructional-design/?$ https://www.eqourse.com/instructional-design-services [R=301,L,NE]
+RewriteRule ^content-services/learning-solutions/ai-powered-learning/?$ https://www.eqourse.com/optimizing-ai-powered-learning [R=301,L,NE]
+RewriteRule ^content-services/elearning-video-solutions/2d-3d-videos/?$ https://www.eqourse.com/2d-3d-videos [R=301,L,NE]
+RewriteRule ^content-services/elearning-video-solutions/ppt-videos/?$ https://www.eqourse.com/ppt-videos-services [R=301,L,NE]
+RewriteRule ^content-services/elearning-video-solutions/articulate-storyline/?$ https://www.eqourse.com/articulate-storyline-services [R=301,L,NE]
+RewriteRule ^content-services/elearning-video-solutions/animated-videos/?$ https://www.eqourse.com/animated-videos-services [R=301,L,NE]
+RewriteRule ^content-services/localization-services/translation/?$ https://www.eqourse.com/translation-services [R=301,L,NE]
+RewriteRule ^content-services/localization-services/voice-over/?$ https://www.eqourse.com/voice-over-services [R=301,L,NE]
+RewriteRule ^content-services/localization-services/subtitling/?$ https://www.eqourse.com/subtitling-services [R=301,L,NE]
+RewriteRule ^content-services/technology-solutions/lms-course-builds/?$ https://www.eqourse.com/lms-course-builds [R=301,L,NE]
+RewriteRule ^content-services/technology-solutions/white-label-lms/?$ https://www.eqourse.com/white-label-lms [R=301,L,NE]
+RewriteRule ^content-services/subject-matter-experts/recruitment/?$ https://www.eqourse.com/tutors-and-sme-recruitment [R=301,L,NE]
+RewriteRule ^content-services/subject-matter-experts/training/?$ https://www.eqourse.com/tutors-and-sme-training [R=301,L,NE]
+RewriteRule ^content-services/subject-matter-experts/training-certification/?$ https://www.eqourse.com/tutors-and-sme-training [R=301,L,NE]
+RewriteRule ^content-services/subject-matter-experts/live-tutors/?$ https://www.eqourse.com/live-online-tutor [R=301,L,NE]
+RewriteRule ^content-services/subject-matter-experts/live-online-tutors/?$ https://www.eqourse.com/live-online-tutor [R=301,L,NE]
+RewriteRule ^contact/?$ https://www.eqourse.com/contact-us [R=301,L,NE]
+
+# Enforce one canonical protocol and host for preferred URLs.
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !^www\.eqourse\.com$ [NC]
+RewriteRule ^ https://www.eqourse.com%{REQUEST_URI} [R=301,L,NE]
+
+# Serve prerendered route HTML without forcing trailing slashes.
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+RewriteRule ^(.+?)/?$ $1/index.html [L]
+
+# SPA fallback for dynamic CMS and client-side routes.
+RewriteRule ^ index.html [L]
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+</IfModule>

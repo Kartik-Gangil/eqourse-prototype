@@ -44,7 +44,7 @@ const OverviewPage = () => (
     <SEOHead
       title="AI Data Services | eQOURSE - End-to-End AI Training Data Solutions"
       description="Production-grade AI training data: collection, annotation, cleaning, and model testing across 30+ languages. ISO-certified, 98%+ accuracy, GDPR-compliant."
-      canonical="https://eqourse.com/ai-data-services"
+      canonical="https://www.eqourse.com/ai-data-services"
       keywords="AI data services, data annotation, data labeling, data collection, model testing, training data, RLHF, NLP annotation"
     />
 

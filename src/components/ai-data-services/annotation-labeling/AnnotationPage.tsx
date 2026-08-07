@@ -7,6 +7,7 @@ import OutputFormats from "./OutputFormats";
 import FAQSection from "../shared/FAQSection";
 import ServiceCTA from "../shared/ServiceCTA";
 import ServiceNarrativeSection from "../shared/ServiceNarrativeSection";
+import RoboticsServiceBridge from "../shared/RoboticsServiceBridge";
 import { Tag, Edit3, ClipboardCheck } from "lucide-react";
 
 const faqs = [
@@ -47,7 +48,7 @@ const AnnotationPage = () => (
     <SEOHead
       title="AI Data Annotation & Labeling Services | eQOURSE"
       description="Expert NLP, Computer Vision, Audio, and RLHF annotation. IAA >= 0.80, multi-tier QA, 98%+ accuracy. COCO, CoNLL, JSONL output formats."
-      canonical="https://eqourse.com/ai-data-services/annotation-labeling"
+      canonical="https://www.eqourse.com/ai-data-services/annotation-labeling"
       keywords="data annotation, data labeling, NER annotation, bounding box, semantic segmentation, RLHF labeling, NLP annotation, computer vision annotation"
     />
 
@@ -101,6 +102,7 @@ const AnnotationPage = () => (
     <AnnotationTypes />
     <QualityFramework />
     <OutputFormats />
+    <RoboticsServiceBridge context="annotation" />
     <FAQSection faqs={faqs} />
     <ServiceCTA
       headline="Need Expert Annotations?"

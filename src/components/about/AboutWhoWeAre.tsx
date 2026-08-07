@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BookOpen, Brain, GraduationCap, Network, Users, Award } from "lucide-react";
+import { BookOpen, Brain, GraduationCap, Network, Users, Award, Bot } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const contentServicesFeatures = [
@@ -12,6 +12,7 @@ const aiFeatures = [
   { text: "Custom Dataset Collection", icon: Network },
   { text: "Expert Annotation (NLP, CV, Audio)", icon: Brain },
   { text: "Real-world Model Testing (TuTrain)", icon: Award },
+  { text: "Robotics & Physical AI Training Data", icon: Bot },
 ];
 
 const AboutWhoWeAre = () => {
@@ -102,7 +103,7 @@ const AboutWhoWeAre = () => {
             
             <h3 className="text-2xl font-bold mb-4 text-foreground">AI Data Services</h3>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              Our AI Data Services division delivers end-to-end AI training data pipelines - custom dataset collection, expert annotation, data cleaning, and real-world model testing.
+              Our AI Data Services division delivers end-to-end AI training data pipelines—custom dataset collection, expert annotation, data cleaning, real-world model testing, and multimodal training data for Robotics and Physical AI.
             </p>
 
             <ul className="space-y-3">
@@ -123,6 +124,9 @@ const AboutWhoWeAre = () => {
               >
                 Explore AI Data Services
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </Link>
+              <Link to="/robotics-training-data-services" className="ml-5 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+                Explore Robotics Data
               </Link>
             </div>
           </motion.div>

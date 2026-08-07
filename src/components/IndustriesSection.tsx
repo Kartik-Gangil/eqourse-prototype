@@ -27,6 +27,16 @@ const industries = [
     fallback: "linear-gradient(135deg,hsl(196,80%,22%),hsl(242,33%,18%))",
     tag: "ai",
   },
+  {
+    title: "Robotics & Embodied AI",
+    desc: "Human demonstrations, egocentric video and multimodal data for robots that perceive, reason and act.",
+    img: "/assets/ai-data/robotics/robotics-training-data-hero-960.webp",
+    imageAlt: "Engineer preparing robotics training data with a collaborative robot for Physical AI",
+    imageTitle: "Robotics and Embodied AI training data services",
+    fallback: "linear-gradient(135deg,hsl(170,72%,20%),hsl(242,33%,18%))",
+    tag: "ai",
+    link: "/robotics-training-data-services",
+  },
   // Content Services
   {
     title: "NGOs & Development Organizations",
@@ -308,7 +318,8 @@ const IndustriesSection = () => {
                 {ind.img ? (
                   <img
                     src={ind.img}
-                    alt={`${ind.title} solutions by eQOURSE - AI Data and Content Services`}
+                    alt={ind.imageAlt || `${ind.title} solutions by eQOURSE - AI Data and Content Services`}
+                    title={ind.imageTitle || `${ind.title} solutions by eQOURSE`}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -336,11 +347,8 @@ const IndustriesSection = () => {
 
               {/* ── Content lower half ── */}
               <div className="p-4 sm:p-5">
-                <h3
-                  className="font-heading font-bold text-sm sm:text-base leading-snug mb-2 transition-colors duration-300"
-                  style={{ color: "hsl(0, 0%, 95%)" }}
-                >
-                  {ind.title}
+                <h3 className="font-heading font-bold text-sm sm:text-base leading-snug mb-2 transition-colors duration-300" style={{ color: "hsl(0, 0%, 95%)" }}>
+                  {ind.link ? <Link to={ind.link} className="hover:text-primary transition-colors">{ind.title}</Link> : ind.title}
                 </h3>
                 <p
                   className="text-xs sm:text-sm leading-relaxed"

@@ -1,12 +1,15 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Loader2, CheckCircle, UploadCloud, X, FileText, Sparkles, AlertCircle } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { submitFreePilotForm } from "@/lib/publicApi";
+import { trackRoboticsEvent } from "@/lib/roboticsAnalytics";
 
 const FreePilotFormSection = () => {
-  const [pilotType, setPilotType] = useState<string>("");
-  const [serviceDetail, setServiceDetail] = useState<string>("");
+  const [searchParams] = useSearchParams();
+  const isRoboticsReferral = searchParams.get("service") === "robotics-training-data";
+  const [pilotType, setPilotType] = useState<string>(() => isRoboticsReferral ? "AI Data Services Pilot" : "");
+  const [serviceDetail, setServiceDetail] = useState<string>(() => isRoboticsReferral ? "Robotics & Physical AI Training Data" : "");
   const [file, setFile] = useState<File | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -16,6 +19,7 @@ const FreePilotFormSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const formStartTracked = useRef(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,10 +35,20 @@ const FreePilotFormSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Reset service detail when pilot type changes
   useEffect(() => {
-    setServiceDetail("");
-  }, [pilotType]);
+    if (window.location.hash !== "#pilot-form") return;
+    const timer = window.setTimeout(() => sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 350);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  const handleFormStart = () => {
+    if (!isRoboticsReferral || formStartTracked.current) return;
+    formStartTracked.current = true;
+    trackRoboticsEvent("robotics_form_start", {
+      form_type: "free-pilot",
+      source_page: "robotics-training-data-services",
+    });
+  };
 
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
@@ -111,6 +125,7 @@ const FreePilotFormSection = () => {
   ];
 
   const aiDataServices = [
+    "Robotics & Physical AI Training Data",
     "NLP Annotation (NER, Sentiment, Intent, Relation Extraction)",
     "Computer Vision Annotation (Bounding Box, Segmentation, Keypoint)",
     "Audio / Speech Annotation (Transcription, Diarisation, Emotion)",
@@ -206,7 +221,7 @@ const FreePilotFormSection = () => {
             <Sparkles className="w-20 h-20 text-primary" />
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-7 relative z-10">
+          <form onSubmit={handleSubmit} onFocusCapture={handleFormStart} className="space-y-7 relative z-10">
             {/* Row 1: Name + Email */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
@@ -272,7 +287,10 @@ const FreePilotFormSection = () => {
                       name="pilotType"
                       value={option.value}
                       checked={pilotType === option.value}
-                      onChange={(e) => setPilotType(e.target.value)}
+                      onChange={(e) => {
+                        setPilotType(e.target.value);
+                        setServiceDetail("");
+                      }}
                       className="w-4 h-4 text-primary focus:ring-primary border-border accent-[#00B4A6]"
                       required
                     />

@@ -12,7 +12,7 @@ const ContentServicesStubPage = () => {
       <SEOHead
         title={`${title} | eQOURSE`}
         description={`Learn more about our ${title} services.`}
-        canonical={`https://eqourse.com${pathname}`}
+        canonical={`https://www.eqourse.com${pathname}`}
       />
       <div className="min-h-[70vh] flex items-center justify-center bg-background px-4">
         <div className="text-center max-w-md w-full p-8 rounded-3xl neon-card border border-border/50 bg-card">

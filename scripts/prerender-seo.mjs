@@ -36,7 +36,7 @@ const CMS_API_BASE = configuredApiBase.startsWith("http")
   : SITE_URL;
 
 function parsePageSeo(source) {
-  const pattern = /"(\/[^"]*)":\s*\{\s*title:\s*"((?:[^"\\]|\\.)*)",\s*description:\s*"((?:[^"\\]|\\.)*)",/gs;
+  const pattern = /"(\/[^"]*)":\s*\{\s*title:\s*"((?:[^"\\]|\\.)*)",\s*description:\s*"((?:[^"\\]|\\.)*)",(?:\s*canonical:\s*"((?:[^"\\]|\\.)*)",)?/gs;
   const entries = [];
   let match;
   while ((match = pattern.exec(source)) !== null) {
@@ -44,6 +44,7 @@ function parsePageSeo(source) {
       path: match[1],
       title: match[2].replace(/\\"/g, '"'),
       description: match[3].replace(/\\"/g, '"'),
+      canonical: match[4]?.replace(/\\"/g, '"'),
     });
   }
   return entries;
@@ -57,14 +58,45 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;");
 }
 
+function escapeXml(str) {
+  return escapeHtml(str).replace(/'/g, "&apos;");
+}
+
+function buildCrawlFallback({ path, title, description }) {
+  const heading = title.replace(/\s*(?:\||\u2013|\u2014)\s*eQOURSE.*$/i, "").trim();
+  const sharedLinks = path.startsWith("/ai-data") || path.startsWith("/robotics")
+    ? [
+        ["/ai-data-services", "AI Data Services"],
+        ["/ai-data-services/data-collection", "AI Data Collection"],
+        ["/ai-data-services/annotation-labeling", "Data Annotation and Labeling"],
+        ["/robotics-training-data-services", "Robotics Training Data Services"],
+      ]
+    : path.includes("samples")
+      ? [["/samples", "Samples"], ["/content-services", "Content Services"], ["/contact-us", "Contact eQOURSE"]]
+      : [["/content-services", "Content Services"], ["/learning-solutions", "Learning Solutions"], ["/contact-us", "Contact eQOURSE"]];
+
+  const links = [["/", "Home"], ...sharedLinks]
+    .filter(([href]) => href !== path)
+    .map(([href, label]) => `<a href="${href}">${escapeHtml(label)}</a>`)
+    .join("\n        ");
+
+  return `<main data-seo-prerender="true">
+      <h1>${escapeHtml(heading)}</h1>
+      <p>${escapeHtml(description)}</p>
+      <nav aria-label="Related pages">
+        ${links}
+      </nav>
+    </main>`;
+}
+
 function toAbsoluteUrl(value) {
   if (!value) return OG_IMAGE;
   if (/^https?:\/\//i.test(value)) return value;
   return `${SITE_URL}${value.startsWith("/") ? value : `/${value}`}`;
 }
 
-function buildHead(template, { path, title, description, ogType = "website", image = OG_IMAGE }) {
-  const canonical = `${SITE_URL}${path === "/" ? "/" : path.replace(/\/+$/, "")}`;
+function buildHead(template, { path, title, description, canonical: canonicalOverride, ogType = "website", image = OG_IMAGE }) {
+  const canonical = canonicalOverride || `${SITE_URL}${path === "/" ? "/" : path.replace(/\/+$/, "")}`;
   const t = escapeHtml(title);
   const d = escapeHtml(description);
 
@@ -74,6 +106,7 @@ function buildHead(template, { path, title, description, ogType = "website", ima
   // idempotent and no route ever ships more than one of these.
   html = html.replace(/<title[^>]*>[\s\S]*?<\/title>\s*/g, "");
   html = html.replace(/<meta[^>]*\bname="description"[^>]*>\s*/g, "");
+  html = html.replace(/<meta[^>]*\bname="(?:robots|googlebot)"[^>]*>\s*/g, "");
   html = html.replace(/<link[^>]*\brel="canonical"[^>]*>\s*/g, "");
   html = html.replace(/<meta[^>]*\bproperty="og:[^"]*"[^>]*>\s*/g, "");
   html = html.replace(/<meta[^>]*\bname="twitter:[^"]*"[^>]*>\s*/g, "");
@@ -89,6 +122,7 @@ function buildHead(template, { path, title, description, ogType = "website", ima
   const block = [
     `<title data-rh="true">${t}</title>`,
     `<meta data-rh="true" name="description" content="${d}" />`,
+    `<meta data-rh="true" name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />`,
     `<link data-rh="true" rel="canonical" href="${canonical}" />`,
     `<meta data-rh="true" property="og:type" content="${escapeHtml(ogType)}" />`,
     `<meta data-rh="true" property="og:site_name" content="eQOURSE" />`,
@@ -106,7 +140,11 @@ function buildHead(template, { path, title, description, ogType = "website", ima
     `<meta data-rh="true" name="twitter:image" content="${escapeHtml(toAbsoluteUrl(image))}" />`,
   ].join("\n    ");
 
-  return html.replace(/<meta charset="UTF-8" \/>/, (m) => `${m}\n    ${block}`);
+  html = html.replace(/<meta charset="UTF-8" \/>/, (m) => `${m}\n    ${block}`);
+  return html.replace(
+    /<div id="root"><\/div>/,
+    `<div id="root">${buildCrawlFallback({ path, title, description })}</div>`,
+  );
 }
 
 async function fetchCmsItems(resource) {
@@ -142,6 +180,7 @@ async function loadCmsSeoEntries() {
       description: blog.seo?.description?.trim() || blog.excerpt,
       ogType: "article",
       image: blog.seo?.ogImageUrl || blog.coverImageUrl || OG_IMAGE,
+      lastmod: blog.updatedAt || blog.publishedAt,
       source: "blog",
     }));
 
@@ -153,6 +192,7 @@ async function loadCmsSeoEntries() {
       description: study.seo?.description?.trim() || study.summary || study.challenge?.slice(0, 160),
       ogType: "article",
       image: study.seo?.ogImageUrl || study.heroImageUrl || OG_IMAGE,
+      lastmod: study.updatedAt || study.publishedAt,
       source: "case-study",
     }));
 
@@ -205,6 +245,19 @@ async function main() {
     JSON.stringify(entries, null, 2),
     "utf-8",
   );
+
+  const sitemap = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ...entries.map((entry) => {
+      const canonical = entry.canonical || `${SITE_URL}${entry.path === "/" ? "/" : entry.path.replace(/\/+$/, "")}`;
+      const lastmod = entry.lastmod ? `<lastmod>${escapeXml(String(entry.lastmod).slice(0, 10))}</lastmod>` : "";
+      return `  <url><loc>${escapeXml(canonical)}</loc>${lastmod}</url>`;
+    }),
+    '</urlset>',
+    '',
+  ].join("\n");
+  writeFileSync(join(distDir, "sitemap.xml"), sitemap, "utf8");
 
   console.log(
     `[prerender-seo] Wrote ${written} route(s): ${staticEntries.length} static and ${cmsEntries.length} CMS detail route(s).`,

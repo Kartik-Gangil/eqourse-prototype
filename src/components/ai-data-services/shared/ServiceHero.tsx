@@ -24,10 +24,20 @@ interface ServiceHeroProps {
    * so there are no empty side bars regardless of the source aspect ratio.
    */
   imageSrc?: string;
+  /** Optional AVIF source rendered before imageSrc in a responsive picture. */
+  imageAvifSrc?: string;
   /**
    * SEO-optimized alt text for the banner. Strongly recommended when imageSrc/videoSrc is set.
    */
   imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  secondaryCtaText?: string;
+  secondaryCtaLink?: string;
+  onCtaClick?: () => void;
+  onSecondaryCtaClick?: () => void;
+  trustStats?: { value: string; label: string }[];
+  tone?: "dark" | "light";
   /**
    * Optional custom badges to rotate in the top right. 
    * Array must contain exactly 3 items for best effect, but will rotate any number.
@@ -79,7 +89,16 @@ const ServiceHero = ({
   illustration,
   videoSrc,
   imageSrc,
+  imageAvifSrc,
   imageAlt,
+  imageWidth = 1280,
+  imageHeight = 960,
+  secondaryCtaText,
+  secondaryCtaLink,
+  onCtaClick,
+  onSecondaryCtaClick,
+  trustStats,
+  tone = "dark",
   rotatingBadges,
   bottomBadge,
 }: ServiceHeroProps) => {
@@ -97,6 +116,8 @@ const ServiceHero = ({
   const chip = activeChips[chipIndex];
   const ChipIcon = chip.icon;
   const ctaIsRoute = ctaLink.startsWith("/");
+  const secondaryCtaIsRoute = secondaryCtaLink?.startsWith("/");
+  const isLight = tone === "light";
   
   const bottomBadgeData = bottomBadge || {
     iconText: "AI",
@@ -105,7 +126,7 @@ const ServiceHero = ({
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-hero min-h-[90vh] flex items-center">
+    <section className={`relative min-h-[90vh] overflow-hidden flex items-center ${isLight ? "bg-[linear-gradient(135deg,hsl(160_30%_99%),hsl(165_35%_94%))]" : "bg-gradient-hero"}`}>
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/12 rounded-full blur-3xl animate-float" />
         <div className="absolute bottom-14 right-12 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float-delayed" />
@@ -127,47 +148,70 @@ const ServiceHero = ({
               <span className="text-xs md:text-sm font-semibold tracking-wider uppercase text-primary">{preHeadline}</span>
             </div>
 
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white animate-slide-up-delayed">
+            <h1 className={`font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight animate-slide-up-delayed ${isLight ? "text-foreground" : "text-white"}`}>
               {headline}{" "}
               {headlineAccent && <span className="text-gradient">{headlineAccent}</span>}
             </h1>
 
-            <p className="text-lg md:text-xl text-white/75 animate-slide-up-delayed-2 max-w-2xl">{subtext}</p>
+            <p className={`text-lg md:text-xl animate-slide-up-delayed-2 max-w-2xl ${isLight ? "text-muted-foreground" : "text-white/75"}`}>{subtext}</p>
 
             <div className="flex flex-wrap gap-4 animate-slide-up-delayed-2">
               {ctaIsRoute ? (
-                <Link to={ctaLink}>
+                <Link to={ctaLink} onClick={onCtaClick}>
                   <Button size="lg" className="bg-gradient-primary border-0 text-primary-foreground shadow-soft hover:opacity-90 transition-all hover:scale-[1.02] px-8">
                     {ctaText}
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
                 </Link>
               ) : (
-                <a href={ctaLink}>
+                <a href={ctaLink} onClick={onCtaClick}>
                   <Button size="lg" className="bg-gradient-primary border-0 text-primary-foreground shadow-soft hover:opacity-90 transition-all hover:scale-[1.02] px-8">
                     {ctaText}
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
                 </a>
               )}
+              {secondaryCtaText && secondaryCtaLink && (
+                secondaryCtaIsRoute ? (
+                  <Link to={secondaryCtaLink} onClick={onSecondaryCtaClick}>
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className={`backdrop-blur-xl px-8 ${isLight ? "border-foreground/15 bg-white/60 text-foreground hover:bg-white hover:text-foreground" : "border-white/30 bg-white/10 text-white hover:bg-white/20 hover:text-white"}`}
+                    >
+                      {secondaryCtaText}
+                    </Button>
+                  </Link>
+                ) : (
+                  <a href={secondaryCtaLink} onClick={onSecondaryCtaClick}>
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className={`backdrop-blur-xl px-8 ${isLight ? "border-foreground/15 bg-white/60 text-foreground hover:bg-white hover:text-foreground" : "border-white/30 bg-white/10 text-white hover:bg-white/20 hover:text-white"}`}
+                    >
+                      {secondaryCtaText}
+                    </Button>
+                  </a>
+                )
+              )}
             </div>
 
-            <div className="grid grid-cols-3 gap-4 sm:gap-8 pt-2 animate-slide-up-delayed-2">
-              {[
+            <div className={`grid gap-4 sm:gap-8 pt-2 animate-slide-up-delayed-2 ${(trustStats?.length || 3) >= 4 ? "grid-cols-2 sm:grid-cols-4" : "grid-cols-3"}`}>
+              {(trustStats || [
                 { value: "500+", label: "Specialists" },
                 { value: "30+", label: "Languages" },
                 { value: "98%+", label: "Accuracy" },
-              ].map((stat) => (
+              ]).map((stat) => (
                 <div key={stat.label}>
                   <div className="text-2xl md:text-3xl font-bold text-gradient">{stat.value}</div>
-                  <div className="text-xs text-white/60 mt-1">{stat.label}</div>
+                  <div className={`text-xs mt-1 ${isLight ? "text-muted-foreground" : "text-white/60"}`}>{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
 
           <div className="relative animate-slide-up-delayed">
-            <div className="relative rounded-3xl overflow-hidden shadow-elevated border border-white/10 bg-gradient-to-br from-primary/20 via-foreground/30 to-accent/20">
+            <div className={`relative rounded-3xl overflow-hidden shadow-elevated border ${isLight ? "border-white/80 bg-white/55" : "border-white/10 bg-gradient-to-br from-primary/20 via-foreground/30 to-accent/20"}`}>
               {videoSrc ? (
                 /* Responsive 16:9 YouTube embed — SEO: title attr used by Google for video indexing */
                 <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
@@ -182,13 +226,18 @@ const ServiceHero = ({
                 </div>
               ) : imageSrc ? (
                 /* Fill the hero box completely - no side gaps regardless of source ratio */
-                <img
-                  src={imageSrc}
-                  alt={imageAlt || "eQOURSE service banner"}
-                  loading="eager"
-                  decoding="async"
-                  className="w-full h-[360px] md:h-[430px] object-cover block"
-                />
+                <picture>
+                  {imageAvifSrc && <source srcSet={imageAvifSrc} type="image/avif" />}
+                  <img
+                    src={imageSrc}
+                    alt={imageAlt || "eQOURSE service banner"}
+                    width={imageWidth}
+                    height={imageHeight}
+                    loading="eager"
+                    decoding="async"
+                    className="w-full h-[360px] md:h-[430px] object-cover block"
+                  />
+                </picture>
               ) : (
                 <>
                   <img
@@ -203,14 +252,14 @@ const ServiceHero = ({
               )}
             </div>
 
-            <div className="absolute -top-4 -right-3 sm:-right-4 rounded-xl p-3 shadow-elevated hidden md:block bg-black/45 border border-white/20 backdrop-blur-xl">
+            <div className={`absolute -top-4 -right-3 sm:-right-4 rounded-xl p-3 shadow-elevated hidden md:block border backdrop-blur-xl ${isLight ? "bg-white/75 border-white/80" : "bg-black/45 border-white/20"}`}>
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center">
                   <ChipIcon className="w-4 h-4" style={{ color: chip.color }} />
                 </div>
                 <div>
                   <div className="text-xs font-semibold" style={{ color: chip.color }}>{chip.title}</div>
-                  <div className="text-[10px] text-white/60">{chip.subtitle}</div>
+                  <div className={`text-[10px] ${isLight ? "text-muted-foreground" : "text-white/60"}`}>{chip.subtitle}</div>
                 </div>
               </div>
               <div className="hero-chip-bar" key={chipIndex} style={{ background: chip.color }} />
