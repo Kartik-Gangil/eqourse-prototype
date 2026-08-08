@@ -1,0 +1,458 @@
+{
+ "/ai-data-services": [
+  "AI Data Services – Scalable AI Solutions | Eqourse",
+  "Scale AI development with expert data collection, annotation, validation and model testing services. Start your free pilot."
+ ],
+ "/aboutus": [
+  "Online Learning Platform – Upskill Today | EQourse",
+  "Learn about eQOURSE, a trusted Content Services & AI Data Services company serving global clients. Discover our story and expertise."
+ ],
+ "/gallery": [
+  "Course Gallery – Explore Featured Works | Eqourse",
+  "Explore the eQOURSE gallery showcasing our team, projects, events and milestones in Content Services & AI Data Services. View now."
+ ],
+ "/clients-testimonials": [
+  "Client Testimonials – Client Success Stories | EQourse",
+  "Read client testimonials and discover why global organizations trust eQOURSE for Content Services & AI Data Services. Learn more."
+ ],
+ "/career": [
+  "Career Programs – Upskill & Get Hired | Eqourse",
+  "Join eQOURSE and build your career in Content Services & AI Data Services. Explore exciting opportunities and apply today."
+ ],
+ "/faq": [
+  "Eqourse FAQs: Everything You Need to Know",
+  "Find answers about Content Services, AI Data Services, free pilots, data annotation and project delivery. Visit our FAQ page."
+ ],
+ "/contact-us": [
+  "Contact Us | Eqourse",
+  "Contact eQOURSE for expert Content Services & AI Data Services. Discuss your project and receive a tailored solution. Get in touch."
+ ],
+ "/free-pilot": [
+  "Free eLearning Pilot – Custom Course Creation | Eqourse",
+  "Try eQOURSE with a free pilot for Content Services or AI Data Services. Evaluate our quality before you commit. Apply today."
+ ],
+ "/casestudy": [
+  "How to Scale Online Courses: Real Success Case Studies",
+  "Explore eQOURSE case studies in AI data and content services. See real solutions, measurable results and client success stories."
+ ],
+ "/blog": [
+  "How to Upskill & Boost Your Career | Eqourse Blog",
+  "Explore expert insights on AI data, e-learning, assessments and content development. Read the latest eQOURSE blog articles."
+ ],
+ "/privacy_policy": [
+  "Privacy Policy | Eqourse",
+  "Read the eQOURSE Privacy Policy to learn how we collect, use, store and protect your personal information. Review it today."
+ ],
+ "/sitemap": [
+  "Online Courses Directory – Learn Top Skills | Eqourse",
+  "Explore the eQOURSE sitemap to quickly find AI data, content, learning, accessibility and assessment service pages."
+ ],
+ "/tutrain": [
+  "TuTrain – AI Corporate Training Platform | Eqourse",
+  "Discover Tutrain online tutoring solutions from eQOURSE. Explore personalized learning support and help students succeed."
+ ],
+ "/ai-data-services/data-collection": [
+  "AI Data Collection Services - Custom Datasets | Eqourse",
+  "Collect diverse, high-quality AI training data across formats, domains and languages. Explore eQOURSE data collection services."
+ ],
+ "/ai-data-services/annotation-labeling": [
+  "Data Annotation & Labeling – Accurate AI Data | Eqourse",
+  "Improve model accuracy with expert AI data annotation and labeling for text, images, audio and video. Start a free pilot."
+ ],
+ "/ai-data-services/cleaning-validation": [
+  "AI Data Cleaning & Validation – High Accuracy | Eqourse",
+  "Improve dataset quality with expert AI data cleaning and validation. Remove errors, verify labels and build reliable models."
+ ],
+ "/ai-data-services/model-testing": [
+  "AI Model Testing – Ensure Model Accuracy | Eqourse",
+  "Test AI models for accuracy, safety, reliability and real-world performance with expert evaluation services. Start a free pilot."
+ ],
+ "/content-services": [
+  "Content Creation Services | Eqourse",
+  "Create engaging learning experiences with expert content development, assessments, localization and technology solutions."
+ ],
+ "/custom-e-learning-content": [
+  "Custom E-Learning Content – Tailored Solutions | Eqourse",
+  "Create engaging custom e-learning content tailored to your learners, goals and platform. Partner with eQOURSE today."
+ ],
+ "/test-prep-content": [
+  "Test Prep Content – Custom Solutions | Eqourse",
+  "Develop accurate, exam-aligned test prep content, question banks and practice materials. Explore eQOURSE solutions today."
+ ],
+ "/learning-solutions": [
+  "Custom Learning Solutions – Scalable eLearning | Eqourse",
+  "Deliver effective learning with custom courses, training modules, gamification and adaptive solutions. Explore eQOURSE."
+ ],
+ "/elearning-video-solutions": [
+  "Custom eLearning Video Solutions | Eqourse",
+  "Create engaging e-learning videos with animation, expert narration and instructional design. Explore eQOURSE video solutions."
+ ],
+ "/localization-services": [
+  "Professional Localization Services | Eqourse",
+  "Adapt learning content for global audiences with expert translation, voice-over and subtitling services. Explore eQOURSE."
+ ],
+ "/technology-solutions": [
+  "Technology Solutions & IT Services | Eqourse",
+  "Deliver digital learning with LMS course builds, white-label platforms and technology solutions. Explore eQOURSE services."
+ ],
+ "/smes": [
+  "SME Training Courses – Upskill Your Team | Eqourse",
+  "Access experienced subject matter experts for content development, assessments and academic projects. Partner with eQOURSE."
+ ],
+ "/accessibility": [
+  "Web Accessibility Statement | Eqourse",
+  "Make digital learning inclusive with accessibility audits, remediation and compliance support. Explore eQOURSE services."
+ ],
+ "/talent-assessment-workforce-evaluation": [
+  "Talent Assessment – Optimize Your Workforce | Eqourse",
+  "Evaluate skills, competencies and workforce readiness with tailored talent assessment solutions. Explore eQOURSE services."
+ ],
+ "/editorial-publishing-designing-services": [
+  "Editorial Publishing & Design Services | Eqourse",
+  "Create polished publications with expert editorial, design, conversion and production services. Explore eQOURSE solutions."
+ ],
+ "/k12-and-higher-education": [
+  "K-12 & Higher Ed Solutions – Custom eLearning | Eqourse",
+  "Develop engaging K–12 and higher education content with expert curriculum, assessment and multimedia support. Explore eQOURSE."
+ ],
+ "/k12-curriculum-development-and-design-services": [
+  "K-12 Curriculum Design & Development | EQourse",
+  "Build standards-aligned K–12 curricula with expert instructional design, assessments and learning resources. Explore eQOURSE."
+ ],
+ "/assessment-development-services": [
+  "Assessment Development Services – Custom Solutions | Eqourse",
+  "Create valid, reliable assessments aligned with learning objectives and standards. Explore eQOURSE development services."
+ ],
+ "/educational-content-development": [
+  "Educational Content Development Services | Eqourse",
+  "Create accurate, engaging educational content for print, digital and blended learning. Explore eQOURSE services today."
+ ],
+ "/workbook-development": [
+  "Custom Workbook Development – Interactive Design | Eqourse",
+  "Create engaging student workbooks with structured lessons, practice activities and assessments. Explore eQOURSE services."
+ ],
+ "/teacher-lesson-plan": [
+  "Teacher Lesson Plans – Easy Templates | Eqourse",
+  "Develop practical teacher lesson plans with objectives, activities, assessments and resources. Explore eQOURSE services."
+ ],
+ "/stem-curriculum-services": [
+  "STEM Curriculum Services – Custom K-12 | Eqourse",
+  "Create engaging STEM curricula with hands-on activities, assessments and real-world learning. Explore eQOURSE services."
+ ],
+ "/interactive-ebook-creation": [
+  "Interactive eBook Creation – Engage Readers | Eqourse",
+  "Transform learning content into interactive e-books with multimedia, activities and responsive design. Explore eQOURSE."
+ ],
+ "/2d-3d-videos": [
+  "2D & 3D Video Services – Custom Animation | Eqourse",
+  "Explain complex ideas with engaging 2D and 3D educational videos. Explore animation services from eQOURSE today."
+ ],
+ "/quiz-question-bank-development": [
+  "Quiz Question Bank Development – Custom eLearning | Eqourse",
+  "Build accurate quizzes and question banks aligned with curricula and learning goals. Explore eQOURSE services today."
+ ],
+ "/test-prep-content/aptis": [
+  "Aptis Test Prep – Ace Your Exam | Eqourse",
+  "Develop APTIS test prep content with exam-aligned practice, questions and explanations. Partner with eQOURSE today."
+ ],
+ "/test-prep-content/toeic": [
+  "TOEIC Test Prep – Boost Your Score | Eqourse",
+  "Create TOEIC test prep content with realistic practice questions, explanations and skill-building activities. Explore eQOURSE."
+ ],
+ "/test-prep-content/sat": [
+  "SAT Test Prep – Boost Your Score | Eqourse",
+  "Develop SAT prep content with exam-aligned questions, practice tests and detailed explanations. Explore eQOURSE services."
+ ],
+ "/test-prep-content/act": [
+  "ACT Test Prep Content – Boost Your Score | Eqourse",
+  "Create ACT test prep content with realistic questions, practice exams and clear explanations. Explore eQOURSE services."
+ ],
+ "/test-prep-content/ap-exam": [
+  "AP Exam Prep – Ace Your AP Exams | Eqourse",
+  "Develop AP exam prep content with subject-specific questions, practice tests and explanations. Explore eQOURSE services."
+ ],
+ "/test-prep-content/ielts": [
+  "IELTS Test Prep – Online Course | Eqourse",
+  "Create IELTS prep content for Listening, Reading, Writing and Speaking with realistic practice. Explore eQOURSE services."
+ ],
+ "/test-prep-content/cefr-placement-solutions": [
+  "CEFR Placement Solutions – Custom Content | Eqourse",
+  "Create CEFR-aligned placement tests that accurately evaluate language proficiency. Explore eQOURSE assessment solutions."
+ ],
+ "/test-prep-content/pte": [
+  "PTE Test Prep Content – Ace Your Exam | Eqourse",
+  "Develop PTE test prep content with realistic tasks, practice tests and expert explanations. Explore eQOURSE services."
+ ],
+ "/test-prep-content/toefl": [
+  "TOEFL Test Prep – Master Your Exam | Eqourse",
+  "Create TOEFL prep content for Reading, Listening, Speaking and Writing with realistic practice. Explore eQOURSE services."
+ ],
+ "/ilt-solutions": [
+  "ILT Solutions – Scalable Corporate Training | EQourse",
+  "Create effective instructor-led training materials, facilitator guides and learner resources. Explore eQOURSE ILT solutions."
+ ],
+ "/corporate-e-learning-solutions": [
+  "Corporate E-Learning Solutions – Custom Training | Eqourse",
+  "Build engaging corporate e-learning for onboarding, compliance and workforce development. Explore eQOURSE solutions."
+ ],
+ "/training-modules": [
+  "Online Training Modules – Interactive E-Learning | Eqourse",
+  "Create focused training modules with engaging content, activities and assessments. Explore eQOURSE development services."
+ ],
+ "/gamified-learning": [
+  "Gamified Learning Solutions – Boost Engagement | Eqourse",
+  "Boost learner motivation with gamified learning experiences featuring challenges, rewards and feedback. Explore eQOURSE."
+ ],
+ "/adaptive-learning": [
+  "Adaptive Learning – Personalized E-Learning | Eqourse",
+  "Personalize learning pathways with adaptive content that responds to learner skills and progress. Explore eQOURSE solutions."
+ ],
+ "/blended-learning": [
+  "Blended Learning Solutions – Flexible Training | Eqourse",
+  "Combine digital and instructor-led learning into one effective blended program. Explore eQOURSE learning solutions today."
+ ],
+ "/immersive-simulation-ar-vr": [
+  "Immersive AR/VR Simulation – Smart Training | Eqourse",
+  "Create immersive AR, VR and simulation-based learning experiences for safe, practical training. Explore eQOURSE solutions."
+ ],
+ "/instructional-design-services": [
+  "Instructional Design Services – Custom eLearning | EQourse",
+  "Create effective learning experiences with expert instructional design, storyboards and assessments. Explore eQOURSE."
+ ],
+ "/optimizing-ai-powered-learning": [
+  "How to Optimize AI-Powered Learning | Eqourse",
+  "Optimize AI-powered learning with personalized content, intelligent assessments and data-driven experiences. Learn more."
+ ],
+ "/ppt-videos-services": [
+  "Professional PPT Video Services | Eqourse",
+  "Transform presentations into engaging learning videos with narration, animation and visual design. Explore eQOURSE services."
+ ],
+ "/articulate-storyline-services": [
+  "Articulate Storyline Services – Custom eLearning | Eqourse",
+  "Build interactive e-learning courses with expert Articulate Storyline design and development. Explore eQOURSE services."
+ ],
+ "/animated-videos-services": [
+  "Animated Video Services – Custom 2D & 3D | Eqourse",
+  "Create engaging animated videos that explain concepts, train teams and promote ideas. Explore eQOURSE services today."
+ ],
+ "/translation-services": [
+  "Professional Translation Services | Eqourse",
+  "Translate educational, technical and business content accurately for global audiences. Explore eQOURSE services today."
+ ],
+ "/voice-over-services": [
+  "Voice Over Services – Professional Quality | Eqourse",
+  "Add professional multilingual voice-overs to learning, training and promotional content. Explore eQOURSE services."
+ ],
+ "/subtitling-services": [
+  "Professional Subtitling Services | Eqourse",
+  "Make videos accessible to global audiences with accurate, synchronized multilingual subtitles. Explore eQOURSE services."
+ ],
+ "/lms-course-builds": [
+  "Custom LMS Course Builds – Done for You | Eqourse",
+  "Convert learning content into engaging, LMS-ready courses with interactions and assessments. Explore eQOURSE services."
+ ],
+ "/white-label-lms": [
+  "White Label LMS – Fully Customizable | Eqourse",
+  "Launch a branded learning platform with a customizable white-label LMS. Explore flexible solutions from eQOURSE today."
+ ],
+ "/tutors-and-sme-recruitment": [
+  "Tutor & SME Recruitment – Hire Experts | Eqourse",
+  "Recruit qualified tutors and subject matter experts for education and content projects. Explore eQOURSE staffing services."
+ ],
+ "/tutors-and-sme-training": [
+  "Tutor & SME Training – Custom Online Courses | Eqourse",
+  "Prepare tutors and SMEs with structured training in pedagogy, content quality and digital delivery. Explore eQOURSE."
+ ],
+ "/live-online-tutor": [
+  "Live Online Tutoring – Expert 1-on-1 Tutors | Eqourse",
+  "Access qualified live online tutors for personalized academic support across subjects and curricula. Explore eQOURSE."
+ ],
+ "/standards-compliance": [
+  "Standards Compliance – Online Training | Eqourse",
+  "Align digital content with accessibility standards through expert reviews and remediation. Explore eQOURSE services."
+ ],
+ "/document-content-remediation": [
+  "Document Content Remediation Services | Eqourse",
+  "Make documents and digital content accessible with expert remediation and quality checks. Explore eQOURSE services."
+ ],
+ "/accessible-media-enhancements": [
+  "Accessible Media Enhancements – WCAG Compliant | Eqourse",
+  "Make media inclusive with captions, transcripts, audio descriptions and accessible enhancements. Explore eQOURSE."
+ ],
+ "/assessment-accessibility": [
+  "Accessibility Assessment – WCAG Compliance | Eqourse",
+  "Create inclusive assessments with accessible formats, interactions and accommodations. Explore eQOURSE services today."
+ ],
+ "/assistive-technology-compatibility": [
+  "Assistive Technology Compatibility | Eqourse",
+  "Ensure digital content works effectively with screen readers and assistive technologies. Explore eQOURSE services."
+ ],
+ "/audit-compliance-support": [
+  "Audit & Compliance Support | EQourse",
+  "Identify accessibility gaps with expert audits, reporting and compliance support. Explore eQOURSE services today."
+ ],
+ "/psychometric-assessments": [
+  "Psychometric Assessments – Hire Top Talent | eQourse",
+  "Measure aptitude, personality and potential with reliable psychometric assessments. Explore eQOURSE solutions today."
+ ],
+ "/skill-assessments": [
+  "Skill Assessments – Evaluate Top Talent | Eqourse",
+  "Measure technical, functional and workplace skills with customized assessments. Explore eQOURSE solutions today."
+ ],
+ "/candidate-evaluation": [
+  "Candidate Evaluation – AI-Powered Hiring | Eqourse",
+  "Improve hiring decisions with structured candidate evaluation and role-aligned assessments. Explore eQOURSE solutions."
+ ],
+ "/competency-frameworks": [
+  "Competency Frameworks – Upskill Your Workforce | Eqourse",
+  "Define role expectations with customized competency frameworks for hiring and development. Explore eQOURSE solutions."
+ ],
+ "/learning-readiness": [
+  "Learning Readiness – Prepare Your Workforce | eQourse",
+  "Assess learner readiness, knowledge and support needs before training begins. Explore eQOURSE assessment solutions."
+ ],
+ "/organizational-diagnostics": [
+  "Organizational Diagnostics – Drive Growth | Eqourse",
+  "Identify workforce strengths, gaps and performance barriers with organizational diagnostics. Explore eQOURSE solutions."
+ ],
+ "/digital-assessment-infrastructure": [
+  "Digital Assessment Infrastructure – Scalable | Eqourse",
+  "Build secure, scalable digital assessment infrastructure for hiring, education and training. Explore eQOURSE solutions."
+ ],
+ "/editorial-services": [
+  "Professional Editorial Services | Eqourse",
+  "Improve content quality with expert editing, proofreading and editorial review. Explore eQOURSE services today."
+ ],
+ "/publishing-production": [
+  "Course Publishing & Production – Scale Online | Eqourse",
+  "Streamline print and digital publishing with expert production, layout and quality support. Explore eQOURSE services."
+ ],
+ "/digital-conversion": [
+  "Digital Conversion Course – Boost Sales | eQourse",
+  "Convert print and legacy content into accessible, structured digital formats. Explore eQOURSE conversion services."
+ ],
+ "/image-processing": [
+  "Image Processing Course – Learn Online | Eqourse",
+  "Enhance, optimize and prepare images for print, digital and educational publishing. Explore eQOURSE services today."
+ ],
+ "/metadata-services": [
+  "Metadata Services – Enhance Visibility | Eqourse",
+  "Improve content discovery with accurate, structured metadata for publishing and digital platforms. Explore eQOURSE."
+ ],
+ "/design-services": [
+  "Course Design Services – Custom e-Learning | Eqourse",
+  "Create engaging educational, publishing and digital designs tailored to your audience. Explore eQOURSE services today."
+ ],
+ "/prepress-services": [
+  "Prepress Services – Professional Solutions | Eqourse",
+  "Prepare error-free files for print with expert formatting, layout and prepress quality checks. Explore eQOURSE services."
+ ],
+ "/production-support": [
+  "Production Support Services – 24/7 IT Support | Eqourse",
+  "Keep content projects on track with expert production coordination, formatting and quality support. Explore eQOURSE."
+ ],
+ "/samples": [
+  "E-Learning Course Samples – Interactive Demos | Eqourse",
+  "Explore eQOURSE samples across AI data, educational content, assessments, localization and video production. View our work."
+ ],
+ "/ai-data-samples": [
+  "AI Data Samples – High-Quality Datasets | Eqourse",
+  "Explore AI data samples for NLP, computer vision, speech, RLHF and data collection. Review eQOURSE capabilities today."
+ ],
+ "/ai-data-samples/nlp-annotation": [
+  "NLP Annotation Samples – AI Training Data | Eqourse",
+  "Explore NLP annotation samples for classification, entities, sentiment and language tasks. Review eQOURSE data quality."
+ ],
+ "/ai-data-samples/computer-vision": [
+  "Computer Vision Datasets – AI Data Samples | Eqourse",
+  "Explore computer vision annotation samples for images and video. Review eQOURSE labeling quality and capabilities."
+ ],
+ "/ai-data-samples/audio-speech": [
+  "Audio Speech AI Data Samples – High Quality | Eqourse",
+  "Explore audio and speech data samples for transcription, classification and voice AI. Review eQOURSE capabilities."
+ ],
+ "/ai-data-samples/rlhf": [
+  "RLHF AI Data Samples – High Quality | Eqourse",
+  "Explore RLHF data samples for response ranking, evaluation and AI alignment. Review eQOURSE capabilities today."
+ ],
+ "/ai-data-samples/data-collection": [
+  "AI Data Collection – Custom AI Datasets | Eqourse",
+  "Explore AI data collection samples across text, image, audio and video. Review eQOURSE dataset capabilities today."
+ ],
+ "/ai-data-samples/cleaned-datasets": [
+  "Cleaned AI Datasets – Ready for ML | Eqourse",
+  "Explore cleaned dataset samples prepared for accurate AI training and evaluation. Review eQOURSE data quality today."
+ ],
+ "/text-samples": [
+  "Text Samples – High-Converting Copy | Eqourse",
+  "Explore educational and professional text samples created by eQOURSE content experts. Review our writing quality today."
+ ],
+ "/kindergarten-to-k5-samples": [
+  "Explore Kindergarten to K5 Curriculum Samples | Eqourse",
+  "Explore engaging Kindergarten to Grade 5 content samples, including lessons, activities and assessments. View our work."
+ ],
+ "/k6-to-k12-samples": [
+  "K-6 to K-12 eLearning Samples – Interactive | Eqourse",
+  "Explore Grade 6–12 content samples across subjects, curricula and assessment formats. Review eQOURSE quality today."
+ ],
+ "/iit-jee-neet-samples": [
+  "IIT JEE & NEET Samples – Free Study Material | Eqourse",
+  "Explore IIT-JEE and NEET content samples with exam-focused questions, solutions and learning resources. View our work."
+ ],
+ "/upsc-state-psc-samples": [
+  "UPSC & State PSC Samples – Free Notes | Eqourse",
+  "Explore UPSC and State PSC content samples with exam-aligned questions, explanations and study materials. View our work."
+ ],
+ "/stem-content-samples": [
+  "STEM Content Samples – Custom eLearning | Eqourse",
+  "Explore STEM content samples featuring lessons, activities and assessments across science, technology and maths."
+ ],
+ "/curriculum-samples": [
+  "Curriculum Samples – Explore Course Designs | Eqourse",
+  "Explore curriculum samples featuring structured learning paths, lessons and assessments. Review eQOURSE expertise today."
+ ],
+ "/translation-and-localization-text-samples": [
+  "Translation & Localization Text Samples | Eqourse",
+  "Explore translation and localization samples across educational and professional content. Review eQOURSE quality today."
+ ],
+ "/test-prep-and-assessments": [
+  "Test Prep & Assessments – Ace Your Exams | EQourse",
+  "Explore test prep and assessment samples with exam-aligned questions, solutions and practice materials. View our work."
+ ],
+ "/video-samples": [
+  "Course Video Samples – See Our Work | Eqourse",
+  "Explore eQOURSE video samples across animation, presentations, AI avatars and immersive learning. View our work today."
+ ],
+ "/articulate-storyline-video-samples": [
+  "Articulate Storyline Video Samples – Best Examples | Eqourse",
+  "Explore Articulate Storyline samples featuring interactive learning, animation and assessments. View eQOURSE work."
+ ],
+ "/pen-tab-and-ppt-samples": [
+  "Pen Tab & PPT Samples – Free Download | Eqourse",
+  "Explore pen-tab and PowerPoint video samples created for clear, engaging instruction. Review eQOURSE work today."
+ ],
+ "/ai-avatar-video-samples": [
+  "AI Avatar Videos – Watch Samples | Eqourse",
+  "Explore AI avatar video samples created for scalable education, training and communication. View eQOURSE work today."
+ ],
+ "/flash-to-htm-samples": [
+  "Flash to HTML5 Conversion – View Samples | Eqourse",
+  "Explore Flash-to-HTML conversion samples featuring modern, responsive and interactive learning content. View our work."
+ ],
+ "/2d-3d-video-samples": [
+  "2D & 3D Video Animation Samples | Eqourse",
+  "Explore 2D and 3D video samples created for education, training and visual storytelling. View eQOURSE work today."
+ ],
+ "/promotional-video": [
+  "Promotional Video Production – Drive Sales | Eqourse",
+  "Explore promotional video samples created to present products, services and brands with impact. View eQOURSE work."
+ ],
+ "/immersive-simulation-ar-vr-video": [
+  "AR/VR Immersive Simulation – Interactive Training | Eqourse",
+  "Explore immersive simulation, AR and VR video samples designed for practical, engaging learning. View our work today."
+ ],
+ "/": [
+  "Online Courses – Master New Skills | Eqourse ",
+  "Master in-demand professional skills with flexible, expert-led online courses and certifications. Upgrade your career — start learning today! "
+ ]
+}

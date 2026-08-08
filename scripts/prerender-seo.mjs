@@ -62,7 +62,51 @@ function escapeXml(str) {
   return escapeHtml(str).replace(/'/g, "&apos;");
 }
 
+function buildDataCollectionFallback() {
+  const faq = [
+    ["What is AI data collection?", "AI data collection is the process of sourcing or capturing raw text, image, audio, video or multimodal data for training, fine-tuning and evaluating AI systems."],
+    ["What types of data can eQOURSE collect?", "eQOURSE supports image, audio and speech, text, video and multimodal data collection designed around the use case, users, languages, devices and environments."],
+    ["What is the difference between data collection and data annotation?", "Data collection creates or sources the raw dataset. Data annotation adds labels or structure to data that already exists."],
+    ["Can you support multilingual data collection?", "Yes. eQOURSE supports data programmes across 30+ languages, including requirements for region, dialect, accent and contributor profile."],
+    ["How do you manage data quality?", "Controls can include contributor screening, capture guidelines, pilot validation, automated file checks, human QA, format validation and duplication checks."],
+    ["Can you collect data using specific devices or environments?", "Yes. Collection can be designed around defined cameras, microphones, devices, locations, lighting and acoustic conditions."],
+    ["How is consent handled?", "For contributor-led programmes, consent and permitted use are defined as part of the collection workflow according to the project and applicable requirements."],
+    ["How much does AI data collection cost?", "Cost depends on modality, volume, languages, contributor profile, devices, environments, timeline and QA requirements."],
+    ["Can eQOURSE annotate the data after collection?", "Yes. Collected data can move into eQOURSE annotation and labeling, cleaning and validation, and model-testing workflows."],
+    ["Can you support AI data collection for robotics?", "eQOURSE supports real-world visual, video and multimodal collection relevant to physical and embodied AI."],
+  ];
+  const breadcrumb = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+    { "@type": "ListItem", position: 2, name: "AI Data Services", item: `${SITE_URL}/ai-data-services` },
+    { "@type": "ListItem", position: 3, name: "Data Collection", item: `${SITE_URL}/ai-data-services/data-collection` },
+  ] };
+  const service = { "@context": "https://schema.org", "@type": "Service", "@id": `${SITE_URL}/ai-data-services/data-collection#service`, name: "AI Data Collection Services", serviceType: "AI Training Data Collection", description: "Custom image, audio, text, video and multimodal data collection for AI and machine learning.", provider: { "@type": "Organization", name: "eQOURSE", url: `${SITE_URL}/` }, areaServed: "Worldwide", url: `${SITE_URL}/ai-data-services/data-collection` };
+  const json = (value) => JSON.stringify(value).replace(/</g, "\\u003c");
+
+  return `<main data-seo-prerender="true">
+      <nav aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/ai-data-services">AI Data Services</a> / <span>Data Collection</span></nav>
+      <h1>AI Data Collection Services for AI &amp; Machine Learning</h1>
+      <p>Build purpose-fit training datasets around the users, languages, devices and real-world environments your model needs to understand. eQOURSE supports custom image, audio, text and video data collection with quality controls, consent handling and secure delivery.</p>
+      <p><a href="/free-pilot">Start Free Pilot</a> <a href="/contact-us">Talk to a Data Specialist</a></p>
+      <section><h2>What Is AI Data Collection?</h2><p>AI data collection is the process of sourcing or capturing the raw text, images, audio, video and multimodal data required to train, fine-tune and evaluate AI systems.</p><h3>Data Collection vs. Data Annotation</h3><p>Collection creates the raw dataset. Annotation adds labels and structure to data that already exists.</p></section>
+      <section><h2>Build Training Data Around Real Deployment Conditions</h2><p>Collection plans should represent the target population, environment, device profile, language mix and intended model behaviour.</p><ul><li>Coverage across participant profiles, demographics, regions and languages</li><li>Defined cameras, microphones, sensors and devices</li><li>Realistic lighting, acoustics, movement and background conditions</li><li>File, metadata, quality and delivery acceptance criteria</li></ul></section>
+      <section><h2>Multi-Modal AI Data Collection</h2><article><h3>Image Data Collection</h3><p>Purpose-built visual datasets captured across defined objects, environments, devices, perspectives and lighting conditions.</p></article><article><h3>Audio &amp; Speech Data Collection</h3><p>Scripted and natural speech collected across languages, accents, speaker profiles, acoustic environments and devices.</p></article><article><h3>Text Data Collection</h3><p>Domain-specific, multilingual and conversational text datasets for NLP, LLM training, fine-tuning and evaluation.</p></article><article><h3>Video Data Collection</h3><p>Real-world video covering human activity, objects, environments and temporal behaviour for computer vision and physical AI.</p></article></section>
+      <section><h2>How We Collect AI Training Data</h2><ul><li>Contributor-led collection</li><li>Controlled field and studio collection</li><li>Device-specific collection</li><li>Licensed or customer-provided sources</li></ul></section>
+      <section><h2>Our AI Data Collection Process</h2><ol><li>Requirement definition</li><li>Collection specification</li><li>Source and vet</li><li>Pilot</li><li>Collect</li><li>Validate</li><li>Secure delivery</li></ol></section>
+      <section><h2>Training Data for Modern AI Applications</h2><p>Computer vision, speech and voice AI, generative AI and LLMs, conversational AI, autonomous systems, robotics and physical AI.</p></section>
+      <section><h2>Quality, Consent and Data Security Built Into Collection</h2><ul><li>Collection guidelines</li><li>Contributor screening</li><li>Consent handling</li><li>Provenance records</li><li>Quality validation</li><li>ISO 9001 and ISO 27001 certified processes</li></ul></section>
+      <section><h2>Multilingual AI Data Collection Across 30+ Languages</h2><p>Programmes can define language, region, accent, dialect and contributor requirements before collection begins, with strong delivery depth across Indic languages.</p></section>
+      <section><h2>One AI Data Workflow From Collection to Model Testing</h2><p><a href="/ai-data-services/data-collection">Collect</a> → <a href="/ai-data-services/annotation-labeling">Annotate</a> → <a href="/ai-data-services/cleaning-validation">Clean &amp; Validate</a> → <a href="/ai-data-services/model-testing">Test</a> → Improve</p></section>
+      <section><h2>Data Collection for Physical and Embodied AI</h2><p>Purpose-built visual, video and multimodal collection programmes can support systems that perceive and operate in the physical world.</p><p><a href="/robotics-training-data-services">Explore Robotics Training Data Services</a></p></section>
+      <section><h2>What Determines AI Data Collection Pricing?</h2><p>Pricing depends on modality, volume, language and geography, contributor profile, devices and environments, quality requirements and timeline.</p></section>
+      <section><h2>Frequently Asked Questions About AI Data Collection</h2>${faq.map(([q,a]) => `<details><summary>${escapeHtml(q)}</summary><p>${escapeHtml(a)}</p></details>`).join("")}</section>
+      <section><h2>Ready to Build Your AI Training Dataset?</h2><p>Tell us the data type, target volume, languages, deployment environment and timeline.</p><p><a href="/free-pilot">Start Free Pilot</a> <a href="/contact-us">Talk to a Data Specialist</a></p></section>
+      <script type="application/ld+json">${json(breadcrumb)}</script><script type="application/ld+json">${json(service)}</script>
+    </main>`;
+}
+
 function buildCrawlFallback({ path, title, description }) {
+  if (path === "/ai-data-services/data-collection") return buildDataCollectionFallback();
   const heading = title.replace(/\s*(?:\||\u2013|\u2014)\s*eQOURSE.*$/i, "").trim();
   const sharedLinks = path.startsWith("/ai-data") || path.startsWith("/robotics")
     ? [
@@ -142,7 +186,7 @@ function buildHead(template, { path, title, description, canonical: canonicalOve
 
   html = html.replace(/<meta charset="UTF-8" \/>/, (m) => `${m}\n    ${block}`);
   return html.replace(
-    /<div id="root"><\/div>/,
+    /<div id="root">(?:<main data-seo-prerender="true">[\s\S]*?<\/main>)?<\/div>/,
     `<div id="root">${buildCrawlFallback({ path, title, description })}</div>`,
   );
 }

@@ -3,19 +3,21 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import SectionHeader from "../shared/SectionHeader";
 
 const stats = [
-  { value: 500, suffix: "+", label: "STEM Specialists" },
-  { value: 30, suffix: "+", label: "Languages Covered" },
-  { value: 98, suffix: "%+", label: "Data Accuracy" },
-  { value: 50, suffix: "+", label: "Active Projects" },
+  { value: 500, prefix: "", suffix: "+", label: "Specialists", animate: true },
+  { value: 30, prefix: "", suffix: "+", label: "Languages Covered", animate: true },
+  { value: 9001, prefix: "ISO ", suffix: "", label: "Quality Management", animate: false },
+  { value: 27001, prefix: "ISO ", suffix: "", label: "Information Security", animate: false },
 ];
 
-const CountUpNumber = ({ target, suffix, isVisible }: { target: number; suffix: string; isVisible: boolean }) => {
-  const [count, setCount] = useState(0);
+const CountUpNumber = ({ target, prefix, suffix, isVisible, animate }: { target: number; prefix: string; suffix: string; isVisible: boolean; animate: boolean }) => {
+  // A real value is rendered on the first pass so crawlers never receive "0".
+  const [count, setCount] = useState(target);
   const hasAnimated = useRef(false);
 
   useEffect(() => {
-    if (!isVisible || hasAnimated.current) return;
+    if (!animate || !isVisible || hasAnimated.current) return;
     hasAnimated.current = true;
+    setCount(0);
 
     const duration = 2000;
     const steps = 60;
@@ -32,11 +34,11 @@ const CountUpNumber = ({ target, suffix, isVisible }: { target: number; suffix: 
     }, duration / steps);
 
     return () => clearInterval(timer);
-  }, [isVisible, target]);
+  }, [animate, isVisible, target]);
 
   return (
     <span className="text-4xl md:text-5xl font-heading font-extrabold text-gradient">
-      {count}{suffix}
+      {prefix}{count}{suffix}
     </span>
   );
 };
@@ -61,7 +63,7 @@ const TalentAdvantage = () => {
               className={`text-center reveal-up ${isVisible ? "visible" : ""}`}
               style={{ transitionDelay: `${i * 0.15}s` }}
             >
-              <CountUpNumber target={stat.value} suffix={stat.suffix} isVisible={isVisible} />
+              <CountUpNumber target={stat.value} prefix={stat.prefix} suffix={stat.suffix} isVisible={isVisible} animate={stat.animate} />
               <p className="text-muted-foreground text-sm mt-2 font-medium">{stat.label}</p>
             </div>
           ))}

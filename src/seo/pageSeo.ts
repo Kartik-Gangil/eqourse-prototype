@@ -91,8 +91,8 @@ export const pageSeo: Record<string, PageSeo> = {
     description: "Improve dataset quality with expert AI data cleaning and validation. Remove errors, verify labels and build reliable models.",
   },
   "/ai-data-services/data-collection": {
-    title: "AI Data Collection Services - Custom Datasets | Eqourse",
-    description: "Collect diverse, high-quality AI training data across formats, domains and languages. Explore eQOURSE data collection services.",
+    title: "AI Data Collection Services | Custom Training Datasets | eQOURSE",
+    description: "Build custom image, audio, text and video training datasets with multilingual collection, quality controls, consent handling and secure delivery.",
   },
   "/ai-data-services/model-testing": {
     title: "AI Model Testing – Ensure Model Accuracy | Eqourse",
