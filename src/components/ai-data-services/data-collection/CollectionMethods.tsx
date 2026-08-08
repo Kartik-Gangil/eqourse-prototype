@@ -5,21 +5,21 @@ import SectionHeader from "../shared/SectionHeader";
 const methods = [
   {
     icon: Users,
-    title: "Crowdsourced Collection",
-    description: "Tap into our managed crowd of 500+ vetted contributors across 30+ countries. Ideal for diverse, large-scale datasets with natural variation.",
-    features: ["Scalable to millions of data points", "Demographic diversity controls", "Quality screening at intake"],
+    title: "Contributor-Led Collection",
+    description: "Managed programmes using screened contributors who capture data against project-specific guidelines and approved-use requirements.",
+    features: ["Defined contributor profiles", "Demographic and language controls", "Quality screening at intake"],
   },
   {
     icon: Globe,
-    title: "Web & API Sourcing",
-    description: "Ethical web scraping and API-based data acquisition with full legal compliance. We handle licensing, deduplication, and format normalization.",
-    features: ["Domain-specific crawling", "Rights-managed content", "Real-time data feeds"],
+    title: "Approved Data Sources",
+    description: "Customer-owned or appropriately licensed sources can be incorporated under project-specific usage, rights and handling requirements.",
+    features: ["Customer-provided datasets", "Appropriately licensed sources", "Deduplication and normalization"],
   },
   {
     icon: MapPin,
     title: "Field Collection",
-    description: "On-ground data collection for scenarios requiring controlled environments, specific demographics, or specialized recording equipment.",
-    features: ["Studio-quality audio/video", "Controlled lighting & acoustics", "Demographic targeting"],
+    description: "Structured collection in controlled or real-world environments where lighting, acoustics, movement, devices or context matter.",
+    features: ["Defined audio and video setups", "Controlled lighting and acoustics", "Environment-specific capture"],
   },
 ];
 

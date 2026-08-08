@@ -47,7 +47,7 @@ const LanguageCoverage = () => {
           label="Language Coverage"
           title="30+ Languages &"
           gradientText="Growing"
-          subtitle="Native-speaker annotators across major language families. Dialect and accent coverage for speech AI."
+          subtitle="Multilingual collection across major language families, with project-level dialect, accent, region and contributor requirements."
           light
         />
 

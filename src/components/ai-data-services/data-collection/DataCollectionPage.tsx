@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import AIDataServicesLayout from "../shared/AIDataServicesLayout";
 import SEOHead from "../shared/SEOHead";
 import ServiceHero from "../shared/ServiceHero";
@@ -10,94 +11,138 @@ import FAQSection from "../shared/FAQSection";
 import ServiceCTA from "../shared/ServiceCTA";
 import ServiceNarrativeSection from "../shared/ServiceNarrativeSection";
 import RoboticsServiceBridge from "../shared/RoboticsServiceBridge";
+import {
+  CollectionAssurance,
+  CollectionDefinition,
+  CollectionLifecycleAndPricing,
+  CollectionProcess,
+} from "./DataCollectionEssentials";
 import { FolderKanban, Users, Languages } from "lucide-react";
 
 const faqs = [
   {
-    question: "What types of data can you collect?",
-    answer:
-      "We collect text (corpora, dialogue, documents), audio (speech recordings, wake-words, multi-speaker conversations), image (object detection sets, medical imaging, satellite imagery), and video (action recognition, driving scenes, gesture recordings) across 30+ languages.",
+    question: "What is AI data collection?",
+    answer: "AI data collection is the process of sourcing or capturing raw text, image, audio, video or multimodal data for training, fine-tuning and evaluating AI systems. Annotation adds labels or structure to data that already exists.",
   },
   {
-    question: "How do you ensure data diversity?",
-    answer:
-      "We use demographic controls, geographic distribution, accent and dialect targeting, and balanced sampling strategies. Our managed crowd of 500+ contributors spans 30+ countries, ensuring natural variation in age, gender, region, and speaking style.",
+    question: "What types of data can eQOURSE collect?",
+    answer: "eQOURSE supports image, audio and speech, text, video and multimodal data collection. The approach depends on the AI use case, target users, languages, devices, environments, volume and quality requirements.",
   },
   {
-    question: "What languages do you support for data collection?",
-    answer:
-      "We support 30+ languages including Indo-Aryan, Dravidian, Southeast Asian, European, East Asian, and Middle Eastern language families.",
+    question: "What is the difference between data collection and data annotation?",
+    answer: "Data collection creates or sources the raw dataset. Data annotation adds labels such as categories, transcriptions, entities or bounding boxes. eQOURSE can connect collection with downstream annotation and validation workflows.",
   },
   {
-    question: "Can you collect domain-specific data?",
-    answer:
-      "Yes. Our STEM-background specialists understand domain terminology and context. We've collected specialized datasets for healthcare, finance, legal, and technology domains.",
+    question: "Can you support multilingual data collection?",
+    answer: "Yes. eQOURSE supports data programmes across 30+ languages. Language, region, dialect, accent and contributor requirements are defined during scoping so the collection plan matches the model's target users.",
   },
   {
-    question: "What's the typical turnaround time for a data collection project?",
-    answer:
-      "Turnaround varies by scope: pilot datasets typically take 1-2 weeks, mid-scale projects take 3-6 weeks, and large-scale collections are milestone-based with weekly deliveries and progress dashboards.",
+    question: "How do you manage data quality?",
+    answer: "Quality controls can include contributor screening, capture guidelines, pilot validation, automated file checks, human QA, format validation, duplication checks and final acceptance review.",
+  },
+  {
+    question: "Can you collect data using specific devices or environments?",
+    answer: "Yes. Collection can be designed around defined cameras, microphones, sensors, locations, lighting conditions, acoustic environments and other project-specific capture constraints.",
+  },
+  {
+    question: "How is consent handled?",
+    answer: "For contributor-led programmes, consent and permitted use are defined as part of the collection workflow. Exact consent, retention and handling requirements depend on the project, data type and applicable legal requirements.",
+  },
+  {
+    question: "How much does AI data collection cost?",
+    answer: "Cost depends on modality, volume, language and regional requirements, contributor profile, device and environment constraints, timeline and QA requirements. eQOURSE provides a project-specific scope and quote.",
+  },
+  {
+    question: "Can eQOURSE annotate the data after collection?",
+    answer: "Yes. Collected data can move into eQOURSE's annotation and labeling, cleaning and validation, and model-testing workflows where required.",
+  },
+  {
+    question: "Can you support AI data collection for robotics?",
+    answer: "eQOURSE can support real-world visual, video and multimodal data collection relevant to physical and embodied AI through its Robotics Training Data Services.",
   },
 ];
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eqourse.com/" },
+    { "@type": "ListItem", position: 2, name: "AI Data Services", item: "https://www.eqourse.com/ai-data-services" },
+    { "@type": "ListItem", position: 3, name: "Data Collection", item: "https://www.eqourse.com/ai-data-services/data-collection" },
+  ],
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://www.eqourse.com/ai-data-services/data-collection#service",
+  name: "AI Data Collection Services",
+  serviceType: "AI Training Data Collection",
+  description: "Custom image, audio, text, video and multimodal data collection for AI and machine learning.",
+  provider: { "@type": "Organization", name: "eQOURSE", url: "https://www.eqourse.com/" },
+  areaServed: "Worldwide",
+  url: "https://www.eqourse.com/ai-data-services/data-collection",
+};
+
 const DataCollectionPage = () => (
-  <AIDataServicesLayout
-    breadcrumbs={[
-      { label: "AI Data Services", href: "/ai-data-services" },
-      { label: "Data Collection" },
-    ]}
-  >
+  <AIDataServicesLayout breadcrumbs={[{ label: "AI Data Services", href: "/ai-data-services" }, { label: "Data Collection" }]}>
     <SEOHead
-      title="AI Data Collection Services | eQOURSE - Multi-Modal, 30+ Languages"
-      description="Custom text, audio, image, and video dataset collection across 30+ languages. Crowdsourced, web-sourced, and field collection methods with quality controls."
+      title="AI Data Collection Services | Custom Training Datasets | eQOURSE"
+      description="Build custom image, audio, text and video training datasets with multilingual collection, quality controls, consent handling and secure delivery."
       canonical="https://www.eqourse.com/ai-data-services/data-collection"
-      keywords="AI data collection, training data, speech data, image dataset, multilingual data, crowdsourced data collection"
+      keywords="AI data collection services, AI training data collection, custom training datasets, multimodal data collection"
     />
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+      <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
+    </Helmet>
 
     <ServiceHero
       preHeadline="Data Collection"
       headline="Custom Datasets for"
       headlineAccent="Every AI Model"
-      subtext="Multi-modal data collection across text, audio, image, and video. 30+ languages, domain-specific sourcing, and rigorous quality controls from day one."
+      subtext="Purpose-built text, audio, image and video data across 30+ languages, with consent, provenance and quality controls shaped around real deployment conditions."
       ctaText="Start Free Pilot"
       ctaLink="/free-pilot"
       imageSrc="/assets/ai-data/Data Collection V2.webp"
-      imageAlt="Global scale AI data collection and aggregation services"
+      imageAlt="AI data collection across text, audio, image and video for machine learning"
       rotatingBadges={[
-        { icon: FolderKanban, title: "Multi-modal", subtitle: "Text, Audio, Image", color: "hsl(170 82% 55%)" },
+        { icon: FolderKanban, title: "Multi-modal", subtitle: "Text, audio, image, video", color: "hsl(170 82% 55%)" },
         { icon: Languages, title: "Languages", subtitle: "30+ supported", color: "hsl(190 85% 68%)" },
-        { icon: Users, title: "Crowd", subtitle: "Global contributors", color: "hsl(165 75% 71%)" }
+        { icon: Users, title: "Specialists", subtitle: "500+ experts", color: "hsl(165 75% 71%)" },
       ]}
-      bottomBadge={{ iconText: "Data", title: "Collection", subtitle: "High-quality raw data" }}
+      bottomBadge={{ iconText: "Data", title: "Collection", subtitle: "Purpose-fit raw datasets" }}
     />
+
+    <CollectionDefinition />
 
     <ServiceNarrativeSection
       label="Collection Strategy"
       title="Why Data Collection"
       gradientText="Matters"
-      description="Model performance is capped by data diversity, representativeness, and sourcing discipline."
+      description="Model reliability begins with representative data and a collection specification grounded in real deployment conditions."
       paragraphs={[
-        "High-quality collection is where model reliability begins. Weak sourcing leads to brittle behavior, bias amplification, and poor generalization in production environments.",
-        "Our collection programs are designed for coverage across demographics, regions, language variants, and realistic usage conditions so your training data reflects real users.",
+        "A useful dataset is not simply large. It should represent the people, language variants, devices, environments and behaviours the model will encounter in production.",
+        "eQOURSE collection programmes define coverage and acceptance criteria before scale, then connect contributor screening, capture guidance, pilot validation and final delivery.",
       ]}
       bullets={[
-        "Built for domain-specific projects including healthcare, finance, legal, and speech AI",
-        "Controlled quality gates from contributor onboarding to final dataset acceptance",
-        "Flexible sourcing mix: crowdsourced, web/API, and controlled field collection",
+        "Coverage designed around target users, regions, languages and deployment environments",
+        "Device-specific, contributor-led, field, studio and approved-source collection models",
+        "Consent, provenance, format and quality requirements defined during project scoping",
       ]}
       stats={[
+        { value: "4", label: "Core modalities" },
         { value: "30+", label: "Languages" },
-        { value: "500+", label: "Contributors" },
-        { value: "50+", label: "Active projects" },
-        { value: "24/7", label: "Ops support" },
+        { value: "500+", label: "Specialists" },
+        { value: "ISO", label: "9001 & 27001" },
       ]}
-      panelTitle="Collection Quality Benchmarks"
-      panelSubtitle="Coverage indicators we track before dataset handoff."
-      bars={[
-        { label: "Demographic diversity", value: 91 },
-        { label: "Accent and dialect spread", value: 89 },
-        { label: "Domain relevance", value: 94 },
-        { label: "Collection consistency", value: 96 },
+      panelTitle="Collection Specification"
+      panelSubtitle="The practical dimensions aligned before a pilot begins."
+      panelItems={[
+        "Target population, languages and regional coverage",
+        "Devices, environments and capture conditions",
+        "Consent, permitted use and provenance requirements",
+        "File formats, metadata and acceptance criteria",
       ]}
       dark
     />
@@ -105,14 +150,21 @@ const DataCollectionPage = () => (
     <DataModalities />
     <LanguageCoverage />
     <CollectionMethods />
+    <CollectionProcess />
     <UseCases />
+    <CollectionAssurance />
     <TalentAdvantage />
+    <CollectionLifecycleAndPricing />
     <RoboticsServiceBridge context="collection" />
-    <FAQSection faqs={faqs} />
+    <FAQSection faqs={faqs} label="AI Data Collection FAQs" title="Frequently Asked Questions About AI Data Collection" />
     <ServiceCTA
-      headline="Ready to Build Your Dataset?"
-      subtext="Tell us what you need - modality, language, volume, and timeline. We'll design a collection plan and start with a free pilot."
+      headline="Ready to Build Your AI Training Dataset?"
+      subtext="Tell us the data type, target volume, languages, deployment environment and timeline. We'll translate the requirement into a practical collection plan."
       ctaText="Start Free Pilot"
+      ctaLink="/free-pilot"
+      secondaryCtaText="Talk to a Data Specialist"
+      secondaryCtaLink="/contact-us"
+      note="Pilot setup in 48 hours"
     />
   </AIDataServicesLayout>
 );

@@ -24,6 +24,7 @@ interface ServiceNarrativeSectionProps {
   bars?: NarrativeBar[];
   panelTitle?: string;
   panelSubtitle?: string;
+  panelItems?: string[];
   reverse?: boolean;
   dark?: boolean;
 }
@@ -39,6 +40,7 @@ const ServiceNarrativeSection = ({
   bars = [],
   panelTitle,
   panelSubtitle,
+  panelItems = [],
   reverse = false,
   dark = false,
 }: ServiceNarrativeSectionProps) => {
@@ -133,6 +135,12 @@ const ServiceNarrativeSection = ({
                 </div>
 
                 <div className="space-y-4">
+                  {panelItems.map((item) => (
+                    <div key={item} className="flex items-start gap-3 rounded-xl border border-primary/20 bg-primary/5 px-4 py-3">
+                      <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span className={cn("text-sm", dark ? "text-white/75" : "text-foreground/75")}>{item}</span>
+                    </div>
+                  ))}
                   {bars.map((bar, index) => (
                     <div key={bar.label}>
                       <div className={cn("flex items-center justify-between text-xs mb-2", dark ? "text-white/70" : "text-muted-foreground")}>

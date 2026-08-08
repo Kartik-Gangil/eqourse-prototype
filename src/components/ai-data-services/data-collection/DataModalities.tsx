@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { FileText, Mic, Image, Video } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowUpRight, FileText, Mic, Image, Video } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import SectionHeader from "../shared/SectionHeader";
 
@@ -7,7 +7,9 @@ const modalities = [
   {
     id: "text",
     icon: FileText,
-    title: "Text Data",
+    title: "Text Data Collection",
+    summary: "Domain-specific, multilingual and conversational text datasets for NLP, LLM training, fine-tuning and evaluation.",
+    href: null as string | null,
     items: [
       "Monolingual & multilingual corpora",
       "Domain-specific terminology datasets",
@@ -32,7 +34,9 @@ const modalities = [
   {
     id: "audio",
     icon: Mic,
-    title: "Audio Data",
+    title: "Audio & Speech Data Collection",
+    summary: "Scripted and natural speech captured across languages, accents, speaker profiles, acoustic environments and devices.",
+    href: null as string | null,
     items: [
       "Speech recordings in 30+ languages",
       "Wake-word & command utterances",
@@ -67,7 +71,9 @@ const modalities = [
   {
     id: "image",
     icon: Image,
-    title: "Image Data",
+    title: "Image Data Collection",
+    summary: "Purpose-built visual datasets captured across defined objects, environments, devices, perspectives and lighting conditions.",
+    href: null as string | null,
     items: [
       "Object detection training images",
       "Scene classification datasets",
@@ -95,7 +101,9 @@ const modalities = [
   {
     id: "video",
     icon: Video,
-    title: "Video Data",
+    title: "Video Data Collection",
+    summary: "Real-world video covering human activity, objects, environments and temporal behaviour for computer vision and physical AI.",
+    href: null as string | null,
     items: [
       "Action recognition clips",
       "Surveillance & security footage",
@@ -128,9 +136,7 @@ const modalities = [
 ];
 
 const DataModalities = () => {
-  const [activeTab, setActiveTab] = useState("text");
   const { ref, isVisible } = useScrollReveal();
-  const active = modalities.find((m) => m.id === activeTab)!;
 
   return (
     <section className="py-24 bg-background">
@@ -139,58 +145,56 @@ const DataModalities = () => {
           label="Data Types"
           title="Multi-Modal Data"
           gradientText="Collection"
-          subtitle="We collect and curate datasets across all major data modalities to fuel your AI models."
+          subtitle="Explore four core collection capabilities, each designed around distinct model, data and deployment requirements."
         />
 
-        {/* Tabs */}
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex bg-muted rounded-xl p-1.5 gap-1 flex-wrap justify-center">
-            {modalities.map((m) => {
-              const Icon = m.icon;
-              return (
-                <button
-                  key={m.id}
-                  onClick={() => setActiveTab(m.id)}
-                  className={`flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold transition-all duration-300 ${
-                    activeTab === m.id
-                      ? "bg-gradient-primary text-primary-foreground shadow-soft"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  <Icon className="w-4 h-4" />
-                  {m.title}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Content */}
-        <div ref={ref} className={`grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto items-center reveal-up ${isVisible ? "visible" : ""}`}>
-          {/* Visual */}
-          <div className="flex justify-center">
-            <div className="w-full max-w-sm rounded-2xl border border-border/50 bg-card/50 p-6">
-              {active.visual}
-            </div>
-          </div>
-
-          {/* List */}
-          <div>
-            <h3 className="font-heading text-2xl font-bold text-foreground mb-6">{active.title}</h3>
-            <ul className="space-y-4">
-              {active.items.map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg viewBox="0 0 16 16" className="w-3.5 h-3.5 text-primary">
-                      <path d="M4 8l3 3 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                    </svg>
+        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          {modalities.map((modality, index) => {
+            const Icon = modality.icon;
+            const card = (
+              <article
+                className={`group h-full overflow-hidden rounded-3xl border border-border/60 bg-card shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/35 hover:shadow-soft reveal-up ${isVisible ? "visible" : ""}`}
+                style={{ transitionDelay: `${index * 90}ms` }}
+              >
+                <div className="relative h-52 sm:h-60 overflow-hidden border-b border-border/50 bg-gradient-to-br from-primary/[0.08] via-background to-accent/[0.06] px-6">
+                  <div className="absolute top-5 left-5 z-10 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-background/85 px-3 py-1.5 text-xs font-semibold text-primary backdrop-blur-sm">
+                    <Icon className="w-4 h-4" aria-hidden="true" />
+                    {String(index + 1).padStart(2, "0")}
                   </div>
-                  <span className="text-foreground/80">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+                  <div className="h-full flex items-center justify-center pt-6 transition-transform duration-500 group-hover:scale-[1.04]">
+                    {modality.visual}
+                  </div>
+                </div>
+
+                <div className="p-6 sm:p-8">
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground">{modality.title}</h3>
+                    {modality.href && <ArrowUpRight className="w-5 h-5 text-primary flex-shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />}
+                  </div>
+                  <p className="mt-3 text-sm sm:text-base leading-relaxed text-muted-foreground">{modality.summary}</p>
+
+                  <div className="mt-6 pt-5 border-t border-border/60">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-3">Collection capabilities</p>
+                    <ul className="grid sm:grid-cols-2 gap-x-5 gap-y-2.5">
+                      {modality.items.map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-sm text-foreground/75 leading-snug">
+                          <span className="w-1.5 h-1.5 mt-1.5 rounded-full bg-primary flex-shrink-0" aria-hidden="true" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            );
+
+            return modality.href ? <Link key={modality.id} to={modality.href} className="block rounded-3xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4">{card}</Link> : <div key={modality.id}>{card}</div>;
+          })}
         </div>
+
+        <p className="max-w-3xl mx-auto mt-8 text-center text-sm text-muted-foreground">
+          Need more than one modality? We can combine text, audio, image and video collection within one coordinated programme.
+        </p>
       </div>
     </section>
   );
