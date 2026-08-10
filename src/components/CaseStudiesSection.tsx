@@ -39,8 +39,11 @@ const CaseStudiesSection = () => {
                     <img
                       src={study.image}
                       alt={study.title}
+                      width={640}
+                      height={416}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
+                      decoding="async"
                     />
                   ) : (
                     <div className="w-full h-full bg-secondary/30 flex items-center justify-center">

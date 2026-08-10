@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { lazy, Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
@@ -6,69 +6,71 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
-import NotFound from "./pages/NotFound.tsx";
-import Blog from "./pages/Blog.tsx";
-import BlogPost from "./pages/BlogPost.tsx";
-import AIDataServicesOverview from "./pages/AIDataServicesOverview.tsx";
-import AIDataCollection from "./pages/AIDataCollection.tsx";
-import AIImageDataCollection from "./pages/AIImageDataCollection.tsx";
-import AIAudioSpeechDataCollection from "./pages/AIAudioSpeechDataCollection.tsx";
-import AITextDataCollection from "./pages/AITextDataCollection.tsx";
-import AIVideoDataCollection from "./pages/AIVideoDataCollection.tsx";
-import AIAnnotationLabeling from "./pages/AIAnnotationLabeling.tsx";
-import AICleaningValidation from "./pages/AICleaningValidation.tsx";
-import AIModelTesting from "./pages/AIModelTesting.tsx";
-import RoboticsTrainingData from "./pages/RoboticsTrainingData.tsx";
-import ContentServicesOverview from "./pages/ContentServicesOverview.tsx";
-import CustomElearningContent from "./pages/CustomElearningContent.tsx";
-import ExamPreparationContent from "./pages/ExamPreparationContent.tsx";
-import LearningSolutions from "./pages/LearningSolutions.tsx";
-import ElearningVideoSolutions from "./pages/ElearningVideoSolutions.tsx";
-import LocalizationServices from "./pages/LocalizationServices.tsx";
-import TechnologySolutions from "./pages/TechnologySolutions.tsx";
-import SubjectMatterExperts from "./pages/SubjectMatterExperts.tsx";
-import AccessibilityServices from "./pages/AccessibilityServices.tsx";
-import TalentAssessmentWorkforceEvaluation from "./pages/TalentAssessmentWorkforceEvaluation.tsx";
-import EditorialPublishingDesigningServices from "./pages/EditorialPublishingDesigningServices.tsx";
-import CaseStudy from "./pages/CaseStudy.tsx";
-import CaseStudyDetail from "./pages/CaseStudyDetail.tsx";
-import ContactUs from "./pages/ContactUs.tsx";
-import AboutUs from "./pages/AboutUs.tsx";
-import ClientTestimonials from "./pages/ClientTestimonials.tsx";
-import Careers from "./pages/Careers.tsx";
-import FAQs from "./pages/FAQs.tsx";
-import FreePilot from "./pages/FreePilot.tsx";
-import Samples from "./pages/Samples.tsx";
-import AIDataSample from "./pages/AIDataSample.tsx";
-import ContentServicesSample from "./pages/ContentServicesSample.tsx";
-import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
-import TuTrain from "./pages/TuTrain.tsx";
-import Sitemap from "./pages/Sitemap.tsx";
-import Gallery from "./pages/Gallery.tsx";
 import { contentServicesSamples } from "./components/samples/content-services/contentServicesSamplesData";
 import { contentServicesSubServiceRoutes } from "./components/content-services/contentServicesSubServiceRoutes";
 import { legacyRedirects } from "./routes/legacyRedirects";
-import ChatWidget from "./components/chatbot/ChatWidget";
 import ImageSeoTitles from "./components/seo/ImageSeoTitles";
 
-// Admin
-import AdminLayout from "./admin/components/AdminLayout";
-import ProtectedRoute from "./admin/components/ProtectedRoute";
-import AdminLogin from "./admin/pages/Login";
-import AdminDashboard from "./admin/pages/Dashboard";
-import AdminContactQueries from "./admin/pages/ContactQueries";
-import AdminPilotQueries from "./admin/pages/PilotQueries";
-import AdminBlogs from "./admin/pages/Blogs";
-import AdminBlogEditor from "./admin/pages/BlogEditor";
-import AdminCaseStudies from "./admin/pages/CaseStudies";
-import AdminCaseStudyEditor from "./admin/pages/CaseStudyEditor";
-import AdminSampleCategories from "./admin/pages/SampleCategories";
-import AdminSampleSubCategories from "./admin/pages/SampleSubCategories";
-import AdminSampleTabFiles from "./admin/pages/SampleTabFiles";
-import AdminSampleEditor from "./admin/pages/SampleEditor";
-import AdminCareers from "./admin/pages/Careers";
-import AdminCareerEditor from "./admin/pages/CareerEditor";
-import AdminCareerApplicants from "./admin/pages/CareerApplicants";
+// Keep the homepage's first render small. Every secondary route, admin screen,
+// and the chatbot is fetched only when it is actually needed.
+const NotFound = lazy(() => import("./pages/NotFound.tsx"));
+const Blog = lazy(() => import("./pages/Blog.tsx"));
+const BlogPost = lazy(() => import("./pages/BlogPost.tsx"));
+const AIDataServicesOverview = lazy(() => import("./pages/AIDataServicesOverview.tsx"));
+const AIDataCollection = lazy(() => import("./pages/AIDataCollection.tsx"));
+const AIImageDataCollection = lazy(() => import("./pages/AIImageDataCollection.tsx"));
+const AIAudioSpeechDataCollection = lazy(() => import("./pages/AIAudioSpeechDataCollection.tsx"));
+const AITextDataCollection = lazy(() => import("./pages/AITextDataCollection.tsx"));
+const AIVideoDataCollection = lazy(() => import("./pages/AIVideoDataCollection.tsx"));
+const AIAnnotationLabeling = lazy(() => import("./pages/AIAnnotationLabeling.tsx"));
+const AICleaningValidation = lazy(() => import("./pages/AICleaningValidation.tsx"));
+const AIModelTesting = lazy(() => import("./pages/AIModelTesting.tsx"));
+const RoboticsTrainingData = lazy(() => import("./pages/RoboticsTrainingData.tsx"));
+const ContentServicesOverview = lazy(() => import("./pages/ContentServicesOverview.tsx"));
+const CustomElearningContent = lazy(() => import("./pages/CustomElearningContent.tsx"));
+const ExamPreparationContent = lazy(() => import("./pages/ExamPreparationContent.tsx"));
+const LearningSolutions = lazy(() => import("./pages/LearningSolutions.tsx"));
+const ElearningVideoSolutions = lazy(() => import("./pages/ElearningVideoSolutions.tsx"));
+const LocalizationServices = lazy(() => import("./pages/LocalizationServices.tsx"));
+const TechnologySolutions = lazy(() => import("./pages/TechnologySolutions.tsx"));
+const SubjectMatterExperts = lazy(() => import("./pages/SubjectMatterExperts.tsx"));
+const AccessibilityServices = lazy(() => import("./pages/AccessibilityServices.tsx"));
+const TalentAssessmentWorkforceEvaluation = lazy(() => import("./pages/TalentAssessmentWorkforceEvaluation.tsx"));
+const EditorialPublishingDesigningServices = lazy(() => import("./pages/EditorialPublishingDesigningServices.tsx"));
+const CaseStudy = lazy(() => import("./pages/CaseStudy.tsx"));
+const CaseStudyDetail = lazy(() => import("./pages/CaseStudyDetail.tsx"));
+const ContactUs = lazy(() => import("./pages/ContactUs.tsx"));
+const AboutUs = lazy(() => import("./pages/AboutUs.tsx"));
+const ClientTestimonials = lazy(() => import("./pages/ClientTestimonials.tsx"));
+const Careers = lazy(() => import("./pages/Careers.tsx"));
+const FAQs = lazy(() => import("./pages/FAQs.tsx"));
+const FreePilot = lazy(() => import("./pages/FreePilot.tsx"));
+const Samples = lazy(() => import("./pages/Samples.tsx"));
+const AIDataSample = lazy(() => import("./pages/AIDataSample.tsx"));
+const ContentServicesSample = lazy(() => import("./pages/ContentServicesSample.tsx"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy.tsx"));
+const TuTrain = lazy(() => import("./pages/TuTrain.tsx"));
+const Sitemap = lazy(() => import("./pages/Sitemap.tsx"));
+const Gallery = lazy(() => import("./pages/Gallery.tsx"));
+const ChatWidget = lazy(() => import("./components/chatbot/ChatWidget"));
+
+const AdminLayout = lazy(() => import("./admin/components/AdminLayout"));
+const ProtectedRoute = lazy(() => import("./admin/components/ProtectedRoute"));
+const AdminLogin = lazy(() => import("./admin/pages/Login"));
+const AdminDashboard = lazy(() => import("./admin/pages/Dashboard"));
+const AdminContactQueries = lazy(() => import("./admin/pages/ContactQueries"));
+const AdminPilotQueries = lazy(() => import("./admin/pages/PilotQueries"));
+const AdminBlogs = lazy(() => import("./admin/pages/Blogs"));
+const AdminBlogEditor = lazy(() => import("./admin/pages/BlogEditor"));
+const AdminCaseStudies = lazy(() => import("./admin/pages/CaseStudies"));
+const AdminCaseStudyEditor = lazy(() => import("./admin/pages/CaseStudyEditor"));
+const AdminSampleCategories = lazy(() => import("./admin/pages/SampleCategories"));
+const AdminSampleSubCategories = lazy(() => import("./admin/pages/SampleSubCategories"));
+const AdminSampleTabFiles = lazy(() => import("./admin/pages/SampleTabFiles"));
+const AdminSampleEditor = lazy(() => import("./admin/pages/SampleEditor"));
+const AdminCareers = lazy(() => import("./admin/pages/Careers"));
+const AdminCareerEditor = lazy(() => import("./admin/pages/CareerEditor"));
+const AdminCareerApplicants = lazy(() => import("./admin/pages/CareerApplicants"));
 
 const queryClient = new QueryClient();
 
@@ -183,6 +185,8 @@ const App = () => (
 
               <Route path="*" element={<NotFound />} />
             </Routes>
+          </Suspense>
+          <Suspense fallback={null}>
             <ChatWidget />
           </Suspense>
         </BrowserRouter>

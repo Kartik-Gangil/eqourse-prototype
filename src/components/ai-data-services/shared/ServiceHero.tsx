@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Sparkles, Database, ShieldCheck, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import heroImage from "@/assets/hero-image.jpg";
+import heroVideoPoster from "@/assets/hero-video-poster.webp";
 
 interface ServiceHeroProps {
   preHeadline: string;
@@ -241,7 +241,7 @@ const ServiceHero = ({
               ) : (
                 <>
                   <img
-                    src={heroImage}
+                    src={heroVideoPoster}
                     alt="eQOURSE AI data services"
                     width={1280}
                     height={720}

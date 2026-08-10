@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { contentServicesCategories } from "@/components/content-services/shared/contentServicesNavData";
 import { aiDataServicesCategories } from "@/components/ai-data-services/shared/aiDataServicesNavData";
 import { aiDataSamples } from "@/components/samples/ai-data/shared/aiDataSamplesData";
-import eqourseLogoDark from "@/assets/eqourse-logo.png";
-import eqourseLogoLight from "@/assets/eqourse-logo-light.png";
+import eqourseLogoDark from "@/assets/eqourse-logo.webp";
+import eqourseLogoLight from "@/assets/eqourse-logo-light.webp";
 
 interface SubLink {
   label: string;
@@ -423,6 +423,10 @@ const AIDataServicesMegaMenu = ({ onClose }: { onClose: () => void }) => {
                 <img
                   src={category.image}
                   alt={category.imageAlt}
+                  width={520}
+                  height={420}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent pointer-events-none" />
@@ -825,11 +829,11 @@ const Navbar = () => {
         <div className={`bg-gradient-primary py-1.5 sm:py-2 px-4 transition-all duration-300 ${scrolled ? "hidden sm:block" : ""}`}>
           <div className="container mx-auto flex flex-wrap items-center justify-between text-primary-foreground text-xs sm:text-sm">
             <div className="flex items-center gap-4 sm:gap-6">
-              <a href="tel:+919214445870" className="flex items-center gap-1.5 sm:gap-2 hover:opacity-80 transition-opacity">
+              <a href="tel:+919214445870" className="flex min-h-6 items-center gap-1.5 sm:gap-2 hover:opacity-80 transition-opacity">
                 <Phone className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                 <span className="whitespace-nowrap tracking-wide">+91 92144 45870</span>
               </a>
-              <a href="mailto:info@eqourse.com" className="hidden sm:flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <a href="mailto:info@eqourse.com" className="hidden min-h-6 sm:flex items-center gap-2 hover:opacity-80 transition-opacity">
                 <Mail className="w-3.5 h-3.5" />
                 <span>info@eqourse.com</span>
               </a>
@@ -848,7 +852,7 @@ const Navbar = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:opacity-80 transition-opacity flex items-center gap-1 text-[10px] sm:text-xs font-medium group"
+                    className="min-h-6 hover:opacity-80 transition-opacity flex items-center gap-1 text-[10px] sm:text-xs font-medium group"
                     aria-label={social.name}
                   >
                     <Icon className="w-3.5 h-3.5 sm:w-3 sm:h-3 group-hover:scale-110 transition-transform" />
@@ -884,12 +888,16 @@ const Navbar = () => {
               <img
                 src={eqourseLogoDark}
                 alt="eQOURSE Logo - Professional AI Data and Content Services"
+                width={268}
+                height={80}
                 className={`h-8 sm:h-10 w-auto object-contain absolute left-0 top-0 transition-opacity duration-300 ${transparent ? 'opacity-0' : 'opacity-100'}`}
               />
               {/* Light logo — visible on transparent/dark hero background */}
               <img
                 src={eqourseLogoLight}
                 alt="eQOURSE Logo - Professional AI Data and Content Services"
+                width={268}
+                height={80}
                 className={`h-8 sm:h-10 w-auto object-contain transition-opacity duration-300 ${transparent ? 'opacity-100' : 'opacity-0'}`}
               />
             </Link>

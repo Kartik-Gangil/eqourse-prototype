@@ -362,6 +362,8 @@ const JourneyTimeline = () => {
                           src={milestone.image}
                           alt={`eQOURSE Journey ${milestone.year} - ${milestone.title}`}
                           title={`eQOURSE Milestone ${milestone.year}`}
+                          width={112}
+                          height={112}
                           loading="lazy"
                           className="w-full h-full object-cover"
                         />
@@ -429,6 +431,10 @@ const JourneyTimeline = () => {
                         <img
                           src={milestone.image}
                           alt={milestone.title}
+                          width={80}
+                          height={80}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover"
                         />
                         <div
@@ -468,6 +474,10 @@ const JourneyTimeline = () => {
                     <img
                       src={milestone.image}
                       alt={milestone.title}
+                      width={640}
+                      height={352}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-44 object-cover"
                     />
                     <div className="p-4">

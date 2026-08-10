@@ -1,0 +1,30 @@
+# eQOURSE
+
+> eQOURSE is a global content-services and AI-data-services company operating from India and Singapore. It provides custom learning content, multilingual AI training datasets, annotation, validation, model testing, and robotics training data.
+
+## Primary service areas
+
+- [Content Services](https://www.eqourse.com/content-services): E-learning, assessment, localization, technology, accessibility, talent, and publishing services.
+- [AI Data Services](https://www.eqourse.com/ai-data-services): Data collection, annotation, cleaning, validation, model testing, and robotics data services.
+- [AI Data Collection](https://www.eqourse.com/ai-data-services/data-collection): Multimodal data collection for production AI systems.
+- [Text Data Collection](https://www.eqourse.com/ai-data-services/data-collection/text-data-collection): Text datasets for NLP, LLMs, and generative AI.
+- [Audio and Speech Data Collection](https://www.eqourse.com/ai-data-services/data-collection/audio-data-collection): Multilingual speech and audio datasets.
+- [Image Data Collection](https://www.eqourse.com/ai-data-services/data-collection/image-data-collection): Image datasets collected under real-world conditions.
+- [Video Data Collection](https://www.eqourse.com/ai-data-services/data-collection/video-data-collection): Video datasets for computer vision and multimodal AI.
+- [Robotics Training Data](https://www.eqourse.com/robotics-training-data-services): Human-demonstration, teleoperation, sensor, and embodied-AI data.
+
+## Company and resources
+
+- [About eQOURSE](https://www.eqourse.com/aboutus): Company background, capabilities, leadership, and locations.
+- [Case Studies](https://www.eqourse.com/casestudy): Selected delivery outcomes.
+- [Samples](https://www.eqourse.com/samples): Content and AI-data work samples.
+- [Frequently Asked Questions](https://www.eqourse.com/faq): Common questions about engagement and delivery.
+- [Contact](https://www.eqourse.com/contact-us): Business enquiries.
+- [Free Pilot](https://www.eqourse.com/free-pilot): Request a scoped pilot project.
+
+## Discovery
+
+- [XML Sitemap](https://www.eqourse.com/sitemap.xml): Complete list of canonical public pages.
+- [Robots Policy](https://www.eqourse.com/robots.txt): Crawler access rules.
+
+The linked canonical pages are authoritative. Administrative routes under `/admin/` are private and should not be crawled.

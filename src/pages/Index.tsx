@@ -1,25 +1,26 @@
-import { useState } from "react";
+import { lazy, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
-import JourneyTimeline from "@/components/JourneyTimeline";
-import StatsSection from "@/components/StatsSection";
-import ServicesSection from "@/components/ServicesSection";
-import IndustriesSection from "@/components/IndustriesSection";
-import ProcessSection from "@/components/ProcessSection";
-import CaseStudiesSection from "@/components/CaseStudiesSection";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import CTASection from "@/components/CTASection";
-import ClientsSection from "@/components/ClientsSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import BlogSection from "@/components/BlogSection";
-import NewsletterSection from "@/components/NewsletterSection";
-import Footer from "@/components/Footer";
-import OurBrandsSection from "@/components/OurBrandsSection";
-
-import LeadFormPopup from "@/components/LeadFormPopup";
+import DeferredSection from "@/components/performance/DeferredSection";
 import { pageSeo } from "@/seo/pageSeo";
+
+const JourneyTimeline = lazy(() => import("@/components/JourneyTimeline"));
+const StatsSection = lazy(() => import("@/components/StatsSection"));
+const ServicesSection = lazy(() => import("@/components/ServicesSection"));
+const IndustriesSection = lazy(() => import("@/components/IndustriesSection"));
+const ProcessSection = lazy(() => import("@/components/ProcessSection"));
+const CaseStudiesSection = lazy(() => import("@/components/CaseStudiesSection"));
+const WhyChooseUs = lazy(() => import("@/components/WhyChooseUs"));
+const CTASection = lazy(() => import("@/components/CTASection"));
+const ClientsSection = lazy(() => import("@/components/ClientsSection"));
+const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
+const BlogSection = lazy(() => import("@/components/BlogSection"));
+const NewsletterSection = lazy(() => import("@/components/NewsletterSection"));
+const Footer = lazy(() => import("@/components/Footer"));
+const OurBrandsSection = lazy(() => import("@/components/OurBrandsSection"));
+const LeadFormPopup = lazy(() => import("@/components/LeadFormPopup"));
 
 const PAGE_SEO = pageSeo["/"];
 
@@ -159,23 +160,23 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <AboutSection />
-      <JourneyTimeline />
-      <StatsSection />
-      <ServicesSection activeTab={activeServiceTab} onTabChange={setActiveServiceTab} />
-
-      <ProcessSection />
-      <IndustriesSection />
-      <CaseStudiesSection />
-      <WhyChooseUs />
-      <CTASection />
-      <OurBrandsSection />
-      <ClientsSection />
-      <TestimonialsSection />
-      <BlogSection />
-      <NewsletterSection />
-      <Footer />
-
-      <LeadFormPopup />
+      <DeferredSection minHeight={720}><JourneyTimeline /></DeferredSection>
+        <DeferredSection minHeight={420}><StatsSection /></DeferredSection>
+        <DeferredSection minHeight={900}>
+          <ServicesSection activeTab={activeServiceTab} onTabChange={setActiveServiceTab} />
+        </DeferredSection>
+        <DeferredSection minHeight={720}><ProcessSection /></DeferredSection>
+        <DeferredSection minHeight={800}><IndustriesSection /></DeferredSection>
+        <DeferredSection minHeight={680}><CaseStudiesSection /></DeferredSection>
+        <DeferredSection minHeight={760}><WhyChooseUs /></DeferredSection>
+        <DeferredSection minHeight={360}><CTASection /></DeferredSection>
+        <DeferredSection minHeight={520}><OurBrandsSection /></DeferredSection>
+        <DeferredSection minHeight={420}><ClientsSection /></DeferredSection>
+        <DeferredSection minHeight={700}><TestimonialsSection /></DeferredSection>
+        <DeferredSection minHeight={700}><BlogSection /></DeferredSection>
+        <DeferredSection minHeight={320}><NewsletterSection /></DeferredSection>
+        <DeferredSection minHeight={720}><Footer /></DeferredSection>
+      <DeferredSection minHeight={1}><LeadFormPopup /></DeferredSection>
     </div>
   );
 };
