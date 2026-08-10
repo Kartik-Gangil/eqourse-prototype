@@ -11,6 +11,9 @@ import Blog from "./pages/Blog.tsx";
 import BlogPost from "./pages/BlogPost.tsx";
 import AIDataServicesOverview from "./pages/AIDataServicesOverview.tsx";
 import AIDataCollection from "./pages/AIDataCollection.tsx";
+import AIImageDataCollection from "./pages/AIImageDataCollection.tsx";
+import AIAudioSpeechDataCollection from "./pages/AIAudioSpeechDataCollection.tsx";
+import AITextDataCollection from "./pages/AITextDataCollection.tsx";
 import AIAnnotationLabeling from "./pages/AIAnnotationLabeling.tsx";
 import AICleaningValidation from "./pages/AICleaningValidation.tsx";
 import AIModelTesting from "./pages/AIModelTesting.tsx";
@@ -110,6 +113,9 @@ const App = () => (
               ))}
               <Route path="/ai-data-services" element={<AIDataServicesOverview />} />
               <Route path="/ai-data-services/data-collection" element={<AIDataCollection />} />
+              <Route path="/ai-data-services/data-collection/image-data-collection" element={<AIImageDataCollection />} />
+              <Route path="/ai-data-services/data-collection/audio-data-collection" element={<AIAudioSpeechDataCollection />} />
+              <Route path="/ai-data-services/data-collection/text-data-collection" element={<AITextDataCollection />} />
               <Route path="/ai-data-services/annotation-labeling" element={<AIAnnotationLabeling />} />
               <Route path="/ai-data-services/cleaning-validation" element={<AICleaningValidation />} />
               <Route path="/ai-data-services/model-testing" element={<AIModelTesting />} />
