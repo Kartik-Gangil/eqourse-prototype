@@ -103,7 +103,7 @@ const modalities = [
     icon: Video,
     title: "Video Data Collection",
     summary: "Real-world video covering human activity, objects, environments and temporal behaviour for computer vision and physical AI.",
-    href: null as string | null,
+    href: "/ai-data-services/data-collection/video-data-collection" as string | null,
     items: [
       "Action recognition clips",
       "Surveillance & security footage",

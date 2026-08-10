@@ -248,11 +248,59 @@ function buildTextDataCollectionFallback() {
     </main>`;
 }
 
+function buildVideoDataCollectionFallback() {
+  const faq = [
+    ["What is video data collection for AI?", "Video data collection records or sources sequences for AI systems that need to understand motion, actions, objects, events and changing environments."],
+    ["What types of video can eQOURSE collect?", "Projects can include human activities, gestures, object interactions, indoor and outdoor scenes, mobility scenarios, multi-camera capture and selected first-person tasks."],
+    ["Can you collect egocentric or first-person video?", "Where appropriate, approved wearable or first-person setups can capture task sequences and object interactions. Robotics-specific requirements belong to Robotics Training Data Services."],
+    ["Can you use specific cameras or devices?", "Yes. Specifications can define phones, cameras, wearable rigs, mounts, viewpoints, resolution and frame rate."],
+    ["How do you ensure video quality?", "QA can include integrity, duration, codec, resolution, frame rate, blur, exposure, framing, scenario compliance, duplicates and metadata."],
+    ["Can you collect multi-camera video?", "Where operationally supported, the same scene or activity can be captured from multiple viewpoints with synchronisation defined during scoping."],
+    ["How is consent handled?", "Participant consent, permitted use, location permissions, retention and access requirements are defined before collection where applicable."],
+    ["Can you annotate collected video?", "Yes. Clips can continue into Annotation & Labeling for frame-level, temporal, tracking, action, keypoint or project-specific labels."],
+    ["What formats can video be delivered in?", "Common formats include MP4, MOV and other agreed containers or codecs, with technical parameters aligned to the model pipeline."],
+    ["How much does video data collection cost?", "Cost depends on volume, scenarios, participants, locations, cameras, resolution, multi-camera requirements, moderation, QA and timeline."],
+  ];
+  const canonical = `${SITE_URL}/ai-data-services/data-collection/video-data-collection`;
+  const breadcrumb = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+    { "@type": "ListItem", position: 2, name: "AI Data Services", item: `${SITE_URL}/ai-data-services` },
+    { "@type": "ListItem", position: 3, name: "Data Collection", item: `${SITE_URL}/ai-data-services/data-collection` },
+    { "@type": "ListItem", position: 4, name: "Video Data Collection", item: canonical },
+  ] };
+  const service = { "@context": "https://schema.org", "@type": "Service", "@id": `${canonical}#service`, name: "Video Data Collection Services for Computer Vision & Multimodal AI", serviceType: "Video Data Collection for AI", description: "Custom video data collection for computer vision and multimodal AI across actions, objects, environments and first-person scenarios.", provider: { "@type": "Organization", name: "eQOURSE", url: `${SITE_URL}/` }, areaServed: "Worldwide", url: canonical };
+  const json = (value) => JSON.stringify(value).replace(/</g, "\\u003c");
+
+  return `<main data-seo-prerender="true">
+      <nav aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/ai-data-services">AI Data Services</a> / <a href="/ai-data-services/data-collection">Data Collection</a> / <span>Video Data Collection</span></nav>
+      <h1>Video Data Collection Services for Computer Vision &amp; Multimodal AI</h1>
+      <p>Capture real-world video around the actions, objects, camera perspectives, environments and temporal patterns your model must understand.</p><p><a href="/free-pilot">Start Free Pilot</a> <a href="/contact-us">Discuss Your Video Dataset</a></p>
+      <section><h2>What Is Video Data Collection for AI?</h2><p>Video data collection records or sources sequences for AI systems that understand motion, actions, events, object behaviour and changing environments over time. Projects can control camera, viewpoint, frame rate, duration, environment, activity and coverage.</p><h3>Collection creates the raw video</h3><p>Frame, tracking, action and temporal labels belong to <a href="/ai-data-services/annotation-labeling">Annotation &amp; Labeling</a>.</p></section>
+      <section><h2>Custom Video Datasets for Dynamic AI Systems</h2><h3>Human Actions &amp; Activities</h3><p>Scripted or natural action sequences.</p><h3>Object Movement &amp; Interaction</h3><p>Objects moved, handled or assembled.</p><h3>Environment &amp; Scene Video</h3><p>Scenes across time and operating conditions.</p><h3>In-Vehicle &amp; Mobility Video</h3><p>Approved cabin, road and mobility scenarios.</p><h3>Multi-Camera Capture</h3><p>Cross-view recordings of the same activity.</p><h3>Egocentric / First-Person Video</h3><p>Approved wearable capture of tasks and interactions.</p></section>
+      <section><h2>Capture the Temporal and Visual Variation Your Model Needs</h2><ul><li>Action or scenario</li><li>Camera viewpoint</li><li>Frame rate and resolution</li><li>Duration</li><li>Lighting and time</li><li>Environment</li><li>Participant or object coverage</li><li>Temporal diversity</li></ul></section>
+      <section><h2>How We Collect Video Training Data</h2><ul><li>Remote contributor capture</li><li>Moderated or controlled capture</li><li>Field collection</li><li>Device or rig-specific capture</li><li>Customer-provided or rights-cleared video</li></ul></section>
+      <section><h2>Our Video Data Collection Process</h2><ol><li>Use-case definition</li><li>Scenario and capture specification</li><li>Contributor, location and device setup</li><li>Pilot capture</li><li>Collection at scale</li><li>Quality validation</li><li>Secure delivery</li></ol><p><a href="/ai-data-services/annotation-labeling">Video Annotation</a> → <a href="/ai-data-services/cleaning-validation">Cleaning and Validation</a> → <a href="/ai-data-services/model-testing">Model Testing</a></p></section>
+      <section><h2>Quality Validation for Video Training Data</h2><p>Checks can cover integrity, codecs, duration, resolution, frame rate, orientation, blur, exposure, framing, action visibility, scenario compliance, coverage and duplicates.</p></section>
+      <section><h2>First-Person Video for Embodied and Physical AI</h2><p>Approved wearable setups can capture everyday actions and object interactions. Deep robotics demonstrations, sensor fusion and VLA projects belong to <a href="/robotics-training-data-services">Robotics Training Data Services</a>.</p></section>
+      <section><h2>Video Data for Dynamic Computer Vision and Multimodal AI</h2><p>Action recognition, tracking, gestures, scene understanding, mobility, safety, video-language models and selected physical-AI use cases.</p></section>
+      <section><h2>Responsible Collection in Human and Real-World Environments</h2><p>Consent, location permissions, permitted use, access, retention, provenance, metadata minimisation, secure transfer and downstream de-identification are defined where applicable.</p></section>
+      <section><h2>Video Formats, Metadata and Delivery</h2><p>Examples include MP4, MOV, WebM, agreed codecs, resolution, frame rate, clip and scenario IDs, device and environment metadata, timestamps, synchronisation metadata, manifests and provenance documents.</p></section>
+      <section><h2>Video Data Collection Across Real-World Domains</h2><p>Automotive, retail, workplaces, consumer devices, fitness and a bridge to dedicated robotics programmes.</p></section>
+      <section><h2>When Existing Video Libraries Do Not Match Deployment</h2><p>Custom capture helps when actions, viewpoints, devices, rare cases, environments, consented footage, first-person data, provenance or temporal diversity are missing.</p></section>
+      <section><h2>What Determines Video Data Collection Cost?</h2><p>Pricing depends on volume, scenarios, participants, locations, cameras, frame rate, resolution, synchronisation, field operations, QA and timeline.</p></section>
+      <section><h2>Why Choose eQOURSE for Video Data Collection?</h2><p>Scenario-led specifications, flexible capture models, multi-region coordination, connected downstream services, ISO 9001, ISO 27001 and domain specialists.</p><p><a href="/ai-data-services/data-collection">Explore AI Data Collection Services</a> <a href="/ai-data-services/data-collection/image-data-collection">Image Data Collection</a> <a href="/ai-data-services/data-collection/audio-data-collection">Audio Data Collection</a> <a href="/ai-data-services/data-collection/text-data-collection">Text Data Collection</a></p></section>
+      <section><h2>Frequently Asked Questions About Video Data Collection</h2>${faq.map(([q,a]) => `<details><summary>${escapeHtml(q)}</summary><p>${escapeHtml(a)}</p></details>`).join("")}</section>
+      <section><h2>Capture the Video Scenarios Your Model Needs to Understand</h2><p><a href="/free-pilot">Start Free Pilot</a> <a href="/contact-us">Talk to a Data Specialist</a></p></section>
+      <script type="application/ld+json">${json(breadcrumb)}</script><script type="application/ld+json">${json(service)}</script>
+    </main>`;
+}
+
 function buildCrawlFallback({ path, title, description }) {
   if (path === "/ai-data-services/data-collection") return buildDataCollectionFallback();
   if (path === "/ai-data-services/data-collection/image-data-collection") return buildImageDataCollectionFallback();
   if (path === "/ai-data-services/data-collection/audio-data-collection") return buildAudioDataCollectionFallback();
   if (path === "/ai-data-services/data-collection/text-data-collection") return buildTextDataCollectionFallback();
+  if (path === "/ai-data-services/data-collection/video-data-collection") return buildVideoDataCollectionFallback();
   const heading = title.replace(/\s*(?:\||\u2013|\u2014)\s*eQOURSE.*$/i, "").trim();
   const sharedLinks = path.startsWith("/ai-data") || path.startsWith("/robotics")
     ? [

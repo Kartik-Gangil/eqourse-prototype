@@ -109,6 +109,11 @@ export const pageSeo: Record<string, PageSeo> = {
     description: "Custom text data collection for NLP, LLMs and generative AI. Build multilingual, domain-specific, conversational and human-generated training datasets.",
     canonical: "https://www.eqourse.com/ai-data-services/data-collection/text-data-collection",
   },
+  "/ai-data-services/data-collection/video-data-collection": {
+    title: "Video Data Collection Services for Computer Vision | eQOURSE",
+    description: "Custom video data collection for computer vision and multimodal AI. Capture actions, objects, environments and first-person scenarios to your specifications.",
+    canonical: "https://www.eqourse.com/ai-data-services/data-collection/video-data-collection",
+  },
   "/ai-data-services/model-testing": {
     title: "AI Model Testing – Ensure Model Accuracy | Eqourse",
     description: "Test AI models for accuracy, safety, reliability and real-world performance with expert evaluation services. Start a free pilot.",
