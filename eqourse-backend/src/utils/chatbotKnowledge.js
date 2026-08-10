@@ -36,6 +36,10 @@ const pageDirectory = [
   // ── AI Data Services ──
   { title: "AI Data Services (Overview)", path: "/ai-data-services", description: "Overview of all AI training data services — collection, annotation, cleaning, testing" },
   { title: "Data Collection", path: "/ai-data-services/data-collection", description: "Custom AI training data collection across text, audio, image, and video modalities" },
+  { title: "Image Data Collection", path: "/ai-data-services/data-collection/image-data-collection", description: "Purpose-built image datasets for computer vision and visual AI across objects, documents, scenes, devices and real-world conditions" },
+  { title: "Audio & Speech Data Collection", path: "/ai-data-services/data-collection/audio-data-collection", description: "Custom speech and acoustic datasets for ASR, TTS and voice AI across languages, accents, speakers, devices and environments" },
+  { title: "Text Data Collection", path: "/ai-data-services/data-collection/text-data-collection", description: "Multilingual, domain-specific, conversational and human-created text datasets for NLP, LLMs and generative AI" },
+  { title: "Video Data Collection", path: "/ai-data-services/data-collection/video-data-collection", description: "Scenario-designed video datasets for computer vision and multimodal AI across actions, objects, environments, viewpoints and time" },
   { title: "Annotation & Labeling", path: "/ai-data-services/annotation-labeling", description: "Expert data annotation — NER, bounding boxes, segmentation, sentiment, RLHF" },
   { title: "Data Cleaning & Validation", path: "/ai-data-services/cleaning-validation", description: "Data quality assurance — deduplication, normalization, golden set validation" },
   { title: "Model Testing", path: "/ai-data-services/model-testing", description: "Real-world AI model testing with human evaluators — red-teaming, A/B testing, safety" },
@@ -137,6 +141,59 @@ const pageDirectory = [
 
 // ─── FAQs (mirrored from src/components/faqs/FAQsAccordion.tsx, deduplicated) ─
 
+// Detailed service knowledge for the Data Collection parent and its four modality pages.
+// Collection creates or sources the raw dataset; annotation adds labels, transcripts,
+// rankings or other structured tags.
+const dataCollectionKnowledge = `
+### AI DATA COLLECTION: PARENT SERVICE
+- Main page: https://www.eqourse.com/ai-data-services/data-collection
+- eQOURSE designs purpose-built raw datasets around the client's target model, deployment environment, target population, devices, languages, edge cases, rights and delivery requirements.
+- Four dedicated modalities are available: Image, Audio & Speech, Text and Video.
+- Common lifecycle: define the use case and dataset specification; source contributors, experts, locations or authorised material; run a pilot; collect at scale; validate quality and coverage; deliver securely with agreed metadata and documentation.
+- Collection models can include remote contributor collection, moderated or controlled capture, field collection, customer-provided or appropriately authorised sources, and device- or environment-specific programmes.
+- Governance is scoped before collection: permitted use, contributor consent where applicable, location or property permissions, source provenance, access controls, retention, sensitive-data handling and secure transfer.
+- Pricing is project-specific and depends on volume, modality, complexity, languages, participants, locations, devices, environments, domain expertise, quality depth and timeline. Never invent a rate or promise a fixed schedule.
+- Collection creates or sources raw data. NER, bounding boxes, segmentation, transcription, diarisation, action labels, safety labels and preference rankings are separate Annotation & Labeling services: https://www.eqourse.com/ai-data-services/annotation-labeling
+- Do not apply annotation-accuracy or IAA claims to raw data collection. Collection acceptance criteria are defined per project around technical integrity, scenario compliance, metadata, coverage, duplication and governance.
+
+### IMAGE DATA COLLECTION
+- Page: https://www.eqourse.com/ai-data-services/data-collection/image-data-collection
+- Purpose: build custom visual datasets when existing libraries do not match the target classes, devices, environments, geography, licensing or production edge cases.
+- Dataset examples: object and product images, appropriately consented people/activity imagery, indoor/outdoor scenes, documents and OCR imagery, retail and shelf imagery, appropriately governed medical/scientific imagery, aerial/satellite imagery, and multi-angle or device-specific capture.
+- Controllable variables: lighting, angle and perspective, distance and scale, background and occlusion, camera/device and resolution, geography and participant profile where representation is relevant.
+- Collection methods: remote contributor capture, moderated capture, field collection, controlled studio capture, customer-provided imagery and appropriately rights-cleared sources.
+- Quality checks: file integrity, format and resolution, blur/exposure, framing, target visibility, scenario compliance, metadata completeness, duplicates and coverage balance.
+- Handoff can include JPEG, PNG, WebP, TIFF or required formats plus image IDs, capture metadata, class/scenario manifests, provenance and consent documentation where applicable. Spatial labels are scoped under annotation.
+
+### AUDIO & SPEECH DATA COLLECTION
+- Page: https://www.eqourse.com/ai-data-services/data-collection/audio-data-collection
+- Purpose: collect speech, voice and selected acoustic data for ASR, TTS-support datasets, voice assistants, wake words, conversational AI, dialogue understanding and audio-event systems.
+- Dataset examples: scripted speech, spontaneous speech, guided or natural conversations, wake words and commands, domain-specific speech, ethically appropriate emotional/tonal speech, and selected non-speech/acoustic events.
+- Controllable variables: language, accent, dialect, speaker profile, speaking style, microphone/device, distance, environment, background noise, sample rate and file format.
+- Collection methods: remote recording, moderated sessions, studio or controlled recording, field recording and customer-provided or authorised audio.
+- Quality checks: file integrity, duration, clipping, silence, signal/noise quality, prompt or scenario compliance, speaker/session metadata, duplicates and coverage across required language and acoustic variables.
+- Handoff can include WAV, FLAC, MP3 or required formats plus speaker/session IDs, recording metadata, prompt/scenario manifests, provenance and consent records. Transcripts, speaker labels and timestamps are downstream annotation.
+
+### TEXT DATA COLLECTION
+- Page: https://www.eqourse.com/ai-data-services/data-collection/text-data-collection
+- Purpose: source, create or compile written-language data for NLP, LLMs and generative AI around the language, tasks, domain knowledge and user behaviour the model must understand.
+- Dataset examples: monolingual and multilingual corpora, domain terminology and knowledge text, conversational dialogue pairs, realistic user queries, prompt-response pairs, authorised social/user-generated content, documents/forms, handwriting or digitised text.
+- Collection methods: human-created text, trained or domain-expert creation, structured elicitation and surveys, customer-owned or authorised corpora, appropriately rights-cleared sources, and document or handwriting capture.
+- Controllable variables: language, locale, script, register, tone, domain, intent, content length, dialogue structure, contributor expertise, source rights and metadata.
+- Quality checks: encoding and format, language/script accuracy, relevance, completeness, factual or domain review where required, duplicates, prohibited or sensitive content, source rights and coverage balance.
+- Handoff can include JSON, JSONL, CSV, TSV, TXT or client-defined schemas plus record IDs, language/domain metadata, source/provenance fields and project manifests. NER, sentiment, safety and preference labels are downstream annotation.
+
+### VIDEO DATA COLLECTION
+- Page: https://www.eqourse.com/ai-data-services/data-collection/video-data-collection
+- Purpose: capture sequences for computer vision and multimodal AI systems that must understand motion, actions, events, object behaviour and changing environments over time.
+- Dataset examples: human actions and activities, object movement and interaction, environment/scene video, supported in-vehicle or mobility scenarios, multi-camera capture and egocentric/first-person video.
+- Controllable variables: action/scenario, camera viewpoint, device or rig, frame rate, resolution, duration, lighting/time, environment, participant/object coverage and temporal diversity.
+- Collection methods: remote contributor capture, moderated or controlled capture, field collection, device/rig-specific capture, multi-camera recording and appropriately rights-cleared video.
+- Quality checks: file/codec integrity, duration, orientation, frame rate, corrupted or missing frames where detectable, blur/exposure, obstruction, framing, target visibility, scenario sequence, metadata, duplicates and coverage.
+- Handoff can include MP4, MOV, WebM or required containers/codecs plus clip/session IDs, scenario and camera metadata, timestamps or synchronisation metadata where applicable, manifests, provenance and consent documentation.
+- First-person video can support activity understanding and embodied-AI research. Robot demonstrations, state/action logs, sensor fusion and VLA programmes belong to Robotics Training Data Services: https://www.eqourse.com/robotics-training-data-services
+`;
+
 const faqs = [
   // ── Free Pilot & Getting Started ──
   { q: "Is the free pilot really free?", a: "Yes, 100% free. No payment, no credit card, no hidden charges. We produce a complimentary sample tailored to your specifications so you can evaluate our quality before making any commitment." },
@@ -211,10 +268,15 @@ const faqs = [
   { q: "How do you handle PII in datasets?", a: "A combination of regex patterns, NER models, and human review to detect PII (names, emails, phone numbers, addresses, SSNs). Replacement strategies: token replacement, synthetic substitution, or complete removal. All redaction is logged for audit trails." },
   { q: "Are your processes GDPR compliant?", a: "Yes. GDPR compliant with ISO 27001 and ISO 9001 certifications. All teams sign NDAs, work in isolated environments with role-based access control, and all data transformations are logged with full audit trails and data lineage tracking." },
   { q: "Can you clean data that's already been annotated?", a: "Absolutely. We clean pre-annotated data while preserving label integrity — label-aware deduplication, annotation consistency checks, and format validation." },
-  { q: "What types of data can you collect?", a: "Text (corpora, dialogue, documents), audio (speech recordings, wake-words, multi-speaker conversations), image (object detection sets, medical imaging, satellite imagery), and video (action recognition, driving scenes, gesture recordings) across 30+ languages." },
-  { q: "How do you ensure data diversity?", a: "Demographic controls, geographic distribution, accent and dialect targeting, and balanced sampling. Our managed crowd of 500+ contributors spans 30+ countries, ensuring natural variation in age, gender, region, and speaking style." },
+  { q: "What types of data can you collect?", a: "Four dedicated modalities: Image Data Collection for computer vision; Audio & Speech Data Collection for ASR, TTS and voice AI; Text Data Collection for NLP, LLMs and generative AI; and Video Data Collection for actions, motion, events, multi-view and first-person scenarios. Explore them at https://www.eqourse.com/ai-data-services/data-collection" },
+  { q: "What is the difference between data collection and annotation?", a: "Collection creates or sources the raw image, audio, text or video dataset. Annotation adds structure such as bounding boxes, segmentation masks, transcripts, speaker labels, NER, sentiment, action labels or preference rankings. eQOURSE can connect both stages, but they are scoped separately." },
+  { q: "What image data can eQOURSE collect?", a: "Purpose-built object, product, scene, document/OCR, retail, multi-angle and device-specific imagery, plus appropriately governed specialist imagery. Programmes can control lighting, angle, distance, background, occlusion, device, resolution, geography and relevant participant coverage. See https://www.eqourse.com/ai-data-services/data-collection/image-data-collection" },
+  { q: "What audio and speech data can eQOURSE collect?", a: "Scripted, spontaneous and conversational speech; wake words and commands; domain-specific utterances; ethically appropriate tonal speech; and selected acoustic events. Collection can vary language, accent, dialect, speaker profile, device, microphone, environment and noise. See https://www.eqourse.com/ai-data-services/data-collection/audio-data-collection" },
+  { q: "What text data can eQOURSE collect?", a: "Monolingual and multilingual corpora, domain terminology, dialogue and realistic user queries, prompt-response pairs, authorised documents, forms, handwriting and digitised text. Human and domain-expert creation, customer-owned corpora and rights-cleared sources can be used. See https://www.eqourse.com/ai-data-services/data-collection/text-data-collection" },
+  { q: "What video data can eQOURSE collect?", a: "Human actions, object interactions, environment and scene sequences, supported mobility scenarios, multi-camera recordings and egocentric or first-person video. Projects can specify viewpoint, device or rig, frame rate, resolution, duration, lighting, environment and temporal coverage. See https://www.eqourse.com/ai-data-services/data-collection/video-data-collection" },
+  { q: "How do you ensure data diversity?", a: "Projects define the representation and coverage variables relevant to the use case, such as geography, language, accent, dialect, device, environment, lighting, viewpoint, speaking style, scenario and edge cases. Sampling and QA are then designed around those agreed requirements." },
   { q: "Can you collect domain-specific data?", a: "Yes. Our STEM-background specialists understand domain terminology and context. We've collected specialized datasets for healthcare, finance, legal, and technology domains." },
-  { q: "What's the typical turnaround time for a data collection project?", a: "Pilot datasets typically take 1–2 weeks, mid-scale projects 3–6 weeks, and large-scale collections are milestone-based with weekly deliveries and progress dashboards." },
+  { q: "What's the typical turnaround time for a data collection project?", a: "Timelines are scoped per project because they depend on modality, volume, languages, participants, locations, devices, scenario complexity, quality depth and governance requirements. eQOURSE normally validates the specification and pilot before confirming the production schedule." },
   { q: "How is your model testing different from standard benchmarks?", a: "Standard benchmarks use scripted, clean test cases. We test with real users in real-world conditions — noisy audio, accented speech, code-switching, adversarial inputs, and multi-turn conversations. This reveals failure modes that benchmarks miss." },
   { q: "What is the closed-loop pipeline?", a: "A continuous improvement cycle: deploy, test with real users, collect feedback, analyze gaps, curate new training data, retrain, and validate again. This delivers 20–40% faster model improvement compared to traditional batch testing." },
   { q: "What is the TuTrain testing platform?", a: "TuTrain is our proprietary testing infrastructure connecting your model to 500+ vetted real users across 30+ languages. Multi-device testing, real-time analytics dashboards, and structured feedback on model performance with full audit trails." },
@@ -342,6 +404,8 @@ eQOURSE is a dual-capability solutions company delivering:
 - **Robotics & Physical AI Training Data**: Human demonstrations, egocentric and multi-view video, multimodal robotics annotation, synchronisation, validation and behaviour evaluation; robot or teleoperation data is scoped around client-provided hardware, approved environments or qualified partners
 - Accuracy: 98%+ validated datasets, IAA ≥ 0.80
 - Formats: COCO JSON, Pascal VOC, CoNLL, JSONL, Parquet, NIfTI, CSV/TSV, custom schemas
+
+${dataCollectionKnowledge}
 
 ### Free Pilot
 eQOURSE offers a 100% free pilot — no payment, no commitment:

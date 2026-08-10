@@ -3,6 +3,7 @@ import { Menu, X, Phone, Mail, ChevronDown, ChevronRight, ArrowRight, FileText, 
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { contentServicesCategories } from "@/components/content-services/shared/contentServicesNavData";
+import { aiDataServicesCategories } from "@/components/ai-data-services/shared/aiDataServicesNavData";
 import { aiDataSamples } from "@/components/samples/ai-data/shared/aiDataSamplesData";
 import eqourseLogoDark from "@/assets/eqourse-logo.png";
 import eqourseLogoLight from "@/assets/eqourse-logo-light.png";
@@ -20,6 +21,7 @@ interface MainLink {
   to: string;
   dropdown?: SubLink[];
   megaMenu?: boolean;          // flag: use mega-menu instead of simple dropdown
+  aiMegaMenu?: boolean;        // flag: use the AI Data Services hierarchy mega-menu
   samplesMenu?: boolean;       // flag: 3-column Samples mega menu
   subtext?: string;            // flag: simple tooltip text
   external?: boolean;          // flag: external link
@@ -50,7 +52,7 @@ const navLinks: MainLink[] = [
   { label: "Home", to: "/" },
   { label: "About Us", to: "/aboutus", dropdown: aboutUsSubLinks },
   { label: "Content Services", to: "/content-services", dropdown: contentServicesSubLinks, megaMenu: true },
-  { label: "AI Data Services", to: "/ai-data-services", dropdown: aiDataSubLinks },
+  { label: "AI Data Services", to: "/ai-data-services", dropdown: aiDataSubLinks, aiMegaMenu: true },
   { label: "Samples", to: "/samples", samplesMenu: true },
   { label: "TUTRAIN", to: "/tutrain", subtext: "Our Online Tutoring Brand" },
   { label: "eQOURSE+", to: "https://plus.eqourse.com", subtext: "Our Talent Platform", external: true },
@@ -304,6 +306,204 @@ const MobileContentServicesAccordion = ({ onClose }: { onClose: () => void }) =>
 }
 
 /* ─── Samples 3-Column Mega Menu (Desktop) ─── */
+/* --- AI Data Services Mega-Menu (Desktop) --- */
+const AIDataServicesMegaMenu = ({ onClose }: { onClose: () => void }) => {
+  const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
+  const [activeSubIndex, setActiveSubIndex] = useState<number | null>(null);
+  const location = useLocation();
+  const category = aiDataServicesCategories[activeCategoryIndex];
+  const subService = activeSubIndex !== null ? category.subServices[activeSubIndex] : null;
+
+  const selectCategory = (index: number) => {
+    setActiveCategoryIndex(index);
+    setActiveSubIndex(null);
+  };
+
+  return (
+    <nav
+      className="absolute top-full -left-[43vw] w-[97vw] max-w-[1350px] bg-card/95 rounded-3xl border border-border/50 shadow-elevated animate-slide-up z-50 overflow-hidden max-h-[80vh]"
+      style={{ backdropFilter: "blur(20px)" }}
+      aria-label="AI Data Services navigation"
+    >
+      <div className="flex min-h-[450px]">
+        <div className="w-[330px] border-r border-border/40 py-6 bg-secondary/30 flex flex-col overflow-auto max-h-[80vh]" role="list" aria-label="AI Data service categories">
+          <Link to="/ai-data-services" onClick={onClose} className="px-6 py-2 mb-1 text-[11px] font-bold uppercase tracking-widest text-muted-foreground/70 hover:text-primary">
+            AI Data Expertise
+          </Link>
+          {aiDataServicesCategories.map((item, index) => {
+            const Icon = item.icon;
+            const isCurrent = location.pathname.startsWith(item.href);
+            const isSelected = activeCategoryIndex === index;
+            return (
+              <Link
+                key={item.href}
+                to={item.href}
+                role="listitem"
+                onMouseEnter={() => selectCategory(index)}
+                onFocus={() => selectCategory(index)}
+                onClick={onClose}
+                className={`group flex items-start gap-3 px-6 py-4 text-sm transition-all border-l-4 ${isSelected ? "bg-primary/5 text-primary font-bold border-primary" : isCurrent ? "text-primary/80 border-transparent" : "text-foreground/80 border-transparent hover:text-primary hover:bg-primary/5"}`}
+              >
+                <Icon className="w-5 h-5 shrink-0 mt-0.5" aria-hidden="true" />
+                <span className="flex-1 leading-tight">{item.label}</span>
+                <ChevronRight className={`w-4 h-4 shrink-0 mt-0.5 transition-all ${isSelected ? "translate-x-1 text-primary" : "opacity-0 group-hover:opacity-100 group-hover:translate-x-1"}`} aria-hidden="true" />
+              </Link>
+            );
+          })}
+        </div>
+
+        <div className="flex-1 min-w-0 py-6 px-6 border-r border-border/40 overflow-auto max-h-[80vh]">
+          <Link to={category.href} onClick={onClose} className="group flex items-center gap-2 px-3 py-2 mb-2 text-xl font-bold text-foreground hover:text-primary transition-colors">
+            <category.icon className="w-6 h-6 text-primary" aria-hidden="true" />
+            <span>{category.label}</span>
+            <ArrowRight className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" aria-hidden="true" />
+          </Link>
+          <p className="px-3 mb-5 max-w-2xl text-xs leading-relaxed text-muted-foreground">{category.description}</p>
+
+          <div className="grid grid-cols-2 gap-2" role="list" aria-label={`${category.label} sub-services`}>
+            {category.subServices.map((sub, index) => {
+              const Icon = sub.icon;
+              const isSelected = activeSubIndex === index;
+              const isCurrent = location.pathname === sub.href;
+              return (
+                <Link
+                  key={`${category.href}-${sub.label}`}
+                  to={sub.href}
+                  role="listitem"
+                  onMouseEnter={() => setActiveSubIndex(index)}
+                  onFocus={() => setActiveSubIndex(index)}
+                  onClick={onClose}
+                  className={`group flex items-start gap-3 rounded-xl px-3 py-3 text-sm transition-all ${isSelected ? "bg-primary/15 text-primary font-semibold shadow-sm ring-1 ring-primary/20" : isCurrent ? "bg-primary/10 text-primary font-semibold" : "text-foreground/80 hover:bg-primary/10 hover:text-primary"}`}
+                >
+                  <Icon className={`w-4 h-4 shrink-0 mt-0.5 ${isSelected ? "text-primary" : "text-primary/60"}`} aria-hidden="true" />
+                  <span className="leading-tight">{sub.label}</span>
+                  <ChevronRight className={`w-3.5 h-3.5 ml-auto shrink-0 mt-0.5 transition-all ${isSelected ? "opacity-100 translate-x-0.5" : "opacity-0 group-hover:opacity-60"}`} aria-hidden="true" />
+                </Link>
+              );
+            })}
+          </div>
+
+          <Link to={category.href} onClick={onClose} className="inline-flex items-center gap-2 mx-3 mt-6 text-xs font-bold uppercase tracking-wider text-primary hover:underline">
+            View {category.label} overview <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+          </Link>
+        </div>
+
+        <aside className="w-[330px] p-6 flex flex-col overflow-auto max-h-[80vh]" aria-live="polite">
+          {subService ? (
+            <div className="flex flex-col h-full animate-fade-in" key={`${activeCategoryIndex}-${activeSubIndex}`}>
+              <div className="flex items-center gap-3 pb-4 mb-4 border-b border-border/40">
+                <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center shadow-soft shrink-0">
+                  <subService.icon className="w-5 h-5 text-primary-foreground" aria-hidden="true" />
+                </div>
+                <div className="min-w-0">
+                  <h3 className="font-bold text-foreground leading-tight">{subService.label}</h3>
+                  <span className="text-[10px] font-bold text-primary/70 uppercase tracking-wider">What We Deliver</span>
+                </div>
+              </div>
+
+              <p className="text-xs text-muted-foreground leading-relaxed mb-3">{subService.description}</p>
+              <ul className="flex flex-col gap-1 mb-auto" aria-label={`Capabilities under ${subService.label}`}>
+                {subService.serviceHighlights.map((highlight) => (
+                  <li key={highlight}>
+                    <Link to={subService.href} onClick={onClose} className="group/item flex items-start gap-2.5 px-3 py-2 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-primary/5 transition-colors">
+                      <span className="w-1.5 h-1.5 mt-1.5 rounded-full bg-primary/45 group-hover/item:bg-primary shrink-0" aria-hidden="true" />
+                      <span className="leading-snug">{highlight}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <Link to={subService.href} onClick={onClose} className="group/button mt-4 flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-bold text-primary-foreground shadow-md hover:bg-primary/90 hover:shadow-lg transition-all">
+                Explore {subService.label} <ArrowRight className="w-4 h-4 group-hover/button:translate-x-1 transition-transform" aria-hidden="true" />
+              </Link>
+            </div>
+          ) : (
+            <div className="flex flex-col h-full animate-fade-in group" key={`category-${category.href}`}>
+              <div className="relative w-full h-[210px] rounded-2xl overflow-hidden mb-5 shadow-md border border-border/30 bg-secondary/30">
+                <img
+                  src={category.image}
+                  alt={category.imageAlt}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent pointer-events-none" />
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-2 leading-tight">{category.label}</h3>
+              <p className="text-sm text-muted-foreground mb-auto leading-relaxed">{category.description}</p>
+              <Link to={category.href} onClick={onClose} className="group/button mt-6 flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-bold text-primary-foreground shadow-md hover:bg-primary/90 hover:shadow-lg transition-all">
+                Explore Services <ArrowRight className="w-4 h-4 group-hover/button:translate-x-1 transition-transform" aria-hidden="true" />
+              </Link>
+            </div>
+          )}
+        </aside>
+      </div>
+    </nav>
+  );
+};
+
+/* --- AI Data Services Mobile Accordion --- */
+const MobileAIDataServicesAccordion = ({ onClose }: { onClose: () => void }) => {
+  const [expandedCategory, setExpandedCategory] = useState<number | null>(0);
+  const [expandedSub, setExpandedSub] = useState<string | null>(null);
+  const location = useLocation();
+
+  return (
+    <div className="flex flex-col gap-3 px-2 pb-4 mt-2">
+      <Link to="/ai-data-services" onClick={onClose} className="inline-flex items-center gap-2 px-3 py-2 text-xs font-bold uppercase tracking-wider text-primary">
+        AI Data Services overview <ArrowRight className="w-3 h-3" aria-hidden="true" />
+      </Link>
+      {aiDataServicesCategories.map((category, index) => {
+        const Icon = category.icon;
+        const isExpanded = expandedCategory === index;
+        const isCurrent = location.pathname.startsWith(category.href);
+        return (
+          <div key={category.href} className={`rounded-xl border transition-colors ${isExpanded ? "bg-primary/5 border-primary/30" : "bg-card border-border/50"}`}>
+            <button type="button" className="flex items-center gap-3 w-full p-4 text-left" onClick={() => { setExpandedCategory(isExpanded ? null : index); setExpandedSub(null); }} aria-expanded={isExpanded}>
+              <span className={`p-2 rounded-lg ${isExpanded || isCurrent ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"}`}><Icon className="w-5 h-5" aria-hidden="true" /></span>
+              <span className="flex-1 font-semibold text-sm">{category.label}</span>
+              <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${isExpanded ? "rotate-180" : ""}`} aria-hidden="true" />
+            </button>
+
+            {isExpanded && (
+              <div className="px-4 pb-4 animate-slide-up">
+                <Link to={category.href} onClick={onClose} className="inline-flex items-center gap-2 px-3 py-1.5 mb-3 rounded-lg bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+                  Overview <ArrowRight className="w-3 h-3" aria-hidden="true" />
+                </Link>
+                <div className="space-y-2">
+                  {category.subServices.map((sub) => {
+                    const SubIcon = sub.icon;
+                    const subKey = `${category.label}-${sub.label}`;
+                    const isSubExpanded = expandedSub === subKey;
+                    return (
+                      <div key={sub.label} className="rounded-lg border border-border/40 bg-background overflow-hidden">
+                        <div className="flex items-center">
+                          <Link to={sub.href} onClick={onClose} className="flex flex-1 items-center gap-3 p-3 text-sm text-foreground/80 hover:text-primary">
+                            <SubIcon className="w-4 h-4 text-primary/70 shrink-0" aria-hidden="true" />
+                            <span>{sub.label}</span>
+                          </Link>
+                          <button type="button" className="p-3 text-muted-foreground hover:text-primary" onClick={() => setExpandedSub(isSubExpanded ? null : subKey)} aria-expanded={isSubExpanded} aria-label={`${isSubExpanded ? "Hide" : "Show"} capabilities under ${sub.label}`}>
+                            <ChevronDown className={`w-4 h-4 transition-transform ${isSubExpanded ? "rotate-180" : ""}`} aria-hidden="true" />
+                          </button>
+                        </div>
+                        {isSubExpanded && (
+                          <div className="px-3 pb-3 animate-slide-up">
+                            <ul className="pt-2 border-t border-border/40 space-y-2">
+                              {sub.serviceHighlights.map((highlight) => <li key={highlight} className="flex items-start gap-2 text-xs text-muted-foreground"><span className="w-1 h-1 mt-1.5 rounded-full bg-primary/50 shrink-0" />{highlight}</li>)}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
 const textSampleLinks = [
   { label: "K12 Grade (KG-5)", href: "/kindergarten-to-k5-samples" },
   { label: "K12 Grade (6-12)", href: "/k6-to-k12-samples" },
@@ -561,6 +761,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileContentServicesOpen, setMobileContentServicesOpen] = useState(false);
+  const [mobileAIDataServicesOpen, setMobileAIDataServicesOpen] = useState(false);
   const [mobileSamplesOpen, setMobileSamplesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -740,13 +941,18 @@ const Navbar = () => {
                     <ContentServicesMegaMenu onClose={() => setActiveDropdown(null)} />
                   )}
 
+                  {/* AI Data Services hierarchy mega-menu */}
+                  {link.aiMegaMenu && activeDropdown === link.label && (
+                    <AIDataServicesMegaMenu onClose={() => setActiveDropdown(null)} />
+                  )}
+
                   {/* 3-column Samples Mega Menu */}
                   {link.samplesMenu && activeDropdown === link.label && (
                     <SamplesMegaMenu onClose={() => setActiveDropdown(null)} />
                   )}
 
                   {/* Image Hover Mega Menu for About Us / AI Data Services */}
-                  {link.dropdown && !link.megaMenu && !link.samplesMenu && activeDropdown === link.label && (
+                  {link.dropdown && !link.megaMenu && !link.aiMegaMenu && !link.samplesMenu && activeDropdown === link.label && (
                     <ImageHoverMegaMenu link={link} onClose={() => setActiveDropdown(null)} />
                   )}
                 </div>
@@ -801,6 +1007,23 @@ const Navbar = () => {
                           {mobileContentServicesOpen && (
                             <div className="bg-secondary/10 border-t border-border/30 p-2">
                               <MobileContentServicesAccordion onClose={() => setIsOpen(false)} />
+                            </div>
+                          )}
+                        </div>
+                      ) : link.aiMegaMenu ? (
+                        /* AI Data Services accordion for mobile */
+                        <div className="rounded-xl border border-border/40 bg-card shadow-sm overflow-hidden transition-colors">
+                          <button
+                            className={`w-full px-4 py-3.5 text-sm font-semibold flex items-center justify-between transition-colors ${mobileAIDataServicesOpen ? "bg-primary/5 text-primary" : "text-foreground/90 hover:bg-primary/5 hover:text-primary"}`}
+                            onClick={() => setMobileAIDataServicesOpen(!mobileAIDataServicesOpen)}
+                            aria-expanded={mobileAIDataServicesOpen}
+                          >
+                            <span>{link.label}</span>
+                            <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${mobileAIDataServicesOpen ? "rotate-180 text-primary" : "text-muted-foreground"}`} />
+                          </button>
+                          {mobileAIDataServicesOpen && (
+                            <div className="bg-secondary/10 border-t border-border/30 p-2">
+                              <MobileAIDataServicesAccordion onClose={() => setIsOpen(false)} />
                             </div>
                           )}
                         </div>
