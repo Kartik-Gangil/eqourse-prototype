@@ -105,8 +105,154 @@ function buildDataCollectionFallback() {
     </main>`;
 }
 
+function buildImageDataCollectionFallback() {
+  const faq = [
+    ["What is image data collection?", "Image data collection captures or sources purpose-built visual data to train, fine-tune, validate or evaluate computer vision and multimodal AI systems."],
+    ["What types of images can eQOURSE collect?", "Projects can include objects, products, documents, scenes, gestures, human-centred images and device-specific captures, subject to consent and rights requirements."],
+    ["Can you collect images using specific phones or cameras?", "Yes. Programmes can specify hardware, resolution, orientation, camera position and capture settings."],
+    ["How do you ensure image diversity?", "The specification can define scene, angle, distance, lighting, geography, object condition, background and participant-profile variation."],
+    ["Can you collect document images for OCR?", "Yes. Collections can include receipts, invoices, labels, forms, worksheets and other documents under varied real-world conditions."],
+    ["How is consent handled when people appear in images?", "Consent, intended use, handling, retention and access requirements are defined for the project and applicable legal requirements."],
+    ["Do you also annotate collected images?", "Yes. Collected images can continue into eQOURSE Annotation & Labeling for project-specific label types."],
+    ["What image formats can you deliver?", "Common examples include JPEG, PNG, WebP and other formats agreed during scoping, plus manifests and capture metadata."],
+    ["How much does image data collection cost?", "Cost depends on volume, capture complexity, participants, geography, devices, environments, QA depth and timeline."],
+  ];
+  const canonical = `${SITE_URL}/ai-data-services/data-collection/image-data-collection`;
+  const breadcrumb = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+    { "@type": "ListItem", position: 2, name: "AI Data Services", item: `${SITE_URL}/ai-data-services` },
+    { "@type": "ListItem", position: 3, name: "Data Collection", item: `${SITE_URL}/ai-data-services/data-collection` },
+    { "@type": "ListItem", position: 4, name: "Image Data Collection", item: canonical },
+  ] };
+  const service = { "@context": "https://schema.org", "@type": "Service", "@id": `${canonical}#service`, name: "Image Data Collection Services for Computer Vision", serviceType: "Image Data Collection for AI", description: "Custom image data collection for computer vision and visual AI across objects, documents, scenes, devices and real-world conditions.", provider: { "@type": "Organization", name: "eQOURSE", url: `${SITE_URL}/` }, areaServed: "Worldwide", url: canonical };
+  const json = (value) => JSON.stringify(value).replace(/</g, "\\u003c");
+
+  return `<main data-seo-prerender="true">
+      <nav aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/ai-data-services">AI Data Services</a> / <a href="/ai-data-services/data-collection">Data Collection</a> / <span>Image Data Collection</span></nav>
+      <h1>Image Data Collection Services for Computer Vision &amp; Visual AI</h1>
+      <p>Build purpose-fit image datasets around the objects, people, documents, environments, devices and visual conditions your model must understand.</p>
+      <p><a href="/free-pilot">Start Free Pilot</a> <a href="/contact-us">Discuss Your Image Dataset</a></p>
+      <section><h2>What Is Image Data Collection for AI?</h2><p>Image data collection captures or sources visual data for training, fine-tuning, validating or evaluating computer vision and multimodal AI. Programmes can control object type, device, angle, distance, lighting, background, geography and environment.</p></section>
+      <section><h2>Custom Image Datasets Built Around Your Computer Vision Use Case</h2><h3>Objects &amp; Products</h3><p>Objects captured across angles, distances, backgrounds and lighting.</p><h3>Documents &amp; Forms</h3><p>Receipts, invoices, forms, labels and packaging under realistic conditions.</p><h3>Human Actions &amp; Gestures</h3><p>Consented gestures and interaction scenarios.</p><h3>Human-Centred Visual Data</h3><p>Appropriately consented imagery under project-specific requirements.</p><h3>Scenes &amp; Environments</h3><p>Indoor, outdoor and domain-specific scenes.</p><h3>Device-Specific Capture</h3><p>Images recorded with defined cameras, phones, resolutions or optics.</p></section>
+      <section><h2>Collect Images Under the Conditions Your Model Will Actually See</h2><ul><li>Lighting</li><li>Angle and perspective</li><li>Distance and scale</li><li>Background and occlusion</li><li>Device and resolution</li><li>Geography and participant profile</li></ul></section>
+      <section><h2>How We Collect Image Training Data</h2><ul><li>Contributor-led capture</li><li>Controlled or on-site capture</li><li>Field collection</li><li>Customer-provided or rights-cleared sources</li></ul></section>
+      <section><h2>Our Image Data Collection Process</h2><ol><li>Use-case definition</li><li>Capture specification</li><li>Contributor and environment setup</li><li>Pilot collection</li><li>Collection at scale</li><li>Quality validation</li><li>Secure delivery</li></ol><p><a href="/ai-data-services/annotation-labeling">Continue into Image Annotation &amp; Labeling</a></p></section>
+      <section><h2>Image Quality Checks Before Dataset Delivery</h2><p>Checks may cover file integrity, resolution, orientation, formats, blur, exposure, required scenes, capture compliance, coverage and duplicate review.</p></section>
+      <section><h2>Consent and Provenance for Human-Centred Image Data</h2><p>Consent, permitted use, provenance, retention, access, de-identification and secure-transfer requirements are defined for the project where applicable.</p></section>
+      <section><h2>Image Data for Computer Vision and Multimodal AI</h2><p>Object detection, OCR, visual search, gestures, scene understanding, retail intelligence, mobility vision and vision-language models.</p></section>
+      <section><h2>Image Collection Across Real-World Domains</h2><p>Retail, mobility, enterprise documents, governed healthcare workflows, consumer devices, education and EdTech.</p></section>
+      <section><h2>Image Dataset Formats and Delivery</h2><p>Typical examples include JPEG, PNG, WebP, TIFF, directory structures, manifests, capture metadata and consent or provenance documentation.</p></section>
+      <section><h2>When Do You Need Custom Image Data Collection?</h2><p>Custom capture helps when classes, devices, environments, geographies, licensing evidence or production edge cases are missing from existing datasets.</p></section>
+      <section><h2>What Determines Image Data Collection Cost?</h2><p>Pricing depends on volume, complexity, participants, geography, devices, environments, repetitions, field operations, QA depth and timeline.</p></section>
+      <section><h2>Why Choose eQOURSE for Image Data Collection?</h2><p>Custom specifications, multi-region coordination, specialist workflows, connected downstream services and ISO 9001 and ISO 27001 certified processes.</p><p><a href="/ai-data-services/data-collection">Explore all AI Data Collection Services</a></p></section>
+      <section><h2>Frequently Asked Questions About Image Data Collection</h2>${faq.map(([q,a]) => `<details><summary>${escapeHtml(q)}</summary><p>${escapeHtml(a)}</p></details>`).join("")}</section>
+      <section><h2>Build the Image Dataset Your Model Actually Needs</h2><p><a href="/free-pilot">Start Free Pilot</a> <a href="/contact-us">Talk to a Data Specialist</a></p></section>
+      <script type="application/ld+json">${json(breadcrumb)}</script><script type="application/ld+json">${json(service)}</script>
+    </main>`;
+}
+
+function buildAudioDataCollectionFallback() {
+  const faq = [
+    ["What is speech data collection?", "Speech data collection records human speech or related audio for training, fine-tuning, validating or evaluating speech-enabled AI."],
+    ["What speech types can eQOURSE collect?", "Projects can include scripted speech, spontaneous speech, conversations, wake words, commands, domain-specific speech and selected acoustic events."],
+    ["Can you collect multilingual and accented speech?", "Yes. eQOURSE supports programmes across 30+ languages, with accent, dialect, locale and speaker requirements defined during scoping."],
+    ["Can you record in noisy or real-world environments?", "Yes. Projects can target homes, offices, vehicles or other environments when realistic acoustic conditions matter."],
+    ["Can you collect audio using specific microphones or devices?", "Yes. A specification can include a particular microphone, phone, headset or recording setup."],
+    ["What audio formats do you support?", "Common examples include WAV, FLAC and other agreed formats, with sample rate, bit depth, channels and metadata defined for the model pipeline."],
+    ["How do you check audio quality?", "Checks can cover clipping, silence, truncation, integrity, prompt compliance, sample rate, language, device, environment and human review."],
+    ["How is voice-data consent handled?", "Contributor consent and permitted use are defined before recording, alongside project-specific retention, access and de-identification requirements."],
+    ["Can eQOURSE transcribe or annotate the audio after collection?", "Yes. Collected audio can continue into transcription, annotation, cleaning and validation workflows."],
+    ["How much does speech data collection cost?", "Cost depends on languages, dialects, speaker criteria, volume, recording method, devices, environments, QA depth and timeline."],
+  ];
+  const canonical = `${SITE_URL}/ai-data-services/data-collection/audio-data-collection`;
+  const breadcrumb = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+    { "@type": "ListItem", position: 2, name: "AI Data Services", item: `${SITE_URL}/ai-data-services` },
+    { "@type": "ListItem", position: 3, name: "Data Collection", item: `${SITE_URL}/ai-data-services/data-collection` },
+    { "@type": "ListItem", position: 4, name: "Audio & Speech Data Collection", item: canonical },
+  ] };
+  const service = { "@context": "https://schema.org", "@type": "Service", "@id": `${canonical}#service`, name: "Audio & Speech Data Collection Services for Voice AI", serviceType: "Audio and Speech Data Collection for AI", description: "Custom audio and speech data collection for ASR, TTS and voice AI across languages, accents, speakers, devices and real-world acoustic environments.", provider: { "@type": "Organization", name: "eQOURSE", url: `${SITE_URL}/` }, areaServed: "Worldwide", url: canonical };
+  const json = (value) => JSON.stringify(value).replace(/</g, "\\u003c");
+
+  return `<main data-seo-prerender="true">
+      <nav aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/ai-data-services">AI Data Services</a> / <a href="/ai-data-services/data-collection">Data Collection</a> / <span>Audio &amp; Speech Data Collection</span></nav>
+      <h1>Audio &amp; Speech Data Collection Services for Voice AI</h1>
+      <p>Build speech and audio datasets around the languages, accents, speaker profiles, devices and acoustic environments your model will encounter in production.</p>
+      <p><a href="/free-pilot">Start Free Pilot</a> <a href="/contact-us">Discuss Your Speech Dataset</a></p>
+      <section><h2>What Is Audio &amp; Speech Data Collection for AI?</h2><p>Audio data collection records or sources speech, voice and other sound data for training, fine-tuning, validating or evaluating AI systems. Programmes can control language, accent, dialect, speaker profile, speaking style, microphone, environment, noise and recording format.</p><h3>Collection vs. annotation</h3><p>Collection creates the raw audio dataset. Transcripts, speaker labels and structured tags are downstream annotation tasks.</p></section>
+      <section><h2>Speech Data Collection for Real Voice AI Use Cases</h2><h3>Scripted Speech</h3><p>Predetermined prompts and commands.</p><h3>Spontaneous Speech</h3><p>Natural speech around topics or scenarios.</p><h3>Conversational Speech</h3><p>Natural or guided multi-speaker conversations.</p><h3>Wake Words &amp; Commands</h3><p>Activation phrases across speakers and environments.</p><h3>Domain-Specific Speech</h3><p>Speech built around specialised scenarios.</p><h3>Non-Speech &amp; Acoustic Events</h3><p>Selected environmental sounds under controlled specifications.</p></section>
+      <section><h2>Capture the Language and Acoustic Variation Your Model Needs</h2><ul><li>Language and locale</li><li>Accent and dialect</li><li>Speaker profile</li><li>Speaking style</li><li>Device and microphone</li><li>Environment</li><li>Distance and position</li><li>Noise conditions</li></ul></section>
+      <section><h2>Multilingual Speech Data Across 30+ Languages</h2><p>Programmes can define language, regional accent, dialect, speaker mix, code-switching, prompt style, device and acoustic environment, with strong delivery depth across Indic languages.</p></section>
+      <section><h2>How We Collect Speech and Audio Training Data</h2><ul><li>Remote contributor recording</li><li>Moderated or studio collection</li><li>In-environment collection</li><li>Defined client workflow where supported</li></ul></section>
+      <section><h2>Our Speech Data Collection Process</h2><ol><li>Use-case definition</li><li>Speech specification</li><li>Contributor sourcing and calibration</li><li>Pilot recording</li><li>Collection at scale</li><li>Audio QA</li><li>Secure delivery</li></ol><p><a href="/ai-data-services/annotation-labeling">Transcription and Annotation</a> → <a href="/ai-data-services/cleaning-validation">Cleaning and Validation</a> → <a href="/ai-data-services/model-testing">Model Testing</a></p></section>
+      <section><h2>Audio Quality Controls Built Around the Project Specification</h2><p>Checks can cover signal integrity, prompt compliance, acoustic conditions, device and microphone requirements, project-safe identifiers and language-qualified human review.</p></section>
+      <section><h2>Audio Training Data for Modern Speech AI</h2><p>ASR, TTS support data, voice assistants, wake words, conversational AI, dialogue understanding, customer-service AI and audio event detection.</p></section>
+      <section><h2>Responsible Collection for Human Voice Data</h2><p>Permitted use, contributor consent, retention, access, de-identification and metadata minimisation are defined before collection. Controls can include ISO 9001, ISO 27001, controlled access, secure transfer and provenance records.</p></section>
+      <section><h2>Audio Formats, Metadata and Delivery</h2><p>Examples include WAV, FLAC, MP3 where appropriate, mono or stereo, agreed sample rate and bit depth, project-safe identifiers, language, device and environment metadata, and session manifests.</p></section>
+      <section><h2>Speech Data Collection Across Real-World Domains</h2><p>Consumer technology, automotive, customer experience, approved financial-services scenarios, education and ethically designed accessibility applications.</p></section>
+      <section><h2>When Public Speech Datasets Are Not Enough</h2><p>Custom collection helps when accents, dialects, devices, noisy environments, domain language, commands, conversational scenarios or provenance requirements are missing.</p></section>
+      <section><h2>What Determines Audio Data Collection Cost?</h2><p>Pricing depends on volume, language, dialect, speakers, recording complexity, devices, environments, moderation, domain expertise, QA and timeline.</p></section>
+      <section><h2>Why Choose eQOURSE for Audio &amp; Speech Data Collection?</h2><p>Multilingual and Indic-language depth, remote and controlled collection models, language-aware QA, connected downstream services and ISO 9001 and ISO 27001.</p><p><a href="/ai-data-services/data-collection">Explore AI Data Collection Services</a> <a href="/ai-data-services/data-collection/image-data-collection">Explore Image Data Collection</a></p></section>
+      <section><h2>Frequently Asked Questions About Audio &amp; Speech Data Collection</h2>${faq.map(([q,a]) => `<details><summary>${escapeHtml(q)}</summary><p>${escapeHtml(a)}</p></details>`).join("")}</section>
+      <section><h2>Build Speech Data Around the Voices Your AI Must Understand</h2><p><a href="/free-pilot">Start Free Pilot</a> <a href="/contact-us">Talk to a Data Specialist</a></p></section>
+      <script type="application/ld+json">${json(breadcrumb)}</script><script type="application/ld+json">${json(service)}</script>
+    </main>`;
+}
+
+function buildTextDataCollectionFallback() {
+  const faq = [
+    ["What is text data collection?", "Text data collection sources, creates or compiles written language data for NLP, LLM and other language-AI systems."],
+    ["What is the difference between text collection and text annotation?", "Collection creates or sources the dataset. Annotation adds labels such as intents, entities, sentiment categories or safety tags."],
+    ["Can eQOURSE create text for LLM fine-tuning?", "Where operationally supported, contributors or domain experts can create instruction-response, conversational or task-specific examples against defined rubrics."],
+    ["Can you collect multilingual text?", "Yes. eQOURSE supports programmes across 30+ languages, with locale, script, regional usage and domain requirements defined during scoping."],
+    ["Can you collect domain-specific text?", "Yes. Programmes can use trained contributors or subject-matter experts when specialist terminology or factual knowledge is required."],
+    ["How do you manage duplicate or low-quality text?", "Quality workflows can include duplicate detection, language checks, format validation, relevance review, domain review and human QA."],
+    ["Can you work with our existing documents or knowledge base?", "Yes. Customer-owned or appropriately authorised sources can be incorporated subject to access, rights, confidentiality and handling requirements."],
+    ["What formats can text datasets be delivered in?", "Common formats include JSON, JSONL, CSV, TSV and client-defined text schemas, including conversation and metadata structures."],
+    ["How do you handle PII or sensitive text?", "Workflows can include project-specific minimisation, redaction, de-identification, access controls and retention rules."],
+    ["How much does text data collection cost?", "Cost depends on volume, language, domain complexity, source method, expertise, output length, rights, QA depth and timeline."],
+  ];
+  const canonical = `${SITE_URL}/ai-data-services/data-collection/text-data-collection`;
+  const breadcrumb = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+    { "@type": "ListItem", position: 2, name: "AI Data Services", item: `${SITE_URL}/ai-data-services` },
+    { "@type": "ListItem", position: 3, name: "Data Collection", item: `${SITE_URL}/ai-data-services/data-collection` },
+    { "@type": "ListItem", position: 4, name: "Text Data Collection", item: canonical },
+  ] };
+  const service = { "@context": "https://schema.org", "@type": "Service", "@id": `${canonical}#service`, name: "Text Data Collection Services for NLP, LLMs & Generative AI", serviceType: "Text Data Collection for AI", description: "Custom text data collection for NLP, LLMs and generative AI across multilingual, domain-specific, conversational and human-generated datasets.", provider: { "@type": "Organization", name: "eQOURSE", url: `${SITE_URL}/` }, areaServed: "Worldwide", url: canonical };
+  const json = (value) => JSON.stringify(value).replace(/</g, "\\u003c");
+
+  return `<main data-seo-prerender="true">
+      <nav aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/ai-data-services">AI Data Services</a> / <a href="/ai-data-services/data-collection">Data Collection</a> / <span>Text Data Collection</span></nav>
+      <h1>Text Data Collection Services for NLP, LLMs &amp; Generative AI</h1>
+      <p>Build domain-specific, multilingual and conversational text datasets around the language patterns, tasks and knowledge your models need to understand.</p><p><a href="/free-pilot">Start Free Pilot</a> <a href="/contact-us">Discuss Your Text Dataset</a></p>
+      <section><h2>What Is Text Data Collection for AI?</h2><p>Text data collection sources, creates or compiles written language data for training, fine-tuning, validating or evaluating NLP, large language models and text-driven AI.</p><h3>Collection creates the dataset; annotation adds structure</h3><p>NER, sentiment, safety labels and preference evaluation belong to <a href="/ai-data-services/annotation-labeling">Annotation &amp; Labeling</a>.</p></section>
+      <section><h2>Custom Text Datasets for NLP and Language Models</h2><h3>Domain-Specific Corpora</h3><p>Specialist text for adaptation and retrieval.</p><h3>Conversational &amp; Dialogue Data</h3><p>Human-generated conversations around defined intents.</p><h3>Queries, Intents &amp; Utterances</h3><p>Natural language variants for real interactions.</p><h3>Instructions &amp; Responses</h3><p>Task examples created against defined rubrics where supported.</p><h3>Documents &amp; Written Records</h3><p>Authorised structured and unstructured sources.</p><h3>Handwritten Text Samples</h3><p>Purpose-collected handwriting.</p><h3>Multilingual Text</h3><p>Locale-specific language reflecting real syntax and usage.</p></section>
+      <section><h2>Text Collection Creates the Language Data; Annotation Adds Structure</h2><p>Collection sources or creates examples. Annotation adds intent, entity, sentiment, safety or other labels to existing text.</p></section>
+      <section><h2>Text Data Collection Methods</h2><ul><li>Human-created text</li><li>Domain-expert creation</li><li>Customer-provided corpora</li><li>Rights-cleared or licensed sources</li><li>Handwriting and document capture</li></ul></section>
+      <section><h2>Control the Language Variables That Shape Model Behaviour</h2><ul><li>Domain</li><li>Intent</li><li>Style and register</li><li>Language and locale</li><li>Difficulty and edge cases</li><li>Contributor expertise</li></ul></section>
+      <section><h2>Multilingual Text Collection Across 30+ Languages</h2><p>Programmes can define language, locale, script, regional vocabulary, code-switching, register, domain and review requirements, with strong Indic-language capability.</p></section>
+      <section><h2>Our Text Data Collection Process</h2><ol><li>Use-case definition</li><li>Dataset specification</li><li>Contributor or expert setup</li><li>Pilot batch</li><li>Collection at scale</li><li>Quality validation</li><li>Secure delivery</li></ol><p><a href="/ai-data-services/annotation-labeling">Annotation</a> → <a href="/ai-data-services/cleaning-validation">Validation</a> → <a href="/ai-data-services/model-testing">Model Testing</a></p></section>
+      <section><h2>Text Quality Controls for NLP and LLM Data</h2><p>Controls can cover duplicates, language, formats, fields, relevance, domain review, project-policy content rules, provenance, PII minimisation and human QA.</p></section>
+      <section><h2>Text Data for LLM Training, Adaptation and Evaluation</h2><p>Domain adaptation, supervised fine-tuning data, conversational AI, search and retrieval, classification, evaluation sets and multimodal text.</p></section>
+      <section><h2>Text Data for NLP Applications</h2><p>Intent classification, query understanding, conversational AI, summarisation, question answering, document understanding, multilingual NLP and RAG corpus preparation.</p></section>
+      <section><h2>Text Data Provenance and Responsible Sourcing</h2><p>Permitted sources, usage, access, retention and governance are defined before collection. Controls can include rights-cleared sourcing, consent, provenance metadata, PII minimisation, secure access, ISO 27001 and ISO 9001.</p></section>
+      <section><h2>Text Dataset Formats and Delivery</h2><p>Examples include JSON, JSONL, CSV, TSV, TXT, XML, conversation schemas, prompt-response schemas, metadata manifests and provenance fields.</p></section>
+      <section><h2>Domain-Specific Text Data Collection</h2><p>Technology, education, financial services, approved healthcare workflows, retail and enterprise knowledge.</p></section>
+      <section><h2>When Generic Web Text Is Not Enough</h2><p>Custom collection helps when domains, vocabularies, intents, low-resource languages, provenance, product-specific queries or expert knowledge are missing.</p></section>
+      <section><h2>What Determines Text Data Collection Cost?</h2><p>Pricing depends on volume, sourcing method, language, domain, expertise, length, research, rights, QA and timeline.</p></section>
+      <section><h2>Why Choose eQOURSE for Text Data Collection?</h2><p>30+ languages, Indic-language depth, multidisciplinary specialists, domain expertise, connected downstream workflows and project-specific rubrics.</p><p><a href="/ai-data-services/data-collection">Explore AI Data Collection Services</a> <a href="/ai-data-services/data-collection/image-data-collection">Image Data Collection</a> <a href="/ai-data-services/data-collection/audio-data-collection">Audio &amp; Speech Data Collection</a></p></section>
+      <section><h2>Frequently Asked Questions About Text Data Collection</h2>${faq.map(([q,a]) => `<details><summary>${escapeHtml(q)}</summary><p>${escapeHtml(a)}</p></details>`).join("")}</section>
+      <section><h2>Build Language Data Around the Tasks Your Model Must Perform</h2><p><a href="/free-pilot">Start Free Pilot</a> <a href="/contact-us">Talk to a Data Specialist</a></p></section>
+      <script type="application/ld+json">${json(breadcrumb)}</script><script type="application/ld+json">${json(service)}</script>
+    </main>`;
+}
+
 function buildCrawlFallback({ path, title, description }) {
   if (path === "/ai-data-services/data-collection") return buildDataCollectionFallback();
+  if (path === "/ai-data-services/data-collection/image-data-collection") return buildImageDataCollectionFallback();
+  if (path === "/ai-data-services/data-collection/audio-data-collection") return buildAudioDataCollectionFallback();
+  if (path === "/ai-data-services/data-collection/text-data-collection") return buildTextDataCollectionFallback();
   const heading = title.replace(/\s*(?:\||\u2013|\u2014)\s*eQOURSE.*$/i, "").trim();
   const sharedLinks = path.startsWith("/ai-data") || path.startsWith("/robotics")
     ? [

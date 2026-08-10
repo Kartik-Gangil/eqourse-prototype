@@ -94,6 +94,21 @@ export const pageSeo: Record<string, PageSeo> = {
     title: "AI Data Collection Services | Custom Training Datasets | eQOURSE",
     description: "Build custom image, audio, text and video training datasets with multilingual collection, quality controls, consent handling and secure delivery.",
   },
+  "/ai-data-services/data-collection/image-data-collection": {
+    title: "Image Data Collection Services for Computer Vision | eQOURSE",
+    description: "Custom image data collection for computer vision and visual AI. Capture objects, documents, scenes and real-world image datasets across devices and conditions.",
+    canonical: "https://www.eqourse.com/ai-data-services/data-collection/image-data-collection",
+  },
+  "/ai-data-services/data-collection/audio-data-collection": {
+    title: "Audio & Speech Data Collection Services for Voice AI | eQOURSE",
+    description: "Custom audio and speech data collection for ASR, TTS and voice AI across languages, accents, speakers, devices and real-world acoustic environments.",
+    canonical: "https://www.eqourse.com/ai-data-services/data-collection/audio-data-collection",
+  },
+  "/ai-data-services/data-collection/text-data-collection": {
+    title: "Text Data Collection Services for NLP & LLMs | eQOURSE",
+    description: "Custom text data collection for NLP, LLMs and generative AI. Build multilingual, domain-specific, conversational and human-generated training datasets.",
+    canonical: "https://www.eqourse.com/ai-data-services/data-collection/text-data-collection",
+  },
   "/ai-data-services/model-testing": {
     title: "AI Model Testing – Ensure Model Accuracy | Eqourse",
     description: "Test AI models for accuracy, safety, reliability and real-world performance with expert evaluation services. Start a free pilot.",

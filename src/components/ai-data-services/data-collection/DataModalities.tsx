@@ -9,7 +9,7 @@ const modalities = [
     icon: FileText,
     title: "Text Data Collection",
     summary: "Domain-specific, multilingual and conversational text datasets for NLP, LLM training, fine-tuning and evaluation.",
-    href: null as string | null,
+    href: "/ai-data-services/data-collection/text-data-collection" as string | null,
     items: [
       "Monolingual & multilingual corpora",
       "Domain-specific terminology datasets",
@@ -36,7 +36,7 @@ const modalities = [
     icon: Mic,
     title: "Audio & Speech Data Collection",
     summary: "Scripted and natural speech captured across languages, accents, speaker profiles, acoustic environments and devices.",
-    href: null as string | null,
+    href: "/ai-data-services/data-collection/audio-data-collection" as string | null,
     items: [
       "Speech recordings in 30+ languages",
       "Wake-word & command utterances",
@@ -73,7 +73,7 @@ const modalities = [
     icon: Image,
     title: "Image Data Collection",
     summary: "Purpose-built visual datasets captured across defined objects, environments, devices, perspectives and lighting conditions.",
-    href: null as string | null,
+    href: "/ai-data-services/data-collection/image-data-collection" as string | null,
     items: [
       "Object detection training images",
       "Scene classification datasets",
