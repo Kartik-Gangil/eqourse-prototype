@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { ArrowRight, Play, Database, Brain, Sparkles, Star, BookOpen, Bot, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import heroImage from "@/assets/hero-image.jpg";
+import heroVideoPoster from "@/assets/hero-video-poster.webp";
 
 const slides = [
   {
@@ -169,10 +169,10 @@ const HeroSection = () => {
           loop
           playsInline
           preload="auto"
-          poster={heroImage}
+          poster={heroVideoPoster}
           aria-hidden="true"
         >
-          <source src="/hero-bg-3d.mp4" type="video/mp4" />
+          <source src="/hero-bg-3d-optimized.mp4" type="video/mp4" />
         </video>
         {/* Layered overlays for readability */}
         <div
@@ -242,15 +242,19 @@ const HeroSection = () => {
               )}
 
               {/* Slide indicators inline next to CTA for better balance */}
-              <div className="flex items-center gap-2 pl-2">
+              <div className="flex items-center pl-1">
                 {slides.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => goTo(i)}
                     aria-label={`Go to slide ${i + 1}`}
-                    className={`h-1.5 rounded-full transition-all duration-500 ${i === current ? "w-8 bg-primary" : "w-1.5 bg-white/30 hover:bg-white/50"
-                      }`}
-                  />
+                    className="group flex h-7 w-7 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className={`block h-1.5 rounded-full transition-all duration-500 ${i === current ? "w-5 bg-primary" : "w-1.5 bg-white/40 group-hover:bg-white/60"}`}
+                    />
+                  </button>
                 ))}
               </div>
             </div>
@@ -461,6 +465,7 @@ const HeroSection = () => {
                   const target = document.getElementById("about");
                   if (target) {
                     target.scrollIntoView({ behavior: "smooth", block: "center" });
+                    window.dispatchEvent(new Event("eqourse:play-about-video"));
                     setTimeout(() => {
                       const iframe = document.getElementById("about-video-player") as HTMLIFrameElement;
                       if (iframe && iframe.contentWindow) {
@@ -550,6 +555,7 @@ const HeroSection = () => {
                   const target = document.getElementById("about");
                   if (target) {
                     target.scrollIntoView({ behavior: "smooth", block: "center" });
+                    window.dispatchEvent(new Event("eqourse:play-about-video"));
                     setTimeout(() => {
                       const iframe = document.getElementById("about-video-player") as HTMLIFrameElement;
                       if (iframe && iframe.contentWindow) {

@@ -320,6 +320,8 @@ const IndustriesSection = () => {
                     src={ind.img}
                     alt={ind.imageAlt || `${ind.title} solutions by eQOURSE - AI Data and Content Services`}
                     title={ind.imageTitle || `${ind.title} solutions by eQOURSE`}
+                    width={640}
+                    height={320}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

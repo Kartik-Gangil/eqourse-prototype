@@ -1,5 +1,5 @@
 import { Phone, Mail, MapPin, Shield, Linkedin, Facebook, Instagram, Youtube, Twitter } from "lucide-react";
-import eqourseLogoLight from "@/assets/eqourse-logo-light.png";
+import eqourseLogoLight from "@/assets/eqourse-logo-light.webp";
 import { Link } from "react-router-dom";
 
 /* ── Quick Links: key top-level pages for crawlability ── */
@@ -62,6 +62,10 @@ const Footer = () => {
               <img
                 src={eqourseLogoLight}
                 alt="eQOURSE Logo - Professional AI Data and Content Services"
+                width={268}
+                height={80}
+                loading="lazy"
+                decoding="async"
                 className="h-10 sm:h-12 w-auto object-contain"
               />
             </Link>

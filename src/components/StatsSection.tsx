@@ -1,182 +1,238 @@
 import { useEffect, useRef, useState } from "react";
 
 const allStats = [
-  { value: 7, suffix: "M+", label: "Students Reach", category: "edu" },
-  { value: 20, suffix: "K+", label: "Content Solutions/Month", category: "edu" },
-  { value: 15, suffix: "K+", label: "Q&A Videos/Month", category: "edu" },
-  { value: 1, suffix: "M+", label: "Data Points Processed", category: "ai" },
-  { value: 30, suffix: "+", label: "Languages Covered", category: "ai" },
-  { value: 98, suffix: "%+", label: "Annotation Accuracy", category: "ai" },
-  { value: 500, suffix: "+", label: "Specialists", category: "ai" },
+  { value: 7, suffix: "M+", label: "Students Reach", category: "Education" },
+  { value: 20, suffix: "K+", label: "Content Solutions/Month", category: "Education" },
+  { value: 15, suffix: "K+", label: "Q&A Videos/Month", category: "Education" },
+  { value: 1, suffix: "M+", label: "Data Points Processed", category: "AI Data" },
+  { value: 30, suffix: "+", label: "Languages Covered", category: "AI Data" },
+  { value: 98, suffix: "%+", label: "Annotation Accuracy", category: "AI Data" },
+  { value: 500, suffix: "+", label: "Specialists", category: "AI Data" },
 ];
 
 const CountUpValue = ({ end, isVisible }: { end: number; isVisible: boolean }) => {
   const [count, setCount] = useState(0);
+
   useEffect(() => {
     if (!isVisible) return;
-    let start = 0;
-    const duration = 2000;
-    const step = end / (duration / 16);
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= end) { setCount(end); clearInterval(timer); }
-      else setCount(Math.floor(start));
-    }, 16);
-    return () => clearInterval(timer);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setCount(end);
+      return;
+    }
+
+    let frame = 0;
+    const startedAt = performance.now();
+    const duration = 1400;
+    const animate = (now: number) => {
+      const progress = Math.min((now - startedAt) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(end * eased));
+      if (progress < 1) frame = requestAnimationFrame(animate);
+    };
+
+    frame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frame);
   }, [end, isVisible]);
+
   return <>{count}</>;
 };
 
 const StatsSection = () => {
-  const ref = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const videoARef = useRef<HTMLVideoElement>(null);
-  const videoBRef = useRef<HTMLVideoElement>(null);
-  const isSwapping = useRef(false);
 
   useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
-      { threshold: 0.3 }
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setIsVisible(true);
+        observer.disconnect();
+      },
+      { threshold: 0.2 },
     );
-    if (ref.current) observer.observe(ref.current);
+
+    observer.observe(section);
     return () => observer.disconnect();
   }, []);
 
-  // Seamless crossfade loop — only starts once the section is visible
-  useEffect(() => {
-    if (!isVisible) return; // lazy: don't play until user scrolls here
-    const vA = videoARef.current;
-    const vB = videoBRef.current;
-    if (!vA || !vB) return;
-
-    vA.play().catch(() => {});
-
-    const startCrossfade = (from: HTMLVideoElement, to: HTMLVideoElement) => {
-      if (isSwapping.current) return;
-      isSwapping.current = true;
-      to.currentTime = 0;
-      to.play().catch(() => {});
-      to.style.zIndex = "2";
-      to.style.opacity = "1";
-      from.style.zIndex = "1";
-      setTimeout(() => {
-        from.pause();
-        from.style.opacity = "0";
-        isSwapping.current = false;
-      }, 1600);
-    };
-
-    const onTimeUpdateA = () => {
-      if (vA.duration && vA.currentTime >= vA.duration - 2) {
-        startCrossfade(vA, vB);
-      }
-    };
-    const onTimeUpdateB = () => {
-      if (vB.duration && vB.currentTime >= vB.duration - 2) {
-        startCrossfade(vB, vA);
-      }
-    };
-
-    vA.addEventListener("timeupdate", onTimeUpdateA);
-    vB.addEventListener("timeupdate", onTimeUpdateB);
-    return () => {
-      vA.removeEventListener("timeupdate", onTimeUpdateA);
-      vB.removeEventListener("timeupdate", onTimeUpdateB);
-    };
-  }, [isVisible]);
-
-  const videoStyle = (initial: boolean): React.CSSProperties => ({
-    objectFit: "cover",
-    transition: "opacity 1.5s ease-in-out",
-    opacity: initial ? 1 : 0,
-    zIndex: initial ? 2 : 1,
-    position: "absolute",
-    inset: 0,
-    width: "100%",
-    height: "100%",
-  });
-
   return (
-    <section ref={ref} id="stats-section" className="py-20 relative overflow-hidden">
-      {/* Background Video A — preload="none" until section is visible */}
-      <video
-        ref={videoARef}
-        muted
-        playsInline
-        preload="none"
-        style={videoStyle(true)}
-        aria-hidden="true"
-      >
-        <source src="/assets/stats-bg-video.mp4" type="video/mp4" />
-      </video>
+    <section
+      ref={sectionRef}
+      id="stats-section"
+      className="impact-cosmos relative overflow-hidden py-20 md:py-24"
+      aria-labelledby="impact-heading"
+    >
+      <div className="impact-nebula" aria-hidden="true" />
+      <div className="impact-stars impact-stars-far" aria-hidden="true" />
+      <div className="impact-stars impact-stars-mid" aria-hidden="true" />
+      <div className="impact-stars impact-stars-near" aria-hidden="true" />
 
-      {/* Background Video B - crossfade partner */}
-      <video
-        ref={videoBRef}
-        muted
-        playsInline
-        preload="none"
-        style={videoStyle(false)}
-        aria-hidden="true"
-      >
-        <source src="/assets/stats-bg-video.mp4" type="video/mp4" />
-      </video>
+      <div className="impact-orbits" aria-hidden="true">
+        <span className="impact-orbit impact-orbit-one"><i /></span>
+        <span className="impact-orbit impact-orbit-two"><i /></span>
+        <span className="impact-orbit impact-orbit-three"><i /></span>
+        <span className="impact-core" />
+      </div>
 
-      {/* On mobile, stretch the video instead of cropping */}
-      <style>{`
-        @media (max-width: 768px) {
-          #stats-section video {
-            object-fit: fill !important;
-          }
-        }
-      `}</style>
-
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-foreground/40 z-[3]" />
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-14">
-          <span className="text-sm font-semibold tracking-wider uppercase" style={{ color: 'hsl(170, 82%, 55%)' }}>Our Impact</span>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold mt-2" style={{ color: 'hsl(0, 0%, 100%)' }}>
-            Our Impact in <span className="text-gradient">Numbers</span>
+      <div className="container relative z-10 mx-auto px-4">
+        <header className="mx-auto mb-14 max-w-2xl text-center md:mb-16">
+          <span className="text-sm font-bold uppercase tracking-[0.22em] text-[#46e6c2]">Our Impact</span>
+          <h2 id="impact-heading" className="mt-3 font-heading text-3xl font-bold text-white md:text-4xl">
+            Our Impact in <span className="text-[#35d6b3]">Numbers</span>
           </h2>
-        </div>
+          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-white/70 md:text-base">
+            Measurable delivery capacity across education content and production-ready AI data.
+          </p>
+        </header>
 
-        {/* Single flowing row of stats with dividers */}
-        <div className="flex flex-wrap justify-center items-stretch">
-          {allStats.map((stat, i) => (
-            <div key={stat.label} className="relative group px-6 md:px-10 py-6 text-center">
-              {/* Vertical divider */}
-              {i > 0 && (
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-12 bg-primary/15 hidden md:block" />
-              )}
-
-              {/* Animated ring behind number */}
-              <div className="relative inline-block mb-3">
-                <div className="text-4xl md:text-5xl font-extrabold font-heading" style={{ color: 'hsl(0, 0%, 100%)' }}>
-                  <CountUpValue end={stat.value} isVisible={isVisible} />{stat.suffix}
-                </div>
-                {/* Glow on hover */}
-                <div className="absolute -inset-4 rounded-2xl bg-primary/0 group-hover:bg-primary/5 transition-colors duration-500" />
+        <div className="grid grid-cols-2 gap-y-10 md:grid-cols-4 xl:grid-cols-7 xl:gap-y-0">
+          {allStats.map((stat, index) => (
+            <div
+              key={stat.label}
+              className={`impact-stat relative px-3 text-center md:px-5 ${isVisible ? "is-visible" : ""}`}
+              style={{ transitionDelay: `${index * 70}ms` }}
+            >
+              <div className="font-heading text-4xl font-extrabold leading-none text-white md:text-5xl">
+                <CountUpValue end={stat.value} isVisible={isVisible} />{stat.suffix}
               </div>
-
-              <div className="text-sm" style={{ color: 'hsl(242, 20%, 65%)' }}>{stat.label}</div>
-
-              {/* Category tag */}
-              <div className="mt-2">
-                <span className={`text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full ${
-                  stat.category === "edu"
-                    ? "text-primary bg-primary/10"
-                    : "text-accent bg-accent/10"
-                }`}>
-                  {stat.category === "edu" ? "Education" : "AI Data"}
-                </span>
-              </div>
+              <div className="mt-3 min-h-10 text-sm font-medium leading-snug text-white/75">{stat.label}</div>
+              <span className="mt-2 inline-flex rounded-full border border-[#35d6b3]/20 bg-[#35d6b3]/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-[#7cf2d8]">
+                {stat.category}
+              </span>
             </div>
           ))}
         </div>
       </div>
+
+      <style>{`
+        .impact-cosmos {
+          isolation: isolate;
+          background:
+            radial-gradient(circle at 50% 46%, rgba(111, 75, 190, 0.24), transparent 34%),
+            linear-gradient(135deg, #21163f 0%, #15132f 52%, #0e1531 100%);
+        }
+        .impact-nebula {
+          position: absolute;
+          inset: -35%;
+          background:
+            radial-gradient(circle at 28% 42%, rgba(113, 73, 201, 0.2), transparent 22%),
+            radial-gradient(circle at 74% 58%, rgba(31, 181, 160, 0.12), transparent 20%);
+          animation: impact-nebula-drift 28s ease-in-out infinite alternate;
+          will-change: transform;
+        }
+        .impact-stars {
+          position: absolute;
+          inset: -25%;
+          background-image: radial-gradient(circle, rgba(255,255,255,.9) 0 1px, transparent 1.4px);
+          will-change: transform;
+        }
+        .impact-stars-far {
+          opacity: .26;
+          background-size: 47px 47px;
+          animation: impact-star-drift 70s linear infinite;
+        }
+        .impact-stars-mid {
+          opacity: .35;
+          background-size: 89px 89px;
+          transform: rotate(18deg);
+          animation: impact-star-drift-reverse 92s linear infinite;
+        }
+        .impact-stars-near {
+          opacity: .5;
+          background-size: 137px 137px;
+          transform: rotate(-12deg);
+          animation: impact-star-drift 110s linear infinite;
+        }
+        .impact-orbits {
+          position: absolute;
+          left: 50%;
+          top: 52%;
+          width: min(78vw, 920px);
+          aspect-ratio: 2 / 1;
+          transform: translate(-50%, -50%);
+          opacity: .5;
+        }
+        .impact-orbit {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          border: 1px solid rgba(130, 105, 218, .2);
+          border-radius: 50%;
+          transform: translate(-50%, -50%) rotate(-8deg);
+          animation: impact-orbit-spin 34s linear infinite;
+          will-change: transform;
+        }
+        .impact-orbit-one { width: 42%; aspect-ratio: 2 / 1; }
+        .impact-orbit-two { width: 70%; aspect-ratio: 2 / 1; animation-duration: 48s; animation-direction: reverse; }
+        .impact-orbit-three { width: 100%; aspect-ratio: 2 / 1; animation-duration: 62s; }
+        .impact-orbit i {
+          position: absolute;
+          left: 8%;
+          top: 18%;
+          width: 6px;
+          height: 6px;
+          border-radius: 999px;
+          background: #7cf2d8;
+          box-shadow: 0 0 14px 4px rgba(53, 214, 179, .42);
+        }
+        .impact-orbit-two i { left: 76%; top: 78%; width: 4px; height: 4px; background: #bca9ff; }
+        .impact-orbit-three i { left: 88%; top: 35%; width: 5px; height: 5px; background: white; }
+        .impact-core {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(124,242,216,.16), transparent 68%);
+          transform: translate(-50%, -50%);
+          animation: impact-core-pulse 5s ease-in-out infinite;
+          will-change: transform, opacity;
+        }
+        .impact-stat {
+          opacity: 0;
+          transform: translate3d(0, 16px, 0);
+          transition: opacity .55s ease, transform .55s ease;
+        }
+        .impact-stat.is-visible { opacity: 1; transform: translate3d(0, 0, 0); }
+        @media (min-width: 1280px) {
+          .impact-stat + .impact-stat::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 1px;
+            height: 72px;
+            background: linear-gradient(transparent, rgba(124,242,216,.2), transparent);
+          }
+        }
+        @keyframes impact-star-drift {
+          to { transform: translate3d(6%, 4%, 0) rotate(4deg); }
+        }
+        @keyframes impact-star-drift-reverse {
+          to { transform: translate3d(-5%, 3%, 0) rotate(12deg); }
+        }
+        @keyframes impact-nebula-drift {
+          to { transform: translate3d(4%, -3%, 0) scale(1.04); }
+        }
+        @keyframes impact-orbit-spin {
+          from { transform: translate(-50%, -50%) rotate(-8deg); }
+          to { transform: translate(-50%, -50%) rotate(352deg); }
+        }
+        @keyframes impact-core-pulse {
+          50% { transform: translate(-50%, -50%) scale(1.18); opacity: .6; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .impact-cosmos *, .impact-cosmos *::before, .impact-cosmos *::after {
+            animation: none !important;
+            transition-duration: .01ms !important;
+          }
+          .impact-stat { opacity: 1; transform: none; }
+        }
+      `}</style>
     </section>
   );
 };

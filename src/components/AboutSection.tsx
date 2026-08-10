@@ -1,22 +1,55 @@
-import { ArrowRight, Shield, Globe, Users } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowRight, Shield, Globe, Play, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const AboutSection = () => {
+  const [showVideo, setShowVideo] = useState(false);
+
+  useEffect(() => {
+    const playVideo = () => setShowVideo(true);
+    window.addEventListener("eqourse:play-about-video", playVideo);
+    return () => window.removeEventListener("eqourse:play-about-video", playVideo);
+  }, []);
+
   return (
     <section id="about" className="py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative">
             <div className="rounded-2xl overflow-hidden shadow-elevated relative aspect-video bg-black">
-              <iframe 
-                id="about-video-player"
-                className="absolute inset-0 w-full h-full border-0"
-                src="https://www.youtube.com/embed/BglRq9Qu0RE?enablejsapi=1&rel=0" 
-                title="eQOURSE - Global Learning Content and AI Data Solutions Partner" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowFullScreen
-              ></iframe>
+              {showVideo ? (
+                <iframe
+                  id="about-video-player"
+                  className="absolute inset-0 w-full h-full border-0"
+                  src="https://www.youtube-nocookie.com/embed/BglRq9Qu0RE?autoplay=1&enablejsapi=1&rel=0"
+                  title="eQOURSE - Global Learning Content and AI Data Solutions Partner"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setShowVideo(true)}
+                  className="absolute inset-0 w-full h-full group"
+                  aria-label="Play eQOURSE company video"
+                >
+                  <img
+                    src="https://i.ytimg.com/vi/BglRq9Qu0RE/hqdefault.jpg"
+                    alt="eQOURSE global learning content and AI data solutions video preview"
+                    width={480}
+                    height={360}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover"
+                  />
+                  <span className="absolute inset-0 flex items-center justify-center bg-black/25 group-hover:bg-black/35 transition-colors">
+                    <span className="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center shadow-elevated group-hover:scale-110 transition-transform">
+                      <Play className="w-7 h-7 fill-current ml-1" aria-hidden="true" />
+                    </span>
+                  </span>
+                </button>
+              )}
             </div>
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-primary rounded-2xl opacity-20 -z-10" />
             <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-accent/20 rounded-2xl -z-10" />
@@ -54,7 +87,7 @@ const AboutSection = () => {
             </div>
             <Button asChild className="bg-gradient-primary border-0 text-primary-foreground shadow-soft hover:opacity-90 transition-all group">
               <Link to="/aboutus">
-                Read More <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                Learn more about eQOURSE <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
           </div>

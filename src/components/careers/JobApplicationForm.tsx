@@ -24,7 +24,6 @@ export default function JobApplicationForm({ job, onClose }: JobApplicationFormP
     portfolioLink: "",
     resumeDriveLink: "",
     coverLetter: "",
-    coverLetter: "",
     skills: "",
   });
   const [customAnswers, setCustomAnswers] = useState<Record<number, any>>({});
