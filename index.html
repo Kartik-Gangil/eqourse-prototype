@@ -15,8 +15,8 @@
       own, so each page shipped two titles and two descriptions and the generic
       homepage pair won. Do not remove data-rh from these tags.
 
-      Only tags that every page re-declares are marked. Tags left unmarked below
-      (og:image, twitter:card, etc.) are deliberate site-wide fallbacks.
+      Every route-specific social tag is marked as Helmet-owned too, preventing
+      a homepage fallback from remaining beside a CMS article's social tags.
     -->
     <title data-rh="true">eQOURSE – Content &amp; AI Data Services | India &amp; Singapore</title>
     <meta data-rh="true" name="description" content="eQOURSE: ISO 9001 &amp; 27001 certified Content &amp; AI Data Services. Custom e-learning content, data annotation &amp; model testing. 500+ expert." />
@@ -25,22 +25,22 @@
     <meta data-rh="true" name="keywords" content="eQOURSE, Content Services, AI data services, e-learning content, curriculum development, data annotation, AI training data, model testing, educational technology, India, Singapore" />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="eQOURSE" />
+    <meta data-rh="true" property="og:type" content="website" />
+    <meta data-rh="true" property="og:site_name" content="eQOURSE" />
     <meta data-rh="true" property="og:title" content="eQOURSE – Content &amp; AI Data Services | India &amp; Singapore" />
     <meta data-rh="true" property="og:description" content="eQOURSE: ISO 9001 &amp; 27001 certified Content &amp; AI Data Services. Custom e-learning content, data annotation &amp; model testing. 500+ expert." />
     <meta data-rh="true" property="og:url" content="https://www.eqourse.com/" />
-    <meta property="og:image" content="https://www.eqourse.com/assets/og-image.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="en_US" />
+    <meta data-rh="true" property="og:image" content="https://www.eqourse.com/assets/og-image.png" />
+    <meta data-rh="true" property="og:image:width" content="1200" />
+    <meta data-rh="true" property="og:image:height" content="630" />
+    <meta data-rh="true" property="og:locale" content="en_US" />
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@EQourse" />
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:site" content="@EQourse" />
     <meta data-rh="true" name="twitter:title" content="eQOURSE – Content &amp; AI Data Services | India &amp; Singapore" />
     <meta data-rh="true" name="twitter:description" content="eQOURSE: ISO 9001 &amp; 27001 certified Content &amp; AI Data Services. Custom e-learning content, data annotation &amp; model testing. 500+ expert." />
-    <meta name="twitter:image" content="https://www.eqourse.com/assets/og-image.png" />
+    <meta data-rh="true" name="twitter:image" content="https://www.eqourse.com/assets/og-image.png" />
 
     <!-- Favicon & Icons -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />

@@ -67,4 +67,6 @@ https://eqourse.com/* https://www.eqourse.com/:splat 301!
 /content-services/subject-matter-experts/live-tutors /live-online-tutor 301!
 /content-services/subject-matter-experts/live-online-tutors /live-online-tutor 301!
 /contact /contact-us 301!
+/blog/* /cms-shell.html 200
+/casestudy/* /cms-shell.html 200
 /* /index.html 200

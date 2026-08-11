@@ -45,8 +45,10 @@ const routeSeoHtml = (): Plugin => ({
 
       let transformed = html
         .replace(/<title[^>]*>[\s\S]*?<\/title>\s*/gi, "")
-        .replace(/<meta[^>]*\bname="description"[^>]*>\s*/gi, "")
-        .replace(/<link[^>]*\brel="canonical"[^>]*>\s*/gi, "");
+        .replace(/<meta[^>]*\bname="(?:description|keywords)"[^>]*>\s*/gi, "")
+        .replace(/<link[^>]*\brel="canonical"[^>]*>\s*/gi, "")
+        .replace(/<meta[^>]*\bproperty="og:[^"]*"[^>]*>\s*/gi, "")
+        .replace(/<meta[^>]*\bname="twitter:[^"]*"[^>]*>\s*/gi, "");
 
       // Dynamic CMS detail routes are not in the spreadsheet. Their React
       // page supplies the only title/description/canonical after data loads.

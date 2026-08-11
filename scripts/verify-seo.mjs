@@ -114,6 +114,34 @@ for (const configName of ["_redirects", ".htaccess"]) {
   if (!existsSync(join(distDir, configName))) failures.push(`missing generated hosting config dist/${configName}`);
 }
 
+const cmsShellPath = join(distDir, "cms-shell.html");
+if (!existsSync(cmsShellPath)) {
+  failures.push("missing dist/cms-shell.html");
+} else {
+  const cmsShell = readFileSync(cmsShellPath, "utf8");
+  const routeTags = [
+    /<title[^>]*>/i,
+    /<meta[^>]*\bname="description"[^>]*>/i,
+    /<link[^>]*\brel="canonical"[^>]*>/i,
+    /<meta[^>]*\bproperty="og:[^"]*"[^>]*>/i,
+    /<meta[^>]*\bname="twitter:[^"]*"[^>]*>/i,
+  ];
+  if (routeTags.some((pattern) => pattern.test(cmsShell))) {
+    failures.push("cms-shell.html contains stale homepage route metadata");
+  }
+}
+
+const redirectsConfig = existsSync(join(distDir, "_redirects"))
+  ? readFileSync(join(distDir, "_redirects"), "utf8")
+  : "";
+const apacheConfig = existsSync(join(distDir, ".htaccess"))
+  ? readFileSync(join(distDir, ".htaccess"), "utf8")
+  : "";
+if (!redirectsConfig.includes("/blog/* /cms-shell.html 200") || !redirectsConfig.includes("/casestudy/* /cms-shell.html 200")) {
+  failures.push("_redirects is missing CMS shell fallbacks");
+}
+if (!apacheConfig.includes("cms-shell.html")) failures.push(".htaccess is missing the CMS shell fallback");
+
 if (failures.length > 0) {
   console.error(failures.join("\n"));
   process.exit(1);

@@ -84,7 +84,10 @@ RewriteRule ^ - [L]
 RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
 RewriteRule ^(.+?)/?$ $1/index.html [L]
 
-# SPA fallback for dynamic CMS and client-side routes.
+# Metadata-empty fallback for CMS routes created after the latest build.
+RewriteRule ^(?:blog|casestudy)/[^/]+/?$ cms-shell.html [L]
+
+# SPA fallback for other client-side routes.
 RewriteRule ^ index.html [L]
 
 <IfModule mod_headers.c>
