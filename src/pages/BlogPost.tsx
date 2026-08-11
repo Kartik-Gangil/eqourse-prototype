@@ -47,6 +47,7 @@ const BlogPost = () => {
         seoTitle: apiBlog.seo?.title?.trim() || apiBlog.title,
         seoDescription: apiBlog.seo?.description?.trim() || apiBlog.excerpt,
         publishedAt: apiBlog.publishedAt,
+        updatedAt: apiBlog.updatedAt,
         body: apiBlog.body,
         bodyFormat: apiBlog.bodyFormat,
       });
@@ -90,10 +91,12 @@ const BlogPost = () => {
         {blog.publishedAt && <meta property="article:published_time" content={blog.publishedAt} />}
         <meta property="article:author" content={blog.author} />
         {blog.coverImageUrl && <meta property="og:image" content={blog.coverImageUrl} />}
+        {blog.coverImageUrl && <meta property="og:image:alt" content={blog.coverImageAlt || blog.title} />}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDescription} />
         {blog.coverImageUrl && <meta name="twitter:image" content={blog.coverImageUrl} />}
+        {blog.coverImageUrl && <meta name="twitter:image:alt" content={blog.coverImageAlt || blog.title} />}
         <link rel="canonical" href={canonicalUrl} />
 
         {/* BlogPosting Schema */}
@@ -121,6 +124,9 @@ const BlogPost = () => {
               },
             },
             datePublished: blog.publishedAt || undefined,
+            dateModified: blog.updatedAt || blog.publishedAt || undefined,
+            url: canonicalUrl,
+            inLanguage: "en",
           })}
         </script>
       </Helmet>

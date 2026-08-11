@@ -16,6 +16,7 @@ export interface BlogPost {
   seoTitle?: string;
   seoDescription?: string;
   publishedAt?: string;
+  updatedAt?: string;
   body?: string;
   bodyFormat?: 'html' | 'markdown';
 }

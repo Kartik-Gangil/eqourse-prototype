@@ -22,6 +22,10 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import React from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, "..");
@@ -60,6 +64,21 @@ function escapeHtml(str) {
 
 function escapeXml(str) {
   return escapeHtml(str).replace(/'/g, "&apos;");
+}
+
+function renderMarkdownForSeo(content) {
+  if (!content?.trim()) return "";
+  return renderToStaticMarkup(
+    React.createElement(ReactMarkdown, {
+      remarkPlugins: [remarkGfm],
+      skipHtml: true,
+      components: { h1: ({ children }) => React.createElement("h2", null, children) },
+    }, content),
+  );
+}
+
+function plainTextFromHtml(content) {
+  return String(content || "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
 }
 
 function buildDataCollectionFallback() {
@@ -295,7 +314,7 @@ function buildVideoDataCollectionFallback() {
     </main>`;
 }
 
-function buildCrawlFallback({ path, title, description }) {
+function buildCrawlFallback({ path, title, description, crawlHtml = "", source }) {
   if (path === "/ai-data-services/data-collection") return buildDataCollectionFallback();
   if (path === "/ai-data-services/data-collection/image-data-collection") return buildImageDataCollectionFallback();
   if (path === "/ai-data-services/data-collection/audio-data-collection") return buildAudioDataCollectionFallback();
@@ -318,9 +337,14 @@ function buildCrawlFallback({ path, title, description }) {
     .map(([href, label]) => `<a href="${href}">${escapeHtml(label)}</a>`)
     .join("\n        ");
 
+  const article = crawlHtml
+    ? `<article data-cms-source="${escapeHtml(source || "article")}">${crawlHtml}</article>`
+    : "";
+
   return `<main data-seo-prerender="true">
       <h1>${escapeHtml(heading)}</h1>
       <p>${escapeHtml(description)}</p>
+      ${article}
       <nav aria-label="Related pages">
         ${links}
       </nav>
@@ -333,7 +357,8 @@ function toAbsoluteUrl(value) {
   return `${SITE_URL}${value.startsWith("/") ? value : `/${value}`}`;
 }
 
-function buildHead(template, { path, title, description, canonical: canonicalOverride, ogType = "website", image = OG_IMAGE }) {
+function buildHead(template, entry) {
+  const { path, title, description, canonical: canonicalOverride, ogType = "website", image = OG_IMAGE } = entry;
   const canonical = canonicalOverride || `${SITE_URL}${path === "/" ? "/" : path.replace(/\/+$/, "")}`;
   const t = escapeHtml(title);
   const d = escapeHtml(description);
@@ -381,15 +406,25 @@ function buildHead(template, { path, title, description, canonical: canonicalOve
   html = html.replace(/<meta charset="UTF-8" \/>/, (m) => `${m}\n    ${block}`);
   return html.replace(
     /<div id="root">(?:<main data-seo-prerender="true">[\s\S]*?<\/main>)?<\/div>/,
-    `<div id="root">${buildCrawlFallback({ path, title, description })}</div>`,
+    `<div id="root">${buildCrawlFallback(entry)}</div>`,
   );
+}
+
+function buildCmsShell(template) {
+  return template
+    .replace(/<title[^>]*>[\s\S]*?<\/title>\s*/gi, "")
+    .replace(/<meta[^>]*\bname="(?:description|keywords)"[^>]*>\s*/gi, "")
+    .replace(/<link[^>]*\brel="canonical"[^>]*>\s*/gi, "")
+    .replace(/<meta[^>]*\bproperty="og:[^"]*"[^>]*>\s*/gi, "")
+    .replace(/<meta[^>]*\bname="twitter:[^"]*"[^>]*>\s*/gi, "")
+    .replace(/<div id="root">[\s\S]*?<\/div>/, '<div id="root"></div>');
 }
 
 async function fetchCmsItems(resource) {
   const url = `${CMS_API_BASE}/api/${resource}?limit=1000`;
   const response = await fetch(url, {
     headers: { accept: "application/json" },
-    signal: AbortSignal.timeout(20000),
+    signal: AbortSignal.timeout(Number(process.env.CMS_SEO_TIMEOUT_MS) || 60000),
   });
 
   if (!response.ok) {
@@ -420,6 +455,9 @@ async function loadCmsSeoEntries() {
       image: blog.seo?.ogImageUrl || blog.coverImageUrl || OG_IMAGE,
       lastmod: blog.updatedAt || blog.publishedAt,
       source: "blog",
+      crawlHtml: blog.bodyFormat === "html"
+        ? `<p>${escapeHtml(plainTextFromHtml(blog.body))}</p>`
+        : renderMarkdownForSeo(blog.body),
     }));
 
   const caseStudyEntries = caseStudies
@@ -432,6 +470,13 @@ async function loadCmsSeoEntries() {
       image: study.seo?.ogImageUrl || study.heroImageUrl || OG_IMAGE,
       lastmod: study.updatedAt || study.publishedAt,
       source: "case-study",
+      crawlHtml: [
+        ["Challenge", study.challenge],
+        ["Solution", study.solution],
+        ["Results", study.results],
+      ].filter(([, content]) => content?.trim()).map(([heading, content]) => (
+        `<section><h2>${heading}</h2>${renderMarkdownForSeo(content)}</section>`
+      )).join(""),
     }));
 
   return [...blogEntries, ...caseStudyEntries].filter(
@@ -469,6 +514,11 @@ async function main() {
     [...staticEntries, ...cmsEntries].map((entry) => [entry.path, entry]),
   ).values()];
 
+  // Unknown/new CMS routes use a metadata-empty SPA shell rather than the
+  // homepage's title, description and canonical. Known published routes below
+  // still receive complete server-readable metadata and article content.
+  writeFileSync(join(distDir, "cms-shell.html"), buildCmsShell(template), "utf-8");
+
   let written = 0;
   for (const entry of entries) {
     const html = buildHead(template, entry);
@@ -480,7 +530,7 @@ async function main() {
 
   writeFileSync(
     join(distDir, "seo-manifest.json"),
-    JSON.stringify(entries, null, 2),
+    JSON.stringify(entries.map(({ crawlHtml, ...entry }) => entry), null, 2),
     "utf-8",
   );
 

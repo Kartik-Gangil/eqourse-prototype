@@ -59,6 +59,7 @@ export interface PublicBlog {
     coverImageTitle?: string;
   };
   publishedAt?: string;
+  updatedAt?: string;
   readingMinutes?: number;
 }
 
@@ -117,6 +118,7 @@ export interface PublicCaseStudy {
     heroImageTitle?: string;
   };
   publishedAt?: string;
+  updatedAt?: string;
 }
 
 /**

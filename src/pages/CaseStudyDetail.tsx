@@ -5,6 +5,7 @@ import { BreadcrumbSchema } from "@/components/shared/BreadcrumbSchema";
 import { Helmet } from "react-helmet-async";
 import { caseStudiesData, CaseStudy } from "@/components/case-studies/caseStudyData";
 import { fetchCaseStudyBySlug } from "@/lib/publicApi";
+import ArticleContent, { SmartArticleLink } from "@/components/shared/ArticleContent";
 import {
   Loader2,
   Target,
@@ -104,6 +105,8 @@ const CaseStudyDetail = () => {
         heroImageTitle: apiCs.seo?.heroImageTitle || apiCs.title,
         seoTitle: apiCs.seo?.title?.trim() || apiCs.title,
         seoDescription: apiCs.seo?.description?.trim() || apiCs.summary || apiCs.challenge?.slice(0, 160),
+        publishedAt: apiCs.publishedAt,
+        updatedAt: apiCs.updatedAt,
       });
     });
   }, [slug]);
@@ -186,7 +189,10 @@ const CaseStudyDetail = () => {
                 url: "https://www.eqourse.com/logo.png",
               },
             },
-            datePublished: new Date().toISOString().split("T")[0],
+            datePublished: study.publishedAt || undefined,
+            dateModified: study.updatedAt || study.publishedAt || undefined,
+            url: canonicalUrl,
+            inLanguage: "en",
           })}
         </script>
       </Helmet>
@@ -268,7 +274,7 @@ const CaseStudyDetail = () => {
                     <Target className={`w-4 h-4 ${themeAccent}`} />
                   </div>
                   <h2 className="font-heading text-xl font-bold mb-4">Problem Statement</h2>
-                  <p className="text-muted-foreground leading-relaxed text-base">{study.problem}</p>
+                  <ArticleContent content={study.problem} />
                 </div>
 
                 {/* Solution */}
@@ -277,7 +283,7 @@ const CaseStudyDetail = () => {
                     <Lightbulb className={`w-4 h-4 ${themeAccent}`} />
                   </div>
                   <h2 className="font-heading text-xl font-bold mb-4">Solution</h2>
-                  <p className="text-muted-foreground leading-relaxed text-base">{study.solution}</p>
+                  <ArticleContent content={study.solution} />
                 </div>
 
                 {/* Impact */}
@@ -287,7 +293,7 @@ const CaseStudyDetail = () => {
                   </div>
                   <h2 className="font-heading text-xl font-bold mb-4">Impact</h2>
                   <div className={`p-6 rounded-2xl border ${themeBorder} ${themeSoftBg}`}>
-                    <p className="text-foreground leading-relaxed text-base font-medium">{study.impact}</p>
+                    <ArticleContent content={study.impact} className="font-medium [&_p]:text-foreground" />
                   </div>
                 </div>
               </div>
@@ -318,16 +324,16 @@ const CaseStudyDetail = () => {
                 </h3>
                 <div className="flex flex-col gap-2">
                   {study.relatedLinks.map((link, i) => (
-                    <Link
+                    <SmartArticleLink
                       key={i}
-                      to={link.href}
+                      href={link.href}
                       className="group flex items-center justify-between p-3 rounded-xl border border-border/50 hover:border-border hover:bg-card hover:shadow-sm transition-all"
                     >
                       <span className="text-sm font-medium text-foreground/80 group-hover:text-foreground transition-colors">
                         {link.label}
                       </span>
                       <ArrowRight className={`w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all ${themeAccent}`} />
-                    </Link>
+                    </SmartArticleLink>
                   ))}
                 </div>
               </div>

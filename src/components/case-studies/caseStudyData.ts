@@ -34,6 +34,8 @@ export interface CaseStudy {
   heroImageTitle?: string;
   seoTitle?: string;
   seoDescription?: string;
+  publishedAt?: string;
+  updatedAt?: string;
 }
 
 export const caseStudiesData: CaseStudy[] = [

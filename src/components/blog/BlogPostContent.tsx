@@ -1,8 +1,10 @@
 import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Calendar, User, ArrowRight, Share2, Linkedin, Twitter, Mail, CheckCircle2 } from "lucide-react";
+import { Calendar, User, ArrowRight, Share2, Linkedin, Twitter, CheckCircle2 } from "lucide-react";
 import { BlogPost, blogsData } from "./blogData";
 import BlogCard from "./BlogCard";
+import ArticleContent from "@/components/shared/ArticleContent";
+import type { PublicBlog } from "@/lib/publicApi";
 
 // ─── Helpers ────────────────────────────────────────────────
 
@@ -45,120 +47,6 @@ function getBlogSections(blog: BlogPost) {
   return getSectionsFromMarkdown(blog.body);
 }
 
-function parseMarkdown(md: string): string {
-  if (!md) return "";
-
-  // 1. Escape HTML entities to prevent XSS (allowing only safe block markdown transforms)
-  let html = md
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
-
-  // 2. Handle headers (h1 to h3) with generated IDs for Table of Contents anchors
-  html = html.replace(/^# (.*?)$/gm, (match, title) => {
-    const cleanTitle = title.replace(/\*\*/g, '').replace(/\*/g, '');
-    const id = cleanTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-    return `<h1 id="${id}" class="scroll-mt-32 font-heading font-extrabold text-3xl md:text-5xl mt-12 mb-6">${title}</h1>`;
-  });
-  
-  html = html.replace(/^## (.*?)$/gm, (match, title) => {
-    const cleanTitle = title.replace(/\*\*/g, '').replace(/\*/g, '');
-    const id = cleanTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-    return `<h2 id="${id}" class="scroll-mt-32 font-heading font-bold text-2xl md:text-3xl mt-12 mb-6">${title}</h2>`;
-  });
-  
-  html = html.replace(/^### (.*?)$/gm, (match, title) => {
-    const cleanTitle = title.replace(/\*\*/g, '').replace(/\*/g, '');
-    const id = cleanTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-    return `<h3 id="${id}" class="scroll-mt-32 font-heading font-bold text-xl md:text-2xl mt-8 mb-4">${title}</h3>`;
-  });
-
-  // 3. Handle bold (**text**) and italics (*text*)
-  html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-  html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
-
-  // 4. Handle blockquotes
-  html = html.replace(/^> (.*?)$/gm, '<blockquote class="border-l-4 border-primary pl-4 my-4 italic text-muted-foreground">$1</blockquote>');
-
-  // 5. Handle lists (unordered and ordered) line by line
-  const lines = html.split('\n');
-  let inUl = false;
-  let inOl = false;
-  let inParagraph = false;
-  const processedLines: string[] = [];
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i].trim();
-
-    if (!line) {
-      if (inUl) {
-        processedLines.push('</ul>');
-        inUl = false;
-      }
-      if (inOl) {
-        processedLines.push('</ol>');
-        inOl = false;
-      }
-      if (inParagraph) {
-        processedLines.push('</p>');
-        inParagraph = false;
-      }
-      continue;
-    }
-
-    // If it's already a heading or blockquote, close active lists/paragraphs
-    if (line.startsWith('<h1') || line.startsWith('<h2') || line.startsWith('<h3') || line.startsWith('<h4') || line.startsWith('<blockquote')) {
-      if (inUl) { processedLines.push('</ul>'); inUl = false; }
-      if (inOl) { processedLines.push('</ol>'); inOl = false; }
-      if (inParagraph) { processedLines.push('</p>'); inParagraph = false; }
-      processedLines.push(lines[i]);
-      continue;
-    }
-
-    // Bullet points: - or *
-    const ulMatch = line.match(/^[\*\-]\s+(.*)$/);
-    if (ulMatch) {
-      if (inOl) { processedLines.push('</ol>'); inOl = false; }
-      if (inParagraph) { processedLines.push('</p>'); inParagraph = false; }
-      if (!inUl) {
-        processedLines.push('<ul class="list-disc pl-6 my-4 space-y-2">');
-        inUl = true;
-      }
-      processedLines.push(`<li class="text-muted-foreground leading-relaxed">${ulMatch[1]}</li>`);
-      continue;
-    }
-
-    // Numbered list items: 1. or 2.
-    const olMatch = line.match(/^\d+\.\s+(.*)$/);
-    if (olMatch) {
-      if (inUl) { processedLines.push('</ul>'); inUl = false; }
-      if (inParagraph) { processedLines.push('</p>'); inParagraph = false; }
-      if (!inOl) {
-        processedLines.push('<ol class="list-decimal pl-6 my-4 space-y-2">');
-        inOl = true;
-      }
-      processedLines.push(`<li class="text-muted-foreground leading-relaxed">${olMatch[1]}</li>`);
-      continue;
-    }
-
-    // Regular text line
-    if (inUl) { processedLines.push('</ul>'); inUl = false; }
-    if (inOl) { processedLines.push('</ol>'); inOl = false; }
-
-    if (!inParagraph) {
-      processedLines.push('<p class="text-muted-foreground leading-relaxed mb-6">');
-      inParagraph = true;
-    }
-    processedLines.push(lines[i]);
-  }
-
-  if (inUl) processedLines.push('</ul>');
-  if (inOl) processedLines.push('</ol>');
-  if (inParagraph) processedLines.push('</p>');
-
-  return processedLines.join('\n');
-}
-
 interface BlogPostContentProps {
   blog: BlogPost;
 }
@@ -196,7 +84,7 @@ const BlogPostContent = ({ blog }: BlogPostContentProps) => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [blog]);
+  }, [activeSections]);
 
   const handleShare = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -238,13 +126,13 @@ const BlogPostContent = ({ blog }: BlogPostContentProps) => {
         if (cancelled) return;
         setIsLoadingRelated(false);
         if (!body || !body.success || !body.data || !body.data.items) return;
-        const apiBlogs = body.data.items as any[];
+        const apiBlogs = body.data.items as PublicBlog[];
         // Filter out current blog by slug to avoid showing the same blog as related
-        const filteredApiBlogs = apiBlogs.filter((b: any) => `/blog/${b.slug}` !== blog.slug);
+        const filteredApiBlogs = apiBlogs.filter((b) => `/blog/${b.slug}` !== blog.slug);
 
         if (filteredApiBlogs.length === 0) return;
 
-        const mapped: BlogPost[] = filteredApiBlogs.map((b: any, i: number) => ({
+        const mapped: BlogPost[] = filteredApiBlogs.map((b, i: number) => ({
           id: i + 1000,
           title: b.title,
           slug: `/blog/${b.slug}`,
@@ -365,7 +253,7 @@ const BlogPostContent = ({ blog }: BlogPostContentProps) => {
           <div className="lg:w-3/4 max-w-3xl">
             {blog.coverImageUrl && (
               <div className="mb-8 rounded-2xl overflow-hidden aspect-[16/9] w-full border border-border/50">
-                <img src={blog.coverImageUrl} alt={blog.coverImageAlt || blog.title} title={blog.coverImageTitle || blog.title} className="w-full h-full object-cover" />
+                <img src={blog.coverImageUrl} alt={blog.coverImageAlt || blog.title} title={blog.coverImageTitle || blog.title} className="w-full h-full object-cover" loading="eager" decoding="async" />
               </div>
             )}
             <div className="prose prose-lg dark:prose-invert max-w-none">
@@ -374,12 +262,7 @@ const BlogPostContent = ({ blog }: BlogPostContentProps) => {
               </p>
 
               {blog.body ? (
-                <div 
-                  className="prose-content"
-                  dangerouslySetInnerHTML={{ 
-                    __html: blog.bodyFormat === 'html' ? blog.body : parseMarkdown(blog.body) 
-                  }} 
-                />
+                <ArticleContent content={blog.body} format={blog.bodyFormat || "markdown"} />
               ) : (
                 /* Procedurally rendered body based on outline */
                 blog.sections?.map((section, idx) => {

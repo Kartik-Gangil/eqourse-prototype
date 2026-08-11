@@ -217,7 +217,7 @@ export default function CaseStudyEditor() {
           <div>
             <Label>Slug *</Label>
             <Input value={form.slug} onChange={(e) => { setSlugTouched(true); setField("slug", e.target.value); }} />
-            <p className="text-xs text-muted-foreground mt-1">URL: /case-studies/{form.slug || "your-slug"}</p>
+            <p className="text-xs text-muted-foreground mt-1">URL: /casestudy/{form.slug || "your-slug"}</p>
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
