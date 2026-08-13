@@ -100,6 +100,7 @@ const ImageProcessingPage = () => (
       { title: "Editorial Services", href: `${PARENT_HREF}/editorial-services` },
       { title: "Design Services", href: `${PARENT_HREF}/design-services` },
       { title: "Prepress Services", href: `${PARENT_HREF}/prepress-services` },
+      { title: "Document & OCR Annotation", href: "/ai-data-services/annotation-labeling/document-ocr-annotation" },
       { title: "Accessibility Services", href: "/accessibility" },
     ]}
   />

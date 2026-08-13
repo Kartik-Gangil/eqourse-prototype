@@ -23,6 +23,10 @@ const AIAudioSpeechDataCollection = lazy(() => import("./pages/AIAudioSpeechData
 const AITextDataCollection = lazy(() => import("./pages/AITextDataCollection.tsx"));
 const AIVideoDataCollection = lazy(() => import("./pages/AIVideoDataCollection.tsx"));
 const AIAnnotationLabeling = lazy(() => import("./pages/AIAnnotationLabeling.tsx"));
+const AILLMRLHFAnnotation = lazy(() => import("./pages/AILLMRLHFAnnotation.tsx"));
+const AIImageAnnotation = lazy(() => import("./pages/AIImageAnnotation.tsx"));
+const AIVideoAnnotation = lazy(() => import("./pages/AIVideoAnnotation.tsx"));
+const AIDocumentOCRAnnotation = lazy(() => import("./pages/AIDocumentOCRAnnotation.tsx"));
 const AICleaningValidation = lazy(() => import("./pages/AICleaningValidation.tsx"));
 const AIModelTesting = lazy(() => import("./pages/AIModelTesting.tsx"));
 const RoboticsTrainingData = lazy(() => import("./pages/RoboticsTrainingData.tsx"));
@@ -121,6 +125,10 @@ const App = () => (
               <Route path="/ai-data-services/data-collection/text-data-collection" element={<AITextDataCollection />} />
               <Route path="/ai-data-services/data-collection/video-data-collection" element={<AIVideoDataCollection />} />
               <Route path="/ai-data-services/annotation-labeling" element={<AIAnnotationLabeling />} />
+              <Route path="/ai-data-services/annotation-labeling/llm-rlhf-annotation" element={<AILLMRLHFAnnotation />} />
+              <Route path="/ai-data-services/annotation-labeling/image-annotation" element={<AIImageAnnotation />} />
+              <Route path="/ai-data-services/annotation-labeling/video-annotation" element={<AIVideoAnnotation />} />
+              <Route path="/ai-data-services/annotation-labeling/document-ocr-annotation" element={<AIDocumentOCRAnnotation />} />
               <Route path="/ai-data-services/cleaning-validation" element={<AICleaningValidation />} />
               <Route path="/ai-data-services/model-testing" element={<AIModelTesting />} />
               <Route path="/robotics-training-data-services" element={<RoboticsTrainingData />} />

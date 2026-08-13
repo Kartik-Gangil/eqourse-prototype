@@ -15,6 +15,7 @@ export interface PageSeo {
   title: string;
   description: string;
   canonical?: string;
+  image?: string;
 }
 
 export const pageSeo: Record<string, PageSeo> = {
@@ -83,8 +84,33 @@ export const pageSeo: Record<string, PageSeo> = {
     description: "Scale AI development with expert data collection, annotation, validation and model testing services. Start your free pilot.",
   },
   "/ai-data-services/annotation-labeling": {
-    title: "Data Annotation & Labeling – Accurate AI Data | Eqourse",
-    description: "Improve model accuracy with expert AI data annotation and labeling for text, images, audio and video. Start a free pilot.",
+    title: "Data Annotation & Labeling Services | eQOURSE",
+    description: "Expert data annotation for image, video, text, audio, documents and RLHF with SME reviewers, multi-tier QA, 30+ languages and ISO processes.",
+    image: "/assets/ai-data/annotation-labeling/annotation-labeling-og.jpg",
+  },
+  "/ai-data-services/annotation-labeling/llm-rlhf-annotation": {
+    title: "RLHF & LLM Data Annotation Services | eQOURSE",
+    description: "Expert RLHF preference data, SFT datasets, LLM evaluation, red teaming and factuality review across 30+ languages. Start a free pilot.",
+    canonical: "https://www.eqourse.com/ai-data-services/annotation-labeling/llm-rlhf-annotation",
+    image: "/assets/ai-data/annotation-labeling/llm-rlhf/llm-rlhf-annotation-og.jpg",
+  },
+  "/ai-data-services/annotation-labeling/image-annotation": {
+    title: "Image Annotation Services for Computer Vision | eQOURSE",
+    description: "Bounding box, polygon, segmentation, keypoint and classification annotation with multi-tier QA and COCO, YOLO or Pascal VOC delivery. Start a free pilot.",
+    canonical: "https://www.eqourse.com/ai-data-services/annotation-labeling/image-annotation",
+    image: "/assets/ai-data/annotation-labeling/image-annotation/image-annotation-og.jpg",
+  },
+  "/ai-data-services/annotation-labeling/video-annotation": {
+    title: "Video Annotation Services for Computer Vision | eQOURSE",
+    description: "Frame-accurate video annotation with persistent-ID tracking, action recognition, event segmentation and pose tracking. Track-level QA, MOT and COCO delivery.",
+    canonical: "https://www.eqourse.com/ai-data-services/annotation-labeling/video-annotation",
+    image: "/assets/ai-data/annotation-labeling/video-annotation/video-annotation-og.jpg",
+  },
+  "/ai-data-services/annotation-labeling/document-ocr-annotation": {
+    title: "Document & OCR Annotation Services for Document AI | eQOURSE",
+    description: "Document AI training data for layout, key-value pairs, table structure, handwriting and forms. Per-field QA, 30+ languages and ISO-certified processes.",
+    canonical: "https://www.eqourse.com/ai-data-services/annotation-labeling/document-ocr-annotation",
+    image: "/assets/ai-data/annotation-labeling/document-ocr-annotation/document-ocr-annotation-og.jpg",
   },
   "/ai-data-services/cleaning-validation": {
     title: "AI Data Cleaning & Validation – High Accuracy | Eqourse",

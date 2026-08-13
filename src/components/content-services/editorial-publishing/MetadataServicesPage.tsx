@@ -105,6 +105,7 @@ const MetadataServicesPage = () => (
     relatedPages={[
       { title: "Editorial Services", href: `${PARENT_HREF}/editorial-services` },
       { title: "Digital Conversion", href: `${PARENT_HREF}/digital-conversion` },
+      { title: "Document AI training data", href: "/ai-data-services/annotation-labeling/document-ocr-annotation" },
       { title: "Production Support", href: `${PARENT_HREF}/production-support` },
       { title: "Accessibility Services", href: "/accessibility" },
     ]}
