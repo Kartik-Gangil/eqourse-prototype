@@ -112,6 +112,7 @@ const DigitalConversionPage = () => (
       { title: "Editorial Services", href: `${PARENT_HREF}/editorial-services` },
       { title: "Publishing Production", href: `${PARENT_HREF}/publishing-production` },
       { title: "Metadata Services", href: `${PARENT_HREF}/metadata-services` },
+      { title: "Document annotation services for AI", href: "/ai-data-services/annotation-labeling/document-ocr-annotation" },
       { title: "Accessibility Services", href: "/accessibility" },
       { title: "Technology Solutions", href: "/technology-solutions" },
     ]}

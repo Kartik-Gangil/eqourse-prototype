@@ -410,7 +410,7 @@ export const aiDataSamples: AiDataSample[] = [
       "Multi-dimensional scoring: helpfulness + accuracy + harmlessness + coherence",
       "6 languages covered for multilingual LLM alignment",
     ],
-    serviceLink: "/ai-data-services/annotation-labeling",
+    serviceLink: "/ai-data-services/annotation-labeling/llm-rlhf-annotation",
   },
   {
     slug: "data-collection",

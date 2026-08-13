@@ -91,14 +91,15 @@ export const aiDataServicesCategories: AIDataNavCategory[] = [
     label: "Annotation & Labeling",
     href: "/ai-data-services/annotation-labeling",
     icon: Tags,
-    image: "/assets/ai-data/Annotation and Labeling.webp",
+    image: "/assets/ai-data/annotation-labeling/data-annotation-labeling-services-hero.webp",
     imageAlt: "Expert AI data annotation and labeling workflow",
     description: "Human-reviewed labels across language, vision, audio and generative-AI workflows.",
     subServices: [
       { label: "NLP Annotation", href: "/ai-data-services/annotation-labeling", icon: Braces, description: "Structured language labels for NLP systems.", serviceHighlights: ["Named entity recognition", "Sentiment and intent", "Text classification", "Relation extraction", "Translation post-editing"] },
-      { label: "Computer Vision", href: "/ai-data-services/annotation-labeling", icon: Eye, description: "Precise spatial labels for image and video.", serviceHighlights: ["Bounding boxes and cuboids", "Semantic and instance segmentation", "Polygons and polylines", "Keypoints and landmarks", "LiDAR and point clouds"] },
+      { label: "Computer Vision", href: "/ai-data-services/annotation-labeling/image-annotation", icon: Eye, description: "Spatial and temporal labels for visual AI.", serviceHighlights: ["Image boxes and segmentation", "Persistent-ID video tracking", "Polygons and keypoints", "Action and event boundaries", "Classification and attributes"] },
       { label: "Audio Annotation", href: "/ai-data-services/annotation-labeling", icon: AudioLines, description: "Speech, speaker and acoustic-event labels.", serviceHighlights: ["Speech transcription", "Speaker diarization", "Emotion and tone", "Audio event classification", "Phonetic transcription"] },
-      { label: "RLHF & LLM Evaluation", href: "/ai-data-services/annotation-labeling", icon: ThumbsUp, description: "Human feedback for safer, more useful models.", serviceHighlights: ["Response ranking", "Instruction-following review", "Safety and toxicity labeling", "Factuality verification", "Preference data"] },
+      { label: "RLHF & LLM Evaluation", href: "/ai-data-services/annotation-labeling/llm-rlhf-annotation", icon: ThumbsUp, description: "Expert human feedback for model alignment.", serviceHighlights: ["Preference ranking", "SFT data creation", "Factuality and RAG review", "Red teaming", "Agent trajectory evaluation"] },
+      { label: "Document & OCR", href: "/ai-data-services/annotation-labeling/document-ocr-annotation", icon: FileText, description: "Position-aware labels for document AI and IDP.", serviceHighlights: ["Layout regions and reading order", "Key-value extraction", "Table structure and line items", "Handwriting and OCR ground truth", "PII identification and splitting"] },
     ],
   },
   {

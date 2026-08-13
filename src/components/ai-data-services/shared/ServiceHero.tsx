@@ -56,6 +56,8 @@ interface ServiceHeroProps {
     title: string;
     subtitle: string;
   };
+  /** Use a more compact scale for unusually long service headlines. */
+  compactHeadline?: boolean;
 }
 
 const chips = [
@@ -101,8 +103,10 @@ const ServiceHero = ({
   tone = "dark",
   rotatingBadges,
   bottomBadge,
+  compactHeadline = false,
 }: ServiceHeroProps) => {
   const activeChips = rotatingBadges && rotatingBadges.length > 0 ? rotatingBadges : chips;
+  const useCompactHeadline = compactHeadline || `${headline} ${headlineAccent || ""}`.length > 50;
   const [chipIndex, setChipIndex] = useState(0);
   
   useEffect(() => {
@@ -148,7 +152,7 @@ const ServiceHero = ({
               <span className="text-xs md:text-sm font-semibold tracking-wider uppercase text-primary">{preHeadline}</span>
             </div>
 
-            <h1 className={`font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight animate-slide-up-delayed ${isLight ? "text-foreground" : "text-white"}`}>
+            <h1 className={`font-heading ${useCompactHeadline ? "text-3xl md:text-4xl lg:text-5xl" : "text-4xl md:text-5xl lg:text-6xl"} font-extrabold leading-tight animate-slide-up-delayed ${isLight ? "text-foreground" : "text-white"}`}>
               {headline}{" "}
               {headlineAccent && <span className="text-gradient">{headlineAccent}</span>}
             </h1>

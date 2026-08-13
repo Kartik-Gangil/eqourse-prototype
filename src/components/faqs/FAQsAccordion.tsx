@@ -244,7 +244,7 @@ const aiDataFaqs: FAQ[] = [
   {
     question: "What types of data annotation does eQOURSE offer?",
     answer:
-      "We offer <a href='/ai-data-services/annotation-labeling' class='text-primary hover:underline font-medium'>NLP annotation</a> (NER, sentiment, intent classification, relation extraction, coreference resolution), Computer Vision annotation (bounding boxes, semantic segmentation, instance segmentation, polygon annotation, 3D cuboids, keypoint detection, video annotation), Audio annotation (transcription, speaker diarisation, phoneme labeling, emotion detection), and RLHF annotation (preference ranking, safety labeling, instruction-following evaluation, red-teaming).",
+      "We offer NLP annotation (NER, sentiment, intent and relation extraction), <a href='/ai-data-services/annotation-labeling/image-annotation' class='text-primary hover:underline font-medium'>Image Annotation</a>, <a href='/ai-data-services/annotation-labeling/video-annotation' class='text-primary hover:underline font-medium'>Video Annotation</a>, <a href='/ai-data-services/annotation-labeling/document-ocr-annotation' class='text-primary hover:underline font-medium'>Document & OCR Annotation</a> for layouts, tables, key-value pairs and handwriting, Audio annotation, and <a href='/ai-data-services/annotation-labeling/llm-rlhf-annotation' class='text-primary hover:underline font-medium'>RLHF & LLM evaluation</a>.",
   },
   {
     question:
