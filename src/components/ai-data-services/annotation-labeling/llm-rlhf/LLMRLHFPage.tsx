@@ -74,7 +74,7 @@ const LLMRLHFPage = () => (
       description="Expert RLHF preference data, SFT datasets, LLM evaluation, red teaming and factuality review across 30+ languages. Start a free pilot."
       canonical={canonical}
       keywords="RLHF data services, RLHF annotation services, LLM data annotation, LLM training data services, human preference data, LLM evaluation services, SFT data creation, AI model alignment data"
-      ogImage="https://www.eqourse.com/assets/ai-data/annotation-labeling/llm-rlhf/llm-rlhf-annotation-og.jpg"
+      ogImage="https://www.eqourse.com/assets/ai-data/annotation-labeling/llm-rlhf/llm-rlhf-annotation-og.webp"
     />
     <Helmet>
       <link rel="preload" as="image" href="/assets/ai-data/annotation-labeling/llm-rlhf/rlhf-llm-data-annotation-services-hero.avif" type="image/avif" fetchPriority="high" />

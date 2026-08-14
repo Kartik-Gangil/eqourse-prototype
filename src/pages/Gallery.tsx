@@ -7,15 +7,36 @@ import { pageSeo } from "@/seo/pageSeo";
 /* Approved title + meta description for this route (see src/seo/pageSeo.ts). */
 const PAGE_SEO = pageSeo["/gallery"];
 
-// Construct the array of 21 images dynamically
-const galleryImages = Array.from({ length: 21 }, (_, i) => ({
-  id: i + 1,
-  src: `/assets/about/gallery/${i + 1}.webp`,
-  alt: `eQOURSE Gallery Image ${i + 1} - Office Tour and Business Meetings`,
-}));
+// Gallery images with descriptive, SEO-optimized alt tags
+const galleryImages = [
+  { id: 1, src: "/assets/about/gallery/1.webp", alt: "eQOURSE team members at the Singapore office during a strategy planning session" },
+  { id: 2, src: "/assets/about/gallery/2.webp", alt: "eQOURSE founder meeting with global AI data services clients at industry conference" },
+  { id: 3, src: "/assets/about/gallery/3.webp", alt: "eQOURSE content services team collaborating on editorial publishing project" },
+  { id: 4, src: "/assets/about/gallery/4.webp", alt: "eQOURSE India office workspace showcasing modern work environment" },
+  { id: 5, src: "/assets/about/gallery/5.webp", alt: "eQOURSE leadership team at annual business review and planning event" },
+  { id: 6, src: "/assets/about/gallery/6.webp", alt: "eQOURSE team attending international ed-tech and AI data conference" },
+  { id: 7, src: "/assets/about/gallery/7.webp", alt: "eQOURSE employees celebrating team achievement and milestone event" },
+  { id: 8, src: "/assets/about/gallery/8.webp", alt: "eQOURSE global partnership meeting with content services stakeholders" },
+  { id: 9, src: "/assets/about/gallery/9.webp", alt: "eQOURSE office tour showcasing annotation and labeling operations center" },
+  { id: 10, src: "/assets/about/gallery/10.webp", alt: "eQOURSE business development team at client engagement workshop" },
+  { id: 11, src: "/assets/about/gallery/11.webp", alt: "eQOURSE corporate event highlighting company culture and team spirit" },
+  { id: 12, src: "/assets/about/gallery/12.webp", alt: "eQOURSE leadership presenting AI data services capabilities to enterprise clients" },
+  { id: 13, src: "/assets/about/gallery/13.webp", alt: "eQOURSE team building activity fostering collaboration across departments" },
+  { id: 14, src: "/assets/about/gallery/14.webp", alt: "eQOURSE knowledge sharing session on content services best practices" },
+  { id: 15, src: "/assets/about/gallery/15.webp", alt: "eQOURSE international office visit and cross-border team collaboration" },
+  { id: 16, src: "/assets/about/gallery/16.webp", alt: "eQOURSE partner meeting discussing e-learning and localization solutions" },
+  { id: 17, src: "/assets/about/gallery/17.webp", alt: "eQOURSE team at industry networking event for AI and data services" },
+  { id: 18, src: "/assets/about/gallery/18.webp", alt: "eQOURSE workspace interior showcasing professional office environment" },
+  { id: 19, src: "/assets/about/gallery/19.webp", alt: "eQOURSE executives at strategic partnership signing ceremony" },
+  { id: 20, src: "/assets/about/gallery/20.webp", alt: "eQOURSE team group photo at company annual day celebration" },
+  { id: 21, src: "/assets/about/gallery/21.webp", alt: "eQOURSE project delivery team reviewing quality assurance milestones" },
+  { id: 22, src: "/assets/about/gallery/22.webp", alt: "eQOURSE team exploring next-generation AI innovation platform during international tech visit" },
+  { id: 23, src: "/assets/about/gallery/23.webp", alt: "eQOURSE leadership and partner team at collaborative business meeting in modern conference room" },
+  { id: 24, src: "/assets/about/gallery/24.webp", alt: "eQOURSE global team group photo at AI multilingual innovation center" },
+];
 
 const Gallery = () => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
 
   return (
     <PageLayout breadcrumbs={[{ label: "About Us", href: "/aboutus" }, { label: "Gallery" }]}>
@@ -59,13 +80,14 @@ const Gallery = () => {
                 key={image.id}
                 className="relative overflow-hidden rounded-2xl group break-inside-avoid shadow-sm hover:shadow-xl transition-all duration-500 bg-card border border-border/40 cursor-pointer animate-fade-in-up"
                 style={{ animationDelay: `${(index % 10) * 50}ms` }}
-                onClick={() => setSelectedImage(image.src)}
+                onClick={() => setSelectedImage({ src: image.src, alt: image.alt })}
               >
                 {/* Image */}
                 <div className="relative aspect-auto overflow-hidden">
                   <img 
                     src={image.src} 
                     alt={image.alt} 
+                    title={image.alt}
                     className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
@@ -93,8 +115,8 @@ const Gallery = () => {
           </button>
           <div className="relative max-w-7xl max-h-[90vh] w-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
             <img 
-              src={selectedImage} 
-              alt="Gallery Preview Fullscreen" 
+              src={selectedImage.src} 
+              alt={selectedImage.alt} 
               className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl animate-fade-in-up"
             />
           </div>

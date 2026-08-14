@@ -40,12 +40,12 @@ const SEOHead = ({ title, description, canonical, ogTitle, ogDescription, keywor
       <meta property="og:type" content="website" />
       <meta property="og:url" content={resolvedCanonical} />
       <meta property="og:site_name" content="eQOURSE" />
-      <meta property="og:image" content={ogImage || "https://www.eqourse.com/assets/og-image.png"} />
+      <meta property="og:image" content={ogImage || "https://www.eqourse.com/assets/og-image.webp"} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@EQourse" />
       <meta name="twitter:title" content={ogTitle || resolvedTitle} />
       <meta name="twitter:description" content={ogDescription || resolvedDescription} />
-      <meta name="twitter:image" content={ogImage || "https://www.eqourse.com/assets/og-image.png"} />
+      <meta name="twitter:image" content={ogImage || "https://www.eqourse.com/assets/og-image.webp"} />
     </Helmet>
   );
 };

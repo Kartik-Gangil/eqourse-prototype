@@ -48,7 +48,7 @@ const Index = () => {
         <meta property="og:url" content="https://www.eqourse.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="eQOURSE" />
-        <meta property="og:image" content="https://www.eqourse.com/assets/og-image.png" />
+        <meta property="og:image" content="https://www.eqourse.com/assets/og-image.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@EQourse" />
         <meta name="twitter:title" content={PAGE_SEO.title} />
@@ -56,7 +56,7 @@ const Index = () => {
           name="twitter:description"
           content={PAGE_SEO.description}
         />
-        <meta name="twitter:image" content="https://www.eqourse.com/assets/og-image.png" />
+        <meta name="twitter:image" content="https://www.eqourse.com/assets/og-image.webp" />
 
         {/* Organization structured data */}
         <script type="application/ld+json">
@@ -68,7 +68,7 @@ const Index = () => {
               "name": "eQOURSE",
               "alternateName": "eQOURSE PTE LTD",
               "url": "https://www.eqourse.com",
-              "logo": "https://www.eqourse.com/assets/og-image.png",
+              "logo": "https://www.eqourse.com/assets/og-image.webp",
               "description": "eQOURSE delivers end-to-end Content Services and AI data services. Custom e-learning content, curriculum development, data annotation, and model testing for global education and AI teams.",
               "foundingDate": "2020",
               "numberOfEmployees": {

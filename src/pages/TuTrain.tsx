@@ -60,7 +60,7 @@ const TuTrain = () => {
         <meta name="keywords" content="tutrain, online tutoring, 1-on-1 tutoring, personalized tutoring, eqourse tutoring brand, online tuition, live tutoring platform, tutrain by eqourse" />
         <meta property="og:title" content="TUTRAIN by eQOURSE - Personalized Online Tutoring Worldwide" />
         <meta property="og:description" content="The consumer online tutoring brand from eQOURSE. Live 1-on-1 and small-batch classes for students in Grades 4–12, across all major curricula." />
-        <meta property="og:image" content="https://www.eqourse.com/images/tutrain-eqourse-og.jpg" />
+        <meta property="og:image" content="https://www.eqourse.com/images/tutrain-eqourse-og.webp" />
         <link rel="canonical" href="https://www.eqourse.com/tutrain" />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(schema)}</script>

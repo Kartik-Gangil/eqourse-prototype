@@ -72,7 +72,7 @@ const AnnotationPage = () => (
       description="Expert data annotation for image, video, text, audio, documents and RLHF with SME reviewers, multi-tier QA, 30+ languages and ISO processes."
       canonical="https://www.eqourse.com/ai-data-services/annotation-labeling"
       keywords="data annotation services, data labeling services, image annotation, video annotation, NLP annotation, audio annotation, RLHF data services, document annotation"
-      ogImage="https://www.eqourse.com/assets/ai-data/annotation-labeling/annotation-labeling-og.jpg"
+      ogImage="https://www.eqourse.com/assets/ai-data/annotation-labeling/annotation-labeling-og.webp"
     />
     <Helmet>
       <link rel="preload" as="image" href="/assets/ai-data/annotation-labeling/data-annotation-labeling-services-hero.avif" type="image/avif" fetchPriority="high" />
