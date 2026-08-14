@@ -40,7 +40,15 @@ const pageDirectory = [
   { title: "Audio & Speech Data Collection", path: "/ai-data-services/data-collection/audio-data-collection", description: "Custom speech and acoustic datasets for ASR, TTS and voice AI across languages, accents, speakers, devices and environments" },
   { title: "Text Data Collection", path: "/ai-data-services/data-collection/text-data-collection", description: "Multilingual, domain-specific, conversational and human-created text datasets for NLP, LLMs and generative AI" },
   { title: "Video Data Collection", path: "/ai-data-services/data-collection/video-data-collection", description: "Scenario-designed video datasets for computer vision and multimodal AI across actions, objects, environments, viewpoints and time" },
-  { title: "Annotation & Labeling", path: "/ai-data-services/annotation-labeling", description: "Expert data annotation — NER, bounding boxes, segmentation, sentiment, RLHF" },
+  { title: "Annotation & Labeling", path: "/ai-data-services/annotation-labeling", description: "Data annotation hub covering image, video, text, speech, LLM feedback, documents, LiDAR and content moderation" },
+  { title: "LLM & RLHF Data Annotation", path: "/ai-data-services/annotation-labeling/llm-rlhf-annotation", description: "Human preference data, response evaluation, safety review, red teaming, RAG grounding and expert feedback for LLM alignment" },
+  { title: "Image Annotation", path: "/ai-data-services/annotation-labeling/image-annotation", description: "Bounding boxes, polygons, semantic and instance segmentation, keypoints, classification and visual QA" },
+  { title: "Video Annotation", path: "/ai-data-services/annotation-labeling/video-annotation", description: "Persistent-ID tracking, frame annotation, interpolation, action recognition, temporal segmentation, pose and multi-camera re-identification" },
+  { title: "Document & OCR Annotation", path: "/ai-data-services/annotation-labeling/document-ocr-annotation", description: "Layout, reading order, fields, tables, handwriting and structured extraction for document AI and OCR" },
+  { title: "Text & NLP Annotation", path: "/ai-data-services/annotation-labeling/text-nlp-annotation", description: "Named entities, intent and slots, sentiment, relations, classification and multilingual language annotation" },
+  { title: "Audio & Speech Annotation", path: "/ai-data-services/annotation-labeling/audio-speech-annotation", description: "Transcription, timestamps, speaker diarisation, emotion, acoustic events, phonetics and wake-word annotation" },
+  { title: "3D Point Cloud & LiDAR Annotation", path: "/ai-data-services/annotation-labeling/3d-point-cloud-lidar-annotation", description: "3D cuboids, point segmentation, sensor fusion, sweep tracking, lanes and drivable-space labels" },
+  { title: "Content Moderation & Trust and Safety", path: "/ai-data-services/annotation-labeling/content-moderation", description: "Policy-based multilingual moderation, severity tiers, escalation, appeals, quality controls and moderator safeguards" },
   { title: "Data Cleaning & Validation", path: "/ai-data-services/cleaning-validation", description: "Data quality assurance — deduplication, normalization, golden set validation" },
   { title: "Model Testing", path: "/ai-data-services/model-testing", description: "Real-world AI model testing with human evaluators — red-teaming, A/B testing, safety" },
   { title: "Robotics & Physical AI Training Data Services", path: "/robotics-training-data-services", description: "Human demonstrations, egocentric video, multimodal robotics annotation, validation and model evaluation for Physical AI and Embodied AI" },
@@ -194,11 +202,76 @@ const dataCollectionKnowledge = `
 - First-person video can support activity understanding and embodied-AI research. Robot demonstrations, state/action logs, sensor fusion and VLA programmes belong to Robotics Training Data Services: https://www.eqourse.com/robotics-training-data-services
 `;
 
+// Detailed knowledge for the Annotation & Labeling hub and its eight live service pages.
+// Collection creates raw data; annotation creates training labels; moderation is an
+// ongoing policy operation; model testing evaluates a deployed or testable model.
+const annotationLabelingKnowledge = `
+### DATA ANNOTATION & LABELING: PARENT SERVICE
+- Main page: https://www.eqourse.com/ai-data-services/annotation-labeling
+- Eight dedicated practices are live: LLM & RLHF, Image, Video, Document & OCR, Text & NLP, Audio & Speech, 3D Point Cloud & LiDAR, and Content Moderation & Trust and Safety.
+- Shared delivery model: review representative samples and the model use case; define the ontology, schema and edge-case rules; qualify and calibrate the team; run a measurable pilot; scale production in controlled batches; perform task-specific QA and adjudication; deliver versioned data, guidelines, manifests and quality evidence.
+- Quality is defined per task and agreed during the pilot. Use the relevant metric - for example IoU for geometry, entity-level precision/recall for NER, word error rate for transcription, diarisation error rate for speakers, ID-switch and fragmentation rates for video, per-field accuracy for documents, or agreement and gold-set performance for subjective judgments. Never promise one universal accuracy number for every annotation task.
+- Projects can run in a client platform or an agreed eQOURSE workflow and can use client-defined or standard output schemas. Security, access, retention, sensitive-data handling and reviewer permissions are scoped before production.
+- Pricing and production timelines depend on volume, modality, complexity, languages, domain expertise, QA depth, security and turnaround. Never invent a price or fixed schedule.
+
+### LLM & RLHF DATA ANNOTATION
+- Page: https://www.eqourse.com/ai-data-services/annotation-labeling/llm-rlhf-annotation
+- Services include response ranking and pairwise preference, rubric-based evaluation, instruction-following review, factuality and groundedness checks, safety and toxicity labeling, red teaming, RAG relevance/faithfulness review and domain-expert evaluation.
+- The workflow defines the evaluation rubric and tie or abstain rules, calibrates raters on shared examples, monitors agreement and drift, adjudicates disagreements, and delivers auditable JSON or JSONL records with versioned guidelines.
+- LLM/RLHF work evaluates model outputs or creates human-feedback data. It is different from Text & NLP annotation, which labels linguistic structure or classifier targets in text corpora, and from live content moderation, which enforces a platform policy on incoming content.
+
+### IMAGE ANNOTATION
+- Page: https://www.eqourse.com/ai-data-services/annotation-labeling/image-annotation
+- Services include image classification, axis-aligned and rotated bounding boxes, polygons and polylines, semantic and instance segmentation, keypoints and landmarks, and model-assisted pre-label correction.
+- The correct geometry follows the model decision: classification for whole-image categories, boxes for approximate location, polygons or masks for precise shape, and keypoints for structure or pose.
+- QA may use expert gold sets, IoU or mask-overlap thresholds, class and attribute checks, reviewer agreement, edge-case adjudication and per-batch reports. Common delivery formats include COCO, YOLO, Pascal VOC, masks and custom JSON.
+- Image annotation structures existing images. New or purpose-built imagery belongs to Image Data Collection: https://www.eqourse.com/ai-data-services/data-collection/image-data-collection
+
+### VIDEO ANNOTATION
+- Page: https://www.eqourse.com/ai-data-services/annotation-labeling/video-annotation
+- Services include persistent-ID object tracking, frame-by-frame boxes, keyframe interpolation, video instance segmentation, action and activity recognition, temporal event segmentation, trajectories, pose tracking, multi-camera re-identification and clip or scene classification.
+- Unlike image annotation, video requires identity persistence and temporal consistency across frames, including occlusion, exit, re-entry and camera changes.
+- QA can report ID-switch rate, track fragmentation, temporal consistency, interpolation checks, IoU on sampled keyframes, track completeness, hidden gold clips and full-sequence review. Delivery can include MOT Challenge, COCO-Video, CVAT XML, YOLO per frame, track JSON/JSONL, frame tables and custom schemas.
+
+### DOCUMENT & OCR ANNOTATION
+- Page: https://www.eqourse.com/ai-data-services/annotation-labeling/document-ocr-annotation
+- Services include layout regions, page hierarchy, reading order, text lines and words, key-value fields, tables and cells, handwriting, signatures or checkboxes where appropriate, document classification and structured extraction from invoices, forms, IDs, KYC documents, claims and scanned records.
+- Document annotation preserves page structure and extraction relationships; OCR text alone is not enough when a model must understand fields, tables, columns or reading order.
+- QA is reported at the field, cell, template and document-type level. Critical values can use double-entry or expert review, with template coverage, schema validation and sensitive-document controls agreed during scoping.
+
+### TEXT & NLP ANNOTATION
+- Page: https://www.eqourse.com/ai-data-services/annotation-labeling/text-nlp-annotation
+- Services include named-entity recognition, text classification, sentiment and aspect labeling, intent and slot labeling, relation extraction, coreference, linguistic annotation, machine-translation post-editing and selected safety or quality labels for language datasets.
+- Language coverage spans 30+ global languages. eQOURSE's particular strength is comprehensive coverage of Indian regional languages, scripts, dialects and code-mixed usage, while also supporting other Asian, European, Middle Eastern and global languages according to project needs.
+- Language work uses native or appropriately qualified reviewers, locale-specific guidelines, code-mixing and transliteration rules, agreement measurement, gold examples and expert adjudication where the domain requires it.
+- Text & NLP annotation builds labeled datasets for NLP and classifier training. LLM/RLHF focuses on human evaluation of generated model responses; live platform enforcement belongs to Content Moderation.
+
+### AUDIO & SPEECH ANNOTATION
+- Page: https://www.eqourse.com/ai-data-services/annotation-labeling/audio-speech-annotation
+- Services include verbatim or normalized transcription, timestamps and segmentation, speaker diarisation, emotion and tone labels, acoustic-event labeling, phonetic or pronunciation labels, wake-word and command labels, and conversational metadata.
+- Coverage spans 30+ global languages and relevant accent varieties, with deep coverage across Indian regional languages, dialects, scripts and code-mixed speech as a key strength - not an India-only limitation.
+- QA may use word or character error rate, timestamp tolerance, diarisation error rate, speaker consistency, gold clips, double-pass review and native-language adjudication. Audio annotation adds transcripts and labels to existing recordings; new recordings belong to Audio & Speech Data Collection.
+
+### 3D POINT CLOUD & LIDAR ANNOTATION
+- Page: https://www.eqourse.com/ai-data-services/annotation-labeling/3d-point-cloud-lidar-annotation
+- Services include 3D cuboids, point-wise semantic and instance segmentation, object tracking across sweeps, lane and polyline labels, drivable space, sensor-fusion alignment and camera-LiDAR projection review for autonomous systems, robotics and physical AI.
+- QA covers class and attribute consistency, cuboid geometry and orientation, point coverage, track continuity, calibration or projection checks, sensor synchronization and difficult cases such as sparse returns, truncation and occlusion.
+- Delivery is adapted to the client stack and can include common autonomous-driving or custom schemas with calibration metadata, frame or sweep IDs, manifests and versioned rules.
+
+### CONTENT MODERATION & TRUST AND SAFETY
+- Page: https://www.eqourse.com/ai-data-services/annotation-labeling/content-moderation
+- This is a managed, ongoing policy operation for reviewing user-generated text, images, video or audio. It is distinct from a one-time classifier-training dataset.
+- Services can include policy taxonomy design, severity tiers, multilingual contextual review, spam and fraud labeling, abuse and harassment review, escalation queues, appeals and quality sampling. Coverage hours and service levels are agreed per engagement; never promise 24/7 coverage unless confirmed in scope.
+- Quality controls include policy calibration, gold cases, agreement monitoring, confusion analysis, senior adjudication, appeal outcomes and feedback loops into guidelines or training data.
+- Moderator wellbeing and safe operations are part of delivery design: informed task scoping, exposure controls, rotation and breaks, opt-out or reassignment paths, access restrictions and appropriate support. Safeguards must be confirmed contractually before making engagement-specific claims.
+- eQOURSE can decline illegal, exploitative or unsafe work and must not claim capability for prohibited material such as child sexual abuse material. Sensitive or legally complex scopes require leadership and legal review.
+`;
+
 const faqs = [
   // ── Free Pilot & Getting Started ──
   { q: "Is the free pilot really free?", a: "Yes, 100% free. No payment, no credit card, no hidden charges. We produce a complimentary sample tailored to your specifications so you can evaluate our quality before making any commitment." },
   { q: "What do I receive in the Content Services pilot?", a: "A sample content piece tailored to your curriculum, subject, and grade level — a lesson plan, workbook section, assessment paper, video script, curriculum outline, or exam prep module. Produced by qualified SMEs, reviewed by our editorial QA team, and aligned to your board standards (CBSE, ICSE, IB, etc.)." },
-  { q: "What do I receive in the AI Data Services pilot?", a: "A sample annotated dataset tailored to your AI use case — NLP annotation (NER, sentiment, intent), Computer Vision (bounding boxes, segmentation), Audio (transcription, diarisation), or RLHF (preference ranking, safety labeling). 50–500 data units in your preferred format (COCO JSON, CoNLL, JSONL, etc.) with a quality report showing IAA scores and honeypot validation results." },
+  { q: "What do I receive in the AI Data Services pilot?", a: "A representative sample tailored to your AI use case, selected annotation method and target schema. Depending on the project this may cover LLM/RLHF, image, video, document/OCR, text/NLP, audio/speech, LiDAR or moderation-policy work. The pilot confirms guidelines, edge cases, delivery format and task-appropriate quality measures before production is scoped." },
   { q: "How long does it take to receive my pilot?", a: "Content Services pilots are delivered within 5–7 business days. AI Data pilots within 5–10 business days, depending on modality and complexity. Urgent requirements can be discussed for expedited timelines." },
   { q: "What happens after I receive the pilot?", a: "You review the pilot output and provide feedback. If you're happy with the quality, our team scopes your full project with a detailed proposal, timeline, and pricing. If not satisfied, there is no obligation to proceed." },
   { q: "Can I request a pilot for both Content Services and AI Data?", a: "Yes. Select \"Both\" in the pilot request form and describe your requirements for each vertical in the project description field. We'll produce samples for both." },
@@ -253,15 +326,21 @@ const faqs = [
   { q: "Can this service support training needs analysis?", a: "Yes. Learning readiness and skill assessment outputs help identify baseline capability, prerequisite gaps and training priorities — informing curriculum planning, onboarding, reskilling and workforce development." },
 
   // ── AI Data Services ──
-  { q: "What AI data services does eQOURSE provide?", a: "End-to-end AI training data services: custom dataset collection (text, audio, image, video) across 30+ languages, expert data annotation and labeling (NLP, Computer Vision, Audio, RLHF), data cleaning and validation with 98%+ accuracy guarantee, and real-world model testing via our TuTrain platform. ISO 9001 & ISO 27001 certified." },
-  { q: "What types of data annotation does eQOURSE offer?", a: "NLP annotation (NER, sentiment, intent classification, relation extraction, coreference resolution), Computer Vision annotation (bounding boxes, semantic segmentation, instance segmentation, polygon annotation, 3D cuboids, keypoint detection, video annotation), Audio annotation (transcription, speaker diarisation, phoneme labeling, emotion detection), and RLHF annotation (preference ranking, safety labeling, instruction-following evaluation, red-teaming)." },
-  { q: "What languages do you support for AI data collection and annotation?", a: "30+ languages spanning Indo-Aryan (Hindi, Bengali, Marathi, Gujarati, Punjabi, Odia, Assamese, Bhojpuri), Dravidian (Tamil, Telugu, Kannada, Malayalam), Southeast Asian (Bahasa, Sinhala, Nepali), and European/Global (English with regional accent variants, French, German, Spanish, Portuguese, Arabic). All language tasks are handled by verified native speakers." },
-  { q: "What is your annotation accuracy guarantee?", a: "98%+ annotation accuracy on all delivered datasets, with inter-annotator agreement (IAA) ≥ 0.80 (Krippendorff's Alpha). Quality framework: multi-tier review (annotator → peer review → senior QA audit), gold-standard honeypot validation (15–20% of all tasks), and expert arbitration for disagreements. If accuracy falls below threshold, we rework at no additional cost." },
+  { q: "What AI data services does eQOURSE provide?", a: "End-to-end AI training data services: custom collection across text, audio, image and video; eight specialized annotation practices spanning LLM/RLHF, image, video, documents/OCR, text/NLP, audio/speech, LiDAR and content moderation; data cleaning and validation; robotics and physical-AI data; and real-world model testing. Quality criteria are task-specific and agreed during the pilot. eQOURSE is ISO 9001 and ISO 27001 certified." },
+  { q: "What types of data annotation does eQOURSE offer?", a: "Eight dedicated practices: LLM/RLHF evaluation and preference data; image annotation; temporal video annotation; document and OCR annotation; text and NLP annotation; audio and speech annotation; 3D point-cloud and LiDAR annotation; and content moderation and trust-and-safety operations. Each has a dedicated page linked from https://www.eqourse.com/ai-data-services/annotation-labeling" },
+  { q: "Which dedicated data annotation service pages are available?", a: "Eight services are live: LLM & RLHF, Image, Video, Document & OCR, Text & NLP, Audio & Speech, 3D Point Cloud & LiDAR, and Content Moderation & Trust and Safety. Explore the complete hub at https://www.eqourse.com/ai-data-services/annotation-labeling" },
+  { q: "What is the difference between image and video annotation?", a: "Image annotation labels independent still images with classes, boxes, polygons, masks or keypoints. Video annotation adds temporal consistency, persistent object identities, trajectories, action or event ranges and decisions about annotation frequency across a sequence. See https://www.eqourse.com/ai-data-services/annotation-labeling/image-annotation and https://www.eqourse.com/ai-data-services/annotation-labeling/video-annotation" },
+  { q: "What is the difference between Document OCR and Text NLP annotation?", a: "Document & OCR annotation preserves page layout, reading order, tables, fields and extraction relationships in scanned or digital documents. Text & NLP annotation labels linguistic meaning such as entities, intent, sentiment, relations or document classes. See https://www.eqourse.com/ai-data-services/annotation-labeling/document-ocr-annotation and https://www.eqourse.com/ai-data-services/annotation-labeling/text-nlp-annotation" },
+  { q: "Does eQOURSE support global and Indian regional languages for annotation?", a: "Yes. Language and speech annotation spans 30+ global languages. A key eQOURSE strength is comprehensive Indian regional-language coverage, including relevant scripts, dialects, accents, transliteration and code-mixed usage, alongside other Asian, European, Middle Eastern and global languages according to project scope." },
+  { q: "How is content moderation different from safety labeling and RLHF?", a: "Content moderation is an ongoing policy operation that reviews live or queued user-generated content, applies severity and escalation rules, and can include appeals. Safety labeling or RLHF creates evaluation and preference data for training or testing AI models. See https://www.eqourse.com/ai-data-services/annotation-labeling/content-moderation and https://www.eqourse.com/ai-data-services/annotation-labeling/llm-rlhf-annotation" },
+  { q: "How does eQOURSE measure annotation quality?", a: "Quality is task-specific and agreed during the pilot. Examples include IoU for image geometry, entity-level precision and recall for NER, word error rate for transcription, diarisation error rate for speakers, ID-switch and fragmentation rates for video, per-field accuracy for documents, and agreement plus gold-set performance for subjective judgments. Deliveries include the applicable evidence rather than one universal metric." },
+  { q: "What languages do you support for AI data collection and annotation?", a: "30+ global languages according to project scope. eQOURSE has especially deep coverage across Indian regional languages, scripts, dialects, accents, transliteration and code-mixed usage, while also supporting languages across Asia, Europe, the Middle East and other global markets. Native or appropriately qualified reviewers are selected for each locale and task." },
+  { q: "What is your annotation accuracy guarantee?", a: "Acceptance thresholds are defined for each task during scoping and the pilot because one percentage is not meaningful across every modality. eQOURSE uses task-appropriate metrics, calibrated reviewers, gold examples, structured review and expert adjudication, then reports results against the agreed threshold. Ask the team to define the right metric and rework terms for your dataset." },
   { q: "What is real-world model testing and how does TuTrain work?", a: "We test your trained AI model on actual users through our TuTrain platform, which connects your model to a demographically diverse, geographically distributed user base across 30+ languages. We measure WER, intent accuracy, task completion, and other metrics in genuine usage conditions — revealing failure modes that benchmark tests never catch. Results feed back into targeted data collection for 20–40% faster model improvement." },
   { q: "How is my data kept secure?", a: "ISO 27001:2022 certified for information security management. Strict access controls, encryption at rest and in transit, GDPR-ready processes with PII detection and redaction, full data lineage and audit trails, and project-specific NDAs for all team members. Data is never shared across client projects. SOC 2 preparation is in progress for US enterprise clients." },
   { q: "What output formats do you deliver annotated data in?", a: "All standard ML formats: COCO JSON (computer vision), Pascal VOC, CoNLL (NLP sequence labeling), JSONL (LLM fine-tuning), Parquet (structured data at scale), NIfTI (medical imaging), CSV/TSV, spaCy format, and custom schemas on request. All datasets are version-controlled with full documentation." },
   { q: "How is eQOURSE different from other data annotation companies?", a: "eQOURSE is the only provider offering a closed-loop pipeline from data collection to real-world model testing. We test your trained model on real users via TuTrain and feed results back into targeted data collection (active learning loop) — delivering 20–40% faster model improvement versus static annotation cycles. Our deep education-sector expertise means annotators understand context, cultural nuance, and domain-specific content beyond what generic crowdsourcing platforms can match." },
-  { q: "How do you maintain annotation consistency?", a: "Multi-tier QA framework: inter-annotator agreement (IAA ≥ 0.80), honeypot validation (15–20% gold-standard tasks), peer review, expert audit, and continuous annotator calibration sessions — consistently delivering 98%+ accuracy." },
+  { q: "How do you maintain annotation consistency?", a: "We version guidelines, calibrate annotators on representative examples, monitor task-appropriate agreement and gold-set performance, review edge cases, audit batches and use expert adjudication for disagreements. The exact thresholds and sampling plan are agreed for the modality and risk level." },
   { q: "Can you handle specialized domain annotation?", a: "Yes. Our annotators include STEM specialists in medical, legal, financial, and technical domains. We develop custom guidelines, conduct domain-specific training, and use subject matter experts for quality review." },
   { q: "How do you handle RLHF annotation?", a: "Trained human raters for response ranking, instruction-following quality assessment, safety and toxicity labeling, and factual accuracy verification." },
   { q: "What data cleaning services do you offer?", a: "Five core services: deduplication (exact and near-duplicate removal), noise removal (encoding fixes, HTML stripping, OCR cleanup), PII redaction (configurable replacement strategies), consistency normalization (dates, units, casing, terminology), and metadata enrichment (language codes, domain tags, source provenance)." },
@@ -398,14 +477,16 @@ eQOURSE is a dual-capability solutions company delivering:
 
 ### AI Data Services
 - **Data Collection**: Custom dataset creation across text, audio, image, video modalities
-- **Annotation & Labeling**: NER, bounding boxes, semantic segmentation, sentiment, intent, RLHF preference ranking
+- **Annotation & Labeling**: Eight live practices covering LLM/RLHF, image, video, document/OCR, text/NLP, audio/speech, 3D point clouds/LiDAR, and content moderation/trust and safety
 - **Data Cleaning & Validation**: Deduplication, normalization, PII redaction, golden set validation, IAA scoring
 - **Model Testing**: Human-in-the-loop evaluation via TuTrain, red-teaming, A/B testing, safety assessment
 - **Robotics & Physical AI Training Data**: Human demonstrations, egocentric and multi-view video, multimodal robotics annotation, synchronisation, validation and behaviour evaluation; robot or teleoperation data is scoped around client-provided hardware, approved environments or qualified partners
-- Accuracy: 98%+ validated datasets, IAA ≥ 0.80
+- Quality: Task-specific acceptance thresholds and evidence are agreed during the pilot; never apply one universal accuracy metric to every modality
 - Formats: COCO JSON, Pascal VOC, CoNLL, JSONL, Parquet, NIfTI, CSV/TSV, custom schemas
 
 ${dataCollectionKnowledge}
+
+${annotationLabelingKnowledge}
 
 ### Free Pilot
 eQOURSE offers a 100% free pilot — no payment, no commitment:

@@ -86,6 +86,7 @@ const relatedServices = [
   { label: "AI Data Services", href: "/ai-data-services", meta: "Full pipeline" },
   { label: "Data Collection", href: "/ai-data-services/data-collection", meta: "Capture" },
   { label: "Annotation & Labeling", href: "/ai-data-services/annotation-labeling", meta: "Enrich" },
+  { label: "3D Point Cloud & LiDAR", href: "/ai-data-services/annotation-labeling/3d-point-cloud-lidar-annotation", meta: "Spatial geometry" },
   { label: "Cleaning & Validation", href: "/ai-data-services/cleaning-validation", meta: "Validate" },
   { label: "Model Testing", href: "/ai-data-services/model-testing", meta: "Evaluate" },
 ];

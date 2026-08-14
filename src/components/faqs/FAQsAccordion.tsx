@@ -244,7 +244,7 @@ const aiDataFaqs: FAQ[] = [
   {
     question: "What types of data annotation does eQOURSE offer?",
     answer:
-      "We offer NLP annotation (NER, sentiment, intent and relation extraction), <a href='/ai-data-services/annotation-labeling/image-annotation' class='text-primary hover:underline font-medium'>Image Annotation</a>, <a href='/ai-data-services/annotation-labeling/video-annotation' class='text-primary hover:underline font-medium'>Video Annotation</a>, <a href='/ai-data-services/annotation-labeling/document-ocr-annotation' class='text-primary hover:underline font-medium'>Document & OCR Annotation</a> for layouts, tables, key-value pairs and handwriting, Audio annotation, and <a href='/ai-data-services/annotation-labeling/llm-rlhf-annotation' class='text-primary hover:underline font-medium'>RLHF & LLM evaluation</a>.",
+      "We offer <a href='/ai-data-services/annotation-labeling/text-nlp-annotation' class='text-primary hover:underline font-medium'>Text & NLP Annotation</a>, <a href='/ai-data-services/annotation-labeling/image-annotation' class='text-primary hover:underline font-medium'>Image Annotation</a>, <a href='/ai-data-services/annotation-labeling/video-annotation' class='text-primary hover:underline font-medium'>Video Annotation</a>, <a href='/ai-data-services/annotation-labeling/document-ocr-annotation' class='text-primary hover:underline font-medium'>Document & OCR Annotation</a>, <a href='/ai-data-services/annotation-labeling/audio-speech-annotation' class='text-primary hover:underline font-medium'>Audio & Speech Annotation</a>, and <a href='/ai-data-services/annotation-labeling/llm-rlhf-annotation' class='text-primary hover:underline font-medium'>RLHF & LLM evaluation</a>.",
   },
   {
     question:
