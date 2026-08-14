@@ -6,6 +6,7 @@ import FAQSection from "@/components/ai-data-services/shared/FAQSection";
 import ServiceCTA from "@/components/ai-data-services/shared/ServiceCTA";
 import LocalizationServicesGrid from "./LocalizationServicesGrid";
 import { Languages, Mic, Subtitles } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const faqs = [
   {
@@ -79,6 +80,7 @@ const LocalizationPage = () => (
     />
 
     <LocalizationServicesGrid />
+    <section className="border-y border-border/60 bg-muted/30 py-10"><div className="container mx-auto px-4"><div className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-5 rounded-2xl border border-border bg-card p-6 md:flex-row md:items-center"><div><span className="text-xs font-bold uppercase tracking-wider text-primary">AI language data</span><h2 className="mt-2 font-heading text-xl font-bold">Need machine translation post-editing at dataset scale?</h2><p className="mt-2 text-sm text-muted-foreground">Connect localisation expertise with taxonomy-tested text and NLP annotation services.</p></div><Link to="/ai-data-services/annotation-labeling/text-nlp-annotation" className="shrink-0 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">Explore Text &amp; NLP Annotation</Link></div></div></section>
     <FAQSection faqs={faqs} />
     
     <ServiceCTA 

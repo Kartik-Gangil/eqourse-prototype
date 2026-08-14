@@ -112,6 +112,30 @@ export const pageSeo: Record<string, PageSeo> = {
     canonical: "https://www.eqourse.com/ai-data-services/annotation-labeling/document-ocr-annotation",
     image: "/assets/ai-data/annotation-labeling/document-ocr-annotation/document-ocr-annotation-og.jpg",
   },
+  "/ai-data-services/annotation-labeling/text-nlp-annotation": {
+    title: "Text & NLP Annotation Services for Language AI | eQOURSE",
+    description: "NER, sentiment, intent and relation annotation across 30+ languages, including Indic and code-mixed text, with native reviewers and measured agreement.",
+    canonical: "https://www.eqourse.com/ai-data-services/annotation-labeling/text-nlp-annotation",
+    image: "/assets/ai-data/annotation-labeling/text-nlp-annotation/text-nlp-annotation-og.jpg",
+  },
+  "/ai-data-services/annotation-labeling/audio-speech-annotation": {
+    title: "Audio & Speech Annotation Services for Voice AI | eQOURSE",
+    description: "Speech annotation for ASR across 30+ global languages, with comprehensive Indian regional-language, accent, dialect and code-switching coverage.",
+    canonical: "https://www.eqourse.com/ai-data-services/annotation-labeling/audio-speech-annotation",
+    image: "/assets/ai-data/annotation-labeling/audio-speech-annotation/audio-speech-annotation-og.jpg",
+  },
+  "/ai-data-services/annotation-labeling/3d-point-cloud-lidar-annotation": {
+    title: "3D Point Cloud & LiDAR Annotation Services | eQOURSE",
+    description: "3D cuboids, point segmentation, multi-sweep tracking and camera-LiDAR fusion for autonomous systems and robotics. KITTI, nuScenes and custom formats.",
+    canonical: "https://www.eqourse.com/ai-data-services/annotation-labeling/3d-point-cloud-lidar-annotation",
+    image: "/assets/ai-data/annotation-labeling/3d-point-cloud-lidar-annotation/3d-point-cloud-lidar-annotation-og.jpg",
+  },
+  "/ai-data-services/annotation-labeling/content-moderation": {
+    title: "Content Moderation & Trust and Safety Services | eQOURSE",
+    description: "Human content moderation with severity-tiered enforcement, appeals review, multilingual context and moderator wellbeing safeguards across 30+ languages.",
+    canonical: "https://www.eqourse.com/ai-data-services/annotation-labeling/content-moderation",
+    image: "/assets/ai-data/annotation-labeling/content-moderation/content-moderation-og.jpg",
+  },
   "/ai-data-services/cleaning-validation": {
     title: "AI Data Cleaning & Validation – High Accuracy | Eqourse",
     description: "Improve dataset quality with expert AI data cleaning and validation. Remove errors, verify labels and build reliable models.",

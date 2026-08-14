@@ -27,6 +27,10 @@ const AILLMRLHFAnnotation = lazy(() => import("./pages/AILLMRLHFAnnotation.tsx")
 const AIImageAnnotation = lazy(() => import("./pages/AIImageAnnotation.tsx"));
 const AIVideoAnnotation = lazy(() => import("./pages/AIVideoAnnotation.tsx"));
 const AIDocumentOCRAnnotation = lazy(() => import("./pages/AIDocumentOCRAnnotation.tsx"));
+const AITextNLPAnnotation = lazy(() => import("./pages/AITextNLPAnnotation.tsx"));
+const AIAudioSpeechAnnotation = lazy(() => import("./pages/AIAudioSpeechAnnotation.tsx"));
+const AI3DPointCloudLidarAnnotation = lazy(() => import("./pages/AI3DPointCloudLidarAnnotation.tsx"));
+const AIContentModeration = lazy(() => import("./pages/AIContentModeration.tsx"));
 const AICleaningValidation = lazy(() => import("./pages/AICleaningValidation.tsx"));
 const AIModelTesting = lazy(() => import("./pages/AIModelTesting.tsx"));
 const RoboticsTrainingData = lazy(() => import("./pages/RoboticsTrainingData.tsx"));
@@ -129,6 +133,10 @@ const App = () => (
               <Route path="/ai-data-services/annotation-labeling/image-annotation" element={<AIImageAnnotation />} />
               <Route path="/ai-data-services/annotation-labeling/video-annotation" element={<AIVideoAnnotation />} />
               <Route path="/ai-data-services/annotation-labeling/document-ocr-annotation" element={<AIDocumentOCRAnnotation />} />
+              <Route path="/ai-data-services/annotation-labeling/text-nlp-annotation" element={<AITextNLPAnnotation />} />
+              <Route path="/ai-data-services/annotation-labeling/audio-speech-annotation" element={<AIAudioSpeechAnnotation />} />
+              <Route path="/ai-data-services/annotation-labeling/3d-point-cloud-lidar-annotation" element={<AI3DPointCloudLidarAnnotation />} />
+              <Route path="/ai-data-services/annotation-labeling/content-moderation" element={<AIContentModeration />} />
               <Route path="/ai-data-services/cleaning-validation" element={<AICleaningValidation />} />
               <Route path="/ai-data-services/model-testing" element={<AIModelTesting />} />
               <Route path="/robotics-training-data-services" element={<RoboticsTrainingData />} />
