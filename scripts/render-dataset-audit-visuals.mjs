@@ -1,0 +1,36 @@
+import sharp from "sharp";
+import { mkdir } from "node:fs/promises";
+import path from "node:path";
+
+const out = path.resolve("public/assets/ai-data/cleaning-validation/dataset-qa-label-audit");
+await mkdir(out, { recursive: true });
+
+const heroSource = "C:/Users/yobha/.codex/generated_images/019fe0dd-b370-7b12-88c6-1a7fcd6a6457/exec-27ad6ec4-da99-4a7b-bfd1-5834d314d14a.png";
+await sharp(heroSource)
+  .resize(1200, 800, { fit: "cover", position: "attention" })
+  .webp({ quality: 58, effort: 6, smartSubsample: true })
+  .toFile(path.join(out, "dataset-qa-label-audit-services-hero.webp"));
+
+const shell = (body, width = 1200, height = 800, background = "#f7faf9") => `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
+<rect width="100%" height="100%" rx="28" fill="${background}"/>
+<style>.h{font:700 24px Arial,sans-serif;fill:#17213b}.k{font:700 13px Arial,sans-serif;letter-spacing:1.3px;fill:#0b9e87}.t{font:500 15px Arial,sans-serif;fill:#566177}.s{font:700 13px Arial,sans-serif;fill:#27334e}.m{font:600 12px Arial,sans-serif;fill:#fff}.n{font:700 20px Arial,sans-serif;fill:#17213b}</style>${body}</svg>`;
+
+const findings = shell(`
+<text x="54" y="58" class="k">SYNTHETIC AUDIT EXAMPLE</text><text x="54" y="94" class="h">Four findings. Four different decisions.</text>
+<g transform="translate(54 132)"><rect width="528" height="276" rx="18" fill="#fff" stroke="#dfe7e5"/><text x="26" y="38" class="s">LABEL CORRECTION</text>
+${[0,1,2,3,4,5].map((i)=>`<rect x="${28+(i%3)*160}" y="${64+Math.floor(i/3)*86}" width="140" height="66" rx="10" fill="${i===4?'#fff1dd':'#eef5f3'}" stroke="${i===4?'#e7971d':'#cfe0dc'}"/><text x="${42+(i%3)*160}" y="${91+Math.floor(i/3)*86}" class="t">sample_${String(i+1).padStart(2,'0')}</text><rect x="${42+(i%3)*160}" y="${102+Math.floor(i/3)*86}" width="62" height="18" rx="9" fill="${i===4?'#e7971d':'#0b9e87'}"/><text x="${53+(i%3)*160}" y="${115+Math.floor(i/3)*86}" class="m">${i===4?'B → A':'class A'}</text>`).join('')}</g>
+<g transform="translate(618 132)"><rect width="528" height="276" rx="18" fill="#fff" stroke="#dfe7e5"/><text x="26" y="38" class="s">CLASS CONFUSION</text>${[0,1,2,3].map((r)=>[0,1,2,3].map((c)=>`<rect x="${158+c*60}" y="${62+r*48}" width="46" height="34" rx="5" fill="${r===c?'#a8ded2':(r===1&&c===2)||(r===2&&c===1)?'#e7971d':'#edf2f1'}"/>`).join('')).join('')}<text x="26" y="88" class="t">class B ↔ class C</text><text x="26" y="116" class="n">systematic</text><text x="26" y="143" class="t">Fix the boundary rule,</text><text x="26" y="166" class="t">not just the annotator.</text></g>
+<g transform="translate(54 444)"><rect width="528" height="300" rx="18" fill="#fff" stroke="#dfe7e5"/><text x="26" y="38" class="s">ERROR RATE BY CLASS</text>${[['A',2.1,100],['B',3.4,155],['C',11.8,380],['D',1.7,80]].map(([a,v,w],i)=>`<text x="26" y="${88+i*48}" class="t">Class ${a}</text><rect x="112" y="${71+i*48}" width="380" height="20" rx="10" fill="#edf2f1"/><rect x="112" y="${71+i*48}" width="${w}" height="20" rx="10" fill="${a==='C'?'#e7971d':'#0b9e87'}"/><text x="456" y="${86+i*48}" class="s">${v}%</text>`).join('')}<text x="26" y="276" class="t">Illustrative values · 95% confidence intervals reported separately</text></g>
+<g transform="translate(618 444)"><rect width="528" height="300" rx="18" fill="#fff" stroke="#dfe7e5"/><text x="26" y="38" class="s">TRAIN / TEST LEAKAGE</text><rect x="28" y="78" width="208" height="132" rx="15" fill="#e8f6f2" stroke="#84cabb"/><rect x="292" y="78" width="208" height="132" rx="15" fill="#eef1f7" stroke="#aeb9ce"/><text x="100" y="106" class="s">TRAIN</text><text x="364" y="106" class="s">TEST</text><path d="M206 112 C258 72 308 72 348 112 C308 150 258 150 206 112Z" fill="#f3ad3d" opacity=".88"/><text x="246" y="118" class="m">184</text><text x="26" y="248" class="t">Near-identical source groups crossed the split.</text><text x="26" y="272" class="s">Group derivatives before re-splitting.</text></g>`);
+await sharp(Buffer.from(findings)).webp({ quality: 72, effort: 6 }).toFile(path.join(out, "label-audit-findings-confusion-leakage.webp"));
+
+const report = shell(`
+<rect x="46" y="46" width="1108" height="708" rx="24" fill="#fff" stroke="#dfe7e5"/><rect x="46" y="46" width="1108" height="84" rx="24" fill="#17213b"/><text x="82" y="82" class="m">SYNTHETIC AUDIT REPORT</text><text x="82" y="108" style="font:700 22px Arial;fill:#fff">Per-class quality with evidence</text>
+<g transform="translate(82 168)"><text class="k">ERROR RATE + 95% RANGE</text>${[['Class A','2.1%','1.3–3.2',110],['Class B','3.4%','2.2–5.0',165],['Class C','11.8%','9.3–14.8',388],['Class D','1.7%','0.8–3.1',86]].map(([a,b,c,w],i)=>`<text x="0" y="${66+i*92}" class="s">${a}</text><rect x="112" y="${47+i*92}" width="388" height="22" rx="11" fill="#edf2f1"/><rect x="112" y="${47+i*92}" width="${w}" height="22" rx="11" fill="${a==='Class C'?'#e7971d':'#0b9e87'}"/><text x="518" y="${64+i*92}" class="n">${b}</text><text x="518" y="${85+i*92}" class="t">${c}</text>`).join('')}</g>
+<g transform="translate(714 168)"><text class="k">ADJUDICATED EVIDENCE</text>${[['item_0412','B → C','Guideline boundary'],['item_1189','missed','Rare edge case'],['item_2330','A → B','Annotator drift'],['item_4208','duplicate','Split leakage']].map(([a,b,c],i)=>`<rect x="0" y="${30+i*118}" width="390" height="96" rx="14" fill="#f7faf9" stroke="#dfe7e5"/><text x="20" y="${60+i*118}" class="s">${a}</text><rect x="278" y="${43+i*118}" width="90" height="24" rx="12" fill="${i===3?'#e7971d':'#0b9e87'}"/><text x="${i===1?301:294}" y="${60+i*118}" class="m">${b}</text><text x="20" y="${88+i*118}" class="t">${c}</text><text x="20" y="${110+i*118}" class="t">Reviewer note + ruling attached</text>`).join('')}</g><text x="82" y="724" class="t">All figures and item IDs are illustrative—not client data.</text>`,1200,800);
+await sharp(Buffer.from(report)).webp({ quality: 73, effort: 6 }).toFile(path.join(out, "label-audit-report-review.webp"));
+
+const og = shell(`<defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#10172b"/><stop offset="1" stop-color="#173e45"/></linearGradient></defs><rect width="1200" height="630" rx="0" fill="url(#g)"/><text x="72" y="84" style="font:700 18px Arial;letter-spacing:3px;fill:#54d4bd">eQOURSE · AI DATA QUALITY</text><text x="72" y="204" style="font:700 58px Arial;fill:#fff">Dataset QA &amp;</text><text x="72" y="272" style="font:700 58px Arial;fill:#54d4bd">Label Audit</text><text x="72" y="330" style="font:500 22px Arial;fill:#b9c9d1">Error rate by class · root cause · split integrity</text>${[0,1,2,3].map((r)=>[0,1,2,3].map((c)=>`<rect x="${760+c*78}" y="${126+r*78}" width="58" height="58" rx="9" fill="${r===c?'#54d4bd':(r===1&&c===2)||(r===2&&c===1)?'#f3ad3d':'#284d55'}" opacity="${r===c?'.95':'.72'}"/>`).join('')).join('')}<path d="M742 494 H1080" stroke="#54d4bd" stroke-width="4" stroke-dasharray="10 12"/><circle cx="876" cy="494" r="12" fill="#f3ad3d"/><text x="72" y="536" style="font:700 26px Arial;fill:#fff">Measure the problem before choosing the fix.</text>`,1200,630,"#10172b");
+await sharp(Buffer.from(og)).webp({ quality: 74, effort: 6 }).toFile(path.join(out, "dataset-qa-label-audit-og.webp"));
+
+console.log("Dataset audit visuals rendered:", out);

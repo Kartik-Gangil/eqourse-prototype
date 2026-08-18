@@ -103,6 +103,7 @@ const MetadataServicesPage = () => (
     ctaSubtext="eQOURSE scopes metadata services based on platform requirements, distribution channels and cataloguing standards."
     ctaButtonText="Request Metadata Support"
     relatedPages={[
+      { title: "AI Dataset Metadata Enrichment", href: "/ai-data-services/cleaning-validation/metadata-enrichment" },
       { title: "Editorial Services", href: `${PARENT_HREF}/editorial-services` },
       { title: "Digital Conversion", href: `${PARENT_HREF}/digital-conversion` },
       { title: "Document AI training data", href: "/ai-data-services/annotation-labeling/document-ocr-annotation" },

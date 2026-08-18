@@ -4,6 +4,9 @@ const cors = require("cors");
 const path = require("path");
 require("dotenv").config();
 const logger = require("./src/utils/logger");
+const Blog = require("./src/model/blog");
+const CaseStudy = require("./src/model/caseStudy");
+const { syncCmsSeoPage } = require("./src/utils/cmsSeoPublisher");
 
 
 // ── Routers ──────────────────────────────────────────────────────────────────
@@ -68,10 +71,33 @@ app.get("/api/health/smtp/test", async (req, res) => {
 const PORT = process.env.PORT || 5001;
 const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/eqourse";
 
+async function reconcilePublishedCmsSeo() {
+  const [blogs, caseStudies] = await Promise.all([
+    Blog.find({ status: "published" }).lean(),
+    CaseStudy.find({ status: "published" }).lean(),
+  ]);
+
+  for (const blog of blogs) {
+    await syncCmsSeoPage("blog", blog);
+  }
+  for (const caseStudy of caseStudies) {
+    await syncCmsSeoPage("case-study", caseStudy);
+  }
+
+  logger.info(`CMS SEO reconciled: ${blogs.length} blog(s), ${caseStudies.length} case study/case studies`);
+}
+
 mongoose
   .connect(MONGO_URI)
-  .then(() => {
+  .then(async () => {
     logger.info(`✅ MongoDB connected: ${MONGO_URI}`);
+    try {
+      await reconcilePublishedCmsSeo();
+    } catch (error) {
+      logger.error(`CMS SEO reconciliation failed: ${error.message}`);
+      const syncRequired = process.env.CMS_SEO_SYNC_REQUIRED === "true" || process.env.NODE_ENV === "production";
+      if (syncRequired) throw error;
+    }
     app.listen(PORT, () => logger.info(`🚀 Server running on http://localhost:${PORT}`));
   })
   .catch((err) => {

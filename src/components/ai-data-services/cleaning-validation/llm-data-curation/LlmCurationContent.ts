@@ -1,0 +1,30 @@
+export const curationFaqs = [
+  ["What is LLM training data curation?", "Curation is everything between having a corpus and being able to train on it: deduplication, quality filtering, benchmark decontamination, PII scrubbing, licence and provenance review, and measuring corpus composition."],
+  ["Why does curation matter more than corpus size?", "A well-curated smaller corpus can be more useful than a larger raw one because duplicated and low-quality content wastes compute and teaches unwanted patterns."],
+  ["What is over-filtering and why is it dangerous?", "Over-filtering removes content you needed. It is hard to see because the final corpus only shows what survived, while specialist, multilingual and symbol-dense content may have disappeared."],
+  ["How do you prevent over-filtering?", "We sample and human-review both retained and discarded sets at each calibrated stage, then report retention by domain, source and language so disproportionate removal becomes visible."],
+  ["What is benchmark decontamination?", "It removes evaluation-benchmark content from the training corpus so benchmark results measure unseen capability rather than memorisation."],
+  ["Is exact matching enough for decontamination?", "No. Benchmark items can be reformatted, translated, paraphrased or split. Exact matching should be combined with n-gram, fuzzy and question-only or answer-only checks."],
+  ["Can you check private benchmarks?", "Private benchmarks can be checked under an agreed NDA and handling policy. They should not be retained after the contamination check when that is contractually required."],
+  ["How do you handle deduplication?", "Typical workflows combine exact hashes, MinHash and LSH for near-duplicates, and similarity methods where appropriate. Thresholds must be tuned and reviewed on the actual corpus."],
+  ["Can you detect AI-generated content in a corpus?", "We can flag likely synthetic text using multiple signals and human review, but detection remains uncertain. We report estimates and uncertainty rather than silently deleting content on a classifier verdict."],
+  ["Do you review licensing and provenance?", "We can document source, licence, consent status, collection method, transformation lineage and exclusions so legal counsel has the facts needed for a decision. This is not legal advice."],
+  ["Do you handle non-English corpora?", "Yes, across 30+ global languages with native reviewers and comprehensive Indian regional-language, code-mixed and romanised coverage."],
+  ["Do you run the processing infrastructure?", "Processing can run in your environment or ours. The core value is pipeline design, threshold calibration and human review of what each stage keeps and removes."],
+  ["Which formats do you support?", "Inputs include JSONL, Parquet, WARC-family files, text collections, cloud storage exports and Hugging Face datasets. Outputs can include JSONL, Parquet, sharded datasets and custom schemas with per-document metadata."],
+  ["What determines curation cost?", "Corpus size, filtering stages, domain specificity, languages, benchmark scope, provenance depth, review intensity, processing environment and turnaround all affect cost."],
+  ["How do we start?", "Start with a corpus audit: profiling, duplication rate, contamination check and composition report before any content is filtered."],
+] as const;
+
+export const curationCapabilities = [
+  ["Deduplication", "Exact hashes, MinHash and LSH, plus similarity review where useful. Repetition that carries signal is not removed automatically."],
+  ["Quality filtering", "Heuristic and classifier-assisted filters calibrated by domain, with the removed set inspected as carefully as the retained set."],
+  ["Boilerplate removal", "Navigation, banners, repeated headers, licence blocks and templated filler removed at document and line level."],
+  ["Benchmark decontamination", "Exact, n-gram and fuzzy matching against public or private evaluation suites."],
+  ["PII scrubbing", "Sensitive information detected and handled under the agreed masking, removal or pseudonymisation policy."],
+  ["Safety filtering", "Policy-calibrated toxicity filters with human review of medical, legal, historical and news edge cases."],
+  ["Language identification", "Routing for multilingual, code-mixed and romanised text that standard language identification can mishandle."],
+  ["Synthetic-content assessment", "Likely machine-generated text flagged with uncertainty and reviewed before any exclusion decision."],
+  ["Licence and provenance", "Source, licence, collection method, date and transformation lineage documented for review."],
+  ["Domain composition", "Corpus makeup measured by source, language, domain, length and quality band rather than assumed."],
+] as const;

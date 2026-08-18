@@ -1,4 +1,5 @@
 const CaseStudy = require("../model/caseStudy");
+const { syncCmsSeoPage, removeCmsSeoPage } = require("../utils/cmsSeoPublisher");
 
 // ─── Helper: format DB doc → frontend-compatible object ───────────────────────
 function formatCaseStudy(doc) {
@@ -178,6 +179,7 @@ const createCaseStudy = async (req, res) => {
     }
 
     const cs = await CaseStudy.create(csData);
+    await syncCmsSeoPage("case-study", formatCaseStudy(cs));
     return res.status(201).json({ success: true, data: formatCaseStudy(cs) });
   } catch (err) {
     return res.status(500).json({ success: false, message: err.message });
@@ -210,10 +212,16 @@ const updateCaseStudy = async (req, res) => {
       req.body.publishedAt = new Date();
     }
 
+    const previousSlug = current.slug;
     const cs = await CaseStudy.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
     });
+
+    if (previousSlug !== cs.slug) {
+      await removeCmsSeoPage("case-study", previousSlug);
+    }
+    await syncCmsSeoPage("case-study", formatCaseStudy(cs));
 
     return res.json({ success: true, data: formatCaseStudy(cs) });
   } catch (err) {
@@ -242,6 +250,8 @@ const setCaseStudyStatus = async (req, res) => {
       return res.status(404).json({ success: false, message: "Case study not found" });
     }
 
+    await syncCmsSeoPage("case-study", formatCaseStudy(cs));
+
     return res.json({ success: true, data: formatCaseStudy(cs) });
   } catch (err) {
     return res.status(500).json({ success: false, message: err.message });
@@ -258,6 +268,7 @@ const deleteCaseStudy = async (req, res) => {
     if (!cs) {
       return res.status(404).json({ success: false, message: "Case study not found" });
     }
+    await removeCmsSeoPage("case-study", cs.slug);
     return res.json({ success: true, message: "Case study deleted successfully" });
   } catch (err) {
     return res.status(500).json({ success: false, message: err.message });

@@ -1,115 +1,127 @@
+import { Helmet } from "react-helmet-async";
+import { FileSearch2, GitCompareArrows, ScanSearch } from "lucide-react";
 import AIDataServicesLayout from "../shared/AIDataServicesLayout";
 import SEOHead from "../shared/SEOHead";
 import ServiceHero from "../shared/ServiceHero";
-import CleaningServices from "./CleaningServices";
-import ValidationPipeline from "./ValidationPipeline";
-import ComplianceSecurity from "./ComplianceSecurity";
-import FAQSection from "../shared/FAQSection";
 import ServiceCTA from "../shared/ServiceCTA";
-import ServiceNarrativeSection from "../shared/ServiceNarrativeSection";
-import RoboticsServiceBridge from "../shared/RoboticsServiceBridge";
-import { Sparkles, ShieldAlert, CheckCircle2 } from "lucide-react";
+import {
+  CleaningDefinition,
+  CleaningFAQ,
+  CleaningMotionStyles,
+  CleaningProcess,
+  CleaningServices,
+  CleaningTrustStrip,
+  DefectAtlas,
+  DeliveryCommercial,
+  HumanAutomation,
+  LateErrorCost,
+  LlmPrivacyDelivery,
+  PipelineProofWhy,
+  QualityReport,
+} from "./CleaningCoreSections";
+import { cleaningFaqs } from "./CleaningContent";
 
-const faqs = [
-  {
-    question: "What data cleaning services do you offer?",
-    answer:
-      "We offer five core services: deduplication (exact and near-duplicate removal), noise removal (encoding fixes, HTML stripping, OCR cleanup), PII redaction (configurable replacement strategies), consistency normalization (dates, units, casing, terminology), and metadata enrichment (language codes, domain tags, source provenance).",
-  },
-  {
-    question: "How do you handle PII in datasets?",
-    answer:
-      "We use a combination of regex patterns, NER models, and human review to detect PII (names, emails, phone numbers, addresses, SSNs). You can choose replacement strategies: token replacement, synthetic substitution, or complete removal. All redaction is logged for audit trails.",
-  },
-  {
-    question: "What accuracy guarantee do you provide?",
-    answer:
-      "We guarantee 98%+ accuracy through our 3-tier validation pipeline: automated rules (100% coverage), gold-standard comparison (20% sample), and expert human review. If accuracy falls below threshold, we rework at no additional cost.",
-  },
-  {
-    question: "Are your processes GDPR compliant?",
-    answer:
-      "Yes. We are GDPR compliant with ISO 27001 and ISO 9001 certifications. All teams sign NDAs, work in isolated environments with role-based access control, and all data transformations are logged with full audit trails and data lineage tracking.",
-  },
-  {
-    question: "Can you clean data that's already been annotated?",
-    answer:
-      "Absolutely. We can clean pre-annotated data while preserving label integrity. Our pipeline handles label-aware deduplication, annotation consistency checks, and format validation.",
-  },
-];
+const canonical = "https://www.eqourse.com/ai-data-services/cleaning-validation";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": `${canonical}#service`,
+      name: "Data Cleaning & Validation Services",
+      serviceType: "AI Data Cleaning and Validation",
+      url: canonical,
+      description: "Data cleaning and validation services for AI training data including deduplication, noise removal, PII redaction, consistency normalization, metadata enrichment, dataset QA and label auditing, LLM training data curation and human data verification, with error rates reported by defect category and every change logged and reversible.",
+      provider: { "@type": "Organization", name: "eQOURSE", url: "https://www.eqourse.com/", address: [{ "@type": "PostalAddress", addressCountry: "IN" }, { "@type": "PostalAddress", addressCountry: "SG" }] },
+      areaServed: "Worldwide",
+      availableLanguage: "en",
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Data Cleaning and Validation Service Lines",
+        itemListElement: [
+          { name: "Data Cleaning & Preparation", url: `${canonical}/data-cleaning-preparation` },
+          { name: "Dataset QA & Label Audit", url: `${canonical}/dataset-qa-label-audit` },
+          { name: "LLM Training Data Curation", url: `${canonical}/llm-data-curation` },
+          { name: "PII Detection & Redaction" },
+          { name: "Metadata Enrichment" },
+          { name: "Data Validation & Verification" },
+        ].map((service) => ({ "@type": "Offer", ...(service.url ? { url: service.url } : {}), itemOffered: { "@type": "Service", name: service.name, ...(service.url ? { url: service.url } : {}) } })),
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.eqourse.com/" },
+        { "@type": "ListItem", position: 2, name: "AI Data Services", item: "https://www.eqourse.com/ai-data-services" },
+        { "@type": "ListItem", position: 3, name: "Data Cleaning & Validation", item: canonical },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: cleaningFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
+    },
+  ],
+};
 
 const CleaningPage = () => (
-  <AIDataServicesLayout
-    breadcrumbs={[
-      { label: "AI Data Services", href: "/ai-data-services" },
-      { label: "Cleaning & Validation" },
-    ]}
-  >
+  <AIDataServicesLayout breadcrumbs={[{ label: "AI Data Services", href: "/ai-data-services" }, { label: "Data Cleaning & Validation" }]}>
     <SEOHead
-      title="AI Data Cleaning & Validation Services | eQOURSE"
-      description="Deduplication, PII redaction, noise removal, and 3-tier validation delivering 98%+ accuracy. GDPR compliant, ISO certified."
-      canonical="https://www.eqourse.com/ai-data-services/cleaning-validation"
-      keywords="data cleaning, data validation, PII redaction, deduplication, data quality, GDPR compliance, data normalization"
+      title="Data Cleaning & Validation Services for AI | eQOURSE"
+      description="Deduplication, PII redaction, noise removal, label auditing and AI dataset validation. Error rates reported by category. Get a free dataset audit."
+      canonical={canonical}
+      keywords="data cleaning services, data validation services, AI training data quality, dataset audit, label validation, deduplication, train test leakage, PII redaction"
+      ogImage="https://www.eqourse.com/assets/ai-data/cleaning-validation/cleaning-validation-og.webp"
     />
+    <Helmet>
+      <link rel="preload" as="image" href="/assets/ai-data/cleaning-validation/data-cleaning-validation-services-hero.webp" type="image/webp" fetchPriority="high" />
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+    <CleaningMotionStyles />
 
     <ServiceHero
-      preHeadline="Cleaning & Validation"
-      headline="Clean Data,"
-      headlineAccent="Better Models"
-      subtext="Deduplication, PII redaction, noise removal, and multi-tier validation pipelines. 98%+ accuracy guaranteed with full GDPR compliance."
-      ctaText="Get Cleaning Quote"
+      tone="light"
+      preHeadline="Audit-First Data Quality"
+      headline="Data Cleaning & Validation Services for"
+      headlineAccent="AI Training Data"
+      subtext="Deduplication, PII redaction, noise removal, label auditing and multi-tier validation—with error rates reported by defect category, not one blended number. GDPR-aligned processing under ISO 27001 certified controls."
+      ctaText="Get a Free Dataset Audit"
       ctaLink="/free-pilot"
-      imageSrc="/assets/ai-data/Cleaning and validation.webp"
-      imageAlt="Data cleaning, validation, and impurity cleansing services"
+      secondaryCtaText="Talk to a Data Specialist"
+      secondaryCtaLink="/contact-us"
+      imageSrc="/assets/ai-data/cleaning-validation/data-cleaning-validation-services-hero.webp"
+      imageAlt="Readable synthetic AI training records showing validated data, label errors, PII and split leakage in a dataset audit"
+      imageWidth={1200}
+      imageHeight={800}
+      compactHeadline
+      trustStats={[{ value: "500+", label: "Specialists" }, { value: "30+", label: "Global languages" }, { value: "ISO", label: "9001 & 27001 processes" }]}
       rotatingBadges={[
-        { icon: Sparkles, title: "Clean Data", subtitle: "Noise removal", color: "hsl(170 82% 55%)" },
-        { icon: ShieldAlert, title: "Privacy", subtitle: "PII redaction", color: "hsl(165 75% 71%)" },
-        { icon: CheckCircle2, title: "Validation", subtitle: "98%+ accuracy", color: "hsl(190 85% 68%)" }
+        { icon: ScanSearch, title: "Defect profiling", subtitle: "Source · split · severity", color: "hsl(170 82% 38%)" },
+        { icon: GitCompareArrows, title: "Before / after", subtitle: "Measured · explained · logged", color: "hsl(28 90% 48%)" },
+        { icon: FileSearch2, title: "Independent audit", subtitle: "Your data · Any vendor", color: "hsl(190 76% 40%)" },
       ]}
-      bottomBadge={{ iconText: "CLN", title: "Data Quality", subtitle: "ISO & GDPR compliant" }}
+      bottomBadge={{ iconText: "QA", title: "Every change traceable", subtitle: "Logged · attributable · reversible" }}
     />
-
-    <ServiceNarrativeSection
-      label="Data Quality Core"
-      title="Why Data Cleaning"
-      gradientText="Matters"
-      description="Raw datasets carry duplicates, noise, and compliance risks that directly hurt model quality and trust."
-      paragraphs={[
-        "Training on unclean data amplifies errors: models learn wrong patterns, underperform on edge cases, and expose teams to governance risk.",
-        "Our cleaning and validation stack standardizes, redacts, and verifies your dataset before training so model behavior is stable, auditable, and production-safe.",
-      ]}
-      bullets={[
-        "PII-safe processing with configurable redaction strategies",
-        "Consistency normalization for formats, units, and terminology",
-        "Layered validation checkpoints before every delivery batch",
-      ]}
-      stats={[
-        { value: "98%+", label: "Accuracy" },
-        { value: "3", label: "Validation tiers" },
-        { value: "100%", label: "Audit logs" },
-        { value: "GDPR", label: "Compliant" },
-      ]}
-      panelTitle="Cleaning Pipeline Control"
-      panelSubtitle="Signals we monitor to maintain dataset integrity."
-      bars={[
-        { label: "Deduplication precision", value: 95 },
-        { label: "PII detection coverage", value: 97 },
-        { label: "Normalization consistency", value: 94 },
-        { label: "Final QA pass rate", value: 98 },
-      ]}
-      dark
-      reverse
-    />
-
+    <CleaningTrustStrip />
     <CleaningServices />
-    <ValidationPipeline />
-    <ComplianceSecurity />
-    <RoboticsServiceBridge context="validation" />
-    <FAQSection faqs={faqs} />
+    <CleaningDefinition />
+    <LateErrorCost />
+    <DefectAtlas />
+    <CleaningProcess />
+    <QualityReport />
+    <HumanAutomation />
+    <LlmPrivacyDelivery />
+    <DeliveryCommercial />
+    <PipelineProofWhy />
+    <CleaningFAQ />
     <ServiceCTA
-      headline="Need Cleaner Data?"
-      subtext="Share a sample of your dataset and we'll provide a free quality assessment with recommendations."
-      ctaText="Get Free Assessment"
+      headline="Find Out What's Actually in Your Dataset"
+      subtext="Share a representative sample. We will return an error rate by category, the defects we found and a straight answer on whether cleaning is worth doing."
+      ctaText="Get a Free Dataset Audit"
+      ctaLink="/free-pilot"
+      secondaryCtaText="Talk to a Data Specialist"
+      secondaryCtaLink="/contact-us"
+      note="Start with your own sample"
     />
   </AIDataServicesLayout>
 );

@@ -178,7 +178,7 @@ export const RelatedProofWhy = () => {
     ["Text & NLP Annotation", "Structured language labeling", "/ai-data-services/annotation-labeling/text-nlp-annotation"],
     ["Content Moderation & Trust/Safety", "Policy operations, severity and contextual review", "/ai-data-services/annotation-labeling/content-moderation"],
     ["Text Data Collection for LLMs", "Purpose-built language datasets", "/ai-data-services/data-collection/text-data-collection"],
-    ["Data Cleaning & Validation", "Dataset repair and quality controls", "/ai-data-services/cleaning-validation"],
+    ["LLM Training Data Curation", "Curate the corpus before alignment", "/ai-data-services/cleaning-validation/llm-data-curation"],
     ["AI Model Testing", "Measure behaviour after alignment", "/ai-data-services/model-testing"],
     ["All Annotation Services", "Explore every annotation modality", "/ai-data-services/annotation-labeling"],
   ];

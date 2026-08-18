@@ -52,7 +52,7 @@ export const AnnotationDefinition = () => (
             <article className="bg-card p-6"><h3 className="font-heading text-lg font-bold">Annotation vs. labeling</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">Labeling often assigns a class to a whole item; annotation can also describe regions, boundaries, relationships and attributes. eQOURSE delivers both through one QA workflow.</p></article>
             <article className="bg-card p-6"><h3 className="font-heading text-lg font-bold">Collection vs. annotation</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">Collection creates the raw dataset. Annotation adds meaning to data that already exists. Most production programmes need both, in sequence.</p></article>
           </div>
-          <Link to="/ai-data-services/data-collection" className="inline-flex items-center gap-2 font-semibold text-primary hover:underline">Explore AI Data Collection Services <ArrowRight className="h-4 w-4" /></Link>
+          <div className="flex flex-wrap gap-x-6 gap-y-3"><Link to="/ai-data-services/data-collection" className="inline-flex items-center gap-2 font-semibold text-primary hover:underline">Explore AI Data Collection Services <ArrowRight className="h-4 w-4" /></Link><Link to="/ai-data-services/cleaning-validation" className="inline-flex items-center gap-2 font-semibold text-primary hover:underline">Dataset QA and label audit <ArrowRight className="h-4 w-4" /></Link></div>
         </div>
       </Reveal>
     </div>

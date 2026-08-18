@@ -584,7 +584,7 @@ export const aiDataSamples: AiDataSample[] = [
       "GDPR-ready PII redaction with consent tracking",
       "Gold-standard reference validation with P/R/F1 scoring",
     ],
-    serviceLink: "/ai-data-services/cleaning-validation",
+    serviceLink: "/ai-data-services/cleaning-validation/dataset-qa-label-audit",
   },
 ];
 

@@ -30,13 +30,33 @@ if (invalidTargets.length > 0) {
   throw new Error(`Redirect targets missing from pageSeo: ${invalidTargets.map(({ to }) => to).join(", ")}`);
 }
 
+const trailingSlashRedirects = [...canonicalPaths]
+  .filter((path) => path !== "/")
+  .map((path) => `${path}/ ${path} 301!`);
+
 const netlify = [
   "# Generated from src/routes/legacyRedirects.ts. Do not edit by hand.",
   "https://eqourse.com/* https://www.eqourse.com/:splat 301!",
   ...redirects.map(({ from, to }) => `${from} ${to} 301!`),
-  "/blog/* /cms-shell.html 200",
-  "/casestudy/* /cms-shell.html 200",
-  "/* /index.html 200",
+  "# Preserve matching legacy article slugs while consolidating /blogs/ to /blog/.",
+  "/blogs/* /blog/:splat 301!",
+  "# Canonicals, sitemap URLs and internal links use no trailing slash.",
+  ...trailingSlashRedirects,
+  "/blog/*/ /blog/:splat 301!",
+  "/casestudy/*/ /casestudy/:splat 301!",
+  "# Admin remains an authenticated client-side application.",
+  "/admin /index.html 200",
+  "/admin/* /index.html 200",
+  "# Public routes are prerendered files. Unknown paths fall through to 404.html.",
+  "",
+].join("\n");
+
+const headers = [
+  "# Keep authenticated admin URLs out of search results even if discovered externally.",
+  "/admin",
+  "  X-Robots-Tag: noindex, nofollow",
+  "/admin/*",
+  "  X-Robots-Tag: noindex, nofollow",
   "",
 ].join("\n");
 
@@ -56,6 +76,15 @@ const apache = [
     `RewriteRule ^${escapeRewritePattern(from)}/?$ https://www.eqourse.com${to} [R=301,L,NE]`
   )),
   "",
+  "# Preserve matching legacy article slugs while consolidating /blogs/ to /blog/.",
+  "RewriteRule ^blogs/(.+?)/?$ https://www.eqourse.com/blog/$1 [R=301,L,NE]",
+  "",
+  "# Canonicals, sitemap URLs and internal links use no trailing slash.",
+  "# Run this before host/protocol normalization to avoid a two-hop redirect.",
+  "RewriteCond %{REQUEST_URI} !^/$",
+  "RewriteCond %{REQUEST_URI} /+$",
+  "RewriteRule ^(.+?)/+$ https://www.eqourse.com/$1 [R=301,L,NE]",
+  "",
   "# Enforce one canonical protocol and host for preferred URLs.",
   "RewriteCond %{HTTPS} !=on [OR]",
   "RewriteCond %{HTTP_HOST} !^www\\.eqourse\\.com$ [NC]",
@@ -67,17 +96,19 @@ const apache = [
   "RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f",
   "RewriteRule ^(.+?)/?$ $1/index.html [L]",
   "",
-  "# Metadata-empty fallback for CMS routes created after the latest build.",
-  "RewriteRule ^(?:blog|casestudy)/[^/]+/?$ cms-shell.html [L]",
+  "# Admin remains an authenticated client-side application.",
+  "RewriteRule ^admin(?:/.*)?$ index.html [L]",
   "",
-  "# SPA fallback for other client-side routes.",
-  "RewriteRule ^ index.html [L]",
+  "# Unknown public routes must be real 404 responses, not soft-200 SPA pages.",
+  "ErrorDocument 404 /404.html",
   "",
   "<IfModule mod_headers.c>",
   "  Header always set X-Content-Type-Options \"nosniff\"",
   "  Header always set Referrer-Policy \"strict-origin-when-cross-origin\"",
   "  Header always set Permissions-Policy \"camera=(), microphone=(), geolocation=()\"",
   "  Header always set Strict-Transport-Security \"max-age=31536000; includeSubDomains\" env=HTTPS",
+  "  SetEnvIf Request_URI \"^/admin(?:/|$)\" EQOURSE_NOINDEX=1",
+  "  Header always set X-Robots-Tag \"noindex, nofollow\" env=EQOURSE_NOINDEX",
   "  <FilesMatch \"\\.(?:css|js|mjs|woff2?)$\">",
   "    Header set Cache-Control \"public, max-age=31536000, immutable\"",
   "  </FilesMatch>",
@@ -93,6 +124,7 @@ const apache = [
 ].join("\n");
 
 writeFileSync(join(root, "public", "_redirects"), netlify, "utf8");
+writeFileSync(join(root, "public", "_headers"), headers, "utf8");
 writeFileSync(join(root, "public", ".htaccess"), apache, "utf8");
 
 console.log(`[seo-host-config] Generated ${redirects.length} permanent redirect rules for Netlify/Cloudflare Pages and Apache.`);

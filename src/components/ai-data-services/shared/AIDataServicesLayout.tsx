@@ -52,6 +52,15 @@ const AIDataServicesLayout = ({ children, breadcrumbs }: AIDataServicesLayoutPro
 
       {children}
 
+      {pathname.startsWith("/ai-data-services/annotation-labeling/") && (
+        <aside className="border-y border-border bg-[#eef7f4]" aria-label="Existing dataset quality audit">
+          <div className="container mx-auto flex flex-col items-start justify-between gap-4 px-4 py-6 sm:flex-row sm:items-center">
+            <div><p className="text-xs font-bold uppercase tracking-[.16em] text-primary">Already have a labeled dataset?</p><p className="mt-1 text-sm text-muted-foreground">Measure its error rate, class confusion and split integrity before adding more labels.</p></div>
+            <Link to="/ai-data-services/cleaning-validation/dataset-qa-label-audit" className="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5">Get it audited <ChevronRight className="h-4 w-4" /></Link>
+          </div>
+        </aside>
+      )}
+
       <Footer />
 
     </div>

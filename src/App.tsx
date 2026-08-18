@@ -32,6 +32,12 @@ const AIAudioSpeechAnnotation = lazy(() => import("./pages/AIAudioSpeechAnnotati
 const AI3DPointCloudLidarAnnotation = lazy(() => import("./pages/AI3DPointCloudLidarAnnotation.tsx"));
 const AIContentModeration = lazy(() => import("./pages/AIContentModeration.tsx"));
 const AICleaningValidation = lazy(() => import("./pages/AICleaningValidation.tsx"));
+const AIDatasetQALabelAudit = lazy(() => import("./pages/AIDatasetQALabelAudit.tsx"));
+const AILlmDataCuration = lazy(() => import("./pages/AILlmDataCuration.tsx"));
+const AIDataCleaningPreparation = lazy(() => import("./pages/AIDataCleaningPreparation.tsx"));
+const AIPiiDetectionRedaction = lazy(() => import("./pages/AIPiiDetectionRedaction.tsx"));
+const AIMetadataEnrichment = lazy(() => import("./pages/AIMetadataEnrichment.tsx"));
+const AIDataValidationVerification = lazy(() => import("./pages/AIDataValidationVerification.tsx"));
 const AIModelTesting = lazy(() => import("./pages/AIModelTesting.tsx"));
 const RoboticsTrainingData = lazy(() => import("./pages/RoboticsTrainingData.tsx"));
 const ContentServicesOverview = lazy(() => import("./pages/ContentServicesOverview.tsx"));
@@ -138,6 +144,12 @@ const App = () => (
               <Route path="/ai-data-services/annotation-labeling/3d-point-cloud-lidar-annotation" element={<AI3DPointCloudLidarAnnotation />} />
               <Route path="/ai-data-services/annotation-labeling/content-moderation" element={<AIContentModeration />} />
               <Route path="/ai-data-services/cleaning-validation" element={<AICleaningValidation />} />
+              <Route path="/ai-data-services/cleaning-validation/dataset-qa-label-audit" element={<AIDatasetQALabelAudit />} />
+              <Route path="/ai-data-services/cleaning-validation/llm-data-curation" element={<AILlmDataCuration />} />
+              <Route path="/ai-data-services/cleaning-validation/data-cleaning-preparation" element={<AIDataCleaningPreparation />} />
+              <Route path="/ai-data-services/cleaning-validation/pii-detection-redaction" element={<AIPiiDetectionRedaction />} />
+              <Route path="/ai-data-services/cleaning-validation/metadata-enrichment" element={<AIMetadataEnrichment />} />
+              <Route path="/ai-data-services/cleaning-validation/data-validation-verification" element={<AIDataValidationVerification />} />
               <Route path="/ai-data-services/model-testing" element={<AIModelTesting />} />
               <Route path="/robotics-training-data-services" element={<RoboticsTrainingData />} />
 

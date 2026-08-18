@@ -1,0 +1,5 @@
+# Keep authenticated admin URLs out of search results even if discovered externally.
+/admin
+  X-Robots-Tag: noindex, nofollow
+/admin/*
+  X-Robots-Tag: noindex, nofollow

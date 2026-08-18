@@ -137,8 +137,46 @@ export const pageSeo: Record<string, PageSeo> = {
     image: "/assets/ai-data/annotation-labeling/content-moderation/content-moderation-og.webp",
   },
   "/ai-data-services/cleaning-validation": {
-    title: "AI Data Cleaning & Validation – High Accuracy | Eqourse",
-    description: "Improve dataset quality with expert AI data cleaning and validation. Remove errors, verify labels and build reliable models.",
+    title: "Data Cleaning & Validation Services for AI | eQOURSE",
+    description: "Deduplication, PII redaction, noise removal, label auditing and AI dataset validation. Error rates reported by category. Get a free dataset audit.",
+    canonical: "https://www.eqourse.com/ai-data-services/cleaning-validation",
+    image: "/assets/ai-data/cleaning-validation/cleaning-validation-og.webp",
+  },
+  "/ai-data-services/cleaning-validation/dataset-qa-label-audit": {
+    title: "Dataset QA & Label Audit Services | eQOURSE",
+    description: "Independent labeled-dataset audits with per-class error rates, label correction and train/test leakage detection—including other vendors' work.",
+    canonical: "https://www.eqourse.com/ai-data-services/cleaning-validation/dataset-qa-label-audit",
+    image: "/assets/ai-data/cleaning-validation/dataset-qa-label-audit/dataset-qa-label-audit-og.webp",
+  },
+  "/ai-data-services/cleaning-validation/llm-data-curation": {
+    title: "LLM Training Data Curation Services | eQOURSE",
+    description: "LLM corpus deduplication, quality filtering and benchmark decontamination—with provenance review and human checks of filtered-out content.",
+    canonical: "https://www.eqourse.com/ai-data-services/cleaning-validation/llm-data-curation",
+    image: "/assets/ai-data/cleaning-validation/llm-data-curation/llm-data-curation-og.webp",
+  },
+  "/ai-data-services/cleaning-validation/data-cleaning-preparation": {
+    title: "Data Cleaning & Preparation Services for AI | eQOURSE",
+    description: "Deduplication, encoding repair, noise removal and data normalisation for AI—with reversible change logs and before-and-after distribution reporting.",
+    canonical: "https://www.eqourse.com/ai-data-services/cleaning-validation/data-cleaning-preparation",
+    image: "/assets/ai-data/cleaning-validation/data-cleaning-preparation/data-cleaning-preparation-og.webp",
+  },
+  "/ai-data-services/cleaning-validation/pii-detection-redaction": {
+    title: "PII Detection & Redaction Services | eQOURSE",
+    description: "PII detection and redaction across text, images, video, audio and documents—including quasi-identifiers, metadata and verified recall.",
+    canonical: "https://www.eqourse.com/ai-data-services/cleaning-validation/pii-detection-redaction",
+    image: "/assets/ai-data/cleaning-validation/pii-detection-redaction/pii-detection-redaction-og.jpg",
+  },
+  "/ai-data-services/cleaning-validation/metadata-enrichment": {
+    title: "Metadata Enrichment & Data Standardization | eQOURSE",
+    description: "Language, domain, quality and provenance tagging, entity resolution and taxonomy mapping—so AI datasets stay filterable, reusable and auditable.",
+    canonical: "https://www.eqourse.com/ai-data-services/cleaning-validation/metadata-enrichment",
+    image: "/assets/ai-data/cleaning-validation/metadata-enrichment/metadata-enrichment-og.jpg",
+  },
+  "/ai-data-services/cleaning-validation/data-validation-verification": {
+    title: "Data Verification Services | Human-in-the-Loop | eQOURSE",
+    description: "Verify records, attributes and claims against authoritative sources—with conflict adjudication, field-level status and honest coverage limits.",
+    canonical: "https://www.eqourse.com/ai-data-services/cleaning-validation/data-validation-verification",
+    image: "/assets/ai-data/cleaning-validation/data-validation-verification/data-validation-verification-og.webp",
   },
   "/ai-data-services/data-collection": {
     title: "AI Data Collection Services | Custom Training Datasets | eQOURSE",

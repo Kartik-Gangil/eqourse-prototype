@@ -1,4 +1,5 @@
 const Blog = require("../model/blog");
+const { syncCmsSeoPage, removeCmsSeoPage } = require("../utils/cmsSeoPublisher");
 
 /**
  * GET /api/blogs
@@ -194,6 +195,7 @@ const createBlog = async (req, res) => {
     }
 
     const blog = await Blog.create(blogData);
+    await syncCmsSeoPage("blog", formatBlog(blog));
     return res.status(201).json({ success: true, data: formatBlog(blog) });
   } catch (err) {
     return res.status(500).json({ success: false, message: err.message });
@@ -227,10 +229,16 @@ const updateBlog = async (req, res) => {
       req.body.publishedAt = new Date();
     }
 
+    const previousSlug = currentBlog.slug;
     const blog = await Blog.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true
     });
+
+    if (previousSlug !== blog.slug) {
+      await removeCmsSeoPage("blog", previousSlug);
+    }
+    await syncCmsSeoPage("blog", formatBlog(blog));
 
     return res.json({ success: true, data: formatBlog(blog) });
   } catch (err) {
@@ -264,6 +272,8 @@ const setBlogStatus = async (req, res) => {
       return res.status(404).json({ success: false, message: "Blog post not found" });
     }
 
+    await syncCmsSeoPage("blog", formatBlog(blog));
+
     return res.json({ success: true, data: formatBlog(blog) });
   } catch (err) {
     return res.status(500).json({ success: false, message: err.message });
@@ -280,6 +290,7 @@ const deleteBlog = async (req, res) => {
     if (!blog) {
       return res.status(404).json({ success: false, message: "Blog post not found" });
     }
+    await removeCmsSeoPage("blog", blog.slug);
     return res.json({ success: true, message: "Blog post deleted successfully" });
   } catch (err) {
     return res.status(500).json({ success: false, message: err.message });

@@ -75,6 +75,13 @@ for (const entry of entries) {
     failures.push(`${entry.path}: missing one semantic prerender fallback with an H1`);
   }
 
+  const internalTrailingSlashLinks = [...html.matchAll(/\bhref="(\/[^"?#]+\/)"/g)]
+    .map((item) => item[1])
+    .filter((href) => href !== "/");
+  if (internalTrailingSlashLinks.length > 0) {
+    failures.push(`${entry.path}: internal links use non-canonical trailing slashes: ${internalTrailingSlashLinks.join(", ")}`);
+  }
+
   const titleKey = entry.title.trim().toLowerCase();
   const descriptionKey = entry.description.trim().toLowerCase();
   if (seenTitles.has(titleKey)) failures.push(`${entry.path}: duplicate title also used by ${seenTitles.get(titleKey)}`);
@@ -110,7 +117,7 @@ if (!existsSync(robotsPath)) {
   if (!robotsText.includes(`Sitemap: ${SITE_URL}/sitemap.xml`)) failures.push("robots.txt does not reference the canonical sitemap");
 }
 
-for (const configName of ["_redirects", ".htaccess"]) {
+for (const configName of ["_redirects", "_headers", ".htaccess"]) {
   if (!existsSync(join(distDir, configName))) failures.push(`missing generated hosting config dist/${configName}`);
 }
 
@@ -131,16 +138,48 @@ if (!existsSync(cmsShellPath)) {
   }
 }
 
+
+const notFoundPath = join(distDir, "404.html");
+if (!existsSync(notFoundPath)) {
+  failures.push("missing dist/404.html");
+} else {
+  const notFound = readFileSync(notFoundPath, "utf8");
+  const noindexTags = notFound.match(/<meta[^>]*\bname="robots"[^>]*\bcontent="noindex,nofollow"[^>]*>/g) ?? [];
+  if (noindexTags.length !== 1) failures.push("404.html must contain exactly one noindex,nofollow directive");
+  if (/<link[^>]*\brel="canonical"[^>]*>/i.test(notFound)) failures.push("404.html must not declare a canonical URL");
+}
+
 const redirectsConfig = existsSync(join(distDir, "_redirects"))
   ? readFileSync(join(distDir, "_redirects"), "utf8")
   : "";
 const apacheConfig = existsSync(join(distDir, ".htaccess"))
   ? readFileSync(join(distDir, ".htaccess"), "utf8")
   : "";
-if (!redirectsConfig.includes("/blog/* /cms-shell.html 200") || !redirectsConfig.includes("/casestudy/* /cms-shell.html 200")) {
-  failures.push("_redirects is missing CMS shell fallbacks");
+const headersConfig = existsSync(join(distDir, "_headers"))
+  ? readFileSync(join(distDir, "_headers"), "utf8")
+  : "";
+if (!redirectsConfig.includes("/blogs/* /blog/:splat 301!")) failures.push("_redirects is missing the legacy /blogs/ migration");
+if (!redirectsConfig.includes("/admin/* /index.html 200")) failures.push("_redirects is missing the admin SPA fallback");
+if (/^\/\* \/index\.html 200!?$/m.test(redirectsConfig)) failures.push("_redirects still soft-200s unknown public routes");
+for (const entry of entries) {
+  if (entry.path !== "/" && !redirectsConfig.includes(`${entry.path}/ ${entry.path} 301!`)) {
+    failures.push(`_redirects is missing trailing-slash normalization for ${entry.path}`);
+  }
 }
-if (!apacheConfig.includes("cms-shell.html")) failures.push(".htaccess is missing the CMS shell fallback");
+if (!apacheConfig.includes("RewriteRule ^blogs/(.+?)/?$ https://www.eqourse.com/blog/$1 [R=301,L,NE]")) {
+  failures.push(".htaccess is missing the legacy /blogs/ migration");
+}
+if (!apacheConfig.includes("RewriteRule ^(.+?)/+$ https://www.eqourse.com/$1 [R=301,L,NE]")) {
+  failures.push(".htaccess is missing trailing-slash normalization");
+}
+if (!apacheConfig.includes("ErrorDocument 404 /404.html")) failures.push(".htaccess is missing the real public 404 handler");
+if (apacheConfig.includes("RewriteRule ^ index.html [L]")) failures.push(".htaccess still soft-200s unknown public routes");
+if (!apacheConfig.includes('Header always set X-Robots-Tag "noindex, nofollow" env=EQOURSE_NOINDEX')) {
+  failures.push(".htaccess is missing the admin X-Robots-Tag protection");
+}
+if (!headersConfig.includes("/admin/*") || !headersConfig.includes("X-Robots-Tag: noindex, nofollow")) {
+  failures.push("_headers is missing the admin X-Robots-Tag protection");
+}
 
 if (failures.length > 0) {
   console.error(failures.join("\n"));

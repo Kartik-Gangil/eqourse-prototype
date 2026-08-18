@@ -49,7 +49,13 @@ const pageDirectory = [
   { title: "Audio & Speech Annotation", path: "/ai-data-services/annotation-labeling/audio-speech-annotation", description: "Transcription, timestamps, speaker diarisation, emotion, acoustic events, phonetics and wake-word annotation" },
   { title: "3D Point Cloud & LiDAR Annotation", path: "/ai-data-services/annotation-labeling/3d-point-cloud-lidar-annotation", description: "3D cuboids, point segmentation, sensor fusion, sweep tracking, lanes and drivable-space labels" },
   { title: "Content Moderation & Trust and Safety", path: "/ai-data-services/annotation-labeling/content-moderation", description: "Policy-based multilingual moderation, severity tiers, escalation, appeals, quality controls and moderator safeguards" },
-  { title: "Data Cleaning & Validation", path: "/ai-data-services/cleaning-validation", description: "Data quality assurance — deduplication, normalization, golden set validation" },
+  { title: "Data Cleaning & Validation", path: "/ai-data-services/cleaning-validation", description: "Six-part AI data-quality service family covering structural preparation, label auditing, LLM corpus curation, privacy protection, metadata enrichment and source-based verification" },
+  { title: "Data Cleaning & Preparation", path: "/ai-data-services/cleaning-validation/data-cleaning-preparation", description: "Deduplication, encoding repair, noise removal and data normalisation with reversible logs and distribution-impact reporting" },
+  { title: "Dataset QA & Label Audit", path: "/ai-data-services/cleaning-validation/dataset-qa-label-audit", description: "Independent audits of existing labelled datasets with per-class error rates, label correction, root-cause analysis and split-leakage checks" },
+  { title: "LLM Training Data Curation", path: "/ai-data-services/cleaning-validation/llm-data-curation", description: "Corpus deduplication, quality filtering, benchmark decontamination, privacy review, provenance and composition reporting for LLM, RAG and fine-tuning data" },
+  { title: "PII Detection & Redaction", path: "/ai-data-services/cleaning-validation/pii-detection-redaction", description: "Multimodal personal-data discovery, quasi-identifier analysis, masking or pseudonymisation, independent verification and residual-risk reporting" },
+  { title: "Metadata Enrichment & Data Standardization", path: "/ai-data-services/cleaning-validation/metadata-enrichment", description: "Language, domain, quality, source, licence and lineage tagging plus taxonomy mapping and entity resolution for reusable AI datasets" },
+  { title: "Data Validation & Verification", path: "/ai-data-services/cleaning-validation/data-validation-verification", description: "Human verification of records, attributes and claims against authoritative sources with source hierarchy, conflict adjudication, six-state field-level reporting and refresh guidance" },
   { title: "Model Testing", path: "/ai-data-services/model-testing", description: "Real-world AI model testing with human evaluators — red-teaming, A/B testing, safety" },
   { title: "Robotics & Physical AI Training Data Services", path: "/robotics-training-data-services", description: "Human demonstrations, egocentric video, multimodal robotics annotation, validation and model evaluation for Physical AI and Embodied AI" },
 
@@ -267,11 +273,82 @@ const annotationLabelingKnowledge = `
 - eQOURSE can decline illegal, exploitative or unsafe work and must not claim capability for prohibited material such as child sexual abuse material. Sensitive or legally complex scopes require leadership and legal review.
 `;
 
+// Detailed knowledge for the Data Cleaning & Validation hub and its currently
+// published service pages. Cleaning repairs structure; auditing measures label
+// correctness; curation prepares corpora; privacy work protects people; metadata
+// preserves context. Source-based Data Validation & Verification completes the
+// six-page family with external source checks and explicit evidence states.
+const cleaningValidationKnowledge = `
+### DATA CLEANING & VALIDATION: PARENT SERVICE
+- Main page: https://www.eqourse.com/ai-data-services/cleaning-validation
+- The service family has six distinct categories: Data Cleaning & Preparation; Dataset QA & Label Audit; LLM Training Data Curation; PII Detection & Redaction; Metadata Enrichment & Data Standardization; and Data Validation & Verification.
+- All six dedicated sub-pages are live and should be linked directly when they match the user's need.
+- Cleaning repairs structural defects such as duplicates, damaged encoding, inconsistent formats and noise. Validation asks whether a label, record, attribute or claim is actually correct. A dataset can be structurally clean and still be wrong.
+- Annotation creates labels; Dataset QA & Label Audit measures and repairs existing labels. Collection creates or sources raw data. LLM curation decides what belongs in a training or retrieval corpus. Metadata enrichment adds context about each item.
+- Shared delivery model: inspect a representative sample; profile defect or risk categories; agree rules, thresholds and acceptance evidence; run a pilot; process in controlled batches; perform independent QA; deliver the dataset with reports, unresolved cases, versioned rules and an auditable change or decision trail.
+- Quality evidence is service-specific. Examples include defect counts, confidence intervals, per-class error rates, duplicate and leakage reports, retention by source or domain, recall against a verified PII reference, field-level metadata confidence and source-linked discrepancies. Never promise one universal accuracy number.
+- Projects support 30+ global languages, with comprehensive Indian regional-language, script, transliteration, code-mixed and locale depth as a particular strength—not an India-only limitation.
+- ISO 9001 and ISO 27001 certified processes, NDAs, named role-based access, audit trails, restricted processing environments and agreed retention can be scoped. Compliance and provenance documentation provide evidence but are not legal advice.
+- Pricing and timelines are project-specific and depend on modality, volume, defect density, languages, domain expertise, human-review depth, security environment and turnaround. Recommend an assessment or free pilot; never invent a rate or fixed production schedule.
+
+### DATA CLEANING & PREPARATION
+- Page: https://www.eqourse.com/ai-data-services/cleaning-validation/data-cleaning-preparation
+- Best for structurally messy data: exact and near duplicates, damaged encoding or Unicode, boilerplate and OCR artefacts, inconsistent schemas, dates, units or terminology, missing values and questionable outliers.
+- Core principle: cleaning is not neutral. Originals are preserved, every transformation is attributable and reversible, and the before-and-after distribution is reported so useful rare variation is not silently erased.
+- Deliverables can include the cleaned dataset, full change log, per-rule counts, distribution-impact report, duplicate methods and thresholds, missingness analysis, outlier register, unresolved exceptions and reusable rule definitions.
+- Automated checks can identify candidates and structural violations; people decide survivorship, acceptable variation, missingness treatment, outlier meaning and whether a distribution shift is acceptable.
+
+### DATASET QA & LABEL AUDIT
+- Page: https://www.eqourse.com/ai-data-services/cleaning-validation/dataset-qa-label-audit
+- Best for an existing labelled dataset whose real error rate is unknown, including work produced by another vendor. The service is independent measurement, not a claim based only on spot-check impressions.
+- Work can include stratified sampling, confidence intervals, per-class error rates, confusion analysis, guideline and annotator drift, difficult-case review, train/test leakage checks, adjudication and targeted repair.
+- Deliverables can include an audit report, error taxonomy, class-level findings, corrected labels where scoped, root-cause analysis, leakage report, guideline recommendations and a repair or rework plan.
+- Sampling and metrics depend on the label type and risk. Do not describe a single sample percentage or accuracy threshold as universal.
+
+### LLM TRAINING DATA CURATION
+- Page: https://www.eqourse.com/ai-data-services/cleaning-validation/llm-data-curation
+- Best for pre-training, fine-tuning and retrieval or RAG corpora that need deduplication, quality filtering, benchmark decontamination, privacy handling, source and licence review, domain balance and composition reporting.
+- Important control: review samples from both the retained and discarded sets. Aggressive filters can silently remove high-value clinical, legal, scientific, code, mathematical, non-English or code-mixed content.
+- Benchmark checks can include exact, n-gram, fuzzy, question-only and answer-only overlap against public or client-provided private evaluations under agreed controls.
+- Deliverables can include the curated corpus, retention by stage, source, domain and language, contamination report, exclusion register, provenance and lineage manifest, composition report and re-runnable pipeline configuration.
+- Synthetic-text detection is uncertain and can be biased. Treat classifier output as a review flag, not an automatic deletion verdict.
+
+### PII DETECTION & REDACTION
+- Page: https://www.eqourse.com/ai-data-services/cleaning-validation/pii-detection-redaction
+- Covers text, structured data, documents, images, video, audio, code and logs. PII may exist in visible content, free text, file metadata, selectable document layers, background imagery, voices or combinations of ordinary-looking fields.
+- Services can include direct-identifier discovery, quasi-identifier combination analysis, removal, typed masking, pseudonymisation, tokenisation, face or plate blurring, document-layer redaction, metadata stripping and output verification.
+- No honest service should promise that every identifier in unstructured data will always be found. eQOURSE measures recall against a human-verified reference where scoped, performs independent verification and states residual risk.
+- Pseudonymised data may still be personal data. Redaction alone does not make an organisation GDPR- or DPDP-compliant; legal conclusions remain with the client's counsel.
+- Deliverables can include protected data, redaction policy and methods, verification metrics, metadata or hidden-layer checks, exceptions and a residual-risk statement.
+
+### METADATA ENRICHMENT & DATA STANDARDIZATION
+- Page: https://www.eqourse.com/ai-data-services/cleaning-validation/metadata-enrichment
+- Metadata describes an item; annotation labels the content inside it for a model to learn. Examples include language, locale, script, domain, quality tier, source, licence, consent status, transformation lineage, technical properties and entity references.
+- Services include language and locale tagging, domain and topic classification, quality scoring, source provenance, lineage, taxonomy design and mapping, controlled vocabularies, attribute completion, time and geography normalisation, and entity resolution.
+- Entity resolution is not deduplication. It links legitimately different records that refer to the same real-world entity while retaining every record and reporting link confidence.
+- Metadata enables domain weighting, quality-tiered or curriculum training, filtered fine-tuning, ablation studies, language-targeted runs, clean holdouts and selective removal of one source when rights or consent change.
+- Deliverables can include the enriched dataset, schema documentation, taxonomy and worked examples, mapping crosswalk, field-level confidence, coverage report, entity-link report, provenance manifest and reusable enrichment rules.
+- Precise location and timestamps can become quasi-identifiers. Privacy-appropriate granularity should be agreed, and PII Detection & Redaction can be connected where enrichment raises re-identification risk.
+- Publishing-oriented ONIX, MARC, DOI, Crossref and accessibility metadata are covered by https://www.eqourse.com/metadata-services; AI dataset metadata and lineage use this Cleaning & Validation page.
+
+### DATA VALIDATION & VERIFICATION
+- Page: https://www.eqourse.com/ai-data-services/cleaning-validation/data-validation-verification
+- Purpose: trained human reviewers verify records, attributes and claims against agreed authoritative sources, with conflicts and unsupported values surfaced rather than guessed.
+- This service verifies data against external reality. It does not audit annotation labels, repair structure, add metadata, curate corpora or fact-check a model's generated output.
+- The source of truth is agreed per field before checking begins, including why it is authoritative, its currency, coverage limits, permitted access and which source wins when two disagree. Where no authoritative source exists, report plausibility review rather than claiming verification.
+- Consequence-based triage determines whether fields are verified thoroughly, sampled to estimate an accuracy rate, or left to cleaning and validation. Sampling can estimate a rate but cannot guarantee one specific record.
+- Six delivery states remain distinct: verified; verified with conflict; contradicted; unverifiable; not attempted; and plausibility-reviewed only. Verified values carry their source and verification date.
+- Conflicts are retained and reported rather than silently overwritten. A pre-agreed hierarchy handles routine cases; senior reviewers adjudicate unresolved disagreement and update the protocol.
+- Verification decays at different rates by field. Contact details and roles are usually more volatile than registration information; licences can change at expiry. These are directional patterns, not promised rates. Recommend a cadence measured on the client's data.
+- Work can cover records, attributes, businesses and organisations, contacts and addresses, document-backed claims, facts, multi-source matching and specialist claims where suitable reviewers and lawful sources are available.
+- Typical outputs include verified records, field-level source and date, verification rate by field, conflict register, unverifiable analysis, correction log where scoped and re-verification guidance.
+`;
+
 const faqs = [
   // ── Free Pilot & Getting Started ──
   { q: "Is the free pilot really free?", a: "Yes, 100% free. No payment, no credit card, no hidden charges. We produce a complimentary sample tailored to your specifications so you can evaluate our quality before making any commitment." },
   { q: "What do I receive in the Content Services pilot?", a: "A sample content piece tailored to your curriculum, subject, and grade level — a lesson plan, workbook section, assessment paper, video script, curriculum outline, or exam prep module. Produced by qualified SMEs, reviewed by our editorial QA team, and aligned to your board standards (CBSE, ICSE, IB, etc.)." },
-  { q: "What do I receive in the AI Data Services pilot?", a: "A representative sample tailored to your AI use case, selected annotation method and target schema. Depending on the project this may cover LLM/RLHF, image, video, document/OCR, text/NLP, audio/speech, LiDAR or moderation-policy work. The pilot confirms guidelines, edge cases, delivery format and task-appropriate quality measures before production is scoped." },
+  { q: "What do I receive in the AI Data Services pilot?", a: "A representative sample tailored to your AI use case. Depending on scope, the pilot may validate a collection protocol, annotation guidelines and schema, a dataset quality audit or cleaning rule set, LLM corpus curation, PII detection and redaction, metadata enrichment, a robotics data workflow or a model-evaluation rubric. It confirms edge cases, delivery format and task-appropriate evidence before production is scoped." },
   { q: "How long does it take to receive my pilot?", a: "Content Services pilots are delivered within 5–7 business days. AI Data pilots within 5–10 business days, depending on modality and complexity. Urgent requirements can be discussed for expedited timelines." },
   { q: "What happens after I receive the pilot?", a: "You review the pilot output and provide feedback. If you're happy with the quality, our team scopes your full project with a detailed proposal, timeline, and pricing. If not satisfied, there is no obligation to proceed." },
   { q: "Can I request a pilot for both Content Services and AI Data?", a: "Yes. Select \"Both\" in the pilot request form and describe your requirements for each vertical in the project description field. We'll produce samples for both." },
@@ -326,7 +403,7 @@ const faqs = [
   { q: "Can this service support training needs analysis?", a: "Yes. Learning readiness and skill assessment outputs help identify baseline capability, prerequisite gaps and training priorities — informing curriculum planning, onboarding, reskilling and workforce development." },
 
   // ── AI Data Services ──
-  { q: "What AI data services does eQOURSE provide?", a: "End-to-end AI training data services: custom collection across text, audio, image and video; eight specialized annotation practices spanning LLM/RLHF, image, video, documents/OCR, text/NLP, audio/speech, LiDAR and content moderation; data cleaning and validation; robotics and physical-AI data; and real-world model testing. Quality criteria are task-specific and agreed during the pilot. eQOURSE is ISO 9001 and ISO 27001 certified." },
+  { q: "What AI data services does eQOURSE provide?", a: "End-to-end AI training data services: custom collection across text, audio, image and video; eight specialized annotation practices; six Data Cleaning & Validation categories covering preparation, label audits, LLM curation, PII protection, metadata enrichment and source-based verification; robotics and physical-AI data; and real-world model testing. Quality criteria are task-specific and agreed during the pilot. eQOURSE is ISO 9001 and ISO 27001 certified." },
   { q: "What types of data annotation does eQOURSE offer?", a: "Eight dedicated practices: LLM/RLHF evaluation and preference data; image annotation; temporal video annotation; document and OCR annotation; text and NLP annotation; audio and speech annotation; 3D point-cloud and LiDAR annotation; and content moderation and trust-and-safety operations. Each has a dedicated page linked from https://www.eqourse.com/ai-data-services/annotation-labeling" },
   { q: "Which dedicated data annotation service pages are available?", a: "Eight services are live: LLM & RLHF, Image, Video, Document & OCR, Text & NLP, Audio & Speech, 3D Point Cloud & LiDAR, and Content Moderation & Trust and Safety. Explore the complete hub at https://www.eqourse.com/ai-data-services/annotation-labeling" },
   { q: "What is the difference between image and video annotation?", a: "Image annotation labels independent still images with classes, boxes, polygons, masks or keypoints. Video annotation adds temporal consistency, persistent object identities, trajectories, action or event ranges and decisions about annotation frequency across a sequence. See https://www.eqourse.com/ai-data-services/annotation-labeling/image-annotation and https://www.eqourse.com/ai-data-services/annotation-labeling/video-annotation" },
@@ -343,9 +420,10 @@ const faqs = [
   { q: "How do you maintain annotation consistency?", a: "We version guidelines, calibrate annotators on representative examples, monitor task-appropriate agreement and gold-set performance, review edge cases, audit batches and use expert adjudication for disagreements. The exact thresholds and sampling plan are agreed for the modality and risk level." },
   { q: "Can you handle specialized domain annotation?", a: "Yes. Our annotators include STEM specialists in medical, legal, financial, and technical domains. We develop custom guidelines, conduct domain-specific training, and use subject matter experts for quality review." },
   { q: "How do you handle RLHF annotation?", a: "Trained human raters for response ranking, instruction-following quality assessment, safety and toxicity labeling, and factual accuracy verification." },
-  { q: "What data cleaning services do you offer?", a: "Five core services: deduplication (exact and near-duplicate removal), noise removal (encoding fixes, HTML stripping, OCR cleanup), PII redaction (configurable replacement strategies), consistency normalization (dates, units, casing, terminology), and metadata enrichment (language codes, domain tags, source provenance)." },
-  { q: "How do you handle PII in datasets?", a: "A combination of regex patterns, NER models, and human review to detect PII (names, emails, phone numbers, addresses, SSNs). Replacement strategies: token replacement, synthetic substitution, or complete removal. All redaction is logged for audit trails." },
-  { q: "Are your processes GDPR compliant?", a: "Yes. GDPR compliant with ISO 27001 and ISO 9001 certifications. All teams sign NDAs, work in isolated environments with role-based access control, and all data transformations are logged with full audit trails and data lineage tracking." },
+  { q: "What data cleaning services do you offer?", a: "Six specialised categories: Data Cleaning & Preparation; Dataset QA & Label Audit; LLM Training Data Curation; PII Detection & Redaction; Metadata Enrichment & Data Standardization; and source-based Data Validation & Verification. All six dedicated pages are live from https://www.eqourse.com/ai-data-services/cleaning-validation" },
+  { q: "What data verification services do you offer?", a: "eQOURSE verifies records, attributes, businesses and organisations, contacts and addresses, document-backed claims and specialist facts against agreed authoritative sources. Sources and conflict hierarchy are defined before production, six field-level states preserve uncertainty, and delivery includes evidence, conflicts, unverifiable items and refresh guidance. Learn more at https://www.eqourse.com/ai-data-services/cleaning-validation/data-validation-verification" },
+  { q: "How do you handle PII in datasets?", a: "PII work can cover text, tables, documents, images, video, audio, code, logs and file metadata. eQOURSE combines appropriate automated discovery with human review, assesses quasi-identifiers where required, applies removal, masking, pseudonymisation or tokenisation to the agreed policy, independently verifies the output and reports residual risk. Learn more at https://www.eqourse.com/ai-data-services/cleaning-validation/pii-detection-redaction" },
+  { q: "Are your processes GDPR compliant?", a: "eQOURSE uses ISO 27001 and ISO 9001 certified processes and can scope GDPR- or DPDP-aligned controls such as NDAs, role-based access, restricted environments, retention rules, audit trails and data lineage. No cleaning or redaction service alone makes a client compliant; the client should confirm legal obligations and lawful basis with its counsel." },
   { q: "Can you clean data that's already been annotated?", a: "Absolutely. We clean pre-annotated data while preserving label integrity — label-aware deduplication, annotation consistency checks, and format validation." },
   { q: "What types of data can you collect?", a: "Four dedicated modalities: Image Data Collection for computer vision; Audio & Speech Data Collection for ASR, TTS and voice AI; Text Data Collection for NLP, LLMs and generative AI; and Video Data Collection for actions, motion, events, multi-view and first-person scenarios. Explore them at https://www.eqourse.com/ai-data-services/data-collection" },
   { q: "What is the difference between data collection and annotation?", a: "Collection creates or sources the raw image, audio, text or video dataset. Annotation adds structure such as bounding boxes, segmentation masks, transcripts, speaker labels, NER, sentiment, action labels or preference rankings. eQOURSE can connect both stages, but they are scoped separately." },
@@ -478,7 +556,7 @@ eQOURSE is a dual-capability solutions company delivering:
 ### AI Data Services
 - **Data Collection**: Custom dataset creation across text, audio, image, video modalities
 - **Annotation & Labeling**: Eight live practices covering LLM/RLHF, image, video, document/OCR, text/NLP, audio/speech, 3D point clouds/LiDAR, and content moderation/trust and safety
-- **Data Cleaning & Validation**: Deduplication, normalization, PII redaction, golden set validation, IAA scoring
+- **Data Cleaning & Validation**: Six specialised categories covering structural cleaning and preparation, independent label auditing, LLM corpus curation, multimodal PII protection, metadata enrichment and source-based human verification
 - **Model Testing**: Human-in-the-loop evaluation via TuTrain, red-teaming, A/B testing, safety assessment
 - **Robotics & Physical AI Training Data**: Human demonstrations, egocentric and multi-view video, multimodal robotics annotation, synchronisation, validation and behaviour evaluation; robot or teleoperation data is scoped around client-provided hardware, approved environments or qualified partners
 - Quality: Task-specific acceptance thresholds and evidence are agreed during the pilot; never apply one universal accuracy metric to every modality
@@ -487,6 +565,8 @@ eQOURSE is a dual-capability solutions company delivering:
 ${dataCollectionKnowledge}
 
 ${annotationLabelingKnowledge}
+
+${cleaningValidationKnowledge}
 
 ### Free Pilot
 eQOURSE offers a 100% free pilot — no payment, no commitment:
