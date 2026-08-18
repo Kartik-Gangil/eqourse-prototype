@@ -6,7 +6,7 @@ require("dotenv").config();
 const logger = require("./src/utils/logger");
 const Blog = require("./src/model/blog");
 const CaseStudy = require("./src/model/caseStudy");
-const { syncCmsSeoPage } = require("./src/utils/cmsSeoPublisher");
+const { syncCmsSeoPage, getCmsSeoTarget } = require("./src/utils/cmsSeoPublisher");
 
 
 // ── Routers ──────────────────────────────────────────────────────────────────
@@ -72,6 +72,7 @@ const PORT = process.env.PORT || 5001;
 const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/eqourse";
 
 async function reconcilePublishedCmsSeo() {
+  logger.info(`CMS SEO live document root: ${getCmsSeoTarget()}`);
   const [blogs, caseStudies] = await Promise.all([
     Blog.find({ status: "published" }).lean(),
     CaseStudy.find({ status: "published" }).lean(),

@@ -76,6 +76,7 @@ npm run build
 exit
 sudo rm -rf /var/www/eqourse/dist/*
 sudo cp -r /opt/eqourse-prototype/dist/* /var/www/eqourse/dist/
+sudo chown -R deployer:deployer /var/www/eqourse/dist
 
 # 8. Restart backend (if backend files changed)
 sudo su - deployer
@@ -180,6 +181,7 @@ Then deploy the built files:
 ```bash
 sudo rm -rf /var/www/eqourse/dist/*
 sudo cp -r /opt/eqourse-prototype/dist/* /var/www/eqourse/dist/
+sudo chown -R deployer:deployer /var/www/eqourse/dist
 ```
 
 Enter the server password when prompted.
@@ -277,6 +279,7 @@ exit
 # Re-deploy
 sudo rm -rf /var/www/eqourse/dist/*
 sudo cp -r /opt/eqourse-prototype/dist/* /var/www/eqourse/dist/
+sudo chown -R deployer:deployer /var/www/eqourse/dist
 ```
 
 ### Rollback Backend

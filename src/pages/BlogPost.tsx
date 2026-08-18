@@ -2,7 +2,7 @@ import { useParams, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import PageLayout from "@/components/shared/PageLayout";
 import { BreadcrumbSchema } from "@/components/shared/BreadcrumbSchema";
-import { Helmet } from "react-helmet-async";
+import ArticleSEOHead from "@/components/shared/ArticleSEOHead";
 import { blogsData, BlogPost as BlogPostType } from "@/components/blog/blogData";
 import BlogPostContent from "@/components/blog/BlogPostContent";
 import { fetchBlogBySlug } from "@/lib/publicApi";
@@ -72,64 +72,42 @@ const BlogPost = () => {
   const seoTitle = blog.seoTitle?.trim() || blog.title;
   const seoDescription = blog.seoDescription?.trim() || blog.excerpt;
   const canonicalUrl = `https://www.eqourse.com${blog.slug}`;
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
+    headline: seoTitle,
+    description: seoDescription,
+    image: blog.coverImageUrl || undefined,
+    author: { "@type": "Organization", name: blog.author },
+    publisher: {
+      "@type": "Organization",
+      name: "eQOURSE",
+      logo: { "@type": "ImageObject", url: "https://www.eqourse.com/logo.png" },
+    },
+    datePublished: blog.publishedAt || undefined,
+    dateModified: blog.updatedAt || blog.publishedAt || undefined,
+    url: canonicalUrl,
+    inLanguage: "en",
+  };
 
   return (
     <PageLayout breadcrumbs={[
       { label: "Blog", href: "/blog" },
       { label: blog.title }
     ]}>
-      <Helmet>
-        <title>{seoTitle}</title>
-        <meta name="description" content={seoDescription} />
-        {blog.keywords && (
-          <meta name="keywords" content={blog.keywords.join(", ")} />
-        )}
-        <meta property="og:title" content={seoTitle} />
-        <meta property="og:description" content={seoDescription} />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={canonicalUrl} />
-        {blog.publishedAt && <meta property="article:published_time" content={blog.publishedAt} />}
-        <meta property="article:author" content={blog.author} />
-        {blog.coverImageUrl && <meta property="og:image" content={blog.coverImageUrl} />}
-        {blog.coverImageUrl && <meta property="og:image:alt" content={blog.coverImageAlt || blog.title} />}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={seoTitle} />
-        <meta name="twitter:description" content={seoDescription} />
-        {blog.coverImageUrl && <meta name="twitter:image" content={blog.coverImageUrl} />}
-        {blog.coverImageUrl && <meta name="twitter:image:alt" content={blog.coverImageAlt || blog.title} />}
-        <link rel="canonical" href={canonicalUrl} />
-
-        {/* BlogPosting Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            mainEntityOfPage: {
-              "@type": "WebPage",
-              "@id": canonicalUrl,
-            },
-            headline: seoTitle,
-            description: seoDescription,
-            image: blog.coverImageUrl || undefined,
-            author: {
-              "@type": "Organization",
-              name: blog.author,
-            },
-            publisher: {
-              "@type": "Organization",
-              name: "eQOURSE",
-              logo: {
-                "@type": "ImageObject",
-                url: "https://www.eqourse.com/logo.png",
-              },
-            },
-            datePublished: blog.publishedAt || undefined,
-            dateModified: blog.updatedAt || blog.publishedAt || undefined,
-            url: canonicalUrl,
-            inLanguage: "en",
-          })}
-        </script>
-      </Helmet>
+      <ArticleSEOHead
+        title={seoTitle}
+        description={seoDescription}
+        canonical={canonicalUrl}
+        keywords={blog.keywords}
+        image={blog.coverImageUrl}
+        imageAlt={blog.coverImageAlt || blog.title}
+        author={blog.author}
+        publishedAt={blog.publishedAt}
+        modifiedAt={blog.updatedAt || blog.publishedAt}
+        schema={articleSchema}
+      />
 
       <BreadcrumbSchema
         items={[

@@ -6,18 +6,31 @@ source: the SEO title and SEO description stored with the CMS entry.
 
 ## Production configuration
 
-Set `FRONTEND_DIST_DIR` to the live frontend document root. That directory must
-contain `index.html` (or `cms-shell.html`) and `sitemap.xml`, and the backend
-process must have write access to it. When the frontend and backend are deployed
-from this repository together, the default `../dist` location is used.
+Set `FRONTEND_DIST_DIR` to the live frontend document root that Nginx actually
+serves. It must not point at the project build copy. In the current eQOURSE
+deployment, the build is created in `/opt/eqourse-prototype/dist` and copied to
+`/var/www/eqourse/dist`; the latter is the required publisher target.
 
 Recommended production values:
 
 ```dotenv
 PUBLIC_SITE_URL=https://www.eqourse.com
-FRONTEND_DIST_DIR=/absolute/path/to/frontend/document-root
+FRONTEND_DIST_DIR=/var/www/eqourse/dist
 CMS_SEO_SYNC_REQUIRED=true
 ```
+
+After copying a new frontend build, restore write ownership before restarting
+PM2. The backend process runs as `deployer` and must be able to create article
+directories and replace `sitemap.xml` atomically:
+
+```bash
+sudo chown -R deployer:deployer /var/www/eqourse/dist
+```
+
+If `FRONTEND_DIST_DIR` is accidentally omitted, Linux production now detects
+`/var/www/eqourse/dist` when that live directory exists. An explicit value is
+still recommended, and a write failure stops production startup instead of
+silently updating the unused `/opt/.../dist` copy.
 
 Restart the backend after deploying. At startup it reconciles every published
 blog and case study, so existing entries are repaired automatically. Afterward,
@@ -38,3 +51,9 @@ For a published case study, verify:
 
 Each generated file should contain exactly one `<title>`, one meta description
 and one canonical link, all sourced from the admin record.
+
+Verify the raw response—not only the browser DOM—after every deployment:
+
+```bash
+curl -s https://www.eqourse.com/blog/example-slug | grep -E '<title|name="description"|rel="canonical"'
+```

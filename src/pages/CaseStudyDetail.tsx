@@ -2,7 +2,7 @@ import { useParams, Navigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ContentServicesLayout from "@/components/content-services/shared/ContentServicesLayout";
 import { BreadcrumbSchema } from "@/components/shared/BreadcrumbSchema";
-import { Helmet } from "react-helmet-async";
+import ArticleSEOHead from "@/components/shared/ArticleSEOHead";
 import { caseStudiesData, CaseStudy } from "@/components/case-studies/caseStudyData";
 import { fetchCaseStudyBySlug } from "@/lib/publicApi";
 import ArticleContent, { SmartArticleLink } from "@/components/shared/ArticleContent";
@@ -140,62 +140,39 @@ const CaseStudyDetail = () => {
   const heroTitle = study.heroImageTitle || study.title;
   const seoTitle = study.seoTitle?.trim() || study.title;
   const seoDescription = study.seoDescription?.trim() || study.cardSummary || study.problem.slice(0, 160);
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
+    headline: seoTitle,
+    description: seoDescription,
+    image: study.image || "",
+    author: { "@type": "Organization", name: "eQOURSE" },
+    publisher: {
+      "@type": "Organization",
+      name: "eQOURSE",
+      logo: { "@type": "ImageObject", url: "https://www.eqourse.com/logo.png" },
+    },
+    datePublished: study.publishedAt || undefined,
+    dateModified: study.updatedAt || study.publishedAt || undefined,
+    url: canonicalUrl,
+    inLanguage: "en",
+  };
 
   return (
     <ContentServicesLayout breadcrumbs={[{ label: "Case Studies", href: "/casestudy" }, { label: study.title }]}>
-      {/* Full SEO Head */}
-      <Helmet>
-        <title>{seoTitle}</title>
-        <meta name="description" content={seoDescription} />
-        <meta name="keywords" content={study.serviceTags?.join(", ")} />
-        <link rel="canonical" href={canonicalUrl} />
-
-        {/* Open Graph */}
-        <meta property="og:title" content={seoTitle} />
-        <meta property="og:description" content={seoDescription} />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={canonicalUrl} />
-        {study.image && <meta property="og:image" content={study.image} />}
-        {study.image && <meta property="og:image:alt" content={heroAlt} />}
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={seoTitle} />
-        <meta name="twitter:description" content={seoDescription} />
-        {study.image && <meta name="twitter:image" content={study.image} />}
-        {study.image && <meta name="twitter:image:alt" content={heroAlt} />}
-
-        {/* JSON-LD Article Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            mainEntityOfPage: {
-              "@type": "WebPage",
-              "@id": canonicalUrl,
-            },
-            headline: seoTitle,
-            description: seoDescription,
-            image: study.image || "",
-            author: {
-              "@type": "Organization",
-              name: "eQOURSE",
-            },
-            publisher: {
-              "@type": "Organization",
-              name: "eQOURSE",
-              logo: {
-                "@type": "ImageObject",
-                url: "https://www.eqourse.com/logo.png",
-              },
-            },
-            datePublished: study.publishedAt || undefined,
-            dateModified: study.updatedAt || study.publishedAt || undefined,
-            url: canonicalUrl,
-            inLanguage: "en",
-          })}
-        </script>
-      </Helmet>
+      <ArticleSEOHead
+        title={seoTitle}
+        description={seoDescription}
+        canonical={canonicalUrl}
+        keywords={study.serviceTags}
+        image={study.image}
+        imageAlt={heroAlt}
+        author="eQOURSE"
+        publishedAt={study.publishedAt}
+        modifiedAt={study.updatedAt || study.publishedAt}
+        schema={articleSchema}
+      />
 
       <BreadcrumbSchema
         items={[

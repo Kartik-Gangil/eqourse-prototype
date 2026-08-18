@@ -1,4 +1,5 @@
 const fs = require("fs/promises");
+const fsSync = require("fs");
 const path = require("path");
 
 const SITE_URL = (process.env.PUBLIC_SITE_URL || "https://www.eqourse.com").replace(/\/+$/, "");
@@ -26,7 +27,37 @@ function normalizeSlug(slug) {
 }
 
 function getFrontendDistDir() {
-  return path.resolve(process.env.FRONTEND_DIST_DIR || path.join(__dirname, "..", "..", "..", "dist"));
+  if (process.env.FRONTEND_DIST_DIR) {
+    return path.resolve(process.env.FRONTEND_DIST_DIR);
+  }
+
+  // The production deployment builds in /opt and then copies the public files
+  // to Nginx's document root. Writing back into /opt/dist succeeds but changes
+  // nothing on the live site. Prefer the known live root when it exists so a
+  // missing environment variable cannot silently publish to the wrong copy.
+  const liveCandidates = [
+    process.env.FRONTEND_LIVE_DIST_DIR,
+    process.platform !== "win32" ? "/var/www/eqourse/dist" : undefined,
+  ].filter(Boolean).map((candidate) => path.resolve(candidate));
+
+  const liveRoot = liveCandidates.find((candidate) => (
+    fsSync.existsSync(path.join(candidate, "cms-shell.html")) ||
+    fsSync.existsSync(path.join(candidate, "index.html"))
+  ));
+  if (liveRoot) return liveRoot;
+
+  return path.resolve(path.join(__dirname, "..", "..", "..", "dist"));
+}
+
+async function writeFileAtomic(filePath, content) {
+  const temporaryPath = `${filePath}.${process.pid}.${Date.now()}.tmp`;
+  try {
+    await fs.writeFile(temporaryPath, content, "utf8");
+    await fs.rename(temporaryPath, filePath);
+  } catch (error) {
+    await fs.rm(temporaryPath, { force: true }).catch(() => undefined);
+    throw error;
+  }
 }
 
 function absoluteUrl(value, fallback = "") {
@@ -123,7 +154,7 @@ async function writeSitemapEntry(distDir, canonical, lastmod, removeOnly = false
     const date = lastmod ? `<lastmod>${escapeHtml(String(lastmod).slice(0, 10))}</lastmod>` : "";
     xml = xml.replace("</urlset>", `  <url><loc>${escapeHtml(canonical)}</loc>${date}</url>\n</urlset>`);
   }
-  await fs.writeFile(sitemapPath, xml, "utf8");
+  await writeFileAtomic(sitemapPath, xml);
 }
 
 async function publishNow(type, article) {
@@ -162,7 +193,7 @@ async function publishNow(type, article) {
   html = html.replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root">${root}</div>`);
   const outputDir = path.join(distDir, routeBase, slug);
   await fs.mkdir(outputDir, { recursive: true });
-  await fs.writeFile(path.join(outputDir, "index.html"), html, "utf8");
+  await writeFileAtomic(path.join(outputDir, "index.html"), html);
   await writeSitemapEntry(distDir, canonical, article.updatedAt || article.publishedAt);
   return { path: path.join(outputDir, "index.html"), canonical };
 }
@@ -196,5 +227,6 @@ function removeCmsSeoPage(type, slug) {
 module.exports = {
   syncCmsSeoPage,
   removeCmsSeoPage,
-  _internal: { escapeHtml, normalizeSlug, stripManagedMetadata, getFrontendDistDir },
+  getCmsSeoTarget: getFrontendDistDir,
+  _internal: { escapeHtml, normalizeSlug, stripManagedMetadata, getFrontendDistDir, writeFileAtomic },
 };
