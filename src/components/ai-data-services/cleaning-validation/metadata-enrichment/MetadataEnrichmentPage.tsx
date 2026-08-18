@@ -88,11 +88,11 @@ const MetadataEnrichmentPage = () => (
       description="Language, domain, quality and provenance tagging, entity resolution and taxonomy mapping—so AI datasets stay filterable, reusable and auditable."
       canonical={canonical}
       keywords="metadata enrichment services, data standardization services, AI dataset metadata, entity resolution services, data lineage services, taxonomy mapping, provenance metadata, training data governance"
-      ogImage="https://www.eqourse.com/assets/ai-data/cleaning-validation/metadata-enrichment/metadata-enrichment-og.jpg"
+      ogImage="https://www.eqourse.com/assets/ai-data/cleaning-validation/metadata-enrichment/metadata-enrichment-og.webp"
     />
     <Helmet>
       <meta name="robots" content="index, follow, max-image-preview:large" />
-      <link rel="preload" as="image" href="/assets/ai-data/cleaning-validation/metadata-enrichment/metadata-enrichment-services-hero.avif" type="image/avif" fetchPriority="high" />
+      <link rel="preload" as="image" href="/assets/ai-data/cleaning-validation/metadata-enrichment/metadata-enrichment-services-hero.webp" type="image/avif" fetchPriority="high" />
       <script type="application/ld+json">{JSON.stringify(schema)}</script>
     </Helmet>
     <MetadataMotionStyles />
@@ -106,7 +106,7 @@ const MetadataEnrichmentPage = () => (
       ctaLink="/free-pilot"
       secondaryCtaText="Talk to a Data Specialist"
       secondaryCtaLink="/contact-us"
-      imageSrc="/assets/ai-data/cleaning-validation/metadata-enrichment/metadata-enrichment-services-hero.avif"
+      imageSrc="/assets/ai-data/cleaning-validation/metadata-enrichment/metadata-enrichment-services-hero.webp"
       imageAlt="Data specialist reviewing abstract metadata fields and dataset coverage on two monitors"
       imageWidth={1200}
       imageHeight={800}

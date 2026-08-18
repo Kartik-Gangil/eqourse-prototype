@@ -89,14 +89,14 @@ const PiiRedactionPage = () => (
       description="PII detection and redaction across text, images, video, audio and documents—including quasi-identifiers, metadata and verified recall."
       canonical={canonical}
       keywords="PII detection services, PII redaction services, data anonymization services, data masking services, pseudonymization services, personal data removal, sensitive data redaction, GDPR data redaction, DPDP data redaction, training data privacy"
-      ogImage="https://www.eqourse.com/assets/ai-data/cleaning-validation/pii-detection-redaction/pii-detection-redaction-og.jpg"
+      ogImage="https://www.eqourse.com/assets/ai-data/cleaning-validation/pii-detection-redaction/pii-detection-redaction-og.webp"
     />
     <Helmet>
       <meta name="robots" content="index, follow, max-image-preview:large" />
       <link
         rel="preload"
         as="image"
-        href="/assets/ai-data/cleaning-validation/pii-detection-redaction/pii-detection-redaction-services-hero.avif"
+        href="/assets/ai-data/cleaning-validation/pii-detection-redaction/pii-detection-redaction-services-hero.webp"
         type="image/avif"
         fetchPriority="high"
       />
@@ -113,7 +113,7 @@ const PiiRedactionPage = () => (
       ctaLink="/free-pilot"
       secondaryCtaText="Talk to a Privacy Data Specialist"
       secondaryCtaLink="/contact-us"
-      imageSrc="/assets/ai-data/cleaning-validation/pii-detection-redaction/pii-detection-redaction-services-hero.avif"
+      imageSrc="/assets/ai-data/cleaning-validation/pii-detection-redaction/pii-detection-redaction-services-hero.webp"
       imageAlt="Privacy data specialist reviewing an abstract redaction workspace containing no real personal information"
       imageWidth={1200}
       imageHeight={800}

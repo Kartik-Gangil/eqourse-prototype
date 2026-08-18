@@ -89,7 +89,7 @@ const DataValidationVerificationPage = () => (
     />
     <Helmet>
       <meta name="robots" content="index, follow, max-image-preview:large" />
-      <link rel="preload" as="image" href="/assets/ai-data/cleaning-validation/data-validation-verification/data-validation-verification-services-hero.avif" type="image/avif" fetchPriority="high" />
+      <link rel="preload" as="image" href="/assets/ai-data/cleaning-validation/data-validation-verification/data-validation-verification-services-hero.webp" type="image/avif" fetchPriority="high" />
       <script type="application/ld+json">{JSON.stringify(schema)}</script>
     </Helmet>
     <VerificationMotionStyles />
@@ -103,7 +103,7 @@ const DataValidationVerificationPage = () => (
       ctaLink="/free-pilot"
       secondaryCtaText="Talk to a Data Specialist"
       secondaryCtaLink="/contact-us"
-      imageSrc="/assets/ai-data/cleaning-validation/data-validation-verification/data-validation-verification-services-hero.avif"
+      imageSrc="/assets/ai-data/cleaning-validation/data-validation-verification/data-validation-verification-services-hero.webp"
       imageAlt="Reviewer checking record values against an authoritative source with verification status indicators"
       imageWidth={1200}
       imageHeight={800}

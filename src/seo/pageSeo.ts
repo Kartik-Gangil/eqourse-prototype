@@ -164,13 +164,13 @@ export const pageSeo: Record<string, PageSeo> = {
     title: "PII Detection & Redaction Services | eQOURSE",
     description: "PII detection and redaction across text, images, video, audio and documents—including quasi-identifiers, metadata and verified recall.",
     canonical: "https://www.eqourse.com/ai-data-services/cleaning-validation/pii-detection-redaction",
-    image: "/assets/ai-data/cleaning-validation/pii-detection-redaction/pii-detection-redaction-og.jpg",
+    image: "/assets/ai-data/cleaning-validation/pii-detection-redaction/pii-detection-redaction-og.webp",
   },
   "/ai-data-services/cleaning-validation/metadata-enrichment": {
     title: "Metadata Enrichment & Data Standardization | eQOURSE",
     description: "Language, domain, quality and provenance tagging, entity resolution and taxonomy mapping—so AI datasets stay filterable, reusable and auditable.",
     canonical: "https://www.eqourse.com/ai-data-services/cleaning-validation/metadata-enrichment",
-    image: "/assets/ai-data/cleaning-validation/metadata-enrichment/metadata-enrichment-og.jpg",
+    image: "/assets/ai-data/cleaning-validation/metadata-enrichment/metadata-enrichment-og.webp",
   },
   "/ai-data-services/cleaning-validation/data-validation-verification": {
     title: "Data Verification Services | Human-in-the-Loop | eQOURSE",
