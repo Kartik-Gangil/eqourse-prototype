@@ -76,6 +76,7 @@ export function generateId(): string {
 
 /** Only the most recent turns are sent — the backend enforces the same cap. */
 const HISTORY_MAX_TURNS = 20;
+const CHAT_REQUEST_TIMEOUT_MS = 45_000;
 
 /**
  * Send a message to the chatbot and get a response.
@@ -99,18 +100,27 @@ export async function sendChatMessage(
   }));
 
   try {
-    const res = await fetch(`${apiBase}/api/chat`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "ngrok-skip-browser-warning": "true",
-      },
-      body: JSON.stringify({
-        message: userMessage,
-        history: apiHistory,
-        pageContext,
-      }),
-    });
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), CHAT_REQUEST_TIMEOUT_MS);
+
+    let res: Response;
+    try {
+      res = await fetch(`${apiBase}/api/chat`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "ngrok-skip-browser-warning": "true",
+        },
+        body: JSON.stringify({
+          message: userMessage,
+          history: apiHistory,
+          pageContext,
+        }),
+        signal: controller.signal,
+      });
+    } finally {
+      window.clearTimeout(timeout);
+    }
 
     if (!res.ok) {
       const body = await res.json().catch(() => ({}));
@@ -120,12 +130,18 @@ export async function sendChatMessage(
       );
     }
 
-    const data = await res.json();
+    const data = (await res.json()) as { reply?: string; complete?: boolean };
+    if (data.complete === false) {
+      return "I couldn't complete that answer reliably. Please try again, or contact us at info@eqourse.com.";
+    }
     return (
       data.reply ||
       "I apologize, but I couldn't generate a response. Please try rephrasing your question."
     );
-  } catch {
+  } catch (error) {
+    if (error instanceof DOMException && error.name === "AbortError") {
+      return "That response took too long, so I stopped it instead of leaving the chat hanging. Please try again.";
+    }
     return "I'm unable to connect right now. You can reach us directly at info@eqourse.com or call +91-92144-45870.";
   }
 }

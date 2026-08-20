@@ -28,11 +28,14 @@ const bridgeCopy: Record<RoboticsBridgeContext, { eyebrow: string; body: string;
 
 const RoboticsServiceBridge = ({ context }: { context: RoboticsBridgeContext }) => {
   const content = bridgeCopy[context];
+  const destination = context === "collection"
+    ? "/robotics-training-data-services/human-demonstrations"
+    : "/robotics-training-data-services";
 
   return (
     <section className="bg-background px-4 py-8">
       <Link
-        to="/robotics-training-data-services"
+        to={destination}
         className="group mx-auto flex max-w-6xl flex-col gap-5 overflow-hidden rounded-[1.75rem] border border-primary/20 bg-white/70 p-6 shadow-card backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-elevated md:flex-row md:items-center md:p-8"
       >
         <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-primary text-white shadow-soft">

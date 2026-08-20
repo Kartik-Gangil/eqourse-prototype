@@ -50,9 +50,9 @@ const contentServicesSubLinks: SubLink[] = contentServicesCategories.map(c => ({
 
 const navLinks: MainLink[] = [
   { label: "Home", to: "/" },
-  { label: "About Us", to: "/aboutus", dropdown: aboutUsSubLinks },
-  { label: "Content Services", to: "/content-services", dropdown: contentServicesSubLinks, megaMenu: true },
   { label: "AI Data Services", to: "/ai-data-services", dropdown: aiDataSubLinks, aiMegaMenu: true },
+  { label: "Content Services", to: "/content-services", dropdown: contentServicesSubLinks, megaMenu: true },
+  { label: "About Us", to: "/aboutus", dropdown: aboutUsSubLinks },
   { label: "Samples", to: "/samples", samplesMenu: true },
   { label: "TUTRAIN", to: "/tutrain", subtext: "Our Online Tutoring Brand" },
   { label: "eQOURSE+", to: "https://plus.eqourse.com", subtext: "Our Talent Platform", external: true },
@@ -321,12 +321,12 @@ const AIDataServicesMegaMenu = ({ onClose }: { onClose: () => void }) => {
 
   return (
     <nav
-      className="absolute top-full -left-[43vw] w-[97vw] max-w-[1350px] bg-card/95 rounded-3xl border border-border/50 shadow-elevated animate-slide-up z-50 overflow-hidden max-h-[80vh]"
+      className="fixed inset-x-4 top-16 mx-auto w-auto max-w-[1350px] bg-card/95 rounded-3xl border border-border/50 shadow-elevated animate-slide-up z-50 overflow-hidden max-h-[calc(100dvh-116px)]"
       style={{ backdropFilter: "blur(20px)" }}
       aria-label="AI Data Services navigation"
     >
       <div className="flex min-h-[450px]">
-        <div className="w-[330px] border-r border-border/40 py-6 bg-secondary/30 flex flex-col overflow-auto max-h-[80vh]" role="list" aria-label="AI Data service categories">
+        <div className="w-[280px] xl:w-[330px] border-r border-border/40 py-6 bg-secondary/30 flex flex-col overflow-auto max-h-[calc(100dvh-116px)]" role="list" aria-label="AI Data service categories">
           <Link to="/ai-data-services" onClick={onClose} className="px-6 py-2 mb-1 text-[11px] font-bold uppercase tracking-widest text-muted-foreground/70 hover:text-primary">
             AI Data Expertise
           </Link>
@@ -352,7 +352,7 @@ const AIDataServicesMegaMenu = ({ onClose }: { onClose: () => void }) => {
           })}
         </div>
 
-        <div className="flex-1 min-w-0 py-6 px-6 border-r border-border/40 overflow-auto max-h-[80vh]">
+        <div className="flex-1 min-w-0 py-6 px-6 border-r border-border/40 overflow-auto max-h-[calc(100dvh-116px)]">
           <Link to={category.href} onClick={onClose} className="group flex items-center gap-2 px-3 py-2 mb-2 text-xl font-bold text-foreground hover:text-primary transition-colors">
             <category.icon className="w-6 h-6 text-primary" aria-hidden="true" />
             <span>{category.label}</span>
@@ -388,7 +388,7 @@ const AIDataServicesMegaMenu = ({ onClose }: { onClose: () => void }) => {
           </Link>
         </div>
 
-        <aside className="w-[330px] p-6 flex flex-col overflow-auto max-h-[80vh]" aria-live="polite">
+        <aside className="w-[280px] xl:w-[330px] p-6 flex flex-col overflow-auto max-h-[calc(100dvh-116px)]" aria-live="polite">
           {subService ? (
             <div className="flex flex-col h-full animate-fade-in" key={`${activeCategoryIndex}-${activeSubIndex}`}>
               <div className="flex items-center gap-3 pb-4 mb-4 border-b border-border/40">

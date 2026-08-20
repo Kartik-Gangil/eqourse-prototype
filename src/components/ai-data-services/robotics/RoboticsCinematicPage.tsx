@@ -38,8 +38,16 @@ const PILOT_LINK = "/free-pilot?service=robotics-training-data&source=robotics-t
 const CONTACT_LINK = "/contact-us?service=robotics-training-data&source=robotics-training-data-services#contact-form";
 const ASSET_ROOT = "/assets/ai-data/robotics";
 
-const capabilities = [
-  { icon: Video, title: "Human demonstration data", short: "Egocentric, third-person and multi-view video", body: "Complete task recordings including hand-object interaction, spoken instructions, successful attempts, failures and recovery behaviour." },
+type RoboticsCapability = {
+  icon: typeof Video;
+  title: string;
+  short: string;
+  body: string;
+  href?: string;
+};
+
+const capabilities: RoboticsCapability[] = [
+  { icon: Video, title: "Human demonstration data", short: "Teleoperation, egocentric and multi-view capture", body: "Complete task episodes with action-state correspondence, deliberate failure and recovery, and per-episode QA.", href: "/robotics-training-data-services/human-demonstrations" },
   { icon: Bot, title: "Robot interaction data", short: "Teleoperation, trajectories & state logs", body: "Action trajectories, joint or state logs, operator interventions and outcomes captured through client-approved robots and environments." },
   { icon: Database, title: "Multimodal sensor data", short: "RGB, RGB-D, depth, audio, pose and metadata", body: "Time-aligned sensor streams prepared around the modalities, calibration information and metadata required by your model." },
   { icon: Tags, title: "Robotics data annotation", short: "Objects, actions, contact, intent and outcomes", body: "Bounding boxes, masks, tracking, pose, task steps, grasp points, affordances, contact events and language-action alignment." },
@@ -253,11 +261,11 @@ const RoboticsCinematicPage = () => {
             <p>Choose one service or combine them into a managed data programme built around your robot, task and model requirements.</p>
           </div>
           <div className="rx-capabilities__rail">
-            {capabilities.map(({ icon: Icon, title, short, body }, index) => (
+            {capabilities.map(({ icon: Icon, title, short, body, href }, index) => (
               <MotionReveal key={title} className="rx-capability" delay={index * 0.04}>
                 <span className="rx-capability__number">0{index + 1}</span>
                 <Icon />
-                <div><h3>{title}</h3><strong>{short}</strong><p>{body}</p></div>
+                <div><h3>{href ? <Link to={href}>{title}</Link> : title}</h3><strong>{short}</strong><p>{body}</p>{href && <Link to={href} className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#09a98f]">Explore Human Demonstrations <ArrowRight className="h-4 w-4"/></Link>}</div>
               </MotionReveal>
             ))}
           </div>

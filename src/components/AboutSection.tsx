@@ -23,7 +23,7 @@ const AboutSection = () => {
                   id="about-video-player"
                   className="absolute inset-0 w-full h-full border-0"
                   src="https://www.youtube-nocookie.com/embed/BglRq9Qu0RE?autoplay=1&enablejsapi=1&rel=0"
-                  title="eQOURSE - Global Learning Content and AI Data Solutions Partner"
+                  title="eQOURSE - Global AI Data and Learning Content Solutions Partner"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 />
@@ -36,7 +36,7 @@ const AboutSection = () => {
                 >
                   <img
                     src="https://i.ytimg.com/vi/BglRq9Qu0RE/hqdefault.jpg"
-                    alt="eQOURSE global learning content and AI data solutions video preview"
+                    alt="eQOURSE global AI data and learning content solutions video preview"
                     width={480}
                     height={360}
                     loading="lazy"
@@ -66,16 +66,16 @@ const AboutSection = () => {
           <div className="space-y-6">
             <span className="text-sm font-semibold tracking-wider uppercase text-primary">Who Are We?</span>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground leading-tight">
-              Powering Global Learning Content & AI-Data Solutions - <span className="text-gradient">From Quality Content to Quality Data</span>
+              Powering Production-Ready AI &amp; Global Learning - <span className="text-gradient">From Quality Data to Quality Content</span>
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              eQOURSE is a dual-capability solutions partner supporting learning and artificial Intelligence domains through scalable content, assessment, and data services.
+              eQOURSE is a dual-capability partner supporting artificial intelligence and learning teams through scalable data, content and assessment services.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              We are a global learning content and AI data solutions partner supporting enterprises, governments, publishers, Content Services platforms, universities, and NGOs with scalable, high-quality solutions for education, workforce training, certification, and large-scale learning programs.
+              For <strong className="text-foreground">AI, ML and robotics teams</strong>, we deliver production-grade training data services—including custom dataset collection, expert annotation and labeling, data cleaning and validation, real-world model testing, and <Link to="/robotics-training-data-services" className="font-semibold text-primary hover:underline">Robotics &amp; Physical AI training data</Link>—across text, audio, image, video and multimodal robot-learning data.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              For <strong className="text-foreground">AI, ML and robotics teams</strong>, we deliver production-grade training data services—including custom dataset collection, expert annotation and labeling, data cleaning and validation, real-world model testing, and <Link to="/robotics-training-data-services" className="font-semibold text-primary hover:underline">Robotics & Physical AI training data</Link>—across text, audio, image, video and multimodal robot-learning data.
+              For learning organisations, we provide scalable content and assessment solutions to enterprises, governments, publishers, EdTech platforms, universities and NGOs across education, workforce training, certification and large-scale learning programmes.
             </p>
             <div className="flex items-center gap-6 pt-2">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">

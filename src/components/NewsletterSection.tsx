@@ -7,20 +7,20 @@ const NewsletterSection = () => {
           className="font-heading text-3xl md:text-4xl font-bold mb-4 leading-tight px-2"
           style={{ color: 'hsl(0, 0%, 100%)' }}
         >
-          Insights Shaping the Future of Content and AI
+          Insights Shaping the Future of AI and Content
         </h2>
         <p
           className="text-base sm:text-lg max-w-2xl mx-auto mb-8 px-4 leading-relaxed"
           style={{ color: 'hsl(242, 20%, 70%)' }}
         >
-          Follow us on LinkedIn for insights on learning, content, and AI solutions at scale.
+          Follow us on LinkedIn for insights on AI data, model quality and scalable learning content.
         </p>
 
         <a
           href="https://www.linkedin.com/company/eqourse"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Follow eQOURSE on LinkedIn for learning, content, and AI insights"
+          aria-label="Follow eQOURSE on LinkedIn for AI data and learning content insights"
           className="inline-flex items-center gap-3 px-8 py-3.5 rounded-xl font-semibold text-sm sm:text-base text-white transition-all duration-300 hover:opacity-90 hover:scale-105 shadow-soft"
           style={{ background: 'linear-gradient(135deg, hsl(170, 82%, 36%), hsl(168, 80%, 28%))' }}
         >

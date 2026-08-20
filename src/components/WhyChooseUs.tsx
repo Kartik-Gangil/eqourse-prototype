@@ -12,7 +12,7 @@ const reasons = [
   {
     icon: Handshake,
     title: "Dual-Capability Global Partner",
-    desc: "End-to-end learning solutions across content, assessments, and AI-driven delivery built within one unified ecosystem.",
+    desc: "End-to-end AI data and learning solutions across training data, content, assessments, and model-quality workflows within one unified ecosystem.",
     tags: "Integrated workflows • Accessibility-first design • Scalable delivery infrastructure",
   },
   {
@@ -149,7 +149,7 @@ const WhyChooseUs = () => {
         <div className="mb-8 sm:mb-12">
           <span className="text-sm font-semibold tracking-wider uppercase text-primary">Why eQOURSE</span>
           <h2 id="why-eqourse-heading" className="font-heading text-3xl md:text-4xl font-bold text-foreground mt-1">
-            Why Choose <span className="text-gradient">eQOURSE?</span>
+            Why Global Teams Choose <span className="text-gradient">eQOURSE</span>
           </h2>
         </div>
 
@@ -160,7 +160,7 @@ const WhyChooseUs = () => {
             <div className="rounded-2xl overflow-hidden shadow-elevated">
               <img
                 src={strategyImage}
-                alt="Why Choose eQOURSE - Global Learning Content and AI Data Solutions Partner with 500+ Specialists"
+                alt="eQOURSE specialists supporting AI data and global learning projects"
                 width={800}
                 height={600}
                 loading="lazy"
@@ -204,7 +204,7 @@ const WhyChooseUs = () => {
           <div className="rounded-2xl overflow-hidden shadow-elevated mb-8">
             <img
               src={strategyImage}
-              alt="Why Choose eQOURSE - Global Learning Content and AI Data Solutions Partner with 500+ Specialists"
+              alt="eQOURSE specialists supporting AI data and global learning projects"
               width={800}
               height={600}
               loading="lazy"

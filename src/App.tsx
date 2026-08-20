@@ -46,6 +46,7 @@ const AIASRSpeechModelTesting = lazy(() => import("./pages/AIASRSpeechModelTesti
 const AIComputerVisionModelTesting = lazy(() => import("./pages/AIComputerVisionModelTesting.tsx"));
 const AIHumanEvaluationABTesting = lazy(() => import("./pages/AIHumanEvaluationABTesting.tsx"));
 const RoboticsTrainingData = lazy(() => import("./pages/RoboticsTrainingData.tsx"));
+const RoboticsHumanDemonstrations = lazy(() => import("./pages/RoboticsHumanDemonstrations.tsx"));
 const ContentServicesOverview = lazy(() => import("./pages/ContentServicesOverview.tsx"));
 const CustomElearningContent = lazy(() => import("./pages/CustomElearningContent.tsx"));
 const ExamPreparationContent = lazy(() => import("./pages/ExamPreparationContent.tsx"));
@@ -164,6 +165,7 @@ const App = () => (
               <Route path="/ai-data-services/model-testing/computer-vision-model-testing" element={<AIComputerVisionModelTesting />} />
               <Route path="/ai-data-services/model-testing/human-evaluation-ab-testing" element={<AIHumanEvaluationABTesting />} />
               <Route path="/robotics-training-data-services" element={<RoboticsTrainingData />} />
+              <Route path="/robotics-training-data-services/human-demonstrations" element={<RoboticsHumanDemonstrations />} />
 
               {/* Content Service - Category Pages */}
               <Route path="/content-services" element={<ContentServicesOverview />} />

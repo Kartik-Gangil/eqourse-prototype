@@ -118,7 +118,7 @@ const CardIllustrations: Record<string, React.FC<{ className?: string }>> = {
       <circle cx="140" cy="120" r="2" fill="currentColor" opacity="0.12" />
     </svg>
   ),
-  "Data Collection": ({ className }) => (
+  "AI Data Collection": ({ className }) => (
     <svg className={className} viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
       {/* Database cylinders */}
       <ellipse cx="80" cy="50" rx="35" ry="12" fill="currentColor" opacity="0.15" />
@@ -142,7 +142,7 @@ const CardIllustrations: Record<string, React.FC<{ className?: string }>> = {
       <path d="M30 130 L45 130" stroke="currentColor" opacity="0.08" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   ),
-  "Annotation & Labeling": ({ className }) => (
+  "Data Annotation & Labeling": ({ className }) => (
     <svg className={className} viewBox="0 0 160 140" fill="none" xmlns="http://www.w3.org/2000/svg">
       {/* Tag shapes */}
       <path d="M50 40 L90 40 L110 60 L90 80 L50 80 Z" fill="currentColor" opacity="0.12" />
@@ -174,7 +174,7 @@ const CardIllustrations: Record<string, React.FC<{ className?: string }>> = {
       <line x1="137" y1="80" x2="137" y2="95" stroke="currentColor" opacity="0.1" strokeWidth="1.5" />
     </svg>
   ),
-  "Model Testing": ({ className }) => (
+  "AI Model Testing": ({ className }) => (
     <svg className={className} viewBox="0 0 160 140" fill="none" xmlns="http://www.w3.org/2000/svg">
       {/* Flask */}
       <rect x="70" y="25" width="20" height="35" rx="2" fill="currentColor" opacity="0.12" />
@@ -313,37 +313,42 @@ const educationServices = [
 const aiServices = [
   {
     icon: Database,
-    title: "Data Collection",
-    description: "Custom text, audio, image, video datasets. 30+ languages with domain-specific sourcing.",
+    title: "AI Data Collection",
+    description: "Custom image, audio, text, video and multimodal data collection designed around users, languages, devices and deployment environments.",
     link: "/ai-data-services/data-collection",
+    cta: "Explore AI Data Collection Services",
     accent: "from-primary/20 to-accent/10",
   },
   {
     icon: Tag,
-    title: "Annotation & Labeling",
-    description: "NLP, Computer Vision, Audio, RLHF. Inter-annotator agreement ≥ 0.80.",
+    title: "Data Annotation & Labeling",
+    description: "Expert annotation and labeling for image, video, text, speech, documents, LLM feedback and other machine learning datasets.",
     link: "/ai-data-services/annotation-labeling",
+    cta: "Explore Data Annotation & Labeling Services",
     accent: "from-accent/20 to-primary/10",
   },
   {
     icon: ShieldCheck,
     title: "Data Cleaning & Validation",
-    description: "Deduplication, PII redaction, 98%+ accuracy. GDPR-ready processes.",
+    description: "Prepare reliable AI training datasets through deduplication, label auditing, PII handling, quality validation and structured data cleaning.",
     link: "/ai-data-services/cleaning-validation",
+    cta: "Explore Data Cleaning & Validation Services",
     accent: "from-primary/15 to-accent/15",
   },
   {
     icon: FlaskConical,
-    title: "Model Testing",
-    description: <>Closed-loop pipeline. Real users via <Link to="/tutrain" className="text-primary hover:underline">TUTRAIN</Link>. 20–40% faster model improvement.</>,
+    title: "AI Model Testing",
+    description: "Evaluate AI models for accuracy, safety, reliability and real-world performance with structured expert testing and human evaluation.",
     link: "/ai-data-services/model-testing",
+    cta: "Explore AI Model Testing Services",
     accent: "from-accent/15 to-primary/20",
   },
   {
     icon: Bot,
-    title: "Robotics & Physical AI Training Data",
-    description: "Human demonstrations, egocentric and multi-view video, language-action data, robotics annotation, multimodal validation, and real-world behaviour evaluation.",
+    title: "Robotics Training Data",
+    description: "Build training datasets for robotics and Physical AI with real-world video, multimodal annotation, validation and model evaluation.",
     link: "/robotics-training-data-services",
+    cta: "Explore Robotics Training Data Services",
     accent: "from-primary/20 to-accent/15",
   },
 ];
@@ -353,7 +358,7 @@ interface ServicesSectionProps {
   onTabChange?: (tab: "education" | "ai") => void;
 }
 
-const ServicesSection = ({ activeTab = "education", onTabChange }: ServicesSectionProps) => {
+const ServicesSection = ({ activeTab = "ai", onTabChange }: ServicesSectionProps) => {
   const services = activeTab === "education" ? educationServices : aiServices;
   const setActiveTab = (tab: "education" | "ai") => onTabChange?.(tab);
 
@@ -363,33 +368,39 @@ const ServicesSection = ({ activeTab = "education", onTabChange }: ServicesSecti
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="text-sm font-semibold tracking-wider uppercase text-primary">What We Do</span>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mt-2 mb-4">
-            Our Services & <span className="text-gradient">Solutions</span>
+            {activeTab === "ai" ? <>AI Data Services for <span className="text-gradient">Production-Ready AI</span></> : <>Content Services for <span className="text-gradient">Education &amp; Learning Businesses</span></>}
           </h2>
           <p className="text-muted-foreground text-lg">
-            Comprehensive suite of educational technology and AI data services tailored to diverse needs.
+            {activeTab === "ai"
+              ? "From purpose-built data collection to annotation, validation and model testing, eQOURSE supports AI teams across the complete training data lifecycle. Our expert-led workflows help transform raw data into reliable, model-ready datasets for machine learning, generative AI, computer vision, speech AI and Physical AI."
+              : "eQOURSE delivers scalable educational content solutions for publishers, EdTech companies, institutions and digital learning platforms. From custom eLearning content and assessments to localisation, technology solutions and subject-matter expertise, our teams support end-to-end content development."}
           </p>
         </div>
 
         {/* Tab Toggle */}
         <div className="flex justify-center mb-14">
-          <div className="inline-flex bg-muted rounded-xl p-1.5 gap-1">
-            <button
-              onClick={() => setActiveTab("education")}
-              className={`px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 ${activeTab === "education"
-                  ? "bg-gradient-primary text-primary-foreground shadow-soft"
-                  : "text-muted-foreground hover:text-foreground"
-                }`}
-            >
-              📚 Content Services
-            </button>
+          <div className="inline-flex bg-muted rounded-xl p-1.5 gap-1" role="tablist" aria-label="Service categories">
             <button
               onClick={() => setActiveTab("ai")}
+              role="tab"
+              aria-selected={activeTab === "ai"}
               className={`px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 ${activeTab === "ai"
                   ? "bg-gradient-primary text-primary-foreground shadow-soft"
                   : "text-muted-foreground hover:text-foreground"
                 }`}
             >
               🤖 AI Data Services
+            </button>
+            <button
+              onClick={() => setActiveTab("education")}
+              role="tab"
+              aria-selected={activeTab === "education"}
+              className={`px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 ${activeTab === "education"
+                  ? "bg-gradient-primary text-primary-foreground shadow-soft"
+                  : "text-muted-foreground hover:text-foreground"
+                }`}
+            >
+              📚 Content Services
             </button>
           </div>
         </div>
@@ -424,7 +435,7 @@ const ServicesSection = ({ activeTab = "education", onTabChange }: ServicesSecti
                     <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
                   </div>
                   <Link to={service.link} className="inline-flex items-center text-sm font-semibold text-primary hover:gap-3 gap-2 transition-all mt-4 sm:mt-6 group/link">
-                    Learn More <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                    {"cta" in service ? service.cta : `Explore ${service.title}`} <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>

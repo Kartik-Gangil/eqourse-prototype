@@ -88,7 +88,7 @@ const OurBrandsSection = () => {
             </h3>
             
             <p className="text-muted-foreground mb-8 flex-grow leading-relaxed">
-              The upcoming central hub for our talent network. eQOURSE+ will serve as our proprietary platform to verify, onboard, and manage the specialized subject matter experts and vendor agencies who power our Content Services and AI Data Services operations worldwide.
+              The upcoming central hub for our talent network. eQOURSE+ will serve as our proprietary platform to verify, onboard, and manage the specialised subject matter experts and vendor agencies who power our AI Data Services and Content Services operations worldwide.
             </p>
             
             <div className="pt-6 border-t border-border/50">

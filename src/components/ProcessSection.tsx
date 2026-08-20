@@ -27,7 +27,7 @@ const aiSteps = [
 ];
 
 const ProcessSection = () => {
-  const [activeTab, setActiveTab] = useState<"education" | "ai">("education");
+  const [activeTab, setActiveTab] = useState<"education" | "ai">("ai");
 
   const steps = activeTab === "education" ? educationSteps : aiSteps;
 
@@ -47,20 +47,11 @@ const ProcessSection = () => {
 
         {/* Tab Switcher */}
         <div className="flex justify-center mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-1 p-1 rounded-full bg-card border border-border/50 shadow-sm">
-            <button
-              onClick={() => setActiveTab("education")}
-              className={`flex items-center gap-2 px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 ${
-                activeTab === "education"
-                  ? "bg-gradient-primary text-primary-foreground shadow-soft"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              <GraduationCap className="w-4 h-4" />
-              Content Service
-            </button>
+          <div className="inline-flex items-center gap-1 p-1 rounded-full bg-card border border-border/50 shadow-sm" role="tablist" aria-label="Delivery workflows">
             <button
               onClick={() => setActiveTab("ai")}
+              role="tab"
+              aria-selected={activeTab === "ai"}
               className={`flex items-center gap-2 px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 ${
                 activeTab === "ai"
                   ? "bg-gradient-primary text-primary-foreground shadow-soft"
@@ -69,6 +60,19 @@ const ProcessSection = () => {
             >
               <Bot className="w-4 h-4" />
               AI Data Service
+            </button>
+            <button
+              onClick={() => setActiveTab("education")}
+              role="tab"
+              aria-selected={activeTab === "education"}
+              className={`flex items-center gap-2 px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 ${
+                activeTab === "education"
+                  ? "bg-gradient-primary text-primary-foreground shadow-soft"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              <GraduationCap className="w-4 h-4" />
+              Content Service
             </button>
           </div>
         </div>
@@ -144,7 +148,7 @@ const ProcessTimeline = ({ steps, loopLabel }: { steps: Step[]; loopLabel: strin
 
                   <div className="text-center px-2">
                     <span className="text-xs font-bold text-primary/60 font-mono">Step {step.number}</span>
-                    <h4 className="font-heading font-bold text-foreground mt-1 mb-2 text-base">{step.title}</h4>
+                    <h3 className="font-heading font-bold text-foreground mt-1 mb-2 text-base">{step.title}</h3>
                     <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
                   </div>
                 </div>
@@ -174,7 +178,7 @@ const ProcessTimeline = ({ steps, loopLabel }: { steps: Step[]; loopLabel: strin
                 {/* Content */}
                 <div className="pt-0.5">
                   <span className="text-xs font-bold text-primary/60 font-mono">Step {step.number}</span>
-                  <h4 className="font-heading font-bold text-foreground text-base sm:text-lg mt-0.5">{step.title}</h4>
+                  <h3 className="font-heading font-bold text-foreground text-base sm:text-lg mt-0.5">{step.title}</h3>
                   <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mt-1">{step.desc}</p>
                 </div>
               </div>

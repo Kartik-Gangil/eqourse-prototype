@@ -49,6 +49,7 @@ const sitemapData = [
       { name: "- Computer Vision Model Testing", to: "/ai-data-services/model-testing/computer-vision-model-testing" },
       { name: "- Human Evaluation & A/B Testing", to: "/ai-data-services/model-testing/human-evaluation-ab-testing" },
       { name: "Robotics & Physical AI Training Data", to: "/robotics-training-data-services" },
+      { name: "- Human Demonstration Data for Robotics", to: "/robotics-training-data-services/human-demonstrations" },
       { name: "AI Data Samples", to: "/ai-data-samples" },
     ],
   },

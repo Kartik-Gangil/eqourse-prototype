@@ -128,7 +128,7 @@ const CANCEL_WORDS = ["cancel", "stop", "exit", "quit", "nevermind", "never mind
 const WELCOME_MESSAGE: ChatMessage = {
   id: "welcome",
   role: "model",
-  text: "Hi! 👋 I'm the **eQOURSE Assistant**. I can help you learn about our Content Services, AI Data Services, or get you started with a **free pilot project**.\n\nWhat can I help you with today?",
+  text: "Hi! 👋 I'm the **eQOURSE Assistant**. I can help you learn about our AI Data Services, Content Services, or get you started with a **free pilot project**.\n\nWhat can I help you with today?",
   timestamp: Date.now(),
 };
 

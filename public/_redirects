@@ -114,6 +114,7 @@ https://eqourse.com/* https://www.eqourse.com/:splat 301!
 /ai-data-services/model-testing/computer-vision-model-testing/ /ai-data-services/model-testing/computer-vision-model-testing 301!
 /ai-data-services/model-testing/human-evaluation-ab-testing/ /ai-data-services/model-testing/human-evaluation-ab-testing 301!
 /robotics-training-data-services/ /robotics-training-data-services 301!
+/robotics-training-data-services/human-demonstrations/ /robotics-training-data-services/human-demonstrations 301!
 /animated-videos-services/ /animated-videos-services 301!
 /articulate-storyline-services/ /articulate-storyline-services 301!
 /articulate-storyline-video-samples/ /articulate-storyline-video-samples 301!

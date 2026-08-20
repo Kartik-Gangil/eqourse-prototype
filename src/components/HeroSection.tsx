@@ -6,28 +6,19 @@ import heroVideoPoster from "@/assets/hero-video-poster.webp";
 
 const slides = [
   {
-    badge: "✦ Content & Learning Solutions",
-    headline: "Scalable Content Solutions ",
-    highlightedText: "For Businesses That Depend on Accuracy and Quality",
-    cta: "Explore Content Service",
-    ctaLink: "/content-services",
+    badge: "AI Data Services",
+    headline: "AI Data Services & Content Solutions ",
+    highlightedText: "for Global Teams",
+    cta: "Explore AI Data Services",
+    ctaLink: "/ai-data-services",
     ctaIsHash: false,
-    icon: Sparkles,
-  },
-  {
-    badge: "⚙ Corporate Learning & Performance",
-    headline: "Enterprise Learning Content ",
-    highlightedText: "Engineered for Scale",
-    cta: "Explore Content Service",
-    ctaLink: "/content-services",
-    ctaIsHash: false,
-    icon: BookOpen,
+    icon: Database,
   },
   {
     badge: "AI Data Services",
     headline: "High-Quality Training Data for",
     highlightedText: "AI That Works in Production",
-    cta: "Explore AI Data Service",
+    cta: "Explore AI Data Services",
     ctaLink: "/ai-data-services",
     ctaIsHash: false,
     icon: Database,
@@ -36,24 +27,33 @@ const slides = [
     badge: "AI Data Services",
     headline: "Closed-Loop Model Testing with",
     highlightedText: "Real-User Feedback & 98%+ Data Accuracy",
-    cta: "Explore AI Data Service",
+    cta: "Explore AI Data Services",
     ctaLink: "/ai-data-services",
     ctaIsHash: false,
     icon: Brain,
   },
   {
-    badge: "Content & AI Solutions",
-    headline: "From Education Content to AI Training Data,",
-    highlightedText: "One Trusted Global Partner",
-    cta: "See All Services",
-    ctaLink: "#services",
-    ctaIsHash: true,
+    badge: "✦ Content & Learning Solutions",
+    headline: "Scalable Content Solutions ",
+    highlightedText: "For Businesses That Depend on Accuracy and Quality",
+    cta: "Explore Content Services",
+    ctaLink: "/content-services",
+    ctaIsHash: false,
     icon: Sparkles,
+  },
+  {
+    badge: "⚙ Corporate Learning & Performance",
+    headline: "Enterprise Learning Content ",
+    highlightedText: "Engineered for Scale",
+    cta: "Explore Content Services",
+    ctaLink: "/content-services",
+    ctaIsHash: false,
+    icon: BookOpen,
   },
   {
     badge: "End-to-End Services",
     headline: "500+ Specialists Delivering",
-    highlightedText: "Content & AI Data Services Worldwide",
+    highlightedText: "AI Data & Content Services Worldwide",
     cta: "See All Services",
     ctaLink: "#services",
     ctaIsHash: true,
@@ -152,12 +152,11 @@ const HeroSection = () => {
   return (
     <section
       className="relative overflow-hidden min-h-screen flex items-center"
-      aria-label="eQOURSE - Content Services and AI training data services"
+      aria-label="eQOURSE AI data services and content solutions"
     >
       {/* SEO: static, crawlable headline that does not rotate */}
       <h1 className="sr-only">
-        eQOURSE - From Education Content to AI Training Data, One Partner. Content Services development and AI training
-        data services across 30+ languages, with 500+ domain specialists, ISO 9001 and ISO 27001 certified.
+        AI Data Services &amp; Content Solutions for Global Teams
       </h1>
 
       {/* Background video */}
@@ -284,7 +283,7 @@ const HeroSection = () => {
                     Trusted Globally
                   </div>
                   <div className="text-base font-bold text-white leading-tight">
-                    Built for Content Services, enterprises &amp; AI teams globally
+                    Built for AI teams, enterprises &amp; learning organisations globally
                   </div>
                 </div>
               </div>
@@ -532,7 +531,7 @@ const HeroSection = () => {
                   className="text-sm md:text-base font-bold tracking-wide text-white whitespace-nowrap"
                   style={{ textShadow: "0 2px 10px rgba(0,0,0,0.4)" }}
                 >
-                  Content & Data Services
+                  AI Data & Content Services
                 </span>
                 <ChevronDown
                   className="w-4 h-4 md:w-5 md:h-5 text-primary/80 group-hover:text-primary transition-colors"
@@ -622,7 +621,7 @@ const HeroSection = () => {
                   className="text-sm font-bold tracking-wide text-white whitespace-nowrap"
                   style={{ textShadow: "0 2px 10px rgba(0,0,0,0.4)" }}
                 >
-                  Content & Data Services
+                  AI Data & Content Services
                 </span>
                 <ChevronDown
                   className="w-4 h-4 text-primary/80 group-hover:text-primary transition-colors"

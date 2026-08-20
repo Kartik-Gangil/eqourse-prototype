@@ -84,7 +84,7 @@ export const contactFields: FormField[] = [
   {
     key: "subject",
     label: "Subject",
-    question: "What's the subject of your inquiry? For example: *Content Services, AI Data Services, Partnership, General Inquiry*",
+    question: "What's the subject of your inquiry? For example: *AI Data Services, Content Services, Partnership, General Inquiry*",
     required: true,
     type: "text",
     validate: validateRequired,
@@ -126,10 +126,10 @@ export const pilotFields: FormField[] = [
   {
     key: "serviceInterest",
     label: "Service Interest",
-    question: "Which service are you interested in? Please choose:\n\n• **Content Services** (K-12, e-learning, curriculum, assessments)\n• **AI Data Services** (data collection, annotation, model testing)\n• **Robotics & Physical AI Training Data**\n• **Both**",
+    question: "Which service are you interested in? Please choose:\n\n• **AI Data Services** (data collection, annotation, cleaning, validation, and model testing)\n• **Robotics & Physical AI Training Data**\n• **Content Services** (K-12, e-learning, curriculum, assessments)\n• **Both**",
     required: true,
     type: "select",
-    options: ["Content Services", "AI Data Services", "Robotics & Physical AI Training Data", "Both"],
+    options: ["AI Data Services", "Robotics & Physical AI Training Data", "Content Services", "Both"],
     validate: validateRequired,
   },
   {

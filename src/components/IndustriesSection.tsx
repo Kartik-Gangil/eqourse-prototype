@@ -239,11 +239,15 @@ const IndustriesSection = () => {
     };
   }, [isPaused]);
 
-  const displayItems = [...industries, ...industries, ...industries];
+  const prioritizedIndustries = [
+    ...industries.filter((industry) => industry.tag === "ai"),
+    ...industries.filter((industry) => industry.tag === "content services"),
+  ];
+  const displayItems = [...prioritizedIndustries, ...prioritizedIndustries, ...prioritizedIndustries];
 
   return (
     <section
-      aria-label="Industries We Serve"
+      aria-label="AI data and content solutions across industries"
       className="py-16 sm:py-24 bg-gradient-hero relative overflow-hidden"
     >
       {/* Dot grid background */}
@@ -268,7 +272,7 @@ const IndustriesSection = () => {
             className="font-heading text-3xl md:text-4xl font-bold mt-2"
             style={{ color: "hsl(0, 0%, 100%)" }}
           >
-            Industries We <span className="text-gradient">Serve</span>
+            AI Data and Content Solutions <span className="text-gradient">Across Industries</span>
           </h2>
           <p className="mt-3 text-sm sm:text-base max-w-2xl mx-auto" style={{ color: "hsl(242, 20%, 65%)" }}>
             From AI data solutions to end-to-end education content services - powering learning and intelligence across every sector.
@@ -318,7 +322,7 @@ const IndustriesSection = () => {
                 {ind.img ? (
                   <img
                     src={ind.img}
-                    alt={ind.imageAlt || `${ind.title} solutions by eQOURSE - AI Data and Content Services`}
+                    alt={ind.imageAlt || `eQOURSE services for ${ind.title}`}
                     title={ind.imageTitle || `${ind.title} solutions by eQOURSE`}
                     width={640}
                     height={320}
@@ -387,19 +391,19 @@ const IndustriesSection = () => {
         <div className="mt-10 sm:mt-14 text-center">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              to="/content-services"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm transition-all hover:scale-105"
-              style={{ background: "rgba(99,102,241,0.15)", color: "#818cf8", border: "1px solid rgba(99,102,241,0.3)" }}
-            >
-              Explore Content Services
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </Link>
-            <Link
               to="/ai-data-services"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm transition-all hover:scale-105"
               style={{ background: "rgba(20,184,166,0.15)", color: "hsl(170,82%,55%)", border: "1px solid rgba(20,184,166,0.3)" }}
             >
               Explore AI Data Services
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </Link>
+            <Link
+              to="/content-services"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm transition-all hover:scale-105"
+              style={{ background: "rgba(99,102,241,0.15)", color: "#818cf8", border: "1px solid rgba(99,102,241,0.3)" }}
+            >
+              Explore Content Services
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </Link>
           </div>

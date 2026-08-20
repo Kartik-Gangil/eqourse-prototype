@@ -84,7 +84,7 @@ const StatsSection = () => {
             Our Impact in <span className="text-[#35d6b3]">Numbers</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-white/70 md:text-base">
-            Measurable delivery capacity across education content and production-ready AI data.
+            Measurable delivery capacity across production-ready AI data and education content.
           </p>
         </header>
 

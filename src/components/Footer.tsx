@@ -115,11 +115,11 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* ── Content Services ── */}
+          {/* ── AI Data Services ── */}
           <div>
-            <h4 className={headingClass} style={headingColor}>Content Services</h4>
+            <h4 className={headingClass} style={headingColor}>AI Data Services</h4>
             <div className="space-y-3">
-              {contentServicesLinks.map((link) => (
+              {aiServiceLinks.map((link) => (
                 <Link key={link.label} to={link.to} className={linkClass} style={linkColor}>
                   {link.label}
                 </Link>
@@ -127,11 +127,11 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* ── AI Data Services + Legal ── */}
+          {/* ── Content Services + Legal ── */}
           <div>
-            <h4 className={headingClass} style={headingColor}>AI Data Services</h4>
+            <h4 className={headingClass} style={headingColor}>Content Services</h4>
             <div className="space-y-3">
-              {aiServiceLinks.map((link) => (
+              {contentServicesLinks.map((link) => (
                 <Link key={link.label} to={link.to} className={linkClass} style={linkColor}>
                   {link.label}
                 </Link>

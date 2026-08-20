@@ -12,6 +12,7 @@
 - [Image Data Collection](https://www.eqourse.com/ai-data-services/data-collection/image-data-collection): Image datasets collected under real-world conditions.
 - [Video Data Collection](https://www.eqourse.com/ai-data-services/data-collection/video-data-collection): Video datasets for computer vision and multimodal AI.
 - [Robotics Training Data](https://www.eqourse.com/robotics-training-data-services): Human-demonstration, teleoperation, sensor, and embodied-AI data.
+- [Human Demonstrations for Robotics](https://www.eqourse.com/robotics-training-data-services/human-demonstrations): Teleoperation, egocentric, and multi-view task demonstrations with failure-and-recovery episodes, synchronized signals, per-episode QA, and delivery in LeRobot, RLDS, or HDF5 formats.
 
 ## Company and resources
 

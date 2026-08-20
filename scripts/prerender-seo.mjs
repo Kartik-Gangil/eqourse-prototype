@@ -1210,7 +1210,61 @@ function buildHumanEvaluationFallback() {
     <section><h2>Make the Model Decision With Evidence</h2><p><a href="/contact-us">Scope a Model Comparison</a></p></section><script type="application/ld+json">${JSON.stringify(schema).replace(/</g,"\u003c")}</script></main>`;
 }
 
+function buildHumanDemonstrationsFallback() {
+  const canonical = `${SITE_URL}/robotics-training-data-services/human-demonstrations`;
+  const table = (headers, rows) => `<table><thead><tr>${headers.map(h => `<th scope="col">${escapeHtml(h)}</th>`).join("")}</tr></thead><tbody>${rows.map(row => `<tr>${row.map((cell, i) => i === 0 ? `<th scope="row">${escapeHtml(cell)}</th>` : `<td>${escapeHtml(cell)}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+  const methods = [["Leader-follower teleoperation","High-fidelity arm and gripper trajectories","Action and state logs, synchronized video, success state"],["VR or handheld teleoperation","Spatial manipulation and mobile tasks","Controller pose, robot state, RGB or RGB-D, task events"],["Kinesthetic teaching","Direct physical guidance on suitable robots","Joint states, force or torque where available, keyframes"],["Egocentric human demonstrations","Human strategy and hand-object interaction","Head or chest video, task steps, object states, outcomes"],["Multi-view human demonstrations","Occlusion-aware task understanding","Overhead, side and close views aligned to one episode"]];
+  const diversity = [["Object variation","Shape, size, weight, material and appearance"],["Layout","Position, orientation, clutter and distractors"],["Operator","Handedness, pace, reach and natural strategy"],["Environment","Lighting, background, surface and workspace"],["Instruction","Wording, language, ambiguity and order"],["Outcome","Success, partial completion, failure and recovery"],["Temporal","Speed, pauses, repetitions and long-horizon drift"]];
+  const quality = [["Completeness","Required streams and task stages are present"],["Synchronization","Sensor, action and video timestamps align"],["Task validity","Episode follows the approved protocol"],["Outcome integrity","Success, failure and recovery are correctly marked"],["Calibration","Camera and sensor calibration metadata is present"],["Annotation consistency","Labels follow the agreed schema and definitions"],["Privacy and consent","Approved capture and participant controls are documented"],["Traceability","Episode provenance, version and QA status remain auditable"]];
+  const failures = [["Only successful episodes","Models do not learn recovery","Capture deliberate failures and corrections"],["One operator","Strategy overfits to one person","Balance operators and natural approaches"],["Single camera","Occlusion hides critical actions","Use synchronized egocentric and external views"],["Unlogged interventions","Autonomy appears better than it is","Mark every operator takeover"],["Weak synchronization","State cannot be matched to perception","Validate timestamp drift per episode"],["Inconsistent task resets","Episodes are not comparable","Use a documented reset state"],["Uncontrolled object variation","Coverage cannot be measured","Plan a variation matrix"],["Missing calibration","Geometry becomes unreliable","Deliver calibration files and checks"],["Ambiguous success labels","Training targets conflict","Define observable completion criteria"],["No long-tail tasks","Production exceptions remain unseen","Reserve rare and difficult scenarios"],["Format-only handover","Dataset cannot be audited","Include manifests, schema and QA report"]];
+  const formats = [["LeRobot","Episode-first robotics datasets and policy learning workflows"],["RLDS","Sequence-based reinforcement-learning datasets"],["HDF5","Custom synchronized multimodal arrays and metadata"],["ROS bag / MCAP","Robot and sensor message replay where scoped"],["Parquet / JSONL","Episode manifests, events, annotations and provenance"]];
+  const faqs = [["What is human demonstration data for robotics?","It is a recorded example of a person completing a physical task, captured with the actions, observations, states, outcomes and context a robot-learning system needs."],["Which demonstration methods do you support?","We support leader-follower and VR teleoperation, kinesthetic teaching, egocentric human demonstrations and synchronized multi-view capture, subject to the robot and environment."],["Can you collect failure and recovery episodes?","Yes. We design deliberate mistakes, partial completion, blocked actions and recovery attempts so the dataset represents more than clean success paths."],["How many demonstrations do we need?","The right quantity depends on task complexity, variation and model stage. A directional starting point is often 500–1,000 episodes per task variant, then expanded from coverage and error analysis rather than treated as a guarantee."],["How do you ensure task diversity?","We plan coverage across objects, layout, operator, environment, instruction, outcome and temporal behaviour, then track the completed matrix during collection."],["What quality checks are performed?","Each episode can be checked for completeness, synchronization, task validity, outcome integrity, calibration, annotation consistency, privacy controls and traceability."],["Which formats can you deliver?","Depending on the programme, we can prepare LeRobot, RLDS, HDF5, ROS bag or MCAP, and Parquet or JSONL manifests with schemas and QA documentation."],["Can you work with our robot and task setup?","Yes. The programme begins with the embodiment, task, sensors, safety constraints, environment and acceptance criteria supplied or approved by the client."],["Do you provide robotics hardware or train the model?","Our core service is the data programme. Hardware procurement, robot operation and model training are included only when explicitly scoped with suitable partners or client infrastructure."],["Who owns the collected data?","Ownership and permitted use are defined in the project agreement. Client data is isolated, access-controlled and not reused to train unrelated models without written authorization."]];
+  const schema = {"@context":"https://schema.org","@graph":[{"@type":"Service","@id":`${canonical}#service`,name:"Human Demonstration Data Services for Robotics",serviceType:"Robotics human demonstration and teleoperation data collection",url:canonical,areaServed:"Worldwide",provider:{"@type":"Organization",name:"eQOURSE",url:`${SITE_URL}/`}},{"@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"Home",item:`${SITE_URL}/`},{"@type":"ListItem",position:2,name:"Robotics Training Data",item:`${SITE_URL}/robotics-training-data-services`},{"@type":"ListItem",position:3,name:"Human Demonstrations",item:canonical}]},{"@type":"FAQPage",mainEntity:faqs.map(([q,a]) => ({"@type":"Question",name:q,acceptedAnswer:{"@type":"Answer",text:a}}))}]};
+  return `<main data-seo-prerender="true"><nav aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/robotics-training-data-services">Robotics Training Data</a> / <span>Human Demonstrations</span></nav>
+    <h1>Human Demonstration Data for Robotics</h1><p>Task demonstrations captured through teleoperation, egocentric and synchronized multi-view setups, with action-state alignment, deliberate failure and recovery, per-episode QA and training-ready handover.</p><p><a href="/free-pilot">Scope a Demonstration Pilot</a> <a href="/contact-us">Talk to a Robotics Data Specialist</a></p>
+    <section><h2>Why Robot Learning Needs More Than Successful Video</h2><p>A useful episode preserves what the operator saw, did and achieved. It also records pauses, corrections, partial completion and recovery so perception can be aligned with action and outcome.</p></section>
+    <section><h2>Human Demonstration Collection Methods</h2>${table(["Method","Best for","Typical signals"],methods)}</section>
+    <section><h2>Designed Task Diversity</h2>${table(["Coverage axis","Variation planned"],diversity)}</section>
+    <section><h2>Failure and Recovery Are Training Signals</h2><p>We capture complete episodes: initial state, attempted action, observable failure, intervention or correction, recovery path and final outcome.</p></section>
+    <section><h2>Per-Episode Quality Control</h2>${table(["Quality dimension","Acceptance check"],quality)}</section>
+    <section><h2>Training-Ready Formats and Handover</h2>${table(["Format","Use"],formats)}<p>Delivery can include episode manifests, schemas, calibration files, collection protocol, version history, exception log and QA report.</p></section>
+    <section><h2>How a Human Demonstration Programme Runs</h2><ol><li>Embodiment and task scoping</li><li>Protocol and schema design</li><li>Pilot and operator calibration</li><li>Structured collection</li><li>Per-episode QA</li><li>Packaging and validation</li><li>Coverage review and iteration</li></ol></section>
+    <section><h2>Where Demonstration Datasets Go Wrong</h2>${table(["Failure","Consequence","Control"],failures)}<h3>What We Do and Do Not Do</h3><p>We design, operate and validate the scoped data programme. We do not claim that episode count alone guarantees policy performance, hide operator interventions or reuse client data outside the agreed purpose.</p></section>
+    <section><h2>Related Robotics Data Services</h2><p><a href="/robotics-training-data-services">Robotics Training Data Services</a> <a href="/ai-data-services/data-collection">AI Data Collection</a> <a href="/ai-data-services/annotation-labeling/3d-point-cloud-lidar-annotation">3D Point Cloud &amp; LiDAR Annotation</a></p></section>
+    <section><h2>Human Demonstration Data FAQs</h2>${faqs.map(([q,a]) => `<details><summary>${escapeHtml(q)}</summary><p>${escapeHtml(a)}</p></details>`).join("")}</section>
+    <section><h2>Build Demonstrations Around the Task Your Robot Must Perform</h2><p><a href="/free-pilot">Scope a Demonstration Pilot</a></p></section><script type="application/ld+json">${JSON.stringify(schema).replace(/</g,"\u003c")}</script></main>`;
+}
+
+function buildHomepageFallback() {
+  return `<main data-seo-prerender="true">
+      <h1>AI Data Services &amp; Content Solutions for Global Teams</h1>
+      <p>eQOURSE delivers production-ready AI training data and scalable learning content through specialist-led, ISO-aligned global workflows.</p>
+      <section>
+        <h2>AI Data Services for Production-Ready AI</h2>
+        <p>Build dependable models with <a href="/ai-data-services/data-collection">AI data collection</a>, <a href="/ai-data-services/annotation-labeling">data annotation and labeling</a>, <a href="/ai-data-services/cleaning-validation">data cleaning and validation</a>, <a href="/ai-data-services/model-testing">AI model testing</a>, and <a href="/robotics-training-data-services">robotics training data</a>.</p>
+      </section>
+      <section>
+        <h2>Content Services for Education &amp; Learning Businesses</h2>
+        <p>Scale curriculum, assessments, digital learning, video, localization, accessibility and publishing workflows through our <a href="/content-services">content services</a>.</p>
+      </section>
+      <section>
+        <h2>How We Work</h2>
+        <p>Every engagement follows a documented path from discovery and pilot design through specialist production, multi-stage quality assurance and scalable delivery.</p>
+      </section>
+      <section>
+        <h2>AI Data &amp; Content Services Case Studies</h2>
+        <p>Explore measurable outcomes across AI data operations, model quality, education content and multilingual delivery in our <a href="/case-studies">case studies</a>.</p>
+      </section>
+      <section>
+        <h2>Why Global Teams Choose eQOURSE</h2>
+        <p>More than 500 specialists support global programmes across 30+ languages with ISO 9001 and ISO 27001 aligned processes.</p>
+      </section>
+      <p><a href="/free-pilot">Start a Free Pilot</a> <a href="/contact-us">Contact eQOURSE</a></p>
+    </main>`;
+}
+
 function buildCrawlFallback({ path, title, description, crawlHtml = "", source }) {
+  if (path === "/") return buildHomepageFallback();
   if (path === "/ai-data-services/data-collection") return buildDataCollectionFallback();
   if (path === "/ai-data-services/data-collection/image-data-collection") return buildImageDataCollectionFallback();
   if (path === "/ai-data-services/data-collection/audio-data-collection") return buildAudioDataCollectionFallback();
@@ -1239,6 +1293,7 @@ function buildCrawlFallback({ path, title, description, crawlHtml = "", source }
   if (path === "/ai-data-services/model-testing/asr-speech-model-testing") return buildAsrSpeechTestingFallback();
   if (path === "/ai-data-services/model-testing/computer-vision-model-testing") return buildComputerVisionTestingFallback();
   if (path === "/ai-data-services/model-testing/human-evaluation-ab-testing") return buildHumanEvaluationFallback();
+  if (path === "/robotics-training-data-services/human-demonstrations") return buildHumanDemonstrationsFallback();
   const heading = title.replace(/\s*(?:\||\u2013|\u2014)\s*eQOURSE.*$/i, "").trim();
   const sharedLinks = path.startsWith("/ai-data") || path.startsWith("/robotics")
     ? [

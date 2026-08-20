@@ -14,6 +14,12 @@ const express = require("express");
 const router = express.Router();
 const logger = require("../utils/logger");
 const { buildSystemPrompt } = require("../utils/chatbotKnowledge");
+const {
+  extractCandidateText,
+  isNaturalFinish,
+  mergeReplyParts,
+  shouldContinue,
+} = require("../utils/chatResponse");
 
 // ─── Abuse protection ────────────────────────────────────────────────────────
 
@@ -23,6 +29,9 @@ const MESSAGE_MAX_CHARS = 1500;   // a genuine question fits well within this
 const HISTORY_MAX_TURNS = 20;     // only the most recent turns are forwarded
 const HISTORY_ENTRY_MAX_CHARS = 4000;
 const PAGE_CONTEXT_PATTERN = /^\/[a-zA-Z0-9\-_/]{0,120}$/; // site pathname only
+const GEMINI_REQUEST_TIMEOUT_MS = 20 * 1000;
+const GEMINI_MAX_OUTPUT_TOKENS = 4096;
+const GEMINI_MAX_CONTINUATIONS = 1;
 
 const ipHits = new Map(); // ip -> array of request timestamps
 
@@ -53,6 +62,25 @@ function clientIp(req) {
   const fwd = req.headers["x-forwarded-for"];
   if (typeof fwd === "string" && fwd.length > 0) return fwd.split(",")[0].trim();
   return req.ip || req.socket?.remoteAddress || "unknown";
+}
+
+async function fetchGemini(url, requestBody, apiKey) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), GEMINI_REQUEST_TIMEOUT_MS);
+
+  try {
+    return await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-goog-api-key": apiKey,
+      },
+      body: JSON.stringify(requestBody),
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
 // ─── Gemini API call ─────────────────────────────────────────────────────────
@@ -106,9 +134,10 @@ router.post("/", async (req, res) => {
   const systemPrompt = buildSystemPrompt(safePageContext);
 
   try {
-    // v1beta endpoint with gemini-3.5-flash (fastest model with top reasoning for chatbots)
-    const model = "gemini-3.5-flash";
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+    // Gemini 3.7 Flash is Google's latest stable Flash model. Keep an
+    // environment override so production can pin or upgrade without a code edit.
+    const model = process.env.GEMINI_CHAT_MODEL || "gemini-3.7-flash";
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
 
     // Cap and sanitise history, then build contents array + current message
     const contents = [];
@@ -132,10 +161,10 @@ router.post("/", async (req, res) => {
         parts: [{ text: systemPrompt }],
       },
       generationConfig: {
-        temperature: 0.7,
-        topP: 0.9,
-        topK: 40,
-        maxOutputTokens: 1024,
+        // This is a factual service chatbot, not a complex reasoning task.
+        // Gemini 3.7 supports LOW/MEDIUM/HIGH; LOW keeps chat latency controlled.
+        thinkingConfig: { thinkingLevel: "LOW" },
+        maxOutputTokens: GEMINI_MAX_OUTPUT_TOKENS,
       },
       safetySettings: [
         { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_MEDIUM_AND_ABOVE" },
@@ -145,34 +174,80 @@ router.post("/", async (req, res) => {
       ],
     };
 
-    const response = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(requestBody),
-    });
+    let activeContents = contents;
+    const replyParts = [];
+    let finalFinishReason;
+    let continued = false;
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      logger.error(`Gemini API error (${response.status}): ${errorText}`);
+    for (let attempt = 0; attempt <= GEMINI_MAX_CONTINUATIONS; attempt += 1) {
+      const response = await fetchGemini(url, { ...requestBody, contents: activeContents }, apiKey);
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        logger.error(`Gemini API error (${response.status}): ${errorText}`);
+        return res.status(502).json({
+          success: false,
+          reply: "I'm having trouble connecting right now. Please try again in a moment, or contact us at info@eqourse.com.",
+        });
+      }
+
+      const data = await response.json();
+      const candidate = data?.candidates?.[0];
+      const responseText = extractCandidateText(candidate);
+      finalFinishReason = candidate?.finishReason;
+
+      if (responseText) replyParts.push(responseText);
+
+      if (isNaturalFinish(finalFinishReason)) break;
+
+      logger.warn(
+        `Gemini chat stopped with ${finalFinishReason || "UNKNOWN"}; attempt ${attempt + 1}, ` +
+        `outputTokens=${data?.usageMetadata?.candidatesTokenCount ?? "unknown"}, ` +
+        `thoughtTokens=${data?.usageMetadata?.thoughtsTokenCount ?? "unknown"}`
+      );
+
+      if (shouldContinue(finalFinishReason, responseText, attempt, GEMINI_MAX_CONTINUATIONS)) {
+        continued = true;
+        activeContents = [
+          ...activeContents,
+          // Preserve the complete model content, including thought signatures.
+          candidate.content,
+          {
+            role: "user",
+            parts: [{
+              text: "Continue the same answer from exactly where it stopped. Complete every remaining item, do not repeat earlier text, and end with a complete sentence.",
+            }],
+          },
+        ];
+        continue;
+      }
+
+      // Safety, recitation and other abnormal stops must never masquerade as a
+      // successfully completed answer or leak a misleading partial response.
       return res.status(502).json({
         success: false,
-        reply: "I'm having trouble connecting right now. Please try again in a moment, or contact us at info@eqourse.com.",
+        reply: "I couldn't complete that answer reliably. Please try rephrasing the question, or contact us at info@eqourse.com.",
       });
     }
 
-    const data = await response.json();
+    const reply = mergeReplyParts(replyParts);
+    if (!reply || !isNaturalFinish(finalFinishReason)) {
+      logger.error(`Gemini chat remained incomplete after continuation; finishReason=${finalFinishReason || "UNKNOWN"}`);
+      return res.status(502).json({
+        success: false,
+        reply: "I couldn't complete that answer reliably. Please try again, or contact us at info@eqourse.com.",
+      });
+    }
 
-    // Extract the reply text
-    const reply =
-      data?.candidates?.[0]?.content?.parts?.[0]?.text ||
-      "I apologize, but I couldn't generate a response. Please try rephrasing your question, or contact us directly at info@eqourse.com.";
-
-    return res.json({ success: true, reply });
+    return res.json({ success: true, reply, complete: true, finishReason: finalFinishReason || "STOP", continued });
   } catch (err) {
     logger.error(`Chat endpoint error: ${err.message}`);
+    const timedOut = err?.name === "AbortError";
     return res.status(500).json({
       success: false,
-      reply: "Something went wrong on my end. Please try again, or reach us at info@eqourse.com or +91-92144-45870.",
+      reply: timedOut
+        ? "That response took too long, so I stopped it instead of leaving the chat hanging. Please try again."
+        : "Something went wrong on my end. Please try again, or reach us at info@eqourse.com or +91-92144-45870.",
     });
   }
 });

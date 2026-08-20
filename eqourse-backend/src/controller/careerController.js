@@ -1,6 +1,7 @@
 const JobOpening = require("../model/jobOpening");
 const JobApplication = require("../model/jobApplication");
 const logger = require("../utils/logger");
+const { extractCandidateText } = require("../utils/chatResponse");
 const path = require("path");
 const {
   sendApplicationReceivedNotification,
@@ -618,40 +619,61 @@ const adminSmartFilter = async (req, res) => {
       return res.status(500).json({ success: false, message: "Gemini API not configured." });
     }
 
-    const model = "gemini-2.5-flash";
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+    const model = process.env.GEMINI_ADMIN_MODEL || "gemini-3.7-flash";
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
 
-    const systemPrompt = `You are an HR assistant helping filter job applicants. Given a list of candidates and a filter query from the HR manager, return ONLY a JSON array of candidate IDs that match the filter criteria, ordered by best match first.
+    const systemPrompt = `You are an HR assistant helping filter job applicants. Given a list of candidates and a filter query from the HR manager, return a JSON array of candidate IDs that match the filter criteria, ordered by best match first.
 
 Rules:
-- Return ONLY a valid JSON array of candidate ID strings, nothing else
 - If no candidates match, return an empty array []
 - Be smart about interpreting experience ranges (e.g., "3+ years" means 3 or more)
 - Match skills intelligently (e.g., "Python" should match "python", "Python3", etc.)
 - Consider qualification levels (e.g., "highest qualification" = PhD > Masters > Bachelors)`;
 
-    const response = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [
-          {
-            role: "user",
-            parts: [{ text: `Candidates:\n${JSON.stringify(candidateSummaries, null, 2)}\n\nFilter query: "${query}"\n\nReturn the matching candidate IDs as a JSON array.` }],
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 20_000);
+    let response;
+
+    try {
+      response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-goog-api-key": apiKey,
+        },
+        body: JSON.stringify({
+          contents: [
+            {
+              role: "user",
+              parts: [{ text: `Candidates:\n${JSON.stringify(candidateSummaries, null, 2)}\n\nFilter query: "${query}"\n\nReturn the matching candidate IDs as a JSON array.` }],
+            },
+          ],
+          systemInstruction: { parts: [{ text: systemPrompt }] },
+          generationConfig: {
+            thinkingConfig: { thinkingLevel: "LOW" },
+            responseMimeType: "application/json",
+            responseSchema: { type: "ARRAY", items: { type: "STRING" } },
+            maxOutputTokens: 2048,
           },
-        ],
-        systemInstruction: { parts: [{ text: systemPrompt }] },
-        generationConfig: { temperature: 0.2, maxOutputTokens: 2048 },
-      }),
-    });
+        }),
+        signal: controller.signal,
+      });
+    } finally {
+      clearTimeout(timeout);
+    }
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      logger.error(`Gemini smart-filter error (${response.status}): ${errorText}`);
+      return res.status(502).json({ success: false, message: "Smart filter service is temporarily unavailable." });
+    }
 
     const geminiResponse = await response.json();
-    const responseText =
-      geminiResponse?.candidates?.[0]?.content?.parts?.[0]?.text || "[]";
-
-    // Extract JSON array from the response
-    const jsonMatch = responseText.match(/\[[\s\S]*?\]/);
-    const matchedIds = jsonMatch ? JSON.parse(jsonMatch[0]) : [];
+    const responseText = extractCandidateText(geminiResponse?.candidates?.[0]) || "[]";
+    const parsedIds = JSON.parse(responseText);
+    const matchedIds = Array.isArray(parsedIds)
+      ? parsedIds.filter((id) => typeof id === "string")
+      : [];
 
     // Filter and order applications by the matched IDs
     const idOrder = new Map(matchedIds.map((id, idx) => [id, idx]));

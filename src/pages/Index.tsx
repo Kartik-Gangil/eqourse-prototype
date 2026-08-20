@@ -23,9 +23,10 @@ const OurBrandsSection = lazy(() => import("@/components/OurBrandsSection"));
 const LeadFormPopup = lazy(() => import("@/components/LeadFormPopup"));
 
 const PAGE_SEO = pageSeo["/"];
+const SOCIAL_DESCRIPTION = "AI data collection, annotation, validation, model testing and scalable content services for global AI and learning teams.";
 
 const Index = () => {
-  const [activeServiceTab, setActiveServiceTab] = useState<"education" | "ai">("education");
+  const [activeServiceTab, setActiveServiceTab] = useState<"education" | "ai">("ai");
 
   return (
     <div className="min-h-screen bg-background">
@@ -37,13 +38,13 @@ const Index = () => {
         />
         <meta
           name="keywords"
-          content="eQOURSE, Content Services, AI data services, robotics training data, Physical AI, Embodied AI, e-learning content development, custom e-learning, curriculum development, data annotation, AI training data, model testing, K12 content, educational technology, localization services, LMS integration, India, Singapore"
+          content="eQOURSE, AI data services, AI data collection, data annotation, data cleaning, data validation, AI model testing, robotics training data, Physical AI, Embodied AI, content services, e-learning content development, curriculum development, localization services, India, Singapore"
         />
         <link rel="canonical" href="https://www.eqourse.com/" />
         <meta property="og:title" content={PAGE_SEO.title} />
         <meta
           property="og:description"
-          content={PAGE_SEO.description}
+          content={SOCIAL_DESCRIPTION}
         />
         <meta property="og:url" content="https://www.eqourse.com/" />
         <meta property="og:type" content="website" />
@@ -54,7 +55,7 @@ const Index = () => {
         <meta name="twitter:title" content={PAGE_SEO.title} />
         <meta
           name="twitter:description"
-          content={PAGE_SEO.description}
+          content={SOCIAL_DESCRIPTION}
         />
         <meta name="twitter:image" content="https://www.eqourse.com/assets/og-image.webp" />
 
@@ -67,9 +68,9 @@ const Index = () => {
               "@id": "https://www.eqourse.com/#organization",
               "name": "eQOURSE",
               "alternateName": "eQOURSE PTE LTD",
-              "url": "https://www.eqourse.com",
+              "url": "https://www.eqourse.com/",
               "logo": "https://www.eqourse.com/assets/og-image.webp",
-              "description": "eQOURSE delivers end-to-end Content Services and AI data services. Custom e-learning content, curriculum development, data annotation, and model testing for global education and AI teams.",
+              "description": "eQOURSE provides AI data collection, annotation, cleaning, validation, model testing and robotics training data, plus scalable content services for global AI and learning teams.",
               "foundingDate": "2020",
               "numberOfEmployees": {
                 "@type": "QuantitativeValue",
@@ -107,13 +108,15 @@ const Index = () => {
                 }
               ],
               "knowsAbout": [
-                "Content Services",
                 "AI Data Services",
+                "AI Data Collection",
+                "Data Annotation & Labeling",
+                "Data Cleaning & Validation",
+                "AI Model Testing",
+                "Robotics Training Data",
+                "Content Services",
                 "E-Learning Content Development",
                 "Curriculum Development",
-                "Data Annotation & Labeling",
-                "AI Model Testing",
-                "Robotics & Physical AI Training Data",
                 "Embodied AI Data",
                 "Localization Services",
                 "LMS Integration"
@@ -146,7 +149,8 @@ const Index = () => {
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "eQOURSE",
-              "url": "https://www.eqourse.com",
+              "url": "https://www.eqourse.com/",
+              "publisher": { "@id": "https://www.eqourse.com/#organization" },
               "potentialAction": {
                 "@type": "SearchAction",
                 "target": "https://www.eqourse.com/blog?q={search_term_string}",

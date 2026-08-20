@@ -20,8 +20,8 @@ export interface PageSeo {
 
 export const pageSeo: Record<string, PageSeo> = {
   "/": {
-    title: "eQOURSE – Content & AI Data Services | India & Singapore",
-    description: "eQOURSE: ISO 9001 & 27001 certified Content & AI Data Services. Custom e-learning content, data annotation & model testing. 500+ expert.",
+    title: "AI Data Services & Content Services Company | eQOURSE",
+    description: "eQOURSE provides AI data services for data collection, annotation, cleaning, validation, model testing and robotics, plus scalable content services for global teams.",
   },
   "/2d-3d-video-samples": {
     title: "2D & 3D Video Animation Samples | Eqourse",
@@ -247,6 +247,12 @@ export const pageSeo: Record<string, PageSeo> = {
     title: "Robotics Training Data Services for Physical AI | eQOURSE",
     description: "Custom robotics training data for Physical AI, including egocentric video, multimodal annotation, validation and real-world model evaluation.",
     canonical: "https://www.eqourse.com/robotics-training-data-services",
+  },
+  "/robotics-training-data-services/human-demonstrations": {
+    title: "Human Demonstration Data Collection for Robotics | eQOURSE",
+    description: "Teleoperation and egocentric human demonstration data for robot learning with failure-recovery episodes, per-episode QA, LeRobot and RLDS delivery.",
+    canonical: "https://www.eqourse.com/robotics-training-data-services/human-demonstrations",
+    image: "/assets/ai-data/robotics/human-demonstrations/og-human-demonstrations.jpg",
   },
   "/animated-videos-services": {
     title: "Animated Video Services – Custom 2D & 3D | Eqourse",

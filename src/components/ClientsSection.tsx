@@ -221,7 +221,7 @@ const ClientsSection = () => (
         Trusted by <span className="text-gradient">200+ Clients</span>
       </h2>
       <p className="text-sm text-muted-foreground mt-2 max-w-xl mx-auto">
-        Powering Content Services platforms, publishers, enterprises, and AI teams worldwide.
+        Supporting AI teams, enterprises, learning platforms and publishers worldwide.
       </p>
     </div>
 

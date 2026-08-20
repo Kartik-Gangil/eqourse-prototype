@@ -1,4 +1,4 @@
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -111,22 +111,22 @@ const CTASection = () => (
         id="cta-heading"
         className="mx-auto mb-4 max-w-5xl px-2 font-heading text-3xl font-bold leading-tight text-white md:text-4xl"
       >
-        Ready to Power Your Learning Content and AI with Quality Data Solutions?
+        Ready to Scale Your AI Data or Content Project?
       </h2>
       <p className="mx-auto mb-8 max-w-2xl px-4 text-base leading-relaxed text-white/80 sm:text-lg">
-        A trusted partner supporting organizations worldwide with scalable learning content and AI data solutions across enterprise and global ecosystems.
+        Work with a trusted global partner for production-ready AI data services and scalable content solutions, backed by expert workflows and rigorous quality assurance.
       </p>
       <div className="flex flex-col items-stretch justify-center gap-4 px-4 sm:flex-row sm:items-center">
         <Button asChild size="lg" className="group border-0 bg-gradient-primary px-8 text-primary-foreground shadow-soft transition-transform duration-300 hover:-translate-y-0.5 hover:opacity-95 sm:px-10">
-          <Link to="/free-pilot">
-            Start Free Pilot
+          <Link to="/ai-data-services">
+            Explore AI Data Services
             <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </Button>
         <Button asChild size="lg" className="border border-white/30 bg-white/10 px-8 text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/20 hover:text-white">
-          <Link to="/contact-us">
-            <Phone className="mr-2 h-5 w-5" />
-            Schedule a Call
+          <Link to="/content-services">
+            Explore Content Services
+            <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
         </Button>
       </div>
