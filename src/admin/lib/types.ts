@@ -229,6 +229,7 @@ export interface JobApplication {
   skills: string[];
   status: ApplicationStatus;
   internalNotes: string;
+  notesUpdatedAt?: string;
   customAnswers?: CustomAnswer[];
   statusChangedAt?: string;
   createdAt: string;

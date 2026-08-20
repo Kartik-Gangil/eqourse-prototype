@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import type { SVGProps } from "react";
 import { useParams, Link } from "react-router-dom";
 import { adminApi } from "../lib/api";
 import type { JobOpening, JobApplication, ApplicationStatus } from "../lib/types";
@@ -19,11 +20,16 @@ import {
   XCircle,
   MoreVertical,
   CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
+  Save,
+  StickyNote,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { toast } from "sonner";
 import { format } from "date-fns";
 
-const STATUS_CONFIG: Record<ApplicationStatus, { label: string; bg: string; text: string; icon: any }> = {
+const STATUS_CONFIG: Record<ApplicationStatus, { label: string; bg: string; text: string; icon: LucideIcon }> = {
   applied: { label: "Applied", bg: "bg-blue-100", text: "text-blue-700", icon: Clock },
   shortlisted: { label: "Shortlisted", bg: "bg-emerald-100", text: "text-emerald-700", icon: ThumbsUp },
   rejected: { label: "Rejected", bg: "bg-slate-100", text: "text-slate-600", icon: XCircle },
@@ -36,16 +42,21 @@ export default function AdminCareerApplicants() {
   const [apps, setApps] = useState<JobApplication[]>([]);
   const [total, setTotal] = useState(0);
   const [statusCounts, setStatusCounts] = useState<Record<string, number>>({});
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(20);
   
   const [loading, setLoading] = useState(true);
   const [filtering, setFiltering] = useState(false);
   
   const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [smartQuery, setSmartQuery] = useState("");
   const [isSmartMode, setIsSmartMode] = useState(false);
+  const [smartResults, setSmartResults] = useState<JobApplication[]>([]);
   
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [savingNoteId, setSavingNoteId] = useState<string | null>(null);
 
   const fetchApplicants = async (isSearch = false) => {
     if (!id) return;
@@ -55,14 +66,15 @@ export default function AdminCareerApplicants() {
         job ? Promise.resolve(job) : adminApi.getJobOpening(id),
         adminApi.listApplications(id, {
           status: statusFilter !== "all" ? statusFilter : undefined,
-          q: search || undefined,
+          q: debouncedSearch || undefined,
+          page,
+          pageSize,
         })
       ]);
       if (!job) setJob(jobData);
       setApps(appsData.items);
       setTotal(appsData.total);
       if (appsData.statusCounts) setStatusCounts(appsData.statusCounts);
-      setIsSmartMode(false);
     } catch (err) {
       toast.error("Failed to load applicants");
     } finally {
@@ -71,11 +83,16 @@ export default function AdminCareerApplicants() {
   };
 
   useEffect(() => {
-    fetchApplicants();
-  }, [id, statusFilter]);
+    if (!isSmartMode) fetchApplicants();
+    // fetchApplicants intentionally reads the current page/filter state listed here.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id, statusFilter, page, pageSize, debouncedSearch, isSmartMode]);
 
   useEffect(() => {
-    const timer = setTimeout(() => fetchApplicants(true), 400);
+    const timer = setTimeout(() => {
+      setPage(1);
+      setDebouncedSearch(search.trim());
+    }, 400);
     return () => clearTimeout(timer);
   }, [search]);
 
@@ -86,12 +103,13 @@ export default function AdminCareerApplicants() {
     setFiltering(true);
     try {
       const res = await adminApi.smartFilterApplications(id, smartQuery);
-      setApps(res.items);
+      setSmartResults(res.items);
       setTotal(res.total);
       setIsSmartMode(true);
+      setPage(1);
       toast.success(`Found ${res.total} matching candidates`);
-    } catch (err: any) {
-      toast.error(err.message || "Smart filter failed");
+    } catch (err: unknown) {
+      toast.error(err instanceof Error ? err.message : "Smart filter failed");
     } finally {
       setFiltering(false);
     }
@@ -99,18 +117,58 @@ export default function AdminCareerApplicants() {
 
   const handleClearSmartFilter = () => {
     setSmartQuery("");
-    fetchApplicants();
+    setSmartResults([]);
+    setIsSmartMode(false);
+    setPage(1);
   };
 
   const handleStatusChange = async (appId: string, newStatus: ApplicationStatus) => {
     try {
-      await adminApi.updateApplicationStatus(appId, newStatus);
+      const previous = (isSmartMode ? smartResults : apps).find((app) => app.id === appId);
+      const updated = await adminApi.updateApplicationStatus(appId, newStatus);
+      setApps((items) => items.map((app) => app.id === appId ? updated : app));
+      setSmartResults((items) => items.map((app) => app.id === appId ? updated : app));
+      if (previous && previous.status !== newStatus) {
+        setStatusCounts((counts) => ({
+          ...counts,
+          [previous.status]: Math.max(0, (counts[previous.status] || 0) - 1),
+          [newStatus]: (counts[newStatus] || 0) + 1,
+        }));
+      }
       toast.success(`Application marked as ${newStatus}`);
-      fetchApplicants(true);
+      if (!isSmartMode) await fetchApplicants(true);
     } catch {
       toast.error("Failed to update status");
     }
     setActiveMenu(null);
+  };
+
+  const handleSaveNote = async (appId: string, internalNotes: string) => {
+    setSavingNoteId(appId);
+    try {
+      const updated = await adminApi.updateApplicationNotes(appId, internalNotes);
+      setApps((items) => items.map((app) => app.id === appId ? updated : app));
+      setSmartResults((items) => items.map((app) => app.id === appId ? updated : app));
+      toast.success("HR remark saved");
+    } catch {
+      toast.error("Failed to save HR remark");
+    } finally {
+      setSavingNoteId(null);
+    }
+  };
+
+  const visibleApps = isSmartMode
+    ? smartResults.slice((page - 1) * pageSize, page * pageSize)
+    : apps;
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+  const showingFrom = total === 0 ? 0 : (page - 1) * pageSize + 1;
+  const showingTo = Math.min(page * pageSize, total);
+  const countedApplicants = Object.values(statusCounts).reduce((sum, count) => sum + count, 0);
+  const allApplicantTotal = countedApplicants || job?.applicationCount || (statusFilter === "all" && !debouncedSearch ? total : 0);
+
+  const goToPage = (nextPage: number) => {
+    setPage(Math.min(totalPages, Math.max(1, nextPage)));
+    window.scrollTo({ top: 260, behavior: "smooth" });
   };
 
   if (loading && !job) {
@@ -135,10 +193,10 @@ export default function AdminCareerApplicants() {
           </div>
           <div className="flex flex-col items-end gap-2">
             <div className="text-right text-sm">
-              <div className="font-semibold text-xl">{total}</div>
+              <div className="font-semibold text-xl">{allApplicantTotal}</div>
               <div className="text-muted-foreground">Total Applicants</div>
             </div>
-            {total > 0 && (
+            {allApplicantTotal > 0 && (
               <button
                 onClick={async () => {
                   try {
@@ -202,6 +260,13 @@ export default function AdminCareerApplicants() {
           </Button>
         </form>
 
+        {isSmartMode && (
+          <div className="flex items-center justify-between gap-3 rounded-lg border border-primary/20 bg-primary/5 px-3 py-2 text-sm">
+            <span><strong>{total}</strong> candidates match “{smartQuery}” across the complete applicant pool.</span>
+            <button type="button" onClick={handleClearSmartFilter} className="font-medium text-primary hover:underline">Clear AI filter</button>
+          </div>
+        )}
+
         {!isSmartMode && (
           <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-border/50">
             <div className="relative flex-1 min-w-[200px]">
@@ -224,7 +289,7 @@ export default function AdminCareerApplicants() {
                 return (
                   <button
                     key={status}
-                    onClick={() => setStatusFilter(status)}
+                    onClick={() => { setStatusFilter(status); setPage(1); }}
                     className={`px-3 py-1.5 text-xs font-medium rounded-md capitalize transition-colors ${
                       statusFilter === status ? "bg-background shadow-sm text-foreground" : "text-muted-foreground hover:text-foreground"
                     }`}
@@ -240,6 +305,33 @@ export default function AdminCareerApplicants() {
 
       {/* Applicant List */}
       <div className="space-y-4">
+        {!loading && total > 0 && (
+          <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-3">
+            <p className="text-sm text-muted-foreground">
+              Showing <span className="font-semibold text-foreground">{showingFrom}–{showingTo}</span> of <span className="font-semibold text-foreground">{total}</span> {isSmartMode ? "AI-matched" : "matching"} applicants
+            </p>
+            <div className="flex items-center gap-2">
+              <label htmlFor="applicant-page-size" className="text-xs text-muted-foreground">Per page</label>
+              <select
+                id="applicant-page-size"
+                value={pageSize}
+                onChange={(event) => { setPageSize(Number(event.target.value)); setPage(1); }}
+                className="rounded-md border border-border bg-background px-2 py-1.5 text-sm"
+              >
+                <option value={10}>10</option>
+                <option value={20}>20</option>
+                <option value={50}>50</option>
+              </select>
+              <Button variant="outline" size="sm" onClick={() => goToPage(page - 1)} disabled={page === 1} aria-label="Previous applicant page">
+                <ChevronLeft className="h-4 w-4" /> Previous
+              </Button>
+              <span className="min-w-16 text-center text-sm font-medium">{page} / {totalPages}</span>
+              <Button variant="outline" size="sm" onClick={() => goToPage(page + 1)} disabled={page === totalPages} aria-label="Next applicant page">
+                Next <ChevronRight className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        )}
         {loading ? (
           <div className="flex justify-center py-12"><Loader2 className="w-6 h-6 animate-spin text-primary" /></div>
         ) : apps.length === 0 ? (
@@ -249,7 +341,7 @@ export default function AdminCareerApplicants() {
             <p className="text-muted-foreground text-sm">Try adjusting your filters or search query.</p>
           </div>
         ) : (
-          apps.map((app) => {
+          visibleApps.map((app) => {
             const sc = STATUS_CONFIG[app.status as ApplicationStatus] || STATUS_CONFIG['applied'];
             const StatusIcon = sc.icon || Clock;
             
@@ -350,6 +442,13 @@ export default function AdminCareerApplicants() {
                         </div>
                       </div>
                     )}
+
+                    {app.coverLetter && (
+                      <div className="pt-3 border-t border-border/50">
+                        <span className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Cover letter</span>
+                        <p className="whitespace-pre-line text-sm leading-6 text-foreground/85">{app.coverLetter}</p>
+                      </div>
+                    )}
                   </div>
 
                   {/* Right Col: Links & Actions */}
@@ -426,6 +525,12 @@ export default function AdminCareerApplicants() {
                         </div>
                       )}
                     </div>
+
+                    <ApplicantRemark
+                      application={app}
+                      saving={savingNoteId === app.id}
+                      onSave={handleSaveNote}
+                    />
                   </div>
                 </div>
               </div>
@@ -433,11 +538,76 @@ export default function AdminCareerApplicants() {
           })
         )}
       </div>
+
+      {!loading && totalPages > 1 && (
+        <nav className="flex flex-wrap items-center justify-center gap-2" aria-label="Applicant pages">
+          <Button variant="outline" onClick={() => goToPage(page - 1)} disabled={page === 1}>
+            <ChevronLeft className="h-4 w-4" /> Previous
+          </Button>
+          {Array.from({ length: totalPages }, (_, index) => index + 1).map((pageNumber) => (
+            <Button
+              key={pageNumber}
+              variant={pageNumber === page ? "default" : "outline"}
+              className="min-w-10"
+              onClick={() => goToPage(pageNumber)}
+              aria-current={pageNumber === page ? "page" : undefined}
+            >
+              {pageNumber}
+            </Button>
+          ))}
+          <Button variant="outline" onClick={() => goToPage(page + 1)} disabled={page === totalPages}>
+            Next <ChevronRight className="h-4 w-4" />
+          </Button>
+        </nav>
+      )}
     </div>
   );
 }
 
-function UsersIcon(props: any) {
+function ApplicantRemark({
+  application,
+  saving,
+  onSave,
+}: {
+  application: JobApplication;
+  saving: boolean;
+  onSave: (id: string, note: string) => Promise<void>;
+}) {
+  const [note, setNote] = useState(application.internalNotes || "");
+  const changed = note.trim() !== (application.internalNotes || "").trim();
+
+  useEffect(() => {
+    setNote(application.internalNotes || "");
+  }, [application.id, application.internalNotes]);
+
+  return (
+    <div className="space-y-2 border-t border-border pt-4">
+      <label htmlFor={`remark-${application.id}`} className="flex items-center gap-1.5 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+        <StickyNote className="h-3.5 w-3.5" /> HR remark
+      </label>
+      <textarea
+        id={`remark-${application.id}`}
+        value={note}
+        maxLength={5000}
+        rows={3}
+        onChange={(event) => setNote(event.target.value)}
+        placeholder="Add interview notes, strengths, concerns or follow-up actions…"
+        className="w-full resize-y rounded-lg border border-border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary/30"
+      />
+      <div className="flex items-center justify-between gap-2">
+        <span className="text-[11px] text-muted-foreground">
+          {application.notesUpdatedAt ? `Saved ${format(new Date(application.notesUpdatedAt), "MMM d, yyyy h:mm a")}` : "Private to the HR team"}
+        </span>
+        <Button size="sm" variant={changed ? "default" : "outline"} disabled={!changed || saving} onClick={() => onSave(application.id, note)}>
+          {saving ? <Loader2 className="mr-1.5 h-3.5 w-3.5 animate-spin" /> : <Save className="mr-1.5 h-3.5 w-3.5" />}
+          Save remark
+        </Button>
+      </div>
+    </div>
+  );
+}
+
+function UsersIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

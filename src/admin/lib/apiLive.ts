@@ -353,6 +353,10 @@ export const liveApi = {
     return client.patch<JobApplication>(`/api/admin/applications/${id}/status`, { status, internalNotes });
   },
 
+  async updateApplicationNotes(id: string, internalNotes: string): Promise<JobApplication> {
+    return client.patch<JobApplication>(`/api/admin/applications/${id}/notes`, { internalNotes });
+  },
+
   async smartFilterApplications(jobId: string, query: string): Promise<{ items: JobApplication[]; total: number }> {
     return client.post(`/api/admin/careers/${jobId}/smart-filter`, { query });
   },

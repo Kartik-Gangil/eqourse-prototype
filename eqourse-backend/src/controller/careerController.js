@@ -21,6 +21,10 @@ function slugify(text) {
     .trim();
 }
 
+function escapeRegex(text) {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 /** Human-readable department labels */
 const DEPT_LABELS = {
   "ai-data": "AI Data Services",
@@ -78,7 +82,8 @@ function formatApplication(doc) {
     skills: doc.skills || [],
     customAnswers: doc.customAnswers || [],
     status: doc.status,
-    internalNotes: doc.internalNotes,
+    internalNotes: doc.internalNotes || "",
+    notesUpdatedAt: doc.notesUpdatedAt,
     statusChangedAt: doc.statusChangedAt,
     createdAt: doc.createdAt,
     updatedAt: doc.updatedAt,
@@ -482,20 +487,28 @@ const adminListApplications = async (req, res) => {
     const { jobId } = req.params;
     const { status, q, page = 1, pageSize = 25 } = req.query;
 
+    const parsedPage = Math.max(1, Number.parseInt(page, 10) || 1);
+    const parsedPageSize = Math.min(100, Math.max(1, Number.parseInt(pageSize, 10) || 25));
+
     const filter = { jobId };
     if (status && status !== "all") filter.status = status;
-    if (q) {
+    const searchTerm = typeof q === "string" ? escapeRegex(q.trim().slice(0, 200)) : "";
+    if (searchTerm) {
       filter.$or = [
-        { fullName: { $regex: q, $options: "i" } },
-        { email: { $regex: q, $options: "i" } },
-        { qualification: { $regex: q, $options: "i" } },
-        { skills: { $regex: q, $options: "i" } },
+        { fullName: { $regex: searchTerm, $options: "i" } },
+        { email: { $regex: searchTerm, $options: "i" } },
+        { phone: { $regex: searchTerm, $options: "i" } },
+        { currentRole: { $regex: searchTerm, $options: "i" } },
+        { qualification: { $regex: searchTerm, $options: "i" } },
+        { skills: { $regex: searchTerm, $options: "i" } },
+        { "customAnswers.questionLabel": { $regex: searchTerm, $options: "i" } },
+        { "customAnswers.answerValue": { $regex: searchTerm, $options: "i" } },
       ];
     }
 
-    const skip = (parseInt(page) - 1) * parseInt(pageSize);
+    const skip = (parsedPage - 1) * parsedPageSize;
     const [items, total] = await Promise.all([
-      JobApplication.find(filter).sort({ createdAt: -1 }).skip(skip).limit(parseInt(pageSize)).lean(),
+      JobApplication.find(filter).sort({ createdAt: -1 }).skip(skip).limit(parsedPageSize).lean(),
       JobApplication.countDocuments(filter),
     ]);
 
@@ -510,8 +523,8 @@ const adminListApplications = async (req, res) => {
       data: {
         items: items.map(formatApplication),
         total,
-        page: parseInt(page),
-        pageSize: parseInt(pageSize),
+        page: parsedPage,
+        pageSize: parsedPageSize,
         statusCounts: statusCounts.reduce((acc, s) => {
           acc[s._id] = s.count;
           return acc;
@@ -520,6 +533,37 @@ const adminListApplications = async (req, res) => {
     });
   } catch (error) {
     logger.error("Error listing applications:", error);
+    return res.status(500).json({ success: false, message: "Server error." });
+  }
+};
+
+/**
+ * PATCH /api/admin/applications/:id/notes
+ * Admin — save an HR remark without changing the application status
+ * Body: { internalNotes: string }
+ */
+const adminUpdateApplicationNotes = async (req, res) => {
+  try {
+    if (typeof req.body?.internalNotes !== "string") {
+      return res.status(400).json({ success: false, message: "Remark must be text." });
+    }
+
+    const internalNotes = req.body.internalNotes.trim().slice(0, 5000);
+    const application = await JobApplication.findByIdAndUpdate(
+      req.params.id,
+      { internalNotes, notesUpdatedAt: new Date() },
+      { new: true, runValidators: true }
+    );
+
+    if (!application) return res.status(404).json({ success: false, message: "Not found." });
+
+    return res.json({
+      success: true,
+      message: "HR remark saved.",
+      data: formatApplication(application),
+    });
+  } catch (error) {
+    logger.error("Error saving application remark:", error);
     return res.status(500).json({ success: false, message: "Server error." });
   }
 };
@@ -558,7 +602,10 @@ const adminUpdateApplicationStatus = async (req, res) => {
     const previousStatus = application.status;
     application.status = status;
     application.statusChangedAt = new Date();
-    if (internalNotes !== undefined) application.internalNotes = internalNotes;
+    if (internalNotes !== undefined) {
+      application.internalNotes = internalNotes;
+      application.notesUpdatedAt = new Date();
+    }
     await application.save();
 
     // Fetch the job opening for the email
@@ -603,15 +650,25 @@ const adminSmartFilter = async (req, res) => {
     }
 
     // Build a prompt for Gemini
-    const candidateSummaries = applications.map((app, idx) => ({
-      index: idx,
-      id: app._id.toString(),
+    const candidateSummaries = applications.map((app, index) => ({
+      candidateIndex: index,
       name: app.fullName,
       experience: app.experience,
       qualification: app.qualification,
       currentRole: app.currentRole,
-      skills: app.skills.join(", "),
+      skills: (app.skills || []).join(", "),
       status: app.status,
+      hasResume: Boolean(app.resumeFile?.url || app.resumeDriveLink),
+      resumeFileName: app.resumeFile?.originalName || "",
+      hasPortfolio: Boolean(app.portfolioLink),
+      coverLetter: String(app.coverLetter || "").slice(0, 600),
+      applicationAnswers: (app.customAnswers || []).map((answer) => ({
+        question: answer.questionLabel,
+        answer: Array.isArray(answer.answerValue)
+          ? answer.answerValue.join(", ")
+          : String(answer.answerValue || "").slice(0, 500),
+      })),
+      hrRemark: String(app.internalNotes || "").slice(0, 500),
     }));
 
     const apiKey = process.env.GEMINI_API_KEY;
@@ -622,16 +679,19 @@ const adminSmartFilter = async (req, res) => {
     const model = process.env.GEMINI_ADMIN_MODEL || "gemini-3.7-flash";
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
 
-    const systemPrompt = `You are an HR assistant helping filter job applicants. Given a list of candidates and a filter query from the HR manager, return a JSON array of candidate IDs that match the filter criteria, ordered by best match first.
+    const systemPrompt = `You are an HR assistant helping a non-technical HR manager filter job applicants. Given candidate profiles and a plain-language request, return a JSON array of candidateIndex integers that match, ordered by best match first.
 
 Rules:
 - If no candidates match, return an empty array []
+- Evaluate every supplied candidate before answering; never stop after the first few matches
+- Use the application answers, cover letter and HR remark when they are relevant
 - Be smart about interpreting experience ranges (e.g., "3+ years" means 3 or more)
 - Match skills intelligently (e.g., "Python" should match "python", "Python3", etc.)
-- Consider qualification levels (e.g., "highest qualification" = PhD > Masters > Bachelors)`;
+- Consider qualification levels (e.g., "highest qualification" = PhD > Masters > Bachelors)
+- Return only integer indexes that exist in the supplied list`;
 
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 20_000);
+    const timeout = setTimeout(() => controller.abort(), 45_000);
     let response;
 
     try {
@@ -645,15 +705,15 @@ Rules:
           contents: [
             {
               role: "user",
-              parts: [{ text: `Candidates:\n${JSON.stringify(candidateSummaries, null, 2)}\n\nFilter query: "${query}"\n\nReturn the matching candidate IDs as a JSON array.` }],
+              parts: [{ text: `Candidates:\n${JSON.stringify(candidateSummaries)}\n\nHR request: "${String(query).slice(0, 1000)}"\n\nReturn matching candidateIndex values as a JSON array.` }],
             },
           ],
           systemInstruction: { parts: [{ text: systemPrompt }] },
           generationConfig: {
             thinkingConfig: { thinkingLevel: "LOW" },
             responseMimeType: "application/json",
-            responseSchema: { type: "ARRAY", items: { type: "STRING" } },
-            maxOutputTokens: 2048,
+            responseSchema: { type: "ARRAY", items: { type: "INTEGER" } },
+            maxOutputTokens: 4096,
           },
         }),
         signal: controller.signal,
@@ -670,16 +730,13 @@ Rules:
 
     const geminiResponse = await response.json();
     const responseText = extractCandidateText(geminiResponse?.candidates?.[0]) || "[]";
-    const parsedIds = JSON.parse(responseText);
-    const matchedIds = Array.isArray(parsedIds)
-      ? parsedIds.filter((id) => typeof id === "string")
+    const parsedIndexes = JSON.parse(responseText);
+    const matchedIndexes = Array.isArray(parsedIndexes)
+      ? [...new Set(parsedIndexes.filter((index) => Number.isInteger(index) && index >= 0 && index < applications.length))]
       : [];
 
-    // Filter and order applications by the matched IDs
-    const idOrder = new Map(matchedIds.map((id, idx) => [id, idx]));
-    const filtered = applications
-      .filter((app) => idOrder.has(app._id.toString()))
-      .sort((a, b) => idOrder.get(a._id.toString()) - idOrder.get(b._id.toString()));
+    // Indexes are shorter and more reliable than asking the model to repeat Mongo IDs.
+    const filtered = matchedIndexes.map((index) => applications[index]);
 
     return res.json({
       success: true,
@@ -738,6 +795,7 @@ const exportApplicationsCSV = async (req, res) => {
       "Portfolio Link",
       "Resume (Drive Link)",
       "Cover Letter",
+      "HR Remark",
       "Status",
       ...customQLabels,
       "Applied At",
@@ -764,6 +822,7 @@ const exportApplicationsCSV = async (req, res) => {
         app.portfolioLink || "",
         app.resumeDriveLink || "",
         app.coverLetter || "",
+        app.internalNotes || "",
         app.status,
         ...customValues,
         app.createdAt ? new Date(app.createdAt).toISOString() : "",
@@ -803,6 +862,7 @@ module.exports = {
   adminListApplications,
   adminGetApplication,
   adminUpdateApplicationStatus,
+  adminUpdateApplicationNotes,
   adminSmartFilter,
   exportApplicationsCSV,
 };

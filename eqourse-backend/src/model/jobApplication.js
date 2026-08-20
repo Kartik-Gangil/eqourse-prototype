@@ -38,6 +38,7 @@ const jobApplicationSchema = new mongoose.Schema(
       default: "applied",
     },
     internalNotes: { type: String, default: "" },
+    notesUpdatedAt: { type: Date },
     statusChangedAt: { type: Date },
   },
   { timestamps: true }
