@@ -28,9 +28,9 @@ const AIDataServicesLayout = ({ children, breadcrumbs }: AIDataServicesLayoutPro
       <Navbar />
 
       {/* Breadcrumbs */}
-      <div className="bg-gradient-to-r from-muted/60 to-background border-b border-border/50">
-        <div className="container mx-auto px-4 py-3">
-          <nav className="flex items-center gap-1.5 text-sm text-muted-foreground">
+      <div className="overflow-x-auto border-b border-border/50 bg-gradient-to-r from-muted/60 to-background [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="container mx-auto min-w-max px-4 py-3">
+          <nav className="flex items-center gap-1.5 whitespace-nowrap text-sm text-muted-foreground">
             <Link to="/" className="hover:text-primary transition-colors">
               Home
             </Link>

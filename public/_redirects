@@ -107,6 +107,12 @@ https://eqourse.com/* https://www.eqourse.com/:splat 301!
 /ai-data-services/data-collection/text-data-collection/ /ai-data-services/data-collection/text-data-collection 301!
 /ai-data-services/data-collection/video-data-collection/ /ai-data-services/data-collection/video-data-collection 301!
 /ai-data-services/model-testing/ /ai-data-services/model-testing 301!
+/ai-data-services/model-testing/bias-fairness-audit/ /ai-data-services/model-testing/bias-fairness-audit 301!
+/ai-data-services/model-testing/ai-red-teaming/ /ai-data-services/model-testing/ai-red-teaming 301!
+/ai-data-services/model-testing/llm-evaluation/ /ai-data-services/model-testing/llm-evaluation 301!
+/ai-data-services/model-testing/asr-speech-model-testing/ /ai-data-services/model-testing/asr-speech-model-testing 301!
+/ai-data-services/model-testing/computer-vision-model-testing/ /ai-data-services/model-testing/computer-vision-model-testing 301!
+/ai-data-services/model-testing/human-evaluation-ab-testing/ /ai-data-services/model-testing/human-evaluation-ab-testing 301!
 /robotics-training-data-services/ /robotics-training-data-services 301!
 /animated-videos-services/ /animated-videos-services 301!
 /articulate-storyline-services/ /articulate-storyline-services 301!

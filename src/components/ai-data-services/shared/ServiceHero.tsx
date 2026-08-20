@@ -145,19 +145,19 @@ const ServiceHero = ({
       </div>
 
       <div className="container mx-auto px-4 py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
+        <div className="grid min-w-0 lg:grid-cols-2 gap-12 items-center">
+          <div className="min-w-0 space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 animate-slide-up">
               <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-xs md:text-sm font-semibold tracking-wider uppercase text-primary">{preHeadline}</span>
             </div>
 
-            <h1 className={`font-heading ${useCompactHeadline ? "text-3xl md:text-4xl lg:text-5xl" : "text-4xl md:text-5xl lg:text-6xl"} font-extrabold leading-tight animate-slide-up-delayed ${isLight ? "text-foreground" : "text-white"}`}>
+            <h1 className={`max-w-full break-words font-heading ${useCompactHeadline ? "text-3xl md:text-4xl lg:text-5xl" : "text-4xl md:text-5xl lg:text-6xl"} font-extrabold leading-tight animate-slide-up-delayed ${isLight ? "text-foreground" : "text-white"}`}>
               {headline}{" "}
               {headlineAccent && <span className="text-gradient">{headlineAccent}</span>}
             </h1>
 
-            <p className={`text-lg md:text-xl animate-slide-up-delayed-2 max-w-2xl ${isLight ? "text-muted-foreground" : "text-white/75"}`}>{subtext}</p>
+            <p className={`max-w-2xl break-words text-lg md:text-xl animate-slide-up-delayed-2 ${isLight ? "text-muted-foreground" : "text-white/75"}`}>{subtext}</p>
 
             <div className="flex flex-wrap gap-4 animate-slide-up-delayed-2">
               {ctaIsRoute ? (
@@ -200,21 +200,21 @@ const ServiceHero = ({
               )}
             </div>
 
-            <div className={`grid gap-4 sm:gap-8 pt-2 animate-slide-up-delayed-2 ${(trustStats?.length || 3) >= 4 ? "grid-cols-2 sm:grid-cols-4" : "grid-cols-3"}`}>
+            <div className={`grid min-w-0 gap-4 sm:gap-8 pt-2 animate-slide-up-delayed-2 ${(trustStats?.length || 3) >= 4 ? "grid-cols-2 sm:grid-cols-4" : "grid-cols-3"}`}>
               {(trustStats || [
                 { value: "500+", label: "Specialists" },
                 { value: "30+", label: "Languages" },
                 { value: "98%+", label: "Accuracy" },
               ]).map((stat) => (
-                <div key={stat.label}>
-                  <div className="text-2xl md:text-3xl font-bold text-gradient">{stat.value}</div>
+                <div key={stat.label} className="min-w-0">
+                  <div className="break-words text-xl font-bold text-gradient sm:text-2xl md:text-3xl">{stat.value}</div>
                   <div className={`text-xs mt-1 ${isLight ? "text-muted-foreground" : "text-white/60"}`}>{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="relative animate-slide-up-delayed">
+          <div className="relative min-w-0 animate-slide-up-delayed">
             <div className={`relative rounded-3xl overflow-hidden shadow-elevated border ${isLight ? "border-white/80 bg-white/55" : "border-white/10 bg-gradient-to-br from-primary/20 via-foreground/30 to-accent/20"}`}>
               {videoSrc ? (
                 /* Responsive 16:9 YouTube embed — SEO: title attr used by Google for video indexing */

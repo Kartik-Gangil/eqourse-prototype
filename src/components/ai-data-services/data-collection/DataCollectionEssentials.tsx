@@ -124,7 +124,7 @@ export const CollectionLifecycleAndPricing = () => {
           <div className="rounded-3xl border border-border/60 bg-card p-7 md:p-9 shadow-card">
             <span className="text-xs font-semibold uppercase tracking-wider text-primary">Connected AI Data Services</span>
             <h2 className="font-heading text-2xl md:text-3xl font-bold mt-3">From Raw Data to Model-Ready Data</h2>
-            <p className="text-muted-foreground leading-relaxed mt-4">Collection can connect with annotation, cleaning, validation and model testing so feedback from later stages improves the original data specification.</p>
+            <p className="text-muted-foreground leading-relaxed mt-4">Collection can connect with annotation, cleaning, validation and model testing so feedback from later stages improves the original data specification. Speech programmes can continue into <Link to="/ai-data-services/model-testing/asr-speech-model-testing" className="font-semibold text-primary hover:underline">ASR &amp; Speech Model Testing</Link> for per-language, accent and acoustic-condition evidence. The same network sources stratified evaluation imagery for <Link to="/ai-data-services/model-testing/computer-vision-model-testing" className="font-semibold text-primary hover:underline">computer vision model testing</Link>—real conditions, real devices and real geography.</p>
             <div className="mt-6 flex flex-wrap gap-2 text-sm">
               {["Collect", "Annotate", "Clean & Validate", "Test", "Improve"].map((step) => <span key={step} className="rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-foreground/75">{step}</span>)}
             </div>

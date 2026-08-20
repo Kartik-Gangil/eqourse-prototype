@@ -203,8 +203,45 @@ export const pageSeo: Record<string, PageSeo> = {
     canonical: "https://www.eqourse.com/ai-data-services/data-collection/video-data-collection",
   },
   "/ai-data-services/model-testing": {
-    title: "AI Model Testing – Ensure Model Accuracy | Eqourse",
-    description: "Test AI models for accuracy, safety, reliability and real-world performance with expert evaluation services. Start a free pilot.",
+    title: "AI Model Testing & Evaluation Services | eQOURSE",
+    description: "Test LLM, speech, vision and multimodal AI for safety, bias, accuracy and real-world performance with expert human evaluation and segment reporting.",
+    canonical: "https://www.eqourse.com/ai-data-services/model-testing",
+    image: "/assets/ai-data/model-testing/model-testing-og.webp",
+  },
+  "/ai-data-services/model-testing/bias-fairness-audit": {
+    title: "AI Bias Audit & Fairness Testing Services | eQOURSE",
+    description: "Independent AI bias audits across 30+ languages. Intersectional fairness testing, impact ratio analysis and demographically stratified human evaluation for LLM, ASR, vision and scoring models. ISO 27001 certified.",
+    canonical: "https://www.eqourse.com/ai-data-services/model-testing/bias-fairness-audit",
+    image: "/assets/ai-data/model-testing/bias-fairness/og-bias-fairness-audit.jpg",
+  },
+  "/ai-data-services/model-testing/ai-red-teaming": {
+    title: "AI Red Teaming & Adversarial Testing Services | eQOURSE",
+    description: "Human-led AI red teaming across 30+ languages. Adversarial testing for LLM and agentic systems against OWASP LLM and Agentic Top 10, with reproducible findings, severity ratings and native-speaker attack sets.",
+    canonical: "https://www.eqourse.com/ai-data-services/model-testing/ai-red-teaming",
+    image: "/assets/ai-data/model-testing/red-teaming/og-ai-red-teaming.jpg",
+  },
+  "/ai-data-services/model-testing/llm-evaluation": {
+    title: "LLM Evaluation Services — Human & Judge Calibration | eQOURSE",
+    description: "Human LLM evaluation across 30+ languages — hallucination, RAG groundedness, instruction following, multi-turn and agent trajectory testing, plus LLM-as-a-judge calibration against measured human agreement.",
+    canonical: "https://www.eqourse.com/ai-data-services/model-testing/llm-evaluation",
+    image: "/assets/ai-data/model-testing/llm-evaluation/og-llm-evaluation.jpg",
+  },
+  "/ai-data-services/model-testing/asr-speech-model-testing": {
+    title: "ASR & Speech Model Testing Services | eQOURSE",
+    description: "Speech recognition testing across 30+ languages and regional accents. Measure WER, CER, semantic and entity errors, diarization and noisy-condition performance with native-speaker test sets.",
+    canonical: "https://www.eqourse.com/ai-data-services/model-testing/asr-speech-model-testing",
+    image: "/assets/ai-data/model-testing/asr-speech/og-asr-speech-testing.jpg",
+  },
+  "/ai-data-services/model-testing/computer-vision-model-testing": {
+    title: "Computer Vision Model Testing Services | eQOURSE",
+    description: "Computer vision model testing with real-world test sets — object detection, segmentation, OCR, tracking and VLM evaluation, with slice-level failure analysis across conditions, devices and cohorts.",
+    canonical: "https://www.eqourse.com/ai-data-services/model-testing/computer-vision-model-testing",
+    image: "/assets/ai-data/model-testing/computer-vision/og-cv-model-testing.jpg",
+  },
+  "/ai-data-services/model-testing/human-evaluation-ab-testing": {
+    title: "Human Evaluation & AI A/B Testing Services | eQOURSE",
+    description: "Blind, counterbalanced human preference evaluation for AI model comparison, plus quality scoring during live experiments across 30+ languages with representative panels and measured agreement.",
+    canonical: "https://www.eqourse.com/ai-data-services/model-testing/human-evaluation-ab-testing",
   },
   "/robotics-training-data-services": {
     title: "Robotics Training Data Services for Physical AI | eQOURSE",

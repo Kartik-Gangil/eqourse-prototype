@@ -39,6 +39,12 @@ const AIPiiDetectionRedaction = lazy(() => import("./pages/AIPiiDetectionRedacti
 const AIMetadataEnrichment = lazy(() => import("./pages/AIMetadataEnrichment.tsx"));
 const AIDataValidationVerification = lazy(() => import("./pages/AIDataValidationVerification.tsx"));
 const AIModelTesting = lazy(() => import("./pages/AIModelTesting.tsx"));
+const AIBiasFairnessAudit = lazy(() => import("./pages/AIBiasFairnessAudit.tsx"));
+const AIRedTeaming = lazy(() => import("./pages/AIRedTeaming.tsx"));
+const AILLMEvaluation = lazy(() => import("./pages/AILLMEvaluation.tsx"));
+const AIASRSpeechModelTesting = lazy(() => import("./pages/AIASRSpeechModelTesting.tsx"));
+const AIComputerVisionModelTesting = lazy(() => import("./pages/AIComputerVisionModelTesting.tsx"));
+const AIHumanEvaluationABTesting = lazy(() => import("./pages/AIHumanEvaluationABTesting.tsx"));
 const RoboticsTrainingData = lazy(() => import("./pages/RoboticsTrainingData.tsx"));
 const ContentServicesOverview = lazy(() => import("./pages/ContentServicesOverview.tsx"));
 const CustomElearningContent = lazy(() => import("./pages/CustomElearningContent.tsx"));
@@ -151,6 +157,12 @@ const App = () => (
               <Route path="/ai-data-services/cleaning-validation/metadata-enrichment" element={<AIMetadataEnrichment />} />
               <Route path="/ai-data-services/cleaning-validation/data-validation-verification" element={<AIDataValidationVerification />} />
               <Route path="/ai-data-services/model-testing" element={<AIModelTesting />} />
+              <Route path="/ai-data-services/model-testing/bias-fairness-audit" element={<AIBiasFairnessAudit />} />
+              <Route path="/ai-data-services/model-testing/ai-red-teaming" element={<AIRedTeaming />} />
+              <Route path="/ai-data-services/model-testing/llm-evaluation" element={<AILLMEvaluation />} />
+              <Route path="/ai-data-services/model-testing/asr-speech-model-testing" element={<AIASRSpeechModelTesting />} />
+              <Route path="/ai-data-services/model-testing/computer-vision-model-testing" element={<AIComputerVisionModelTesting />} />
+              <Route path="/ai-data-services/model-testing/human-evaluation-ab-testing" element={<AIHumanEvaluationABTesting />} />
               <Route path="/robotics-training-data-services" element={<RoboticsTrainingData />} />
 
               {/* Content Service - Category Pages */}
