@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { FileSearch2, GitCompareArrows, ScanSearch } from "lucide-react";
 import AIDataServicesLayout from "../shared/AIDataServicesLayout";
 import SEOHead from "../shared/SEOHead";
-import ServiceHero from "../shared/ServiceHero";
+import CinematicHero from "../shared/CinematicHero";
 import ServiceCTA from "../shared/ServiceCTA";
 import {
   CleaningDefinition,
@@ -79,9 +79,8 @@ const CleaningPage = () => (
     </Helmet>
     <CleaningMotionStyles />
 
-    <ServiceHero
-      tone="light"
-      preHeadline="Audit-First Data Quality"
+    <CinematicHero
+      kicker="Audit-First Data Quality"
       headline="Data Cleaning & Validation Services for"
       headlineAccent="AI Training Data"
       subtext="Deduplication, PII redaction, noise removal, label auditing and multi-tier validation—with error rates reported by defect category, not one blended number. GDPR-aligned processing under ISO 27001 certified controls."
@@ -90,19 +89,21 @@ const CleaningPage = () => (
       secondaryCtaText="Talk to a Data Specialist"
       secondaryCtaLink="/contact-us"
       imageSrc="/assets/ai-data/cleaning-validation/data-cleaning-validation-services-hero.webp"
+      imageAvifSrc="/assets/ai-data/cleaning-validation/data-cleaning-validation-services-hero.avif"
       imageAlt="Readable synthetic AI training records showing validated data, label errors, PII and split leakage in a dataset audit"
       imageWidth={1200}
       imageHeight={800}
-      compactHeadline
-      trustStats={[{ value: "500+", label: "Specialists" }, { value: "30+", label: "Global languages" }, { value: "ISO", label: "9001 & 27001 processes" }]}
-      rotatingBadges={[
-        { icon: ScanSearch, title: "Defect profiling", subtitle: "Source · split · severity", color: "hsl(170 82% 38%)" },
-        { icon: GitCompareArrows, title: "Before / after", subtitle: "Measured · explained · logged", color: "hsl(28 90% 48%)" },
-        { icon: FileSearch2, title: "Independent audit", subtitle: "Your data · Any vendor", color: "hsl(190 76% 40%)" },
+      stats={[
+        { value: "500+", label: "Specialists" },
+        { value: "30+", label: "Global languages" },
+        { value: "ISO", label: "9001 & 27001 processes" }
       ]}
-      bottomBadge={{ iconText: "QA", title: "Every change traceable", subtitle: "Logged · attributable · reversible" }}
+      scrollTarget="#cleaning-trust"
+      scrollLabel="Explore data cleaning"
     />
-    <CleaningTrustStrip />
+    <div id="cleaning-trust">
+      <CleaningTrustStrip />
+    </div>
     <CleaningServices />
     <CleaningDefinition />
     <LateErrorCost />

@@ -117,7 +117,7 @@ const ImageDataCollectionPage = () => {
       ctaLink="/free-pilot"
       secondaryCtaText="Discuss Your Image Dataset"
       secondaryCtaLink="/contact-us"
-      imageSrc="/assets/ai-data/image-collection/image-data-collection-hero.webp"
+      imageSrc="/assets/ai-data/image-collection/image-data-collection-hero.webp" imageAvifSrc="/assets/ai-data/image-collection/image-data-collection-hero.avif"
       imageAlt="Custom image data collection for computer vision across objects, documents, devices and real-world environments"
       imageWidth={1448}
       imageHeight={1086}

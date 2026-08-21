@@ -254,6 +254,30 @@ export const pageSeo: Record<string, PageSeo> = {
     canonical: "https://www.eqourse.com/robotics-training-data-services/human-demonstrations",
     image: "/assets/ai-data/robotics/human-demonstrations/og-human-demonstrations.jpg",
   },
+  "/robotics-training-data-services/multimodal-sensor-data": {
+    title: "Multimodal Sensor Data for Robotics & Physical AI | eQOURSE",
+    description: "Time-synchronised multimodal robot data—vision, depth, proprioception, force-torque, tactile, IMU and audio—with measured sync error, documented calibration and per-episode lineage.",
+    canonical: "https://www.eqourse.com/robotics-training-data-services/multimodal-sensor-data",
+    image: "/assets/ai-data/robotics/multimodal-sensor-data/multimodal-sensor-data-hero.webp",
+  },
+  "/robotics-training-data-services/3d-spatial-annotation": {
+    title: "3D & Spatial Annotation for Robot Manipulation | eQOURSE",
+    description: "Grasp poses, affordances, 6-DoF pose, part and articulation annotation for robot manipulation, plus automated-candidate verification and simulation-ready assets.",
+    canonical: "https://www.eqourse.com/robotics-training-data-services/3d-spatial-annotation",
+    image: "/assets/ai-data/robotics/3d-spatial-annotation/og-3d-spatial-annotation.jpg",
+  },
+  "/robotics-training-data-services/vla-evaluation": {
+    title: "VLA Evaluation & Robot Policy Benchmarking | eQOURSE",
+    description: "Real-robot VLA evaluation with controlled protocols, defensible trial counts, failure taxonomy, recovery rates, generalisation testing and same-fixture human baselines.",
+    canonical: "https://www.eqourse.com/robotics-training-data-services/vla-evaluation",
+    image: "/assets/ai-data/robotics/vla-evaluation/og-vla-evaluation.jpg",
+  },
+  "/robotics-training-data-services/deployment-validation": {
+    title: "Robot Deployment Validation & Site Testing | eQOURSE",
+    description: "Structured robot deployment validation in the target environment—acceptance testing, endurance observation, human-robot interaction study and incident logging for your evidence pack.",
+    canonical: "https://www.eqourse.com/robotics-training-data-services/deployment-validation",
+    image: "/assets/ai-data/robotics/deployment-validation/deployment-validation-hero.webp",
+  },
   "/animated-videos-services": {
     title: "Animated Video Services – Custom 2D & 3D | Eqourse",
     description: "Create engaging animated videos that explain concepts, train teams and promote ideas. Explore eQOURSE services today.",

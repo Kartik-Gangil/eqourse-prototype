@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { BarChart3, Radar, ScanSearch } from "lucide-react";
 import AIDataServicesLayout from "../shared/AIDataServicesLayout";
 import SEOHead from "../shared/SEOHead";
-import ServiceHero from "../shared/ServiceHero";
+import CinematicHero from "../shared/CinematicHero";
 import ServiceCTA from "../shared/ServiceCTA";
 import { modelTestingFaqs } from "./ModelTestingContent";
 import {
@@ -91,9 +91,8 @@ const ModelTestingPage = () => (
     </Helmet>
     <ModelTestingMotionStyles />
 
-    <ServiceHero
-      tone="light"
-      preHeadline="Release-Readiness Evidence"
+    <CinematicHero
+      kicker="Release-Readiness Evidence"
       headline="AI Model Testing &"
       headlineAccent="Evaluation Services"
       subtext="Test AI models the way they will actually be used—with real people, realistic inputs and the conditions benchmarks miss. Evaluate LLMs, speech, vision and multimodal systems for safety, bias, robustness and segment-level performance."
@@ -106,15 +105,20 @@ const ModelTestingPage = () => (
       imageAlt="AI quality specialist reviewing model outputs, error distributions and validation metrics"
       imageWidth={1200}
       imageHeight={800}
-      compactHeadline
-      trustStats={[{ value: "500+", label: "Specialists" }, { value: "30+", label: "Global languages" }, { value: "Segment", label: "Reporting" }]}
-      rotatingBadges={[
-        { icon: Radar, title: "Release gate", subtitle: "Pass · review · fix", color: "hsl(170 82% 38%)" },
-        { icon: ScanSearch, title: "Failure discovery", subtitle: "Edge · safety · bias", color: "hsl(28 90% 48%)" },
-        { icon: BarChart3, title: "Segment evidence", subtitle: "Language · user · condition", color: "hsl(190 76% 40%)" },
+      stats={[
+        { value: "500+", label: "Specialists" },
+        { value: "30+", label: "Global languages" },
+        { value: "Segment", label: "Reporting" },
       ]}
-      bottomBadge={{ iconText: "QA", title: "Beyond one average", subtitle: "Severity · confidence · regression" }}
+      scrollTarget="#model-testing-intro"
+      scrollLabel="Explore model testing"
     />
+
+    <section id="model-testing-intro" className="border-b border-slate-200 bg-white py-5">
+      <p className="container mx-auto max-w-7xl px-4 text-sm leading-6 text-slate-600">
+        Testing an embodied robot policy? Our dedicated <a href="/robotics-training-data-services/vla-evaluation" className="font-bold text-primary hover:underline">VLA evaluation and robot policy benchmarking</a> service covers controlled real-robot trials, recovery analysis and same-fixture human baselines.
+      </p>
+    </section>
 
     <TestingTrustStrip />
     <TestingDefinition />

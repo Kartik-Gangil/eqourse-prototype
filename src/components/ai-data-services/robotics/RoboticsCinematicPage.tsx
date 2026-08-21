@@ -27,6 +27,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button";
 import AIDataServicesLayout from "../shared/AIDataServicesLayout";
 import SEOHead from "../shared/SEOHead";
+import CinematicHero from "../shared/CinematicHero";
 import RoboticsMediaSlot from "./RoboticsMediaSlot";
 import RoboticsLottie from "./RoboticsLottie";
 import { trackRoboticsEvent } from "@/lib/roboticsAnalytics";
@@ -48,11 +49,11 @@ type RoboticsCapability = {
 
 const capabilities: RoboticsCapability[] = [
   { icon: Video, title: "Human demonstration data", short: "Teleoperation, egocentric and multi-view capture", body: "Complete task episodes with action-state correspondence, deliberate failure and recovery, and per-episode QA.", href: "/robotics-training-data-services/human-demonstrations" },
-  { icon: Bot, title: "Robot interaction data", short: "Teleoperation, trajectories & state logs", body: "Action trajectories, joint or state logs, operator interventions and outcomes captured through client-approved robots and environments." },
-  { icon: Database, title: "Multimodal sensor data", short: "RGB, RGB-D, depth, audio, pose and metadata", body: "Time-aligned sensor streams prepared around the modalities, calibration information and metadata required by your model." },
-  { icon: Tags, title: "Robotics data annotation", short: "Objects, actions, contact, intent and outcomes", body: "Bounding boxes, masks, tracking, pose, task steps, grasp points, affordances, contact events and language-action alignment." },
-  { icon: ShieldCheck, title: "Data cleaning & validation", short: "Synchronisation, calibration and quality review", body: "Corrupt-frame detection, missing-stream checks, timestamp alignment, metadata validation and annotation consistency review." },
-  { icon: Activity, title: "Model evaluation datasets", short: "Held-out tasks, edge cases and failure scenarios", body: "Evaluation data for task completion, instruction following, grounding, action sequence, robustness and recovery from failure." },
+  { icon: Bot, title: "Robot interaction data", short: "Teleoperation, trajectories & state logs", body: "Action trajectories, joint or state logs, operator interventions and outcomes captured through client-approved robots and environments.", href: "/robotics-training-data-services/human-demonstrations#collection-methods" },
+  { icon: Database, title: "Multimodal sensor data", short: "RGB, RGB-D, depth, audio, pose and metadata", body: "Time-aligned sensor streams prepared around the modalities, calibration information and metadata required by your model.", href: "/robotics-training-data-services/multimodal-sensor-data" },
+  { icon: Tags, title: "Robotics data annotation", short: "Objects, actions, contact, intent and outcomes", body: "Bounding boxes, masks, tracking, pose, task steps, grasp points, affordances, contact events and language-action alignment.", href: "/robotics-training-data-services/3d-spatial-annotation" },
+  { icon: ShieldCheck, title: "Data cleaning & validation", short: "Synchronisation, calibration and quality review", body: "Corrupt-frame detection, missing-stream checks, timestamp alignment, metadata validation and annotation consistency review.", href: "/robotics-training-data-services/deployment-validation" },
+  { icon: Activity, title: "Model evaluation datasets", short: "Held-out tasks, edge cases and failure scenarios", body: "Evaluation data for task completion, instruction following, grounding, action sequence, robustness and recovery from failure.", href: "/robotics-training-data-services/vla-evaluation" },
 ];
 
 const storyBeats = [
@@ -208,51 +209,31 @@ const RoboticsCinematicPage = () => {
       <Helmet><script type="application/ld+json">{JSON.stringify(serviceSchema)}</script></Helmet>
 
       <main className="rx-page">
-        <section className="rx-hero">
-          <motion.picture
-            className="rx-hero__image"
-            initial={reduceMotion ? false : { opacity: 0, scale: 1.035 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.15, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <source srcSet={`${ASSET_ROOT}/robotics-training-data-hero-960.avif 960w, ${ASSET_ROOT}/robotics-training-data-hero.avif 1920w`} sizes="100vw" type="image/avif" />
-            <source srcSet={`${ASSET_ROOT}/robotics-training-data-hero-960.webp 960w, ${ASSET_ROOT}/robotics-training-data-hero.webp 1920w`} sizes="100vw" type="image/webp" />
-            <img src={`${ASSET_ROOT}/robotics-training-data-hero.webp`} alt="Engineer reviewing multimodal robotics training data beside a collaborative robot" width={1920} height={1072} loading="eager" decoding="async" {...{ fetchpriority: "high" }} />
-          </motion.picture>
-          <div className="rx-hero__wash" />
-          <div className="rx-hero__grid" />
-          <div className="rx-hero__sensor" aria-hidden="true">
-            <motion.div className="rx-hero__scan" animate={reduceMotion ? undefined : { y: ["-10%", "760%"] }} transition={{ duration: 5.5, repeat: Infinity, ease: "linear" }} />
-          </div>
-
-          <motion.div className="rx-hero__content">
-            <motion.div className="rx-kicker" initial={reduceMotion ? false : { opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
-              <span /> Physical AI data operations
-            </motion.div>
-            <motion.h1 initial={reduceMotion ? false : { opacity: 0, y: 36 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.85, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}>
-              Robotics & Physical AI <strong>Training Data Services</strong>
-            </motion.h1>
-            <motion.p initial={reduceMotion ? false : { opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.18 }}>
-              Build learning-ready datasets that connect what a robot sees, understands and does in the physical world.
-            </motion.p>
-            <motion.div className="rx-hero__actions" initial={reduceMotion ? false : { opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75, delay: 0.28 }}>
-              <Link to={PILOT_LINK} onClick={() => trackRoboticsEvent("robotics_primary_cta_click", { section: "hero", device_category: window.innerWidth < 768 ? "mobile" : "desktop" })}>
-                <Button size="lg">Start Free Pilot <ArrowRight /></Button>
-              </Link>
-              <Link to={CONTACT_LINK} onClick={() => trackRoboticsEvent("robotics_secondary_cta_click", { section: "hero", device_category: window.innerWidth < 768 ? "mobile" : "desktop" })}>
-                <span>Talk to a data specialist <ArrowRight /></span>
-              </Link>
-            </motion.div>
-          </motion.div>
-
-          <div className="rx-hero__telemetry" aria-label="eQOURSE delivery scale">
-            <div><strong>500+</strong><span>specialists</span></div>
-            <div><strong>30+</strong><span>languages</span></div>
-            <div><strong>98%+</strong><span>validated accuracy</span></div>
-            <div><strong>ISO</strong><span>9001 · 27001</span></div>
-          </div>
-          <a className="rx-hero__scroll" href="#robotics-services"><span /> Explore our robotics data services</a>
-        </section>
+        <CinematicHero
+          kicker="Physical AI data operations"
+          headline="Robotics & Physical AI"
+          headlineAccent="Training Data Services"
+          subtext="Build learning-ready datasets that connect what a robot sees, understands and does in the physical world."
+          ctaText="Start Free Pilot"
+          ctaLink={PILOT_LINK}
+          secondaryCtaText="Talk to a data specialist"
+          secondaryCtaLink={CONTACT_LINK}
+          onCtaClick={() => trackRoboticsEvent("robotics_primary_cta_click", { section: "hero", device_category: window.innerWidth < 768 ? "mobile" : "desktop" })}
+          onSecondaryCtaClick={() => trackRoboticsEvent("robotics_secondary_cta_click", { section: "hero", device_category: window.innerWidth < 768 ? "mobile" : "desktop" })}
+          imageSrc={`${ASSET_ROOT}/robotics-training-data-hero.webp`}
+          imageAvifSrc={`${ASSET_ROOT}/robotics-training-data-hero.avif`}
+          imageAlt="Engineer reviewing multimodal robotics training data beside a collaborative robot"
+          imageWidth={1920}
+          imageHeight={1072}
+          stats={[
+            { value: "500+", label: "specialists" },
+            { value: "30+", label: "languages" },
+            { value: "98%+", label: "validated accuracy" },
+            { value: "ISO", label: "9001 · 27001" },
+          ]}
+          scrollTarget="#robotics-services"
+          scrollLabel="Explore our robotics data services"
+        />
 
         <section id="robotics-services" className="rx-capabilities">
           <div className="rx-capabilities__header">
@@ -263,9 +244,17 @@ const RoboticsCinematicPage = () => {
           <div className="rx-capabilities__rail">
             {capabilities.map(({ icon: Icon, title, short, body, href }, index) => (
               <MotionReveal key={title} className="rx-capability" delay={index * 0.04}>
-                <span className="rx-capability__number">0{index + 1}</span>
-                <Icon />
-                <div><h3>{href ? <Link to={href}>{title}</Link> : title}</h3><strong>{short}</strong><p>{body}</p>{href && <Link to={href} className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#09a98f]">Explore Human Demonstrations <ArrowRight className="h-4 w-4"/></Link>}</div>
+                <Link
+                  to={href ?? PAGE_PATH}
+                  className="rx-capability__link"
+                  aria-label={`Explore ${title}`}
+                  onClick={trackLink(href ?? PAGE_PATH, "robotics-services")}
+                >
+                  <span className="rx-capability__number">0{index + 1}</span>
+                  <Icon />
+                  <div><h3>{title}</h3><strong>{short}</strong><p>{body}</p><span className="rx-capability__explore">Explore service</span></div>
+                  <ArrowRight className="rx-capability__arrow" />
+                </Link>
               </MotionReveal>
             ))}
           </div>

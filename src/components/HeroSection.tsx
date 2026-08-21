@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { ArrowRight, Play, Database, Brain, Sparkles, Star, BookOpen, Bot, ChevronDown } from "lucide-react";
+import { ArrowRight, Play, Database, Brain, Sparkles, Star, BookOpen, MessageCircle, ShieldCheck, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import heroVideoPoster from "@/assets/hero-video-poster.webp";
@@ -69,20 +69,6 @@ const heroStats = [
   { value: "200+", label: "Clients" },
 ];
 
-const aiHighlightLines = [
-  "98%+ validated training data quality",
-  "Closed-loop testing before deployment",
-  "30+ language and dialect AI coverage",
-  "Faster iteration through real-user feedback",
-];
-
-const contentServicesHighlightLines = [
-  "Content, localization and accessibility in 30+ languages",
-  "Curriculum-aligned digital learning content at scale",
-  "Instructional design with pedagogy-first workflows",
-  "Faster content turnaround for Content Services platforms",
-];
-
 const GoogleIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
@@ -102,10 +88,6 @@ const LinkedInIcon = () => (
 const HeroSection = () => {
   const [current, setCurrent] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [aiHighlightIndex, setAiHighlightIndex] = useState(0);
-  const [aiHighlightVisible, setAiHighlightVisible] = useState(true);
-  const [contentServicesHighlightIndex, setContentServicesHighlightIndex] = useState(0);
-  const [contentServicesHighlightVisible, setContentServicesHighlightVisible] = useState(true);
 
   const goTo = useCallback(
     (idx: number) => {
@@ -122,43 +104,14 @@ const HeroSection = () => {
     return () => clearInterval(timer);
   }, [current, goTo]);
 
-  useEffect(() => {
-    const aiTimer = setInterval(() => {
-      setAiHighlightVisible(false);
-      setTimeout(() => {
-        setAiHighlightIndex((prev) => (prev + 1) % aiHighlightLines.length);
-        setAiHighlightVisible(true);
-      }, 350);
-    }, 2600);
-    return () => clearInterval(aiTimer);
-  }, []);
-
-  useEffect(() => {
-    const contentServicesTimer = setInterval(() => {
-      setContentServicesHighlightVisible(false);
-      setTimeout(() => {
-        setContentServicesHighlightIndex((prev) => (prev + 1) % contentServicesHighlightLines.length);
-        setContentServicesHighlightVisible(true);
-      }, 350);
-    }, 2700);
-    return () => clearInterval(contentServicesTimer);
-  }, []);
-
   const slide = slides[current];
   const Icon = slide.icon;
-  const currentAiLine = aiHighlightLines[aiHighlightIndex];
-  const currentContentServicesLine = contentServicesHighlightLines[contentServicesHighlightIndex];
 
   return (
     <section
       className="relative overflow-hidden min-h-screen flex items-center"
       aria-label="eQOURSE AI data services and content solutions"
     >
-      {/* SEO: static, crawlable headline that does not rotate */}
-      <h1 className="sr-only">
-        AI Data Services &amp; Content Solutions for Global Teams
-      </h1>
-
       {/* Background video */}
       <div className="absolute inset-0 z-0">
         <video
@@ -192,7 +145,7 @@ const HeroSection = () => {
         <div className="absolute bottom-10 -right-10 w-[28rem] h-[28rem] bg-accent/10 rounded-full blur-3xl animate-float-delayed" />
       </div>
 
-      <div className="container mx-auto px-4 pt-28 pb-44 lg:pb-48 relative z-10">
+      <div className="container mx-auto px-4 pt-28 pb-56 lg:pb-48 relative z-10">
         <div className="grid lg:grid-cols-12 gap-10 items-center">
           {/* LEFT: rotating content */}
           <div className="lg:col-span-7 space-y-6" key={current}>
@@ -203,12 +156,12 @@ const HeroSection = () => {
               </span>
             </div>
 
-            <h2
+            <h1
               className="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] animate-slide-up text-white"
               style={{ textShadow: "0 4px 30px rgba(0,0,0,0.4)" }}
             >
               {slide.headline} <span className="text-gradient">{slide.highlightedText}</span>
-            </h2>
+            </h1>
 
             <div className="flex flex-wrap items-center gap-4 pt-2 animate-slide-up-delayed-2">
               {slide.ctaIsHash ? (
@@ -257,144 +210,63 @@ const HeroSection = () => {
                 ))}
               </div>
             </div>
-          </div>
 
-          {/* RIGHT: single unified info panel */}
-          <div className="lg:col-span-5 relative hidden lg:block">
-            <div
-              className="rounded-3xl overflow-hidden border border-white/15"
-              style={{
-                background: "linear-gradient(160deg, rgba(15,18,35,0.55) 0%, rgba(15,40,40,0.45) 100%)",
-                backdropFilter: "blur(20px) saturate(140%)",
-                WebkitBackdropFilter: "blur(20px) saturate(140%)",
-                boxShadow: "0 30px 80px -20px rgba(0,0,0,0.55)",
-              }}
-            >
-              {/* Header */}
-              <div
-                className="px-6 py-5 flex items-center gap-3 border-b border-white/10"
-                style={{ background: "linear-gradient(90deg, rgba(20,184,166,0.12), transparent)" }}
-              >
-                <div className="w-11 h-11 rounded-xl bg-gradient-primary flex items-center justify-center shadow-soft">
-                  <Sparkles className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <div className="text-[10px] uppercase tracking-[0.2em] text-primary font-bold">
-                    Trusted Globally
-                  </div>
-                  <div className="text-base font-bold text-white leading-tight">
-                    Built for AI teams, enterprises &amp; learning organisations globally
-                  </div>
-                </div>
-              </div>
-
-              {/* Rotating highlight rows */}
-              <div className="px-6 py-5 space-y-3">
-                <div
-                  className="flex items-start gap-3 rounded-xl p-3 border border-sky-400/25"
-                  style={{ background: "rgba(56,189,248,0.08)" }}
-                >
-                  <div
-                    className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{ background: "rgba(56,189,248,0.18)", border: "1px solid rgba(56,189,248,0.35)" }}
-                  >
-                    <Bot className="w-4 h-4 text-sky-300" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="text-xs font-semibold text-sky-300 mb-0.5">AI Capabilities</div>
-                    <div
-                      className="text-[12px] leading-snug"
-                      style={{
-                        color: "hsl(242,20%,85%)",
-                        transition: "opacity 0.35s ease, transform 0.35s ease",
-                        opacity: aiHighlightVisible ? 1 : 0,
-                        transform: aiHighlightVisible ? "translateY(0)" : "translateY(-4px)",
-                      }}
-                    >
-                      {currentAiLine}
-                    </div>
-                    <div className="hero-chip-bar" key={`ai-${aiHighlightIndex}`} style={{ background: "#38bdf8" }} />
-                  </div>
-                </div>
-
-                <div
-                  className="flex items-start gap-3 rounded-xl p-3 border border-teal-400/25"
-                  style={{ background: "rgba(45,212,191,0.08)" }}
-                >
-                  <div
-                    className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{ background: "rgba(45,212,191,0.18)", border: "1px solid rgba(45,212,191,0.35)" }}
-                  >
-                    <BookOpen className="w-4 h-4 text-teal-300" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="text-xs font-semibold text-teal-300 mb-0.5">Content Capabilities</div>
-                    <div
-                      className="text-[12px] leading-snug"
-                      style={{
-                        color: "hsl(242,20%,85%)",
-                        transition: "opacity 0.35s ease, transform 0.35s ease",
-                        opacity: contentServicesHighlightVisible ? 1 : 0,
-                        transform: contentServicesHighlightVisible ? "translateY(0)" : "translateY(-4px)",
-                      }}
-                    >
-                      {currentContentServicesLine}
-                    </div>
-                    <div
-                      className="hero-chip-bar"
-                      key={`contentServices-${contentServicesHighlightIndex}`}
-                      style={{ background: "#2dd4bf" }}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Reach & Impact footer */}
-              <div
-                className="px-6 py-4 border-t border-white/10 flex items-center justify-between gap-4"
-                style={{ background: "rgba(0,0,0,0.2)" }}
-              >
-                <div className="flex items-center gap-2.5">
-                  <GoogleIcon />
-                  <div>
-                    <div className="flex items-center gap-0.5">
-                      {[1, 2, 3, 4].map((s) => (
-                        <Star key={s} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-                      ))}
-                      <Star
-                        className="w-3 h-3 text-yellow-400"
-                        style={{ clipPath: "inset(0 50% 0 0)", fill: "#facc15" }}
-                      />
-                    </div>
-                    <div className="text-[10px]" style={{ color: "hsl(242,20%,75%)" }}>
-                      <span className="font-bold text-white">4.5</span> / 5 Google
-                    </div>
-                  </div>
-                </div>
-
-                <div style={{ width: "1px", height: "32px", background: "rgba(255,255,255,0.1)" }} />
-
-                <div className="flex items-center gap-2.5">
-                  <LinkedInIcon />
-                  <div>
-                    <div className="text-xs font-bold text-white leading-tight">23K+ Followers</div>
-                    <div className="text-[10px]" style={{ color: "hsl(242,20%,75%)" }}>
-                      on LinkedIn
-                    </div>
-                  </div>
-                </div>
-
-                <div style={{ width: "1px", height: "32px", background: "rgba(255,255,255,0.1)" }} />
-
-                <div className="text-right">
-                  <div className="text-xs font-bold text-white leading-tight">ISO Certified</div>
-                  <div className="text-[10px]" style={{ color: "hsl(242,20%,75%)" }}>
-                    9001 · 27001
-                  </div>
-                </div>
-              </div>
+            <div className="flex flex-wrap gap-3 pt-1 lg:hidden">
+              <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/10 text-white hover:bg-white/15 hover:text-white">
+                <Link to="/contact-us">Contact Us <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              </Button>
+              <Button asChild size="lg" className="border-0 bg-[#20c997] text-[#071b19] hover:bg-[#35d8aa]">
+                <a href="https://wa.me/919214445870?text=Hello%20eQOURSE%2C%20I%20would%20like%20to%20discuss%20your%20AI%20Data%20and%20Content%20Services." target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="mr-2 h-4 w-4" /> WhatsApp
+                </a>
+              </Button>
             </div>
           </div>
+
+          {/* RIGHT: immediate service orientation, intentionally cardless */}
+          <aside className="relative hidden lg:col-span-5 lg:block" aria-label="eQOURSE service practices">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-primary">One partner · two specialist practices</p>
+            <p className="mt-3 max-w-md font-heading text-2xl font-bold leading-tight text-white">
+              AI training data first. Expert learning content alongside it.
+            </p>
+
+            <div className="mt-8 border-y border-white/15">
+              <Link to="/ai-data-services" className="group grid grid-cols-[2.5rem_1fr_auto] gap-4 border-b border-white/15 py-6">
+                <span className="font-mono text-xs text-primary">01</span>
+                <span>
+                  <span className="block font-heading text-xl font-bold text-white">AI Data Services</span>
+                  <span className="mt-2 block text-sm leading-6 text-white/65">Collect, annotate, clean and test production AI data across language, vision, speech and robotics.</span>
+                </span>
+                <ArrowRight className="mt-1 h-5 w-5 text-primary transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link to="/content-services" className="group grid grid-cols-[2.5rem_1fr_auto] gap-4 py-6">
+                <span className="font-mono text-xs text-primary">02</span>
+                <span>
+                  <span className="block font-heading text-xl font-bold text-white">Content Services</span>
+                  <span className="mt-2 block text-sm leading-6 text-white/65">Build accurate learning content, localization and digital education programmes at scale.</span>
+                </span>
+                <ArrowRight className="mt-1 h-5 w-5 text-primary transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+
+            <a
+              href="#about"
+              onClick={(e) => {
+                e.preventDefault();
+                const target = document.getElementById("about");
+                if (target) {
+                  target.scrollIntoView({ behavior: "smooth", block: "center" });
+                  window.dispatchEvent(new Event("eqourse:play-about-video"));
+                }
+              }}
+              className="group mt-7 inline-flex items-center gap-3 text-sm font-bold text-white"
+            >
+              <span className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/50 bg-primary/15 transition-colors group-hover:bg-primary">
+                <Play className="h-4 w-4 fill-white text-white" />
+              </span>
+              Watch how eQOURSE works
+            </a>
+          </aside>
         </div>
       </div>
 
@@ -415,13 +287,12 @@ const HeroSection = () => {
           <div className="hidden xl:block relative h-[120px]">
             {/* LEFT: compact stats card */}
             <div
-              className="absolute left-0 bottom-0 pointer-events-auto flex items-center gap-5 px-5 py-3 rounded-2xl border border-white/10"
+              className="absolute inset-x-0 bottom-0 pointer-events-auto flex items-center justify-between gap-5 px-5 py-3 rounded-2xl border border-white/10"
               style={{
                 background: "linear-gradient(135deg, rgba(15,18,35,0.6) 0%, rgba(15,40,40,0.4) 100%)",
                 backdropFilter: "blur(16px) saturate(140%)",
                 WebkitBackdropFilter: "blur(16px) saturate(140%)",
                 boxShadow: "0 12px 40px -12px rgba(0,0,0,0.45)",
-                maxWidth: "calc(50% - 180px)",
               }}
               aria-label="Key metrics"
             >
@@ -450,11 +321,20 @@ const HeroSection = () => {
                   )}
                 </div>
               ))}
+              <div className="h-8 w-px bg-white/15" aria-hidden="true" />
+              <div className="flex items-center gap-2.5">
+                <GoogleIcon />
+                <div><div className="flex gap-0.5">{[1,2,3,4].map(s=><Star key={s} className="h-3 w-3 fill-yellow-400 text-yellow-400"/>)}<Star className="h-3 w-3 fill-yellow-400 text-yellow-400"/></div><div className="mt-1 text-[10px] text-white/70"><strong className="text-white">4.5/5</strong> Google</div></div>
+              </div>
+              <div className="h-8 w-px bg-white/15" aria-hidden="true" />
+              <div className="flex items-center gap-2.5"><LinkedInIcon/><div><div className="text-xs font-bold text-white">23K+ Followers</div><div className="text-[10px] text-white/60">LinkedIn community</div></div></div>
+              <div className="h-8 w-px bg-white/15" aria-hidden="true" />
+              <div className="flex items-center gap-2.5"><ShieldCheck className="h-5 w-5 text-primary"/><div><div className="text-xs font-bold text-white">ISO Certified</div><div className="text-[10px] text-white/60">9001 · 27001</div></div></div>
             </div>
 
             {/* CENTER: CTA stack, absolute centered */}
             <nav
-              className="absolute left-1/2 -translate-x-1/2 bottom-0 flex flex-col items-center gap-3 pointer-events-auto"
+              className="hidden"
               aria-label="Jump to services section"
             >
               <a
@@ -542,7 +422,7 @@ const HeroSection = () => {
           </div>
 
           {/* Tablet & smaller-desktop layout (lg only): CTA centered, stats stack BELOW so no overlap */}
-          <div className="hidden lg:flex xl:hidden flex-col items-center gap-5 pointer-events-auto">
+          <div className="hidden">
             <nav
               className="flex flex-col items-center gap-3"
               aria-label="Jump to services section"
@@ -632,7 +512,7 @@ const HeroSection = () => {
           </div>
 
           {/* MOBILE & TABLET stats strip (below CTA on lg, stacked on mobile) */}
-          <div className="lg:absolute lg:left-0 lg:bottom-0 lg:max-w-[260px] xl:hidden mt-6 lg:mt-0 pointer-events-auto">
+          <div className="xl:hidden mt-6 pointer-events-auto">
             <div
               className="grid grid-cols-4 gap-2 px-4 py-3 rounded-2xl border border-white/10"
               style={{
@@ -652,6 +532,11 @@ const HeroSection = () => {
                   </div>
                 </div>
               ))}
+            </div>
+            <div className="mt-2 grid grid-cols-3 divide-x divide-white/10 rounded-2xl border border-white/10 bg-[#0f1223]/65 px-2 py-3 backdrop-blur-md">
+              <div className="flex items-center justify-center gap-2 px-1"><GoogleIcon/><div className="text-[9px] leading-tight text-white/65"><strong className="block text-[11px] text-white">4.5/5</strong>Google</div></div>
+              <div className="flex items-center justify-center gap-2 px-1"><LinkedInIcon/><div className="text-[9px] leading-tight text-white/65"><strong className="block text-[11px] text-white">23K+</strong>Followers</div></div>
+              <div className="flex items-center justify-center gap-2 px-1"><ShieldCheck className="h-5 w-5 text-primary"/><div className="text-[9px] leading-tight text-white/65"><strong className="block text-[11px] text-white">ISO</strong>9001 · 27001</div></div>
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { BadgeCheck, BookOpenCheck, Braces, ScanLine } from "lucide-react";
 import AIDataServicesLayout from "../shared/AIDataServicesLayout";
 import SEOHead from "../shared/SEOHead";
-import ServiceHero from "../shared/ServiceHero";
+import CinematicHero from "../shared/CinematicHero";
 import FAQSection from "../shared/FAQSection";
 import ServiceCTA from "../shared/ServiceCTA";
 import AnnotationTypes from "./AnnotationTypes";
@@ -79,9 +79,8 @@ const AnnotationPage = () => (
       <script type="application/ld+json">{JSON.stringify(schema)}</script>
     </Helmet>
 
-    <ServiceHero
-      tone="light"
-      preHeadline="Data Annotation & Labeling"
+    <CinematicHero
+      kicker="Data Annotation & Labeling"
       headline="Data Annotation & Labeling Services for"
       headlineAccent="AI and Machine Learning"
       subtext="Turn raw images, video, text, audio, documents and LLM feedback into model-ready training data with written guidelines, trained annotators and multi-tier quality review."
@@ -94,16 +93,16 @@ const AnnotationPage = () => (
       imageAlt="Annotation specialist reviewing labeled image and text data on a dual-monitor workstation"
       imageWidth={1200}
       imageHeight={800}
-      trustStats={[{ value: "500+", label: "Annotation & QA specialists" }, { value: "30+", label: "Languages supported" }, { value: "ISO", label: "9001 & 27001 processes" }]}
-      rotatingBadges={[
-        { icon: Braces, title: "Structured labels", subtitle: "Your tool · Your schema", color: "hsl(190 76% 42%)" },
-        { icon: BookOpenCheck, title: "Guideline-first", subtitle: "Rules · Examples · Escalation", color: "hsl(170 82% 40%)" },
-        { icon: ScanLine, title: "Human feedback", subtitle: "RLHF · Factuality · Safety", color: "hsl(28 90% 52%)" },
+      stats={[
+        { value: "500+", label: "Annotation & QA specialists" },
+        { value: "30+", label: "Languages supported" },
+        { value: "ISO", label: "9001 & 27001 processes" }
       ]}
-      bottomBadge={{ iconText: "QA", title: "Model-ready output", subtitle: "Reviewed · Validated · Traceable" }}
+      scrollTarget="#annotation-definition"
+      scrollLabel="Explore annotation services"
     />
 
-    <div className="border-y border-border/60 bg-background"><div className="container mx-auto flex flex-col items-center justify-center gap-4 px-4 py-5 text-center md:flex-row md:gap-8"><BadgeCheck className="h-5 w-5 text-primary"/><p className="text-sm font-medium text-foreground/75">Trusted by AI teams building computer vision, speech, NLP and large language models.</p><div className="flex gap-5 text-xs font-bold uppercase tracking-wider text-muted-foreground"><span>ISO 9001</span><span>ISO 27001</span></div></div></div>
+    <div id="annotation-definition" className="border-y border-border/60 bg-background"><div className="container mx-auto flex flex-col items-center justify-center gap-4 px-4 py-5 text-center md:flex-row md:gap-8"><BadgeCheck className="h-5 w-5 text-primary"/><p className="text-sm font-medium text-foreground/75">Trusted by AI teams building computer vision, speech, NLP and large language models.</p><div className="flex gap-5 text-xs font-bold uppercase tracking-wider text-muted-foreground"><span>ISO 9001</span><span>ISO 27001</span></div></div></div>
 
     <AnnotationDefinition />
     <AnnotationTypes />

@@ -115,6 +115,10 @@ https://eqourse.com/* https://www.eqourse.com/:splat 301!
 /ai-data-services/model-testing/human-evaluation-ab-testing/ /ai-data-services/model-testing/human-evaluation-ab-testing 301!
 /robotics-training-data-services/ /robotics-training-data-services 301!
 /robotics-training-data-services/human-demonstrations/ /robotics-training-data-services/human-demonstrations 301!
+/robotics-training-data-services/multimodal-sensor-data/ /robotics-training-data-services/multimodal-sensor-data 301!
+/robotics-training-data-services/3d-spatial-annotation/ /robotics-training-data-services/3d-spatial-annotation 301!
+/robotics-training-data-services/vla-evaluation/ /robotics-training-data-services/vla-evaluation 301!
+/robotics-training-data-services/deployment-validation/ /robotics-training-data-services/deployment-validation 301!
 /animated-videos-services/ /animated-videos-services 301!
 /articulate-storyline-services/ /articulate-storyline-services 301!
 /articulate-storyline-video-samples/ /articulate-storyline-video-samples 301!

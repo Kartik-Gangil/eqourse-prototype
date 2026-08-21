@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Sparkles, Database, ShieldCheck, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import heroVideoPoster from "@/assets/hero-video-poster.webp";
 
 interface ServiceHeroProps {
@@ -105,6 +105,7 @@ const ServiceHero = ({
   bottomBadge,
   compactHeadline = false,
 }: ServiceHeroProps) => {
+  const { pathname } = useLocation();
   const activeChips = rotatingBadges && rotatingBadges.length > 0 ? rotatingBadges : chips;
   const useCompactHeadline = compactHeadline || `${headline} ${headlineAccent || ""}`.length > 50;
   const [chipIndex, setChipIndex] = useState(0);
@@ -121,7 +122,12 @@ const ServiceHero = ({
   const ChipIcon = chip.icon;
   const ctaIsRoute = ctaLink.startsWith("/");
   const secondaryCtaIsRoute = secondaryCtaLink?.startsWith("/");
-  const isLight = tone === "light";
+  const isAiDataSubservice =
+    /^\/ai-data-services\/(data-collection|annotation-labeling|cleaning-validation|model-testing)\/[^/]+\/?$/.test(pathname) ||
+    /^\/robotics-training-data-services\/[^/]+\/?$/.test(pathname);
+  // All AI Data Services sub-pages intentionally share one technical purple hero.
+  // Main category pages use CinematicHero and keep the brighter editorial treatment.
+  const isLight = !isAiDataSubservice && tone === "light";
   
   const bottomBadgeData = bottomBadge || {
     iconText: "AI",

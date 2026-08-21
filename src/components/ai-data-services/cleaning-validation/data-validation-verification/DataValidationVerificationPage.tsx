@@ -103,7 +103,7 @@ const DataValidationVerificationPage = () => (
       ctaLink="/free-pilot"
       secondaryCtaText="Talk to a Data Specialist"
       secondaryCtaLink="/contact-us"
-      imageSrc="/assets/ai-data/cleaning-validation/data-validation-verification/data-validation-verification-services-hero.webp"
+      imageSrc="/assets/ai-data/cleaning-validation/data-validation-verification/data-validation-verification-services-hero.webp" imageAvifSrc="/assets/ai-data/cleaning-validation/data-validation-verification/data-validation-verification-services-hero.avif"
       imageAlt="Reviewer checking record values against an authoritative source with verification status indicators"
       imageWidth={1200}
       imageHeight={800}

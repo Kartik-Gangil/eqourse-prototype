@@ -13,6 +13,10 @@
 - [Video Data Collection](https://www.eqourse.com/ai-data-services/data-collection/video-data-collection): Video datasets for computer vision and multimodal AI.
 - [Robotics Training Data](https://www.eqourse.com/robotics-training-data-services): Human-demonstration, teleoperation, sensor, and embodied-AI data.
 - [Human Demonstrations for Robotics](https://www.eqourse.com/robotics-training-data-services/human-demonstrations): Teleoperation, egocentric, and multi-view task demonstrations with failure-and-recovery episodes, synchronized signals, per-episode QA, and delivery in LeRobot, RLDS, or HDF5 formats.
+- [Multimodal Sensor Data for Robotics](https://www.eqourse.com/robotics-training-data-services/multimodal-sensor-data): Time-synchronised vision, depth, proprioception, force-torque, tactile, IMU and audio with measured synchronisation error, calibration residuals and per-episode lineage.
+- [3D & Spatial Annotation for Robot Manipulation](https://www.eqourse.com/robotics-training-data-services/3d-spatial-annotation): Task-conditioned grasp sets, affordance regions, 6-DoF object pose, articulation and simulation-ready assets, including verification of machine-generated candidates.
+- [VLA Evaluation & Robot Policy Benchmarking](https://www.eqourse.com/robotics-training-data-services/vla-evaluation): Controlled real-robot policy evaluation with documented protocols, trial counts derived from the claim, failure taxonomy, recovery analysis, generalisation testing and same-fixture human baselines.
+- [Robot Deployment Validation](https://www.eqourse.com/robotics-training-data-services/deployment-validation): Structured on-site observation against pre-agreed acceptance criteria, including endurance, intervention, near-miss and human-robot interaction evidence. eQOURSE supplies evidence; it does not certify safety or sign conformity assessments.
 
 ## Company and resources
 

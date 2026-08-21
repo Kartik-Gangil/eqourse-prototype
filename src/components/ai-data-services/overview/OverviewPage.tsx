@@ -1,6 +1,6 @@
 import AIDataServicesLayout from "../shared/AIDataServicesLayout";
 import SEOHead from "../shared/SEOHead";
-import ServiceHero from "../shared/ServiceHero";
+import CinematicHero from "../shared/CinematicHero";
 import ServicesGrid from "./ServicesGrid";
 import SixStepPipeline from "./SixStepPipeline";
 import IndustriesServed from "./IndustriesServed";
@@ -48,21 +48,28 @@ const OverviewPage = () => (
       keywords="AI data services, data annotation, data labeling, data collection, model testing, training data, RLHF, NLP annotation"
     />
 
-    <ServiceHero
-      preHeadline="AI Data Services"
+    <CinematicHero
+      kicker="AI Data Services"
       headline="Collect. Annotate. Clean. Test."
       headlineAccent="One Partner."
       subtext="Custom AI training data across 30+ languages - from raw collection to real-world model testing on actual users. The only closed-loop pipeline in the industry."
       ctaText="Start Free Pilot"
       ctaLink="/free-pilot"
+      secondaryCtaText="Talk to a Data Specialist"
+      secondaryCtaLink="/contact-us"
       imageSrc="/assets/features/AI data service.webp"
+      imageAvifSrc="/assets/features/AI data service.avif"
       imageAlt="End-to-End AI Data Services including Data Collection, Annotation, Cleaning, and Model Testing"
-      rotatingBadges={[
-        { icon: Database, title: "Data Collection", subtitle: "Raw data sourcing", color: "hsl(170 82% 55%)" },
-        { icon: Target, title: "Annotation", subtitle: "High precision", color: "hsl(190 85% 68%)" },
-        { icon: Activity, title: "Model Testing", subtitle: "Real-world evaluation", color: "hsl(165 75% 71%)" }
+      imageWidth={1536}
+      imageHeight={1024}
+      stats={[
+        { value: "500+", label: "AI Specialists" },
+        { value: "30+", label: "Languages" },
+        { value: "98%+", label: "Accuracy" },
+        { value: "ISO", label: "9001 & 27001" },
       ]}
-      bottomBadge={{ iconText: "AI", title: "Full Pipeline", subtitle: "End-to-end data services" }}
+      scrollTarget="#ai-data-foundations"
+      scrollLabel="Explore our services"
     />
 
     <ServiceNarrativeSection

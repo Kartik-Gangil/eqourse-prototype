@@ -113,7 +113,7 @@ const PiiRedactionPage = () => (
       ctaLink="/free-pilot"
       secondaryCtaText="Talk to a Privacy Data Specialist"
       secondaryCtaLink="/contact-us"
-      imageSrc="/assets/ai-data/cleaning-validation/pii-detection-redaction/pii-detection-redaction-services-hero.webp"
+      imageSrc="/assets/ai-data/cleaning-validation/pii-detection-redaction/pii-detection-redaction-services-hero.webp" imageAvifSrc="/assets/ai-data/cleaning-validation/pii-detection-redaction/pii-detection-redaction-services-hero.avif"
       imageAlt="Privacy data specialist reviewing an abstract redaction workspace containing no real personal information"
       imageWidth={1200}
       imageHeight={800}

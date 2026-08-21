@@ -106,7 +106,7 @@ const MetadataEnrichmentPage = () => (
       ctaLink="/free-pilot"
       secondaryCtaText="Talk to a Data Specialist"
       secondaryCtaLink="/contact-us"
-      imageSrc="/assets/ai-data/cleaning-validation/metadata-enrichment/metadata-enrichment-services-hero.webp"
+      imageSrc="/assets/ai-data/cleaning-validation/metadata-enrichment/metadata-enrichment-services-hero.webp" imageAvifSrc="/assets/ai-data/cleaning-validation/metadata-enrichment/metadata-enrichment-services-hero.avif"
       imageAlt="Data specialist reviewing abstract metadata fields and dataset coverage on two monitors"
       imageWidth={1200}
       imageHeight={800}

@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import AIDataServicesLayout from "../shared/AIDataServicesLayout";
 import SEOHead from "../shared/SEOHead";
-import ServiceHero from "../shared/ServiceHero";
+import CinematicHero from "../shared/CinematicHero";
 import DataModalities from "./DataModalities";
 import LanguageCoverage from "./LanguageCoverage";
 import CollectionMethods from "./CollectionMethods";
@@ -97,24 +97,32 @@ const DataCollectionPage = () => (
       <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
     </Helmet>
 
-    <ServiceHero
-      preHeadline="Data Collection"
+    <CinematicHero
+      kicker="Data Collection"
       headline="Custom Datasets for"
       headlineAccent="Every AI Model"
       subtext="Purpose-built text, audio, image and video data across 30+ languages, with consent, provenance and quality controls shaped around real deployment conditions."
       ctaText="Start Free Pilot"
       ctaLink="/free-pilot"
+      secondaryCtaText="Talk to a Data Specialist"
+      secondaryCtaLink="/contact-us"
       imageSrc="/assets/ai-data/Data Collection V2.webp"
+      imageAvifSrc="/assets/ai-data/Data Collection V2.avif"
       imageAlt="AI data collection across text, audio, image and video for machine learning"
-      rotatingBadges={[
-        { icon: FolderKanban, title: "Multi-modal", subtitle: "Text, audio, image, video", color: "hsl(170 82% 55%)" },
-        { icon: Languages, title: "Languages", subtitle: "30+ supported", color: "hsl(190 85% 68%)" },
-        { icon: Users, title: "Specialists", subtitle: "500+ experts", color: "hsl(165 75% 71%)" },
+      imageWidth={1672}
+      imageHeight={941}
+      stats={[
+        { value: "4", label: "Core modalities" },
+        { value: "30+", label: "Languages" },
+        { value: "500+", label: "Specialists" },
       ]}
-      bottomBadge={{ iconText: "Data", title: "Collection", subtitle: "Purpose-fit raw datasets" }}
+      scrollTarget="#collection-definition"
+      scrollLabel="Explore data collection"
     />
 
-    <CollectionDefinition />
+    <div id="collection-definition">
+      <CollectionDefinition />
+    </div>
 
     <ServiceNarrativeSection
       label="Collection Strategy"
