@@ -56,7 +56,7 @@ const milestones: Milestone[] = [
     year: "2025",
     title: "Integration at Scale",
     shortDesc: "Unified AI data, content, localization, and validation ecosystems.",
-    fullDesc: "By 2025, our systems evolved into fully integrated pipelines connecting AI-supported workflows, content creation, localization, video production, and assessments. This phase also marked the establishment of our Singapore headquarters and the launch of TUTRAIN, enabling real learner feedback and continuous refinement across AI and learning systems.",
+    fullDesc: "By 2025, our systems evolved into fully integrated pipelines connecting AI-supported workflows, content creation, localization, video production, and assessments. This phase also marked the incorporation of our registered Singapore entity and the launch of TUTRAIN, enabling real learner feedback and continuous refinement across AI and learning systems.",
     image: "/assets/journey/2025.webp",
     icon: "⚡",
   },

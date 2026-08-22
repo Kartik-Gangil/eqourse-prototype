@@ -67,7 +67,6 @@ const Index = () => {
               "@type": "Organization",
               "@id": "https://www.eqourse.com/#organization",
               "name": "eQOURSE",
-              "alternateName": "eQOURSE PTE LTD",
               "url": "https://www.eqourse.com/",
               "logo": "https://www.eqourse.com/assets/og-image.webp",
               "description": "eQOURSE provides AI data collection, annotation, cleaning, validation, model testing and robotics training data, plus scalable content services for global AI and learning teams.",
@@ -121,23 +120,14 @@ const Index = () => {
                 "Localization Services",
                 "LMS Integration"
               ],
-              "address": [
-                {
-                  "@type": "PostalAddress",
-                  "streetAddress": "C-29, Indra Vihar, Shiv Jyoti School Road",
-                  "addressLocality": "Kota",
-                  "addressRegion": "Rajasthan",
-                  "postalCode": "324005",
-                  "addressCountry": "IN"
-                },
-                {
-                  "@type": "PostalAddress",
-                  "streetAddress": "760 Bedok Reservoir Road, #04-13, Waterfront Waves",
-                  "addressLocality": "Singapore",
-                  "postalCode": "479245",
-                  "addressCountry": "SG"
-                }
-              ]
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "C-29, Indra Vihar, Shiv Jyoti School Road",
+                "addressLocality": "Kota",
+                "addressRegion": "Rajasthan",
+                "postalCode": "324005",
+                "addressCountry": "IN"
+              }
             }
           `}
         </script>

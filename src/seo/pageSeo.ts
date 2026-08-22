@@ -32,8 +32,8 @@ export const pageSeo: Record<string, PageSeo> = {
     description: "Explain complex ideas with engaging 2D and 3D educational videos. Explore animation services from eQOURSE today.",
   },
   "/aboutus": {
-    title: "Online Learning Platform – Upskill Today | EQourse",
-    description: "Learn about eQOURSE, a trusted Content Services & AI Data Services company serving global clients. Discover our story and expertise.",
+    title: "About eQOURSE | AI Data & Content Services Company",
+    description: "Meet eQOURSE: 500+ specialists delivering AI data and content services through India operations and a registered Singapore entity.",
   },
   "/accessibility": {
     title: "Web Accessibility Statement | Eqourse",
@@ -335,8 +335,8 @@ export const pageSeo: Record<string, PageSeo> = {
     description: "Define role expectations with customized competency frameworks for hiring and development. Explore eQOURSE solutions.",
   },
   "/contact-us": {
-    title: "Contact Us | Eqourse",
-    description: "Contact eQOURSE for expert Content Services & AI Data Services. Discuss your project and receive a tailored solution. Get in touch.",
+    title: "Contact eQOURSE | AI Data & Content Services",
+    description: "Contact eQOURSE for AI data and content services. Reach our primary India operations or international business team to scope your project.",
   },
   "/content-services": {
     title: "Content Creation Services | Eqourse",

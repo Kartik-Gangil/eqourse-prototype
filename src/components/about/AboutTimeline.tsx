@@ -5,7 +5,7 @@ const timelineData = [
   {
     year: "2020",
     title: "Founded",
-    description: "eQOURSE was founded by Somveer Tayal, bringing over 20 years of experience in transforming education. We began as an Content Services services company, partnering with e-learning platforms to design and develop digital content, assessments, and tutoring support.",
+    description: "eQOURSE was founded by Somveer Tayal, bringing over 20 years of experience in transforming education. We began as a content-services company, partnering with e-learning platforms to design and develop digital content, assessments, and tutoring support.",
   },
   {
     year: "2021–2023",
@@ -19,13 +19,13 @@ const timelineData = [
   },
   {
     year: "2025",
-    title: "Singapore Office & TuTrain Launch",
-    description: "eQOURSE was officially registered as eQOURSE PTE LTD in Singapore to strengthen global operations across the Asia-Pacific region. We launched our proprietary TuTrain platform for real-world AI model testing, connecting AI models to demographically diverse test users across 30+ languages. Our team grew to 500+ specialists spanning Content Services and AI data operations.",
+    title: "Singapore Incorporation & TuTrain Launch",
+    description: "EQOURSE PTE. LTD. was incorporated in Singapore to support international business development, client engagement and partnerships. We launched our proprietary TuTrain platform for real-world AI model testing, connecting AI models to demographically diverse test users across 30+ languages. Our team grew to 500+ specialists spanning Content Services and AI data operations.",
   },
   {
     year: "2026",
     title: "Dual-Vertical Global Operations",
-    description: "Today, eQOURSE operates as a dual-vertical company: Content Service and AI Data Services. We serve 200+ clients across 15+ countries, with offices in India (Kota) and Singapore. Our mission is to help organisations across education and AI build systems that work in the real world - powered by high-quality human expertise.",
+    description: "Today, eQOURSE operates as a dual-vertical company: Content Services and AI Data Services. We serve 200+ clients across 15+ countries, with primary operations and delivery in Kota and a registered international entity in Singapore. Our mission is to help organisations across education and AI build systems that work in the real world - powered by high-quality human expertise.",
   }
 ];
 
@@ -57,7 +57,7 @@ const AboutTimeline = () => {
             transition={{ delay: 0.1 }}
             className="text-muted-foreground text-lg max-w-2xl mx-auto"
           >
-            From an Content Services startup to a dual-vertical global leader in Education and AI Data Services.
+            From a content-services company to an integrated global delivery partner for learning and AI data.
           </motion.p>
         </div>
 

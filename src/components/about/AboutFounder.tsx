@@ -72,7 +72,7 @@ const AboutFounder = () => {
                   As an Associate Professor for JEE Advanced-level Mathematics, he taught over 20,000 students with 18,000+ hours of teaching. He also served as the Functional Head of R&D for K-12, IIT JEE, and NEET, executing academic content strategy for over 40,000 students.
                 </p>
                 <p>
-                  In 2020, Somveer founded eQOURSE with a vision to bring operational excellence to education and AI services. Under his leadership, eQOURSE has grown from an Content Services startup to a dual-vertical company serving 200+ global clients. In 2025, he expanded eQOURSE’s operations to Singapore with the registration of eQOURSE PTE LTD, positioning the company as a global player in both education and AI data.
+                  In 2020, Somveer founded eQOURSE with a vision to bring operational excellence to education and AI services. Under his leadership, eQOURSE has grown from a content-services company to a dual-capability partner serving 200+ global clients. In 2025, he established EQOURSE PTE. LTD. in Singapore to support international business development, client engagement and partnerships.
                 </p>
               </div>
 

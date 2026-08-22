@@ -9,7 +9,7 @@ const PAGE_SEO = pageSeo["/gallery"];
 
 // Gallery images with descriptive, SEO-optimized alt tags
 const galleryImages = [
-  { id: 1, src: "/assets/about/gallery/1.webp", alt: "eQOURSE team members at the Singapore office during a strategy planning session" },
+  { id: 1, src: "/assets/about/gallery/1.webp", alt: "eQOURSE team members during an international strategy planning session" },
   { id: 2, src: "/assets/about/gallery/2.webp", alt: "eQOURSE founder meeting with global AI data services clients at industry conference" },
   { id: 3, src: "/assets/about/gallery/3.webp", alt: "eQOURSE content services team collaborating on editorial publishing project" },
   { id: 4, src: "/assets/about/gallery/4.webp", alt: "eQOURSE India office workspace showcasing modern work environment" },

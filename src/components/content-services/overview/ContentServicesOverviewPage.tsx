@@ -71,7 +71,7 @@ const ContentServicesOverviewPage = () => (
       ]}
       bullets={[
         "Backed by ISO 9001 certification and a dedicated team of 200+ specialists",
-        "Offices in India and Singapore for seamless global content delivery",
+        "India-led delivery with a registered Singapore entity supporting international engagement",
         "Production-ready educational content that meets rigorous global standards"
       ]}
       stats={[

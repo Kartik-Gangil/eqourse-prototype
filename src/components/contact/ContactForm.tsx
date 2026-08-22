@@ -1,9 +1,21 @@
 import { useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Loader2, CheckCircle, AlertCircle } from "lucide-react";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+} from "@/components/ui/command";
+import { Loader2, CheckCircle, AlertCircle, ChevronsUpDown, Check, Globe2 } from "lucide-react";
 import { submitContactForm } from "@/lib/publicApi";
 import { trackRoboticsEvent } from "@/lib/roboticsAnalytics";
+import { countryDialCodes, countryFlag } from "@/data/countryDialCodes";
+import { cn } from "@/lib/utils";
 
 const ContactForm = () => {
   const [searchParams] = useSearchParams();
@@ -12,6 +24,13 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [countryPickerOpen, setCountryPickerOpen] = useState(false);
+  const [selectedCountryIso, setSelectedCountryIso] = useState("IN");
+  const [useCustomDialCode, setUseCustomDialCode] = useState(false);
+  const [customDialCode, setCustomDialCode] = useState("");
+
+  const selectedCountry = countryDialCodes.find((country) => country.iso2 === selectedCountryIso);
+  const phoneCode = useCustomDialCode ? `+${customDialCode}` : selectedCountry?.dialCode ?? "+91";
 
   const handleFormStart = () => {
     if (!isRoboticsReferral || formStartTracked.current) return;
@@ -34,7 +53,7 @@ const ContactForm = () => {
       name: get("fullName"),
       email: get("email"),
       phone: get("phone"),
-      phone_code: (form.querySelector("select:first-of-type") as HTMLSelectElement)?.value ?? "+91",
+      phone_code: phoneCode,
       company: get("company"),
       designation: get("designation"),
       subject: get("interest"),
@@ -97,23 +116,111 @@ const ContactForm = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div className="space-y-1.5 rounded-lg">
           <label htmlFor="phone" className="text-sm font-medium text-foreground">Phone Number <span className="text-destructive">*</span></label>
-          <div className="flex border border-border rounded-lg focus-within:ring-2 focus-within:ring-primary/50 transition-shadow overflow-hidden bg-background">
-            <select className="px-2 py-2 bg-muted border-r border-border focus:outline-none text-sm w-[80px] cursor-pointer">
-              <option value="+91">+91</option>
-              <option value="+1">+1</option>
-              <option value="+44">+44</option>
-              <option value="+65">+65</option>
-              <option value="+971">+971</option>
-              <option value="+86">+86</option>
-            </select>
+          <div className="flex min-w-0 border border-border rounded-lg focus-within:ring-2 focus-within:ring-primary/50 transition-shadow bg-background">
+            <Popover open={countryPickerOpen} onOpenChange={setCountryPickerOpen}>
+              <PopoverTrigger asChild>
+                <button
+                  type="button"
+                  role="combobox"
+                  aria-expanded={countryPickerOpen}
+                  aria-label="Select country calling code"
+                  className="flex h-10 w-[118px] shrink-0 items-center gap-1.5 rounded-l-lg border-r border-border bg-muted px-2.5 text-sm transition-colors hover:bg-muted/70 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary/40"
+                >
+                  {useCustomDialCode ? (
+                    <Globe2 className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                  ) : (
+                    <span className="text-base leading-none" aria-hidden="true">
+                      {selectedCountry ? countryFlag(selectedCountry.iso2) : "🌐"}
+                    </span>
+                  )}
+                  <span className="min-w-0 flex-1 truncate text-left font-medium">
+                    {useCustomDialCode ? "Other" : selectedCountry?.dialCode}
+                  </span>
+                  <ChevronsUpDown className="h-3.5 w-3.5 shrink-0 text-muted-foreground" aria-hidden="true" />
+                </button>
+              </PopoverTrigger>
+              <PopoverContent align="start" className="w-[min(340px,calc(100vw-2rem))] p-0">
+                <Command>
+                  <CommandInput placeholder="Search country or calling code…" />
+                  <CommandList>
+                    <CommandEmpty>No matching country found. Choose “Other” below.</CommandEmpty>
+                    <CommandGroup heading="Countries and territories">
+                      {countryDialCodes.map((country) => (
+                        <CommandItem
+                          key={country.iso2}
+                          value={`${country.name} ${country.dialCode} ${country.iso2}`}
+                          onSelect={() => {
+                            setSelectedCountryIso(country.iso2);
+                            setUseCustomDialCode(false);
+                            setCountryPickerOpen(false);
+                          }}
+                          className="gap-2 py-2"
+                        >
+                          <span className="w-6 text-base" aria-hidden="true">{countryFlag(country.iso2)}</span>
+                          <span className="min-w-0 flex-1 truncate">{country.name}</span>
+                          <span className="text-xs font-semibold text-muted-foreground">{country.dialCode}</span>
+                          <Check
+                            className={cn(
+                              "h-4 w-4 text-primary",
+                              !useCustomDialCode && selectedCountryIso === country.iso2 ? "opacity-100" : "opacity-0",
+                            )}
+                            aria-hidden="true"
+                          />
+                        </CommandItem>
+                      ))}
+                    </CommandGroup>
+                    <CommandSeparator />
+                    <CommandGroup heading="Can’t find your code?">
+                      <CommandItem
+                        value="Other custom manual calling code"
+                        onSelect={() => {
+                          setUseCustomDialCode(true);
+                          setCountryPickerOpen(false);
+                        }}
+                        className="gap-2 py-2"
+                      >
+                        <Globe2 className="h-4 w-4 text-primary" aria-hidden="true" />
+                        <span className="flex-1">Other — enter code manually</span>
+                        <Check className={cn("h-4 w-4 text-primary", useCustomDialCode ? "opacity-100" : "opacity-0")} aria-hidden="true" />
+                      </CommandItem>
+                    </CommandGroup>
+                  </CommandList>
+                </Command>
+              </PopoverContent>
+            </Popover>
+            {useCustomDialCode && (
+              <div className="flex h-10 w-[92px] shrink-0 items-center border-r border-border bg-muted/40 focus-within:ring-2 focus-within:ring-inset focus-within:ring-primary/40">
+                <span className="pl-2 text-sm font-semibold text-muted-foreground" aria-hidden="true">+</span>
+                <input
+                  id="customDialCode"
+                  required
+                  type="text"
+                  inputMode="numeric"
+                  value={customDialCode}
+                  onChange={(event) => setCustomDialCode(event.target.value.replace(/\D/g, "").slice(0, 5))}
+                  pattern="[0-9]{1,5}"
+                  title="Enter the digits in your international calling code, for example 358"
+                  placeholder="Code"
+                  aria-label="Custom country calling code"
+                  className="h-full min-w-0 flex-1 bg-transparent px-1 text-sm font-medium focus:outline-none"
+                />
+              </div>
+            )}
             <input
               id="phone"
               required
               type="tel"
-              placeholder="XXXXX XXXXX"
-              className="flex-1 px-3 py-2 bg-transparent focus:outline-none"
+              inputMode="tel"
+              autoComplete="tel-national"
+              placeholder="Phone number"
+              className="h-10 min-w-0 flex-1 rounded-r-lg bg-transparent px-3 focus:outline-none"
             />
           </div>
+          <p className="text-xs text-muted-foreground">
+            {useCustomDialCode
+              ? "Enter your international calling code, then your local phone number."
+              : `${selectedCountry?.name ?? "India"} calling code selected. Search to choose another country.`}
+          </p>
         </div>
         <div className="space-y-1.5 rounded-lg">
           <label htmlFor="company" className="text-sm font-medium text-foreground">Company / Organisation Name <span className="text-destructive">*</span></label>

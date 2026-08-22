@@ -18,7 +18,7 @@ const reasons = [
   },
   {
     title: "Global Impact",
-    description: "With clients in 15+ countries and a Singapore office, your work at eQOURSE reaches learners and AI systems worldwide.",
+    description: "With clients in 15+ countries and a registered international entity in Singapore, your work at eQOURSE reaches learners and AI systems worldwide.",
     icon: Globe2,
     color: "from-purple-500 to-pink-600",
     bgLight: "bg-purple-500/10"

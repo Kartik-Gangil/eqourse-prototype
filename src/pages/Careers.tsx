@@ -49,7 +49,7 @@ const Careers = () => {
         />
         <link rel="canonical" href="https://www.eqourse.com/career" />
         <meta property="og:title" content="Careers at eQOURSE │ Content Services & AI Data Services Jobs" />
-        <meta property="og:description" content="Join eQOURSE - careers in Content Services, instructional design, AI data annotation, NLP, and more. 500+ specialists across India & Singapore." />
+        <meta property="og:description" content="Join eQOURSE - careers in Content Services, instructional design, AI data annotation, NLP and more with an India-led team serving global clients." />
         <meta property="og:url" content="https://www.eqourse.com/career" />
       </Helmet>
       
@@ -65,7 +65,7 @@ const Careers = () => {
         preHeadline="Join Our Team"
         headline="Build the Future of"
         headlineAccent="Education & AI"
-        subtext="Shape the future of education and AI with eQOURSE. Be part of a dynamic team of 500+ specialists dedicated to innovative Content Services and production-grade AI data services. We're always looking for talented content creators, instructional designers, data annotators, NLP specialists, project managers, and operations professionals. Grow your career with us across our India and Singapore offices."
+        subtext="Shape the future of education and AI with eQOURSE. Be part of a dynamic team of 500+ specialists dedicated to innovative Content Services and production-grade AI data services. We're always looking for talented content creators, instructional designers, data annotators, NLP specialists, project managers, and operations professionals. Grow your career with our India-led delivery organisation serving clients worldwide."
         ctaText="View Openings"
         ctaLink="#apply"
         imageSrc="/assets/about/Carrer.webp"

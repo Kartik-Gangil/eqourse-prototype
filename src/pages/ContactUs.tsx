@@ -16,17 +16,19 @@ const ContactUs = () => {
         <meta name="description" content={PAGE_SEO.description} />
         <meta
           name="keywords"
-          content="contact eQOURSE, Content Services contact, AI data services inquiry, e-learning consultation, data annotation quote, curriculum development contact, eQOURSE India office, eQOURSE Singapore office, free consultation"
+          content="contact eQOURSE, Content Services contact, AI data services inquiry, e-learning consultation, data annotation quote, curriculum development contact, eQOURSE India operations, eQOURSE Singapore registered entity, free consultation"
         />
         <meta property="og:title" content="Contact Us │ Content Services & AI Data Services │ eQOURSE" />
-        <meta property="og:description" content="Ready to start? Contact eQOURSE for Content Services or AI data services. Offices in Kota (India) and Singapore. Free consultation. 200+ clients worldwide." />
+        <meta property="og:description" content="Contact eQOURSE for Content Services or AI data services. Primary operations in Kota, India, with a registered international entity in Singapore." />
         <link rel="canonical" href="https://www.eqourse.com/contact-us" />
         <script type="application/ld+json">
           {`
             {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "name": "eQOURSE",
+              "@id": "https://www.eqourse.com/#india-entity",
+              "name": "eQOURSE India Operations",
+              "legalName": "EQOURSE ONLINE EDUCATIONERS LLP",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "C-29, Indra Vihar, Shiv Jyoti School Road",
@@ -51,8 +53,12 @@ const ContactUs = () => {
           {`
             {
               "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "name": "eQOURSE PTE LTD",
+              "@type": "Organization",
+              "@id": "https://www.eqourse.com/#singapore-entity",
+              "name": "eQOURSE Singapore",
+              "legalName": "EQOURSE PTE. LTD.",
+              "foundingDate": "2025-04-14",
+              "description": "Singapore-registered entity supporting international business development, client engagement, partnerships and contracting where applicable.",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "760 Bedok Reservoir Road, #04-13, Waterfront Waves",
@@ -60,15 +66,8 @@ const ContactUs = () => {
                 "postalCode": "479245",
                 "addressCountry": "SG"
               },
-              "telephone": "+91-92144-45870",
               "email": "info@eqourse.com",
-              "url": "https://www.eqourse.com",
-              "openingHours": "Mo-Fr 09:00-18:00",
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 1.3367,
-                "longitude": 103.9290
-              }
+              "url": "https://www.eqourse.com/aboutus#corporate-structure"
             }
           `}
         </script>

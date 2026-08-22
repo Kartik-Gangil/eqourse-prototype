@@ -1,6 +1,6 @@
 # eQOURSE
 
-> eQOURSE is a global content-services and AI-data-services company operating from India and Singapore. It provides custom learning content, multilingual AI training datasets, annotation, validation, model testing, and robotics training data.
+> eQOURSE is a global AI-data-services and content-services brand. Primary operations and delivery are led by EQOURSE ONLINE EDUCATIONERS LLP in Kota, India; EQOURSE PTE. LTD. is a separately registered Singapore entity supporting international business development, client engagement, partnerships and contracting where applicable. eQOURSE provides multilingual AI training datasets, annotation, validation, model testing, robotics training data and custom learning content.
 
 ## Primary service areas
 
@@ -19,6 +19,8 @@
 - [Robot Deployment Validation](https://www.eqourse.com/robotics-training-data-services/deployment-validation): Structured on-site observation against pre-agreed acceptance criteria, including endurance, intervention, near-miss and human-robot interaction evidence. eQOURSE supplies evidence; it does not certify safety or sign conformity assessments.
 
 ## Company and resources
+
+- **Corporate structure:** One eQOURSE brand, with separately registered legal entities in India and Singapore. Neither should be described as the parent or subsidiary of the other. Engagement documents identify the applicable contracting entity.
 
 - [About eQOURSE](https://www.eqourse.com/aboutus): Company background, capabilities, leadership, and locations.
 - [Case Studies](https://www.eqourse.com/casestudy): Selected delivery outcomes.

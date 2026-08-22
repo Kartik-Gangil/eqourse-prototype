@@ -41,7 +41,7 @@ const AboutWhoWeAre = () => {
             transition={{ delay: 0.1 }}
             className="text-lg md:text-xl text-muted-foreground leading-relaxed font-medium"
           >
-            An ISO 9001:2015 & ISO 27001:2022 certified education and AI data services organisation, eQOURSE is a recognised start-up by the Department for Promotion of Industry and Internal Trade (DPIIT), Government of India, with operations in India (Kota, Rajasthan) and Singapore (eQOURSE PTE LTD).
+            An ISO 9001:2015 & ISO 27001:2022 certified education and AI data services organisation, eQOURSE is a recognised start-up by the Department for Promotion of Industry and Internal Trade (DPIIT), Government of India. Our primary operations and delivery centre is in Kota, Rajasthan, supported by a separately registered international entity in Singapore.
           </motion.p>
         </div>
 

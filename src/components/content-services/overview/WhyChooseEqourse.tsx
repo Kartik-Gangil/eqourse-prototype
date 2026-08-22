@@ -7,7 +7,7 @@ const reasons = [
   { icon: Globe2, title: "30+ Languages", description: "Native-speaker voice-over and culturally adapted content for global audiences." },
   { icon: Layers, title: "Full-Stack Content Services", description: "Content, video, assessment, localization, LMS, and SMEs all under one roof." },
   { icon: Award, title: "ISO 9001:2015", description: "Certified quality management system ensuring consistent, high-quality deliverables." },
-  { icon: BookOpen, title: "Global Delivery", description: "Offices in India (Kota) and Singapore serving clients effectively across time zones." },
+  { icon: BookOpen, title: "Global Delivery", description: "Primary operations in Kota, India, supported by a registered Singapore entity for international engagement." },
   { icon: ShieldCheck, title: "200+ Clients", description: "Trusted by education companies and institutions across 15+ countries globally." },
   { icon: Scale, title: "Scalable Delivery", description: "Flexible capacity from 50 hours/month to 5,000+ content pieces per month." },
   { icon: CheckCircle2, title: "Free Pilot", description: "Risk-free pilot programme available for qualifying education and Content Services clients." },
