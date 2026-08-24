@@ -19,17 +19,22 @@ export const legacyRedirects: Record<string, string> = {
   "/index": "/",
   "/index.php": "/",
   "/index.html": "/",
+  "/contact-us.html": "/contact-us",
 
   // Legacy primary-navigation and utility routes.
   "/career.html": "/career",
   "/free_pilot_signup": "/free-pilot",
   "/blog-detail.php": "/blog",
+  "/blog/detail.php": "/blog",
+  "/blog/detail": "/blog",
   "/blogs": "/blog",
   "/blogs/career": "/career",
   "/custom-elearning-solutions": "/custom-e-learning-content",
+  "/avatar-video-samples": "/ai-avatar-video-samples",
 
   // Old article URLs consolidated into substantial, current service pages.
   // Blog and case-study publishing remains controlled by the admin panel.
+  "/blog/understanding-the-value-of-edtech-in-higher-education": "/blog",
   "/blogs/key-features-online-assessment-system": "/digital-assessment-infrastructure",
   "/blogs/five-key-indicators-adaptive-learning": "/adaptive-learning",
   "/blogs/immersive-simulation-ai": "/immersive-simulation-ar-vr",
@@ -57,6 +62,8 @@ export const legacyRedirects: Record<string, string> = {
   "/content-services/custom-e-learning-content/ebook-creation": "/interactive-ebook-creation",
   "/content-services/custom-e-learning-content/2d-3d-videos": "/2d-3d-videos",
   "/content-services/custom-e-learning-content/quiz-question-bank": "/quiz-question-bank-development",
+  // Historical typo used `custom-elearning` (without the second hyphen).
+  "/content-services/custom-elearning-content/quiz-question-bank": "/quiz-question-bank-development",
 
   // ── Exam Preparation Content ──
   "/content-services/exam-preparation-content/aptis": "/test-prep-content/aptis",

@@ -3,12 +3,17 @@ https://eqourse.com/* https://www.eqourse.com/:splat 301!
 /index / 301!
 /index.php / 301!
 /index.html / 301!
+/contact-us.html /contact-us 301!
 /career.html /career 301!
 /free_pilot_signup /free-pilot 301!
 /blog-detail.php /blog 301!
+/blog/detail.php /blog 301!
+/blog/detail /blog 301!
 /blogs /blog 301!
 /blogs/career /career 301!
 /custom-elearning-solutions /custom-e-learning-content 301!
+/avatar-video-samples /ai-avatar-video-samples 301!
+/blog/understanding-the-value-of-edtech-in-higher-education /blog 301!
 /blogs/key-features-online-assessment-system /digital-assessment-infrastructure 301!
 /blogs/five-key-indicators-adaptive-learning /adaptive-learning 301!
 /blogs/immersive-simulation-ai /immersive-simulation-ar-vr 301!
@@ -32,6 +37,7 @@ https://eqourse.com/* https://www.eqourse.com/:splat 301!
 /content-services/custom-e-learning-content/ebook-creation /interactive-ebook-creation 301!
 /content-services/custom-e-learning-content/2d-3d-videos /2d-3d-videos 301!
 /content-services/custom-e-learning-content/quiz-question-bank /quiz-question-bank-development 301!
+/content-services/custom-elearning-content/quiz-question-bank /quiz-question-bank-development 301!
 /content-services/exam-preparation-content/aptis /test-prep-content/aptis 301!
 /content-services/exam-preparation-content/toeic /test-prep-content/toeic 301!
 /content-services/exam-preparation-content/sat /test-prep-content/sat 301!

@@ -49,7 +49,6 @@ export const failureRows = [
 
 export const clusterRows = [
   ["Human Demonstrations", "We create the episodes", "/robotics-training-data-services/human-demonstrations", "live"],
-  ["Robot Interaction Data", "We capture trajectories, states and interventions", "/robotics-training-data-services/human-demonstrations#collection-methods", "live"],
   ["Multimodal Sensor Data", "We capture and align the signals", "", "current"],
   ["3D & Spatial Annotation", "We label the world", "/robotics-training-data-services/3d-spatial-annotation", "live"],
   ["VLA Evaluation", "We score the model", "/robotics-training-data-services/vla-evaluation", "live"],

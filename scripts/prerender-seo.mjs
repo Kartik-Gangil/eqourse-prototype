@@ -1396,6 +1396,28 @@ function buildCrawlFallback({ path, title, description, crawlHtml = "", source }
   if (path === "/robotics-training-data-services/vla-evaluation") return buildVlaEvaluationFallback();
   if (path === "/robotics-training-data-services/deployment-validation") return buildDeploymentValidationFallback();
   const heading = title.replace(/\s*(?:\||\u2013|\u2014)\s*eQOURSE.*$/i, "").trim();
+  if (path === "/articulate-storyline-video-samples") {
+    return `<main data-seo-prerender="true">
+      <nav aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/samples">Samples</a> / <a href="/video-samples">Video Samples</a> / <span>Articulate Storyline</span></nav>
+      <h1>Articulate Storyline Video Samples</h1>
+      <p>${escapeHtml(description)}</p>
+      <section><h2>Interactive Articulate Storyline Examples</h2><p>Review representative e-learning work across interactive modules, branching scenarios, quizzes and assessments. Samples demonstrate responsive presentation, learner interaction and LMS-ready delivery patterns.</p></section>
+      <section><h2>What You Can Evaluate</h2><ul><li>Branching choices and scenario logic</li><li>Drag-and-drop, quiz and assessment interactions</li><li>Visual hierarchy, instructional flow and learner feedback</li><li>Responsive behaviour across desktop and mobile screens</li></ul></section>
+      <section><h2>Request a Relevant Sample</h2><p>Available previews vary by subject, audience and confidentiality requirements. <a href="/contact-us">Contact eQOURSE</a> for a sample aligned with your learning programme.</p></section>
+      <nav aria-label="Related pages"><a href="/articulate-storyline-services">Articulate Storyline Services</a> <a href="/video-samples">Video Samples</a> <a href="/content-services">Content Services</a></nav>
+    </main>`;
+  }
+  if (path === "/kindergarten-to-k5-samples") {
+    return `<main data-seo-prerender="true">
+      <nav aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/samples">Samples</a> / <a href="/text-samples">Text Samples</a> / <span>Kindergarten to Grade 5</span></nav>
+      <h1>Kindergarten to Grade 5 Content Samples</h1>
+      <p>${escapeHtml(description)}</p>
+      <section><h2>Foundational Learning Content Examples</h2><p>Explore curriculum-aligned course book, lesson plan and workbook examples designed for early and primary learners across mathematics, science, language arts and environmental studies.</p></section>
+      <section><h2>What You Can Evaluate</h2><ul><li>Age-appropriate language and visual scaffolding</li><li>Clear learning objectives and lesson progression</li><li>Practice activities, formative checks and assessments</li><li>Adaptability for curricula, languages and delivery formats</li></ul></section>
+      <section><h2>Request a Relevant Sample</h2><p>Sample availability varies by grade, subject and curriculum. <a href="/contact-us">Contact eQOURSE</a> for examples aligned with your programme.</p></section>
+      <nav aria-label="Related pages"><a href="/k12-and-higher-education">K-12 and Higher Education Content</a> <a href="/text-samples">Text Samples</a> <a href="/content-services">Content Services</a></nav>
+    </main>`;
+  }
   const sharedLinks = path.startsWith("/ai-data") || path.startsWith("/robotics")
     ? [
         ["/ai-data-services", "AI Data Services"],

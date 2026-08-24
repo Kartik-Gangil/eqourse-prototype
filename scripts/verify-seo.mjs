@@ -8,6 +8,18 @@ const pageSeoSource = readFileSync(join(root, "src", "seo", "pageSeo.ts"), "utf8
 const redirectsSource = readFileSync(join(root, "src", "routes", "legacyRedirects.ts"), "utf8");
 const manifestPath = join(distDir, "seo-manifest.json");
 const SITE_URL = "https://www.eqourse.com";
+const requiredLegacyRedirects = new Map([
+  ["/contact-us.html", "/contact-us"],
+  ["/avatar-video-samples", "/ai-avatar-video-samples"],
+  ["/blog/detail.php", "/blog"],
+  ["/blog/detail", "/blog"],
+  ["/blog/understanding-the-value-of-edtech-in-higher-education", "/blog"],
+  ["/content-services/custom-elearning-content/quiz-question-bank", "/quiz-question-bank-development"],
+]);
+const soft404RegressionPaths = [
+  "/articulate-storyline-video-samples",
+  "/kindergarten-to-k5-samples",
+];
 
 const entries = [];
 const entryPattern = /"(\/[^\"]*)":\s*\{\s*title:\s*"((?:[^"\\]|\\.)*)",\s*description:\s*"((?:[^"\\]|\\.)*)",(?:\s*canonical:\s*"((?:[^"\\]|\\.)*)",)?/gs;
@@ -73,6 +85,18 @@ for (const entry of entries) {
   }
   if (crawlFallbacks.length !== 1 || fallbackHeadings.length !== 1) {
     failures.push(`${entry.path}: missing one semantic prerender fallback with an H1`);
+  }
+  if (soft404RegressionPaths.includes(entry.path)) {
+    const sections = html.match(/<section(?:\s[^>]*)?>/g) ?? [];
+    const visibleText = html
+      .replace(/<script[\s\S]*?<\/script>/gi, " ")
+      .replace(/<style[\s\S]*?<\/style>/gi, " ")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (sections.length < 3 || visibleText.length < 500) {
+      failures.push(`${entry.path}: soft-404 regression; expected substantial prerendered sample content`);
+    }
   }
 
   const internalTrailingSlashLinks = [...html.matchAll(/\bhref="(\/[^"?#]+\/)"/g)]
@@ -152,6 +176,11 @@ if (!existsSync(notFoundPath)) {
 const redirectsConfig = existsSync(join(distDir, "_redirects"))
   ? readFileSync(join(distDir, "_redirects"), "utf8")
   : "";
+for (const [from, to] of requiredLegacyRedirects) {
+  if (!redirectsConfig.includes(`${from} ${to} 301!`)) {
+    failures.push(`_redirects is missing GSC legacy redirect ${from} -> ${to}`);
+  }
+}
 const apacheConfig = existsSync(join(distDir, ".htaccess"))
   ? readFileSync(join(distDir, ".htaccess"), "utf8")
   : "";
@@ -162,9 +191,21 @@ if (!redirectsConfig.includes("/blogs/* /blog/:splat 301!")) failures.push("_red
 if (!redirectsConfig.includes("/admin/* /index.html 200")) failures.push("_redirects is missing the admin SPA fallback");
 if (/^\/\* \/index\.html 200!?$/m.test(redirectsConfig)) failures.push("_redirects still soft-200s unknown public routes");
 for (const entry of entries) {
-  if (entry.path !== "/" && !redirectsConfig.includes(`${entry.path}/ ${entry.path} 301!`)) {
+  const coveredByDynamicArticleRule =
+    entry.path.startsWith("/blog/") || entry.path.startsWith("/casestudy/");
+  if (
+    entry.path !== "/" &&
+    !coveredByDynamicArticleRule &&
+    !redirectsConfig.includes(`${entry.path}/ ${entry.path} 301!`)
+  ) {
     failures.push(`_redirects is missing trailing-slash normalization for ${entry.path}`);
   }
+}
+if (!redirectsConfig.includes("/blog/*/ /blog/:splat 301!")) {
+  failures.push("_redirects is missing dynamic blog trailing-slash normalization");
+}
+if (!redirectsConfig.includes("/casestudy/*/ /casestudy/:splat 301!")) {
+  failures.push("_redirects is missing dynamic case-study trailing-slash normalization");
 }
 if (!apacheConfig.includes("RewriteRule ^blogs/(.+?)/?$ https://www.eqourse.com/blog/$1 [R=301,L,NE]")) {
   failures.push(".htaccess is missing the legacy /blogs/ migration");

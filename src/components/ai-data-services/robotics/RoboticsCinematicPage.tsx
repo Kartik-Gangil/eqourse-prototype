@@ -48,12 +48,11 @@ type RoboticsCapability = {
 };
 
 const capabilities: RoboticsCapability[] = [
-  { icon: Video, title: "Human demonstration data", short: "Teleoperation, egocentric and multi-view capture", body: "Complete task episodes with action-state correspondence, deliberate failure and recovery, and per-episode QA.", href: "/robotics-training-data-services/human-demonstrations" },
-  { icon: Bot, title: "Robot interaction data", short: "Teleoperation, trajectories & state logs", body: "Action trajectories, joint or state logs, operator interventions and outcomes captured through client-approved robots and environments.", href: "/robotics-training-data-services/human-demonstrations#collection-methods" },
-  { icon: Database, title: "Multimodal sensor data", short: "RGB, RGB-D, depth, audio, pose and metadata", body: "Time-aligned sensor streams prepared around the modalities, calibration information and metadata required by your model.", href: "/robotics-training-data-services/multimodal-sensor-data" },
-  { icon: Tags, title: "Robotics data annotation", short: "Objects, actions, contact, intent and outcomes", body: "Bounding boxes, masks, tracking, pose, task steps, grasp points, affordances, contact events and language-action alignment.", href: "/robotics-training-data-services/3d-spatial-annotation" },
-  { icon: ShieldCheck, title: "Data cleaning & validation", short: "Synchronisation, calibration and quality review", body: "Corrupt-frame detection, missing-stream checks, timestamp alignment, metadata validation and annotation consistency review.", href: "/robotics-training-data-services/deployment-validation" },
-  { icon: Activity, title: "Model evaluation datasets", short: "Held-out tasks, edge cases and failure scenarios", body: "Evaluation data for task completion, instruction following, grounding, action sequence, robustness and recovery from failure.", href: "/robotics-training-data-services/vla-evaluation" },
+  { icon: Video, title: "Human Demonstrations", short: "Teleoperation, egocentric and multi-view capture", body: "Complete task episodes with action-state correspondence, deliberate failure and recovery, and per-episode QA.", href: "/robotics-training-data-services/human-demonstrations" },
+  { icon: Database, title: "Multimodal Sensor Data", short: "RGB, RGB-D, depth, audio, pose and metadata", body: "Time-aligned sensor streams prepared around the modalities, calibration information and metadata required by your model.", href: "/robotics-training-data-services/multimodal-sensor-data" },
+  { icon: Tags, title: "3D & Spatial Annotation", short: "Objects, actions, contact, intent and outcomes", body: "Bounding boxes, masks, tracking, pose, task steps, grasp points, affordances, contact events and language-action alignment.", href: "/robotics-training-data-services/3d-spatial-annotation" },
+  { icon: Activity, title: "VLA Evaluation", short: "Held-out tasks, edge cases and failure scenarios", body: "Controlled evaluation for task completion, instruction following, grounding, action sequence, robustness and recovery from failure.", href: "/robotics-training-data-services/vla-evaluation" },
+  { icon: ShieldCheck, title: "Deployment Validation", short: "On-site evidence, acceptance criteria and quality review", body: "Structured validation of the complete robotic application in its target environment, with documented findings and traceable evidence.", href: "/robotics-training-data-services/deployment-validation" },
 ];
 
 const storyBeats = [

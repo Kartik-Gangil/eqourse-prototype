@@ -38,11 +38,36 @@ const ContentServicesSamplePage = () => {
         keywords={sample.keywords}
       />
 
-
       {isLanding ? (
         <ContentServicesLandingBody sample={sample} />
       ) : (
         <>
+          <header className="relative overflow-hidden border-b border-border bg-gradient-to-br from-background via-primary/[0.04] to-accent/[0.08] py-12 md:py-16">
+            <div className="absolute inset-0 opacity-[0.035] pointer-events-none"
+              style={{
+                backgroundImage: "radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)",
+                backgroundSize: "26px 26px",
+              }}
+            />
+            <div className="container relative z-10 mx-auto px-4 text-center">
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-primary">
+                eQOURSE work samples
+              </p>
+              <h1 className="mx-auto max-w-4xl font-heading text-3xl font-bold leading-tight text-foreground sm:text-4xl lg:text-5xl">
+                {sample.title}
+              </h1>
+              <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                {sample.subtext || sample.seoDescription}
+              </p>
+              <a
+                href="#samples"
+                className="mt-7 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5"
+              >
+                Explore available samples
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+            </div>
+          </header>
           <InteractiveSampleTabs sample={sample} />
           {sample.faqs && sample.faqs.length > 0 && (
             <section className="py-16 md:py-20 bg-muted/30">
