@@ -42,7 +42,7 @@ const ContactDetails = () => {
               <MapPinIcon className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.14em] text-primary">Primary operations & delivery</p>
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-primary">Operational headquarters & primary delivery centre</p>
               <h4 className="mt-1 font-bold text-foreground">EQOURSE ONLINE EDUCATIONERS LLP</h4>
               <p className="text-sm text-muted-foreground mt-1">C-29, Indra Vihar, Shiv Jyoti School Road, Kota, Rajasthan, INDIA - 324005</p>
             </div>
@@ -64,17 +64,17 @@ const ContactDetails = () => {
           </div>
         </div>
 
-        {/* Singapore registered entity */}
+        {/* Singapore commercial headquarters */}
         <div className="bg-card rounded-xl p-5 border border-border shadow-sm hover:shadow-md transition-shadow">
           <div className="flex gap-3 items-start mb-4">
             <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
               <MapPinIcon className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.14em] text-primary">Registered international entity</p>
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-primary">Commercial headquarters · Singapore</p>
               <h4 className="mt-1 font-bold text-foreground">EQOURSE PTE. LTD.</h4>
               <p className="text-sm text-muted-foreground mt-1">760 Bedok Reservoir Road, #04-13, Waterfront Waves, Singapore - 479245</p>
-              <p className="mt-2 text-xs leading-5 text-muted-foreground">Supports international business development, client engagement, partnerships and contracting where applicable.</p>
+              <p className="mt-2 text-xs leading-5 text-muted-foreground">International business engagements, client accounts, partnerships, contracting and master service agreements are managed through eQOURSE PTE. LTD.</p>
             </div>
           </div>
           <div className="rounded-lg overflow-hidden h-[200px] bg-muted relative">
@@ -87,7 +87,7 @@ const ContactDetails = () => {
               loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade"
               className="absolute inset-0 z-10"
-              title="Registered office of EQOURSE PTE. LTD. in Singapore"
+              title="Commercial headquarters of eQOURSE PTE. LTD. in Singapore"
             ></iframe>
              <div className="absolute inset-0 bg-gradient-to-r from-muted via-border to-muted animate-pulse z-0" />
           </div>

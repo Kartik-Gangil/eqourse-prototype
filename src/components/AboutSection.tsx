@@ -79,7 +79,7 @@ const AboutSection = () => {
             </p>
             <div className="flex items-center gap-6 pt-2">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Globe className="w-4 h-4 text-primary" /> India operations · Singapore entity
+                <Globe className="w-4 h-4 text-primary" /> Singapore commercial HQ · India delivery
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Users className="w-4 h-4 text-primary" /> 500+ Specialists

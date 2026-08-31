@@ -71,7 +71,7 @@ const ContentServicesOverviewPage = () => (
       ]}
       bullets={[
         "Backed by ISO 9001 certification and a dedicated team of 200+ specialists",
-        "India-led delivery with a registered Singapore entity supporting international engagement",
+        "Singapore commercial leadership with India-led delivery and quality operations",
         "Production-ready educational content that meets rigorous global standards"
       ]}
       stats={[

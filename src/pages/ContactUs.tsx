@@ -16,10 +16,10 @@ const ContactUs = () => {
         <meta name="description" content={PAGE_SEO.description} />
         <meta
           name="keywords"
-          content="contact eQOURSE, Content Services contact, AI data services inquiry, e-learning consultation, data annotation quote, curriculum development contact, eQOURSE India operations, eQOURSE Singapore registered entity, free consultation"
+          content="contact eQOURSE, AI data services inquiry, learning content services, Singapore commercial headquarters, India delivery operations, data annotation quote, curriculum development contact, free consultation"
         />
-        <meta property="og:title" content="Contact Us │ Content Services & AI Data Services │ eQOURSE" />
-        <meta property="og:description" content="Contact eQOURSE for Content Services or AI data services. Primary operations in Kota, India, with a registered international entity in Singapore." />
+        <meta property="og:title" content={PAGE_SEO.title} />
+        <meta property="og:description" content={PAGE_SEO.description} />
         <link rel="canonical" href="https://www.eqourse.com/contact-us" />
         <script type="application/ld+json">
           {`
@@ -27,7 +27,7 @@ const ContactUs = () => {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "@id": "https://www.eqourse.com/#india-entity",
-              "name": "eQOURSE India Operations",
+              "name": "eQOURSE Operational Headquarters",
               "legalName": "EQOURSE ONLINE EDUCATIONERS LLP",
               "address": {
                 "@type": "PostalAddress",
@@ -55,10 +55,10 @@ const ContactUs = () => {
               "@context": "https://schema.org",
               "@type": "Organization",
               "@id": "https://www.eqourse.com/#singapore-entity",
-              "name": "eQOURSE Singapore",
+              "name": "eQOURSE Commercial Headquarters",
               "legalName": "EQOURSE PTE. LTD.",
               "foundingDate": "2025-04-14",
-              "description": "Singapore-registered entity supporting international business development, client engagement, partnerships and contracting where applicable.",
+              "description": "Commercial headquarters for eQOURSE international business engagements, client accounts, partnerships, contracting and master service agreements.",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "760 Bedok Reservoir Road, #04-13, Waterfront Waves",

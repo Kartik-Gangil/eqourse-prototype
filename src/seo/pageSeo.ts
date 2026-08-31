@@ -32,8 +32,8 @@ export const pageSeo: Record<string, PageSeo> = {
     description: "Explain complex ideas with engaging 2D and 3D educational videos. Explore animation services from eQOURSE today.",
   },
   "/aboutus": {
-    title: "About eQOURSE | AI Data & Content Services Company",
-    description: "Meet eQOURSE: 500+ specialists delivering AI data and content services through India operations and a registered Singapore entity.",
+    title: "About eQOURSE | Global AI Data & Content Company",
+    description: "eQOURSE is commercially headquartered in Singapore, with 500+ specialists delivering AI data and learning content from its Kota operations.",
   },
   "/accessibility": {
     title: "Web Accessibility Statement | Eqourse",
@@ -335,8 +335,8 @@ export const pageSeo: Record<string, PageSeo> = {
     description: "Define role expectations with customized competency frameworks for hiring and development. Explore eQOURSE solutions.",
   },
   "/contact-us": {
-    title: "Contact eQOURSE | AI Data & Content Services",
-    description: "Contact eQOURSE for AI data and content services. Reach our primary India operations or international business team to scope your project.",
+    title: "Contact eQOURSE | Singapore HQ & India Delivery",
+    description: "Contact eQOURSE for AI data and learning content services. Commercial engagements run through Singapore, with delivery operations in Kota, India.",
   },
   "/content-services": {
     title: "Content Creation Services | Eqourse",

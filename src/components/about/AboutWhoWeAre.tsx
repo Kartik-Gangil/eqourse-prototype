@@ -41,7 +41,7 @@ const AboutWhoWeAre = () => {
             transition={{ delay: 0.1 }}
             className="text-lg md:text-xl text-muted-foreground leading-relaxed font-medium"
           >
-            An ISO 9001:2015 & ISO 27001:2022 certified education and AI data services organisation, eQOURSE is a recognised start-up by the Department for Promotion of Industry and Internal Trade (DPIIT), Government of India. Our primary operations and delivery centre is in Kota, Rajasthan, supported by a separately registered international entity in Singapore.
+            eQOURSE is a global learning content and AI data solutions provider, commercially headquartered in Singapore as eQOURSE PTE. LTD., with its operational headquarters and primary delivery centre in Kota, Rajasthan, India. We specialise in end-to-end digital curriculum development, pedagogical localization across 30+ languages and high-accuracy training data services—built on ISO 9001:2015 and ISO 27001:2022 certified processes.
           </motion.p>
         </div>
 
@@ -140,7 +140,7 @@ const AboutWhoWeAre = () => {
            className="mt-16 max-w-3xl mx-auto text-center"
         >
           <p className="text-muted-foreground text-lg">
-            With 500+ specialists spanning STEM-educated content creators, trained data annotators, instructional designers, and domain experts, we serve 200+ clients across 15+ countries. Our vision is to be the trusted global partner where education expertise meets AI data excellence. Our consumer tutoring brand <Link to="/tutrain" className="text-primary hover:underline">TUTRAIN</Link> brings this expertise directly to families.
+            A scalable network of 500+ subject matter experts, data specialists, instructional designers and quality professionals powers our work. International client engagements and MSAs run through Singapore, while 24/7 delivery execution is led from India. Our consumer tutoring brand <Link to="/tutrain" className="text-primary hover:underline">TUTRAIN</Link> brings this expertise directly to families.
           </p>
         </motion.div>
       </div>

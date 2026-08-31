@@ -22,13 +22,10 @@ const AboutUs = () => {
         <meta name="description" content={PAGE_SEO.description} />
         <meta
           name="keywords"
-          content="about eQOURSE, Content Services company India, AI data services company, e-learning solutions provider, data annotation company, education technology Singapore, ISO certified Content Services, curriculum development company, AI training data provider"
+          content="about eQOURSE, global AI data company, learning content services, Singapore commercial headquarters, India delivery center, multilingual curriculum development, data annotation company, ISO certified AI data services"
         />
-        <meta property="og:title" content="About eQOURSE │ Content Service & AI Data Services │ India & Singapore" />
-        <meta
-          property="og:description"
-          content="ISO 9001 & 27001 certified. 500+ specialists delivering Content Services and AI data services through India operations and a registered Singapore entity."
-        />
+        <meta property="og:title" content={PAGE_SEO.title} />
+        <meta property="og:description" content={PAGE_SEO.description} />
         <link rel="canonical" href="https://www.eqourse.com/aboutus" />
         <script type="application/ld+json">
           {`
@@ -52,10 +49,10 @@ const AboutUs = () => {
                 {
                   "@type": "Organization",
                   "@id": "https://www.eqourse.com/#india-entity",
-                  "name": "eQOURSE India Operations",
+                  "name": "eQOURSE Operational Headquarters",
                   "legalName": "EQOURSE ONLINE EDUCATIONERS LLP",
                   "brand": { "@id": "https://www.eqourse.com/#brand" },
-                  "description": "Primary operations and delivery entity for eQOURSE AI data and content services.",
+                  "description": "Operational headquarters and primary delivery centre for eQOURSE AI data services, digital curriculum development and multilingual content production.",
                   "address": {
                     "@type": "PostalAddress",
                     "streetAddress": "C-29, Indra Vihar, Shiv Jyoti School Road",
@@ -68,11 +65,11 @@ const AboutUs = () => {
                 {
                   "@type": "Organization",
                   "@id": "https://www.eqourse.com/#singapore-entity",
-                  "name": "eQOURSE Singapore",
+                  "name": "eQOURSE Commercial Headquarters",
                   "legalName": "EQOURSE PTE. LTD.",
                   "brand": { "@id": "https://www.eqourse.com/#brand" },
                   "foundingDate": "2025-04-14",
-                  "description": "Singapore-registered entity supporting international business development, client engagement, partnerships and contracting where applicable.",
+                  "description": "Commercial headquarters for eQOURSE international business engagements, client accounts, partnerships, contracting and master service agreements.",
                   "address": {
                     "@type": "PostalAddress",
                     "streetAddress": "760 Bedok Reservoir Road, #04-13, Waterfront Waves",
@@ -98,7 +95,7 @@ const AboutUs = () => {
         preHeadline="eQOURSE - Delivering Operational Excellence"
         headline="Who Are"
         headlineAccent="We?"
-        subtext="Content Service and AI Data Services."
+        subtext="Global AI data and learning content solutions, commercially led from Singapore and delivered from India."
         ctaText="Explore Services"
         ctaLink="#who-we-are"
         videoSrc="https://www.youtube.com/embed/ar_kilRmBLs?rel=0&modestbranding=1"

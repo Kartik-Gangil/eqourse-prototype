@@ -170,7 +170,7 @@ const Footer = () => {
                 <div className="flex items-start gap-2 text-sm" style={linkColor}>
                   <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-semibold block" style={{ color: "hsl(0, 0%, 85%)" }}>India · Primary Operations & Delivery</span>
+                    <span className="font-semibold block" style={{ color: "hsl(0, 0%, 85%)" }}>India · Operational HQ & Delivery</span>
                     <span className="mb-1 block text-xs text-white/50">EQOURSE ONLINE EDUCATIONERS LLP</span>
                     C-29, Indra Vihar, Shiv Jyoti School Road, Kota, Rajasthan - 324005
                   </div>
@@ -178,7 +178,7 @@ const Footer = () => {
                 <div className="flex items-start gap-2 text-sm" style={linkColor}>
                   <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-semibold block" style={{ color: "hsl(0, 0%, 85%)" }}>Singapore · Registered Office</span>
+                    <span className="font-semibold block" style={{ color: "hsl(0, 0%, 85%)" }}>Singapore · Commercial Headquarters</span>
                     <span className="mb-1 block text-xs text-white/50">EQOURSE PTE. LTD.</span>
                     760 Bedok Reservoir Road, #04-13, Waterfront Waves - 479245
                   </div>
@@ -191,7 +191,7 @@ const Footer = () => {
         <div className="border-t border-white/10 mt-12 pt-8 text-center text-sm font-medium text-white/60">
           <p>&copy; {new Date().getFullYear()} eQOURSE. All rights reserved.</p>
           <Link to="/aboutus#corporate-structure" className="mt-2 inline-block text-xs text-white/45 transition-colors hover:text-primary">
-            One brand · two registered entities · corporate information
+            Singapore commercial headquarters · India operational headquarters
           </Link>
         </div>
       </div>

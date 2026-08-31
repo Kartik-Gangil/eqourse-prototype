@@ -19,13 +19,13 @@ const timelineData = [
   },
   {
     year: "2025",
-    title: "Singapore Incorporation & TuTrain Launch",
-    description: "EQOURSE PTE. LTD. was incorporated in Singapore to support international business development, client engagement and partnerships. We launched our proprietary TuTrain platform for real-world AI model testing, connecting AI models to demographically diverse test users across 30+ languages. Our team grew to 500+ specialists spanning Content Services and AI data operations.",
+    title: "Singapore Commercial Headquarters & TuTrain Launch",
+    description: "EQOURSE PTE. LTD. was established as our commercial headquarters in Singapore for international business engagements, client accounts, partnerships and contracting. We also launched TuTrain for real-world AI model testing and grew to a network of 500+ content and AI data specialists.",
   },
   {
     year: "2026",
-    title: "Dual-Vertical Global Operations",
-    description: "Today, eQOURSE operates as a dual-vertical company: Content Services and AI Data Services. We serve 200+ clients across 15+ countries, with primary operations and delivery in Kota and a registered international entity in Singapore. Our mission is to help organisations across education and AI build systems that work in the real world - powered by high-quality human expertise.",
+    title: "One Global Operating Model",
+    description: "Today, eQOURSE serves 200+ clients across 15+ countries. Commercial leadership is based in Singapore, while our operational headquarters and primary delivery centre in Kota coordinate 24/7 learning-content and AI data execution. One integrated team helps education and AI organisations build systems that work in the real world.",
   }
 ];
 
