@@ -20,7 +20,8 @@
    - [Step 4: Pull Latest Code](#step-4-pull-latest-code)
    - [Step 5: Build Frontend](#step-5-build-frontend)
    - [Step 6: Deploy Frontend](#step-6-deploy-frontend)
-   - [Step 7: Restart Backend (PM2)](#step-7-restart-backend-pm2)
+   - [Step 7: Install Nginx SEO Routing](#step-7-install-nginx-seo-routing)
+   - [Step 8: Restart Backend (PM2)](#step-8-restart-backend-pm2)
 4. [What to Deploy When](#what-to-deploy-when)
 5. [Rollback (If Something Goes Wrong)](#rollback-if-something-goes-wrong)
 6. [Troubleshooting](#troubleshooting)
@@ -78,11 +79,19 @@ sudo rm -rf /var/www/eqourse/dist/*
 sudo cp -r /opt/eqourse-prototype/dist/* /var/www/eqourse/dist/
 sudo chown -R deployer:deployer /var/www/eqourse/dist
 
-# 8. Restart backend (if backend files changed)
+# 8. Install the generated route rules inside the HTTPS www server block.
+# On the first deployment, remove any existing `location /` and `/admin`
+# blocks, then add this include line; do not create duplicate location blocks.
+sudo nano /etc/nginx/sites-available/eqourse
+# Add: include /opt/eqourse-prototype/deploy/nginx/eqourse-route-handling.conf;
+sudo nginx -t
+sudo systemctl reload nginx
+
+# 9. Restart backend (if backend files changed)
 sudo su - deployer
 pm2 restart eqourse
 
-# 9. Done! Disconnect
+# 10. Done! Disconnect
 exit
 exit
 ```
@@ -190,7 +199,53 @@ Enter the server password when prompted.
 
 ---
 
-### Step 7: Restart Backend (PM2)
+### Step 7: Install Nginx SEO Routing
+
+The generated frontend uses directory-based prerendered files such as
+`/blog/article-slug/index.html`, while every canonical URL intentionally omits
+the trailing slash. Nginx must serve that file internally at
+`/blog/article-slug`; it must not redirect the request to
+`/blog/article-slug/`.
+
+Open the active HTTPS `www.eqourse.com` server block:
+
+```bash
+sudo nano /etc/nginx/sites-available/eqourse
+```
+
+Inside that server block, remove the existing public `location /`, admin
+locations, trailing-slash handling and 404 handling, then add this include:
+
+```nginx
+include /opt/eqourse-prototype/deploy/nginx/eqourse-route-handling.conf;
+```
+
+Do not keep an older `try_files $uri $uri/ /index.html;` rule and do not create
+duplicate `location /` blocks. The generated rule uses
+`try_files $uri/index.html $uri =404;`, which is the critical part of the GSC
+redirect fix.
+
+Validate and reload Nginx:
+
+```bash
+sudo nginx -t
+sudo systemctl reload nginx
+```
+
+Confirm that a canonical route is a direct `200`, while its slash variant is a
+single `301` back to the canonical URL:
+
+```bash
+curl -I https://www.eqourse.com/blog/scaling-exam-performance-blueprint-aligned-test-prep-content
+curl -I https://www.eqourse.com/blog/scaling-exam-performance-blueprint-aligned-test-prep-content/
+```
+
+The first command must return `200`; the second must return `301` with a
+non-trailing-slash `Location` value.
+
+---
+
+### Step 8: Restart Backend (PM2)
 
 **Only needed if you changed files in `eqourse-backend/`.**
 
@@ -243,11 +298,11 @@ exit    # exit bhavesh / close SSH
 | What Changed | Steps Needed |
 |---|---|
 | **Frontend only** (`.tsx`, `.css`, `.ts` in `src/`) | Steps 1-6 |
-| **Backend only** (files in `eqourse-backend/`) | Steps 1-5, then Step 7 |
-| **Both frontend + backend** | Steps 1-7 (all steps) |
+| **Backend only** (files in `eqourse-backend/`) | Steps 1-5, then Step 8 |
+| **Both frontend + backend** | Steps 1-8 (all steps) |
 | **Static assets only** (`public/` folder) | Steps 1-6 |
-| **SEO / sitemap changes** | Steps 1-6 |
-| **Package.json changed** (new dependencies) | Steps 1-5, run `npm install` before `npm run build`, then Steps 6-7 |
+| **SEO / sitemap changes** | Steps 1-7 |
+| **Package.json changed** (new dependencies) | Steps 1-5, run `npm install` before `npm run build`, then Steps 6-8 |
 
 > **If `package.json` changed** (new npm packages added), run this on the server before building:
 > ```bash
@@ -402,4 +457,4 @@ SERVER: ssh bhavesh@103.189.88.129
 
 ---
 
-*Last updated: August 8, 2026*
+*Last updated: September 2, 2026*

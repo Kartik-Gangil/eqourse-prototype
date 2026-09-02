@@ -144,6 +144,8 @@ if (!existsSync(robotsPath)) {
 for (const configName of ["_redirects", "_headers", ".htaccess"]) {
   if (!existsSync(join(distDir, configName))) failures.push(`missing generated hosting config dist/${configName}`);
 }
+const nginxConfigPath = join(root, "deploy", "nginx", "eqourse-route-handling.conf");
+if (!existsSync(nginxConfigPath)) failures.push("missing generated Nginx route handling config");
 
 const cmsShellPath = join(distDir, "cms-shell.html");
 if (!existsSync(cmsShellPath)) {
@@ -187,6 +189,9 @@ const apacheConfig = existsSync(join(distDir, ".htaccess"))
 const headersConfig = existsSync(join(distDir, "_headers"))
   ? readFileSync(join(distDir, "_headers"), "utf8")
   : "";
+const nginxConfig = existsSync(nginxConfigPath)
+  ? readFileSync(nginxConfigPath, "utf8")
+  : "";
 if (!redirectsConfig.includes("/blogs/* /blog/:splat 301!")) failures.push("_redirects is missing the legacy /blogs/ migration");
 if (!redirectsConfig.includes("/admin/* /index.html 200")) failures.push("_redirects is missing the admin SPA fallback");
 if (/^\/\* \/index\.html 200!?$/m.test(redirectsConfig)) failures.push("_redirects still soft-200s unknown public routes");
@@ -221,10 +226,25 @@ if (!apacheConfig.includes('Header always set X-Robots-Tag "noindex, nofollow" e
 if (!headersConfig.includes("/admin/*") || !headersConfig.includes("X-Robots-Tag: noindex, nofollow")) {
   failures.push("_headers is missing the admin X-Robots-Tag protection");
 }
+if (!nginxConfig.includes("try_files $uri/index.html $uri =404;")) {
+  failures.push("Nginx config does not internally serve prerendered routes at no-trailing-slash canonicals");
+}
+if (/try_files[^;]*\$uri\//.test(nginxConfig.replace("$uri/index.html", ""))) {
+  failures.push("Nginx config contains a directory try_files fallback that can force trailing slashes");
+}
+if (!nginxConfig.includes("location ~ ^/(.+)/+$")) {
+  failures.push("Nginx config is missing trailing-slash normalization");
+}
+if (!nginxConfig.includes('add_header X-Robots-Tag "noindex, nofollow" always;')) {
+  failures.push("Nginx config is missing admin X-Robots-Tag protection");
+}
+if (!nginxConfig.includes("error_page 404 /404.html;")) {
+  failures.push("Nginx config is missing the real public 404 handler");
+}
 
 if (failures.length > 0) {
   console.error(failures.join("\n"));
   process.exit(1);
 }
 
-console.log(`[verify-seo] Verified ${entries.length} routes: unique metadata, indexability, semantic HTML, canonicals, sitemap, robots and hosting redirects.`);
+console.log(`[verify-seo] Verified ${entries.length} routes: unique metadata, indexability, semantic HTML, canonicals, sitemap, robots and hosting redirects (including Nginx).`);

@@ -62,12 +62,19 @@ Here's the situation in simple terms:
 - ALL paths must be handled by the new React application's `index.html`
 - The server must be configured so that any route that doesn't match a static file falls back to `index.html` (standard SPA configuration)
 
-**Example server config (Nginx):**
+**Nginx route handling:**
 ```nginx
 location / {
-    try_files $uri $uri/ /index.html;
+    try_files $uri/index.html $uri =404;
 }
 ```
+
+Do not use `try_files $uri $uri/ /index.html`. The `$uri/` lookup makes Nginx
+redirect clean prerendered URLs such as `/blog/article-slug` to a trailing-slash
+directory URL, while the site's canonical tags and sitemap use no trailing slash.
+Use the complete generated configuration at
+`deploy/nginx/eqourse-route-handling.conf`; it also covers legacy redirects,
+admin noindex headers and genuine public 404 responses.
 
 **Example server config (Apache `.htaccess`):**
 ```apache

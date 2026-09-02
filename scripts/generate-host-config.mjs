@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -123,8 +123,52 @@ const apache = [
   "",
 ].join("\n");
 
+const nginxRedirects = redirects.flatMap(({ from, to }) => [
+  `location = ${from} { return 301 https://www.eqourse.com${to}; }`,
+  `location = ${from}/ { return 301 https://www.eqourse.com${to}; }`,
+]);
+
+const nginx = [
+  "# Generated from src/routes/legacyRedirects.ts. Do not edit by hand.",
+  "# Include these directives inside the HTTPS www.eqourse.com server block.",
+  "# This file intentionally owns the public / and /admin locations.",
+  "",
+  "# Legacy URLs redirect directly to their final canonical destinations.",
+  ...nginxRedirects,
+  "",
+  "# Preserve matching legacy article slugs while consolidating /blogs/ to /blog/.",
+  "location ~ ^/blogs/(.+?)/?$ { return 301 https://www.eqourse.com/blog/$1; }",
+  "",
+  "# Canonicals, sitemap URLs and internal links use no trailing slash.",
+  "# This explicit redirect runs before Nginx can apply its directory redirect.",
+  "location ~ ^/(.+)/+$ { return 301 https://www.eqourse.com/$1$is_args$args; }",
+  "",
+  "# Admin remains an authenticated client-side application and must not be indexed.",
+  "location = /admin {",
+  "  add_header X-Robots-Tag \"noindex, nofollow\" always;",
+  "  try_files /index.html =404;",
+  "}",
+  "location ^~ /admin/ {",
+  "  add_header X-Robots-Tag \"noindex, nofollow\" always;",
+  "  try_files $uri /index.html =404;",
+  "}",
+  "",
+  "# Serve route/index.html internally at /route. Never test $uri/ here:",
+  "# doing so makes Nginx redirect canonical URLs to trailing-slash directories.",
+  "location / {",
+  "  try_files $uri/index.html $uri =404;",
+  "}",
+  "",
+  "# Unknown public routes return a genuine 404 instead of a soft-200 SPA shell.",
+  "error_page 404 /404.html;",
+  "location = /404.html { internal; }",
+  "",
+].join("\n");
+
 writeFileSync(join(root, "public", "_redirects"), netlify, "utf8");
 writeFileSync(join(root, "public", "_headers"), headers, "utf8");
 writeFileSync(join(root, "public", ".htaccess"), apache, "utf8");
+mkdirSync(join(root, "deploy", "nginx"), { recursive: true });
+writeFileSync(join(root, "deploy", "nginx", "eqourse-route-handling.conf"), nginx, "utf8");
 
-console.log(`[seo-host-config] Generated ${redirects.length} permanent redirect rules for Netlify/Cloudflare Pages and Apache.`);
+console.log(`[seo-host-config] Generated ${redirects.length} permanent redirect rules for Netlify/Cloudflare Pages, Apache and Nginx.`);
