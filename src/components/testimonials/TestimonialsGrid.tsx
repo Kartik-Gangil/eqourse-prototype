@@ -188,7 +188,7 @@ const TestimonialsGrid = () => {
         </div>
 
         {/* Masonry-style Grid using columns for CSS, or standard grid */}
-        <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+        <motion.div layout className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
           <AnimatePresence mode="popLayout">
             {filteredTestimonials.map((testimonial, idx) => (
               <TestimonialCard key={`${testimonial.name}-${idx}`} data={testimonial} index={idx} />

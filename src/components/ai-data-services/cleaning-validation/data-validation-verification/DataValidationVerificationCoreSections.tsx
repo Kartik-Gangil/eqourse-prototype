@@ -29,13 +29,7 @@ export const VerificationMotionStyles = () => <style>{`
   @media(prefers-reduced-motion:reduce){.verify-flow,.verify-resolve,.verify-pulse{animation:none!important}}
 `}</style>;
 
-export const VerificationTrustStrip = () => (
-  <section aria-label="Verification service assurances" className="border-y border-border bg-white">
-    <div className="container mx-auto grid grid-cols-2 gap-px bg-border px-4 md:grid-cols-4">
-      {[["Source agreed first","Authority, limits and currency"],["Six clear states","Not a misleading yes or no"],["Conflict preserved","Disagreement becomes evidence"],["30+ languages","Global reach + Indian depth"]].map(([a,b])=><div key={a} className="bg-white px-4 py-5 text-center"><strong className="text-sm">{a}</strong><p className="mt-1 text-xs text-muted-foreground">{b}</p></div>)}
-    </div>
-  </section>
-);
+export const VerificationTrustStrip=()=>{const items=[["Source agreed first","Authority, limits and currency"],["Six clear states","Not a misleading yes or no"],["Conflict preserved","Disagreement becomes evidence"],["30+ languages","Global reach + Indian depth"]];return <section aria-label="Verification service assurances" className="overflow-hidden border-y border-border bg-white"><div className="flex w-max animate-marquee">{[...items,...items,...items].map(([a,b],i)=><div key={`${a}-${i}`} className="flex min-w-[260px] shrink-0 flex-col items-center justify-center border-r border-border bg-white px-8 py-5 text-center"><strong className="text-sm">{a}</strong><p className="mt-1 text-xs text-muted-foreground">{b}</p></div>)}</div></section>;};
 
 export const QuestionsAndSourceTruth = () => (
   <>

@@ -70,8 +70,21 @@ export const TestingDefinition = () => (
 );
 
 export const TestingMethods = () => {
-  const icons = [GitCompareArrows, Languages, Volume2, MessageSquareText, ScanSearch];
-  return <section className="bg-muted/35 py-20 md:py-24"><div className="container mx-auto px-4"><SectionHeader label="Beyond a benchmark" title="How We Test" gradientText="AI Models" subtitle="Five testing methodologies applied across language, speech, vision and multimodal systems."/><div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-[2rem] border border-border bg-border md:grid-cols-5">{testingMethods.map(([title,text,href],i)=>{const Icon=icons[i];const content=<article className="h-full p-6 transition-colors hover:bg-primary/[.045]"><div className="flex items-center justify-between"><Icon className="h-5 w-5 text-primary"/><span className="font-mono text-[10px] text-primary">0{i+1}</span></div><h3 className="mt-8 font-heading text-lg font-bold">{title}</h3><p className="mt-3 text-sm leading-6 text-muted-foreground">{text}</p><p className="mt-7 flex items-center gap-2 border-t border-border pt-4 text-[10px] font-bold uppercase tracking-[.14em] text-muted-foreground">{href?<>Explore method <ArrowRight className="h-3 w-3"/></>:"Method available now"}</p></article>;return <Reveal key={title} className="bg-card">{href?<Link to={href} className="block h-full">{content}</Link>:content}</Reveal>})}</div></div></section>;
+  const icons = [GitCompareArrows, Languages, Volume2, MessageSquareText];
+  return <section className="bg-muted/35 py-20 md:py-24">
+    <div className="container mx-auto px-4">
+      <SectionHeader label="Beyond a benchmark" title="How We Test" gradientText="AI Models" subtitle="Five testing methodologies applied across language, speech, vision and multimodal systems."/>
+      <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-[2rem] border border-border bg-border md:grid-cols-4">
+    {testingMethods.map(([title,text,href],i)=>
+    {const Icon=icons[i];
+      const content=<article className="h-full p-6 transition-colors hover:bg-primary/[.045]">
+        <div className="flex items-center justify-between">
+          <Icon className="h-5 w-5 text-primary"/>
+          <span className="font-mono text-[15px] text-primary">0{i+1}</span>
+          </div>
+          <h3 className="mt-8 font-heading text-lg font-bold">{title}</h3>
+          <p className="mt-3 text-sm leading-6 text-muted-foreground">{text}</p>
+          <p className="mt-7 flex items-center gap-2 border-t border-border pt-4 text-[10px] font-bold uppercase tracking-[.14em] text-muted-foreground">{href?<>Explore method <ArrowRight className="h-3 w-3"/></>:"Method available now"}</p></article>;return <Reveal key={title} className="bg-card">{href?<Link to={href} className="block h-full">{content}</Link>:content}</Reveal>})}</div></div></section>;
 };
 
 export const TestingByModelType = () => {
