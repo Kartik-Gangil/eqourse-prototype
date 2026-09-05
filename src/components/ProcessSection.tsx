@@ -126,7 +126,7 @@ interface Step {
 
 const ProcessTimeline = ({ steps, loopLabel }: { steps: Step[]; loopLabel: string }) => {
   return (
-    <div>
+    <div className="mt-[18px]">
       {/* Desktop: Horizontal timeline */}
       <div className="hidden lg:block relative">
         {/* Connecting line */}

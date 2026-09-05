@@ -83,7 +83,7 @@ export const GroundTruth = () => (
 );
 
 const EngagementDiagram = () => (
-  <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3" role="img" aria-label="Six-step ASR model testing engagement from scope to report">{engagementSteps.map(([n,t,w,d],i)=><article key={n} className="relative overflow-hidden rounded-2xl border border-border bg-white p-6"><div className="absolute right-0 top-0 h-20 w-20 rounded-bl-full bg-primary/5"/><span className="font-mono text-2xl font-bold text-primary">{n}</span><p className="mt-4 text-xs font-bold uppercase tracking-[.14em] text-amber-600">{w}</p><h3 className="mt-2 font-heading text-lg font-bold">{t}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{d}</p>{i < 5 && <ArrowRight className="absolute bottom-5 right-5 h-4 w-4 text-primary/40"/>}</article>)}</div>
+  <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3" role="img" aria-label="Six-step ASR model testing engagement from scope to report">{engagementSteps.map(([n,t,w,d],i)=><article key={n} className="relative overflow-hidden rounded-2xl border border-border bg-white p-6 group"><div className="absolute right-0 top-0 h-16 w-16 rounded-bl-full bg-primary/5 group-hover:w-20 group-hover:h-20 transition-all"/><span className="font-mono text-2xl font-bold text-primary">{n}</span><p className="mt-4 text-xs font-bold uppercase tracking-[.14em] text-amber-600">{w}</p><h3 className="mt-2 font-heading text-lg font-bold">{t}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{d}</p>{i < 5 && <ArrowRight className="absolute bottom-5 right-5 h-4 w-4 text-primary/40"/>}</article>)}</div>
 );
 
 export const EngagementAndEvidence = () => (

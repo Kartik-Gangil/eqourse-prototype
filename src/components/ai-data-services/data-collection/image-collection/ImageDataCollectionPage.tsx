@@ -138,7 +138,21 @@ const ImageDataCollectionPage = () => {
 
     <section className="py-24 bg-gradient-hero relative overflow-hidden"><div className="absolute inset-0 opacity-[.035]" style={{backgroundImage:"radial-gradient(circle,hsl(170 82% 50%) 1px,transparent 1px)",backgroundSize:"28px 28px"}}/><div className="container mx-auto px-4 relative"><SectionHeader light label="Capture Models" title="How We Collect" gradientText="Image Training Data" subtitle="The method follows the deployment context, rights requirements and level of environmental control." /><div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">{methods.map(([Icon,title,text],i)=><Reveal key={String(title)} className="h-full"><article className="glass-dark h-full rounded-2xl p-6"><span className="text-xs text-primary">0{i+1}</span>{typeof Icon!=="string"&&<Icon className="w-7 h-7 text-primary mt-9" aria-hidden="true"/>}<h3 className="font-heading font-bold text-white mt-5">{String(title)}</h3><p className="text-sm text-white/65 leading-relaxed mt-3">{String(text)}</p></article></Reveal>)}</div></div></section>
 
-    <section className="py-24 bg-background"><div className="container mx-auto px-4"><SectionHeader label="From Brief to Handoff" title="Our Image Data" gradientText="Collection Process" /><ol className="grid sm:grid-cols-2 lg:grid-cols-7 gap-4 max-w-6xl mx-auto">{process.map(([n,t,d],i)=><Reveal key={n} className="h-full"><li className="h-full rounded-2xl border border-border/60 bg-card p-5 relative overflow-hidden"><span className="text-xs font-bold text-primary">{n}</span><div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full"/><h3 className="font-heading font-bold mt-8">{t}</h3><p className="text-xs leading-relaxed text-muted-foreground mt-2">{d}</p></li></Reveal>)}</ol><p className="mt-9 text-center text-sm text-muted-foreground">Next stage: <Link className="text-primary font-semibold hover:underline" to="/ai-data-services/annotation-labeling">Continue into Image Annotation &amp; Labeling <ArrowRight className="inline w-4 h-4"/></Link></p></div></section>
+    <section className="py-24 bg-background">
+      <div className="container mx-auto px-4">
+        <SectionHeader label="From Brief to Handoff" title="Our Image Data" gradientText="Collection Process" />
+        <ol className="grid sm:grid-cols-2 lg:grid-cols-7 gap-4 max-w-6xl mx-auto">
+          {process.map(([n,t,d],i)=>
+          <Reveal key={n} className="h-full">
+            <li className="h-full rounded-2xl border border-border/60 bg-card p-5 relative overflow-hidden group">
+              <span className="text-sm font-bold text-primary">{n}</span>
+              <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full group-hover:w-20 group-hover:h-20 transition-all"/>
+              <h3 className="font-heading font-bold mt-8">{t}</h3>
+              <p className="text-xs leading-relaxed text-muted-foreground mt-2">{d}</p>
+            </li>
+          </Reveal>)}
+        </ol>
+      <p className="mt-9 text-center text-sm text-muted-foreground">Next stage: <Link className="text-primary font-semibold hover:underline" to="/ai-data-services/annotation-labeling">Continue into Image Annotation &amp; Labeling <ArrowRight className="inline w-4 h-4"/></Link></p></div></section>
 
     <section className="py-24 bg-muted/30"><div className="container mx-auto px-4"><SectionHeader label="Dataset Validation" title="Image Quality Checks Before" gradientText="Dataset Delivery" /><div className="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">{qualityGroups.map((group,i)=><Reveal key={group.title} className="h-full"><article className="h-full rounded-2xl border border-border/60 bg-card p-7"><div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center"><PackageCheck className="w-5 h-5 text-primary" aria-hidden="true"/></div><h3 className="font-heading text-xl font-bold mt-6">{group.title}</h3><ul className="mt-5 space-y-3">{group.items.map(item=><li key={item} className="flex gap-3 text-sm text-foreground/75"><CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" aria-hidden="true"/>{item}</li>)}</ul></article></Reveal>)}</div></div></section>
 

@@ -63,27 +63,27 @@ const SixStepPipeline = () => {
           {steps.map((step, i) => (
             <div
               key={step.number}
-              className={`group relative rounded-2xl p-6 glass-dark hover:border-primary/30 transition-all duration-300 reveal-up ${isVisible ? "visible" : ""}`}
+              className={`group relative rounded-2xl p-6 glass-dark hover:border-primary transition-all duration-300 reveal-up ${isVisible ? "visible" : ""}`}
               style={{ transitionDelay: `${i * 0.1}s` }}
             >
               {/* Step number */}
               <div className="flex items-center gap-4 mb-4">
-                <span className="text-3xl font-heading font-extrabold text-primary/20 group-hover:text-primary/40 transition-colors">
+                <span className="text-3xl font-heading font-extrabold text-primary/20 group-hover:text-primary transition-colors">
                   {step.number}
                 </span>
-                <div className="h-px flex-1 bg-gradient-to-r from-primary/20 to-transparent" />
+                <div className="h-px flex-1 bg-gradient-to-r from-primary/20 to-transparent group-hover:from-primary group-hover:to-transparent transition-colors" />
               </div>
 
               <h3 className="font-heading text-lg font-bold text-white mb-2 group-hover:text-primary transition-colors">
                 {step.title}
               </h3>
-              <p className="text-white/60 text-sm leading-relaxed">{step.description}</p>
+              <p className="text-white/60 group-hover:text-white transition-colors text-sm leading-relaxed">{step.description}</p>
 
               {/* Connecting indicator */}
               {i < steps.length - 1 && (
-                <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6">
+                <div className="hidden lg:block absolute -right-6 top-1/2 -translate-y-1/2 w-6 h-6">
                   {(i + 1) % 3 !== 0 && (
-                    <svg viewBox="0 0 24 24" fill="none" className="text-primary/30">
+                    <svg viewBox="0 0 24 24" fill="none" className="text-primary/30 group-hover:text-primary">
                       <path d="M5 12h14M15 6l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   )}

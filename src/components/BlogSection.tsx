@@ -4,18 +4,35 @@ import { Link } from "react-router-dom";
 import { blogsData as staticBlogs, BlogPost } from "./blog/blogData";
 import { fetchPublishedBlogs } from "@/lib/publicApi";
 
-const generateAbstractPattern = (id: number, colorTheme: 'teal' | 'navy') => {
-  const isTeal = colorTheme === 'teal';
+const generateAbstractPattern = (id: number, colorTheme: "teal" | "navy") => {
+  const isTeal = colorTheme === "teal";
   const baseHue = isTeal ? 170 : 242;
   const rotation = (id * 45) % 360;
   const scale = 1 + (id % 3) * 0.2;
-  
+
   return (
-    <svg className="absolute inset-0 w-full h-full object-cover" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+    <svg
+      className="absolute inset-0 w-full h-full object-cover"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 800 500"
+      preserveAspectRatio="xMidYMid slice"
+    >
       <defs>
-        <linearGradient id={`bg-grad-${id}`} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor={`hsl(${baseHue}, ${isTeal ? '82%' : '33%'}, ${isTeal ? '20%' : '15%'})`} />
-          <stop offset="100%" stopColor={`hsl(${baseHue}, ${isTeal ? '75%' : '40%'}, ${isTeal ? '35%' : '25%'})`} />
+        <linearGradient
+          id={`bg-grad-${id}`}
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="100%"
+        >
+          <stop
+            offset="0%"
+            stopColor={`hsl(${baseHue}, ${isTeal ? "82%" : "33%"}, ${isTeal ? "20%" : "15%"})`}
+          />
+          <stop
+            offset="100%"
+            stopColor={`hsl(${baseHue}, ${isTeal ? "75%" : "40%"}, ${isTeal ? "35%" : "25%"})`}
+          />
         </linearGradient>
       </defs>
       <rect width="100%" height="100%" fill={`url(#bg-grad-${id})`} />
@@ -27,7 +44,9 @@ const generateAbstractPattern = (id: number, colorTheme: 'teal' | 'navy') => {
 };
 
 const BlogSection = () => {
-  const [recentBlogs, setRecentBlogs] = useState<BlogPost[]>(staticBlogs.slice(0, 4));
+  const [recentBlogs, setRecentBlogs] = useState<BlogPost[]>(
+    staticBlogs.slice(0, 4),
+  );
 
   useEffect(() => {
     let cancelled = false;
@@ -37,29 +56,50 @@ const BlogSection = () => {
         id: i + 1,
         title: b.title,
         slug: `/blog/${b.slug}`,
-        category: (b.tags?.includes("AI Data") ? "AI Data" : "Content Services") as BlogPost["category"],
-        date: b.publishedAt ? new Date(b.publishedAt).toLocaleDateString("en-US", { month: "long", year: "numeric" }) : "2026",
+        category: (b.tags?.includes("AI Data")
+          ? "AI Data"
+          : "Content Services") as BlogPost["category"],
+        date: b.publishedAt
+          ? new Date(b.publishedAt).toLocaleDateString("en-US", {
+              month: "long",
+              year: "numeric",
+            })
+          : "2026",
         author: b.author?.name || "eQOURSE",
         excerpt: b.excerpt,
-        thumbnailColor: (b.tags?.includes("AI Data") ? "navy" : "teal") as BlogPost["thumbnailColor"],
+        thumbnailColor: (b.tags?.includes("AI Data")
+          ? "navy"
+          : "teal") as BlogPost["thumbnailColor"],
         keywords: b.tags,
-        coverImageUrl: b.coverImageUrl ? (b.coverImageUrl.startsWith("/") ? `${import.meta.env.VITE_API_BASE_URL || ""}${b.coverImageUrl}` : b.coverImageUrl) : undefined,
-        coverImageAlt: b.seo?.coverImageAlt || `${b.title} — eQOURSE blog cover image`,
+        coverImageUrl: b.coverImageUrl
+          ? b.coverImageUrl.startsWith("/")
+            ? `${import.meta.env.VITE_API_BASE_URL || ""}${b.coverImageUrl}`
+            : b.coverImageUrl
+          : undefined,
+        coverImageAlt:
+          b.seo?.coverImageAlt || `${b.title} — eQOURSE blog cover image`,
         coverImageTitle: b.seo?.coverImageTitle || b.title,
       }));
       setRecentBlogs(mapped);
     });
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, []);
   return (
     <section id="blogs" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <span className="text-sm font-semibold tracking-wider uppercase text-primary">Latest Insights</span>
+          <span className="text-sm font-semibold tracking-wider uppercase text-primary">
+            Latest Insights
+          </span>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mt-2 mb-4">
             Latest from <span className="text-gradient">Our Blog</span>
           </h2>
-          <Link to="/blog" className="inline-flex items-center text-sm font-semibold text-primary gap-2 hover:underline">
+          <Link
+            to="/blog"
+            className="inline-flex items-center text-sm font-semibold text-primary gap-2 hover:underline"
+          >
             View All Posts <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -68,24 +108,44 @@ const BlogSection = () => {
         <div className="grid lg:grid-cols-2 gap-6">
           {/* Hero Post */}
           {recentBlogs.length > 0 && (
-            <Link to={recentBlogs[0].slug} className="group relative rounded-3xl overflow-hidden min-h-[420px] flex items-end neon-card">
+            <Link
+              to={recentBlogs[0].slug}
+              className="group relative rounded-3xl overflow-hidden min-h-[420px] flex items-end neon-card"
+            >
               <div className="absolute inset-0 z-0 group-hover:scale-105 transition-transform duration-700">
                 {recentBlogs[0].coverImageUrl ? (
-                  <img src={recentBlogs[0].coverImageUrl} alt={recentBlogs[0].coverImageAlt || recentBlogs[0].title} title={recentBlogs[0].coverImageTitle || recentBlogs[0].title} width={960} height={630} loading="lazy" decoding="async" className="w-full h-full object-cover" />
+                  <img
+                    src={recentBlogs[0].coverImageUrl}
+                    alt={recentBlogs[0].coverImageAlt || recentBlogs[0].title}
+                    title={
+                      recentBlogs[0].coverImageTitle || recentBlogs[0].title
+                    }
+                    width={960}
+                    height={630}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover"
+                  />
                 ) : (
-                  generateAbstractPattern(recentBlogs[0].id, recentBlogs[0].thumbnailColor)
+                  generateAbstractPattern(
+                    recentBlogs[0].id,
+                    recentBlogs[0].thumbnailColor,
+                  )
                 )}
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/40 to-transparent z-10" />
               <div className="relative z-20 p-8 md:p-10 w-full">
                 <div className="flex items-center gap-2 text-xs mb-3 font-medium text-white/80">
-                  <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-widest uppercase mr-2 ${recentBlogs[0].thumbnailColor === 'teal' ? 'bg-primary text-white' : 'bg-[#0D1B2A] text-[#1B9AAA] border border-[#1B9AAA]/30'}`}>
+                  <span
+                    className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-widest uppercase mr-2 ${recentBlogs[0].thumbnailColor === "teal" ? "bg-primary text-white" : "bg-[#0D1B2A] text-[#1B9AAA] border border-[#1B9AAA]/30"}`}
+                  >
                     {recentBlogs[0].category}
                   </span>
                   <Calendar className="w-3.5 h-3.5" />
                   {recentBlogs[0].date}
                 </div>
-                <h3 className="font-heading text-2xl md:text-3xl font-bold leading-tight mb-4 text-white group-hover:text-primary transition-colors duration-300">
+                <h3
+                  className="font-heading text-2xl md:text-3xl font-bold leading-tight mb-4 text-white [text-shadow:0_0_16px_rgba(16,185,129,0.35)] group-hover:text-primary transition-all duration-300">
                   {recentBlogs[0].title}
                 </h3>
                 <span className="inline-flex items-center text-sm font-semibold text-primary gap-2 group-hover:gap-3 transition-all">
@@ -98,11 +158,24 @@ const BlogSection = () => {
           {/* Stacked Posts */}
           <div className="flex flex-col gap-4">
             {recentBlogs.slice(1).map((blog) => (
-              <Link key={blog.id} to={blog.slug} className="group flex gap-5 items-center rounded-2xl bg-card border border-border/50 p-4 hover:bg-card/80 neon-card overflow-hidden">
+              <Link
+                key={blog.id}
+                to={blog.slug}
+                className="group flex gap-5 items-center rounded-2xl bg-card border border-border/50 p-4 hover:bg-card/80 neon-card overflow-hidden"
+              >
                 <div className="w-28 h-28 md:w-32 md:h-32 flex-shrink-0 rounded-xl overflow-hidden relative">
                   <div className="absolute inset-0 z-0 group-hover:scale-110 transition-transform duration-500">
                     {blog.coverImageUrl ? (
-                      <img src={blog.coverImageUrl} alt={blog.coverImageAlt || blog.title} title={blog.coverImageTitle || blog.title} width={256} height={256} loading="lazy" decoding="async" className="w-full h-full object-cover" />
+                      <img
+                        src={blog.coverImageUrl}
+                        alt={blog.coverImageAlt || blog.title}
+                        title={blog.coverImageTitle || blog.title}
+                        width={256}
+                        height={256}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover"
+                      />
                     ) : (
                       generateAbstractPattern(blog.id, blog.thumbnailColor)
                     )}
@@ -110,7 +183,9 @@ const BlogSection = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2 font-medium">
-                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold tracking-widest uppercase mr-1 ${blog.thumbnailColor === 'teal' ? 'bg-primary/10 text-primary' : 'bg-[#0D1B2A]/10 text-[#1B9AAA]'}`}>
+                    <span
+                      className={`px-2 py-0.5 rounded-full text-[10px] font-bold tracking-widest uppercase mr-1 ${blog.thumbnailColor === "teal" ? "bg-primary/10 text-primary" : "bg-[#0D1B2A]/10 text-[#1B9AAA]"}`}
+                    >
                       {blog.category}
                     </span>
                     <Calendar className="w-3 h-3" />

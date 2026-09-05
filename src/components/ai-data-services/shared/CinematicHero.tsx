@@ -84,13 +84,13 @@ const CinematicHero = ({
       </motion.picture>
       <div className="rx-hero__wash" />
       <div className="rx-hero__grid" />
-      <div className="rx-hero__sensor" aria-hidden="true">
+      {/* <div className="rx-hero__sensor" aria-hidden="true">
         <motion.div
           className="rx-hero__scan"
           animate={reduceMotion ? undefined : { y: ["-10%", "760%"] }}
           transition={{ duration: 5.5, repeat: Infinity, ease: "linear" }}
         />
-      </div>
+      </div> */}
 
       <motion.div className="rx-hero__content">
         <motion.div

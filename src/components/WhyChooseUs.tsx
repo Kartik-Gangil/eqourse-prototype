@@ -182,7 +182,7 @@ const WhyChooseUs = () => {
               {desktopItems.map((reason, i) => (
                 <article
                   key={`${reason.title}-${i}`}
-                  className="group flex gap-4 p-4 rounded-xl hover:bg-card neon-card transition-all duration-300"
+                  className="group flex gap-4 ml-2 p-4 rounded-xl hover:bg-card neon-card transition-all duration-300"
                 >
                   <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-gradient-primary transition-all duration-300">
                     <reason.icon className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors" />
@@ -225,7 +225,7 @@ const WhyChooseUs = () => {
             {mobileItems.map((reason, i) => (
               <article
                 key={`${reason.title}-${i}`}
-                className="flex-shrink-0 w-[calc(70vw-12px)] max-w-[280px]"
+                className="flex-shrink-0 w-[calc(70vw-12px)] mt-5 max-w-[280px]"
               >
                 <div className="group p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 neon-card h-full transition-all duration-300 flex flex-col gap-2">
                   <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-gradient-primary transition-all duration-300">

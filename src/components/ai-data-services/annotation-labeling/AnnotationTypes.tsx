@@ -55,7 +55,7 @@ const AnnotationTypes = () => {
               </div>
               <p className={`mt-6 flex items-center gap-2 text-xs font-semibold ${service.href ? "text-primary" : "text-muted-foreground"}`}><span className="h-1.5 w-1.5 rounded-full bg-primary" /> {service.href ? "Explore dedicated service" : "Dedicated page coming soon"}</p>
             </>;
-            const className = `group relative min-h-[340px] bg-card p-6 transition-colors duration-500 hover:bg-primary/[.045] reveal-up ${isVisible ? "visible" : ""}`;
+            const className = `group relative min-h-[340px] bg-card p-6 transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-lg hover:bg-primary/[.045] reveal-up ${isVisible ? "visible" : ""}`;
             return service.href ? <Link key={title} to={service.href} className={className} style={{ transitionDelay: `${index * 55}ms` }} aria-label={`Explore ${title}`}>{content}</Link> : <article key={title} className={className} style={{ transitionDelay: `${index * 55}ms` }}>{content}</article>;
           })}
         </div>
